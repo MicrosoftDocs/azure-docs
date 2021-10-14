@@ -81,7 +81,7 @@ Audit logs are integrated with Azure Monitor diagnostics settings to allow you t
 * A storage account
 
 >[!Note]
->You should create your data sinks before you configure the diagnostics settings. You can access the slow query logs in the data sinks you've configured. It can take up to 10 minutes for the logs to appear.
+>You should create your data sinks before you configure the diagnostics settings. You can access the audit logs in the data sinks you've configured. It can take up to 10 minutes for the logs to appear.
 
 1. On the left pane, under **Monitoring**, select **Diagnostic settings**.
 
@@ -93,10 +93,10 @@ Audit logs are integrated with Azure Monitor diagnostics settings to allow you t
 
     :::image type="content" source="./media/tutorial-configure-audit/configure-diagnostic-setting.png" alt-text="Screenshot of the 'Diagnostics settings' pane for selecting configuration options.":::
 
-1. Specify which destinations (Log Analytics workspace, an event hub, or a storage account) to send the slow query logs to by selecting their corresponding checkboxes.
+1. Specify which destinations (Log Analytics workspace, an event hub, or a storage account) to send the audit logs to by selecting their corresponding checkboxes.
 
     >[!Note]
-    > For this tutorial, you'll send the slow query logs to a Log Analytics workspace.
+    > For this tutorial, you'll send the audit logs to a Log Analytics workspace.
     
 1. Under **Log**, for the log type, select the **MySqlAuditLogs** checkbox.
 
@@ -160,15 +160,15 @@ In the workbook, you can view the following visualizations:
 
 >[!Note]
 > * You can also edit these templates and customize them according to your requirements. For more information, see the "Editing mode" section of the [Azure Monitor workbooks overview](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
-> * For a quick view, you can also pin the workbooks or Log Analytics query to your Dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
+> * For a quick view, you can also pin the workbooks or Log Analytics query to your dashboard. For more information, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md). 
 
 The *Administrative Actions on the service* view gives you details on activity performed on the service. It helps to determine the *what, who, and when* for any write operations (PUT, POST, DELETE) that are performed on the resources in your subscription. 
 
 You can use other visualizations to help you understand the details of database activity. Database security has four parts: 
 * **Server security**: Responsible for preventing unauthorized personnel from accessing the database.  
 * **Database connection**: The administrator should check to see whether any database updates have been performed by authorized personnel.
-* **Table access control**
-* **Restricting database access**: Particularly important for those who've uploaded a database to the internet, and helps prevent outside sources from getting access to your database. 
+* **Table access control**: Shows the access keys of the authorized users and what tables within the database each is authorized to handle.
+* **Database access restriction**: Particularly important for those who've uploaded a database to the internet, and helps prevent outside sources from getting access to your database. 
 
 ## Next steps
 - [Learn more about Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and their rich visualization options.
