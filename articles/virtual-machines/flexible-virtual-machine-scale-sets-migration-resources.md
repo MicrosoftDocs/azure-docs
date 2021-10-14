@@ -21,25 +21,13 @@ Introduction.
 
 First, you need to create a virtual machine scale set with no auto scaling profile via [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md). Azure Portal only allows creating a virtual machine scale set with an autoscaling profile. If you do not want or need autoscaling profile and you want to create using [Azure portal](flexible-virtual-machine-scale-sets-portal.md), you can set the initial capacity to 0. 
  
-    - You must specify the fault domain count for the virtual machine scale set. For regional (non-zonal) deployments, virtual machine scale sets offers the same fault domain guarantees as availability sets. However, you can scale up to 1000 instances. Update domains have been deprecated in Flexible Orchestration mode. Most platform updates with general purpose SKUs are performed with Live Migration and do not require instance reboot. On the occasion that a platform maintenance requires instances to be rebooted, updates are applied fault domain by fault domain.  
+- You must specify the fault domain count for the virtual machine scale set. For regional (non-zonal) deployments, virtual machine scale sets offers the same fault domain guarantees as availability sets. However, you can scale up to 1000 instances. Update domains have been deprecated in Flexible Orchestration mode. Most platform updates with general purpose SKUs are performed with Live Migration and do not require instance reboot. On the occasion that a platform maintenance requires instances to be rebooted, updates are applied fault domain by fault domain.  
     
-    - Flexible orchestration for virtual machine scale sets also supports deploying instances across multiple availability zones. You may consider updating your VM deployments to spread across multiple availability zones. 
+- Flexible orchestration for virtual machine scale sets also supports deploying instances across multiple availability zones. You may consider updating your VM deployments to spread across multiple availability zones. 
 
 Next, create a virtual machine. Instead of specifying an availability set, specify the virtual machine scale set. Optionally, you can specify the availability zone or fault domain in which you wish to place the VM. 
 
-###[Azure CLI](#tab/cli1)
-
-Example here. 
-
-###[PowerShell](#tab/powershell1)
-
-Example here. 
-
-###[Portal](#tab/portal1)
-
-Screenshot of portal here. 
-
----
+- CLI example, PowerShell example, Portal screenshot 
 
 ## Update Uniform deployment templates and scripts
 
