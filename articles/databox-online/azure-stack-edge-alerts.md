@@ -67,7 +67,7 @@ The following alerts are raised by a failed connection to an Azure Stack Edge de
 
 ## Edge compute alerts
 
-The Edge compute alerts in the following table are raised on Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
+The following alerts are raised for Edge compute or the compute acceleration card, which can be a Graphical Processing Unit (GPU) or Vision Processing Unit (VPU) depending on the device model.
 
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
