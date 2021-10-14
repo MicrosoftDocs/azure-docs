@@ -1,18 +1,18 @@
 ---
 title: Share VM images with Shared Galleries 
 description: Learn how to use shared image galleries to share Linux VM images across your organization.
-author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 6/8/2021
-ms.author: olayemio
 ms.reviewer: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Shared Image Galleries overview
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Shared Image Gallery is a service that helps you build structure and organization around your images. Shared Image Galleries provide:
 
@@ -23,7 +23,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
-Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
+Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within and outside your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
@@ -100,7 +100,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 ## Regional Support
 
-All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allow list for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
+All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allowlist for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
 
 ## Limits 
 
@@ -119,7 +119,7 @@ Shared Image Gallery allows you to specify the number of replicas you want Azure
 With Shared Image Gallery, you can now deploy up to a 1,000 VM instances in a virtual machine scale set (up from 600 with managed images). Image replicas provide for better deployment performance, reliability and consistency.  You can set a different replica count in each target region, based on the scale needs for the region. Since each replica is a deep copy of your image, this helps scale your deployments linearly with each extra replica. While we understand no two images or regions are the same, here's our general guideline on how to use replicas in a region:
 
 - For non-Virtual Machine Scale Set deployments - For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. 
-- For Virtual Machine Scale Set deployments - For every scale set deployment with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating 5 scale sets concurrently, each with 600 VM instances using the same image in a single region, we suggest you keep at least 5 replicas of your image. 
+- For Virtual Machine Scale Set deployments - For each scale set you create concurrently, we recommend you keep one replica.
 
 We always recommend you to overprovision the number of replicas due to factors like image size, content and OS type.
 
@@ -129,7 +129,7 @@ We always recommend you to overprovision the number of replicas due to factors l
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
 
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](../storage/common/storage-redundancy.md).
+You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. For more information on regional availability of ZRS, see [Data redundancy](../storage/common/storage-redundancy.md).
 
 ![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -186,7 +186,7 @@ The following SDKs support creating Shared Image Galleries:
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
-- [Node.js](/javascript/api/@azure/arm-compute)
+- [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
@@ -197,7 +197,6 @@ You can create Shared Image Gallery resource using templates. There are several 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## Frequently asked questions 
 
@@ -233,13 +232,13 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-For more information, see **Manage gallery resources** using the [Azure CLI](update-image-resources-cli.md) or [PowerShell](update-image-resources-powershell.md).
+For more information, see [List, update, and delete image resources](update-image-resources.md).
 
 ### Can I move my existing image to the shared image gallery?
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image, then you can create an image definition and image version from it. For more information, see **Migrate from a managed image to an image version** using the [Azure CLI](image-version-managed-image-cli.md) or [PowerShell](image-version-managed-image-powershell.md).
+ Scenario 1: If you have a managed image, then you can create an image definition and image version from it. For more information, see [Create and image definition and an image version](image-version.md).
 
  Scenario 2: If you have an unmanaged image, you can create a managed image from it, and then create an image definition and image version from it. 
 
@@ -250,11 +249,11 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
 ### Can I create an image version from a specialized disk?
 
-Yes, can create a VM from a specialized image using the [CLI](vm-specialized-image-version-cli.md), [PowerShell](vm-specialized-image-version-powershell.md), or API. 
+Yes, can create a VM from a [specialized image](windows/create-vm-specialized.md). 
 
 ### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
 
-No, you can't move the shared image gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an image from another gallery using the [Azure CLI](image-version-another-gallery-cli.md) or [PowerShell](image-version-another-gallery-powershell.md).
+No, you can't move the shared image gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an [image from another gallery](image-version.md).
 
 ### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
 
@@ -320,4 +319,4 @@ In addition, you can post and tag your question with `azure-virtual-machines-ima
 
 ## Next steps
 
-Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md) or [PowerShell](shared-images-powershell.md).
+Learn how to deploy shared images using the [Azure CLI](create-gallery.md) or [PowerShell](create-gallery.md).

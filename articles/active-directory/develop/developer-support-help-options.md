@@ -9,9 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/09/2021
+ms.date: 08/19/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
+ms.custom: has-adal-ref
 ---
 
 # Support and help options for developers
@@ -67,24 +68,10 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 | MSAL for iOS and macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
 | MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
 | MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
 | MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 | MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
 | MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-
-## Submit feedback on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for making the Microsoft identity platform work better for the applications you develop.
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
-| Azure Active Directory - Developer experiences             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
-| Azure Active Directory - Authentication             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
 
 ## Stay informed of updates and new releases
 

@@ -114,7 +114,7 @@ FROM    [edw].customer
 > [!NOTE]
 > Any change in schema strategy requires a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level.
 
-If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](../../analysis-services/analysis-services-database-users.md) article.
+If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](/sql/relational-databases/security/authentication-access/database-level-roles) article.
 
 ## Next steps
 

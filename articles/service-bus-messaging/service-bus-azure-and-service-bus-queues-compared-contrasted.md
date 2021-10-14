@@ -2,7 +2,7 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 06/15/2021
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -198,9 +198,6 @@ The following articles provide more guidance and information about using Storage
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
-* [Introducing Queues and Topics in Azure Service Bus (blog post)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
-* [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Using the Queuing Service in Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

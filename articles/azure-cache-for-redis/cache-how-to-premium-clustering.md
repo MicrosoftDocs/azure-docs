@@ -1,9 +1,9 @@
 ---
 title: Configure Redis clustering - Premium Azure Cache for Redis
 description: Learn how to create and manage Redis clustering for your Premium tier Azure Cache for Redis instances
-author: yegu-ms
+author: curib
 
-ms.author: yegu
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
@@ -137,7 +137,7 @@ For sample code about working with clustering and locating keys in the same shar
 
 ### What is the largest cache size I can create?
 
-The largest premium cache size is 120 GB. You can create up to 10 shards giving you a maximum size of 1.2 TB. If you need a larger size, you can [request more](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
+The largest cache size you can have is 1.2 TB. This will be a clustered P5 cache with 10 shards. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 ### Do all Redis clients support clustering?
 

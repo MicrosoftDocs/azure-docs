@@ -5,7 +5,7 @@ documentationcenter: .net
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ms.author: spelluru 
 ms.custom: devx-track-azurepowershell
 ---
@@ -74,7 +74,7 @@ Clone the repository or copy the [servicebus-create-queue](https://github.com/Az
   "variables": {
     "defaultSASKeyName": "RootManageSharedAccessKey",
     "authRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
-	"sbVersion": "2017-04-01"
+  "sbVersion": "2017-04-01"
   },
   "resources": [
     {
@@ -251,4 +251,4 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/templates/deploy-powershell.md
-[Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Quickstart Templates gallery]: https://azure.microsoft.com/resources/templates/?term=service+bus

@@ -204,7 +204,7 @@ You can query data in HBase tables by using [Apache Hive](https://hive.apache.or
 The Hive query to access HBase data need not be executed from the HBase cluster. Any cluster that comes with Hive (including Spark, Hadoop, HBase, or Interactive Query) can be used to query HBase data, provided the following steps are completed:
 
 1. Both clusters must be attached to the same Virtual Network and Subnet
-2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes
+2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes and workernodes.
 
 ### Secure Clusters
 
@@ -212,7 +212,7 @@ HBase data can also be queried from Hive using ESP-enabled HBase:
 
 1. When following a multi-cluster pattern, both clusters must be ESP-enabled. 
 2. To allow Hive to query HBase data, make sure that the `hive` user is granted permissions to access the HBase data via the Hbase Apache Ranger plugin
-3. When using separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes. 
+3. When using separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes and workernodes. 
 > [!NOTE]
 > After scaling either clusters, `/etc/hosts` must be appended again
 

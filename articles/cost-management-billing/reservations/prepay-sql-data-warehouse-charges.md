@@ -1,22 +1,22 @@
 ---
-title: Save on Azure Synapse Analytics charges with Azure reserved capacity
+title: Save on Azure Synapse Analytics (data warehousing only) charges with Azure reserved capacity
 description: Learn how you save costs for Azure Synapse Analytics charges with reserved capacity to save money.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
-# Save costs for Azure Synapse Analytics charges with reserved capacity
+# Save costs for Azure Synapse Analytics (data warehousing only) charges with reserved capacity
 
-You can save money with Azure Synapse Analytics by committing to a reservation for your cDWU usage for a duration of one or three years. To purchase Azure Synapse Analytics reserved capacity, you need to choose the Azure region, and term. Then, add the Azure Synapse Analytics SKU to your cart and choose the quantity of cDWU units that you want to purchase.
+You can save money with Azure Synapse Analytics (data warehousing only) by committing to a reservation for your cDWU usage for a duration of one or three years. To purchase Azure Synapse Analytics reserved capacity, you need to choose the Azure region, and term. Then, add the Azure Synapse Analytics SKU to your cart and choose the quantity of cDWU units that you want to purchase.
 
 When you purchase a reservation, the Azure Synapse Analytics usage that matches the reservation attributes is no longer charged at the pay-as-you go rates.
 
-A reservation doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
+A reservation doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage, it only covers data warehousing usage.
 
 When the reserved capacity expires, Azure Synapse Analytics instances continue to run but are billed at the pay-as-you go rate. Reservations don't renew automatically.
 
@@ -47,8 +47,9 @@ For example, assume your total consumption of Azure Synapse Analytics is DW3000c
    - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
    - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
    - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
-   - For enterprise customers, the billing context is the EA enrollment.
-   - For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
+       - For enterprise customers, the billing context is the EA enrollment.
+       - For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
+   - **Management group** — Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 5. Select a region to choose an Azure region that's covered by the reserved capacity.
 6. Choose a quantity. Enter the quantity of 100 Data Warehouse units (cDWU) that you want to purchase.    
    For example, a quantity of 30 would give you 3,000 cDWU of reserved capacity every hour.

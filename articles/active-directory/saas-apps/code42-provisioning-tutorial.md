@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Code42 for automatic user provisioning with Azure Ac
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Code42.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: ddcb950b-3f9a-4ebb-bf78-4ec42d16d52d
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Code42 for automatic user provisioning

@@ -1,5 +1,5 @@
 ---
-title: Provisioning logs in Azure Active Directory (preview) | Microsoft Docs
+title: Provisioning logs in Azure Active Directory | Microsoft Docs
 description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
-# Provisioning logs in Azure Active Directory (preview)
+# Provisioning logs in Azure Active Directory
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 

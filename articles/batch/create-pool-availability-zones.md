@@ -2,7 +2,7 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 08/06/2021
 ---
 
 # Create an Azure Batch pool across Availability Zones

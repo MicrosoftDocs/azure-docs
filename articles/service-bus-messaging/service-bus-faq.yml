@@ -3,6 +3,7 @@ metadata:
   title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
   ms.topic: article
+  ms.service: service-bus
   ms.date: 01/20/2021
     
 title: Azure Service Bus - Frequently asked questions (FAQ)
@@ -69,14 +70,12 @@ sections:
           
           The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
           
-          [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
-          
-          The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) setting, which applies globally to the application.
-          
+          [!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]          
+         
       - question: |
-          What IP addresses do I need to add to allow list?
+          What IP addresses do I need to add to allowlist?
         answer: |
-          To find the right IP addresses to add to allow list for your connections, follow these steps:
+          To find the right IP addresses to add to allowlist for your connections, follow these steps:
           
           1. Run the following command from a command prompt: 
           

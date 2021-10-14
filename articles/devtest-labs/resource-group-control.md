@@ -1,7 +1,7 @@
 ---
-title: Specify resource group for VMs in Azure DevTest Labs | Microsoft Docs
+title: Specify resource group for VMs
 description: Learn how to specify a resource group for VMs in a lab in Azure DevTest Labs. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -107,4 +107,4 @@ How to use this API:
 See the following articles: 
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)
-- [Frequently asked questions](devtest-lab-faq.md)
+- [Frequently asked questions](devtest-lab-faq.yml)

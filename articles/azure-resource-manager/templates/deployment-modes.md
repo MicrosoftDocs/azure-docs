@@ -95,11 +95,10 @@ To set the deployment mode when deploying with Azure CLI, use the `mode` paramet
 
 ```azurecli-interactive
 az deployment group create \
-  --name ExampleDeployment \
   --mode Complete \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS
+  --name ExampleDeployment \
+  --resource-group ExampleResourceGroup \
+  --template-file storage.json
 ```
 
 The following example shows a linked template set to incremental deployment mode:

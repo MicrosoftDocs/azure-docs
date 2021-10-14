@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
@@ -75,7 +75,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml/service#az_ml_service_show) command:
+If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az_ml_service_show) command:
 
 ```azurecli
 az ml service show -n <service-name>
@@ -95,7 +95,7 @@ The following table shows what these URIs look like:
 | Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
 
 > [!TIP]
-> The IP address will be different for your deployment. Each AKS cluster will hve it's own IP address that is shared by deployments to that cluster.
+> The IP address will be different for your deployment. Each AKS cluster will have its own IP address that is shared by deployments to that cluster.
 
 ### Secured web service
 

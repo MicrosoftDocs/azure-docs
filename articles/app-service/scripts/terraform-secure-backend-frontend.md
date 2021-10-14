@@ -33,8 +33,15 @@ Browse to the [Azure documentation](/azure/developer/terraform/) to learn how to
 To use this file you must change the name property for frontwebapp and backwebapp resources (webapp name must be unique DNS name worldwide). 
 
 ```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
 provider "azurerm" {
-  version = "~>2.0"
   features {}
 }
 

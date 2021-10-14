@@ -5,7 +5,7 @@ author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 ---
 
 # Tutorial: Live Video with Computer Vision for Spatial Analysis (preview)
@@ -44,7 +44,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 ## Set up Azure resources
 
-1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that has [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) installed on the host computer.
+1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that has [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) installed on the host computer.
 
    #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -120,7 +120,7 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID. You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
 ### Gathering required parameters
 
@@ -487,9 +487,16 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 ```
 
 ### More operations:
+There are different operations that the `spatialAnalysis` module offers:
 
+- **personCount**
+- **personDistance**
+- **personCrossingLine**
+- **personZoneCrossing**
+- **customOperation**
+<br></br>
 <details>
-  <summary>Click to expand</summary>
+  <summary>Click to expand and see the different configuration options for each of the operations.</summary>
 
 ### Person Line Crossing
 
@@ -729,8 +736,7 @@ You can examine the Video Analyzer video resource that was created by the live p
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
 
-> [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Troubleshooting
 
@@ -814,7 +820,7 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies:
 
 - [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
-- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
+- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json)
 - [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
 - [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
 - [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)

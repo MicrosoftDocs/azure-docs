@@ -1,5 +1,5 @@
 ---
-title: Azure SQL VM connection for search indexing
+title: Indexer connection to SQL Server on Azure VMs
 titleSuffix: Azure Cognitive Search
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
 
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 03/19/2021
 ---
 
-# Configure a connection from an Azure Cognitive Search indexer to SQL Server on an Azure VM
+# Indexer connections to SQL Server on an Azure virtual machine
 
 When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
 
@@ -79,7 +79,7 @@ We strongly recommend that you restrict the access to the IP address of your sea
 
 You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service. Although it is possible for the search service IP address to change, it's unlikely that it will change. The IP address tends to be static for the lifetime of the service.
 
-You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
+You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). The IP address range is updated weekly.
 
 ### Include the Azure Cognitive Search portal IP addresses
 

@@ -144,4 +144,4 @@ landingContent:
         - text: Support and help options
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
         - text: Troubleshooting
-          url: troubleshooting.md
+          url: troubleshooting.yml

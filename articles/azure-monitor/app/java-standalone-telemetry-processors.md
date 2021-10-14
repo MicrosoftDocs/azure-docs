@@ -247,7 +247,7 @@ All specified conditions must evaluate to true to result in a match.
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 > [!NOTE]
-> If the `include` or `exclude` configuration donot have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
+> If the `include` or `exclude` configuration do not have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
 
 ### Sample usage
 
@@ -432,7 +432,7 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 ## Log processor
 
 > [!NOTE]
-> This feature is available only in version 3.1.1 and later.
+> Log processors are available starting from version 3.1.1.
 
 The log processor modifies either the log message body or attributes of a log based on the log message body. It can support the ability to include or exclude logs.
 
@@ -514,7 +514,7 @@ All specified conditions must evaluate to true to result in a match.
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 > [!NOTE]
-> Log processors donot support `spanNames`.
+> Log processors do not support `spanNames`.
 
 ### Sample usage
 
@@ -556,11 +556,12 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 
 ## Metric filter
 
+> [!NOTE]
+> Metric filters are available starting from version 3.1.1.
+
 Metric filter are used to exclude some metrics in order to help control ingestion cost.
 
-## Exclude criteria (metric filters)
-
-Metric filters only support `exclude` criteria. And metrics that match its `exclude` criteria will not be exported.
+Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria will not be exported.
 
 To configure this option, under `exclude`, specify the `matchType` one or more `metricNames`.
 

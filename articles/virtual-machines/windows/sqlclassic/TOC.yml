@@ -5,7 +5,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
   - name: FAQ
-    href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.yml?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: Get Started
   items:
   - name: Provision a VM in the Azure Portal

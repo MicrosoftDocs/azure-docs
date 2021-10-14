@@ -105,7 +105,7 @@ With the support of OpenShift 4.5, Azure Red Hat OpenShift introduced a few sign
 
 As included in the diagram above, you'll notice a few changes:
 * Previously, ARO used two public LoadBalancers: one for the API server, and one for the worker node pool. With this architecture update, this has been consolidated under a single LoadBalancer. 
-* To reduce complexity, the dedicated outboard IP address resources have been removed.
+* To reduce complexity, the dedicated outbound IP address resources have been removed.
 * The ARO control plane now shares the same network security group as the ARO worker nodes.
 
 For more information on OpenShift 4.5, check out the [OpenShift 4.5 release notes](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).

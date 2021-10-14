@@ -72,7 +72,7 @@ Learn more about custom policies in [Custom policies in Azure Active Directory B
 
 ## Comparing user flows and custom policies
 
-The following table gives a detailed comparison of the scenarios you can with Azure AD B2C user flows and custom policy.
+The following table gives a detailed comparison of the scenarios you can enable with Azure AD B2C user flows and custom policies.
 
 | Context | User flows | Custom policies |
 |-|-------------------|-----------------|

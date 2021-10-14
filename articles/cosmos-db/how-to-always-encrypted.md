@@ -1,11 +1,11 @@
 ---
 title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
-author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: thweiss
+author: ThomasWeiss
 ---
 
 # Use client-side encryption with Always Encrypted for Azure Cosmos DB (Preview)
@@ -75,6 +75,8 @@ The Azure Cosmos DB service never sees the plain text of properties encrypted wi
 - **Deterministic encryption:** It always generates the same encrypted value for any given plain text value and encryption configuration. Using deterministic encryption allows queries to perform equality filters on encrypted properties. However, it may allow attackers to guess information about encrypted values by examining patterns in the encrypted property. This is especially true if there's a small set of possible encrypted values, such as True/False, or North/South/East/West region.
 
 - **Randomized encryption:** It uses a method that encrypts data in a less predictable manner. Randomized encryption is more secure, but prevents queries from filtering on encrypted properties.
+
+See [Generating the initialization vector (IV)](/sql/relational-databases/security/encryption/always-encrypted-cryptography#step-1-generating-the-initialization-vector-iv) to learn more about deterministic and randomized encryption in Always Encrypted.
 
 ## Setup Azure Key Vault
 

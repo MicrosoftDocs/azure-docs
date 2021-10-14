@@ -3,7 +3,7 @@ title: Expand existing host pool with new session hosts - Azure
 description: How to expand an existing host pool with new session hosts in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -54,21 +54,25 @@ To expand your host pool by adding virtual machines:
 
 9. For the **virtual network information**, select the virtual network and subnet to which you want the virtual machines to be joined to. You can select the same virtual network your existing machines currently use or choose a different one that's more suitable to the region you selected in step 7.
 
-10. For the **Administrator account**, enter the Active Directory domain username and password associated with the virtual network you selected. These credentials will be used to join the virtual machines to the virtual network.
+10. For the **Domain to join**, select if you want to join the virtual machines to Active Directory or [Azure Active Directory](deploy-azure-ad-joined-vm.md). Selecting **Enroll the VM with Intune** automatically enrolls the virtual machines in Intune. All virtual machines in a host pool should be joined to the same domain or Azure AD tenant.
+
+11. For the **AD domain join UPN**, enter an Active Directory domain username and password associated with the domain you selected. These credentials will be used to join the virtual machines to the Active Directory domain.
 
       >[!NOTE]
       >Ensure your admin names comply with info given here. And that there is no MFA enabled on the account.
 
-11. Select the **Tag** tab if you have any tags that you want to group the virtual machines with. Otherwise, skip this tab.
+12. For the **Virtual Machine Administrator account**, enter the local administrator account information you want to use for all virtual machines.
 
-12. Select the **Review + Create** tab. Review your choices, and if everything looks fine, select **Create**.
+13. Select the **Tags** tab if you have any tags that you want to group the virtual machines with. Otherwise, skip this tab.
+
+14. Select the **Review + Create** tab. Review your choices, and if everything looks fine, select **Create**.
 
 ## Next steps
 
 Now that you've expanded your existing host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
-- [Connect with the Windows Desktop client](./connect-windows-7-10.md)
-- [Connect with the web client](./connect-web.md)
-- [Connect with the Android client](./connect-android.md)
-- [Connect with the macOS client](./connect-macos.md)
-- [Connect with the iOS client](./connect-ios.md)
+- [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
+- [Connect with the web client](./user-documentation/connect-web.md)
+- [Connect with the Android client](./user-documentation/connect-android.md)
+- [Connect with the macOS client](./user-documentation/connect-macos.md)
+- [Connect with the iOS client](./user-documentation/connect-ios.md)

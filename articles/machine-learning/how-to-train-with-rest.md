@@ -11,6 +11,7 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
+ms.custom: devplatv2
 ---
 
 # Train models with REST (preview)
@@ -30,7 +31,7 @@ In this article, you learn how to use the new REST APIs to:
 
 ## Prerequisites
 
-- An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://aka.ms/AMLFree).
+- An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/).
 - An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A service principal in your workspace. Administrative REST requests use [service principal authentication](how-to-setup-authentication.md#use-service-principal-authentication).
 - A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
@@ -43,7 +44,7 @@ A job is a resource that specifies all aspects of a computation job. It aggregat
 - How to run it?
 - Where to run it?
 
-There are many ways to submit an Azure Machine Learning job including the SDK, CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
+There are many ways to submit an Azure Machine Learning job including the SDK, Azure CLI, and visually with the studio. The following example submits a LightGBM training job with the REST API.
 
 ## Create machine learning assets
 

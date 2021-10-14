@@ -98,6 +98,8 @@
     href: ingress-controller-overview.md
   - name: Health monitoring
     items:
+    - name: Monitor Azure Application Gateway
+      href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
     - name: Diagnostic logs and backend health
@@ -276,12 +278,16 @@
         href: log-analytics.md
       - name: Backend health issues
         href: application-gateway-backend-health-troubleshooting.md
+      - name: Key Vault errors
+        href: application-gateway-key-vault-common-errors.md
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference
   items:
+  - name: Monitoring data
+    href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
   - name: Azure CLI

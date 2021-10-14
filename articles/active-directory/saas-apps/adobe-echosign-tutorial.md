@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Adobe Sign | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Adobe Sign | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Adobe Sign.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Adobe Sign
+# Tutorial: Azure AD SSO integration with Adobe Sign
 
 In this tutorial, you'll learn how to integrate Adobe Sign with Azure Active Directory (Azure AD). When you integrate Adobe Sign with Azure AD, you can:
 
@@ -31,7 +31,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Adobe Sign supports **SP** initiated SSO
+* Adobe Sign supports **SP** initiated SSO.
 
 ## Add Adobe Sign from the gallery
 
@@ -58,7 +58,7 @@ To configure and test Azure AD single sign-on with Adobe Sign, you need to perfo
     1. **[Create Adobe Sign test user](#create-adobe-sign-test-user)** - to have a counterpart of Britta Simon in Adobe Sign that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -115,9 +115,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Adobe Sign SSO
+## Configure Adobe Sign SSO
 
-1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allow list. Here's how to add the domain:
+1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allowlist. Here's how to add the domain:
 
     a. The [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) sends you a randomly generated token. For your domain, the token will be like the following: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -140,13 +140,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the SAML menu, select **Account Settings** > **SAML Settings**.
 
-    ![Screenshot of Adobe Sign SAML Settings page](./media/adobe-echosign-tutorial/settings.png "Account")
+    ![Screenshot of Adobe Sign SAML Settings page.](./media/adobe-echosign-tutorial/settings.png "Account")
 
 1. In the **SAML Settings** section, perform the following steps:
 
-    ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/saml1.png "SAML Settings")
+    ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/profile.png "SAML Settings")
 
-   ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/saml.png "SAML Settings")
+   ![Screenshot of SAML Settings.](./media/adobe-echosign-tutorial/certificate.png "SAML Settings")
 
    a. Under **SAML Mode**, select **SAML Mandatory**.
 
@@ -196,7 +196,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Adobe Sign Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Adobe Sign tile in the My Apps, you should be automatically signed in to the Adobe Sign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Adobe Sign tile in the My Apps, you should be automatically signed in to the Adobe Sign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

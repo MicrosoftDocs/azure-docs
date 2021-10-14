@@ -2,12 +2,12 @@
 title: Provision Web App with Azure Cache for Redis
 description: Use Azure Resource Manager template to deploy web app with Azure Cache for Redis.
 services: app-service
-author: yegu-ms
+author: curib
 
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
-ms.author: yegu 
+ms.author: cauribeg 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -25,7 +25,7 @@ You can use this template for your own deployments, or customize it to meet your
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
 
-For the complete template, see [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+For the complete template, see [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json).
 
 ## What you will deploy
 In this template, you deploy:

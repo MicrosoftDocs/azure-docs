@@ -31,11 +31,11 @@ This dataset is stored in the West US 2 and West Central US Azure regions. We re
 
 ## Data Access
 
-West US 2: https://datasetplatinumgenomes.blob.core.windows.net/dataset
+West US 2: 'https://datasetplatinumgenomes.blob.core.windows.net/dataset'
 
-West Central US: https://datasetplatinumgenomes-secondary.blob.core.windows.net/dataset
+West Central US: 'https://datasetplatinumgenomes-secondary.blob.core.windows.net/dataset'
 
-[SAS Token](/azure/storage/common/storage-sas-overview): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=FFfZ0QaDcnEPQmWsshtpoYOjbzd4jtwIWeK%2Fc4i9MqM%3D
+[SAS Token](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=FFfZ0QaDcnEPQmWsshtpoYOjbzd4jtwIWeK%2Fc4i9MqM%3D
 
 ## Use Terms
 

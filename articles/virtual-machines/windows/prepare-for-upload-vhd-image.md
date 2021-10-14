@@ -1,7 +1,7 @@
 ---
 title: Prepare a Windows VHD to upload to Azure
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
-author: glimoli
+author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: disks
@@ -13,6 +13,8 @@ ms.author: genli
 ---
 
 # Prepare a Windows VHD or VHDX to upload to Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in
@@ -486,6 +488,10 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 
 
 ### Generalize a VHD
+
+>[!NOTE]
+> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions 
+> before running the sysprep.
 
 >[!NOTE]
 > After you run `sysprep.exe` in the following steps, turn off the VM. Don't turn it back on until

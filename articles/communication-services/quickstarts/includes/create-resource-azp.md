@@ -1,16 +1,16 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
-ms.author: mikben
+ms.date: 06/30/2021
+ms.author: rifox
 ---
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
-## Create Azure Communication Resource
+## Create Azure Communication Services resource
 
 To create an Azure Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the page, select **+ Create a resource**. 
 

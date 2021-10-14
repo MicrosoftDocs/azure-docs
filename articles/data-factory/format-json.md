@@ -1,20 +1,23 @@
 ---
-title: JSON format in Azure Data Factory 
-description: 'This topic describes how to deal with JSON format in Azure Data Factory.'
+title: JSON format
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This topic describes how to deal with JSON format in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
-# JSON format in Azure Data Factory
+# JSON format in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the JSON files or write the data into JSON format**. 
 
-JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
 
 ## Dataset properties
 
@@ -77,8 +80,8 @@ Supported **JSON read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **JsonReadSettings**. | Yes      |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
-| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, the service writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, the service writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, the service writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, the service writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ### JSON as sink
 
@@ -215,7 +218,7 @@ The below table lists the properties supported by a json source. You can edit th
 
 Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab. For **Document Form** setting, you can select one of **Single document**, **Document per line**  and **Array of documents** types.
 
-![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
+:::image type="content" source="media/data-flow/json-settings.png" alt-text="JSON Settings":::
 
 #### Default
 
@@ -249,7 +252,7 @@ If **Document per line** is selected, mapping data flows read one JSON document 
 
 ``` json
 File1.json
-{"json": "record 1 }
+{"json": "record 1"}
 
 File2.json
  {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -351,11 +354,11 @@ You can add a complex column to your data flow via the derived column expression
 
 In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
 
-![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
+:::image type="content" source="media/data-flow/derive-add-subcolumn.png" alt-text="Add subcolumn":::
 
 You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
 
-![Add complex column](media/data-flow/derive-complex-column.png "Add columns")
+:::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="Add complex column":::
 
 #### Entering the JSON structure manually
 

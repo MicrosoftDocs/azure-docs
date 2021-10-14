@@ -4,9 +4,9 @@ description: Configure virtual machine offer listing details on Azure Marketplac
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: mingshen
-ms.date: 10/19/2020
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 10/20/2020
 ---
 
 # Configure virtual machine offer listing details

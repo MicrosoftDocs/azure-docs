@@ -44,7 +44,7 @@
   - name: Supported data sources
     href: analysis-services-datasource.md
   - name: Network connectivity FAQ
-    href: analysis-services-network-faq.md
+    href: analysis-services-network-faq.yml
 - name: How-to
   items:
   - name: Server

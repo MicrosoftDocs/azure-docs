@@ -108,4 +108,4 @@ For instructions on how to onboard and install Microsoft Security Code Analysis,
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
-If you have further questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have further questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.yml).

@@ -4,7 +4,7 @@ description: This tutorial describes how to scan Azure Data Lake Storage Gen2.
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen2 into the catalog.
@@ -20,6 +20,12 @@ The Azure Data Lake Storage Gen2 data source supports the following functionalit
 - **Full and incremental scans** to capture metadata and classification in Azure Data Lake Storage Gen2
 
 - **Lineage** between data assets for ADF copy/dataflow activities
+
+For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
+
+1. First row values are non-empty
+2. First row values are unique
+3. First row values are neither a date and nor a number
 
 ## Prerequisites
 
@@ -43,14 +49,14 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 1. Set the **Role** to **Storage Blob Data Reader** and enter your Azure Purview account name under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
 > [!Note]
-> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/common/storage-auth-aad.md)
+> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
 #### Account Key
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
-1. Navigate to your ADLS Gne2 storage account
-1. Select **Settings > Access keys**
+1. Navigate to your ADLS Gen2 storage account
+1. Select **Security + networking > Access keys**
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
 1. Select **Settings > Secrets**
@@ -108,7 +114,7 @@ It is required to get the Service Principal's application ID and secret:
 To register a new ADLS Gen2 account in your data catalog, do the following:
 
 1. Navigate to your Purview account
-2. Select **Sources** on the left navigation
+2. Select **Data Map** on the left navigation.
 3. Select **Register**
 4. On **Register sources**, select **Azure Data Lake Storage Gen2**
 5. Select **Continue**
@@ -127,7 +133,7 @@ On the **Register sources (Azure Data Lake Storage Gen2)** screen, do the follow
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Data Lake Storage Gen2 source that you registered.
 

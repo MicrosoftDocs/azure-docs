@@ -14,7 +14,7 @@ Get the following information about the custom location from your cluster admini
 
 ```azurecli-interactive
 customLocationGroup="<resource-group-containing-custom-location>"
-customLocationName=<name-of-custom-location>
+customLocationName="<name-of-custom-location>"
 ```
 
 Get the custom location ID for the next step.

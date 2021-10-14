@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ---
 
-# Configure IP firewall rules to allow indexer connections (Azure Cognitive Search)
+# Configure IP firewall rules to allow indexer connections in Azure Cognitive Search
 
 IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts, and Azure SQL Servers only permit traffic originating from specific IP ranges to access data.
 
@@ -44,7 +44,7 @@ Aliases:  contoso.search.windows.net
 
 Additional IP addresses are used for requests that originate from the indexer's [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). You can get this IP address range from the service tag.
 
-The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API (preview)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 For this walkthrough, assuming the search service is the Azure Public cloud, the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519) should be downloaded.
 

@@ -15,7 +15,6 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
-
 ## Add the Teams UI controls and Enable the Teams UI controls
 
 Replace code in MainPage.xaml with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:

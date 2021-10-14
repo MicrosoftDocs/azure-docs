@@ -1,13 +1,12 @@
 ---
 title: What is Azure Video Analyzer 
-description: This topic provides an overview of Azure Video Analyzer. 
-ms.service: azure-video-analyzer
+description: This topic provides an overview of Azure Video Analyzer
 ms.topic: overview
-ms.date: 03/11/2021
+ms.date: 06/01/2021
 
 ---
 # What is Azure Video Analyzer? (preview)
-
+ 
 Azure Video Analyzer provides a platform to build intelligent video applications that span the edge and the cloud. The platform consists of an IoT Edge module, and an associated Azure service. It offers the capability to capture, record, and analyze live video along with publishing the results - video and/or video analytics. Video can be published to the edge or the Video Analyzer cloud service, while video analytics can be published to Azure services (in the cloud and/or the edge). The platform can be used to enhance IoT solutions with video analytics. Video Analyzer functionality can be combined with other Azure IoT Edge modules such as Stream Analytics on IoT Edge, Cognitive Services on IoT Edge and Azure services in the cloud such as Event Hub, Cognitive Services, etc. to build powerful hybrid (for example, edge + cloud) applications.
 
 The Video Analyzer edge module is designed to be an extensible platform, enabling you to connect different video analysis edge modules (such as Cognitive services containers, custom edge modules built by you with open-source machine learning models or custom models trained with your own data) to it and use them to analyze live video without worrying about the complexity of building and running a live video pipeline. The Video Analyzer cloud service enables you to play back the video and video analytics from such workflows.
@@ -18,7 +17,7 @@ IoT solutions that combine video analytics with signals from other IoT sensors a
 
 With Video Analyzer, you can continue to use your [CCTV cameras](https://en.wikipedia.org/wiki/Closed-circuit_television_camera) with your existing [video management systems (VMS)](https://en.wikipedia.org/wiki/Video_management_system) and build video analytics apps independently. Video Analyzer can be used in conjunction with computer vision SDKs and toolkits to build cutting edge IoT solutions. The diagram below illustrates this.
 
-![Develop IoT solutions with Video Analyzer](./media/overview/product-diagram.svg)
+![Develop IoT solutions with Video Analyzer](./media/overview/product-diagram.png)
 
 ### Concepts
 
@@ -38,5 +37,5 @@ To learn about compliance, privacy and security in Video Analyzer visit the Micr
 
 ## Next steps
 
-* Follow the [Quickstart: Get started - Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
-* Review [terminology](terminology.md)
+* Follow the [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
+* Review [terminology](terminology.md).

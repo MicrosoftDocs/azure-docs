@@ -11,7 +11,7 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "04/25/2021"
+ms.date: "06/01/2021"
 ms.author: mathoma
 
 ---
@@ -209,10 +209,10 @@ If tuning your cluster heartbeat and threshold settings as recommended is insuff
 Start by increase the following parameters from their default values for relaxed monitoring, and adjust as necessary: 
 
 
-|Parameter |Default value  |Description  |
-|---------|---------|---------|
-|**Healthcheck timeout**|60000 |Determines health of the primary replica or node. The cluster resource DLL sp_server_diagnostics returns results at an interval that equals 1/3 of the health-check timeout threshold. If sp_server_diagnostics is slow or is not returning information, the resource DLL will wait for the full interval of the health-check timeout threshold before determining that the resource is unresponsive, and initiating an automatic failover, if configured to do so. |
-|**Failure-Condition Level** |  2  | Conditions that trigger an automatic failover. There are five failure-condition levels, which range from the least restrictive (level one) to the most restrictive (level five)  |
+|Parameter |Default value  |Relaxed Value  |Description  |
+|---------|---------|---------|---------|
+|**Healthcheck timeout**|30000 |60000 |Determines health of the primary replica or node. The cluster resource DLL sp_server_diagnostics returns results at an interval that equals 1/3 of the health-check timeout threshold. If sp_server_diagnostics is slow or is not returning information, the resource DLL will wait for the full interval of the health-check timeout threshold before determining that the resource is unresponsive, and initiating an automatic failover, if configured to do so. |
+|**Failure-Condition Level** |  3  |   2  |Conditions that trigger an automatic failover. There are five failure-condition levels, which range from the least restrictive (level one) to the most restrictive (level five)  |
 
 Use Transact-SQL (T-SQL) to modify the health check and failure conditions for both AGs and FCIs. 
 
@@ -232,11 +232,11 @@ ALTER SERVER CONFIGURATION SET FAILOVER CLUSTER PROPERTY FailureConditionLevel =
 
 Specific to **availability groups**, start with the following recommended parameters, and adjust as necessary: 
 
-|Parameter |Default value  |Description  |
-|---------|---------|---------|
-|**Lease timeout**|40000|Prevents split-brain. |
-|**Session timeout**|20 |Checks communication issues between replicas. The session-timeout period is a replica property that controls how long (in seconds) that an availability replica waits for a ping response from a connected replica before considering the connection to have failed. By default, a replica waits 10 seconds for a ping response. This replica property applies to only the connection between a given secondary replica and the primary replica of the availability group. |
-| **Max failures in specified period** | 6 | Used to avoid indefinite movement of a clustered resource within multiple node failures. Too low of a value can lead to the availability group being in a failed state. Increase the value to prevent short disruptions from performance issues as too low a value can lead to the AG being in a failed state. | 
+|Parameter |Default value  |Relaxed Value  |Description  |
+|---------|---------|---------|---------|
+|**Lease timeout**|20000|40000|Prevents split-brain. |
+|**Session timeout**|10000 |20000|Checks communication issues between replicas. The session-timeout period is a replica property that controls how long (in seconds) that an availability replica waits for a ping response from a connected replica before considering the connection to have failed. By default, a replica waits 10 seconds for a ping response. This replica property applies to only the connection between a given secondary replica and the primary replica of the availability group. |
+| **Max failures in specified period** | 2 | 6 |Used to avoid indefinite movement of a clustered resource within multiple node failures. Too low of a value can lead to the availability group being in a failed state. Increase the value to prevent short disruptions from performance issues as too low a value can lead to the AG being in a failed state. | 
 
 Before making any changes, consider the following: 
 - Do not lower any timeout values below their default values. 
@@ -280,7 +280,9 @@ VM or disk limits could result in a resource bottleneck that impacts the health 
 
 ## Networking
 
-Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+Use a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters. 
+
+Bandwidth limits for a particular VM are shared across NICs and adding an additional NIC does not improve availability group performance for SQL Server on Azure VMs. As such, there is no need to add a second NIC. 
 
 The non-RFC-compliant DHCP service in Azure can cause the creation of certain failover cluster configurations to fail. This failure happens because the cluster network name is assigned a duplicate IP address, such as the same IP address as one of the cluster nodes. This is an issue when you use availability groups, which depend on the Windows failover cluster feature.
 

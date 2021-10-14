@@ -4,9 +4,9 @@ description: This article outlines how to register SAP S/4HANA source in Azure P
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan a SAP S/4HANA source
 
@@ -67,7 +67,7 @@ To register a new SAP S/4HANA source in your data catalog, do the
 following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **SAP S/4HANA.** Select **Continue**
 
@@ -95,7 +95,7 @@ On the **Register sources (SAP S/4HANA)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime
 
@@ -128,15 +128,17 @@ To create and run a new scan, do the following:
     f.  **Maximum memory available:** Maximum memory (in GB) available
         on customer's VM to be used by scanning processes. This is
         dependent on the size of SAP S/4HANA source to be scanned.
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="scan SAP S/4HANA" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

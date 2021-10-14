@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 09/20/2021
 ---
 # Consistency levels in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ The consistency levels are region-agnostic and are guaranteed for all operations
 
 ## Consistency levels and Azure Cosmos DB APIs
 
-Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used. For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra-consistency.md) and [API for MongoDB consistency mapping](mongodb-consistency.md).
+Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used. For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra/apache-cassandra-consistency-mapping.md) and [API for MongoDB consistency mapping](mongodb/consistency-mapping.md).
 
 ## Scope of the read consistency
 
@@ -37,6 +37,9 @@ Read consistency applies to a single read operation scoped within a logical part
 ## Configure the default consistency level
 
 You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article.
+
+> [!TIP]
+> Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. See [Consistency levels and throughput](consistency-levels.md#consistency-levels-and-throughput) for more details.
 
 > [!IMPORTANT]
 > It is required to recreate any SDK instance after changing the default consistency level. This can be done by restarting the application. This ensures the SDK uses the new default consistency level.
@@ -87,6 +90,7 @@ Clients outside of the session performing writes will see the following guarante
 - Consistency for clients in different regions for an account with single write region = Consistent Prefix
 - Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
 - Consistency for clients writing to multiple regions for an account with multiple write regions = Eventual
+- Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = Eventual
 
   Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
@@ -145,7 +149,7 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 - For strong and bounded staleness, reads are done against two replicas in a four replica set (minority quorum) to provide consistency guarantees. Session, consistent prefix and eventual do single replica reads. The result is that, for the same number of request units, read throughput for strong and bounded staleness is half of the other consistency levels.
 
-- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels.
+- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels. For strong consistency, changes need to be committed in every region (global majority) while for all other consistency levels, local majority (three replicas in a four replica set) is being used. 
 
 |**Consistency Level**|**Quorum Reads**|**Quorum Writes**|
 |--|--|--|
@@ -160,18 +164,18 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 ## <a id="rto"></a>Consistency levels and data durability
 
-Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as **recovery time objective** (**RTO**). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as **recovery point objective** (**RPO**).
+Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as **recovery point objective** (**RPO**).
 
-The table below defines the relationship between consistency model and data durability in the presence of a region wide outage. It is important to note that in a distributed system, even with strong consistency, it is impossible to have a distributed database with an RPO and RTO of zero due to [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem).
+The table below defines the relationship between consistency model and data durability in the presence of a region wide outage.
 
-|**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|**RTO**|
-|---------|---------|---------|---------|---------|
-|1|Single or Multiple write regions|Any Consistency Level|< 240 Minutes|<1 Week|
-|>1|Single write region|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
-|>1|Single write region|Bounded Staleness|*K* & *T*|< 15 minutes|
-|>1|Single write region|Strong|0|< 15 minutes|
-|>1|Multiple write regions|Session, Consistent Prefix, Eventual|< 15 minutes|0|
-|>1|Multiple write regions|Bounded Staleness|*K* & *T*|0|
+|**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|
+|---------|---------|---------|---------|
+|1|Single or Multiple write regions|Any Consistency Level|< 240 Minutes|
+|>1|Single write region|Session, Consistent Prefix, Eventual|< 15 minutes|
+|>1|Single write region|Bounded Staleness|*K* & *T*|
+|>1|Single write region|Strong|0|
+|>1|Multiple write regions|Session, Consistent Prefix, Eventual|< 15 minutes|
+|>1|Multiple write regions|Bounded Staleness|*K* & *T*|
 
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 

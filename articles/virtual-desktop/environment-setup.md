@@ -55,8 +55,8 @@ To learn how to set up your Azure Virtual Desktop host pool, see [Create a host 
 
 To learn how to connect to Azure Virtual Desktop, see one of the following articles:
 
-- [Connect with Windows 10 or Windows 7](connect-windows-7-10.md)
-- [Connect with a web browser](connect-web.md)
-- [Connect with the Android client](connect-android.md)
-- [Connect with the macOS client](connect-macos.md)
-- [Connect with the iOS client](connect-ios.md)
+- [Connect with Windows 10 or Windows 7](./user-documentation/connect-windows-7-10.md)
+- [Connect with a web browser](./user-documentation/connect-web.md)
+- [Connect with the Android client](./user-documentation/connect-android.md)
+- [Connect with the macOS client](./user-documentation/connect-macos.md)
+- [Connect with the iOS client](./user-documentation/connect-ios.md)

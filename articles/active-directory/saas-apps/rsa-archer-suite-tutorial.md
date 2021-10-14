@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RSA Archer Suite | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with RSA Archer Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and RSA Archer Suite.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 09/14/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with RSA Archer Suite
+# Tutorial: Azure AD SSO integration with RSA Archer Suite
 
 In this tutorial, you'll learn how to integrate RSA Archer Suite with Azure Active Directory (Azure AD). When you integrate RSA Archer Suite with Azure AD, you can:
 
@@ -72,13 +72,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
-
-    b. In the **Identifier (Entity ID)** text box, type the value:
+	a. In the **Identifier (Entity ID)** text box, type the value:
     `RSAArcherSuite_TENANT_STRING`
+
+	b. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>`
 
 	> [!NOTE]
 	> The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [RSA Archer Suite Client support team](mailto:archersupport@rsa.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-	![Configure RSA Archer Suite SSO](./media/rsa-archer-suite-tutorial/configuration.png)
+	![Configure RSA Archer Suite SSO.](./media/rsa-archer-suite-tutorial/configuration.png)
 
 	a. Go to the **Single Sign-On** tab and select **SAML** as a **Single Sign-On Mode** from the dropdown.
 
@@ -159,12 +159,12 @@ In this section, a user called B.Simon is created in RSA Archer Suite. RSA Arche
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to RSA Archer Suite Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to RSA Archer Suite Sign-on URL where you can initiate the login flow. 
 
-2. Go to RSA Archer Suite Sign-on URL directly and initiate the login flow from there.
+* Go to RSA Archer Suite Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the RSA Archer Suite tile in the Access Panel, you should be automatically signed in to the RSA Archer Suite for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the RSA Archer Suite tile in the My Apps, this will redirect to RSA Archer Suite Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
- Once you configure RSA Archer Suite you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure RSA Archer Suite you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

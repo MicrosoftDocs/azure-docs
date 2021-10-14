@@ -1,5 +1,5 @@
 ---
-title: Feature overview
+title: Feature descriptions
 titleSuffix: Azure Cognitive Search
 description: Explore the feature categories of Azure Cognitive Search.
 
@@ -8,17 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 10/06/2021
 ---
 # Features of Azure Cognitive Search
 
-Azure Cognitive Search provides a full-text search engine, persistent storage of search indexes, integrated AI used during indexing to extract more text and structure, and APIs and tools. The following table summarizes features by category. For more information about how Cognitive Search compares with other search technologies, see [What is Azure Cognitive Search?](search-what-is-azure-search.md).
+Azure Cognitive Search provides a full-text search engine, persistent storage of search indexes, integrated AI used during indexing to extract more text and structure, and APIs and tools. 
+
+The following table summarizes features by category. For more information about how Cognitive Search compares with other search technologies, see [Compare search options](search-what-is-azure-search.md#compare-search-options).
 
 ## Indexing features
 
 | Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
-| Data sources | Search indexes can accept text from any source, provided it is submitted as a JSON document. <br/><br/> [**Indexers**](search-indexer-overview.md) automate data ingestion from supported Azure data sources and handle JSON serialization. Connect to [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to extract searchable content in primary data stores. Azure Blob indexers can perform *document cracking* to [extract text from  major file formats](search-howto-indexing-azure-blob-storage.md), including Microsoft Office, PDF, and HTML documents. |
+| Data sources | Search indexes can accept text from any source, provided it is submitted as a JSON document. <br/><br/> [**Indexers**](search-indexer-overview.md) are a feature that automates data import from supported data sources to extract searchable content in primary data stores. Indexers handle JSON serialization for you. You can connect to a [variety of data sources](search-data-sources-gallery.md), including [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md). |
 | Hierarchical and nested data structures | [**Complex types**](search-howto-complex-data-types.md) and collections allow you to model virtually any type of JSON structure within a search index. One-to-many and many-to-many cardinality can be expressed natively through collections, complex types, and collections of complex types.|
 | Linguistic analysis | Analyzers are components used for text processing during indexing and search operations. By default, you can use the general-purpose Standard Lucene analyzer, or override the default with a language analyzer, a custom analyzer that you configure, or another predefined analyzer that produces tokens in the format you require. <br/><br/>[**Language analyzers**](index-add-language-analyzers.md) from Lucene or Microsoft are used to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more. <br/><br/>[**Custom lexical analyzers**](index-add-custom-analyzers.md) are used for complex query forms such as phonetic matching and regular expressions.<br/><br/> |
 

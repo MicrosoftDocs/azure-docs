@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 05/24/2021
+  ms.date: 09/08/2021
   featureFlags:
   - clicktale
 
@@ -53,6 +53,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/anomaly-detector/index.yml
+    # Card
+    - title: Azure Applied AI Services
+      summary: Specialized services that enable organizations to accelerate time to value in applying AI to solve common scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ./applied-ai-services/index.yml
     # Card
     - title: Azure Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -116,69 +123,6 @@ productDirectory:
         - iot
       url: /azure/rtos/
     # Card
-    - title: Bing Autosuggest
-      summary: Give your app intelligent autosuggest options for searches
-      imageSrc: ./media/index/API_Bing_AutoSuggest.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-autosuggest/get-suggested-search-terms.md
-    # Card
-    - title: Bing Custom Search
-      summary: An easy-to-use, ad-free, commercial-grade search tool that lets you deliver the results you want
-      imageSrc: ./media/index/API_Bing_Custom_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-custom-search/overview.md
-    # Card
-    - title: Bing Entity Search
-      summary: Enrich your experiences by identifying and augmenting entity information from the web
-      imageSrc: ./media/index/API_Bing_Entity_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-entities-search/overview.md
-    # Card
-    - title: Bing Image Search
-      summary: Search for images and get comprehensive results
-      imageSrc: ./media/index/API_Bing_Image_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-image-search/overview.md
-    # Card
-    - title: Bing News Search
-      summary: Search for news and get comprehensive results
-      imageSrc: ./media/index/API_Bing_News_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-news-search/search-the-web.md
-    # Card
-    - title: Bing Spell Check
-      summary: Detect and correct spelling mistakes in your app
-      imageSrc: ./media/index/API_Bing_Spell_Check.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-spell-check/overview.md
-    # Card
-    - title: Bing Video Search
-      summary: Search for videos and get comprehensive results
-      imageSrc: ./media/index/API_Bing_Video_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-video-search/overview.md
-    # Card
-    - title: Bing Visual Search
-      summary: Get rich insights to help build compelling image applications on the device of your choice
-      imageSrc: ./media/index/API_Bing_Visual_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-visual-search/overview.md
-    # Card
-    - title: Bing Web Search
-      summary: Get enhanced search details from billions of web documents
-      imageSrc: ./media/index/API_Bing_Web_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-web-search/overview.md
-    # Card
     - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
@@ -227,21 +171,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/form-recognizer/index.yml
+      url: ./applied-ai-services/form-recognizer/index.yml
     # Card
     - title: Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/immersive-reader/index.yml
-    # Card
-    - title: Ink Recognizer (Preview)
-      summary: An AI service that recognizes digital ink content, such as handwriting, shapes, and ink document layout
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
+      url: ./applied-ai-services/immersive-reader/index.yml
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors
@@ -266,12 +203,12 @@ productDirectory:
         - ai-machine-learning
       url: genomics/index.yml
     # Card
-    - title: Metrics Advisor (Preview)
+    - title: Metrics Advisor
       summary: An AI service that monitors metrics and diagnoses issues
       imageSrc: ./media/index/metrics-advisor.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/metrics-advisor/index.yml
+      url: applied-ai-services/metrics-advisor/index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
@@ -335,6 +272,14 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
+    # Card
+    - title: Azure Video Analyzer (preview)
+      summary: Build intelligent video-based applications using the AI of your choice
+      imageSrc: ./media/index/video-analyzer.svg
+      azureCategories:
+        - ai-machine-learning
+        - media
+      url: azure-video-analyzer/video-analyzer-docs/overview.md
     # Card
     - title: Azure Video Analyzer for Media
       summary: Unlock video insights
@@ -453,13 +398,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/r-server/r-server-overview.md
-    # Card
-    - title: Azure Blockchain Service (Preview)
-      summary: Build, govern, and expand consortium blockchain networks
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/service/index.yml
     # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
@@ -641,11 +579,11 @@ productDirectory:
     # Card
     - title: Azure Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
       azureCategories:
         - featured
         - compute
-        - windows-virtual-desktop
+        - azure-virtual-desktop
       url: virtual-desktop/index.yml
     # Card
     - title: Windows Virtual Machines
@@ -662,7 +600,7 @@ productDirectory:
       azureCategories:
         - containers
         - developer-tools
-      url: dev-spaces/index.yml
+      url: /previous-versions/azure/dev-spaces/
     # Card
     - title: Azure Red Hat OpenShift
       summary: Fully managed OpenShift service, jointly operated with Red Hat
@@ -1027,13 +965,6 @@ productDirectory:
         - iot
       url: iot-hub/index.yml
     # Card
-    - title: Azure IoT solution accelerators
-      summary: Create fully customizable solutions with templates for common IoT scenarios
-      imageSrc: ./media/index/iot-solution-accelerators.svg
-      azureCategories:
-        - iot
-      url: iot-accelerators/index.yml
-    # Card
     - title: Azure Maps
       summary: Simple and secure location APIs provide geospatial context to data
       imageSrc: https://static.docs.com/ui/media/product/azure/maps.svg
@@ -1138,7 +1069,7 @@ productDirectory:
         - management-and-governance
       url: azure-resource-manager/index.yml
     # Card
-    - title: Azure Resource Mover (Preview)
+    - title: Azure Resource Mover
       summary: Simplify how you move multiple resources between Azure regions
       imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
       azureCategories:
@@ -1241,13 +1172,6 @@ productDirectory:
       azureCategories:
         - media
       url: media-services/latest/stream-live-tutorial-with-api.md
-    # Card
-    - title: Azure Video Analyzer (preview)
-      summary: Build intelligent video-based applications using the AI of your choice
-      imageSrc: ./media/index/video-analyzer.svg
-      azureCategories:
-        - media
-      url: azure-video-analyzer/video-analyzer-docs/overview.md
     # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
@@ -1388,7 +1312,7 @@ productDirectory:
         - networking
       url: load-balancer/index.yml
     # Card
-    - title: Azure Route Server (Preview)
+    - title: Azure Route Server
       summary: Simplify operations management of your network appliances
       imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
@@ -1444,7 +1368,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-explorer.svg
       azureCategories:
         - storage
-      url: storage/blobs/storage-blob-storage-tiers.md
+      url: storage/blobs/access-tiers-overview.md
     # Card
     - title: Avere vFXT for Azure
       summary: Run high-performance, file-based workloads in the cloud
@@ -1489,7 +1413,7 @@ productDirectory:
       url: virtual-machines/managed-disks-overview.md
     # Card
     - title: Azure Files
-      summary: File shares that use the standard SMB 3.0 protocol
+      summary: Simple, secure and serverless enterprise-grade cloud file shares
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
       azureCategories:
         - storage

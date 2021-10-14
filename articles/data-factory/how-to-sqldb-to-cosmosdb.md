@@ -4,6 +4,7 @@ description: Take an existing normalized database schema from Azure SQL Database
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 04/29/2020
 ---
@@ -35,7 +36,7 @@ FROM SalesLT.SalesOrderHeader o;
 
 The resulting CosmosDB container will embed the inner query into a single document and look like this:
 
-![Collection](media/data-flow/cosmosb3.png)
+:::image type="content" source="media/data-flow/cosmosb3.png" alt-text="Collection":::
 
 ## Create a pipeline
 
@@ -47,7 +48,7 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 4. We will construct this data flow graph below
 
-![Data Flow Graph](media/data-flow/cosmosb1.png)
+:::image type="content" source="media/data-flow/cosmosb1.png" alt-text="Data Flow Graph":::
 
 5. Define the source for "SourceOrderDetails". For dataset, create a new Azure SQL Database dataset that points to the ```SalesOrderDetail``` table.
 
@@ -57,19 +58,19 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 8. Add another derived column and call it "MakeStruct". This is where we will create a hierarchical structure to hold the values from the details table. Remember, details is a ```M:1``` relation to header. Name the new structure ```orderdetailsstruct``` and create the hierarchy in this way, setting each subcolumn to the incoming column name:
 
-![Create Structure](media/data-flow/cosmosb9.png)
+:::image type="content" source="media/data-flow/cosmosb9.png" alt-text="Create Structure":::
 
 9. Now, let's go to the sales header source. Add a Join transformation. For the right-side select "MakeStruct". Leave it set to inner join and choose ```SalesOrderID``` for both sides of the join condition.
 
 10. Click on the Data Preview tab in the new join that you added so that you can see your results up to this point. You should see all of the header rows joined with the detail rows. This is the result of the join being formed from the ```SalesOrderID```. Next, we'll combine the details from the common rows into the details struct and aggregate the common rows.
 
-![Join](media/data-flow/cosmosb4.png)
+:::image type="content" source="media/data-flow/cosmosb4.png" alt-text="Join":::
 
 11. Before we can create the arrays to denormalize these rows, we first need to remove unwanted columns and make sure the data values will match CosmosDB data types.
 
 12. Add a Select transformation next and set the field mapping to look like this:
 
-![Column scrubber](media/data-flow/cosmosb5.png)
+:::image type="content" source="media/data-flow/cosmosb5.png" alt-text="Column scrubber":::
 
 13. Now let's again cast a currency column, this time ```TotalDue```. Like we did above in step 7, set the formula to: ```toDouble(round(TotalDue,2))```.
 
@@ -79,21 +80,21 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 16. The aggregate transformation will only output columns that are part of aggregate or group by formulas. So, we need to include the columns from the sales header as well. To do that, add a column pattern in that same aggregate transformation. This pattern will include all other columns in the output:
 
-```instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0```
+   `instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0`
 
 17. Use the "this" syntax in the other properties so that we maintain the same column names and use the ```first()``` function as an aggregate:
 
-![Aggregate](media/data-flow/cosmosb6.png)
+:::image type="content" source="media/data-flow/cosmosb6.png" alt-text="Aggregate":::
 
 18. We're ready to finish the migration flow by adding a sink transformation. Click "new" next to dataset and add a CosmosDB dataset that points to your CosmosDB database. For the collection, we'll call it "orders" and it will have no schema and no documents because it will be created on the fly.
 
 19. In Sink Settings, Partition Key to ```\SalesOrderID``` and collection action to "recreate". Make sure your mapping tab looks like this:
 
-![Screenshot shows the Mapping tab.](media/data-flow/cosmosb7.png)
+:::image type="content" source="media/data-flow/cosmosb7.png" alt-text="Screenshot shows the Mapping tab.":::
 
 20. Click on data preview to make sure that you are seeing these 32 rows set to insert as new documents into your new container:
 
-![Screenshot shows the Data preview tab.](media/data-flow/cosmosb8.png)
+:::image type="content" source="media/data-flow/cosmosb8.png" alt-text="Screenshot shows the Data preview tab.":::
 
 If everything looks good, you are now ready to create a new pipeline, add this data flow activity to that pipeline and execute it. You can execute from debug or a triggered run. After a few minutes, you should have a new denormalized container of orders called "orders" in your CosmosDB database.
 

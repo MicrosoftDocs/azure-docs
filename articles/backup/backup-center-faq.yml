@@ -3,7 +3,9 @@ metadata:
   title: Backup center - FAQ
   description: This article answers frequently asked questions about Backup center.
   ms.date: 01/12/2021
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
+    
 title: Backup center - Frequently asked questions
 summary: This article answers frequently asked questions about Backup center.
 sections:

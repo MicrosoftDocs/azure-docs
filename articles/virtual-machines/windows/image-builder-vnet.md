@@ -1,17 +1,19 @@
 ---
 title: Create a Windows VM with Azure Image Builder using an existing VNET 
 description: Create a Windows VM with the Azure Image Builder using an existing VNET
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.reviewer: danis 
 ms.custom: devx-track-azurepowershell
 ---
 # Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article shows you how you can use the Azure Image Builder to create a basic customized Windows image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 

@@ -3,7 +3,7 @@ title: Create an Azure Video Analyzer account
 description: This topic explains how to create an account for Azure Video Analyzer. 
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 06/01/2021
 ---
 
 # Create a Video Analyzer account

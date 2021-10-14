@@ -1,22 +1,24 @@
 ---
 title: Copy data from and to SFTP server
-description: Learn how to copy data from and to SFTP server by using Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from and to SFTP server by using Azure Data Factory and Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-# Copy data from and to the SFTP server by using Azure Data Factory
+# Copy data from and to the SFTP server using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-sftp-connector.md)
 > * [Current version](connector-sftp.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from and to the secure FTP (SFTP) server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data from and to the secure FTP (SFTP) server. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -40,7 +42,31 @@ Specifically, the SFTP connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to SFTP.
+## Create an SFTP linked service using UI
+
+Use the following steps to create an SFTP linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SFTP and select the SFTP connector.
+
+    :::image type="content" source="media/connector-sftp/sftp-connector.png" alt-text="Screenshot of the SFTP connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sftp/configure-sftp-linked-service.png" alt-text="Screenshot of configuration for an SFTP linked service.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define entities specific to SFTP.
 
 ## Linked service properties
 
@@ -63,7 +89,7 @@ To use basic authentication, set the *authenticationType* property to *Basic*, a
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user who has access to the SFTP server. |Yes |
-| password | The password for the user (userName). Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password for the user (userName). Mark this field as a SecureString to store it securely, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example:**
 
@@ -100,8 +126,8 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 |:--- |:--- |:--- |
 | userName | The user who has access to the SFTP server. |Yes |
 | privateKeyPath | Specify the absolute path to the private key file that the integration runtime can access. This applies only when the self-hosted type of integration runtime is specified in "connectVia." | Specify either `privateKeyPath` or `privateKeyContent`.  |
-| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Specify either `privateKeyPath` or `privateKeyContent`. |
-| passPhrase | Specify the pass phrase or password to decrypt the private key if the key file or the key content is protected by a pass phrase. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Yes, if the private key file or the key content is protected by a pass phrase. |
+| privateKeyContent | Base64 encoded SSH private key content. SSH private key should be OpenSSH format. Mark this field as a SecureString to store it securely, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Specify either `privateKeyPath` or `privateKeyContent`. |
+| passPhrase | Specify the pass phrase or password to decrypt the private key if the key file or the key content is protected by a pass phrase. Mark this field as a SecureString to store it securely, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). | Yes, if the private key file or the key content is protected by a pass phrase. |
 
 > [!NOTE]
 > The SFTP connector supports an RSA/DSA OpenSSH key. Make sure that your key file content starts with "-----BEGIN [RSA/DSA] PRIVATE KEY-----". If the private key file is a PPK-format file, use the PuTTY tool to convert from PPK to OpenSSH format. 
@@ -320,7 +346,7 @@ The following properties are supported for SFTP under `storeSettings` settings i
 | type                     | The *type* property under `storeSettings` must be set to *SftpWriteSettings*. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections. | No       |
-| useTempFileRename | Indicate whether to upload to temporary files and rename them, or directly write to the target folder or file location. By default, Azure Data Factory first writes to temporary files and then renames them when the upload is finished. This sequence helps to (1) avoid conflicts that might result in a corrupted file if you have other processes writing to the same file, and (2) ensure that the original version of the file exists during the transfer. If your SFTP server doesn't support a rename operation, disable this option and make sure that you don't have a concurrent write to the target file. For more information, see the troubleshooting tip at the end of this table. | No. Default value is *true*. |
+| useTempFileRename | Indicate whether to upload to temporary files and rename them, or directly write to the target folder or file location. By default, the service first writes to temporary files and then renames them when the upload is finished. This sequence helps to (1) avoid conflicts that might result in a corrupted file if you have other processes writing to the same file, and (2) ensure that the original version of the file exists during the transfer. If your SFTP server doesn't support a rename operation, disable this option and make sure that you don't have a concurrent write to the target file. For more information, see the troubleshooting tip at the end of this table. | No. Default value is *true*. |
 | operationTimeout | The wait time before each write request to SFTP server times out. Default value is 60 min (01:00:00).|No |
 
 >[!TIP]
@@ -382,20 +408,20 @@ This table describes the behavior that results from using a file list path in th
 
 ## Lookup activity properties
 
-For information about Lookup activity properties, see [Lookup activity in Azure Data Factory](control-flow-lookup-activity.md).
+For information about Lookup activity properties, see [Lookup activity](control-flow-lookup-activity.md).
 
 ## GetMetadata activity properties
 
-For information about GetMetadata activity properties, see [GetMetadata activity in Azure Data Factory](control-flow-get-metadata-activity.md). 
+For information about GetMetadata activity properties, see [GetMetadata activity](control-flow-get-metadata-activity.md). 
 
 ## Delete activity properties
 
-For information about Delete activity properties, see [Delete activity in Azure Data Factory](delete-activity.md).
+For information about Delete activity properties, see [Delete activity](delete-activity.md).
 
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as is for backward compatibility. We recommend that you use the previously discussed new model, because the Azure Data Factory authoring UI has switched to generating the new model.
+>The following models are still supported as is for backward compatibility. We recommend that you use the previously discussed new model, because the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -487,4 +513,4 @@ For information about Delete activity properties, see [Delete activity in Azure 
 ```
 
 ## Next steps
-For a list of data stores that are supported as sources and sinks by the Copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that are supported as sources and sinks by the Copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

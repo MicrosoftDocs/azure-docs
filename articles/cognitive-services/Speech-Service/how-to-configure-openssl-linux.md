@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 
 # Configure OpenSSL for Linux
 
-When using any Speech SDK version before 1.9.0, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. In later versions of the Speech SDK, OpenSSL (version [1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)) is statically linked to the core library of the Speech SDK.
+When using any Speech SDK version before 1.9.0, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. In later versions of the Speech SDK OpenSSL is statically linked to the core library of the Speech SDK. In Speech SDK versions 1.9.0 to 1.16.0 [OpenSSL version 1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html) is used. In Speech SDK version 1.17.0 onward [Open SSL version 1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html) is used.
 
 To ensure connectivity, verify that OpenSSL certificates have been installed in your system. Run a command:
 ```bash
@@ -82,7 +82,7 @@ config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
@@ -124,7 +124,7 @@ config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end

@@ -28,7 +28,7 @@ Modified versions of the dataset are available in CSV, JSON, JSON-Lines, and Par
 All modified versions have ISO 3166 subdivision codes and load times added, and use lower case column names with underscore separators.
 
 Raw data:
-https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/covid_tracking/latest/daily.json
+'https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/covid_tracking/latest/daily.json'
 
 Previous versions of modified and raw data:
 https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_tracking/
@@ -126,8 +126,6 @@ Download the dataset file using the built-in capability download from an http UR
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
-
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html (use lines=True for json lines)
 
 ```python
 import pandas as pd

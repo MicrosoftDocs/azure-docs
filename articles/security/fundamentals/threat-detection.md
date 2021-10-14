@@ -250,7 +250,7 @@ SQL Database threat detectors use one of the following detection methodologies:
 
 ### Application Gateway Web Application Firewall
 
-[Web Application Firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is a feature of [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/).
+[Web Application Firewall (WAF)](../../app-service/environment/integrate-with-application-gateway.md) is a feature of [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ![Application Gateway Web Application Firewall diagram](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -284,7 +284,7 @@ Configuring WAF at your application gateway provides the following benefits:
 
 The Anomaly Detection API is an API that's useful for detecting a variety of anomalous patterns in your time series data. The API assigns an anomaly score to each data point in the time series, which can be used for generating alerts, monitoring through dashboards, or connecting with your ticketing systems.
 
-The [Anomaly Detection API](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) can detect the following types of anomalies on time series data:
+The [Anomaly Detection API](/azure/architecture/data-science-process/apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
 
 -	**Spikes and dips**: When you're monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
 
