@@ -22,7 +22,7 @@ After creating a connected registry, you can follow other guides to deploy and u
 
 ## Enable the dedicated data endpoint for the cloud registry
 
-Enable the dedicated data endpoint for the Azure Container Registry in the cloud by using the [az acr update][az-acr-update] command. This step is needed for a connected registry to communicate with the cloud registry.
+Enable the dedicated data endpoint for the Azure container registry in the cloud by using the [az acr update][az-acr-update] command. This step is needed for a connected registry to communicate with the cloud registry.
 
 ```azurecli
 # Set the REGISTRY_NAME environment variable to identify the existing cloud registry
@@ -72,7 +72,7 @@ az acr connected-registry create --registry $REGISTRY_NAME \
 This command creates a connected registry resource whose name is the value of *$CONNECTED_REGISTRY_RO* and links it to the cloud registry named with the value of *$REGISTRY_NAME*. 
 * The specified repositories will be synchronized between the parent registry named with the value of *$CONNECTED_REGISTRY_RW* and the connected registry once deployed.
 * This resource is created in the ReadOnly mode, which enables read-only (artifact pull) functionality once deployed. 
-* Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
+* Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the parent registry and the connected registry without interruptions.
 
 ## Verify that the resources are created
 

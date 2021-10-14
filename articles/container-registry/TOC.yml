@@ -268,6 +268,8 @@
     items:
     - name: Create connected registry - CLI
       href: quickstart-connected-registry-cli.md
+    - name: Create connected registry - Portal
+      href: quickstart-connected-registry-portal.md
     - name: Deploy connected registry to IoT Edge
       href: quickstart-deploy-connected-registry-iot-edge-cli.md
   - name: Tutorials

@@ -50,6 +50,9 @@ In this overview, you learned about the use of the connected registry in hierarc
 > [Quickstart - Create connected registry using the CLI][quickstart-connected-registry-cli]
 
 > [!div class="nextstepaction"]
+> [Quickstart - Create connected registry using the portal][quickstart-connected-registry-portal]
+
+> [!div class="nextstepaction"]
 > [Quickstart - Deploy a connected registry to an IoT Edge device][quickstart-deploy-connected-registry-iot-edge-cli]
 
 > [!div class="nextstepaction"]

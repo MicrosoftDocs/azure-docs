@@ -15,7 +15,7 @@ In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of 
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md). In this scenario, a device in the [top layer](overview-connected-registry-and-iot-edge.md#top-layer) communicates with a cloud registry, and a device in the [lower layer](overview-connected-registry-and-iot-edge.md#top-layer) communicates with its connected registry parent in the top layer. 
 
 [!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
-* Two connected registry resources in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. 
+* Two connected registry resources in Azure. For deployment steps, see quickstarts using the [Azure CLI][quickstart-connected-registry-cli] or [Azure portal][quickstart-connected-registry-portal]. 
 
     * For the top layer, the connected registry may be in either ReadWrite or ReadOnly mode. This article assumes ReadWrite mode, and the connected registry name is stored in the environment variable *$CONNECTED_REGISTRY_RW*.
     * For the lower layer, the connected registry must be in ReadOnly mode. This article assumes the connected registry name is stored in the environment variable *$CONNECTED_REGISTRY_RO*.
@@ -331,3 +331,4 @@ In this quickstart, you learned how to deploy a connected registry to a nested I
 [container-registry-intro]: container-registry-intro.md
 [pull-images-from-connected-registry]: pull-images-from-connected-registry.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md
+[quickstart-connected-registry-portal]: quickstart-connected-registry-portal.md
