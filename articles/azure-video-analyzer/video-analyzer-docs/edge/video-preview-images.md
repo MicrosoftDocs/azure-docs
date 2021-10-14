@@ -20,6 +20,9 @@ Images are only generated and updated while a live pipeline is active and video 
 If an event-based video recording pipeline is being used, the images will only be generated when there is an event that has triggered recording.
 Newly generated images will replace the most recent images in the blob storage container.
 
+>[NOTE]
+>This functionality is currently only available for edge not cloud pipeline topologies.
+
 ## Enable video preview images in pipeline topology
 To enable video preview images, it must be defined in the video sink node of the pipeline topology.
 The video sink node has video publishing options, where the option **enableVideoPreviewImage** can be set to **true**  
