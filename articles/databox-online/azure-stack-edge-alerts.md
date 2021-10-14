@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Review alerts on Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to view alerts and interpret alert severity for events on your Azure Stack Edge devices. The alerts generate notifications in the Azure portal. The article includes a quick-reference for Azure Stack Edge alerts.
 
@@ -61,6 +61,8 @@ In the alerts tables below:
 
 - Some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.
 
+<!-->> [!NOTE]
+> In the alerts tables below, some alerts are triggered by more than one event type. If the events have different recommended actions, the tables below have an alert entry for each of the events.-->
 
 ## Cloud connectivity alerts
 
@@ -210,7 +212,7 @@ The following alerts indicate an issue with a hardware component, such as physic
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |{0} on {1} has failed. |Critical |This is because the power supply is not connected properly or has failed. Take the following steps to resolve this issue:<ol><li>Make sure that the power supply connection is proper.</li><li>[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement power supply unit. |
-|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to *NEED LINK TARGET*.<!--Current target: http://www.microsoft.com/2--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to http://www.microsoft.com/2.<br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |{0} is powered off. |Warning |Connect the Power Supply Unit to a Power Distribution Unit. |
 |One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Could not replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
