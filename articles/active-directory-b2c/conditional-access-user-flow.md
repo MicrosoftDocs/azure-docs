@@ -9,7 +9,7 @@ ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 author: kengaderdus
- manager: CelesteDG
+manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
 ---
 
