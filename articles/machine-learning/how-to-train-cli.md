@@ -23,8 +23,8 @@ Training a machine learning model is typically an iterative process. Modern tool
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+- To use the CLI (v2), you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+- [Install and set up CLI (v2)](how-to-configure-cli.md).
 
 > [!TIP]
 > For a full-featured development environment with schema validation and autocompletion for job YAMLs, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md).
