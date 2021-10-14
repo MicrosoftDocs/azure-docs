@@ -115,6 +115,7 @@ Verify that your organizational security policy allows access to the following:
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
 | SSL | TCP | In/Out | 443 | Sensor and on-premises management console | The connection between the sensor and the Central Management | Sensor | On-premises management console |
+| NTP | UDP | In/Out | 123 | Time Sync | Connects the on-premises management console to an external NTP server | Sensor | NTP |
 
 #### Time Sync
 
@@ -122,7 +123,6 @@ Verify that your organizational security policy allows access to the following:
 |--|--|--|--|--|--|--|--|
 | NTP | UDP | In | 123 | Time Sync | Uses the on-premises management console as NTP to the sensor | Sensor | on-premises management console |
 | NTP | UDP | In/Out | 123 | Time Sync | Connects the sensor to an external NTP server, when there is no on-premises management console installed | Sensor | NTP |
-| NTP | UDP | In/Out | 123 | Time Sync | Connects the on-premises management console to an external NTP server | Sensor | NTP |
 
 #### (Optional) Defender for IoT extra services
 
