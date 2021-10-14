@@ -2,7 +2,7 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 ---
 
 # Bicep modules
@@ -69,22 +69,22 @@ For example, to deploy a file that is up one level in the directory from your ma
 If you have [published a module to a registry](bicep-cli.md#publish), you can link to that module. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
 
 ```bicep
-module <module-symbolic-name> 'br/<registry-name>.azurecr.io/<module-path>:<tag>'
+module <symbolic-name> 'br/<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
 - **br** is the schema name for a Bicep registry.
-- **module path** is called `repository` in Azure Container Registry. The **module path** can contain segments that are separated by the `/` character.
+- **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
 For example:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
 
+When you reference a module in a registry, the Bicep extension in Visual Studio Code automatically calls [bicep restore](bicep-cli.md#restore) to copy the external module to the local cache. It takes a few moments to restore the external module. If intellisense for the module doesn't work immediately, wait for the restore to complete.
+
 The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config.md#aliases-for-module-registry). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
-
-When you reference a module in a registry, the Bicep extension in Visual Studio Code automatically calls [bicep restore](bicep-cli.md#restore) to copy the external module to the local cache. It takes a few moments to restore the external module. If intellisense for the module doesn't work immediately, wait for the restore to complete.
 
 ## Parameters
 

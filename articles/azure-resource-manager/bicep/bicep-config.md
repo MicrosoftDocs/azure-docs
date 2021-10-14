@@ -40,12 +40,12 @@ The following example shows a sample config file that defines two module aliases
 {
   "moduleAliases": {
     "br": {
-      "baseModules": {
-        "registry": "exampleregistry.azurecr.io"
+      "ContosoRegistry": {
+        "registry": "contosoregistry.azurecr.io"
       },
-      "storageModule": {
-        "registry": "exampleregistry.azurecr.io",
-        "modulePath": "bicep/modules/storage"
+      "CoreModules": {
+        "registry": "contosoregistry.azurecr.io",
+        "modulePath": "bicep/modules/core"
       }
     }
   }
@@ -55,20 +55,52 @@ The following example shows a sample config file that defines two module aliases
 **Without the aliases**, you would link to the module with the full path.
 
 ```bicep
-module stgModule 'br/exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
+module stgModule 'br/contosoregistry.azurecr.io/bicep/modules/core/storage:v1' = {
 ```
 
 **With the aliases**, you can simplify the link by using the alias for the registry.
 
 ```bicep
-module stgModule 'br/baseModules/bicep/modules/storage:v1' = {
+module stgModule 'br/ContosoRegistry:bicep/modules/core/storage:v1' = {
 ```
 
 Or, you can simplify the link by using the alias that specifies the registry and module path.
 
 ```bicep
-module stgModule  'br/storageModule:v1' = {
+module stgModule  'br/CoreModules:storage:v1' = {
 ```
+
+When using an alias in the module reference, you must use the format:
+
+```bicep
+br/<alias>:<file-name>:<tag>
+```
+
+Define your aliases to the folder that contains modules, not the file itself. The file name must be included in the reference to the module.
+
+## Credentials for restoring modules
+
+To [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, add `cloud` and `credentialPrecedence` elements to the config file.
+
+```json
+{
+    "cloud": {
+      "credentialPrecedence": [
+        "AzureCLI",
+        "AzurePowerShell"
+      ]
+    }
+}
+```
+
+The available credentials are:
+
+* AzureCLI
+* AzurePowerShell
+* Environment
+* ManagedIdentity
+* VisualStudio
+* VisualStudioCode
 
 ## Customize linter
 

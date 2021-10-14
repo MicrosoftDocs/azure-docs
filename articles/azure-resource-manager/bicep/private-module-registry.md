@@ -2,7 +2,7 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 ---
 
 # Create private registry for Bicep modules (Preview)
@@ -36,6 +36,8 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
    The format of the login server name is: `<registry-name>.azurecr.io`.
 
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
+
+1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config.md#credentials-for-restoring-modules).
 
 1. For more security, you can require access through a private endpoint. For more information, see [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
 
