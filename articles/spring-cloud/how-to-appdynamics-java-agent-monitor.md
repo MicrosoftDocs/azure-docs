@@ -39,12 +39,8 @@ For the whole workflow, you need to:
 
 ### Prepare variables to connect the AppDynamics Agent to Controller
 
->[!Note]
->The following paragraphs related to AppDynamics environemnt variables may be totally moved to AppDynamics Doc. And only keep a link here.   
-Remove this note before publish.
-
-In order to connect the AppDynamics Java In-Process Agent to AppDynamics Controller, you need four required variables: 
-`APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`, `APPDYNAMICS_AGENT_ACCOUNT_NAME`, `APPDYNAMICS_CONTROLLER_HOST_NAME` and `APPDYNAMICS_CONTROLLER_PORT`. Please refer to [AppDynamics Agent to Controller Connections](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/agent-to-controller-connections) to get their values.
+In order to connect the AppDynamics Java In-Process Agent to AppDynamics Controller, you need following required variables:
+`APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`, `APPDYNAMICS_AGENT_ACCOUNT_NAME` and `APPDYNAMICS_CONTROLLER_HOST_NAME`. Please refer to [Monitor Azure Spring Cloud with Java Agent](https://docs.appdynamics.com/21.9/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/monitor-azure-spring-cloud-with-java-agent) to get their values.
 ### Activate application with AppDynamics Agent by Azure CLI
 
 1. Create a resource group.
@@ -66,8 +62,8 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
               APPDYNAMICS_AGENT_NODE_NAME=<YOUR_AGENT_NODE_NAME> \
               APPDYNAMICS_AGENT_TIER_NAME=<YOUR_AGENT_TIER_NAME> \
               APPDYNAMICS_CONTROLLER_HOST_NAME=<YOUR_APPDYNAMICS_CONTROLLER_HOST_NAME> \
-              APPDYNAMICS_CONTROLLER_SSL_ENABLED=<YOUR_CASE> \
-              APPDYNAMICS_CONTROLLER_PORT=<YOUR_CASE>
+              APPDYNAMICS_CONTROLLER_SSL_ENABLED=true \
+              APPDYNAMICS_CONTROLLER_PORT=443
     ```
 
   Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/agents/appdynamics/java/javaagent.jar`. Customers can activate the agent from applications' **Jvm Options**, and then configure the agent using the [AppDynamics Java agent environment variables](https://docs.appdynamics.com/21.7/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/use-environment-variables-for-java-agent-settings). Refer to [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes) to find how Node and Tier help to view and organize reports in AppDynamics UI.
