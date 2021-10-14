@@ -7,7 +7,7 @@ manager: phans
 services: azure-communication-services
 
 ms.author: jassha
-ms.date: 10/18/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---	
@@ -85,3 +85,4 @@ Azure Communication Services Job Router applies flexible Policies to attach dyna
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [Classifying a Job](../../how-tos/router-sdk/job-classification.md)
+- [Escalate a Job](../../how-tos/router-sdk/escalate-job.md)

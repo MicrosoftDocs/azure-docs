@@ -7,7 +7,7 @@ manager: phans
 services: azure-communication-services
 
 ms.author: jassha
-ms.date: 10/18/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---	

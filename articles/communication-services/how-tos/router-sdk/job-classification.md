@@ -6,7 +6,7 @@ author: jasonshave
 ms.author: jassha
 ms.service: azure-communication-services
 ms.topic: how-to 
-ms.date: 09/22/2021
+ms.date: 10/14/2021
 ms.custom: template-how-to
 
 #Customer intent: As a developer, I want Job Router to classify my Job for me.
@@ -34,17 +34,16 @@ When creating a Job with the SDK, specify the queue, priority, and worker select
 ```csharp
 var job = await client.CreateJobAsync(
     channelId: ManagedChannels.AcsVoiceChannel,
-    channelReference: "my_custom_reference_number",
-    queueId: "XBOX_DEFAULT_QUEUE",
+    channelReference: "12345",
+    queueId: queue.Value.Id,
     priority: 1,
-    workerSelectors: new List<RouterRequirement>()
+    workerSelectors: new List<LabelSelector>
     {
         new (
-            key: "XBOX_Hardware",
-            @operator: RequirementOperator.GreaterThanEqual,
-            value: 5)
-    }
-);
+            key: "Location",
+            @operator: LabelOperator.Equal,
+            value: "Edmonton")
+    });
 
 // returns a new GUID such as: 4ad7f4b9-a0ff-458d-b3ec-9f84be26012b
 ```

@@ -7,7 +7,7 @@ manager: phans
 services: azure-communication-services
 
 ms.author: jassha
-ms.date: 10/18/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -39,7 +39,7 @@ await client.SetClassificationPolicyAsync(
 ```
 ## RouterRule types
 
-The following `RouterRule` types exist in Job Router to provide flexibility in how your policies process data.
+The following `RouterRule` types exist in Job Router to provide flexibility in how your Jobs are processed.
 
 **Static rule -** This rule can be used specify a static input such as selecting a specific Queue ID.
 
