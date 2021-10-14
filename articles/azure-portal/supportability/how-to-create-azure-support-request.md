@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/30/2021
+ms.date: 10/14/2021
 ---
 
 # Create an Azure support request
@@ -73,7 +73,7 @@ Next, we collect additional details about the problem. Providing thorough and de
 
 1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
+1. In the **Advanced diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
 
   In some cases, there will be additional options to choose from. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
 

@@ -1,9 +1,9 @@
 ---
 title: Manage an Azure support request
-description: Describes how to view support requests, send messages, change the request severity level, share diagnostic information with Azure support, reopen a closed support request, and upload files.
+description: Describes how to view support requests, send messages, change the severity level, allow or deny collection of advanced diagnostic information, reopen a closed support request, and upload files.
 tags: billing
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 10/14/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
@@ -46,15 +46,15 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
         :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Can't select a new severity level":::
 
-## Share diagnostic information with Azure support
+## Allow collection of advanced diagnostic information
 
-When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Advanced diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue.
 
-To change your **Share diagnostic information** selection after the request has been created:
+To change your **Advanced diagnostic information** selection after the request has been created:
 
 1. On the **All support requests** page, select the support request.
 
-1. On the **Support Request** page, look for **Share diagnostic information** and then select **Change**.
+1. On the **Support Request** page, look for **Advanced diagnostic information** and then select **Change**.
 
 1. Select **Yes** or **No**, then select **OK** to confirm.
 
