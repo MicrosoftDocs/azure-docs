@@ -69,7 +69,9 @@ After determining the specific frontend host and filtering possible routing rule
 3. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response.
 
 >[!NOTE]
-> Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
+> * Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
+> * Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths `/FOO` and `/foo`. These paths are considered duplicates which is not allowed in the Patterns to match setting.
+> 
 
 To explain further, let's look at another set of examples:
 
