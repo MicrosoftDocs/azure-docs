@@ -3,7 +3,7 @@ title: Connect to and manage Azure Files
 description: This guide describes how to connect to Azure Files in Azure Purview, and use Purview's features to scan and manage your Azure Files source.
 author: viseshag
 ms.author: viseshag
-ms.service: purview-data-map #leave this attribute/value as-is.
+ms.service: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 10/14/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -119,6 +119,6 @@ To create and run a new scan, follow these steps:
 
 Now that you have registered your source, follow the below guides to learn more about Purview and your data.
 
-- [Data insights in Azure Purview](oncept-insights.md)
+- [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)
