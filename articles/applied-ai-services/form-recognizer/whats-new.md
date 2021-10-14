@@ -418,7 +418,7 @@ pip package version 3.1.0b4
 
     In addition to labeling tables, you can now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
 
-* **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
+* **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 
