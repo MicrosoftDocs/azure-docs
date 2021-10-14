@@ -37,7 +37,7 @@ Scenarios for a connected registry include:
 
 The following image shows a typical deployment model for the connected registry.
 
-![Connected registry overview](media/intro-connected-registry/connected-registry-overview.svg)
+:::image type="content" source="media/intro-connected-registry/connected-registry-overview.png" alt-text="Connected registry overview":::
 
 ### Deployment
 
