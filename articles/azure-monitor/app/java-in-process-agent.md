@@ -151,7 +151,7 @@ Auto-collected dependencies (without downstream distributed trace propagation):
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-### Azure SDKs (preview)
+### Azure SDKs
 
 Telemetry emitted by these Azure SDKs is auto-collected by default:
 
