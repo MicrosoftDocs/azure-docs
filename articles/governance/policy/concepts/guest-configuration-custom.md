@@ -255,6 +255,13 @@ following known compatibility issues.
   switch to `PSDscResources`.
 - Do not use the `WindowsFeature` and `WindowsFeatureSet` resources in `PsDscResources`. Instead,
   switch to the `WindowsOptionalFeature` and `WindowsOptionalFeatureSet` resources.
+  
+The "nx" resources for Linux that were included in the
+[DSC for Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers)
+repo were written in a combination of the languages C and Python. Because the path
+forward for DSC on Linux is to use PowerShell, the existing "nx" resources
+aren't compatible with DSCv3. Until a new module containing supported resources for Linux
+is available, it's required to author custom resources.
 
 ## Coexistance with DSC version 3 and previous versions
 
