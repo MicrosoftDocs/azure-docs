@@ -20,6 +20,10 @@ In this quickstart, create a conversations project in Conversational Language Un
 * Train and deploy your project's model
 * Use your deployed model's endpoint. 
 
+## Prerequisites
+
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+
 ## Sign in to Language Studio
 
 1. Go to the [Language Studio](https://language.azure.com/) and sign in with your Azure account. 
