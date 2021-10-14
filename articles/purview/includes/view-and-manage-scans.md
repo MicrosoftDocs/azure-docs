@@ -7,7 +7,7 @@ ms.topic: include
 ms.date: 6/04/2021
 ---
 
-## Viewing your scans and scan runs
+### View your scans and scan runs
 
 To view existing scans, do the following:
 
@@ -19,7 +19,7 @@ To view existing scans, do the following:
 
 1. This page will show you all of the previous scan runs along with the status and metrics for each scan run. It will also display whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
 
-## Manage your scans - edit, delete, or cancel
+### Manage your scans - edit, delete, or cancel
 
 To manage or delete a scan, do the following:
 
