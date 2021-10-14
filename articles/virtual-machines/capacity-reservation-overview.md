@@ -69,6 +69,17 @@ If you then deploy a D2s_v3 VM and specify reservation as its property, the capa
 
 Both used and unused capacity reservation are eligible for Reserved Instances term commitment discounts. In the above example, if you have Reserved Instances for 2 D2s_v3 VM in the same Azure region, the billing for 2 resources (either VM or unused capacity reservation) will be zeroed out and you'll only pay for the rest of the 8 resources (that is, 5 unused capacity reservations and 3 D2s_v3 VMs). In this case, the term commitment discounts could be applied on either the VM or the unused Capacity Reservation, both of which are charged at the same PAYG rate. 
 
+## Difference between On-demand Capacity Reservation and Reserved Instances 
+
+| | On-demand Capacity Reservation | Reserved Instances|
+|---|---|---|
+| Term | No term commitment required. Can be created and deleted as per the customer requirement | Fixed term commitment of either one-year or three-years|
+| Billing discount | Charged at pay-as-you-go rates for the underlying VM size* | Significant cost savings over pay-as-you-go rates |
+| Capacity SLA | At GA, capacity reservation will provide capacity guarantee in the specified location (region or availability zone) | Does not provide a capacity guarantee. Customers can choose “capacity priority” to gain better access, but that option does not carry an SLA |
+| Region vs Availability Zones | Can be deployed per region or per availability zone | Only available at regional level |
+
+*Eligible for Reserved Instances discount if purchased separately
+
 
 ## Work with Capacity Reservation 
 
