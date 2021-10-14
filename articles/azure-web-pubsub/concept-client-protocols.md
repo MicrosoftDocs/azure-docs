@@ -98,11 +98,11 @@ If `ackId` is not specified, it's fire-and-forget. Even there're errors when bro
 
 #### Idempotent publish
 
-`ackId` is a int32 number and should be unique with in a client with the same connection id. Web PubSub Service recodes the `ackId` and messages with same `ackId` will be treat as the same message. The service refuses to broker the same message more than once, which is useful in retry to avoid duplicated messages. For example, if a client sends a message with `ackId=5` and fails to receive ack response with `ackId=5`, then client retries and sends the same message again. In some cases, the message is already brokered and the ack response is lost for some reason, the service will reject the retry and response an ack response with `Duplicate` reason.
+`ackId` is a int32 number and should be unique with in a client with the same connection id. Web PubSub Service recodes the `ackId` and messages with same `ackId` will be treated as the same message. The service refuses to broker the same message more than once, which is useful in retry to avoid duplicated messages. For example, if a client sends a message with `ackId=5` and fails to receive ack response with `ackId=5`, then client retries and sends the same message again. In some cases, the message is already brokered and the ack response is lost for some reason, the service will reject the retry and response an ack response with `Duplicate` reason.
 
 #### Ack Response
 
-Web PubSub Service send ack response for each request with `ackId`.
+Web PubSub Service sends ack response for each request with `ackId`.
 
 Format:
 ```json
@@ -119,10 +119,10 @@ Format:
 
 * The `ackId` associates the request.
 
-* `success` is a bool and indicate whether the request is successfully processed by the service. If it's `false`, clients need to check the `error`.
+* `success` is a bool and indicate whether the request is successfully processed by the service. If it is `false`, clients need to check the `error`.
 
 * `error` only exists when `success` is `false` and clients should have different logic for different `name`
-    - `Forbidden`: The client don't have the permission to the request. The client needs to be added relevant roles.
+    - `Forbidden`: The client doesn't have the permission to the request. The client needs to be added relevant roles.
     - `InternalServerError`: Some internal error happened in the service. Retry is required.
     - `Duplicate`: The message with the same `ackId` has been already processed by the service.
     - `InvocationFailed`: Event handler is not registered or the invocation is failed.
