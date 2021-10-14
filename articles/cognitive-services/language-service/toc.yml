@@ -117,6 +117,14 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
+      - name: Entity components
+        href: custom-language-understanding/concepts/entity-components.md
+  - name: Reference
+    items:
+      - name: Prebuilt component reference
+        href: custom-language-understanding/prebuilt-component-reference.md
+      - name: Service limits
+        href: custom-language-understanding/service-limits.md
 - name: Entity linking
   items:
   - name: Overview

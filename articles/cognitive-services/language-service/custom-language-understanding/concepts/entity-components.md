@@ -1,108 +1,126 @@
-## Overview
+---
+title: Entity components in Conversational Language Understanding 
+titleSuffix: Azure Cognitive Services
+description: Learn how Conversational Language Understanding extracts entities from text 
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: conceptual
+ms.date: 11/02/2021
+ms.author: aahi
+---
 
-Entities extract relevant pieces of information from your utterances. An entity can be extracted by different methods. They can be learned through context, matched from a list, or detected by a prebuilt. Every entity in your project is composed by one or more of these methods that are defined as your entity&#39;s components. When an entity is defined by more than one component, their predictions can overlap. You can determine the behavior of the entity prediction when its components&#39; overlap using a fixed set of options in the &quot;Overlap Method&quot;.
+# Entity components
 
-## Entity Components
+In Conversational Language Understanding, entities are relevant pieces of information that are extracted from your utterances. An entity can be extracted by different methods. They can be learned through context, matched from a list, or detected by a prebuilt recognized entity. Every entity in your project is composed of one or more of these methods, which are defined as your entity's components. When an entity is defined by more than one component, their predictions can overlap. You can determine the behavior of an entity prediction when its components overlap by using a fixed set of options in the **Overlap Method**.
 
-An entity component determines a way you can extract the entity. An entity can simply contain one component and that would determine the only method that extracts the entity, or multiple components to expand the ways in which the entity is defined.
+## Component types
 
-### Learned Component
+An entity component determines a way you can extract the entity. An entity can simply contain one component, which would determine the only method that would be used to extract the entity, or multiple components to expand the ways in which the entity is defined and extracted.
 
-The learned component uses the entity tags you label your utterances with to train a machine learned model. The model learns to predict where the entity is based on the context within the utterance. Your labels provide examples of where the entity is expected to be present in the utterance based on the meaning of the words around it, as well as the words that were labelled. This component is only defined if you add labels by tagging utterances for the entity. If you do not tag any utterances with the entity, it will not have a Learned component.
+### Learned component
+
+The learned component uses the entity tags you label your utterances with to train a machine learned model. The model learns to predict where the entity is, based on the context within the utterance. Your labels provide examples of where the entity is expected to be present in an utterance, based on the meaning of the words around it and as the words that were labelled. This component is only defined if you add labels by tagging utterances for the entity. If you do not tag any utterances with the entity, it will not have a Learned component.
 
 :::image type="content" source="../media/learned-component.png" alt-text="A screenshot showing an example of learned components for entities." lightbox="../media/learned-component.png":::
 
-### List Component
+### List component
 
-The list component represents a fixed, closed set of related words along with their synonyms. The component performs an exact text match against the list of values you provide as synonyms. Each synonym belongs to a &quot;list key&quot; which can be used as the normalized, standard value for the synonym that will return in the output if the list component is matched. List keys are **not** used for matching.
+The list component represents a fixed, closed set of related words along with their synonyms. The component performs an exact text match against the list of values you provide as synonyms. Each synonym belongs to a "list key" which can be used as the normalized, standard value for the synonym that will return in the output if the list component is matched. List keys are **not** used for matching.
 
 
 :::image type="content" source="../media/list-component.png" alt-text="A screenshot showing an example of list components for entities." lightbox="../media/list-component.png":::
 
-### Prebuilt Component
+### Prebuilt component
 
-The prebuilt component allows you to select from a library of ready-built common types such as numbers, datetimes, names and others. When added, a prebuilt component is automatically detected. You can have up to 5 prebuilt components per entity. The list of supported prebuilt components can be found [here](./prebuilt-component-reference.md).
+The prebuilt component allows you to select from a library of common types such as numbers, datetimes, and names. When added, a prebuilt component is automatically detected. You can have up to 5 prebuilt components per entity. See [the list of supported prebuilt components](../prebuilt-component-reference.md) for more information.
 
 
 :::image type="content" source="../media/prebuilt-component.png" alt-text="A screenshot showing an example of prebuilt components for entities." lightbox="../media/prebuilt-component.png":::
 
 
-## Overlap Methods
+## Overlap methods
 
-When multiple components are defined for an entity, their predictions may overlap. The entity&#39;s final prediction when overlap occurs is determined determined through one of the following options for each entity.
+When multiple components are defined for an entity, their predictions may overlap. When an overlap occurs, each entity's final prediction is determined determined by one of the following options.
 
-### Longest Overlap
+### Longest overlap
 
-When 2 or more components are found in the text and **overlap,** the component with the **longest set of characters** is returned.
+When two or more components are found in the text and the overlap method is used, the component with the **longest set of characters** is returned.
 
-**When to use:** This option is best used when you&#39;re interested in extracting the longest possible prediction by the different components. This method guarantees that whenever there is confusion (overlap), to return the component that is longest.
+This option is best used when you're interested in extracting the longest possible prediction by the different components. This method guarantees that whenever there is confusion (overlap), the returned component will be the longest.
 
-**Examples:**
+#### Examples
 
-1. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Palm Beach Extension&quot; was predicted by the Learned component, then &quot; __**Palm Beach Extension**__&quot; is returned because it is the longest set of characters in this overlap._
+1. _If "Palm Beach" was matched by the List component and "Palm Beach Extension" was predicted by the Learned component, then "**Palm Beach Extension**" is returned because it is the longest set of characters in this overlap._
 
-:::image type="content" source="../media/ReturnLongestOverlapExampleA.svg" alt-text="A screenshot showing an example of longest overlap results for components." lightbox="../media/ReturnLongestOverlapExampleA.svg":::
+    :::image type="content" source="../media/return-longest-overlap-example-1.svg" alt-text="A screenshot showing an example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-1.svg":::
 
-2. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Beach Extension&quot; was predicted by the Learned component, then &quot; __**Beach Extension**__&quot; is returned because it is the component with longest set of characters in this overlap._
+2. _If "Palm Beach" was matched by the List component and "Beach Extension" was predicted by the Learned component, then "**Beach Extension**" is returned because it is the component with longest set of characters in this overlap._
 
-:::image type="content" source="../media/ReturnLongestOverlapExampleB.svg" alt-text="A screenshot showing an example of longest overlap results for components." lightbox="../media/ReturnLongestOverlapExampleB.svg":::
+    :::image type="content" source="../media/return-longest-overlap-example-2.svg" alt-text="A screenshot showing a second example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-2.svg":::
 
-3. _If &quot;Palm Beach&quot; was matched from the List component and &quot;Extension&quot; was predicted by the Learned component, then 2 separate instances of the entities return as there is no overlap between them, one for &quot; __**Palm Beach**__&quot; and one for &quot; __**Extension**__&quot;, as no overlap has occurred in this instance._
+3. _If "Palm Beach" was matched from the List component and "Extension" was predicted by the Learned component, then 2 separate instances of the entities are returned, as there is no overlap between them: one for "**Palm Beach**" and one for "**Extension**", as no overlap has occurred in this instance._
 
-:::image type="content" source="../media/ReturnLongestOverlapExampleC.svg" alt-text="A screenshot showing an example of longest overlap results for components." lightbox="../media/ReturnLongestOverlapExampleC.svg":::
+    :::image type="content" source="../media/return-longest-overlap-example-3.svg" alt-text="A screenshot showing a third example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-3.svg":::
 
 ### Exact Overlap
 
 All components must overlap at the **exact same characters** in the text for the entity to return. If one of the defined components is not matched or predicted, the entity will not return.
 
-**When to use:** This option is best when you have a strict entity that needs to have several components detected at the same time to be extracted.
+This option is best when you have a strict entity that needs to have several components detected at the same time to be extracted.
 
-Examples:
+#### Examples
 
-1. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Palm Beach&quot; was predicted by the Learned component, and those were the only 2 components defined in the entity, then &quot; __**Palm Beach**__&quot; is returned because all the components overlapped at the exact same characters._
+1. _If "Palm Beach" was matched by the list component and "Palm Beach" was predicted by the learned component, and those were the only 2 components defined in the entity, then "**Palm Beach**" is returned because all the components overlapped at the exact same characters._
 
-:::image type="content" source="../media/RequireExactOverlapExampleA.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/RequireExactOverlapExampleA.svg":::
+    :::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
 
-2. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Beach Extension&quot; was predicted by the Learned component, then the entity is  __**not**__  returned because all the components did not overlap at the exact same characters._
+2. _If "Palm Beach" was matched by the list component and "Beach Extension" was predicted by the learned component, then the entity is **not** returned because all the components did not overlap at the exact same characters._
 
-:::image type="content" source="../media/RequireExactOverlapExampleB.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/RequireExactOverlapExampleB.svg":::
+    :::image type="content" source="../media/require-exact-overlap-example-2.svg" alt-text="A screenshot showing a second example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-2.svg":::
 
-3. _If &quot;Palm Beach&quot; was matched from the List component and &quot;Extension&quot; was predicted by the Learned component, then the entity is  __**not**__  returned because no overlap has occurred in this instance._
+3. _If "Palm Beach" was matched from the list component and "Extension" was predicted by the learned component, then the entity is **not** returned because no overlap has occurred in this instance._
 
-:::image type="content" source="../media/RequireExactOverlapExampleC.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/RequireExactOverlapExampleC.svg":::
+    :::image type="content" source="../media/require-exact-overlap-example-3.svg" alt-text="A screenshot showing a third example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-3.svg":::
 
 ### Union Overlap
 
-When 2 or more components are found in the text and overlap, the **union** of the components&#39; spans are returned.
+When two or more components are found in the text and overlap, the **union** of the components' spans are returned.
 
-**When to use:** This option is best when you&#39;re optimizing for recall and attempting to get the longest possible match that can be combined.
+This option is best when you're optimizing for recall and attempting to get the longest possible match that can be combined.
 
-Examples:
+#### Examples
 
-1. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Palm Beach Extension&quot; was predicted by the learned component, then &quot; __**Palm Beach Extension**__&quot; is returned because the first character at the beginning of the overlap is &#39;P&#39; in &#39;Palm&#39; and the last letter at the end of the overlapping components is &#39;n&#39; in &quot;Extension&quot;._
+1. _If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then "**Palm Beach Extension**" is returned because the first character at the beginning of the overlap is the "P" in "Palm", and the last letter at the end of the overlapping components is the "n" in "Extension"._
 
-:::image type="content" source="../media/ReturnUnionExampleA.svg" alt-text="A screenshot showing an example of union overlap results for components." lightbox="../media/ReturnUnionExampleA.svg":::
+    :::image type="content" source="../media/return-union-example-1.svg" alt-text="A screenshot showing an example of union overlap results for components." lightbox="../media/return-union-example-1.svg":::
 
-2. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Beach Extension&quot; was predicted by the Learned component, then &quot; __**Palm Beach Extension**__&quot; is returned because the first character at the beginning of the overlap is &#39;P&#39; in &#39;Palm&#39; and the last letter at the end of the overlapping components is &#39;n&#39; in &quot;Extension&quot;._
+2. _If "Palm Beach" was matched by the list component and "Beach Extension" was predicted by the learned component, then "**Palm Beach Extension**" is returned because the first character at the beginning of the overlap is the "P" in "Palm", and the last letter at the end of the overlapping components is the "n" in "Extension"._
 
-:::image type="content" source="../media/ReturnUnionExampleB.svg" alt-text="A screenshot showing an example of union overlap results for components." lightbox="../media/ReturnUnionExampleB.svg":::
+    :::image type="content" source="../media/return-union-example-2.svg" alt-text="A screenshot showing a second example of union overlap results for components." lightbox="../media/return-union-example-2.svg":::
 
-3. _If &quot;New York&quot; was predicted by the Prebuilt component, &quot;York Beach&quot; was matched by the List component, and &quot;Beach Extension&quot; was predicted by the Learned component, then &quot; __**New York Beach Extension**__&quot; is returned because the first character at the beginning of the overlap is &#39;n&#39; in &#39;New&#39; and the last letter at the end of the overlapping components is &#39;n&#39; in &quot;Extension&quot;._
+3. _If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then " __**New York Beach Extension**__" is returned because the first character at the beginning of the overlap is the "N" in "New" and the last letter at the end of the overlapping components is the "n" in "Extension"._
 
-:::image type="content" source="../media/ReturnUnionExampleC.svg" alt-text="A screenshot showing an example of union overlap results for components." lightbox="../media/ReturnUnionExampleC.svg":::
+    :::image type="content" source="../media/return-union-example-3.svg" alt-text="A screenshot showing a third example of union overlap results for components." lightbox="../media/return-union-example-3.svg":::
 
 ### Return all separately
 
-Every component&#39;s match or prediction is returned as a **separate instance** of the entity.
+Every component's match or prediction is returned as a **separate instance** of the entity.
 
-**When to use:** This option is best when you&#39;d like to apply your own overlap logic for the entity after the prediction.
+This option is best when you'd like to apply your own overlap logic for the entity after the prediction.
 
-Examples:
+#### Examples
 
-1. _If &quot;Palm Beach&quot; was matched by the List component and &quot;Palm Beach Extension&quot; was predicted by the Learned component, then the entity returns two instances, one for &quot;  __**Palm Beach**__&quot; and another for &quot; __**Palm Beach Extension**__&quot;._
+1. _If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then the entity returns two instances: one for "**Palm Beach**" and another for "**Palm Beach Extension**"._
 
-:::image type="content" source="../media/ReturnAllOverlapsExampleA.svg" alt-text="A screenshot showing an example of return all overlap results for components." lightbox="../media/ReturnAllOverlapsExampleA.svg":::
+    :::image type="content" source="../media/return-all-overlaps-example-1.svg" alt-text="A screenshot showing an example of return all overlap results for components." lightbox="../media/return-all-overlaps-example-1.svg":::
 
-2. _If &quot;New York&quot; was predicted by the Prebuilt component, &quot;York Beach&quot; was matched by the List component, and &quot;Beach Extension&quot; was predicted by the Learned component, then the entity returns with 3 instances, one for &quot; __**New York**__&quot;, one for &quot; __**York Beach**__&quot;, and one for &quot; __**Beach Extension**__&quot;._
+2. _If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then the entity returns with 3 instances: one for "**New York**", one for "**York Beach**", and one for "**Beach Extension**"._
 
-:::image type="content" source="../media/ReturnAllOverlapsExampleB.svg" alt-text="A screenshot showing an example of return all overlap results for components." lightbox="../media/ReturnAllOverlapsExampleB.svg":::
+    :::image type="content" source="../media/return-all-overlaps-example-2.svg" alt-text="A screenshot showing an example of return all overlap results for components." lightbox="../media/return-all-overlaps-example-2.svg":::
+
+## Next steps
+
+[Supported prebuilt components](../prebuilt-component-reference.md)
