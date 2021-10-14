@@ -222,7 +222,7 @@ To host your HTML content in Blob storage, perform the following steps:
 1. **Performance** can remain **Standard**.
 1. **Redundancy** can remain **Geo-redundant storage (GRS)**
 1. Select **Review + create** and wait a few seconds for Azure AD to run a validation. 
-1. Select **Create** to create the storage account. After the deployment is completed, select **Go to resource** to open the storage account.
+1. Select **Create** to create the storage account. After the deployment is completed, the storage account page opens automatically or select **Go to resource**.
 #### 2.1 Create a container
 
 To create a public container in Blob storage, perform the following steps:
@@ -269,7 +269,7 @@ Validate that you're ready by performing the following steps:
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
-Learn more about [how to create and manage Azure storage accounts](../../azure/storage/common/storage-account-create.md).
+Learn more about [how to create and manage Azure storage accounts](../../azure/storage/common/storage-account-create).
 
 ::: zone pivot="b2c-user-flow"
 
