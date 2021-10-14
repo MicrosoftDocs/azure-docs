@@ -102,7 +102,7 @@ Go to the layout file (`app/src/main/res/layout/activity_main.xml`). Here we'll 
 
 Go to `MainActivity`. Here we'll drop the following code to initialize our Composite Components for Calling. Replace `"GROUP_CALL_ID"` with your group id for your call, `"DISPLAY_NAME"` with your name, and  `"<USER_ACCESS_TOKEN>"` with your token.
 
-#### [Kotlin](#tab1/kotlin)
+#### [Kotlin](#tab/kotlin1)
 
 ```kotlin
 package com.example.uilibraryquickstart
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-#### [Java](#tab1/java)
+#### [Java](#tab/java1)
 
 ```java
 package com.example.uilibraryquickstart;
@@ -223,12 +223,12 @@ The following classes and interfaces handle some of the major features of the Az
 
 Initialize a `CallCompositeBuilder` instance and a `CallComposite` instance inside the `startCallComposite` function.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab/kotlin2)
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
 ```
-#### [Java](#tab/java)
+#### [Java](#tab/java2)
 
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
@@ -238,7 +238,7 @@ CallComposite callComposite = new CallCompositeBuilder().build();
 
 Initialize a `CommunicationTokenCredential` instance inside the `startCallComposite` function. Replace `"<USER_ACCESS_TOKEN>"` with your token.
 
-#### [Kotlin](#tab2/kotlin)
+#### [Kotlin](#tab/kotlin3)
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
@@ -248,7 +248,7 @@ val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(this::fe
 val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 ```
 
-#### [Java](#tab2/java)
+#### [Java](#tab/java3)
 
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
@@ -272,7 +272,7 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 Replace `"GROUP_CALL_ID"` with your group id for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
-#### [Kotlin](#tab3/kotlin)
+#### [Kotlin](#tab/kotlin4)
 
 ```kotlin
 val options = GroupCallOptions(
@@ -283,7 +283,7 @@ val options = GroupCallOptions(
         )
 ```
 
-#### [Java](#tab3/java)
+#### [Java](#tab/java4)
 
 ```java
 GroupCallOptions options = new GroupCallOptions(
@@ -300,7 +300,7 @@ Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` func
 Replace `"TEAMS_MEETING_LINK"` with your group id for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
-#### [Kotlin](#tab4/kotlin)
+#### [Kotlin](#tab/kotlin5)
 
 ```kotlin
 val options = TeamsMeetingOptions(
@@ -311,7 +311,7 @@ val options = TeamsMeetingOptions(
         )
 ```
 
-#### [Java](#tab4/java)
+#### [Java](#tab/java5)
 
 ```java
 TeamsMeetingOptions options = new TeamsMeetingOptions(
@@ -332,13 +332,13 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 Call `launch` on the `CallComposite` instance inside the `startCallComposite` function
 
-#### [Kotlin](#tab5/kotlin)
+#### [Kotlin](#tab/kotlin6)
 
 ```kotlin
 callComposite.launch(options)
 ```
 
-#### [Java](#tab5/java)
+#### [Java](#tab/java6)
 
 ```java
 callComposite.launch(options);
@@ -348,7 +348,7 @@ callComposite.launch(options);
 
 To receive events, inject a handler to `CallCompositeBuilder`.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab/kotlin7)
 
 ```kotlin
 val communicationCallComposite: CallComposite =
@@ -360,7 +360,7 @@ val communicationCallComposite: CallComposite =
 
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java7)
 
 ```java
 CallComposite communicationCallComposite =
@@ -382,7 +382,7 @@ To change the primary color of composite, create a new theme style in `src/main/
 </style>
 ```
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab/kotlin8)
 
 ```kotlin
 val communicationCallComposite: CallComposite =
@@ -394,7 +394,7 @@ val communicationCallComposite: CallComposite =
             .build()
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java8)
 
 ```java
 CallComposite callComposite = 
