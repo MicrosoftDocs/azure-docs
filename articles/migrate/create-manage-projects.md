@@ -30,11 +30,11 @@ Set up a new project in an Azure subscription.
 
 1. In the Azure portal, search for *Azure Migrate*.
 2. In **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Assess and migrate servers**.
+3. In **Get Started**, select **Discover, Assess and migrate servers**.
 
-    :::image type="content" source="./media/create-manage-projects/assess-migrate-servers.png" alt-text="Option in Overview to assess and migrate servers":::
+    :::image type="content" source="./media/create-manage-projects/assess-migrate-servers.png" alt-text="Option in Get Started to Discover,assess and migrate servers":::
 
-4. In **Servers**, select **Create project**.
+4. In **Servers, databases and web apps**, select **Create project**.
 
     :::image type="content" source="./media/create-manage-projects/create-project.png" alt-text="Button to start creating project":::
 
@@ -67,7 +67,7 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 If you already have a project and you want to create an additional project, do the following:  
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
-2. On the Azure Migrate dashboard > **Servers**, select **change** in the upper-right corner.
+2. On the Azure Migrate dashboard > **Servers, databases and web apps**, select **change** in the upper-right corner.
 
     :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Change project":::
 
@@ -79,7 +79,7 @@ If you already have a project and you want to create an additional project, do t
 Find a project as follows:
 
 1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
-2. In the Azure Migrate dashboard > **Servers**, select **change** in the upper-right corner.
+2. In the Azure Migrate dashboard > **Servers, databases and web apps**, select **change** in the upper-right corner.
 
     :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Switch to an existing project":::
 
