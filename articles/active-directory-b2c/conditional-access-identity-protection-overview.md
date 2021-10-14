@@ -10,10 +10,11 @@ ms.date: 05/28/2021
 
 ms.author: kengaderdus
 author: kengaderdus
- manager: CelesteDG
+manager: CelesteDG
 
 ms.collection: M365-identity-device-management
 ---
+
 # Identity Protection and Conditional Access for Azure AD B2C
 
 Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give Azure AD B2C application owners greater control over risky authentications and access policies.
