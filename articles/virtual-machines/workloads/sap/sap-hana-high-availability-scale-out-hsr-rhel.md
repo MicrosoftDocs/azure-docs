@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/13/2021
+ms.date: 10/14/2021
 ms.author: radeltch
 
 ---
@@ -874,7 +874,7 @@ Include all virtual machines, including the majority maker in the cluster.
     ```
 
    > [!TIP]
-   > If your configuration includes other file systems, besides /`hana/shared`, which are NFS mounted, then include `sequential=false` option, so that there are no ordering dependencies among the file systems. All NFS mounted file systems must start, before the corresponding attribute resource, but they do not need to start in any order relative to each other. For more information see [How do I configure SAP HANA Scale-Out HSR in a pacemaker cluster when the HANA file systems are NFS shares](https://access.redhat.com/solutions/5423971).  
+   > If your configuration includes other file systems, besides /`hana/shared`, which are NFS mounted, then include `sequential=false` option, so that there are no ordering dependencies among the file systems. All NFS mounted file systems must start, before the corresponding attribute resource, but they do not need to start in any order relative to each other. For more information, see [How do I configure SAP HANA Scale-Out HSR in a pacemaker cluster when the HANA file systems are NFS shares](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** Place pacemaker in maintenance mode, in preparation for the creation of the HANA cluster resources.  
     ```bash
@@ -1038,11 +1038,11 @@ Include all virtual machines, including the majority maker in the cluster.
   
 ## Configure HANA active/read enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intensive workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intensive workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
 
 This section describes the additional steps that are required to manage HANA scale-out Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP.  
 
-Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in above segments of the documentation.  
+Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in the above segments of the documentation.  
 
 ![SAP HANA scale-out high availability with read-enabled secondary](./media/sap-hana-high-availability-rhel/sap-hana-high-avalability-scale-out-hsr-rhel-read-enabled.png)
 
@@ -1071,7 +1071,7 @@ To proceed with additional steps on provisioning second virtual IP, make sure yo
 
    - Open the load balancer, select **load balancing rules**, and select **Add**.
    - Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
-   - Select the front-end IP address , the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
+   - Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
    - Select **HA Ports**.
    - Make sure to **enable Floating IP**.
    - Select **OK**.
@@ -1086,6 +1086,74 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2 --operationMode=logreplay_readaccess 
 ```
 
+### Adding a secondary virtual IP address resource for an active/read-enabled setup
+
+The second virtual IP and the additional constraints can be configured with the following commands.
+If the secondary instance is down, the secondary virtual IP will be switched to the primary.   
+
+```
+pcs property set maintenance-mode=true
+
+pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.23.0.19"
+pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
+pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
+
+# RHEL 8.x: 
+pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq "master1:master:worker:master" and hana_hn1_clone_state eq PROMOTED
+pcs constraint location g_secip_HN1_03 rule score=50  hana_hn1_roles eq 'master1:master:worker:master'
+pcs constraint order promote  msl_SAPHana_HN1_HDB03-clone then start g_ip_HN1_03
+pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
+pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03-clone 5
+
+# RHEL 7.x:
+pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq "master1:master:worker:master" and hana_hn1_clone_state eq PROMOTED
+pcs constraint location g_secip_HN1_03 rule score=50  hana_hn1_roles eq 'master1:master:worker:master'
+pcs constraint order promote  msl_SAPHana_HN1_HDB03 then start g_ip_HN1_03
+pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
+pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03 5
+
+pcs property set maintenance-mode=false
+```
+Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana secondary resource.
+
+```
+# Example output from crm_mon
+#Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#
+#Active resources:
+#
+#rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+#Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+#    Started: [ hana--s1-db1 hana-s1-db2 hana-s1-db3 ]
+#Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+#    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+#    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+#Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+#    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+#    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+#    Masters: [ hana-s1-db1 ]
+#    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Resource Group: g_ip_HN1_03
+#    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
+#    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
+#Resource Group: g_secip_HN1_03
+#    secnc_HN1_03       (ocf::heartbeat:azure-lb):      Started hana-s2-db1
+#    secvip_HN1_03      (ocf::heartbeat:IPaddr2):       Started hana-s2-db1
+
+```
+
+In next section, you can find the typical set of failover tests to execute.
+
+Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
+
+1. When you migrate **SAPHana_HN1_HDB03** cluster resource to **hana-s2-db1**, the second virtual IP will move to the other server **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1** as the server is available and cluster services are online.  
+
+2. When testing server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and Azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected allows applications that are connected to read-enabled HANA database to operate, while the time secondary server is unavailable.   
+  
+3. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
 
 ## Test SAP HANA failover 
 
@@ -1195,7 +1263,7 @@ hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicatio
       sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
       ```
   
-   The HANA VM, that lost access to to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
+   The HANA VM, that lost access to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
          
    If the cluster has not started on the VM, that was restarted, start the cluster by executing: 
 
