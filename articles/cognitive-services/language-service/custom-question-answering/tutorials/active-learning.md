@@ -1,6 +1,6 @@
 ---
-title: Enrich your knowledge base with Active Learning
-description: In this tutorial, learn how to enrich your knowledge bases with action learning
+title: Enrich your project with active learning
+description: In this tutorial, learn how to enrich your question answering projects with active learning
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
@@ -9,63 +9,65 @@ ms.author: mbullwin
 ms.date: 11/02/2021
 ---
 
-# Enrich your knowledge base with Active Learning
+# Enrich your project with active learning
 
-This tutorial shows you how enhance your knowledge base with active learning. If you notice that customers are asking questions, which are not part of your knowledge base. There are often variations of question that are paraphrased differently. 
+In this tutorial, you learn how to:
 
-These variations when added as alternate questions to the relevant QnA pair, help to optimize the knowledge base to answer real world user queries. You can manually add alternate questions to QnA pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Download an active learning test file
+> * Import the test file to your existing project
+> * Accept/reject active learning suggestions
+> * Add alternate questions
 
-## Enable Active Learning
-Active Learning is turned on by default for the Custom Question Answering feature.
+This tutorial shows you how to enhance your question answering project with active learning. If you notice that customers are asking questions, which are not part of your project. There are often variations of questions that are paraphrased differently.
 
-To try out Active Learning suggestions, you can import the following file to the knowledge base: [SampleActiveLearning.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv).
-For more details on importing knowledge base, refer [Import Knowledge Base](../how-to/migrate-knowledge-base.md).
+These variations when added as alternate questions to the relevant question answer pair, help to optimize the project to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
 
-## View and add/reject Active Learning Suggestions
-Once the active learning suggestions are available, they can be viewed from **View Options** > **Show active learning suggestions**.
+## Enable active learning
 
-> [!div class="mx-imgBorder"]
-> [ ![Screenshot with view options and show active learning suggestions outlined in red boxes]( ../media/active-learning/view-options.png) ]( ../media/active-learning/view-options.png#lightbox)
+Active learning is turned on by default for question answering enabled resources.
 
-Clicking on **Show active learning suggestions**, enables the option to filter QnA Pairs that have suggestions. If active learning is disabled or there aren’t any suggestions, **Show active learning suggestions** will be disabled.
+To try out active learning suggestions, you can import the following file as a new project: [SampleActiveLearning.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv).
 
-> [!div class="mx-imgBorder"]
-> [ ![Screenshot with filter by options highlighted in a red box]( ../media/active-learning/filter-by-suggestions.png) ]( ../media/active-learning/filter-by-suggestions.png#lightbox)
+## Download file
 
-We can choose to filter only those QnA pairs that have alternate questions as suggested by Active Learning, so the filtered list of QnA pairs is displayed:
+Run the following command from the command prompt to download a local copy of the `SampleActiveLearning.tsv` file.
 
-> [!div class="mx-imgBorder"]
-> [ ![Screenshot with view help with surface pen highlighted in a red box]( ../media/active-learning/help.png) ]( ../media/active-learning/help.png#lightbox)
+```cmd
+curl "https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv" --output SampleActiveLearning.tsv
+```
 
+## Import file
 
-We can now either accept these suggestions or reject them using the checkmark or cross-mark. This can be either done individually navigating to each QnA pair or using the **Accept / Reject** option at the top.
-
-> [!div class="mx-imgBorder"]
-> [ ![Screenshot with option to accept or reject highlighted in red]( ../media/active-learning/accept-reject.png) ]( ../media/active-learning/accept-reject.png#lightbox)
-
-The knowledge base does not change unless we choose to add or edit the suggestions as suggested by Active Learning. Finally, click on Save and train to save the changes.
-
-## Add alternate questions using editor
-
-While active learning automatically suggests alternate questions based on the user queries hitting the knowledge base, we can also add variations of a question using the editor.
-Select the QnA pair where alternate question is to be added and select **Add alternative phrasing**
+From the edit knowledge base pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. The select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with add alternative phrasing highlighted in red]( ../media/active-learning/add-alternative-phrasing.png) ]( ../media/active-learning/add-alternative-phrasing.png#lightbox)
+> [ ![Screenshot of edit knowledge base menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions.png) ]( ../media/active-learning/import-questions.png#lightbox)
 
-Alternate questions added to the QnA pair is shown as
+## View and add/reject active learning suggestions
+
+Once the import of the test file is complete, active learning suggestions can be viewed on the review suggestions pane:
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot with drawing with pen highlighted in red]( ../media/active-learning/draw-with-pen.png) ]( ../media/active-learning/draw-with-pen.png#lightbox)
+> [ ![Screenshot with review suggestions page displayed.]( ../media/active-learning/review-suggestions.png) ]( ../media/active-learning/review-suggestions.png#lightbox)
 
-By adding alternate questions along with Active Learning, we further enrich the knowledge base with variations of a question that helps to provide the same response to a similar user query.
+We can now either accept these suggestions or reject them using the options on the menu bar to **Accept all suggestions** or **Reject all suggestions**.
 
+Alternatively, to accept or reject individual suggestions, select the checkmark (accept) symbol or trash can (reject) symbol that appears next to individual questions in the **Review suggestions** page.
 
-> [!NOTE] 
-> Alternate questions have many stop words, then they might not impact the accuracy of response as expected. So, if the only difference between alternate questions is in the stop words, these alternate questions are not required.
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot with option to accept or reject highlighted in red.]( ../media/active-learning/accept-reject.png) ]( ../media/active-learning/accept-reject.png#lightbox)
 
-The list of stop words can be found here: List of [stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
+## Add alternate questions
 
+While active learning automatically suggests alternate questions based on the user queries hitting the project, we can also add variations of a question on the edit knowledge base page by selecting **Add alternate phrase** to question answer pairs.
+
+By adding alternate questions along with active learning, we further enrich the project with variations of a question that helps to provide consistent answers to user queries.
+
+> [!NOTE]
+> When alternate questions have many stop words, they might negatively impact the accuracy of responses. So, if the only difference between alternate questions is in the stop words, these alternate questions are not required.
+> To examine the list of stop words consult the [stop words article](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 
 ## Next steps
 

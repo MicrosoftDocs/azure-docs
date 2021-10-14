@@ -3,14 +3,14 @@ title: Security considerations for Azure Active Directory Application Proxy
 description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Security considerations for accessing apps remotely with Azure Active Directory Application Proxy
