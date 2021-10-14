@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 10/14/2021
 ms.author: jeedes
 
 ---
@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure R and D Tax Credit Services SSO
 
-To configure single sign-on on **R and D Tax Credit Services** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [R and D Tax Credit Services support team](mailto:susan.m.tu@pwc.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **R and D Tax Credit Services** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [R and D Tax Credit Services support team](https://www.pwc.com/us/en/services/tax/specialized-tax/research-development-credit.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create R and D Tax Credit Services test user
 
-In this section, you create a user called Britta Simon in R and D Tax Credit Services. Work with [R and D Tax Credit Services support team](mailto:susan.m.tu@pwc.com) to add the users in the R and D Tax Credit Services platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in R and D Tax Credit Services. Work with [R and D Tax Credit Services support team](https://www.pwc.com/us/en/services/tax/specialized-tax/research-development-credit.html) to add the users in the R and D Tax Credit Services platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
