@@ -291,7 +291,7 @@
               href: api-management-transformation-policies.md
             - name: Distributed Application Runtime (Dapr) integration policies
               href: api-management-dapr-policies.md
-            - name: Validation policies
+            - name: Schema validation policies
               href: validation-policies.md  
       - name: Manage in production
         items:

@@ -1,6 +1,6 @@
 ---
 title: Azure API Management validation policies | Microsoft Docs
-description: Learn about policies you can use in Azure API Management to validate requests and responses against a JSON, XML, or SOAP API schema.
+description: Learn about policies you can use in Azure API Management to validate requests and responses against an API schema.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -11,11 +11,11 @@ ms.date: 11/2/2021
 ms.author: danlep
 ---
 
-# API Management policies to validate requests and responses
+# API Management policies to validate requests and responses against a schema
 
 This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-Use validation policies to validate API requests and responses against an existing schema (OpenAPI, XML, or SOAP) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
+Use validation policies to validate API requests and responses against an existing schema in the API definition (OpenAPI, XML, or SOAP) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
 
 ## Validation policies
 
@@ -57,13 +57,15 @@ We recommend performing load tests with your expected production workloads to as
 
 ## Validate content
 
-The `validate-content` policy validates the size or content type of a request or response body against the API schema. The following table shows the supported content types and corresponding API schemas used in API definitions.
+The `validate-content` policy validates the size or schema of a request or response body against the API schema. 
 
-|Content type  | Schema |
-|---------|---------|
-|JSON     |  OpenAPI   |
-|XML     | XSD |
-|SOAP     |   WSDL  |
+The following table shows the formats, sample content types, and API schemas used in API definitions that the policy supports.
+
+| Format  | Content type | Schema |
+|---------|---------|-----|
+|JSON     |  `application/json`<br/>`application/hal+json` | OpenAPI   |
+|XML     |  `application/xml`  | XSD |
+|SOAP     |  `application/soap+xml` | WSDL  |
 
 ### Policy statement
 
@@ -88,16 +90,15 @@ In the following example, the JSON payload in requests and responses is validate
 
 #### SOAP schema validation
 
-The following example validates a SOAP 1.2 API's request or response in prevention mode. Messages with payloads larger than 100 KB are blocked. 
+The following example validates a SOAP 1.2 API's request or response body in prevention mode. Messages with payloads larger than 100 KB are blocked. 
 
-Content types other than "application/soap+xml", including messages without the `Content-Type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the WSDL schema. If validation fails, the request or response is blocked. 
+Content types other than `application/soap+xml`, including messages without the `content-type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the WSDL schema. If validation fails, the request or response is blocked. 
 
 ```xml
 <validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent"> 
     <content type="application/soap+xml" validate-as="soap" action="prevent" /> 
 </validate-content>
 ```
-
 
 ### Elements
 
@@ -114,8 +115,8 @@ Content types other than "application/soap+xml", including messages without the 
 | max-size | Maximum length of the body of the request or response in bytes, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| type | Content type to execute body validation for, checked against the `Content-Type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
-| validate-as | Validation engine to use for validation of the body of a request or response with a matching content type. Supported values: "json", "xml", "soap". "xml" validates the request or response body against an XSD schema. "soap” extracts the body element from the SOAP envelope and then validates it against an XSD schema.  |  Yes     |  N/A  |
+| type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
+| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".  |  Yes     |  N/A  |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
 
 ### Usage
