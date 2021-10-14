@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure CLI
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using the Azure CLI.
-ms.date: 08/05/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -17,7 +17,9 @@ This article shows you how to deploy and uninstall VM extensions, supported by A
 
 ## Install the Azure CLI extension
 
-The ConnectedMachine commands aren't shipped as part of the Azure CLI. Before using the Azure CLI to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to load the ConnectedMachine extension. Run the following command to get it:
+The ConnectedMachine commands aren't shipped as part of the Azure CLI. Before using the Azure CLI to connect to Azure and manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to load the ConnectedMachine extension. These management operations can be performed from your workstation, you don't need to run them on the Azure Arc-enabled server.
+
+Run the following command to get it:
 
 ```azurecli
 az extension add --name connectedmachine
@@ -43,6 +45,12 @@ The following example enables the Key Vault VM extension on an Azure Arc-enabled
 
 ```azurecli
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
+```
+
+The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
+
+```azurecli
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '{"AntimalwareEnabled": true}'
 ```
 
 ## List extensions installed
