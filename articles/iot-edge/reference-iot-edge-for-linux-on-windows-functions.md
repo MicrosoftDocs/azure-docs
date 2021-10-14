@@ -253,4 +253,4 @@ For more information, use the command `Get-Help Verify-EflowVm -full`.
 
 Learn how to use these commands to install and provision IoT Edge for Linux on Windows in the following article:
 
-* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
+* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-on-windows.md)

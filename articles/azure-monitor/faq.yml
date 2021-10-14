@@ -754,7 +754,7 @@ sections:
         answer: |
           Microsoft is among the largest contributors to OpenTelemetry.
           
-          The key value propositions of OpenTelemetry are that it's vender-neutral and provides consistent APIs/SDKs across langauges.
+          The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across langauges.
           
           Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported langauges](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than it's predecessor the Application Insights SDK.
           
@@ -777,7 +777,7 @@ sections:
           
           If you are an existing Azure Monitor Application Insights customer, we **don't** recommend that you migrate to OpenTelemetry yet (except for Java applications where we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/)).
           
-          The current Application Insights SDKs for C# ([ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) and [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)) and [Javascript (Node.js)](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) or [OpenCensus Python](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opencensus-python) offer the most feature-rich experience in Application Insights.
+          The current Application Insights SDKs for C# ([ASP.NET](app/asp-net.md) and [ASP.NET Core](app/asp-net-core.md)) and [Javascript (Node.js)](app/nodejs.md) or [OpenCensus Python](app/opencensus-python.md) offer the most feature-rich experience in Application Insights.
           
           Scenarios that may sway you toward OpenTelemetry sooner-than-later include sending telemetry to Azure Monitor + another vendor simultaneously, collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver), or leveraging features available in the OpenTelemetry-Collector. For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). While similar features exist in the existing Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
           
@@ -795,7 +795,7 @@ sections:
           
           Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
           
-          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). [Python](https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-instrumentation) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry langauges are focused on Manual Instrumentation only.
+          OpenTelemetry auto-instrumentation efforts include a Java offering, which Microsoft supports via a distro called [Java 3.X](app/java-in-process-agent.md). [Python](https://github.com/open-telemetry/opentelemetry-python/tree/main/opentelemetry-instrumentation) and [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation) have experimental auto-instrumentation efforts, which Microsoft does not currently support. All other OpenTelemetry langauges are focused on Manual Instrumentation only.
           
       - question: |
           Can I use the OpenTelemetry-Collector?
@@ -1099,7 +1099,7 @@ sections:
       - question: |
           How often is data collected?
         answer: |
-          The frequency of data collection is customizable. See [Data collected by SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) for details on the default frequencies and see [Create SQL monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) for instructions on customizing frequencies.
+          The frequency of data collection is customizable. See [Data collected by SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#collected-data) for details on the default frequencies and see [Create SQL monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) for instructions on customizing frequencies.
           
 additionalContent: |
 

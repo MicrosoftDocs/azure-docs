@@ -58,7 +58,7 @@ The [HPC-X software toolkit](https://www.mellanox.com/products/hpc-x-toolkit) co
 ```bash
 HPCX_VERSION="v2.6.0"
 HPCX_DOWNLOAD_URL=https://azhpcstor.blob.core.windows.net/azhpc-images-store/hpcx-v2.6.0-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64.tbz
-get --retry-connrefused --tries=3 --waitretry=5 $HPCX_DOWNLOAD_URL
+wget --retry-connrefused --tries=3 --waitretry=5 $HPCX_DOWNLOAD_URL
 tar -xvf hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64.tbz
 mv hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64 ${INSTALL_PREFIX}
 HPCX_PATH=${INSTALL_PREFIX}/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64

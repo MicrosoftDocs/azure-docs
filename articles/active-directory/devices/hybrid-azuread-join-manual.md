@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control.
@@ -178,7 +178,7 @@ To get a list of your verified company domains, you can use the [Get-AzureADDoma
 
 In a federated Azure AD configuration, devices rely on AD FS or an  on-premises federation service from a Microsoft partner to authenticate to Azure AD. Devices authenticate to get an access token to register against the Azure Active Directory Device Registration Service (Azure DRS).
 
-Windows current devices authenticate by using Integrated Windows Authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
+Windows current devices authenticate by using integrated Windows authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
 
 When you're using AD FS, you need to enable the following WS-Trust endpoints
 - `/adfs/services/trust/2005/windowstransport`
@@ -499,7 +499,7 @@ If you have already issued an **ImmutableID** claim  for user accounts, set the 
 If some of your domain-joined devices are Windows down-level devices, you need to:
 
 * Set a policy in Azure AD to enable users to register devices.
-* Configure your on-premises federation service to issue claims to support Integrated Windows Authentication (IWA) for device registration.
+* Configure your on-premises federation service to issue claims to support integrated Windows authentication (IWA) for device registration.
 * Add the Azure AD device authentication endpoint to the local intranet zones to avoid certificate prompts when authenticating the device.
 * Control Windows down-level devices.
 
@@ -521,7 +521,7 @@ Your on-premises federation service must support issuing the **authenticationmet
    which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
    ```
 
-When such a request comes, the on-premises federation service must authenticate the user by using Integrated Windows Authentication. When authentication is successful, the federation service must issue the following two claims:
+When such a request comes, the on-premises federation service must authenticate the user by using integrated Windows authentication. When authentication is successful, the federation service must issue the following two claims:
 
    `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows`
    `http://schemas.microsoft.com/claims/wiaormultiauthn`

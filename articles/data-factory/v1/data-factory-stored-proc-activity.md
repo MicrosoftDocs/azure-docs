@@ -2,6 +2,7 @@
 title: SQL Server Stored Procedure Activity
 description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure Synapse Analytics from a Data Factory pipeline.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek

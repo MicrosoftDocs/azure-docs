@@ -39,10 +39,8 @@ You can create a new Log Analytics workspace using any of the following methods.
 * [Azure Resource Manager](../logs/resource-manager-workspace.md)
 
 ## Supported regions
-VM insights supports a Log Analytics workspace in any of the [regions supported by Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) except for the following:
+VM insights supports a Log Analytics workspace in any of the [regions supported by Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
-- Germany West Central
-- Korea Central
 
 >[!NOTE]
 >You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.

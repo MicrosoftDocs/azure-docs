@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/29/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -59,7 +59,7 @@ Before you follow the procedures in this article, make sure that your computer i
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
 * [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-* [Angular LCI](https://angular.io/cli).
+* [Angular CLI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
 
@@ -82,7 +82,8 @@ In this step, you create the registrations for the Angular SPA and the web API a
 Follow these steps to create the Angular app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon on the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **MyApp**.
@@ -144,7 +145,7 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn.
+         authority: b2cPolicies.authorities.signUpSignIn,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },

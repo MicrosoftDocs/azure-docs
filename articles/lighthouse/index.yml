@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/07/2021
+  ms.date: 09/28/2021
   
 landingContent:
   - title: About Azure Lighthouse
@@ -119,8 +119,8 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
-          - text: OpenAPI - 2019-06-01
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+          - text: OpenAPI - 2019-09-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
           - text: SDK for .NET - NuGet
             url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
           - text: SDK for Python - PyPi

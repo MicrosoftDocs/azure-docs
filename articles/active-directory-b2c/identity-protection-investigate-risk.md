@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/13/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -82,11 +82,9 @@ An administrator can choose to dismiss a user's risk in the Azure portal or prog
 ### Navigating the risky users report
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
-
 1. Under **Security**, select **Risky users**.
 
    ![Risky users](media/identity-protection-investigate-risk/risky-users.png)

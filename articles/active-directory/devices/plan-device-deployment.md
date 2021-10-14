@@ -10,7 +10,7 @@ ms.date: 06/15/2020
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to choose the best device integration methods for my organization.
@@ -119,8 +119,8 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 | SSO to on-premises resources| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Conditional Access <br> (Require devices be marked as compliant) <br> (Must be managed by MDM)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png)|![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)
-| Self-service password reset from windows login screen| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
-| Windows hello PIN reset| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Self-service password reset from the Windows login screen| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Windows Hello PIN reset| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Enterprise state roaming across devices| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 
 

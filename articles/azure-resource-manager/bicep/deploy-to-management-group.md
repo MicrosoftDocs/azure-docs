@@ -268,7 +268,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -288,7 +288,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id

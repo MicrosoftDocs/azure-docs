@@ -9,7 +9,6 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-
 ---
 
 # What is Azure Communication Services?

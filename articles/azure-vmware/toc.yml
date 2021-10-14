@@ -122,12 +122,16 @@
       href: vmware-hcx-mon-guidance.md  
   - name: Configure storage policies
     href: configure-storage-policy.md 
+  - name: Configure VMware syslogs
+    href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
   - name: Deploy disaster recovery
     items:
+    - name: Deploy JetStream DR
+      href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
@@ -150,6 +154,10 @@
       href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
+    - name: Security solutions for Azure VMware Solution
+      href: ecosystem-security-solutions.md
+    - name: Bitnami appliance deployment
+      href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
@@ -160,12 +168,6 @@
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
-    - name: Disaster recovery
-      items:
-      - name: VMware SRM for disaster recovery
-        href: disaster-recovery-using-vmware-site-recovery-manager.md
-      - name: VMware HCX for disaster recovery
-        href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - name: Resources
@@ -224,5 +226,7 @@
     href: /cli/azure/vmware
   - name: Azure PowerShell
     href: /powershell/module/az.vmware/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.avs/privateclouds
   - name: Terraform Azure provider
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud

@@ -372,11 +372,11 @@ Use the following commands to create these items.
     After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](./../azure-functions/functions-run-local.md) command.
 
     ```bash
-    func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings
+    func azure functionapp publish <FUNCIONAPP_NAME>
     ```
+1. Configure the `WebPubSubConnectionString` for the function app:
 
-    > [!NOTE]
-    > Here we are deploying local settings `local.settings.json` together with command parameter `--publish-local-settings`. If you're using Microsoft Azure Storage Emulator, you can type `no` to skip overwriting this value on Azure following the prompt message: `App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]`. Besides, you can update Function App settings in **Azure Portal** -> **Settings** -> **Configuration**.
+   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Configuration**. And add a new item under **Application settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
 
 ## Configure the Web PubSub service `Event Handler`
 

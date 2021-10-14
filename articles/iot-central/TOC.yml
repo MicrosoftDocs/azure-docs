@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: August 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/
     - name: July 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/
     - name: June 2021 new and updated features
@@ -254,8 +256,6 @@
       href: core/howto-faq.yml
     - name: Manage your personal preferences
       href: core/howto-manage-preferences.md
-    - name: Toggle live chat
-      href: core/howto-show-hide-chat.md
 
 - name: Reference
   items:
@@ -280,8 +280,6 @@
       href: ../iot-dps/index.yml
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps

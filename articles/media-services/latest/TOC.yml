@@ -219,6 +219,9 @@
     - name: Content-aware encoding 
       href: encode-content-aware-concept.md
       displayName: Content aware encoding, encode, transcode, ABR, adaptive bitrate, resolution, HLS, DASH, Smooth, per title encoding, per title, per scene encoding, scene based, QVBR, Quality Defined Variable Bitrate, Quality-Defined
+    - name: Preset overrides
+      href: encode-concept-preset-overrides.md
+      displayName: preset, override, transform, job, per-job, language, encode, transcode, custom, per job, encoding settings, customize, job output, output
     - name: Media reserved units (legacy)
       href: concept-media-reserved-units.md
       displayName: MRU, reserved units, scaling, scale, encoding, media reserved units      
@@ -234,7 +237,7 @@
     items:
     - name: Overview
       href: stream-live-streaming-concept.md
-      displayName: pass-through, cloud encoding, cloud transcoding, cloud encoding, encoding channel, 4K, 1080P, 720P, streaming, live, live event, low latency, RTMP, Smooth, RTMPS, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP
+      displayName: basic pass-through, standard pass-through, pass through, pass, pass-through, cloud encoding, cloud transcoding, cloud encoding, encoding channel, 4K, 1080P, 720P, streaming, live, live event, low latency, RTMP, Smooth, RTMPS, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP
     - name: Live events and live outputs 
       href: live-event-outputs-concept.md 
       displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift   
@@ -249,10 +252,10 @@
       displayName: speech to text, live transcription, live captions, captions, subtitles, language, transcription, transcribe, translate, translation
     - name: Live event types comparison
       href: live-event-types-comparison-reference.md
-      displayName: pass-through, pass-thru, live, cloud transcode, cloud transcoder, transcoder, live encoding, live encoder, channel, HD, 4K, 1080p, 720p, ABR
+      displayName: basic pass-through, standard pass-through, pass through, pass, pass-thru, live, cloud transcode, cloud transcoder, transcoder, live encoding, live encoder, channel, HD, 4K, 1080p, 720p, ABR
     - name: States and billing
       href: live-event-states-billing-concept.md
-      displayName: billing, live, pass-through, pass-thru, live, cloud transcode, cloud transcoder, transcoder, live encoding, live encoder, states, live state, running, stopping, starting, stopped
+      displayName: billing, live, pass-basic pass-through, standard pass-through, pass through, pass, pass-thru, live, cloud transcode, cloud transcoder, transcoder, live encoding, live encoder, states, live state, running, stopping, starting, stopped
     - name: Latency
       href: live-event-latency-reference.md  
       displayName: latency, low latency, ultra low latency, LL-HLS, LL-DASH, low latency HLS, low latency DASH, MPEG-DASH, Smooth, interactive, WebRTC, SRT, RTMP, RTMPS
@@ -465,7 +468,7 @@
     - name: Manage multiple storage accounts
       href: storage-managing-multiple-storage-accounts-how-to.md
       displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts, 
-  - name: Create transforms
+  - name: Encode media
     items:
     - name: Create a transform
       href: transform-create-transform-how-to.md
@@ -514,7 +517,7 @@
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
     - name: Use the content aware encoding preset
       href: encode-content-aware-how-to.md
-      displayName: encode, encoder, transcode, custom preset, content aware, transform 
+      displayName: encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined
   - name: Create jobs
     items:
     - name: Create jobs with CLI

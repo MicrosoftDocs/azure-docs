@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-csharp
 ---
 # Filters in Azure Cognitive Search 
 
 A *filter* provides value-based criteria for selecting documents used in a query. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter value or expression only returns a strict match.
 
-Some search experiences, such as [faceted navigation](search-filters-facets.md), depend on filters as part of the implementation, but you can use filters anytime you want to scope a query to specific values. If instead your goal is to scope a query to specific fields, there are alternative methods, described below.
+Some search experiences, such as [faceted navigation](search-faceted-navigation.md), depend on filters as part of the implementation, but you can use filters anytime you want to scope a query to specific values. If instead your goal is to scope a query to specific fields, there are alternative methods, described below.
 
 ## When to use a filter
 
@@ -83,13 +83,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## Filter usage patterns
+## Filter patterns
 
 The following examples illustrate several usage patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](./search-query-odata-filter.md#examples).
 
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
 
-  ```http
+  ```json
   {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
@@ -98,7 +98,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
 + Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. The addition of terms (walking distance theaters) introduces search scores in the results, where documents that best match the terms are ranked higher. Using a filter with a query string is the most common usage pattern.
 
-  ```http
+  ```json
   {
     "search": "walking distance theaters",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
@@ -106,7 +106,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
-   ```
+   ```http
    # Match on hostels rated higher than 4 OR 5-star motels.
    $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
@@ -116,16 +116,11 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
   It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
 
-  ```
+  ```http
   $filter=search.ismatchscoring('pool') and Rating ge 4
 
   search=pool&$filter=Rating ge 4
   ```
-
-Follow up with these articles for comprehensive guidance on specific use cases:
-
-+ [Facet filters](search-filters-facets.md)
-+ [Security trimming](search-security-trimming-for-azure-search.md) 
 
 ## Field requirements for filtering
 

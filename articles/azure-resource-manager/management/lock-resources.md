@@ -154,14 +154,14 @@ To create a resource group and lock it, deploy the following template at the sub
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "lockDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -204,7 +204,7 @@ targetScope = 'subscription'
 param rgName string
 param rgLocation string
 
-resource createRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource createRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgName
   location: rgLocation
 }
@@ -231,7 +231,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 When applying a lock to a **resource** within the resource group, add the scope property. Set scope to the name of the resource to lock.
 
-The following [example](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/lock.json) shows a template that creates an app service plan, a website, and a lock on the website. The scope of the lock is set to the website.
+The following example shows a template that creates an app service plan, a website, and a lock on the website. The scope of the lock is set to the website.
 
 # [JSON](#tab/json)
 

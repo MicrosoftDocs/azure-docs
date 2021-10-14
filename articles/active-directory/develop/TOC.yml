@@ -167,6 +167,8 @@
       href: security-best-practices-for-app-registration.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+  - name: Use the Microsoft Graph API
+    href: microsoft-graph-intro.md
 - name: How-to
   items:
   - name: Integrate your app scenario
@@ -263,9 +265,9 @@
           href: scenario-desktop-acquire-token-interactive.md
         - name: Interactive with WAM
           href: scenario-desktop-acquire-token-wam.md
-        - name: Integrated Windows Auth
+        - name: Integrated Windows authentication
           href: scenario-desktop-acquire-token-integrated-windows-authentication.md
-        - name: Username Password
+        - name: Username and password
           href: scenario-desktop-acquire-token-username-password.md
         - name: Device code flow
           href: scenario-desktop-acquire-token-device-code-flow.md
@@ -320,6 +322,12 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
+  - name: Test and deploy your app
+    items:
+    - name: Setup a test environment
+      href: test-setup-environment.md
+    - name: Throttling and service limits
+      href: test-throttle-service-limits.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
@@ -552,8 +560,8 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
-  - name: Use the Microsoft Graph API
-    href: microsoft-graph-intro.md
+    - name: Implement RBAC in your application
+      href: howto-implement-rbac-for-apps.md
   - name: Build for resilience
     items:
     - name: Development Overview

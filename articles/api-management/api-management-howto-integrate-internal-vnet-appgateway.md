@@ -4,11 +4,11 @@ titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Application Gateway (Web Application Firewall) as a front end
 services: api-management
 documentationcenter: ''
-author: solankisamir
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.author: sasolank
+ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
 
@@ -134,8 +134,11 @@ Create network security groups and NSG rules for the Application Gateway and API
 $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
     -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
     GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
+$appGwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-in-internet -Description "AppGw inbound Internet" `
+    -Access Allow -Protocol "TCP" -Direction Inbound -Priority 110 -SourceAddressPrefix `
+    Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
 $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APPGW" -SecurityRules $appGwRule1
+    "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
 
 $apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `

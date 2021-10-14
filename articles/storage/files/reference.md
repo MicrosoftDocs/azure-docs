@@ -1,9 +1,9 @@
 ---
 title: Azure Files API reference
 description: Find Azure Files API reference, readme files, and client library packages.
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 08/05/2021
 ms.service: storage
 ms.topic: reference

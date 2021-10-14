@@ -343,7 +343,7 @@ The status codes listed in the following table may be returned by the Upload ope
 
 ## Firewall
 
-See [Storage account that is behind a firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+See [Storage account that is behind a firewall](faq.yml#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## Next steps
 
