@@ -280,6 +280,14 @@
     href: automation-deployment-framework.md
   - name: Get started with automation framework
     href: automation-get-started.md
+  - name: About SAP system deployment
+    href: automation-system-deployment.md
+  - name: About workload zone deployment
+    href: automation-workload-zone-deployment.md
+  - name: About manual deployment
+    href: automation-manual-deployment.md
+  - name: Plan deployment
+    href: automation-plan-deployment.md
   - name: Download and prepare software media
     href: automation-software.md
   - name: Run automation framework on Cloud Shell
@@ -312,6 +320,10 @@
     href: automation-bom-templates-hana.md
   - name: Deploy BoM
     href: automation-bom-deploy.md
+  - name: Automating new vs. existing systems
+    href: automation-new-vs-existing.md
+  - name: Supported platforms and features
+    href: automation-supportability.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure

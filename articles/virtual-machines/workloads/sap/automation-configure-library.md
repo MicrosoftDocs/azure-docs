@@ -21,7 +21,7 @@ ms.service: virtual-machines-sap
 | Required | `infrastructure.` | `region` |  The Azure region in which to deploy the SAP Library. |
 | Optional | `infrastructure.resource_group.` | `arm_id` | The Azure resource identifier for the resource group to use for deployment. |
 | Optional | `infrastructure.resource_group.` | `name` | The name of the resource group that you want to create and use. |
-| Required | `deployer.` | `environment` | The identifier for the [deployer's](automation-deployment-framework.md#deployment-artifacts) environment. Typically, this value is the same as `infrastructure.environment.`. For multi-subscription scenarios, set to a different value as needed. |
+| Required | `deployer.` | `environment` | The identifier for the [deployer's](automation-deployment-framework.md#deployment-components) environment. Typically, this value is the same as `infrastructure.environment.`. For multi-subscription scenarios, set to a different value as needed. |
 | Required | `deployer.` | `region` | The Azure region that your deployer is in. |
 | Required | `deployer.` | `vnet` | The designator for your deployer's virtual network. |
 | Optional | `deployer.` | `use` | A flag to control if the deployment includes a deployer. |

@@ -96,7 +96,7 @@ You run the automation framework from your Linux VM.
 
 ## List deployment contents
 
-You can list the contents of your deployment using the script `validate.sh`. This list is a high-level overview, and doesn't contain all deployment artifacts.
+You can list the contents of your deployment using the script `validate.sh`. This list is a high-level overview, and doesn't contain all deployment components.
 
 Run the script with the JSON parameters files for your SAP deployer, library, landscape, and system. 
 
