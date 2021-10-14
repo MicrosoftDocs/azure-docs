@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 10/14/2021
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
