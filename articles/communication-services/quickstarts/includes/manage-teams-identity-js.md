@@ -63,8 +63,8 @@ const path = require('path');
 const express = require("express");
 const msal = require('@azure/msal-node');
 
-const SERVER_PORT = process.env.PORT || 3000;
-const REDIRECT_URI = "http://localhost:3000"; 
+const SERVER_PORT = process.env.PORT || 80;
+const REDIRECT_URI = "http://localhost"; 
 
 // Quickstart code goes here
 
