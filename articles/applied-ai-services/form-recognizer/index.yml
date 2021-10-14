@@ -228,7 +228,7 @@ conceptualContent:
 
 tools:
   title: Software development kits (SDKs)
-  summary: Get started with Form Recognizer SDK in your favorite programming language.
+  summary: Get started with a Form Recognizer SDK in your favorite programming language.
   items:
   - title: C#/.NET
     imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
