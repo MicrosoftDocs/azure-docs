@@ -57,31 +57,31 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 
 Create IP address configuration.
 
-    ```azurepowershell-interactive
-    $ipConfig = New-AzVmssIpConfig -Name "myIPConfig"
-    -SubnetId "${vnetid}/subnets/default" `
-    -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id
-    ```
+```azurepowershell-interactive
+$ipConfig = New-AzVmssIpConfig -Name "myIPConfig"
+   -SubnetId "${vnetid}/subnets/default" `
+   -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id
+```
 
 Create the scale set configuration. In this example, we are creating a Flexible scale set in the *East US* location, using the *Standard_DS1_v2* VM size, and a fault domain count of *1*.
 
-    ```azurepowershell-interactive
-    $vmssConfig = New-AzVmssConfig -Location "East US"
-    -SkuCapacity 2 -SkuName "Standard_DS1_v2"
-    -OrchestrationMode "Flexible" `
-    -PlatformFaultDomainCount 1
-    ```
+```azurepowershell-interactive
+$vmssConfig = New-AzVmssConfig -Location "East US"
+   -SkuCapacity 2 -SkuName "Standard_DS1_v2"
+   -OrchestrationMode "Flexible" `
+   -PlatformFaultDomainCount 1 
+```
 
 Set the image to use when creating the virtual machines:
 
-    ```azurepowershell-interactive
-    Set-AzVmssStorageProfile $vmssConfig `
-       -OsDiskCreateOption "FromImage" `
-       -ImageReferencePublisher "MicrosoftWindowsServer" `
-       -ImageReferenceOffer "WindowsServer"
-       -ImageReferenceSku "2019-Datacenter" `
-       -ImageReferenceVersion "latest"
-    ```
+```azurepowershell-interactive
+Set-AzVmssStorageProfile $vmssConfig `
+   -OsDiskCreateOption "FromImage" `
+   -ImageReferencePublisher "MicrosoftWindowsServer" `
+   -ImageReferenceOffer "WindowsServer"
+   -ImageReferenceSku "2019-Datacenter" `
+   -ImageReferenceVersion "latest"
+```
 
 Set up user information for the virtual machines. When prompted, enter a username and password to be used for the virtual machines.
 
