@@ -8,8 +8,6 @@ ms.author: jorgegarc
 ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-
 zone_pivot_groups: acs-plat-ios-android
 ---
 

@@ -102,7 +102,7 @@ Go to the layout file (`app/src/main/res/layout/activity_main.xml`). Here we'll 
 
 Go to `MainActivity`. Here we'll drop the following code to initialize our Composite Components for Calling. Replace `"GROUP_CALL_ID"` with your group id for your call, `"DISPLAY_NAME"` with your name, and  `"<USER_ACCESS_TOKEN>"` with your token.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab1/kotlin)
 
 ```kotlin
 package com.example.uilibraryquickstart
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab1/java)
 
 ```java
 package com.example.uilibraryquickstart;
@@ -238,7 +238,7 @@ CallComposite callComposite = new CallCompositeBuilder().build();
 
 Initialize a `CommunicationTokenCredential` instance inside the `startCallComposite` function. Replace `"<USER_ACCESS_TOKEN>"` with your token.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab2/kotlin)
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
@@ -248,7 +248,7 @@ val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(this::fe
 val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab2/java)
 
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
@@ -272,7 +272,7 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 Replace `"GROUP_CALL_ID"` with your group id for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab3/kotlin)
 
 ```kotlin
 val options = GroupCallOptions(
@@ -283,7 +283,7 @@ val options = GroupCallOptions(
         )
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab3/java)
 
 ```java
 GroupCallOptions options = new GroupCallOptions(
@@ -300,7 +300,7 @@ Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` func
 Replace `"TEAMS_MEETING_LINK"` with your group id for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab4/kotlin)
 
 ```kotlin
 val options = TeamsMeetingOptions(
@@ -311,7 +311,7 @@ val options = TeamsMeetingOptions(
         )
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab4/java)
 
 ```java
 TeamsMeetingOptions options = new TeamsMeetingOptions(
@@ -332,13 +332,13 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 Call `launch` on the `CallComposite` instance inside the `startCallComposite` function
 
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab5/kotlin)
 
 ```kotlin
 callComposite.launch(options)
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab5/java)
 
 ```java
 callComposite.launch(options);
