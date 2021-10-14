@@ -1,34 +1,31 @@
 ---
-title: Enable video preview images
-description: This article explains how to enable video preview images when recording to a video sink using Azure Video Analyzer
+title: Enable preview images
+description: This article explains how to enable and access preview images when recording video using Azure Video Analyzer
 ms.topic: how-to
 ms.date: 11/01/2021
 
 ---
 
-# Enable video preview images while recording video
+# Enable preview images when recording video
 
-While video is ingested and recording to a video sink node, a set of video preview images of different sizes can be periodically uploaded to an Azure Video Analyzer account's associated storage account.
-These images will be one frame from the video resized to 3 different resolutions:
+You can use Azure Video Analyzer to [capture and record video](../video-recording.md) from an RTSP camera. You would be creating a pipeline topology that includes a video sink node, as shown in this [quickstart](detect-motion-record-video-clips-cloud.md) or this [tutorial](use-continuous-video-recording.md). 
 
-  * 320 x 180 = small
-  * 640 x 360 = medium
-  * 1280 x 720 = large
+If you record video using the Video Analyzer edge module, you can enable the video sink node to periodically generate a set of preview images of different sizes. These images can then be retreived from the [video resource](../terminology.md#video) in your Video Analyzer account. For example, if your camera generates a video that has a resolution of 1920x1080, then the preview images would have the following sizes:
 
->[NOTE]
->The generated preview images preserve the aspect ratio of the source footage resolution, therefore the image resolutions may not match the aforementioned set of resolutions exactly.
-
-
-Video preview images are generated at the first frame when recording starts and then periodically at the same time of segment upload. Images are only generated and updated while a live pipeline is active and video is being recorded.
-If an event-based video recording pipeline is being used, the images will only be generated when there is an event that has triggered recording.
-Newly generated images will replace the most recent images in the blob storage container.
+  * 320 x 180: small
+  * 640 x 360: medium
+  * 1280 x 720: large
 
 >[NOTE]
->This functionality is currently only available for edge not cloud pipeline topologies.
+>The preview images will preserve the aspect ratio of video from the camera.
 
-## Enable video preview images in pipeline topology
-To enable video preview images, it must be defined in the video sink node of the pipeline topology.
-The video sink node has video publishing options, where the option **enableVideoPreviewImage** can be set to **true**  
+The preview images are generated periodically, the frequency being determined by [`segmentLength`](../playback-recordings-how-to.md#recording-and-playback-latencies). If you are using [event based recording](TODO - add link here), you should note that mages are generated only when the live pipeline is active and video is being recorded. Each time a set of preview images are generated, they will overwrite the previous set.
+
+>[NOTE]
+>This functionality is currently only available with Video Analyzer Edge module. Further, enabling this has an impact on your Azure storage costs, driven by the frequent transactions to write the images or view them, and the size of the images.
+
+## Enable preview images in the video sink node
+To enable preview images, you need to set the appropriate flag in the video sink node of the pipeline topology. Under **videoPublishingOptions**, set **enableVideoPreviewImage** to **true**  
 
 Example:
 ```
@@ -36,7 +33,7 @@ Example:
         {
           "@type": "#Microsoft.VideoAnalyzer.VideoSink",
           "name": "videoSink",
-          "videoName": "sample-cvr-video-sink",
+          "videoName": "{$parameter-for-specifying-unique-videoName-for-each-pipeline}",
           "inputs": [
             {
               "nodeName": "rtspSource",
@@ -53,8 +50,8 @@ Example:
             "enableVideoPreviewImage": "true"
           },
           "videoCreationProperties": {
-            "title": "sample-cvr-video-sink",
-            "description": "Sample video using CVR video sink",
+            "title": "{$parameter-for-specifying-unique-title-for-each-pipeline}",
+            "description": "{$parameter-for-specifying-unique-description-for-each-pipeline}k",
             "segmentLength": "PT30S"
           },
           "localMediaCachePath": "/var/lib/videoanalyzer/tmp/",
@@ -63,15 +60,13 @@ Example:
       ]
 ``` 
 
-## Access video preview images
+## Accessing preview images
 
-To acquire the static URLs to the most recent set of images, a GET request must be called on the video entity with an authorized bearer token.
-  
-The URLs for each size will be provided under previewImageUrls in the contentUrls section of the response, as follows:
+To acquire the static URLs to the available preview images, a GET request must be called on the video resource with an [authorized bearer token](../playback-recordings-how-to.md#accessing-videos). You will see the URLs listed under **contentUrls** in the response as shown below.
 
 ```
       "contentUrls": {
-        "archiveBaseUrl": "XXXX",
+        ...
         "previewImageUrls": {
           "small": "XXXX",
           "medium": "XXXX",
