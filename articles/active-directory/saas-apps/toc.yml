@@ -1398,6 +1398,8 @@
         href: promapp-tutorial.md
       - name: Nitro Productivity Suite
         href: nitro-productivity-suite-tutorial.md
+      - name: Nodetrax Project
+        href: nodetrax-project-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1916,6 +1918,8 @@
         href: smartrecruiters-tutorial.md
       - name: smartvid.io
         href: smartvid.io-tutorial.md
+      - name: Snackmagic
+        href: snackmagic-tutorial.md  
       - name: Snowflake
         href: snowflake-tutorial.md
       - name: Softeon WMS
@@ -2148,6 +2152,8 @@
         href: uservoice-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
+      - name: VECOS Releezme Locker management system
+        href: vecos-releezme-locker-management-system-tutorial.md  
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Veracode
