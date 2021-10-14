@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 
 # Tutorial: Create a secured hub and spoke network
 
-In this tutorial, you'll create a hub and spoke network topology using Azure Virtual Network Manager. You'll then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. You'll also configure a security configuration to block outbound network traffic to the internet on port 80 and 443. Lastly you'll verify that the configurations were applied correctly by looking at the virtual network and virtual machine settings.
+In this tutorial, you'll create a hub and spoke network topology using Azure Virtual Network Manager. You'll then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. You'll also configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Lastly, you'll verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -23,7 +23,6 @@ In this tutorial, you learn how to:
 > * Create multiple virtual networks.
 > * Deploy a virtual network gateway.
 > * Create a hub and spoke network topology.
-> * Enable spoke network group features.
 > * Create a security configuration blocking traffic on port 80 and 443.
 > * Verify configurations were applied.
 
@@ -84,7 +83,7 @@ This procedure walks you through creating three virtual networks. One will be in
 
 ## Deploy a virtual network gateway
 
-Deploy a VPN virtual network gateway into the hub virtual network. This virtual network gateway is required for the spokes to *Use the hub as a gateway* setting.
+Deploy a virtual network gateway into the hub virtual network. This virtual network gateway is necessary for the spokes to *Use hub as a gateway* setting.
 
 1. Select **+ Create a resource** and search for **Virtual network gateway**. Then select **Create** to begin configuring the virtual network gateway.
 
@@ -108,14 +107,14 @@ Deploy a VPN virtual network gateway into the hub virtual network. This virtual 
 
 1. On the *Basics* tab, enter the following information:
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of create a network group basics tab.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the create a network group basics tab.":::
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myNetworkGroupB** for the network group name. |
-    | Description | Provide a description explaining what this network group is used for. |
+    | Description | Provide a description about this network group. |
 
-1. Select the **Conditional statements** tab. Then for the *Parameter* select **Name** from the drop-down. For the *Operator* select **Contains**. Enter **VNet-** for the *Condition*. This conditional statement will add the three previously created virtual networks into this network group.
+1. Select the **Conditional statements** tab. For the *Parameter* select **Name** from the drop-down. For the *Operator* select **Contains**. For the *Condition*, enter **VNet-**. This conditional statement will add the three previously created virtual networks into this network group.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-conditional.png" alt-text="Screenshot of create a network group conditional statements tab.":::
 
@@ -193,7 +192,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-security-configuration.png" alt-text="Screenshot of adding another configuration for Network Manager.":::
 
-1. This time select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
+1. Select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/security-drop-down.png" alt-text="Screenshot of SecurityAdmin in drop-down menu.":::
 
@@ -255,11 +254,15 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 1. Deploy a test Windows VM into **VNet-A-EastUS**. 
 
-1. Go to the test VM created in *VNet-A-EastUS*. Select **Networking** under *Settings* and then select the network interface.
+1. Go to the test VM created in *VNet-A-EastUS* and select **Networking** under *Settings*. Select **Outbound port rules** and you'll see the security admin rule applied.
+
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-security-rules.png" alt-text="Screenshot of test VM's network security rules.":::
+
+1. Select the network interface name.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-network-settings.png" alt-text="Screenshot of test VM's network settings.":::
 
-1. Select **Effective routes** under *Support + troubleshooting* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network will be in a *ConnectedGroup* when **Transitivity** is enabled.
+1. Then select **Effective routes** under *Support + troubleshooting* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network will be in a *ConnectedGroup* when **Transitivity** is enabled.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/effective-routes.png" alt-text="Screenshot of effective routes from test VM network interface." lightbox="./media/tutorial-create-secured-hub-and-spoke/effective-routes-expanded.png" :::
 
