@@ -24,7 +24,7 @@ Application enclaves are currently offered by Azure via confidential computing. 
 
 With Intel SGX technology, these application enclaves, or  Trusted Execution Environments, are encrypted via an inaccessible key stored within the CPU. The code and data inside the application enclave is decrypted inside the processor, with access constrained to the CPU. This level of isolation protects data-in-use and protects against both hardware and software attacks. More details about Intel SGX can be found on the [Intel SGX website](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html). 
 
-Azure offers Intel SGX in a virtualization environment through various virtual machine (VM) sizes in the DC family. Various VM sizes allow for various Enclave Page Cache (EPC) sizes. EPC is the maximum amount of memory area for an enclave on that VM. Currently, Intel SGX VMs are available on [DCsv2-Series](../virtual-machines/dcv2-series) VMs and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series) VMs.
+Azure offers Intel SGX in a virtualization environment through various virtual machine (VM) sizes in the DC family. Various VM sizes allow for various Enclave Page Cache (EPC) sizes. EPC is the maximum amount of memory area for an enclave on that VM. Currently, Intel SGX VMs are available on [DCsv2-Series](../virtual-machines/dcv2-series.md) VMs and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) VMs.
 
 
 ### Developing applications
@@ -45,7 +45,7 @@ An application built with enclaves is partitioned in two ways:
 To use the power of enclaves and isolated environments, you'll need to use tools that support confidential computing. There are various tools that support enclave application development. For example, you can use these open-source frameworks: 
 
 - [The Open Enclave Software Development Kit (OE SDK)](enclave-development-oss.md#oe-sdk)
-- [The Intel SGX SDK](enclave-development-oss#intel-sdk)
+- [The Intel SGX SDK](enclave-development-oss.md#intel-sdk)
 - [The EGo Software Development Kit](enclave-development-oss.md#ego)
 - [The Confidential Consortium Framework (CCF)](enclave-development-oss.md#ccf)
 
