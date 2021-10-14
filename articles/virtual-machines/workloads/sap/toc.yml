@@ -300,6 +300,18 @@
     href: automation-naming-module.md
   - name: Configure extra disks
     href: automation-configure-extra-disks.md
+  - name: Prepare BoM
+    href: automation-bom-prepare.md
+  - name: Get files for BoM
+    href: automation-bom-get-files.md
+  - name: Process BoM
+    href: automation-bom-process.md
+  - name: SAP DB template for BoM
+    href: automation-bom-templates-db.md
+  - name: HANA template for BoM
+    href: automation-bom-templates-hana.md
+  - name: Deploy BoM
+    href: automation-bom-deploy.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure
