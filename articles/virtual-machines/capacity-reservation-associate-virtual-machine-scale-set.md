@@ -89,7 +89,7 @@ az vmss create
 --location eastus 
 --vm-sku Standard_Ds1_v2 
 --image UbuntuLTS 
---capacity-reservation-group /subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/mycapacityReservationGroup 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
 ```
 
 
