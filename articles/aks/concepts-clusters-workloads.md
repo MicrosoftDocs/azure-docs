@@ -147,9 +147,13 @@ For more information about how to use multiple node pools in AKS, see [Create an
 
 In an AKS cluster with multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes. 
 
-Node selectors let you define various parameters, like node OS, to control where a pod should be scheduled.
+[nodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) lets you define various parameters, like node OS, to control where a pod should be scheduled. To find out what labels are available on a node to use with nodeSelector, run:
 
-The following basic example schedules an NGINX instance on a Linux node using the node selector *"kubernetes.io/os": linux*:
+```kubectl
+kubectl describe node [NODE_NAME]
+```
+
+The following basic example schedules an NGINX instance on a Linux node in nodepool1 using the node selector *"kubernetes.io/os": linux* and *agentpool: nodepool1*:
 
 ```yaml
 kind: Pod
@@ -162,6 +166,7 @@ spec:
       image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "kubernetes.io/os": linux
+    agentpool: nodepool1
 ```
 
 For more information on how to control where pods are scheduled, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
