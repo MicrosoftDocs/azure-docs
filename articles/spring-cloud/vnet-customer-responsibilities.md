@@ -70,6 +70,7 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | collector*.eu01.nr-data.net | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
 | *.live.dynatrace.com        | TCP:443    | Required network of Dynatrace APM agents.                    |
 | *.live.ruxit.com            | TCP:443    | Required network of Dynatrace APM agents.                    |
+| *.saas.appdynamics.com      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges). |
 
 ## See also
 
