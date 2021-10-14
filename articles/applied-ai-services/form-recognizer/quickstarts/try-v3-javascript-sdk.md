@@ -94,3 +94,9 @@ In this quickstart you'll use following features to analyze and extract data and
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
 
     ```
+
+## **Try it**: General document model
+
+## **Try it**: Layout model
+
+## **Try it**: Prebuilt invoice model

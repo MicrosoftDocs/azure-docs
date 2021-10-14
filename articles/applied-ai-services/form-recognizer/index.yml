@@ -104,7 +104,7 @@ conceptualContent:
                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
               - itemType: get-started
                 text: Using the sample labeling tool
-                url: "concept-layout.md#try-sample-labeling-tool"
+                url: "concept-layout.md#try-it-sample-labeling-tool"
 
            - title: Receipt
              links:
@@ -206,7 +206,7 @@ conceptualContent:
              links:
                - itemType: concept
                  text: Custom model overview
-                 url: concept-custom
+                 url: concept-custom.md
                - itemType: quickstart
                  text: Using the .NET SDK
                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
@@ -224,7 +224,7 @@ conceptualContent:
                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
                - itemType: get-started
                  text: Using the Sample Labeling tool
-                 url: "concept-custom#try-form-recognizer-sample-labeling-tool"
+                 url: "concept-custom.md#try-it-sample-labeling-tool"
 
                      
 
