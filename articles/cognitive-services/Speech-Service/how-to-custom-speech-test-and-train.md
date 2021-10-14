@@ -86,11 +86,11 @@ Use either of the following requests to create and upload a dataset:
 
 **REST API created datasets and Speech Studio projects**
 
-A dataset created via Speech-to-text REST API v3.0 will *not* be associated with any of the Speech Studio projects, unless a special parameter is specified in the request body (see below). Association with a Speech Studio project is *not* required for any model customization operations, if they are performed via the REST API.
+A dataset created via Speech-to-text REST API v3.0 will *not* be connected to any of the Speech Studio projects, unless a special parameter is specified in the request body (see below). Connection with a Speech Studio project is *not* required for any model customization operations, if they are performed via the REST API.
 
-When you log on to the Speech Studio, its user interface will notify you when any unassociated object is found (like datasets uploaded via REST API without any project association). 
+When you log on to the Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded via REST API without any project reference) and offer to connect such objects to an existing project. 
 
-To associate the new dataset with an existing project in the Speech Studio during its upload using [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) or [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) requests, use request body format, like in the example below:
+To connect the new dataset to an existing project in the Speech Studio during its upload using [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) or [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) requests, use request body format, like in the example below:
 ```json
 {
   "kind": "Acoustic",
