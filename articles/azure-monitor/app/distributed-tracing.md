@@ -41,6 +41,17 @@ With the proper Application Insights SDK installed and configured, tracing infor
 
  Additionally, any technology can be tracked manually with a call to [TrackDependency](./api-custom-events-metrics.md) on the [TelemetryClient](./api-custom-events-metrics.md).
 
+## Enable via OpenTelemetry
+
+Application Insights now supports distributed tracing through [OpenTelemetry](https://opentelemetry.io/). OpenTelemetry provides a vendor-neutral instrumentation to send traces, metrics, and logs to Application Insights. Initially the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable) only include Distributed Tracing. However, our Java OpenTelemetry-based Azure Monitor offering is GA and fully supported. 
+
+The following pages consist of language-by-language guidance to enable and configure Microsoft’s OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
+
+* [.NET](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
+* [Java](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
+* [Node.js](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=nodejs)
+* [Python](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=python)
+
 ## Enable via OpenCensus
 
 In addition to the Application Insights SDKs, Application Insights also supports distributed tracing through [OpenCensus](https://opencensus.io/). OpenCensus is an open source, vendor-agnostic, single distribution of libraries to provide metrics collection and distributed tracing for services. It also enables the open source community to enable distributed tracing with popular technologies like Redis, Memcached, or MongoDB. [Microsoft collaborates on OpenCensus with several other monitoring and cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
