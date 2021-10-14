@@ -82,24 +82,24 @@ CycleCloud includes a [REST API for cost data](../api.md#clusters_getclusterusag
 To get usage and cost for all clusters in the last 24 hours:
 
 ```bash
-/opt/cycle_server/cycle_server cycle_server -format tabular execute 'select * using cluster_cost where @last(`1d`)'
+/opt/cycle_server/cycle_server execute -format tabular 'select * using cluster_cost where @last(`1d`)'
 ```
 
 To get usage and cost for a single cluster named MyCluster:
 ```bash
-/opt/cycle_server/cycle_server cycle_server -format tabular execute 'select * using cluster_cost where @last(`1d`) && ClusterName == "MyCluster"'
+/opt/cycle_server/cycle_server execute -format tabular 'select * using cluster_cost where @last(`1d`) && ClusterName == "MyCluster"'
 ```
 
 To get usage and cost between in a custom time range:
 
 ```bash
-/opt/cycle_server/cycle_server cycle_server -format tabular execute 'select * using cluster_cost where @timerange(`2020-08-01T12:15:00Z`, `2020-08-02T01:30:00Z`)'
+/opt/cycle_server/cycle_server execute -format tabular 'select * using cluster_cost where @timerange(`2020-08-01T12:15:00Z`, `2020-08-02T01:30:00Z`)'
 ```
 
 To get an automatic summary of the usage and cost over the previous month, current month, last 7 days and last 24 hours:
 
 ```bash
-/opt/cycle_server/cycle_server cycle_server -format tabular execute 'select * using cluster_cost_summary'
+/opt/cycle_server/cycle_server execute -format tabular 'select * using cluster_cost_summary'
 ```
 
 ::: moniker-end
