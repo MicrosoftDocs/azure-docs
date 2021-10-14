@@ -60,6 +60,11 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <string></string>
 ```
 
+### Turn off Bitcode
+Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the setting, you have to change the filter from `Basic` to `All`, you can also use the search bar on the right.
+
+![Screenshot showing the BitCode option in Xcode.](../../media/xcode-bitcode-option.png)
+
 ## Initialize Composite
 
 Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with your group id for your call, `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
