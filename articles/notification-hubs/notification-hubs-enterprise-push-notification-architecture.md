@@ -164,7 +164,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
         if (!await client.SubscriptionExistsAsync(topicName, subscriptionName))
         {
-            await client.SubscriptionExistsAsync(topicName, subscriptionName);
+            await client.CreateSubscriptionAsync(topicName, subscriptionName);
         }
     }
     ```
