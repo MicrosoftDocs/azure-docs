@@ -811,10 +811,13 @@
     - name: Azure CLI
       href: /cli/azure/ml
 - name: Resources
-  items:
-    - name: Release notes
+  items: 
+    - name: Python SDK release notes
       displayName: what's, new, issues, bugs
       href: azure-machine-learning-release-notes.md
+    - name: CLI (v2) release notes
+      displayName: what's, new, issues, bugs
+      href: azure-machine-learning-release-notes-cli-v2.md
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing

@@ -1,7 +1,8 @@
 ---
-title: What's new in the release?
+title: Python SDK release notes
 titleSuffix: Azure Machine Learning
-description: Learn about the latest updates to Azure Machine Learning and the machine learning and data prep Python SDKs.
+description: Learn about the latest updates to Azure Machine Learning Python SDK.
+services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
@@ -10,9 +11,9 @@ author: BlackMist
 ms.date: 10/21/2021
 ---
 
-# Azure Machine Learning release notes
+# Azure Machine Learning Python SDK release notes
 
-In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
+In this article, learn about Azure Machine Learning Python SDK releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
@@ -323,7 +324,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Updated portal URIs to include tenant for authentication
     + Removed experiment name from run URIs to avoid redirects
     + Updated experiment URO to use experiment ID.
-    + Bug fixes for attaching remote compute using az cli
+    + Bug fixes for attaching remote compute using az CLI
     + Updated portal URIs to include tenant for authentication.
     + Added support to understand File Dataset partitions based on glob structure.
   + **azureml-interpret**
@@ -1384,7 +1385,7 @@ Get started [here](./how-to-run-jupyter-notebooks.md)
 + Accessibility and Localization improvements
 + Command Palette
 + Additional Keyboard Shortcuts
-+ Autosave
++ Auto save
 + Improved performance and reliability
 
 Access the following web-based authoring tools from the studio:
