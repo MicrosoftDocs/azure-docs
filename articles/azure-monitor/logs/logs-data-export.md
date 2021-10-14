@@ -148,16 +148,12 @@ Data export destinations have limits and they should be monitored to minimize ex
 
 1. Use separate storage account for export
 1. Configure alert on the metric below with the following settings: 
-   - `Operator` Grater than
-   - `Aggregation type` Total
-   - `Aggregation granularity (period)` 5 minutes
-   - `Frequency of evaluation` Every 5 minutes
-  
+
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
     | storage-name | Account | Ingress | Sum | 80% of max storage ingress rate. For example: it's 60Gbps for general-purpose v2 in West US |
   
-1. Remediation action
+1. Alert remediation actions
     - Use separate storage account for export
     - Azure Storage standard accounts support higher ingress limit by request. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/)
     - Split tables between additional storage accounts
@@ -172,7 +168,7 @@ Data export destinations have limits and they should be monitored to minimize ex
     | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per 5 minutes. For example, it's 1000/s per unit (TU or PU) |
     | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% to 5% of request |
 
-1. Remediation action
+1. Alert remediation actions
    - Increase the number of units (TU or PU)
    - Split tables between additional namespaces
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
