@@ -95,6 +95,13 @@ zone for each node with a private endpoint. When you connect to a Hyperscale
 (Citus) node from an Azure VM via private endpoint, Azure DNS resolves the
 node’s FQDN into a private IP address.
 
+Private DNS zone settings and virtual network peering are independent of each
+other. If you want to connect to a node in the server group from a client
+that's provisioned in another virtual network (from the same region or a
+different region), you have to link the private DNS zone with the virtual
+network. For more information, see [Link the virtual
+network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+
 > [!NOTE]
 >
 > The service also always creates public CNAME records such as
