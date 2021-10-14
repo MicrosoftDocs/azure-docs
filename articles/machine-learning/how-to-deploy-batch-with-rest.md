@@ -40,7 +40,7 @@ In this article, you learn how to use the new REST APIs to:
 > [!IMPORTANT]
 > The code snippets in this article assume that you are using the Bash shell.
 >
-> The code snippets are pulled from the `/cli/batch-score.sh` file in the [AzureML Example repository](https://github.com/Azure/azureml-examples).
+> The code snippets are pulled from the `/cli/batch-score-rest.sh` file in the [AzureML Example repository](https://github.com/Azure/azureml-examples).
 
 ## Set endpoint name
 
@@ -167,7 +167,10 @@ Next, reference the dataset when invoking the batch endpoint:
 
 ### Check the batch scoring job
 
-Batch scoring jobs usually take some time to process the entire set of inputs. Monitor the job status and check the results after it's completed.
+Batch scoring jobs usually take some time to process the entire set of inputs. Monitor the job status and check the results after it's completed:
+
+> [!TIP]
+> The example invokes the default deployment of the batch endpoint. To invoke a non-default deployment, use the `azureml-model-deployment` HTTP header and set the value to the deployment name. For example, using a parameter of `--header "azureml-model-deployment: $DEPLOYMENT_NAME"` with curl.
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="check_job":::
 
