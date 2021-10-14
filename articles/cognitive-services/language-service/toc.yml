@@ -59,12 +59,13 @@ items:
       href: custom-classification/concepts/data-limits.md
   - name: Reference
     items:
-    - name: REST API
+    - name: Prediction
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
+      - name: REST API
+        items:
+          - name: v3.2-preview.2
+            href: https://go.microsoft.com/fwlink/?linkid=2173145
+        
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
@@ -101,6 +102,14 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Data limits
         href: custom-named-entity-recognition/concepts/limits.md
+  - name: Reference
+    items:
+    - name: Prediction
+      items:
+      - name: REST API
+        items:
+          - name: v3.2-preview.2
+            href: https://go.microsoft.com/fwlink/?linkid=2173145
 - name: Custom Language Understanding (preview)
   items:
   - name: Overview
@@ -127,12 +136,14 @@ items:
         href: custom-language-understanding/concepts/backwards-compatibility.md
   - name: Reference
     items:
-    - name: REST API
+    - name: Prediction
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
+      - name: REST API
+        items:
+          - name: v3.2-preview.2
+            href: https://go.microsoft.com/fwlink/?linkid=2173145
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
 - name: Entity linking
   items:
   - name: Overview
@@ -160,13 +171,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/EntitiesLinking
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesLinking
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -223,13 +234,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/Languages
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Languages
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -291,13 +302,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/KeyPhrases
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/KeyPhrases
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -353,13 +364,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/EntitiesRecognitionGeneral
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionGeneral
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -411,13 +422,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/EntitiesRecognitionPii
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionPii
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -554,13 +565,13 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/Sentiment
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -626,8 +637,8 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/Health
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health
         - name: v3.1
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
     - name: SDKs
@@ -679,11 +690,11 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1/operations/Analyze
+        - name: v3.2-preview.2
+          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze
     - name: SDKs
       items:
-      - name: v3.2-preview.1
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -711,10 +722,6 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-- name: Reference
-  items:
-    - name: REST API reference
-      href: https://go.microsoft.com/fwlink/?linkid=2173145
 - name: Resources
   items:
     - name: Support and help options
