@@ -78,7 +78,6 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. After the cache is created, you can view the configuration for the virtual network by selecting **Virtual Network** from the **Resource** menu.
 
-<!-- ![Virtual network][redis-cache-vnet-info]  -->
 :::image type="content" source="media/cache-how-to-premium-vnet/redis-cache-vnet-info.png" alt-text="Virtual network":::
 
 To connect to your Azure Cache for Redis instance when you use a virtual network, specify the host name of your cache in the connection string, as shown in the following example:
@@ -277,11 +276,3 @@ For more information about ExpressRoute, see [ExpressRoute technical overview](.
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
-
-[redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
-
-[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
