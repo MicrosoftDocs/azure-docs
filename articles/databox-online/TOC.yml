@@ -385,14 +385,16 @@
       - name: Recover from device failure
         href: azure-stack-edge-gpu-recover-device-failure.md   
     - name: Monitor
-      items:
-      - name: Using metric charts
-        href: azure-stack-edge-monitor.md 
-      - name: Manage device event alerts
+      items: 
+      - name: Review alerts
+        href: azure-stack-edge-alerts.md
+      - name: Use rules for alert notifications
         href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md 
-      - name: Using Kubernetes dashboard
+      - name: Use metrics charts
+        href: azure-stack-edge-monitor.md
+      - name: Use Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
-      - name: Using Azure Monitor
+      - name: Use Azure Monitor
         href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
