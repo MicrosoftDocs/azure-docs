@@ -60,6 +60,7 @@ In this overview, you learned about the use of the connected registry in hierarc
 
 <!-- LINKS - internal -->
 [quickstart-connected-registry-cli]:quickstart-connected-registry-cli.md
+[quickstart-connected-registry-portal]:quickstart-connected-registry-portal.md
 [quickstart-deploy-connected-registry-iot-edge-cli]:quickstart-deploy-connected-registry-iot-edge-cli.md
 [tutorial-nested-iot-edge]:../iot-edge/tutorial-nested-iot-edge.md
 [tutorial-deploy-connected-registry-nested-iot-edge-cli]: tutorial-deploy-connected-registry-nested-iot-edge-cli.md
