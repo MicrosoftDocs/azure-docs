@@ -44,7 +44,7 @@ If you need more background before getting started, review [this check list](kno
 
 All projections have source and destination properties. The source is always content from an enrichment tree created during skillset execution. The destination is the name of the object that will be created and loaded in Azure Storage.
 
-With the exception of file projections, which store binary files, the source must be:
+Except for file projections, which store binary files, the source must be:
 
 + Valid JSON
 + A path to a node in the enrichment tree (for example, `"source": "/document/objectprojection"`)
@@ -132,7 +132,7 @@ The pattern for multiple tables consists of:
 + One table as the parent or main table
 + Additional tables to contain slices of the enriched content
 
-For example, assume a Shaper skills outputs an "EnrichedShape" that contains hotel information, plus enriched content like key phrases, locations, and organizations. The main table would include fields that describe the hotel (ID, name, description, address, category). Key phrases would get the key phrase column. Entities would get the entity columns.
+For example, assume a Shaper skill outputs an "EnrichedShape" that contains hotel information, plus enriched content like key phrases, locations, and organizations. The main table would include fields that describe the hotel (ID, name, description, address, category). Key phrases would get the key phrase column. Entities would get the entity columns.
 
 ```json
 "projections" : [

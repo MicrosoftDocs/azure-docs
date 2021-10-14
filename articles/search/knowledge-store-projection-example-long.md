@@ -1,7 +1,7 @@
 ---
-title: EXAMPLE
+title: Projection examples
 titleSuffix: Azure Cognitive Search
-description: EXAMPLE
+description: Explore a detailed example that projects the output of a rich skillset into complex shapes that inform the structure and composition of content in a knowledge store.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,13 +13,15 @@ ms.date: 10/15/2021
 
 # Detailed example of shapes and projections in a knowledge store
 
-This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by showing a rich skillset alongside the shaping and projection definitions necessary for full expression in Azure Storage.
+This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by walking you through the shaping and projection decisions when you want to fully express the output of a rich skillset in Azure Storage.
 
 If your application requirements call for multiple skills and projections, this example can give you a better understanding of how to shape and project your content.
 
 ## Example skillset
 
-To understand the intersection between data shapes and projections, refer to the following skillset as the basis for enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
+To understand the intersection between data shapes and projections, review the following skillset as the basis for enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
+
+Pay close attention to skill outputs (targetNames). Outputs written to the enriched document tree are referenced in projections and Shaper skills.
 
 ```json
 {
@@ -180,7 +182,7 @@ To understand the intersection between data shapes and projections, refer to the
 
 ## Example Shaper skill
 
-The Shaper skill is a utility for working with enriched content instead of creating it. Adding a Shaper to a skillset lets you create a custom shape that you can project into table storage. Without a custom shape, projections are limited to referencing a single node (one projection per output), which isn't suitable for tables. Creating a custom shape aggregates various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. 
+A [Shaper skill](cognitive-search-skill-shaper.md) is a utility for working with existing enriched content instead of creating new enriched content. Adding a Shaper to a skillset lets you create a custom shape that you can project into table or blob storage. Without a custom shape, projections are limited to referencing a single node (one projection per output), which isn't suitable for tables. Creating a custom shape aggregates various elements into a new logical whole that can be projected as a single table, or sliced and distributed across a collection of tables. 
 
 In this example, the custom shape combines blob metadata and identified entities and key phrases. The custom shape is called `projectionShape` and is parented under `/document`. 
 
@@ -253,7 +255,11 @@ Notice the last two nodes, `KeyPhrases` and `Entities`. These are wrapped into a
 }
 ```
 
-Add the above Shaper skill to the example skillset introduced at the start of this article. 
+### Add Shapers to a skillset
+
+The example skillset introduced at the start of this article did not include the Shaper skill, but Shaper skills belong in a skillset and are often placed towards the end.
+
+Within a skillset, a Shaper skill might look like this:
 
 ```json
     "name": "azureblob-skillset",
@@ -331,7 +337,7 @@ The `generatedKeyName` and `referenceKeyName` properties are used to relate data
 
 Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the `referenceKeyName` property on the parent table. One example would be to set the `generatedKeyName` as ID on the tblDocument table and the `referenceKeyName` as DocumentID. This would result in the column in the tblEntities and tblKeyPhrases tables containing the document ID being named DocumentID.
 
-## Define an object projection
+## Projecting blob documents
 
 Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
 
@@ -400,7 +406,7 @@ The source is the output of a Shaper skill, named "objectprojection". Each blob 
     }
 ```
 
-## Define a file projection
+## Projecting an image file
 
 File projections are always binary, normalized images, where normalization refers to potential resizing and rotation for use in skillset execution. File projections, similar to object projections, are created as blobs in Azure Storage, and contain the image.
 
