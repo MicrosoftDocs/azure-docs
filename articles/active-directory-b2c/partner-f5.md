@@ -155,8 +155,7 @@ Configuring your BIG-IP with a client SSL profile will allow you to secure the c
 2. Select the **Federation** > **F5 as OAuth Client and Resource
 Server**.
 
-3. Observe the summary of the flow for this scenario, then click
-**Next** to start the wizard.
+3. Observe the summary of the flow for this scenario, then select **Next** to start the wizard.
 
 ### OAuth properties
 
