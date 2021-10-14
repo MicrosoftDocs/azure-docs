@@ -89,44 +89,78 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 ## A comparison of Flexible, Uniform, and Availability Sets
 The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
 
-| Feature  | Supported by Flexible orchestration  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
-|-|-|-|-|
-| Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  |
-| SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD  | All SKUs  | All SKUs  |
-| Availability Zones  | Optionally specify all instances land in a single availability zone  | Specify instances land across 1, 2 or 3 availability zones  | Not supported  |
-| Fault Domain – Max Spreading (Azure will maximally spread instances)  | Yes  | Yes  | No  |
-| Fault Domain – Fixed Spreading  | 2-3 FDs (depending on regional maximum); 1 for zonal deployments  | 2, 3, 5 FDs; 1, 5 for zonal deployments  | 2-3 FDs (depending on regional maximum)  |
-| Update Domains  | Deprecated, platform maintenance performed FD by FD | 5 update domains  | Up to 20 update domains  |
-| Availability SLA  | Not at this time  | 99.95% for FD>1 in Single Placement Group; 99.99% for instances spread across multiple zones  | 99.95%  |
+### Basic Setup
+| Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
+|---|---|---|---|
+| Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines)  | Scale Set specific VMs (Microsoft.compute/virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines) |
+| Maximum Instance Count  | 1000  | 3000 (1000 per Availability Zone)  | 200 |
+| SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
-| Automatic Scaling (manual, metrics based, schedule based)  | Yes  | Yes  | No  |
-| Assign VM to a Specific Fault Domain  | Yes  | No  | No  |
-| Auto-Remove NICs and Disks when deleting VM instances  | Yes  | Yes  | No  |
-| Upgrade Policy (VM scale sets)  | No, upgrade policy must be null or [] during create  | Automatic, Rolling, Manual  | N/A  |
-| Automatic image based OS Updates  | No  | Yes  | N/A  |
-| In Guest Security Patching  | Yes  | No  | Yes  |
-| Terminate Notifications (VM scale sets)  | Yes  | Yes  | N/A  |
-| Instance Repair (VM scale sets)  | Yes  | Yes  | N/A  |
-| Accelerated networking  | No  | Yes  | Yes  |
-| Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only  |
-| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same Flexible scale set  |
-| Monitor Application Health  | Application health extension  | Application health extension or Azure Load balancer probe  | Application health extension  |
-| UltraSSD Disks   | Yes  | Yes, for zonal deployments only  | No  |
-| Infiniband   | No  | Yes, single placement group only  | Yes  |
-| Write Accelerator   | No  | Yes  | Yes  |
-| Proximity Placement Groups   | Yes  | Yes  | Yes  |
-| Azure Dedicated Hosts   | No  | Yes  | Yes  |
-| Basic SLB   | No  | Yes  | Yes  |
-| Azure Load Balancer Standard SKU  | Yes  | Yes  | Yes  |
-| Application Gateway  | Yes  | Yes  | Yes  |
-| Maintenance Control   | No  | Yes  | Yes  |
-| List VMs in Set  | Yes  | Yes  | Yes, list VMs in AvSet  |
-| Azure Alerts  | No  | Yes  | Yes  |
-| VM Insights  | No  | Yes  | Yes  |
-| Azure Backup  | Yes  | No  | Yes  |
-| Azure Site Recovery  | Yes (via Powershell)  | No  | Yes  |
-| Service Fabric  | No  | Yes  | No  |
-| Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No  |
+| RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network | Compute VMSS Write  | N/A |
+| Accelerated networking  | Yes  | Yes  | Yes |
+| Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only |
+| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same Flexible scale set |
+| Disk Types  | Managed disks only, all storage types  | Managed and unmanaged disks, all storage types  | Managed and unmanaged disks, Ultradisk not supported |
+| Write Accelerator   | No  | Yes  | Yes |
+| Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
+| Azure Dedicated Hosts   | No  | Yes  | Yes |
+| Managed Identity  | User Assigned Identity Only  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
+| Add/remove existing VM to the group  | No  | No  | No |
+| Service Fabric  | No  | Yes  | No |
+| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  | Yes  | No |
+| UserData  | Partial, UserData can be specified for individual VMs | Yes  | UserData can be specified for individual VMs |
+
+
+### Autoscaling and Instance Orchestration
+| Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
+|---|---|---|---|
+| List VMs in Set | Yes | Yes | Yes, list VMs in AvSet |
+| Automatic Scaling (manual, metrics based, schedule based) | Yes | Yes | No |
+| Auto-Remove NICs and Disks when deleting VM instances | Yes | Yes | No |
+| Upgrade Policy (VM scale sets) | No, upgrade policy must be null or [] during create | Automatic, Rolling, Manual | N/A |
+| Automatic OS Updates (VM scale sets) | No | Yes | N/A |
+| In Guest Security Patching | Yes | No | Yes |
+| Terminate Notifications (VM scale sets) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | N/A |
+| Monitor Application Health | Application health extension | Application health extension or Azure load balancer probe | Application health extension |
+| Instance Repair (VM scale sets) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
+| Instance Protection | No | Yes | No |
+| Scale In Policy | No | Yes | No |
+| VMSS Get Instance View | No | Yes | N/A |
+| Perform Maintenance | No (can trigger maintenance on each instance using VM API) | Yes | N/A |
+| VM Batch Operations (Start all, Stop all, delete subset, etc) | No (can trigger operations on each instance using VM API) | Yes | No |
+
+### High Availability 
+
+| Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
+|---|---|---|---|
+| Availability SLA | 99.95% | 99.95 for FD>1 in Single Placement Group; 99.99% for instances spread across multiple zones | 99.95% |
+| Availability Zones | Specify instances land across 1, 2 or 3 availability zones | Specify instances land across 1, 2 or 3 availability zones | Not supported |
+| Assign VM to a Specific Availability Zone | Yes | No | No |
+| Fault Domain – Max Spreading (Azure will maximally spread instances) | Yes | Yes | No |
+| Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments | 2, 3, 5 FDs; 1, 5 for zonal deployments | 2-3 FDs (depending on regional maximum FD Count) |
+| Assign VM to a Specific Fault Domain | Yes | No | No |
+| Update Domains | None (platform maintenance performed FD by FD) | 5 update domains | Up to 20 update domains |
+| Maintenance Control | No | Yes | Yes |
+
+### Networking 
+
+| Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
+|---|---|---|---|
+| Default outbound connectivity | No, must have explicit outbound connectivity | Yes | Yes |
+| Azure Load Balancer Standard SKU | Yes | Yes | Yes |
+| Application Gateway | Yes | Yes | Yes |
+| Infiniband Networking | No | Yes, single placement group only | Yes |
+| Basic SLB | No | Yes | Yes |
+| Network Port Forwarding | Yes (NAT Rules for individual instances) | Yes (NAT Pool) | Yes (NAT Rules for individual instances) |
+
+### Backup and Recovery 
+
+| Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
+|---|---|---|---|
+| Azure Backup  | Yes | No | Yes |
+| Azure Site Recovery | Yes (via Powershell) | No | Yes |
+| Azure Alerts  | Yes | Yes | Yes |
+| VM Insights  | No | Yes | Yes |
 
 
 ## Get started with Flexible orchestration mode

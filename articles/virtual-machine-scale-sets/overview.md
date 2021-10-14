@@ -11,6 +11,11 @@ ms.reviewer: mimckitt
 
 ---
 # What are virtual machine scale sets?
+
+> [!IMPORTANT]
+> The following article is about virtual machine scale sets in Uniform orchestration mode. We recommend using using [Flexible orchestration mode](../virtual-machines/flexible-virtual-machine-scale-sets.md) for all new scale set deployments. 
+
+
 Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update a large number of VMs. With virtual machine scale sets, you can build large-scale services for areas such as compute, big data, and container workloads.
 
 
