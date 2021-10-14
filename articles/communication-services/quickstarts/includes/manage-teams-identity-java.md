@@ -21,17 +21,17 @@ ms.author: gistefan
 
 ### Create a new Java application
 
-Open your terminal or command window. Navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
+Open your terminal or command window. Navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the `maven-archetype-quickstart` template.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
+You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the `src/main/java` directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
 
 ### Install the package
 
-Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
+Open the `pom.xml` file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
 <dependencies>
@@ -52,8 +52,8 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 
 From the project directory:
 
-1. Navigate to the */src/main/java/com/communication/quickstart* directory
-1. Open the *App.java* file in your editor
+1. Navigate to the `/src/main/java/com/communication/quickstart` directory
+1. Open the `App.java` file in your editor
 1. Replace the `System.out.println("Hello world!");` statement
 1. Add `import` directives
 
@@ -84,9 +84,9 @@ public class App
 }
 ```
 
-### Step 1: Receive the Azure AD user token via the MSAL library
+### Step 1: Receive the Azure Active Directory user token via the MSAL library
 
-First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
 
 ```java
 String appId = "Contoso's_Application_ID";
@@ -128,7 +128,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```java
 var accessToken = communicationIdentityClient.exchangeTeamsToken(result.getAccessToken());
@@ -137,7 +137,7 @@ System.out.println("Token: " + accessToken.getAccessToken());
 
 ## Run the code
 
-Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+Navigate to the directory containing the `pom.xml` file and compile the project by using the following `mvn` command.
 
 ```console
 mvn compile

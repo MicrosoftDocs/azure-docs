@@ -76,7 +76,7 @@ namespace CommunicationAccessTokensQuickstart
 
 ### Step 1: Receive the Azure AD user token via the MSAL library
 
-First step in the token exchange flow is getting a token for your Teams user by using the [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
 
 ```csharp
 string appId = "Contoso's_Application_ID";
@@ -112,7 +112,7 @@ var client = new CommunicationIdentityClient(connectionString);
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communicatin Services SDKs.
+Use the `ExchangeTeamsTokenAsync` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```csharp
 var accessToken = await client.ExchangeTeamsTokenAsync(teamsUserAadToken.AccessToken);
