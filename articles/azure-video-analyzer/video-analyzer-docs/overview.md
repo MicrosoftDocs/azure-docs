@@ -2,14 +2,18 @@
 title: What is Azure Video Analyzer 
 description: This topic provides an overview of Azure Video Analyzer
 ms.topic: overview
-ms.date: 06/01/2021
+ms.date: 09/30/2021
 
 ---
 # What is Azure Video Analyzer? (preview)
  
-Azure Video Analyzer provides a platform to build intelligent video applications that span the edge and the cloud. The platform consists of an IoT Edge module, and an associated Azure service. It offers the capability to capture, record, and analyze live video along with publishing the results - video and/or video analytics. Video can be published to the edge or the Video Analyzer cloud service, while video analytics can be published to Azure services (in the cloud and/or the edge). The platform can be used to enhance IoT solutions with video analytics. Video Analyzer functionality can be combined with other Azure IoT Edge modules such as Stream Analytics on IoT Edge, Cognitive Services on IoT Edge and Azure services in the cloud such as Event Hub, Cognitive Services, etc. to build powerful hybrid (for example, edge + cloud) applications.
+Azure Video Analyzer provides you a platform for building intelligent video applications that span the edge and the cloud. The platform consists of an IoT Edge module and an Azure service. It offers the capability to capture, record, and analyze live videos and publish the results i.e., video and insights from video to edge or cloud.
 
-The Video Analyzer edge module is designed to be an extensible platform, enabling you to connect different video analysis edge modules (such as Cognitive services containers, custom edge modules built by you with open-source machine learning models or custom models trained with your own data) to it and use them to analyze live video without worrying about the complexity of building and running a live video pipeline. The Video Analyzer cloud service enables you to play back the video and video analytics from such workflows.
+The Video Analyzer edge module can be used with other Azure IoT Edge modules such as Stream Analytics, Cognitive Services, and other Azure cloud services such as Event Hub and Cognitive Services to build powerful hybrid (i.e., edge + cloud) applications. This extensible edge module seamlessly integrates with various AI edge modules such as Microsoft Cognitive Services containers or custom edge modules built using open-source machine learning models and your training data. By leveraging the Video Analyzer platform, you can analyze live video without worrying about the complexity of building, operating, and maintaining a complex system.
+
+Apart from analyzing live video, the edge module also enables you to optionally record video locally on the edge or to the cloud, and to publish video insights to Azure services (on the edge and/or in the cloud). If video and video insights are recorded to the cloud, then the Video Analyzer cloud service can be used to manage them.
+
+The Video Analyzer cloud service can therefore be used to enhance IoT solutions with [video management system (VMS)](https://en.wikipedia.org/wiki/Video_management_system) capabilities such as recording, playback, and exporting (i.e. generating video files that can be shared externally). It can also be used to build a cloud-native solution with the same capabilities, as shown in the diagram below, with cameras connecting directly to the cloud.
 
 ## Accelerate IoT solutions development 
 
@@ -22,10 +26,9 @@ With Video Analyzer, you can continue to use your [CCTV cameras](https://en.wiki
 ### Concepts
 
 * [Pipeline](pipeline.md)
-* [Video recording](video-recording.md)
-* [Continuous video recording](continuous-video-recording.md)
-* [Event-based video recording](event-based-video-recording-concept.md)
 * [Video Analyzer without video recording](analyze-live-video-without-recording.md)
+* [Video recording](video-recording.md)
+
 
 ## Compliance, Privacy and Security
 
@@ -37,5 +40,5 @@ To learn about compliance, privacy and security in Video Analyzer visit the Micr
 
 ## Next steps
 
-* Follow the [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
+* Follow the [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on live video.
 * Review [terminology](terminology.md).
