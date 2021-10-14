@@ -115,11 +115,11 @@ This option is best when you'd like to apply your own overlap logic for the enti
 
 1. _If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then the entity returns two instances: one for "**Palm Beach**" and another for "**Palm Beach Extension**"._
 
-    :::image type="content" source="../media/return-all-overlaps-example-1.svg" alt-text="A screenshot showing an example of return all overlap results for components." lightbox="../media/return-all-overlaps-example-1.svg":::
+    :::image type="content" source="../media/return-all-overlaps-example-1.svg" alt-text="A screenshot showing an example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-1.svg":::
 
 2. _If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then the entity returns with 3 instances: one for "**New York**", one for "**York Beach**", and one for "**Beach Extension**"._
 
-    :::image type="content" source="../media/return-all-overlaps-example-2.svg" alt-text="A screenshot showing an example of return all overlap results for components." lightbox="../media/return-all-overlaps-example-2.svg":::
+    :::image type="content" source="../media/return-all-overlaps-example-2.svg" alt-text="A screenshot showing a second example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-2.svg":::
 
 ## Next steps
 

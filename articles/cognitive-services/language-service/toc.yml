@@ -119,6 +119,8 @@ items:
         href: custom-language-understanding/concepts/backwards-compatibility.md
       - name: Entity components
         href: custom-language-understanding/concepts/entity-components.md
+      - name: Evaluation metrics
+        href: custom-language-understanding/concepts/evaluation-metrics.md
   - name: Reference
     items:
       - name: Prebuilt component reference

@@ -19,7 +19,7 @@ Once you have [built a schema](build-schema.md) for your project, you should add
 Tagging is the process of assigning your utterances to intents, and labeling them with entities. You will want to spend time tagging your utterances - introducing and refining the data that will train the underlying machine learning models for your project. The machine learning models generalize based on the examples you provide it. The more examples you provide, the more data points the model has to make better generalizations.
 
 > [!NOTE]
->  An entity's learned components is only defined when you label utterances for that entity. You can also have entities that include _only_ list or prebuilt components without labelling learned components. Learn more about entity [components](./concepts/entity-components.md).
+>  An entity's learned components is only defined when you label utterances for that entity. You can also have entities that include _only_ list or prebuilt components without labelling learned components. see the [entity components](../concepts/entity-components.md) article for more information.
 
 When you enable multiple languages in your project, you must also specify the language of the utterance you are adding. As part of the multilingual capabilities of Conversational Language Understanding, you can train your project in a dominant language, and then predict in the other available languages. Adding examples to other languages increases the model's performance in these languages if you determine it isn't doing well, but avoid duplicating your data across all the languages you would like to support. 
 

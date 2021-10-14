@@ -55,7 +55,7 @@ To build a project schema for conversation projects:
 
     :::image type="content" source="../media/build-schema-page.png" alt-text="A screenshot showing the schema creation page for conversation projects in Language Studio." lightbox="../media/build-schema-page.png":::
     
-3. After creating an entity, you'll be routed to the entity details page. Every component is defined by multiple components. You can label examples in the tag utterances page to train a learned component, add a list of values to match against in the list component, or add a set of prebuilt components from the available library. Learn more about components [here](./concepts/entity-components.md)
+3. After creating an entity, you'll be routed to the entity details page. Every component is defined by multiple components. You can label examples in the tag utterances page to train a learned component, add a list of values to match against in the list component, or add a set of prebuilt components from the available library. Learn more about components [here](../concepts/entity-components.md)
 
     :::image type="content" source="../media/entity-details.png" alt-text="A screenshot showing the entity details page for conversation projects in Language Studio." lightbox="../media/entity-details.png":::
 
