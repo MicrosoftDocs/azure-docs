@@ -26,14 +26,14 @@ Azure Load Testing test engines abstract the required infrastructure for running
 
 During the load test execution, Azure Monitor collects the metrics of your Azure application components. The Azure Load Testing dashboard visualizes the application and test engine metrics.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Azure Load Testing architecture overview.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Diagram showing the Azure Load Testing architecture overview.":::
 
 Azure Load Balancing integrates with Azure networking to avoid load tests being mistaken for a security risk, such as a denial of service (DoS) attack. When the service detects throttling, the load test is automatically aborted.
 
 > [!NOTE]
 > This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components, and isn't a comprehensive list of supported Azure resources.
 
-## How to identify performance bottlenecks using high-scale load test?
+## How to identify performance bottlenecks using high-scale load tests?
 
 Performance bottlenecks often remain undetected until the application is experiencing high load. You can create a high-scale load test to simulate large numbers of *virtual users* simultaneously accessing your application endpoints.
 
