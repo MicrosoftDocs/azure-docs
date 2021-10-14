@@ -2,7 +2,7 @@
 title: WebHook event delivery
 description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 10/13/2021
 ---
 
 
