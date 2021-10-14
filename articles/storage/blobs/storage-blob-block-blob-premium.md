@@ -5,7 +5,7 @@ description: Achieve lower and consistent latencies for Azure Storage workloads 
 author: normesta
 
 ms.author: normesta
-ms.date: 10/11/2021
+ms.date: 10/14/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
