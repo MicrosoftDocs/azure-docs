@@ -57,7 +57,7 @@ $ResourceGroupName = "sqlvm2"
 
 Define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as you want, and then run the following cmdlet to initialize these variables. We recommend using [premium SSDs](../../../virtual-machines/disks-types.md#premium-ssd) for production workloads.
+Modify as you want, and then run the following cmdlet to initialize these variables. We recommend using [premium SSDs](../../../virtual-machines/disks-types.md#premium-ssds) for production workloads.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"
