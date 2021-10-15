@@ -29,7 +29,7 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
 ## Preparing CosmosDB Cassandra endpoint before running Glowroot
 Please open a support ticket if you intend to run Glowroot tests against your Cassandra API account. Providing the subscription ID and account name where your Glowroot test will be running.
 > [!NOTE]
-> If you run into issues while running the test, running Glowroot test please reach out to us <!-- TODO:<UPDATE WITH EMAIL ALIAS>-->
+> If you run into issues while running the test, running Glowroot test please reach out to us via our support team.
 
 ## Running Glowroot Central Collector with CosmosDB endpoint
 Once the endpoint configuration has been completed. 
