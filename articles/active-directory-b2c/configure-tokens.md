@@ -154,7 +154,7 @@ To change the settings on your token compatibility, you set the [Token Issuer](j
     </ClaimType>
     ```
 
-    In your [relying party policy](#relyingparty.md), under the **OutputClaims** element, add the following output claim:
+    In your [relying party policy](relyingparty.md), under the **OutputClaims** element, add the following output claim:
 
     ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
