@@ -9,10 +9,6 @@ ms.date: 10/06/2021
 
 In this tutorial, you'll learn how to export a portion of video that has been recorded in Azure Video Analyzer account.  This exported portion of video is saved as a MP4 file which can be downloaded and consumed outside of the Video Analyzer account.
 
-
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ## Suggested pre-reading  
 
 Read these articles before you begin:
@@ -27,7 +23,6 @@ Read these articles before you begin:
 Prerequisites for this tutorial are:
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 
-    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Video Analyzer account](create-video-analyzer-account.md).
 * Have completed [Quickstart: Detect motion, record video to Video Analyzer](detect-motion-record-video-clips-cloud.md) or any Video Analyzer pipeline that records video to the Video Analyzer account.
 
@@ -145,7 +140,7 @@ For example video recorded from a camera configured for [4K resolution](https://
 
 ## Pipeline job
 
-For information about pipeline jobs see [lifecycle of a pipeline](./pipeline.md#Batch_pipeline)
+For information about pipeline jobs see [lifecycle of a pipeline](../pipeline.md#Batch_pipeline)
 
 ## Create a pipeline job through Video Analyzer videos
 
