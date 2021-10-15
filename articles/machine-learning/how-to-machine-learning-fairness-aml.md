@@ -124,8 +124,7 @@ The following example shows how to use the fairness package. We will upload mode
 
     # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
     from raiwidgets import FairnessDashboard
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test,
                       y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
