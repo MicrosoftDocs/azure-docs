@@ -93,6 +93,7 @@ The table below lists the available resources that support a private endpoint:
 | **Private Link Service** (Your own service) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | **Azure Purview** | Microsoft.Purview/accounts | account |
+| **Azure Purview** | Microsoft.Purview/accounts | portal |
 | **Azure Backup** | Microsoft.RecoveryServices/vaults | vault |
 | **Azure Relay** | Microsoft.Relay/namespaces | namespace |
 | **Microsoft Search** | Microsoft.Search/searchServices | search service |

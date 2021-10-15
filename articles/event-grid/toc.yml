@@ -309,7 +309,7 @@
       href: consume-private-endpoints.md      
     - name: Configure IP firewall
       href: configure-firewall.md
-    - name: Secure Webhook with Azure Active Directory
+    - name: Deliver events to Azure Active Directory protected endpoints
       href: secure-webhook-delivery.md
   - name: Troubleshoot
     items: 

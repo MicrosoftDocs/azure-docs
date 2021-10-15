@@ -372,7 +372,7 @@ The authentication function also verifies that the web API is called with the ri
 
 ## Step 5: Configure the web server
 
-In a development environment, set the web API to listen on incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API will be: <'http://localhost:6000'>
+In a development environment, set the web API to listen on incoming HTTP or HTTPS requests port number. In this example, use HTTP port 6000 and HTTPS port 6001. The base URI of the web API will be `http://localhost:6000` for HTTP and `https://localhost:6001` for HTTPS. It is also possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function).
 
 # [ASP.NET Core](#tab/csharpclient)
 
@@ -383,7 +383,10 @@ Add the following JSON snippet to the *appsettings.json* file.
     "EndPoints": {
       "Http": {
         "Url": "http://localhost:6000"
-      }
+      },
+      "Https": {
+         "Url": "https://localhost:6001"   
+        }
     }
   }
 ```
