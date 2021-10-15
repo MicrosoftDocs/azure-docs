@@ -78,7 +78,7 @@ Azure Image Builder will support Azure Marketplace base OS images:
 - Windows 2019
 
 >[!IMPORTANT]
-> Listed operating systems have been tested and know work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.
+> Listed operating systems have been tested and now work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.
 
 ## How it works
 
