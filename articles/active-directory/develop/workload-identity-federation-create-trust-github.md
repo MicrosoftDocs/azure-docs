@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 10/13/2021
 ms.author: ryanwi
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to configure a federated credential on an app object in the Azure portal so I can create a trust relationship with GitHub.
+#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with GitHub and use workload identity federation to access Azure resources without managing secrets.
 ---
 
 # Create a trust relationship with GitHub
-This article describes how to configure a trust relationship with GitHub on an app registration.
+This article describes how to configure a trust relationship with GitHub on an app registration.  Create a federated credential in the Azure portal or by using Microsoft Graph.
 
 Anyone who can create an app reg and add a secret or cert can add a federated credential.  If the "don't let anyone create apps" switch is toggled, however, a dev won't be able to create an app reg or configure the credential.  Admin would have to do it on behalf of the dev.  Anyone in the app admin role or app owner role can do this.
 
