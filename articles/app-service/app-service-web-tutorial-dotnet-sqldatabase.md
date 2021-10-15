@@ -4,7 +4,7 @@ description: Learn how to deploy a C# ASP.NET app to Azure and to Azure SQL Data
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 10/05/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 ---
 

@@ -17,7 +17,9 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 - A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to install the `Az.ConnectedMachine` module. Run the following command on your Azure Arc-enabled server:
+Before using Azure PowerShell to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to install the `Az.ConnectedMachine` module. These management operations can be performed from your workstation, you don't need to run them on the Azure Arc-enabled server.
+
+Run the following command on your Azure Arc-enabled server:
 
 `Install-Module -Name Az.ConnectedMachine`.
 
@@ -32,9 +34,9 @@ To enable a VM extension on your Azure Arc-enabled server, use [New-AzConnectedM
 The following example enables the Log Analytics VM extension on a Azure Arc-enabled Linux server:
 
 ```powershell
-PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
-PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
+$Setting = @{ "workspaceId" = "workspaceId" }
+$protectedSetting = @{ "workspaceKey" = "workspaceKey" }
+New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
 
 To enable the Log Analytics VM extension on an Azure Arc-enabled Windows server, change the value for the `-ExtensionType` parameter to `"MicrosoftMonitoringAgent"` in the previous example.
@@ -42,11 +44,18 @@ To enable the Log Analytics VM extension on an Azure Arc-enabled Windows server,
 The following example enables the Custom Script Extension on an Azure Arc-enabled server:
 
 ```powershell
-PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
-PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
+$Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
+New-AzConnectedMachineExtension -Name "custom" -ResourceGroupName "myResourceGroup" -MachineName "myMachineName" -Location "regionName" -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
-### Key Vault VM extension 
+The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
+
+```powershell
+$Setting = @{ "AntimalwareEnabled" = $true }
+New-AzConnectedMachineExtension -Name "IaaSAntimalware" -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.Azure.Security" -Settings $Setting -ExtensionType "IaaSAntimalware"
+```
+
+### Key Vault VM extension
 
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`

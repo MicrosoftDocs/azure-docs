@@ -1,19 +1,59 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
 ms.workload: identity
-ms.author: mimart
-author: msmimart
+ms.author: kengaderdus
+author: kengaderdus
 manager: CelesteDG
 ---
 
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## September 2021
+
+### Updated articles
+
+- [Page layout versions](page-layout.md)
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Add an API connector to a sign-up user flow](add-api-connector.md)
+- [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md)
+- [Configure session behavior in Azure Active Directory B2C](session-behavior.md)
+- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Clean up resources and delete the tenant](tutorial-delete-tenant.md)
+- [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md)
+- [Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication](partner-bloksec.md)
+- [Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C](partner-itsme.md)
+- [Tutorial: Configure Keyless with Azure Active Directory B2C](partner-keyless.md)
+- [Tutorial: Configure Nok Nok with Azure Active Directory B2C to enable passwordless FIDO2 authentication](partner-nok-nok.md)
+- [Tutorial for configuring Saviynt with Azure Active Directory B2C](partner-saviynt.md)
+- [Integrating Trusona with Azure Active Directory B2C](partner-trusona.md)
+- [Integrating Twilio Verify App with Azure Active Directory B2C](partner-twilio.md)
+- [Configure complexity requirements for passwords in Azure Active Directory B2C](password-complexity.md)
+- [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
+- [Set up sign-up and sign-in with a Google account using Azure Active Directory B2C](identity-provider-google.md)
+- [Set up sign-up and sign-in with a ID.me account using Azure Active Directory B2C](identity-provider-id-me.md)
+- [Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C](identity-provider-linkedin.md)
+- [Set up sign-up and sign-in with a QQ account using Azure Active Directory B2C](identity-provider-qq.md)
+- [Set up sign-in with a Salesforce SAML provider by using SAML protocol in Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Set up sign-up and sign-in with a Salesforce account using Azure Active Directory B2C](identity-provider-salesforce.md)
+- [Set up sign-up and sign-in with a Twitter account using Azure Active Directory B2C](identity-provider-twitter.md)
+- [Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C](identity-provider-wechat.md)
+- [Set up sign-up and sign-in with a Weibo account using Azure Active Directory B2C](identity-provider-weibo.md)
+- [Pass an identity provider access token to your application in Azure Active Directory B2C](idp-pass-through-user-flow.md)
+- [Add AD FS as a SAML identity provider using custom policies in Azure Active Directory B2C](identity-provider-adfs-saml.md)
+- [Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C](identity-provider-amazon.md)
+- [Set up sign-up and sign-in with a Facebook account using Azure Active Directory B2C](identity-provider-facebook.md)
+- [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md)
+- [Billing model for Azure Active Directory B2C](billing.md)
+- [Add Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
+- [Enable custom domains for Azure Active Directory B2C](custom-domain.md)
+
 
 ## August 2021
 

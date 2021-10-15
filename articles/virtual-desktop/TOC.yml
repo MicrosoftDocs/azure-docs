@@ -220,8 +220,6 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Identify and diagnose issues
-    href: diagnostics-role-service.md
   - name: Getting started feature 
     href: troubleshoot-getting-started.md
   - name: Host pool creation
@@ -280,8 +278,8 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-  - name: Microsoft 365 roadmap
-    href: https://aka.ms/wvdroadmap
+  - name: Azure update roadmap
+    href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
   - name: Azure compliance offerings
