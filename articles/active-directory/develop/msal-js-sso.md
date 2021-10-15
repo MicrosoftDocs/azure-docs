@@ -82,7 +82,7 @@ userAgentApplication
   });
 ```
 
-SID can be used only with silent authentication requests made by `acquireTokenSilent` call in MSAL.js. You can find the steps to configure optional claims in your application manifest [here](active-directory-optional-claims.md).
+SID can be used only with silent authentication requests made by `acquireTokenSilent` call in MSAL.js. To find the steps to configure optional claims in your application manifest, see [Provide optional claims to your app](active-directory-optional-claims.md).
 
 **Using Login Hint**
 
@@ -98,11 +98,11 @@ var request = {
 userAgentApplication.loginRedirect(request);
 ```
 
-You can get the values for login_hint and domain_hint by reading the claims returned in the ID token for the user.
+To get the values for login_hint and domain_hint by reading the claims returned in the ID token for the user.
 
 - **loginHint** should be set to the `preferred_username` claim in the ID token.
 
-- **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` its consumers. Otherwise, its organizations.
+- **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` it's consumers. Otherwise, it's organizations.
 
 Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values for login hint and domain hint.
 
@@ -111,9 +111,9 @@ Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values
 
 By design, MSAL.js requires that a login method is called to establish a user context before getting tokens for APIs. Since login methods are interactive, the user sees a prompt.
 
-There are certain cases in which applications have access to the authenticated user's context or ID token through authentication initiated in another application and want to leverage SSO to acquire tokens without first signing in through MSAL.js.
+There are certain cases in which applications have access to the authenticated user's context or ID token through authentication initiated in another application and want to use SSO to acquire tokens without first signing in through MSAL.js.
 
-An example of this is: A user is signed into a parent web application, which hosts another JavaScript application running as an add-on or plugin.
+A good example of this is: A user is signed into a parent web application, which hosts another JavaScript application running as an add-on or plugin.
 
 The SSO experience in this scenario can be achieved as follows:
 
