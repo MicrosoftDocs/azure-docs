@@ -1,10 +1,10 @@
 ---
-title: Specify the Request Service REST API issuance request
+title: Specify the Request Service REST API issuance request (preview)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
@@ -14,7 +14,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
 ---
 
-# Request Service REST API issuance specification (Preview)
+# Request Service REST API issuance specification (preview)
 
 Azure Active Directory (Azure AD) verifiable credentials Request Service REST API allows you to issue and verify a veritable credential. This article specifies the Request Service REST API for issuance request.
 
@@ -86,7 +86,7 @@ The issuance request payload contains information about your verifiable credenti
     },
     "issuance": {
         "type": "VerifiedCredentialExpert",
-        "manifest": "https://beta.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert1",
+        "manifest": "https://beta.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
         "pin": {
             "value": "3539",
             "length": 4
