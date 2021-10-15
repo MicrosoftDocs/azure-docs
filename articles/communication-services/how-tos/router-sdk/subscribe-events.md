@@ -226,26 +226,10 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered |
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered |
 
-<!--
-| Events | Sub-domain | Description
-|:------:|:------------:| ---------- |
-| `JobReceivedEvent` | `Job` | A new job was created for routing |
-| `JobClassifiedEvent` | `Job` | The classification policy was applied to a job |
-| `JobLabelsUpdatedEvent` | `Job` | The labels of the job were changed |
-| `JobClassificationFailedEvent` | `Job` | Router failed to classify job using classification policy |
-| `JobResetEvent` | `Job` | A job was moved to a different queue |
-| `JobCompletedEvent` | `Job` | A job was completed and enters wrap-up |
-| `JobClosedEvent` | `Job` | A job was closed and wrap-up is finished |
-| `JobCancelledEvent` | `Job` | A job was cancelled |
-| `OfferIssuedEvent` | `Offer` | A job was offered to a worker |
-| `OfferAcceptedEvent` | `Offer` | An offer to a worker was accepted |
-| `OfferDeclinedEvent` | `Offer` | An offer to a worker was declined |
-| `OfferRevokedEvent` | `Offer` | An offer to a worker was revoked |
--->
-
 ## Router Events
 ### Microsoft.Communication.RouterJobReceived
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
@@ -272,39 +256,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 }
 ```
 
-<!--
-### Microsoft.Communication.JobReceivedEvent
-```json
-{
-  "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/event/JobReceivedEvent",
-  "data": {
-    "enqueueTimeUtc": "2021-06-23T02:43:27.5224698Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "PendingClassification",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "priority": 0,
-    "requiredAbilities": {},
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:27.5224698Z"
-  },
-  "eventType": "Microsoft.Communication.JobReceivedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
--->
-
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ 
@@ -319,7 +271,8 @@ _**Attribute list**_
 ---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassified
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -354,53 +307,7 @@ _**Attribute list**_
 }
 ```
 
-<!--
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/queue/{queue-id}/classificationpolicy/{classificationpolicy-id}/event/JobClassifiedEvent",
-  "data": {
-    "enqueueTimeUtc": "2021-06-23T02:43:29.2764523Z",
-    "oldQueueId": null,
-    "oldQueueInfo": null,
-    "oldPriority": 0,
-    "oldRequiredAbilities": {},
-    "queueInfo": {
-      "id": "625fec06-ab81-4e60-b780-f364ed96ade1",
-      "name": "Queue 1",
-      "labels": {
-        "Language": "en",
-        "Product": "Office",
-        "Geo": "NA"
-      }
-    },
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "Queued",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
-    "priority": 5,
-    "requiredAbilities": {
-      "English": 5,
-      "Office": 7
-    },
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.JobClassifiedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
@@ -411,9 +318,10 @@ _**Attribute list**_
 | queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
 | priority | `int` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
+
 ### Microsoft.Communication.RouterJobLabelsUpdated
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -446,7 +354,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -458,9 +366,10 @@ _**Attribute list**_
 | priority | `int` | ❌ |
 | labelsAddedOrChanged | `Dictionary<string, object>` | ✔️ | | Labels added or changed based on user input.
 | labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job.
----------------------------------------------------------------------------------------------------------
+
 ### Microsoft.Communication.RouterJobClassificationFailed
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -493,46 +402,7 @@ _**Attribute list**_
 }
 ```
 
-
-<!--
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/classificationpolicy/{classificationpolicy-id}/event/JobClassificationFailedEvent",
-  "data": {
-    "errors": [
-      {
-        "code": null,
-        "message": "Classification failed due to <reason>",
-        "target": null,
-        "innerError": null,
-        "details": null
-      }
-    ],
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "ClassificationFailed",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "priority": 5,
-    "requiredAbilities": {},
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.JobClassificationFailedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | errors| `List<CommunicationError>` | ❌ |
@@ -542,9 +412,9 @@ _**Attribute list**_
 | classificationPolicyId | `string` | ❌ | |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobCompleted
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -570,37 +440,7 @@ _**Attribute list**_
 }
 ```
 
-<!--
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/assignment/{assignment-id}/event/JobCompletedEvent",
-  "data": {
-    "completedTimeUtc": "2021-06-23T02:43:29.2764523Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "Completed",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "priority": 5,
-    "requiredAbilities": {},
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.JobCompletedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -610,9 +450,10 @@ _**Attribute list**_
 | assignmentId| `string` | ❌ | |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | workerId | `string` | ❌ | |
----------------------------------------------------------------------------------------------------------
+
 ### Microsoft.Communication.RouterJobClosed
 <font size=2>[Back to Event Catalog](#events-catalog)</font> 
+
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -639,39 +480,7 @@ _**Attribute list**_
 }
 ```
 
-
-<!--
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/event/JobClosedEvent",
-  "data": {
-    "closedTimeUtc": "2021-06-23T02:43:29.2764523Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "Closed",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "priority": 5,
-    "requiredAbilities": {},
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.JobClosedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
--->
-
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -682,9 +491,10 @@ _**Attribute list**_
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
+
 ### Microsoft.Communication.RouterJobCancelled
 <font size=2>[Back to Event Catalog](#events-catalog)</font> 
+
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -710,40 +520,7 @@ _**Attribute list**_
 }
 ```
 
-
-<!--
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/disposition/{disposition-code}/event/JobCancelledEvent",
-  "data": {
-    "cancellationReason": "Cancelled due to <reason>",
-    "cancelledTimeUtc": "2021-06-23T02:43:29.2764523Z",
-    "dispositionCode": "100",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "Closed",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "priority": 5,
-    "requiredAbilities": {},
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.JobCancelledEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | note| `string` | ✔️ | | Based on user input
@@ -754,9 +531,9 @@ _**Attribute list**_
 | queueId | `string` | ✔️ | | Non-null when job is canceled after successful classification.
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobExceptionTriggered
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -780,7 +557,8 @@ _**Attribute list**_
   "eventTime": "2021-06-23T02:43:31Z"
 }
 ```
-_**Attribute list**_
+
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -790,9 +568,9 @@ _**Attribute list**_
 | channelId | `string` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobExceptionCleared
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -815,7 +593,8 @@ _**Attribute list**_
   "eventTime": "2021-06-23T02:43:31Z"
 }
 ```
-_**Attribute list**_
+
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -823,12 +602,12 @@ _**Attribute list**_
 | channelReference | `string` | ❌ |
 | channelId | `string` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
----------------------------------------------------------------------------------------------------------
 
 ## Worker Events
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -857,41 +636,7 @@ _**Attribute list**_
 }
 ```
 
-
-<!--
-```json
-{
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "worker/{worker-id}/job/{job-id}/event/OfferIssuedEvent",
-  "data": {
-    "workerId": "w100",
-    "timestampUtc": "2021-06-23T02:43:30.384922Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "channelId": "FooVoiceChannelId",
-    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
-    "offerTimeUtc": "2021-06-23T02:43:30.3847144Z",
-    "expiryTimeUtc": "2021-06-23T02:44:30.3847674Z",
-    "jobPriority": 5,
-    "jobRequiredAbilities": {
-      "English": 5,
-      "Office": 7
-    },
-    "jobLabels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    }
-  },
-  "eventType": "Microsoft.Communication.OfferIssuedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -905,9 +650,9 @@ _**Attribute list**_
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerOfferAccepted
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -935,30 +680,7 @@ _**Attribute list**_
 }
 ```
 
-
-<!--
-```json
-{
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "worker/{worker-id}/job/{job-id}/event/OfferAcceptedEvent",
-  "data": {
-    "workerId": "w100",
-    "timestampUtc": "2021-06-23T02:43:30.384922Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "channelId": "FooVoiceChannelId",
-    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1"
-  },
-  "eventType": "Microsoft.Communication.OfferAcceptedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
-}
-```
--->
-
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -971,9 +693,9 @@ _**Attribute list**_
 | offerId | `string` | ❌ |
 | assignmentId | `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerOfferDeclined
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -994,30 +716,7 @@ _**Attribute list**_
 }
 ```
 
-
-<!--
-```json
-{
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "worker/{worker-id}/job/{job-id}/event/OfferIssuedEvent",
-  "data": {
-    "workerId": "w100",
-    "timestampUtc": "2021-06-23T02:43:30.384922Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "channelId": "FooVoiceChannelId",
-    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
-    "declineTimeUtc": "2021-06-23T02:43:30.3847144Z"
-  },
-  "eventType": "Microsoft.Communication.OfferIssuedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -1027,9 +726,9 @@ _**Attribute list**_
 | queueId | `string` | ❌ |
 | offerId | `string` | ❌ |
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerOfferRevoked
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1050,28 +749,7 @@ _**Attribute list**_
 }
 ```
 
-<!--
-```json
-{
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "worker/{worker-id}/job/{job-id}/event/OfferRevokedEvent",
-  "data": {
-    "workerId": "w100",
-    "timestampUtc": "2021-06-23T02:43:30.384922Z",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "channelId": "FooVoiceChannelId",
-    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1"
-  },
-  "eventType": "Microsoft.Communication.OfferRevokedEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
-}
-```
--->
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -1082,7 +760,8 @@ _**Attribute list**_
 | queueId | `string` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerOfferExpired
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1103,7 +782,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -1112,9 +791,10 @@ _**Attribute list**_
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
----------------------------------------------------------------------------------------------------------
+
 ### Microsoft.Communication.RouterWorkerRegistered
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1152,7 +832,7 @@ _**Attribute list**_
 }
 ```
 
-_**Attribute list**_
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -1161,9 +841,8 @@ _**Attribute list**_
 | labels| `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 
----------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerDeregistered
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font>
 
 ```json
 {
@@ -1179,41 +858,7 @@ _**Attribute list**_
   "eventTime": "2021-06-23T02:43:31Z"
 }
 ```
-*Attribute list*
+**Attribute list**
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
-
----------------------------------------------------------------------------------------------------------
-## DTO Definitions
-
-**QueueInfo**
-```csharp
-    public class QueueInfo
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public Dictionary<string, string>? Labels { get; set; }
-    }
-```
-
-**CommunicationError**
-```csharp
-    public class CommunicationError
-    {
-        public string? Code { get; init; }
-        public string Message { get; init; }
-        public string? Target { get; init; }
-        public CommunicationError? InnerError { get; init; }
-        public IEnumerable<CommunicationError>? Details { get; init; }
-    }
-```
-**ChannelConfiguration**
-```csharp
-public class ChannelConfiguration
-{
-    public string ChannelId { get; set; }
-
-    public int CapacityCostPerJob { get; set; }
-}
-```

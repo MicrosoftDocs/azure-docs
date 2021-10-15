@@ -87,3 +87,4 @@ Azure Communication Services Job Router applies flexible Policies to attach dyna
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [Classifying a Job](../../how-tos/router-sdk/job-classification.md)
 - [Escalate a Job](../../how-tos/router-sdk/escalate-job.md)
+- [Subscribe to events](../../how-tos/router-sdk/subscribe-events.md)
