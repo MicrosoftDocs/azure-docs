@@ -19,24 +19,14 @@ Before creating a custom text classification model, you need to have tagged data
 Before you can tag data, you need [a successfully created project](../quickstart.md) with a valid resource and storage account.
 You will then need to [upload training data](use-azure-resources.md#prepare-training-data) for your model to learn from. Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](run-inference.md).
 
-
-
-:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
-
-## Recommended practices
+As you tag your data, keep in mind:
 
 * In general, more tagged data leads to better results, provided the data is tagged accurately.
 
-* Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model to perform the best, because model performance also depends on possible ambiguity in your schema, and the quality of your tagged data.
+* Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
 
-* [View model evaluation details](../how-to/view-model-evaluation.md) After model training, model evaluation is done against the [test set](../how-to/train-model.md#data-splits), which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
 
-* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution-from-language-studio) Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged significantly less frequent than the others, this means this class is under-represented and most probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
-
-* [Improve performance](../how-to/improve-model.md) Other than revising tagged data based on error analysis, you may want to increase the number of tags for under-performing entity types, or improve the diversity of your tagged data. This will help your model learn to give correct predictions, over potential linguistic phenomena that cause failure.
-
-<!-- * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged classes.
- -->
+:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
 
 ## Tag your data
 
