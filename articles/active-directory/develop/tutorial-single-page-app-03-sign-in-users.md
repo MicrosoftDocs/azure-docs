@@ -17,3 +17,19 @@ ms.custom: aaddev, devx-track-js
 ---
 
 # Tutorial: Sign in users in a React single-page application(SPA)
+
+
+
+## Sign in using popups
+
+
+
+## Sign in using redirects
+
+
+
+## Add the sign-in button
+
+
+
+## Next steps

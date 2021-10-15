@@ -17,3 +17,14 @@ ms.custom: aaddev, devx-track-js
 ---
 
 # Tutorial: Get user profile from a web API
+
+
+
+
+## Acquire a token
+
+
+## Call a web API
+
+
+## Next Steps

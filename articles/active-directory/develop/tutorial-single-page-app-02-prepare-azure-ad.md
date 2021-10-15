@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create and register a React single-page application project"
+title: "Tutorial: Register a React single-page application project"
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you will create a React project and register it in the Microsoft identity platform
 services: active-directory
@@ -16,15 +16,17 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Create and register a React single-page application project
+# Tutorial: Register a single-page application project in the Microsoft identity platform
 
 
 
 
-## Get the completed code sample
+## Register your application
 
 
-Clone the  [dependent repo](https://github.com/Azure-Samples/ms-identity-javascript-react-docs):
 
-`git clone https://github.com/Azure-Samples/ms-identity-javascript-react-docs`
+## Configure your single-page app
 
+
+
+## Next steps

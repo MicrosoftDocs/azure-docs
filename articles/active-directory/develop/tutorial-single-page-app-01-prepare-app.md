@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Prepare your single-page app (SPA) for auth"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you will learn about the authorization code flow in a React single-page application
+description: In this tutorial, you will learn about the authorization code flow in a single-page application
 services: active-directory
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -18,8 +18,20 @@ ms.custom: aaddev, devx-track-js
 
 # Tutorial: Prepare your single-page app (SPA) for auth
 
-## section 1
+[!INCLUDE [01-prepare-app.md](../../../includes/single-page-app/tutorials/01-prepare-app.md)]
 
-## section 2
+## Prerequisites
 
-## section 3
+
+
+## How the tutorial app works
+
+
+
+## Get the completed app sample
+
+
+## Create your project
+
+
+## Next steps

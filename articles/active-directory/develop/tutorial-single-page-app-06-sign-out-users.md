@@ -16,4 +16,21 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Sign out users in a React single-page application(SPA)
+# Tutorial: Sign out users in a single-page application(SPA)
+
+
+## Sign out using popups
+
+
+
+## Sign out using redirects 
+
+
+
+## Add the sign-out button
+
+
+## Help and support
+
+
+## Next steps

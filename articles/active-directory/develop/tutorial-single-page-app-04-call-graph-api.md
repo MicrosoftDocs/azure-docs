@@ -16,3 +16,16 @@ ms.custom: include
 ---
 
 # Tutorial: Call the Microsoft Graph API from a React single-page application
+
+
+
+## Acquire a token
+
+
+
+## Call the Microsoft Graph API
+
+
+
+
+## Next steps
