@@ -99,7 +99,7 @@ There are a few important concepts to notice in this YAML:
 
 ### Readiness route vs. liveness route
 
-An HTTP server can optionally define paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do some work. In machine learning inference, a server could respond 200 OK to a liveness request before loading a model. The server could respond 200 OK to a readiness request only after the model has been loaded into memory.
+An HTTP server defines paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do work. In machine learning inference, a server could respond 200 OK to a liveness request before loading a model. The server could respond 200 OK to a readiness request only after the model has been loaded into memory.
 
 Review the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information about liveness and readiness probes.
 
@@ -109,7 +109,10 @@ Notice that this deployment uses the same path for both liveness and readiness, 
 
 When you deploy a model as a real-time endpoint, Azure Machine Learning _mounts_ your model to your endpoint. Model mounting enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
 
-So, for example, if you have the following directory structure on your local machine:
+> [!IMPORTANT]
+> The model mount path must be a valid absolute path in Linux (the OS of the container image).
+
+For example, if you have the following directory structure on your local machine:
 
 ```
 azureml-examples
@@ -143,7 +146,7 @@ var
 
 You can optionally configure your __model_mount_path__. It enables you to change the path where the model is mounted.
 
-So, for example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_
+For example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_
 
 ```YAML
 name: tfserving-deployment
@@ -152,7 +155,7 @@ model:
   name: tfserving-mounted
   version: 1
   local_path: ./half_plus_two
-model_mount_path: /tfserving-model-mount
+model_mount_path: /var/tfserving-model-mount
 .....
 ```
 then your model will be located at the following location in your deployment:
