@@ -103,7 +103,7 @@ landingContent:
           - text: Use the Custom model
             url: concept-custom.md#try-it-sample-labeling-tool
 #Card 5
-   - title: Try 🆕Form Recognizer Studio
+   - title: 🆕Try Form Recognizer Studio
      linkLists:
       - linkListType: overview
         links:
@@ -126,7 +126,7 @@ landingContent:
           - text: Use the Business Card model
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models            
 #Card 6
-   - title: Try General document model
+   - title: 🆕Try General document model
      linkLists:
       - linkListType: overview
         links:
