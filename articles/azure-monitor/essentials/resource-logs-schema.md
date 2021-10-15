@@ -19,7 +19,8 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Top-level common schema
 
-The schema described here is valid when resource logs are sent to Azure storage or to an event hub. When the logs are sent to a Log Analytics workspace, the column names may be different. See [Standard columns in Azure Monitor Logs](../logs/log-standard-columns.md) for columns common to all tables in a Log Analytics workspace and [Azure Monitor data reference](/azure/azure-monitor/reference) for a reference of different tables.
+> [!NOTE]
+> The schema described here is valid when resource logs are sent to Azure storage or to an event hub. When the logs are sent to a Log Analytics workspace, the column names may be different. See [Standard columns in Azure Monitor Logs](../logs/log-standard-columns.md) for columns common to all tables in a Log Analytics workspace and [Azure Monitor data reference](/azure/azure-monitor/reference) for a reference of different tables.
 
 | Name | Required or optional | Description |
 |---|---|---|
