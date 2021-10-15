@@ -84,6 +84,25 @@ landingContent:
             url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 #Card 4
+   - title: Try Sample Labeling tool
+     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started
+            url: quickstarts/try-sample-label-tool.md
+          - text: Use the Layout model
+            url: concept-layout.md#try-it-sample-labeling-tool
+          - text: Use the Invoice model
+            url: concept-invoice.md#try-it-sample-labeling-tool
+          - text: Use the Receipt model
+            url: concept-receipt.md#try-it-sample-labeling-tool
+          - text: Use the ID document model
+            url: concept-id-document.md#try-it-sample-labeling-tool
+          - text: Use the Business card model
+            url: concept-business-card.md#try-it-sample-labeling-tool
+          - text: Use the Custom model
+            url: concept-custom.md#try-it-sample-labeling-tool
+#Card 5
    - title: Try 🆕Form Recognizer Studio
      linkLists:
       - linkListType: overview
@@ -105,28 +124,9 @@ landingContent:
           - text: Use the ID Document model
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
           - text: Use the Business Card model
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-#Card 5
-   - title: Try Sample Labeling tool
-     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Get started
-            url: quickstarts/try-sample-label-tool.md
-          - text: Use the Layout model
-            url: concept-layout.md#try-it-sample-labeling-tool
-          - text: Use the Invoice model
-            url: concept-invoice.md#try-it-sample-labeling-tool
-          - text: Use the Receipt model
-            url: concept-receipt.md#try-it-sample-labeling-tool
-          - text: Use the ID document model
-            url: concept-id-document.md#try-it-sample-labeling-tool
-          - text: Use the Business card model
-            url: concept-business-card.md#try-it-sample-labeling-tool
-          - text: Use the Custom model
-            url: concept-custom.md#try-it-sample-labeling-tool
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models            
 #Card 6
-   - title: Try 🆕General document model
+   - title: Try General document model
      linkLists:
       - linkListType: overview
         links:
