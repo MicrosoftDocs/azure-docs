@@ -42,9 +42,9 @@ This section describes how to register an Azure SQL Database Managed Instance in
 
 If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Purview supports today:
 
-- SQL authentication
-- Service Principal
-- Managed Identity
+- [Managed Identity](#managed-identity-to-register)
+- [Service Principal](#service-principal-to-register)
+- [SQL authentication](#sql-authentication-to-register)
 
 #### Managed Identity to register
 
