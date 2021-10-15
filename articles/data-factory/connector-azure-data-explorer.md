@@ -346,7 +346,7 @@ The below table lists the properties supported by Azure Data Explorer source. Yo
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Azure Data Explorer dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName<br>schemaName |
+| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Azure Data Explorer dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName |
 | Query | A read-only request given in a [KQL format](/azure/data-explorer/kusto/query/). Use the custom KQL query as a reference.  | No | String | query |
 | Timeout | The wait time before the query request times out. Default is '172000' (2 days)  | No | Integer | timeout |
 
@@ -379,8 +379,6 @@ The below table lists the properties supported by Azure Data Explorer sink. You 
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Update method | Specify what operations are allowed on your Azure Data Explorer destination.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
-| Key columns | For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | No | Array | keys |
 | Table action | Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
 | Pre and Post SQL scripts | Specify multiple [Kusto control commands](/azure/data-explorer/kusto/query/#control-commands) scripts that will execute before (pre-processing) and after (post-processing) data is written to your sink database. | No | String | preSQLs; postSQLs |
 | Timeout | The wait time before the query request times out. Default is '172000' (2 days) | No | Integer | timeout |
