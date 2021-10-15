@@ -227,8 +227,10 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered |
 
 ## Router Events
+
 ### Microsoft.Communication.RouterJobReceived
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -257,21 +259,23 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| jobId| `string` | ❌ 
+| jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> </ul> | When this event is sent out, the classification process is yet to have been executed.
+| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> </ul> | When this event is sent out, the classification process is yet to have been executed. |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
-| priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value if there is a direct queue assignment.
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
+| priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value if there is a direct queue assignment. |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassified
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -308,6 +312,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
@@ -320,7 +325,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobLabelsUpdated
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -355,6 +361,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -368,7 +375,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job.
 
 ### Microsoft.Communication.RouterJobClassificationFailed
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -403,6 +411,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | errors| `List<CommunicationError>` | ❌ |
@@ -413,7 +422,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobCompleted
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -441,6 +451,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -452,7 +463,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | workerId | `string` | ❌ | |
 
 ### Microsoft.Communication.RouterJobClosed
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -481,6 +493,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -493,7 +506,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobCancelled
-<font size=2>[Back to Event Catalog](#events-catalog)</font> 
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -521,6 +535,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | note| `string` | ✔️ | | Based on user input
@@ -532,7 +547,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -559,6 +575,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -569,7 +586,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobExceptionCleared
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -595,6 +613,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -606,7 +625,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ## Worker Events
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -637,6 +657,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -651,7 +672,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -681,6 +703,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -694,7 +717,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | assignmentId | `string` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerOfferDeclined
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -717,6 +741,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -727,7 +752,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | offerId | `string` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerOfferRevoked
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -750,6 +776,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -760,7 +787,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | queueId | `string` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerOfferExpired
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -783,6 +811,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -793,7 +822,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | queueId | `string` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerRegistered
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -833,6 +863,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -842,7 +873,8 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerDeregistered
-<font size=2>[Back to Event Catalog](#events-catalog)</font>
+
+[Back to Event Catalog](#events-catalog)
 
 ```json
 {
@@ -859,6 +891,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 }
 ```
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
