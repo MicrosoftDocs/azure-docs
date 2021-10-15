@@ -59,18 +59,18 @@ For information about Video Analyzer sources, processors, and sinks see [Sources
 Allows a Video Analyzer video recording to be used as a source. The node requires you to specify the name of the video resource, as well as the start and end time of the portion(s) of the recorded video to be processed.
 
 ```json
-// Video Source 
+// Video Source  
 { 
-  "@type": "#Microsoft.VideoAnalyzer.VideoSource", 
-  "name": "{nodeName}",// Node identifier within the topology 
-  "videoName": "{videoName}", // Name of the source video 
-  // Accuracy is implicit based on the presence of an encoder node 
-  "sequences ":  
-    { 
-      "@type": "#Microsoft.VideoAnalyzer.VideoDateTimeSequencesString", 
-      "dateTimeMarkers": "[[2020-10-05T03:30:00Z,2020-10-05T03:40:00Z],[..,..]]"    // [startTime,endTime] DateLiteral as per ISO8601 
-    } 
-} 
+  "@type": "#Microsoft.VideoAnalyzer.VideoSource",
+  "name": "{nodeName}", //Node identifier within the topology
+  "videoName": "{videoName}", // Name of the source video
+  // Accuracy is implicit based on the presence of an encoder node
+  "sequences ":  
+   { 
+     "@type": "#Microsoft.VideoAnalyzer.VideoDateTimeSequencesString",
+     "dateTimeMarkers": "[[2020-10-05T03:30:00Z,2020-10-05T03:40:00Z],[..,..]]"  // [startTime,endTime] DateLiteral as per ISO8601
+    }
+}
 ```
 
 
