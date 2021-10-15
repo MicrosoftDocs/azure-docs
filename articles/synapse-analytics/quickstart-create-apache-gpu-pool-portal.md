@@ -60,6 +60,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     ![Screenshot that shows the "Create Apache Spark pool" page with the "Additional settings" tab selected.](media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-02.png)
 
 4. Select **Next: tags**. Don't add any tags.
+
     ![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
 5. Select **Review + create**.
