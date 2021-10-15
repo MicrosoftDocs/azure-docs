@@ -989,7 +989,7 @@
   - name: Overview
     displayName: managed disks, introduction to managed disks
     href: managed-disks-overview.md
-  - name: Select a disk type for IaaS VMs
+  - name: Disk types
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
