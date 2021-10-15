@@ -109,9 +109,6 @@ Notice that this deployment uses the same path for both liveness and readiness, 
 
 When you deploy a model as a real-time endpoint, Azure Machine Learning _mounts_ your model to your endpoint. Model mounting enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
 
-> [!IMPORTANT]
-> The model mount path must be a valid absolute path in Linux (the OS of the container image).
-
 For example, if you have the following directory structure on your local machine:
 
 ```
@@ -147,6 +144,9 @@ var
 You can optionally configure your __model_mount_path__. It enables you to change the path where the model is mounted.
 
 For example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_
+
+> [!IMPORTANT]
+> The `model_mount_path` must be a valid absolute path in Linux (the OS of the container image).
 
 ```YAML
 name: tfserving-deployment
