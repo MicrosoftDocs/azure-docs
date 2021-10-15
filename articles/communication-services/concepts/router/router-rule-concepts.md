@@ -20,7 +20,7 @@ Azure Communication Services Job Router uses an extensible rules engine to proce
 
 ## Rule engine overview
 
-Controlling the behavior of your implementation can often include complex decision making. Job Router provides a flexible way to invoke behavior programmatically using various RouterRule types as part of its rules engine. Job Router's rule engine generally relies on the use of **labels** defined on objects such as a Job, a Queue, or a Worker. Labels are key/value pairs stored on the object, and can be evaluated within the rules engine during the lifecycle of a particular object.
+Controlling the behavior of your implementation can often include complex decision making. Job Router provides a flexible way to invoke behavior programmatically using various rule engines. Job Router's rule engines generally take a set of **labels** defined on objects such as a Job, a Queue, or a Worker as an input, apply the rule and produce an output.
 
 > [!NOTE]
 > Although the rule engine typically uses labels as input, it can also set values such as a Queue ID without the use of evaluating labels.
