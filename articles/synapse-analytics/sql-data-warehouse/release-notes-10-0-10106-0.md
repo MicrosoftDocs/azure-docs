@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 4/30/2020
-author: anumjs
-ms.author: anjangsh
+author: rothja
+ms.author: jroth
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019

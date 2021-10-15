@@ -30,7 +30,7 @@ You need an Azure account with an active subscription. [Create an account for fr
 
 This template creates a private endpoint for an instance of Azure SQL Database.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/azuredeploy.json":::
 

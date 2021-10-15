@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: sstein
-ms.date: 09/16/2020
+ms.reviewer: mathoma
+ms.date: 10/13/2021
 ---
 
 # Resource management in dense elastic pools
@@ -32,6 +32,8 @@ This approach allows customers to use dense elastic pools to achieve adequate pe
 > In dense pools with many active databases, it may not be feasible to increase the number of databases in the pool up to the maximums documented for [DTU](resource-limits-dtu-elastic-pools.md) and [vCore](resource-limits-vcore-elastic-pools.md) elastic pools.
 >
 > The number of databases that can be placed in dense pools without causing resource contention and performance problems depends on the number of concurrently active databases, and on resource consumption by user workloads in each database. This number can change over time as user workloads change.
+> 
+> Additionally, if the min vCores per database, or min DTUs per database setting is set to a value greater than 0, the maximum number of databases in the pool will be implicitly limited. For more information, see [Database properties for pooled vCore databases](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) and [Database properties for pooled DTU databases](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases).
 
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
 
@@ -50,7 +52,7 @@ Azure SQL Database provides several metrics that are relevant for this type of m
 |Metric name|Description|Recommended average value|
 |----------|--------------------------------|------------|
 |`avg_instance_cpu_percent`|CPU utilization of the SQL process associated with an elastic pool, as measured by the underlying operating system. Available in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `sqlserver_process_core_percent`, and can be viewed in Azure portal. This value is the same for every database in the same elastic pool.|Below 70%. Occasional short spikes up to 90% may be acceptable.|
-|`max_worker_percent`|[Worker thread]( https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide) utilization. Provided for each database in the pool, as well as for the pool itself. There are different limits on the number of worker threads at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `workers_percent`, and can be viewed in Azure portal.|Below 80%. Spikes up to 100% will cause connection attempts and queries to fail.|
+|`max_worker_percent`|[Worker thread](/sql/relational-databases/thread-and-task-architecture-guide) utilization. Provided for each database in the pool, as well as for the pool itself. There are different limits on the number of worker threads at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `workers_percent`, and can be viewed in Azure portal.|Below 80%. Spikes up to 100% will cause connection attempts and queries to fail.|
 |`avg_data_io_percent`|IOPS utilization for read and write physical IO. Provided for each database in the pool, as well as for the pool itself. There are different limits on the number of IOPS at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `physical_data_read_percent`, and can be viewed in Azure portal.|Below 80%. Occasional short spikes up to 100% may be acceptable.|
 |`avg_log_write_percent`|Throughput utilizations for transaction log write IO. Provided for each database in the pool, as well as for the pool itself. There are different limits on the log throughput at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `log_write_percent`, and can be viewed in Azure portal. When this metric is close to 100%, all database modifications (INSERT, UPDATE, DELETE, MERGE statements, SELECT … INTO, BULK INSERT, etc.) will be slower.|Below 90%. Occasional short spikes up to 100% may be acceptable.|
 |`oom_per_second`|The rate of out-of-memory (OOM) errors in an elastic pool, which is an indicator of memory pressure. Available in the [sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) view. See [Examples](#examples) for a sample query to calculate this metric.|0|
@@ -69,6 +71,9 @@ In addition to these metrics, Azure SQL Database provides a view that returns ac
 |[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for the last 32 minutes. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
 |[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for the last 32 minutes. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
 |||
+
+> [!TIP]
+> To query these and other dynamic management views using a principal other than server administrator, add this principal to the `##MS_ServerStateReader##` [server role](security-server-roles.md).
 
 These views can be used to monitor resource utilization and troubleshoot resource contention in near real-time. User workload on the primary and readable secondary replicas, including geo-replicas, is classified into the `SloSharedPool1` resource pool and `UserPrimaryGroup.DBId[N]` workload group, where `N` stands for the database ID value.
 
@@ -99,9 +104,7 @@ If used pool space (total size of data in all databases in a pool, not including
 
 **Avoid overly dense servers**. Azure SQL Database [supports](./resource-limits-logical-server.md) up to 5000 databases per server. Customers using elastic pools with thousands of databases may consider placing multiple elastic pools on a single server, with the total number of databases up to the supported limit. However, servers with many thousands of databases create operational challenges. Operations that require enumerating all databases on a server, for example viewing databases in the portal, will be slower. Operational errors, such as incorrect modification of server level logins or firewall rules, will affect a larger number of databases. Accidental deletion of the server will require assistance from Microsoft Support to recover databases on the deleted server, and will cause a prolonged outage for all affected databases.
 
-We recommend limiting the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, we recommend placing a [delete lock](../../azure-resource-manager/management/lock-resources.md) on the server or its resource group.
-
-In the past, certain scenarios involving moving databases in, out, or between elastic pools on the same server were faster than when moving databases between servers. Currently, all database moves execute at the same speed regardless of source and destination server.
+It is recommended to limit the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, place a [delete lock](../../azure-resource-manager/management/lock-resources.md) on the server or its resource group.
 
 ## Examples
 
@@ -137,4 +140,4 @@ CROSS JOIN (
 ## Next steps
 
 - For an introduction to elastic pools, see [Elastic pools help you manage and scale multiple databases in Azure SQL Database](./elastic-pool-overview.md).
-- For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning]( https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-tuning-index), and [Monitoring and performance tuning](./monitor-tune-overview.md).
+- For information on tuning query workloads to reduce resource utilization, see [Monitoring and tuning](monitoring-tuning-index.yml), and [Monitoring and performance tuning](./monitor-tune-overview.md).

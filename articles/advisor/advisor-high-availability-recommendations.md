@@ -93,7 +93,7 @@ Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of
 
 ## Upgrade your Azure Cosmos DB Spark connector to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](../cosmos-db/spark-connector.md)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](../cosmos-db/create-sql-api-spark.md)
 
 ## Consider moving to Kafka 2.1 on HDInsight 4.0
 

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -41,9 +41,13 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Content Delivery Network|Not yet supported|Not applicable|Not applicable|[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../cdn/cdn-overview.md)|
 |Azure SQL Database|Not yet supported|Not applicable|Not applicable|[What is Azure SQL Database?](../../azure-sql/database/sql-database-paas-overview.md)|
 
+> [!TIP]
+> To see how services organized into categories such as ingest, download, process, and visualize, see [Ingest, process, and analyze](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+
 ## See also
 
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-- [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md)
 - [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)

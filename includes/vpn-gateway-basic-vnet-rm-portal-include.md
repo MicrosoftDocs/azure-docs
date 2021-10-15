@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/27/2021
+ ms.date: 06/30/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -41,7 +41,7 @@
 
 1. On the **Security** tab, at this time, leave the default values:
 
-   - **DDos protection**: Basic
+   - **DDos protection**: Disabled
    - **Firewall**: Disabled
 1. Select **Review + create** to validate the virtual network settings.
 1. After the settings have been validated, select **Create**.

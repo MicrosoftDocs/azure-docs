@@ -5,8 +5,8 @@ description: Download group properties in bulk in the Azure admin center in Azur
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 12/02/2020
+manager: KarenH444
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users

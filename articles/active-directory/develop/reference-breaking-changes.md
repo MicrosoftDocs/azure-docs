@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 3/30/2021
+ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # What's new for authentication?
@@ -31,21 +31,47 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-### Bug fix: Azure AD will no longer URL encode the state parameter twice.
+## October 2021
 
-**Effective date**: May 2021
+### AppId Uri in single tenant applications will require use of default scheme or verified domains
 
-**Endpoints impacted**: v1.0 and v2.0 
+**Effective date**: October 2021
 
-**Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
+**Endpoints impacted**: v2.0 and v1.0
 
-A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+**Protocol impacted**: All flows
 
-Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
+**Change**
+
+For single tenant applications, a request to add/update AppId Uri (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme (`api://{appId}`) provided by AAD.
+This could prevent applications from adding an AppId Uri if the domain isn't in the verified domain list or value does not use the default scheme.
+To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
+
+The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
+
+If a request fails the validation check, the application API for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
+
+## June 2021
+
+### The device code flow UX will now include an app confirmation prompt
+
+**Effective date**: June 2021.
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
+
+As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
+
+The prompt that appears looks like this:
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
 
 ### Conditional Access will only trigger for explicitly requested scopes
 
-**Effective date**: May 2021, with gradual rollout starting in April. 
+**Effective date**: August 2021, with gradual rollout starting in April. 
 
 **Endpoints impacted**: v2.0
 
@@ -67,8 +93,19 @@ If the app then requests `scope=files.readwrite`, the Conditional Access require
 
 If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
 
-
 ## May 2020
+
+### Bug fix: Azure AD will no longer URL encode the state parameter twice
+
+**Effective date**: May 2021
+
+**Endpoints impacted**: v1.0 and v2.0
+
+**Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
+
+A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+
+Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
 
 ### Azure Government endpoints are changing
 

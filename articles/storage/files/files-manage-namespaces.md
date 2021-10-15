@@ -28,6 +28,13 @@ You can see an example of how to use DFS Namespaces with your Azure Files deploy
 
 If you already have a DFS Namespace in place, no special steps are required to use it with Azure Files and File Sync. If you're accessing your Azure file share from on-premises, normal networking considerations apply; see [Azure Files networking considerations](./storage-files-networking-overview.md) for more information.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Namespace types
 DFS Namespaces provides two main namespace types:
 

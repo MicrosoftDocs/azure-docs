@@ -24,7 +24,7 @@ For Azure Synapse Pipelines, the authentication will use the service principal n
 
 ## Limitations
   - The Azure Data Explorer (Kusto) connector is currently only supported on the Azure Synapse Apache Spark 2.4 runtime.
-  - The Azure Data Explorer linked service can only be configured with the Service Principle Name.
+  - The Azure Data Explorer linked service can only be configured with the Service Principal Name.
   - Within Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector will use AAD pass-through to connect to the Kusto Cluster.
 
 
@@ -73,7 +73,7 @@ df.write \
     .mode("Append") \
     .save()
 ```
-In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](https://docs.microsoft.com/azure/data-explorer/ingestion-properties).
+In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](/azure/data-explorer/ingestion-properties).
 
 
  ```python

@@ -1,16 +1,16 @@
 ---
-title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
+title: RelyingParty - Azure Active Directory B2C  
 description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -151,7 +151,7 @@ The **SingleSignOn** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Scope | Yes | The scope of the single sign-on behavior. Possible values: `Suppressed`, `Tenant`, `Application`, or `Policy`. The `Suppressed` value indicates that the behavior is suppressed, and the user is always prompted for an identity provider selection.  The `Tenant` value indicates that the behavior is applied to all policies in the tenant. For example, a user navigating through two policy journeys for a tenant is not prompted for an identity provider selection. The `Application` value indicates that the behavior is applied to all policies for the application making the request. For example, a user navigating through two policy journeys for an application is not prompted for an identity provider selection. The `Policy` value indicates that the behavior only applies to a policy. For example, a user navigating through two policy journeys for a trust framework is prompted for an identity provider selection when switching between policies. |
-| KeepAliveInDays | No | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
+| KeepAliveInDays | No | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. The default is `0` (disabled). The minimum is `1` day. The maximum is `90` days. For more information, see [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| No|  Force to pass a previously issued ID token to the logout endpoint as a hint about the end user's current authenticated session with the client. Possible values: `false` (default), or `true`. For more information, see [Web sign-in with OpenID Connect](openid-connect.md).  |
 
 
@@ -217,6 +217,7 @@ The **TechnicalProfile** contains the following elements:
 | Description | 0:1 | The string that contains the description of the technical profile. |
 | Protocol | 1:1 | The protocol used for the federation. |
 | Metadata | 0:1 | The collection of *Item* of key/value pairs utilized by the protocol for communicating with the endpoint in the course of a transaction to configure interaction between the relying party and other community participants. |
+| InputClaims | 1:1 | A list of claim types that are taken as input in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
 | OutputClaims | 1:1 | A list of claim types that are taken as output in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
 | SubjectNamingInfo | 1:1 | The subject name used in tokens. |
 
@@ -240,6 +241,21 @@ When the protocol is `SAML`, a metadata element contains the following elements.
 | WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
 | RemoveMillisecondsFromDateTime| No | Indicates whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). Possible values: `false` (default) or `true`.  |
 
+### InputClaims
+
+The **InputClaims** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| InputClaim | 0:n | An expected input claim type. |
+
+The **InputClaim** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | Yes | A reference to a **ClaimType** already defined in the **ClaimsSchema** section in the policy file. |
+| DefaultValue | No | A default value that can be used if the claim value is empty. |
+| PartnerClaimType | No | Sends the claim in a different name as configured in the ClaimType definition. |
 
 ### OutputClaims
 

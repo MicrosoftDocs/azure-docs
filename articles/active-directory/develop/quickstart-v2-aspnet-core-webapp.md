@@ -44,7 +44,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > If you want to manually configure your application and code sample, use the following procedures.
 > #### Step 1: Register your application
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
@@ -96,7 +96,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the *appsettings.json* file and modify the following code:
 >
 >    ```json
->    "Domain": "Enter the domain of your tenant, e.g. contoso.onmicrosoft.com",
+>    "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "common",
 >    ```
@@ -135,21 +135,21 @@ This section gives an overview of the code required to sign in users. This overv
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
 ```csharp
-  public void ConfigureServices(IServiceCollection services)
-  {
-      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
-      services.AddControllersWithViews(options =>
-      {
-          var policy = new AuthorizationPolicyBuilder()
-              .RequireAuthenticatedUser()
-              .Build();
-          options.Filters.Add(new AuthorizeFilter(policy));
-      });
-      services.AddRazorPages()
-          .AddMicrosoftIdentityUI();
-  }
+    services.AddControllersWithViews(options =>
+    {
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        options.Filters.Add(new AuthorizeFilter(policy));
+    });
+   services.AddRazorPages()
+        .AddMicrosoftIdentityUI();
+}
 ```
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
@@ -170,14 +170,11 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
 });
-
-// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### Attribute for protecting a controller or methods

@@ -1,7 +1,7 @@
 ---
-title: Automate adding a lab user in Azure DevTest Labs | Microsoft Docs
+title: Automate adding a lab user
 description: This article shows you how to automate adding a user to a lab in Azure DevTest Labs using Azure Resource Manager templates, PowerShell, and CLI. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020 
 ms.custom: devx-track-azurepowershell
 ---
@@ -72,7 +72,7 @@ The following sample Resource Manager template specifies a user to be added to t
 
 ```
 
-If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/templates/define-resource-dependency.md) article.
+If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/templates/resource-dependency.md) article.
 
 ### Role Assignment Resource Information
 The role assignment resource needs to specify the type and name.
@@ -155,7 +155,8 @@ Then, use the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.re
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateParameterFile .\azuredeploy.parameters.json -TemplateFile .\azuredeploy.json
 ```
 
-It's important to note that the group deployment name and role assignment GUID need to be unique. If you try to deploy a resource assignment with a non-unique GUID, then you'll get a `RoleAssignmentUpdateNotPermitted` error.
+> [!NOTE] 
+> The group deployment name and role assignment GUID must be unique. If you try to deploy a resource assignment by using a non-unique GUID, you'll see a `RoleAssignmentUpdateNotPermitted` error.
 
 If you plan to use the template several times to add several Active Directory objects to the DevTest Labs User role for your lab, consider using dynamic objects in your PowerShell command. The following example uses the [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) cmdlet to specify the resource group deployment name and role assignment GUID dynamically.
 
@@ -191,4 +192,3 @@ See the following articles:
 - [Create and manage virtual machines with DevTest Labs using the Azure CLI](devtest-lab-vmcli.md)
 - [Create a virtual machine with DevTest Labs using Azure PowerShell](devtest-lab-vm-powershell.md)
 - [Use command-line tools to start and stop Azure DevTest Labs virtual machines](use-command-line-start-stop-virtual-machines.md)
-

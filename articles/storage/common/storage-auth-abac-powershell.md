@@ -11,9 +11,10 @@ ms.reviewer:
 ms.subservice: common
 ms.date: 05/06/2021
 
-#Customer intent: 
+#Customer intent:
 
 ---
+
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)
 
 > [!IMPORTANT]
@@ -26,8 +27,8 @@ In most cases, a role assignment will grant the permissions you need to Azure re
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add a condition to a role assignment
-> * Restrict access to blobs based on a blob index tag
+> - Add a condition to a role assignment
+> - Restrict access to blobs based on a blob index tag
 
 ## Prerequisites
 
@@ -108,8 +109,6 @@ Here is what the condition looks like in code:
     Set-AzContext $context
     ```
 
-1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
-
 ## Step 3: Create a user
 
 1. Use [New-AzureADUser](/powershell/module/azuread/new-azureaduser) to create a user or find an existing user. This tutorial uses Chandra as the example.
@@ -131,7 +130,7 @@ Here is what the condition looks like in code:
 1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. 
+    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.
 
     | Key | Value |
     | --- | --- |
@@ -192,7 +191,7 @@ Here is what the condition looks like in code:
     ```
 
     Here's an example of the output:
-    
+
     ```azurepowershell
     RoleAssignmentId   : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microso
                          ft.Authorization/roleAssignments/<roleAssignmentId>
@@ -256,7 +255,7 @@ Here is what the condition looks like in code:
     ```
 
     Here's an example of the output. Notice that you **can't** read the file because of the condition you added.
-    
+
     ```azurepowershell
     Get-AzStorageBlob : This request is not authorized to perform this operation using this permission. HTTP Status Code:
     403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
@@ -271,7 +270,7 @@ Here is what the condition looks like in code:
         + FullyQualifiedErrorId : StorageException,Microsoft.WindowsAzure.Commands.Storage.Blob.Cmdlet.GetAzureStorageBlob
        Command
     ```
-    
+
 1. Read the file for the Cascade project.
 
     ```azurepowershell
@@ -279,10 +278,10 @@ Here is what the condition looks like in code:
     ```
 
     Here's an example of the output. Notice that you can read the file because it has the tag Project=Cascade.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------
@@ -338,7 +337,7 @@ Here is what the condition looks like in code:
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
                          StringEquals 'Baker'))
     ```
-    
+
 ## Step 9: Clean up resources
 
 1. Use [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) to remove the role assignment and condition you added.

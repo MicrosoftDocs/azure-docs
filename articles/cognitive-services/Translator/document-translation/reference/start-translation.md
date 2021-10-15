@@ -9,19 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/22/2021
 ms.author: v-jansk
 ---
 
 # Start translation
 
-Use this API to start a bulk (batch) translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
+Use this API to start a translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
 
 The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
 
 Glossaries / Translation memory can be included in the request and are applied by the service when the document is translated.
 
-If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists at the destination, it will be overwritten. The targetUrl for each target language must be unique.
+If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists in the destination, the job will fail. The targetUrl for each target language must be unique.
 
 ## Request URL
 
@@ -58,7 +58,7 @@ Definition for the input batch translation request.
 |Name|Type|Required|Description|
 |--- |--- |--- |--- |
 |source|SourceInput[]|True|inputs.source listed below. Source of the input documents.|
-|storageType|StorageInputType[]|True|inputs.storageType listed below. Storage type of the input documents source string.|
+|storageType|StorageInputType[]|False|inputs.storageType listed below. Storage type of the input documents source string. Required for single document translation only.|
 |targets|TargetInput[]|True|inputs.target listed below. Location of the destination for the output.|
 
 **inputs.source**

@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 11/12/2020
+ms.date: 08/11/2021
 ---
 
 # Apply SQL Transformation
@@ -57,6 +57,8 @@ This section contains implementation details, tips, and answers to frequently as
 -   An input is always required on port 1.  
   
 -   For column identifiers that contain a space or other special characters, always enclose the column identifier in square brackets or double quotation marks when referring to the column in the `SELECT` or `WHERE` clauses.  
+
+-   If you have used **Edit Metadata** to specify the column metadata (categorical or fields) before **Apply SQL Transformation**, the outputs of **Apply SQL Transformation** will not contain these attributes. You need to use **Edit Metadata** to edit the column after **Apply SQL Transformation**.
   
 ### Unsupported statements  
 

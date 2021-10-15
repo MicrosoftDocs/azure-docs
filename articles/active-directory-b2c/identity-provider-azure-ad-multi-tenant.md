@@ -3,15 +3,15 @@ title: Set up sign-in for multi-tenant Azure AD by custom policies
 titleSuffix: Azure AD B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -34,13 +34,13 @@ This article shows you how to enable sign-in for users using the multi-tenant en
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-## Register an application
+## Register an Azure AD app
 
 To enable sign-in for users with an Azure AD account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your tenant.
+1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
@@ -59,7 +59,7 @@ To enable sign-in for users with an Azure AD account in Azure Active Directory B
 1. Select **Certificates & secrets**, and then select **New client secret**.
 1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
-## Configuring optional claims
+### Configuring optional claims
 
 If you want to get the `family_name`, and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
 
@@ -72,11 +72,16 @@ If you want to get the `family_name`, and `given_name` claims from Azure AD, you
 1. Select the optional claims to add, `family_name`, and `given_name`.
 1. Click **Add**.
 
+## [Optional] Verify your app authenticity
+
+[Publisher verification](../active-directory/develop/publisher-verification-overview.md) helps your users understand the authenticity of the app you [registered](#register-an-azure-ad-app). A verified app means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN). Learn how to [mark your app as publisher verified](../active-directory/develop/mark-app-as-publisher-verified.md). 
+
 ## Create a policy key
 
 You need to store the application key that you created in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.
@@ -145,7 +150,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
     ```
 
 1. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
-1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Contoso Employee`. This value is displayed on the sign-in button on your sign-in page.
+1. Under the **TechnicalProfile** element, update the value for **DisplayName**, for example, `Multi-Tenant AAD`. This value is displayed on the sign-in button on your sign-in page.
 1. Set **client_id** to the application ID of the Azure AD multi-tenant application that you registered earlier.
 1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that created earlier. For example, `B2C_1A_AADAppSecret`.
 
@@ -197,8 +202,6 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development.
-
-To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](troubleshoot-with-application-insights.md).
+Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
 
 ::: zone-end

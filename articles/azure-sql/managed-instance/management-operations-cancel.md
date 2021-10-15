@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: urosmil
 ms.author: urmilano
-ms.reviewer: sstein, bonova, MashaMSFT
+ms.reviewer: mathoma, bonova, MashaMSFT
 ms.date: 09/03/2020
 ---
 

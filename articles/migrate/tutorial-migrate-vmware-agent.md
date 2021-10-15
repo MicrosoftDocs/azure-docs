@@ -99,7 +99,7 @@ The Mobility service must be installed on machines you want to replicate.
 Prepare the account as follows:
 
 1. Prepare a domain or local account with permissions to install on the VM.
-2. For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine by adding the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of  in the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
+2. For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine by adding the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1 in the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
 3. For Linux VMs, prepare a root account on the source Linux server.
 
 
@@ -328,7 +328,10 @@ Do a test migration as follows:
 6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
 
     ![Clean up migration](./media/tutorial-migrate-vmware-agent/clean-up.png)
-
+    > [!NOTE]
+    > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
+    >- Select **Manage** > **Replicating servers** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
+    >- Select Azure Hybrid benefit for SQL Server if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.hs.
 
 ## Migrate VMs
 
@@ -347,17 +350,17 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the VM.
-2. Install the Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) or [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines.
-3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
-4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-5. Cut over traffic to the migrated Azure VM instance.
-6. Remove the on-premises VMs from your local VM inventory.
-7. Remove the on-premises VMs from local backups.
-8. Update any internal documentation to show the new location and IP address of the Azure VMs.
+1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. Perform any post-migration app tweaks, such as host names, updating database connection strings, and web server configurations.
+1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
+1. Cut over traffic to the migrated Azure VM instance.
+1. Remove the on-premises VMs from your local VM inventory.
+1. Remove the on-premises VMs from local backups.
+1. Update any internal documentation to show the new location and IP address of the Azure VMs.
 
 ## Post-migration best practices
 
@@ -382,7 +385,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
-    - Consider deploying [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 
 
 

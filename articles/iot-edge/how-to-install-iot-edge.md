@@ -2,13 +2,13 @@
 title: Install Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge installation instructions on Windows or Linux devices
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 10/05/2021
 ms.author: kgremban
 ---
 
@@ -109,25 +109,14 @@ Update package lists on your device.
    sudo apt-get update
    ```
 
-Check to see which versions of IoT Edge are available.
-
-   ```bash
-   apt list -a iotedge
-   ```
-
-If you want to install the most recent version of the security daemon, use the following command that also installs the latest version of the **libiothsm-std** package:
+Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Or, if you want to install a specific version of the security daemon, specify the version from the apt list output. Also specify the same version for the **libiothsm-std** package, which otherwise would install its latest version. For example, the following command installs the most recent version of the 1.1 release:
-
-   ```bash
-   sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
-   ```
-
-If the version that you want to install isn't listed, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps later in this article. That section shows you how to target any previous version of the IoT Edge security daemon, or release candidate versions.
+>[!NOTE]
+>IoT Edge version 1.1 is the long-term support branch of IoT Edge. If you are running an older version, we recommend installing or updating to the latest patch as older versions are no longer supported.
 
 <!-- end 1.1 -->
 ::: moniker-end
@@ -152,23 +141,19 @@ Update package lists on your device.
    sudo apt-get update
    ```
 
-Check to see which versions of IoT Edge are available.
+Check to see which versions of IoT Edge and the IoT identity service are available.
 
    ```bash
-   apt list -a aziot-edge
+   apt list -a aziot-edge aziot-identity-service
    ```
 
-If you want to install the most recent version of IoT Edge, use the following command that also installs the latest version of the identity service package:
+To install the latest version of IoT Edge and the IoT identity service package, use the following command:
 
    ```bash
    sudo apt-get install aziot-edge
    ```
 
-Or, if you want to install a specific version of IoT Edge and the identity service, specify the versions from the apt list output. Specify the same versions for both services. For example, the following command installs the most recent version of the 1.2 release:
-
-   ```bash
-   sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
-   ```
+Or, if you choose to install a different version of IoT Edge than the latest, be sure to install the same version for both the `aziot-edge` and the `aziot-identity-service` services.
 
 <!-- end 1.2 -->
 ::: moniker-end
@@ -226,36 +211,21 @@ After entering the provisioning information in the configuration file, restart t
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-Create the configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   sudo iotedge config mp --connection-string 'PASTE_CONNECTION_STRING_HERE'
    ```
 
-On the IoT Edge device, open the configuration file.
+The `iotedge config mp` command creates a configuration file on the device, provides your connection string, and applies the configuration changes.
+
+If you want to see the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
 
-Find the **Provisioning** section of the file and uncomment the manual provisioning with connection string lines.
-
-   ```toml
-   # Manual provisioning with connection string
-   [provisioning]
-   source = "manual"
-   connection_string = "<ADD DEVICE CONNECTION STRING HERE>"
-   ```
-
-Update the value of **connection_string** with the connection string from your IoT Edge device.
-
-To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
-
-Save and close the file.
-
-   `CTRL + X`, `Y`, `Enter`
-
-After entering the provisioning information in the configuration file, apply your changes:
+If you make any changes to the configuration file, use the `iotedge config apply` command apply your changes:
 
    ```bash
    sudo iotedge config apply
@@ -428,6 +398,8 @@ View all the modules running on your IoT Edge device. When the service starts fo
    ```bash
    sudo iotedge list
    ```
+
+When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 ## Offline or specific version installation (optional)
 

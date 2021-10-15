@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021 
+ms.date: 03/15/2021
 ms.custom: devx-track-azurepowershell
 
 
@@ -13,8 +13,8 @@ ms.custom: devx-track-azurepowershell
 # Quickstart: Deploy an Azure Kubernetes Service cluster using PowerShell
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
-* Deploy an AKS cluster using PowerShell. 
-* Run a multi-container application with a web front-end and a Redis instance in the cluster. 
+* Deploy an AKS cluster using PowerShell.
+* Run a multi-container application with a web front-end and a Redis instance in the cluster.
 * Monitor the health of the cluster and pods that run your application.
 
 To learn more about creating a Windows Server node pool, see
@@ -42,9 +42,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is: 
+An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is:
 * The storage location of your resource group metadata.
-* Where your resources will run in Azure if you don't specify another region during resource creation. 
+* Where your resources will run in Azure if you don't specify another region during resource creation.
 
 The following example creates a resource group named **myResourceGroup** in the **eastus** region.
 
@@ -67,12 +67,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Create AKS cluster
 
-1. Generate an SSH key pair using the `ssh-keygen` command-line utility. 
+1. Generate an SSH key pair using the `ssh-keygen` command-line utility.
     * For more details, see [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Create an AKS cluster using the [New-AzAks][new-azaks] cmdlet. Azure Monitor for containers is enabled by default.
+1. Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet. Azure Monitor for containers is enabled by default.
 
-    The following example creates a cluster named **myAKSCluster** with one node. 
+    The following example creates a cluster named **myAKSCluster** with one node.
 
     ```azurepowershell-interactive
     New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -85,7 +85,7 @@ After a few minutes, the command completes and returns information about the clu
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. 
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
 
 1. Install `kubectl` locally using the `Install-AzAksKubectl` cmdlet:
 
@@ -114,11 +114,11 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ## Run the application
 
-A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. 
+A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
 In this quickstart, you will use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
 * The sample Azure Vote Python applications.
-* A Redis instance. 
+* A Redis instance.
 
 Two [Kubernetes Services][kubernetes-service] are also created:
 * An internal service for the Redis instance.
@@ -144,7 +144,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -187,7 +187,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
@@ -258,7 +258,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Voting app deployed in Azure Kubernetes Service](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-View the cluster nodes' and pods' health metrics captured by Azure Monitor for containers in the Azure portal. 
+View the cluster nodes' and pods' health metrics captured by Azure Monitor for containers in the Azure portal.
 
 ## Delete the cluster
 
@@ -270,7 +270,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 > [!NOTE]
 > When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
-> 
+>
 > If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Get the code
@@ -289,7 +289,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: ../dev-spaces/index.yml
+[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 
@@ -298,7 +298,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[new-azaks]: /powershell/module/az.aks/new-azaks
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

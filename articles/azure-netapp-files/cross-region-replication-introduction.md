@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ms.custom: references_regions
 ---
@@ -21,44 +21,50 @@ ms.custom: references_regions
 
 The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
 
-> [!IMPORTANT]
-> The cross-region replication feature is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
-
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
 Azure NetApp Files volume replication is supported between various [Azure regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
 
 ### Azure regional pairs
 
-* East US and West US
-* East US 2 and Central US
-* Australia East and Australia Southeast
-* Canada Central and Canada East
-* South India and Central India 
-* Germany West Central and Germany North
-* Japan East and Japan West
-* North Europe and West Europe
-* UK South and UK West
+| Geography | Regional Pair A | Regional Pair B  |
+|:--- |:--- |:--- |
+| Australia | Australia East | Australia Southeast |
+| Canada | Canada Central | Canada East |
+| Europe | North Europe | West Europe |
+| Germany | Germany West Central | Germany North |
+| India | Central India |South India |
+| Japan | Japan East | Japan West |
+| North America | East US | West US |
+| North America | East US 2 | Central US |
+| North America | North Central US | South Central US|
+| Norway | Norway East | Norway West |
+| UK | UK South | UK West |
+| United Arab Emirates | UAE North | UAE Central |
+| US Government | US Gov Virginia | US Gov Texas |
 
 ### Azure regional non-standard pairs
 
-*	West US 2 and East US
-*	South Central US and Central US
-*	South Central US and East US
-*	South Central US and East US 2
-*	East US and East US 2
-*	East US 2 and West US 2
-*	Australia East and Southeast Asia 
-*	Germany West Central and UK South
-*	Germany West Central and West Europe
+| Geography | Regional Pair A | Regional Pair B  |
+|:--- |:--- |:--- |
+| Australia/Southeast Asia | Australia East | Southeast Asia |
+| Germany/UK | Germany West Central | UK South |
+| Germany/Europe | Germany West Central | West Europe | 
+| Germany/France | Germany West Central | France Central |
+| North America | East US | East US 2 |
+| North America | East US 2| West US 2 |
+| North America | South Central US | East US |
+| North America | South Central US | East US 2 |
+| North America | South Central US | Central US |
+| North America | West US 2 | East US |
 
 ## Service-level objectives
 
-Recovery Point Objectives (RPO), or the maximum tolerable data loss, is defined as twice the replication schedule.  The actual RPO observed might vary based on factors such as the total dataset size along with the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
+Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
 
-* For the replication schedule of 10 minutes, the maximum RPO is 20 minutes.  
-* For the hourly replication schedule, the maximum RPO is two hours.  
-* For the daily replication schedule, the maximum RPO is two days.  
+* For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.  
+* For the hourly replication schedule, the typical RPO is less than two hours.  
+* For the daily replication schedule, the typical RPO is less than two days.  
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
 

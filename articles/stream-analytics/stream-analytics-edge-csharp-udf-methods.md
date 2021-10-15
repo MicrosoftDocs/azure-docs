@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 6/09/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
@@ -21,7 +21,7 @@ Azure Stream Analytics offers a SQL-like query language for performing transform
 * East US 2
 * West Europe
 
-If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).  However, there is no such region restriction when using [Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/cluster-overview).
+If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).  However, there is no such region restriction when using [Stream Analytics clusters](./cluster-overview.md).
 
 ## Package path
 
@@ -261,6 +261,8 @@ The UDF preview currently has the following limitations:
 * .NET Standard UDFs can only be authored in Visual Studio Code or Visual Studio and published to Azure. Read-only versions of .NET Standard UDFs can be viewed under **Functions** in the Azure portal. Authoring of .NET Standard functions is not supported in the Azure portal.
 
 * The Azure portal query editor shows an error when using .NET Standard UDF in the portal. 
+
+* Call out external REST endpoints, for example, doing reverse IP lookup or pulling reference data from an external source
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
 

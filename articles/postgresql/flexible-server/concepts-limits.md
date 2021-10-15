@@ -5,13 +5,12 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/17/2021
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
 
@@ -25,16 +24,16 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | B1ms                 | 1      | 2 GiB       | 50              | 47                   |
 | B2s                  | 2      | 4 GiB       | 100             | 97                   |
 | **General Purpose**  |        |             |                 |                      |
-| D2s_v3               | 2      | 8 GiB       | 214             | 211                  |
-| D4s_v3               | 4      | 16 GiB      | 429             | 426                  |
-| D8s_v3               | 8      | 32 GiB      | 859             | 856                  |
-| D16s_v3              | 16     | 64 GiB      | 1718            | 1715                 |
-| D32s_v3              | 32     | 128 GiB     | 3437            | 3434                 |
-| D48s_v3              | 48     | 192 GiB     | 5000            | 4997                 |
-| D64s_v3              | 64     | 256 GiB     | 5000            | 4997                 |
+| D2s_v3  / D2ds_v4    | 2      | 8 GiB       | 859             | 856                  |
+| D4s_v3  / D4ds_v4    | 4      | 16 GiB      | 1719            | 1716                 |
+| D8s_v3  / D8ds_V4    | 8      | 32 GiB      | 3438            | 3435                 |
+| D16s_v3 / D16ds_v4   | 16     | 64 GiB      | 5000            | 4997                 |
+| D32s_v3 / D32ds_v4   | 32     | 128 GiB     | 5000            | 4997                 |
+| D48s_v3 / D48ds_v4   | 48     | 192 GiB     | 5000            | 4997                 |
+| D64s_v3 / D64ds_v4   | 64     | 256 GiB     | 5000            | 4997                 |
 | **Memory Optimized** |        |             |                 |                      |
-| E2s_v3               | 2      | 16 GiB      | 1718            | 1715                 |
-| E4s_v3               | 4      | 32 GiB      | 3437            | 3434                 |
+| E2s_v3               | 2      | 16 GiB      | 1719            | 1716                 |
+| E4s_v3               | 4      | 32 GiB      | 3438            | 3433                 |
 | E8s_v3               | 8      | 64 GiB      | 5000            | 4997                 |
 | E16s_v3              | 16     | 128 GiB     | 5000            | 4997                 |
 | E32s_v3              | 32     | 256 GiB     | 5000            | 4997                 |
@@ -42,7 +41,7 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | E64s_v3              | 64     | 432 GiB     | 5000            | 4997                 |
 
 When connections exceed the limit, you may receive the following error:
-> FATAL:  sorry, too many clients already
+> FATAL:  sorry, too many clients already.
 
 > [!IMPORTANT]
 > For best experience, we recommend that you use a connection pooler like PgBouncer to efficiently manage connections.
@@ -91,7 +90,8 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
-- Built-in PgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
+- Built-in PgBouncer connection pooler is currently not available for Burstable servers.
+- SCRAM authentication is not supported with connectivity using built-in PgBouncer.
 
 ### Stop/start operation
 

@@ -15,6 +15,8 @@ ms.reviewer: cynthn
 
 # Bringing and creating Linux images in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
+
 This overview covers the basic concepts around imaging and how to successfully build and use Linux images in Azure. Before you bring a custom image to Azure, you need to be aware of the types and options available to you.
 
 This article will talk through the image decision points and requirements, explain key concepts, so that you can follow this, and be able to create your own custom images to your specification.
@@ -22,7 +24,7 @@ This article will talk through the image decision points and requirements, expla
 ## Difference between managed disks and images
 
 
-Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../faq-for-disks.md#managed-disks), or use as a source for an image. 
+Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](/azure/virtual-machines/faq-for-disks#managed-disks), or use as a source for an image. 
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 

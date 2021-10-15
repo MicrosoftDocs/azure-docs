@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-traffic-manager-external-endpoint).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/traffic-manager-external-endpoint).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-external-endpoint/azuredeploy.json":::
 

@@ -3,14 +3,14 @@ title: Define an OAuth2 custom error technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth2 custom error technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -84,7 +84,7 @@ The CryptographicKeys element contains the following key:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes  | An X509 certificate (RSA key set). Use the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](custom-policy-get-started.md).|
+| issuer_secret | Yes  | An X509 certificate (RSA key set). Use the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).|
 |
 
 ## Invoke the technical profile
@@ -122,4 +122,3 @@ In the following example:
 ## Next steps
 
 Learn about [UserJourneys](userjourneys.md)
-

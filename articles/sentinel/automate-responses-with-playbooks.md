@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 10/11/2021
 ms.author: yelevin
 
 ---
@@ -29,9 +29,33 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
-Playbooks are created and applied at the subscription level, but the **Playbooks** tab (in the new **Automation** blade) displays all the playbooks available across any selected subscriptions.
+For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
+
+Playbooks can be used within the subscription to which they belong, but the **Playbooks** tab (in the **Automation** blade) displays all the playbooks available across any selected subscriptions.
+
+### Playbook templates
+
+> [!IMPORTANT]
+>
+> **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
+
+Playbook templates are not active playbooks themselves, until you create a playbook (an editable copy of the template) from them.
+
+You can get playbook templates from the following sources:
+
+- The **Playbook templates** tab (under **Automation**) presents the leading scenarios contributed by the Azure Sentinel community. Multiple active playbooks can be created from the same template.
+
+    When a new version of the template is published, the active playbooks created from that template (in the **Playbooks** tab) will be labeled with a notification that an update is available.
+
+- Playbook templates can also be obtained as part of an [**Azure Sentinel Solution**](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
+
+- The [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
+
+Technically, a playbook template is an [ARM template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
 
 ### Azure Logic Apps basic concepts
 
@@ -57,7 +81,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
     > [!IMPORTANT]
     >
-    > - The **incident trigger** feature for playbooks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    > The **incident trigger** feature for playbooks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
@@ -194,7 +218,7 @@ If the alert creates an incident, the incident will trigger an automation rule w
 
 For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When an Azure Sentinel Alert is triggered”), attach the playbook to an analytics rule:
 
-1. Edit the [analytics rule](tutorial-detect-threats-custom.md) that generates the alert you want to define an automated response for.
+1. Edit the [analytics rule](detect-threats-custom.md) that generates the alert you want to define an automated response for.
 
 1. Under **Alert automation** in the **Automated response** tab, select the playbook or playbooks that this analytics rule will trigger when an alert is created.
 
@@ -207,13 +231,17 @@ For playbooks that are triggered by incident creation and receive incidents as t
 - From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
     > [!NOTE]
+    > **Azure Sentinel automation rules require permissions to run playbooks.**
+    >
     > To run a playbook from an automation rule, Azure Sentinel uses a service account specifically authorized to do so. The use of this account (as opposed to your user account) increases the security level of the service and enables the automation rules API to support CI/CD use cases.
     >
-    > This account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
+    > This account must be granted explicit permissions (taking the form of the **Azure Sentinel Automation Contributor** role) on the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
     >
-    > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
+    > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear for your selection. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
     >
     > In a multi-tenant ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) scenario, you must define the permissions on the tenant where the playbook lives, even if the automation rule calling the playbook is in a different tenant. To do that, you must have **Owner** permissions on the playbook's resource group.
+    >
+    > There's a unique scenario facing a **Managed Security Service Provider (MSSP)**, where a service provider, while signed into its own tenant, creates an automation rule on a customer's workspace using [Azure Lighthouse](../lighthouse/index.yml). This automation rule then calls a playbook belonging to the customer's tenant. In this case, Azure Sentinel must be granted permissions on ***both tenants***. In the customer tenant, you grant them in the **Manage playbook permissions** panel, just like in the regular multi-tenant scenario. To grant the relevant permissions in the service provider tenant, you need to add an additional Azure Lighthouse delegation that grants access rights to the **Azure Security Insights** app, with the **Azure Sentinel Automation Contributor** role, on the resource group where the playbook resides. [Learn how to add this delegation](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks).
 
 See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
@@ -235,7 +263,7 @@ Manual triggering is available from the Azure Sentinel portal in the following b
 
 ### Run a playbook manually on an incident
 
-Not supported yet. <!--make this a note instead? -->
+Not supported yet.
 
 ## Manage your playbooks
 
@@ -268,6 +296,29 @@ To see all the API connections, enter *API connections* in the header search box
 Another way to view API connections would be to go to the **All Resources** blade and filter it by type *API connection*. This way allows the selection, tagging, and deletion of multiple connections at once.
 
 In order to change the authorization of an existing connection, enter the connection resource, and select **Edit API connection**.
+
+## Recommended playbooks
+
+The following recommended playbooks, and other similar playbooks are available to you in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
+
+- **Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
+
+    - [Post a message in a Microsoft Teams channel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Teams)
+    - [Send an Outlook email notification](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
+    - [Post a message in a Slack channel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Slack)
+
+- **Blocking playbooks** are triggered when an alert or incident is created, gather entity information like the account, IP address, and host, and blocks them from further actions:
+
+    - [Prompt to block an IP address](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
+    - [Block an AAD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [Reset an AAD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [Prompt to isolate a machine](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
+
+- **Create, update, or close playbooks** can create, update, or close incidents in Azure Sentinel, Microsoft 365 security services, or other ticketing systems:
+
+    - [Change an incident's severity](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
+    - [Create a ServiceNow incident](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
+
 
 ## Next steps
 

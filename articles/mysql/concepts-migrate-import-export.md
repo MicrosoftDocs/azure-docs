@@ -11,21 +11,23 @@ ms.date: 10/30/2020
 
 # Migrate your MySQL database by using import and export
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
 
 For detailed and comprehensive migration guidance, see the [migration guide resources](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
-For other migration scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Prerequisites
 
 Before you begin migrating your MySQL database, you need to:
+
 - Create an [Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md).
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool for importing and exporting.
 
 ## Create a database on the Azure Database for MySQL server
+
 Create an empty database on the Azure Database for MySQL server by using MySQL Workbench, Toad, or Navicat. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
 
 To get connected, do the following:
@@ -43,7 +45,7 @@ To get connected, do the following:
 > [!TIP]
 > For scenarios where you want to dump and restore the entire database, use the [dump and restore](concepts-migrate-dump-restore.md) approach instead.
 
-In the following scenarios, use MySQL tools to import and export databases into your MySQL database. For other tools, go to the "Migration Methods" section (page 22) of the [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
+In the following scenarios, use MySQL tools to import and export databases into your MySQL database. For other tools, go to the "Migration Methods" section (page 22) of the [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
 - When you need to selectively choose a few tables to import from an existing MySQL database into your Azure MySQL database, it's best to use the import and export technique. By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables), and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - When you're moving database objects other than tables, explicitly create those objects. Include constraints (primary key, foreign key, and indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
@@ -61,17 +63,20 @@ In the following scenarios, use MySQL tools to import and export databases into 
 ## Performance recommendations for import and export
 
 For optimal data import and export performance, we recommend that you do the following:
--	Create clustered indexes and primary keys before you load data. Load the data in primary key order.
--	Delay the creation of secondary indexes until after the data is loaded.
--	Disable foreign key constraints before you load the data. Disabling foreign key checks provides significant performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
--	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources by using the metrics available in the Azure portal.
--	Use partitioned tables when appropriate.
+
+- Create clustered indexes and primary keys before you load data. Load the data in primary key order.
+- Delay the creation of secondary indexes until after the data is loaded.
+- Disable foreign key constraints before you load the data. Disabling foreign key checks provides significant performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
+- Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources by using the metrics available in the Azure portal.
+- Use partitioned tables when appropriate.
 
 ## Import and export data by using MySQL Workbench
+
 There are two ways to export and import data in MySQL Workbench: from the object browser context menu or from the Navigator pane. Each method serves a different purpose.
 
 > [!NOTE]
 > If you're adding a connection to MySQL Single Server or Flexible Server (Preview) on MySQL Workbench, do the following:
+>
 > - For MySQL Single Server, make sure that the user name is in the format *\<username@servername>*.
 > - For MySQL Flexible Server, use *\<username>* only. If you use *\<username@servername>* to connect, the connection will fail.
 
@@ -104,6 +109,7 @@ To import a table from a CSV file:
 1. On the **Import data** pane, select **Next**. The wizard imports the data.
 
 ### Run the SQL data export and import wizards from the Navigator pane
+
 Use a wizard to export or import SQL data that's generated from MySQL Workbench or from the mysqldump command. You can access the wizards from the **Navigator** pane or you can select **Server** from the main menu.
 
 #### Export data
@@ -137,5 +143,6 @@ You can use the **Data Import** pane to import or restore exported data from the
 1. Select **Start Import** to begin the import process.
 
 ## Next steps
+
 - For another migration approach, see [Migrate your MySQL database to an Azure database for MySQL by using dump and restore](concepts-migrate-dump-restore.md).
 - For more information about migrating databases to an Azure database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).

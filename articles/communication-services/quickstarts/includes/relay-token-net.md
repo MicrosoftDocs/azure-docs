@@ -6,7 +6,7 @@ author: shahen
 manager: anvalent
 ms.service: Communication Services
 ms.subservice: Communication Services
-ms.date: 05/21/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: shahen

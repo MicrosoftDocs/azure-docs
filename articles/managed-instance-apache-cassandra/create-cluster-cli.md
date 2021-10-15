@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 09/08/2021
 ---
 
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI (Preview)
@@ -43,19 +43,23 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    ```azurecli-interactive
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
-    > [!NOTE]
-    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly:
-    > - Azure Storage
-    > - Azure KeyVault
-    > - Azure Virtual Machine Scale Sets
-    > - Azure Monitoring
-    > - Azure Active Directory
-    > - Azure Security
 
-1. Apply some special permissions to the Virtual Network, which are required by the managed instance. Use the `az role assignment create` command, replacing `<subscription ID>`, `<resource group name>`, and `<VNet name>` with the appropriate values:
+   > [!NOTE]
+   > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly:
+   > - Azure Storage
+   > - Azure KeyVault
+   > - Azure Virtual Machine Scale Sets
+   > - Azure Monitoring
+   > - Azure Active Directory
+   > - Azure Security
+
+1. Apply some special permissions to the Virtual Network, which are required by the managed instance. Use the `az role assignment create` command, replacing `<subscriptionID>`, `<resourceGroupName>`, and `<vnetName>` with the appropriate values:
 
    ```azurecli-interactive
-   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
+   az role assignment create \
+     --assignee a232010e-820c-4083-83bb-3ace5fc29d0b \
+     --role 4d97b98b-1d4f-4787-a291-c67834d212e7 \
+     --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>
    ```
 
    > [!NOTE]
@@ -74,12 +78,12 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    initialCassandraAdminPassword='myPassword'
     
    az managed-cassandra cluster create \
-      --cluster-name $clusterName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --delegated-management-subnet-id $delegatedManagementSubnetId \
-      --initial-cassandra-admin-password $initialCassandraAdminPassword \
-      --debug
+     --cluster-name $clusterName \
+     --resource-group $resourceGroupName \
+     --location $location \
+     --delegated-management-subnet-id $delegatedManagementSubnetId \
+     --initial-cassandra-admin-password $initialCassandraAdminPassword \
+     --debug
    ```
 
 1. Finally, create a datacenter for the cluster, with three nodes by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) command:
@@ -89,12 +93,12 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    dataCenterLocation='eastus2'
     
    az managed-cassandra datacenter create \
-      --resource-group $resourceGroupName \
-      --cluster-name $clusterName \
-      --data-center-name $dataCenterName \
-      --data-center-location $dataCenterLocation \
-      --delegated-subnet-id $delegatedManagementSubnetId \
-      --node-count 3 
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --data-center-name $dataCenterName \
+     --data-center-location $dataCenterLocation \
+     --delegated-subnet-id $delegatedManagementSubnetId \
+     --node-count 3 
    ```
 
 1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. Change the value of `node-count` parameter to the desired value:
@@ -106,15 +110,15 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    dataCenterLocation='eastus2'
     
    az managed-cassandra datacenter update \
-      --resource-group $resourceGroupName \
-      --cluster-name $clusterName \
-      --data-center-name $dataCenterName \
-      --node-count 9 
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --data-center-name $dataCenterName \
+     --node-count 9 
    ```
 
 ## Connect to your cluster
 
-Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses. To connect to your newly created Cassandra cluster, you must create another resource inside the virtual network. This resource can be an application, or a virtual machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) installed. You can use a [Resource Manager template](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) to deploy an Ubuntu virtual machine. After it's deployed, use SSH to connect to the machine and install CQLSH as shown in the following commands:
+Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses. To connect to your newly created Cassandra cluster, you must create another resource inside the virtual network. This resource can be an application, or a virtual machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) installed. You can use a [Resource Manager template](https://azure.microsoft.com/resources/templates/vm-simple-linux/) to deploy an Ubuntu virtual machine. After it's deployed, use SSH to connect to the machine and install CQLSH as shown in the following commands:
 
 ```bash
 # Install default-jre and default-jdk

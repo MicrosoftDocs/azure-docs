@@ -9,7 +9,7 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 3/16/2021
+ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -33,7 +33,7 @@ There are some PaaS limitations that are introduced in SQL Managed Instance and 
 
 Most of these features are architectural constraints and represent service features.
 
-Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [release notes page](../database/doc-changes-updates-release-notes.md).
+Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [What's new?](doc-changes-updates-release-notes-whats-new.md).
 
 ## Availability
 
@@ -65,6 +65,7 @@ Limitations:
 - With a SQL Managed Instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for databases up to 4 TB if backup compression is used.
 - You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup. Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
 - Native backups taken on a Managed Instance cannot be restored to a SQL Server. This is because Managed Instance has higher internal database version compared to any version of SQL Server.
+- To backup or restore a database to/from an Azure storage, it is necessary to create a shared access signature (SAS) an URI that grants you restricted access rights to Azure Storage resources [Learn more on this](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql). Using Access keys for these scenarios is not supported.
 - The maximum backup stripe size by using the `BACKUP` command in SQL Managed Instance is 195 GB, which is the maximum blob size. Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
     > [!TIP]
@@ -401,7 +402,7 @@ Operations:
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
-Linkeds servers on Azure SQL Managed Instance support only SQL authentication. AAD authentication is not supported yet.
+Linked servers on Azure SQL Managed Instance support only SQL authentication. AAD authentication is not supported yet.
 
 ### PolyBase
 
@@ -465,13 +466,13 @@ For information about restore statements, see [RESTORE statements](/sql/t-sql/st
 
 Cross-instance service broker message exchange is supported only between Azure SQL Managed Instances:
 
-- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
-- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. Port is always 4022.
+- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. Port is always 4022.
 
 Transport security is supported, dialog security is not:
 - `CREATE REMOTE SERVICE BINDING`is not supported.
 
-Service broker is enabled by default and cannot be disabled. The following ALTER DATABSE options are not supported:
+Service broker is enabled by default and cannot be disabled. The following ALTER DATABASE options are not supported:
 - `ENABLE_BROKER`
 - `DISABLE_BROKER`
 
@@ -486,6 +487,8 @@ Service broker is enabled by default and cannot be disabled. The following ALTER
   - `remote data archive`
   - `remote proc trans`
   - `scan for startup procs`
+- The following [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) options are ignored and have no effect: 
+  - `Ole Automation Procedures`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` isn't supported. See [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` aren't supported, and this includes `sp_addextendedproc` and `sp_dropextendedproc`. This functionality won't be supported because it's on a deprecation path for SQL Server. For more details, see [Extended Stored Procedures](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
@@ -553,5 +556,6 @@ SQL Managed Instance places verbose information in error logs. There are many in
 
 - For more information about SQL Managed Instance, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - For a features and comparison list, see [Azure SQL Managed Instance feature comparison](../database/features-comparison.md).
-- For release updates and known issues state, see [SQL Managed Instance release notes](../database/doc-changes-updates-release-notes.md)
+- For release updates, see [What's new?](doc-changes-updates-release-notes-whats-new.md).
+- For issues, workarounds, and resolutions, see [Known issues](doc-changes-updates-known-issues.md).
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](instance-create-quickstart.md).

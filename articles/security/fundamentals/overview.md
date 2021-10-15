@@ -360,7 +360,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 - [Azure Active Directory joined](../../active-directory/devices/overview.md) enables you to extend cloud capabilities to Windows 10 devices for centralized management. It makes it possible for users to connect to the corporate or organizational cloud through Azure Active Directory and simplifies access to apps and resources.
 
-- [Azure Active Directory Application Proxy](../../active-directory/manage-apps/application-proxy.md) provides SSO and secure remote access for web applications hosted on-premises.
+- [Azure Active Directory Application Proxy](../../active-directory/app-proxy/application-proxy.md) provides SSO and secure remote access for web applications hosted on-premises.
 
 ## Next Steps
 

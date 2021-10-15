@@ -29,7 +29,7 @@ On the **Spatial Anchors Account** pane, do the following:
   [!INCLUDE [resource group intro text](resource-group.md)]
 
 * Select a location (region) in which to place the resource.
-* Select **New** to begin creating the resource.
+* Select **Create** to begin creating the resource.
 
 ![Screenshot of the Spatial Anchors pane for creating a resource.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
@@ -41,13 +41,13 @@ Select **Go to resource**. You can now view the resource properties.
 
 Copy the resource's **Account ID** value into a text editor for later use.
 
-![Screenshot of the resource properties pane.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Screenshot of the resource properties pane.](./media/spatial-anchors-get-started-create-resource/view-resource-accountid.png)
 
 Also copy the resource's **Account Domain** value into a text editor for later use.
 
 ![Screenshot showing the resource's account domain value.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-Under **Settings**, select **Key**. Copy the **Primary key** value, **Account Key**, into a text editor for later use.
+Under **Settings**, select **Access Key**. Copy the **Primary key** value, **Account Key**, into a text editor for later use.
 
 ![Screenshot of the Keys pane for the account.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
 

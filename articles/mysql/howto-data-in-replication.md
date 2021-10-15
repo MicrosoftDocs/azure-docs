@@ -10,10 +10,12 @@ ms.date: 04/08/2021
 
 # How to configure Azure Database for MySQL Data-in Replication
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 To create a replica in the Azure Database for MySQL service, [Data-in Replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in Replication is based on the binary log (binlog) file position-based or GTID-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -22,7 +24,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 ## Create an Azure Database for MySQL Single Server instance to use as a replica
 
-1. Create a new instance of Azure Database for MySQL Single Server (ex. "replica.mysql.database.azure.com"). Refer to [Create an Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) for server creation. This server is the "replica" server for Data-in Replication.
+1. Create a new instance of Azure Database for MySQL Single Server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) for server creation. This server is the "replica" server for Data-in Replication.
 
    > [!IMPORTANT]
    > The Azure Database for MySQL server must be created in the General Purpose or Memory Optimized pricing tiers as data-in replication is only supported in these tiers.

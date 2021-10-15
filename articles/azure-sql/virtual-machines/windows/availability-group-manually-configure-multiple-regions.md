@@ -148,6 +148,8 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
+1. On the new SQL Server in SQL Server Management Studio, [configure system account permissions](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions).
+
 1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
@@ -156,12 +158,13 @@ To create a replica in a remote data center, do the following steps:
 1. [Add a replica to the availability group on the new SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
    For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
+   
 
 ## Set connection for multiple subnets
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
-Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
+Preferably, update the cluster configuration to set `RegisterAllProvidersIP=1` and the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 If you cannot modify the connection strings, you can configure name resolution caching. See [Time-out error and you cannot connect to a SQL Server 2012 AlwaysOn availability group listener in a multi-subnet environment](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -199,7 +202,9 @@ For more information, see the following topics:
 
 ## Next steps
 
-* [Always On Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
-* [Azure Virtual Machines](../../../virtual-machines/index.yml)
-* [Azure Load Balancers](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Azure Availability Sets](../../../virtual-machines/availability.md)
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)

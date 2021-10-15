@@ -21,7 +21,7 @@ This template creates an Azure Migrate project that will be used further for ass
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-migrate-project-create%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -29,11 +29,9 @@ If you don't have an active Azure subscription, you can create a [free account](
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/101-migrate-project-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/migrate-project-create/).
 
-:::code language="json" source="~/quickstart-templates/101-migrate-project-create/azuredeploy.json":::
-
-
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.migrate/migrate-project-create/azuredeploy.json":::
 
 ## Deploy the template
 
@@ -41,7 +39,7 @@ To deploy the template, the **Subscription**, **Resource group**, **Project name
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** image.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-migrate-project-create%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json)
 
 2. Select or enter the following values:
 
@@ -62,7 +60,7 @@ To confirm that the Azure Migrate project was created, use the Azure portal.
 
 
 1. Navigate to Azure Migrate by searching for **Azure Migrate** in the search bar on the Azure portal.
-2. Click the **Discover,** **Assess,** and **Migrate** button under the Windows, Linux, and SQL Server tile.
+2. Click the **Discover,** **Assess,** and **Migrate** button under the Servers, databases and web apps tile.
 3. Select the **Azure subscription** and **Project** as per the values specified in the deployment.
 
 

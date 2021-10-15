@@ -31,4 +31,4 @@ This article describes error scenarios you might encounter when managing Azure N
 
 ## Next steps  
 
-* [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
+* [Manage snapshot policies](snapshots-manage-policy.md)

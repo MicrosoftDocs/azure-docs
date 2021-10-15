@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. First, you model individual elements as **digital twins**. Then you connect them into a knowledge **graph** that can respond to live events and be queried for information.
 
-In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This is a tool that allows you to visualize and interact with your Azure Digital Twins data within the Azure portal.
+In this quickstart, you'll explore a prebuilt Azure Digital Twins graph using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). This is a tool that allows you to visualize and interact with your Azure Digital Twins data within the Azure portal. 
 
 You'll complete the following steps:
 
@@ -33,34 +33,50 @@ The sample graph you'll be working with represents a building with two floors an
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Screenshot of a graph made of four circular nodes connected by arrows in Azure Digital Twins Explorer.":::
 
+>[!NOTE]
+>This quickstart is for exploring a prebuilt graph to understand how Azure Digital Twins represents data. For simplicity, the quickstart does not cover setting up connections between IoT Hub devices and their graph representations. To set up a connected end-to-end flow for your graph, move ahead to the tutorials: [Connect an end-to-end solution](tutorial-end-to-end.md).
+
 ## Prerequisites
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer).
-* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name **Room.json**.
-* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
-* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): Navigate to the link and select the **Download** button. This will download the file to your default download location.
+You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer). Later, you'll follow more instructions to upload them to Azure Digital Twins.
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): This is a model file representing a room in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name **Room.json**.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): This is a model file representing a floor in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): This file contains a graph of room and floor twins, and relationships between them. Navigate to the link and select the **Download** button. This will download the file to your default download location.
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Screenshot of the digital-twins-explorer/client/examples/buildingScenario.xlsx file in GitHub. The Download button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
-## Set up Azure Digital Twins and Azure Digital Twins Explorer
+## Set up Azure Digital Twins
 
-The first step in working with Azure Digital Twins is to set up an Azure Digital Twins instance. After you create an instance of the service, you can connect to the instance in Azure Digital Twins Explorer and populate it with the sample data later in the quickstart.
+The first step in working with Azure Digital Twins is to create an Azure Digital Twins instance. After you create an instance of the service, you can connect to the instance in Azure Digital Twins Explorer, which you'll use to work with the instance throughout the quickstart.
 
 The rest of this section walks you through these steps.
 
-### Set up an Azure Digital Twins instance
+### Create an Azure Digital Twins instance
 
-To work with Azure Digital Twins in this article, you first need to *set up an Azure Digital Twins instance*. You also need the required permissions for using it.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-Follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-portal.md). The instructions contain information to help you verify that you've completed each step successfully.
+3. Fill in the fields on the **Basics** tab of setup, including your Subscription, Resource group, Location, and a Resource name for your new instance. Check the **Assign Azure Digital Twins Data Owner Role** box to give yourself permissions to manage data in the instance.
+
+    >[!NOTE]
+    > If the Assign Azure Digital Twins Data Owner Role box is greyed out, it means you don't have permissions in your Azure subscription to manage user access to resources. You can continue creating the instance in this section, and then should have someone with the necessary permissions [assign you this role on the instance](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam) before completing the rest of this quickstart.
+    >
+    > Common roles that meet this requirement are **Owner**, **Account admin**, or the combination of **User Access Administrator** and **Contributor**.  
+
+4. Select **Review + Create** to finish creating your instance.
+
+    :::image type="content" source= "media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
+    
+5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
+
+This will take you to an Overview page tracking deployment status of the instance.
 
 ### Open instance in Azure Digital Twins Explorer
 
-Next, open Azure Digital Twins Explorer for your instance in the [Azure portal](https://portal.azure.com). 
+When the instance is finished deploying, use the **Go to resource** button to navigate to the instance's Overview page in the portal.
 
-To do this, go to the Azure portal and navigate to your new Azure Digital Twins instance, by searching for its name in the portal search bar.
+:::image type="content" source= "media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
 
 Next, select the **Open Azure Digital Twins Explorer (preview)** button.
 
@@ -70,9 +86,9 @@ This will open an Azure Digital Twins Explorer window connected to your instance
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Screenshot of Azure Digital Twins Explorer in an internet browser." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-## Add the sample data
+## Upload the sample materials
 
-Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is located in the **digital-twins-explorer-main** folder you downloaded in the [Prerequisites](#prerequisites) section.
+Next, you'll import the sample models and graph into Azure Digital Twins Explorer. You'll use the model files and the graph file that you downloaded to your machine in the [Prerequisites](#prerequisites) section.
 
 ### Models
 
@@ -91,9 +107,9 @@ For this quickstart, the model files are already written and validated for you. 
 * Floor
 * Room
 
-#### Upload models
+#### Upload the models (.json files)
 
-Follow these steps to upload models.
+Follow these steps to upload models (the *.json* files you downloaded earlier).
 
 1. In the **Models** panel, select the **Upload a Model** icon that shows an arrow pointing into a cloud.
 
@@ -127,9 +143,9 @@ In this section, you'll upload pre-created twins that are connected into a pre-c
 * Floor1
     - Contains Room1
 
-#### Import the graph
+#### Import the graph (.xlsx file)
 
-Follow these steps to import the graph.
+Follow these steps to import the graph (the *.xlsx* file you downloaded earlier).
 
 1. In the **Twin Graph** panel, select the **Import Graph** icon that shows an arrow pointing into a cloud.
 
@@ -141,13 +157,7 @@ Follow these steps to import the graph.
 
 3. To confirm the graph upload, select the **Save** icon in the upper-right corner of the graph preview panel.
 
-   :::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-   :::row-end:::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
 
 4. Azure Digital Twins Explorer will use the uploaded file to create the requested twins and relationships between them. A dialog box appears when it's finished. Select **Close**.
 
@@ -289,4 +299,4 @@ You may also want to delete the sample project folder from your local machine.
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Code a client app](tutorial-code.md)
+> [Code a client app](tutorial-code.md)

@@ -3,15 +3,15 @@ title: Add user attributes and customize user input
 titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -21,7 +21,7 @@ zone_pivot_groups: b2c-policy-type
 
 In this article, you collect a new attribute during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You'll obtain the users' city, configure it as a drop-down, and define whether it's required to be provided.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This sample uses the built-in claim 'city'. Instead, you can choose one of the supported [Azure AD B2C built-in attributes](user-profile-attributes.md) or a custom attribute. To use a custom attribute, [enable custom attributes](user-flow-custom-attributes.md). To use a different built-in or custom attribute, replace 'city' with the attribute of your choice, for example the built-in attribute *jobTitle* or a custom attribute like *extension_loyaltyId*.  
 
 ## Prerequisites
@@ -81,7 +81,7 @@ The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order fo
       "ElementType": "ClaimType",
       "ElementId": "city",
       "TargetCollection": "Restriction",
-      "Override": false,
+      "Override": true,
       "Items": [
         {
           "Name": "Berlin",
@@ -155,14 +155,24 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
       <DataType>string</DataType>
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
-        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+        <Enumeration Text="Berlin" Value="berlin" />
+        <Enumeration Text="London" Value="london" />
+        <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
   <!-- 
   </ClaimsSchema>
 </BuildingBlocks>-->
+```
+
+Include the [SelectByDefault](claimsschema.md#enumeration) attribute on an `Enumeration` element to make it selected by default when the page first loads. For example, to pre-select the *London* item, change the `Enumeration` element as the following example:
+
+```xml
+<Restriction>
+  <Enumeration Text="Berlin" Value="berlin" />
+  <Enumeration Text="London" Value="london" SelectByDefault="true" />
+  <Enumeration Text="Seattle" Value="seattle" />
+</Restriction>
 ```
 
 ## Add a claim to the user interface
@@ -307,7 +317,8 @@ To return the city claim back to the relying party application, add an output cl
 
 ## Upload and test your updated custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.
@@ -319,8 +330,6 @@ To return the city claim back to the relying party application, add an output cl
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Sign up now** to sign up. Finish entering the user information including the city name, and then click **Create**. You should see the contents of the token that was returned.
-
-You should 
 
 ::: zone-end
 
@@ -349,12 +358,69 @@ The token sent back to your application includes the `city` claim.
   "email": "joe@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
-  "city": "Bellevue"
+  "city": "Berlin"
   ...
 }
 ```
 
 ::: zone pivot="b2c-custom-policy"
+
+## [Optional] Localize the UI
+
+Azure AD B2C allows you to accommodate your policy to different languages. For more information, [learn about customizing the language experience](language-customization.md). To localize the sign-up page, [set up the list of supported languages](language-customization.md#set-up-the-list-of-supported-languages), and [provide language-specific labels](language-customization.md#provide-language-specific-labels).
+
+> [!NOTE]
+> When using the `LocalizedCollection` with the language-specific labels, you can remove the `Restriction` collection from the [claim definition](#define-a-claim).
+
+The following example demonstrates how to provide the list of cities for English and Spanish. Both set the `Restriction` collection of the claim *city* with a list of items for English and Spanish. The [SelectByDefault](claimsschema.md#enumeration) makes an item selected by default when the page first loads.
+   
+```xml
+<!-- 
+<BuildingBlocks>-->
+  <Localization Enabled="true">
+    <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+      <SupportedLanguage>en</SupportedLanguage>
+      <SupportedLanguage>es</SupportedLanguage>
+    </SupportedLanguages>
+    <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlin" Value="Berlin"></Item>
+          <Item Text="London" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+    <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedCollections>
+        <LocalizedCollection ElementType="ClaimType" ElementId="city" TargetCollection="Restriction">
+          <Item Text="Berlina" Value="Berlin"></Item>
+          <Item Text="Londres" Value="London" SelectByDefault="true"></Item>
+          <Item Text="Seattle" Value="Seattle"></Item>
+        </LocalizedCollection>
+      </LocalizedCollections>
+    </LocalizedResources>
+  </Localization>
+<!-- 
+</BuildingBlocks>-->
+```
+
+After you add the localization element, [edit the content definition with the localization](language-customization.md#edit-the-content-definition-with-the-localization). In the following example, English (en) and Spanish (es) custom localized resources are added to the sign-up page:
+   
+```xml
+<!-- 
+<BuildingBlocks>
+  <ContentDefinitions> -->
+   <ContentDefinition Id="api.localaccountsignup">
+    <LocalizedResourcesReferences MergeBehavior="Prepend">
+        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+    </LocalizedResourcesReferences>
+   </ContentDefinition>
+  <!-- 
+  </ContentDefinitions>
+</BuildingBlocks>-->
+```
 
 ## Next steps
 

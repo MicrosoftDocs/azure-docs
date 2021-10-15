@@ -3,11 +3,11 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 ms.custom:  [amqp, mqtt, device-developer]
 
 # This article applies to operators and device developers.
@@ -24,7 +24,7 @@ This article describes how devices connect to an Azure IoT Central application. 
 IoT Central supports the following two device registration scenarios:
 
 - *Automatic registration*. The device is registered automatically when it first connects. This scenario enables OEMs to mass manufacture devices that can connect without first being registered. An OEM generates suitable device credentials, and configures the devices in the factory. Optionally, you can require an operator to approve the device before it starts sending data. This scenario requires you to configure an X.509 or SAS _group enrollment_ in your application.
-- *Manual registration*. Operators either register individual devices on the **Devices** page, or [import a CSV file](howto-manage-devices.md#import-devices) to bulk register devices. In this scenario you can use X.509 or SAS _group enrollment_, or X.509 or SAS _individual enrollment_.
+- *Manual registration*. Operators either register individual devices on the **Devices** page, or [import a CSV file](howto-manage-devices-in-bulk.md#import-devices) to bulk register devices. In this scenario you can use X.509 or SAS _group enrollment_, or X.509 or SAS _individual enrollment_.
 
 Devices that connect to IoT Central should follow the *IoT Plug and Play conventions*. One of these conventions is that a device should send the _model ID_ of the device model it implements when it connects. The model ID enables the IoT Central application to associate the device with the correct device template.
 
@@ -60,7 +60,6 @@ To learn more, see [How to connect devices with X.509 certificates](how-to-conne
 For testing only, you can use the following utilities to generate root, intermediate, and device certificates:
 
 - [Tools for the Azure IoT Device Provisioning Device SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): a collection of Node.js tools that you can use to generate and verify X.509 certificates and keys.
-- If you're using a DevKit device, this [command-line tool](https://aka.ms/iotcentral-docs-dicetool) generates a CA certificate that you can add to your IoT Central application to verify the certificates.
 - [Manage test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): a collection of PowerShell and Bash scripts to:
   - Create a certificate chain.
   - Save the certificates as .cer files to upload to your IoT Central application.
@@ -71,7 +70,7 @@ For testing only, you can use the following utilities to generate root, intermed
 
 To connect a device with device SAS key to your application:
 
-1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type.
+1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type. 
 1. Copy the group primary or secondary key from the enrollment group.
 1. Use the Azure CLI to generate a device key from the group key:
 
@@ -80,6 +79,9 @@ To connect a device with device SAS key to your application:
     ```
 
 1. Use the generated device key when the device connects to your IoT Central application.
+
+> [!NOTE]
+> To use existing SAS keys in your enrollment groups, disable the **Auto generate keys** toggle and type-in the SAS keys.
 
 ## Individual enrollment
 
@@ -151,9 +153,9 @@ The IoT Central application uses the model ID sent by the device to [associate t
 
 ### Bulk register devices in advance
 
-To register a large number of devices with your IoT Central application, use a CSV file to [import device IDs and device names](howto-manage-devices.md#import-devices).
+To register a large number of devices with your IoT Central application, use a CSV file to [import device IDs and device names](howto-manage-devices-in-bulk.md#import-devices).
 
-If your devices use SAS tokens to authenticate, [export a CSV file from your IoT Central application](howto-manage-devices.md#export-devices). The exported CSV file includes the device IDs and the SAS keys.
+If your devices use SAS tokens to authenticate, [export a CSV file from your IoT Central application](howto-manage-devices-in-bulk.md#export-devices). The exported CSV file includes the device IDs and the SAS keys.
 
 If your devices use X.509 certificates to authenticate, generate X.509 leaf certificates for your devices using the root or intermediate certificate in you uploaded to your X.509 enrollment group. Use the device IDs you imported as the `CNAME` value in the leaf certificates.
 
@@ -174,7 +176,7 @@ IoT Central automatically associates a device with a device template when the de
 
 1. If the device template is already published in the IoT Central application, the device is associated with the device template.
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
-1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassociated**. An operator can create a device template for the device and then migrate the unassociated device to the new device template.
+1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassociated**. An operator can either create a device template for the device and then migrate the unassociated device to the new device template, or [autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
 
 The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
@@ -185,6 +187,16 @@ You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-mod
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+Use the following DPS payload to associate the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ## Device status values
 
@@ -208,11 +220,15 @@ When a real device connects to your IoT Central application, its device status c
     An operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
 
 ## Device connection status
-When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events are shown for the device. These events are not sent by the device sends, they are generated internally by IoT Central.
 
-The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute..
+When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events for the device are generated. These events are not sent by the device, they are generated internally by IoT Central.
+
+The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute.
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagram that shows event window for connected and disconnected events." border="false":::
+
+You can view the connected and disconnected events in the **Raw data** view for a device:
+:::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="Screenshot showing raw data view filtered to show device connected events.":::
 
 You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

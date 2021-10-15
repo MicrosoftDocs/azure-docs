@@ -8,16 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 01/27/2021
 ---
 
 # Collect and analyze log data for Azure Cognitive Search
 
 Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service health and processes. Internally, Microsoft preserves system information on the backend for a short period of time (about 30 days), sufficient for investigation and analysis if you file a support ticket. However, if you want ownership over operational data, you should configure a diagnostic setting to specify where logging information is collected.
 
-Diagnostic logging is enabled through integration with [Azure Monitor](../azure-monitor/index.yml). 
-
-When you set up diagnostic logging, you will be asked to specify a storage mechanism. The following table enumerates options for collecting and persisting data.
+Diagnostic logging is enabled through back-end integration with [Azure Monitor](../azure-monitor/index.yml). When you set up diagnostic logging, you will be asked to specify a storage option for persisting the log. The following table enumerates your options.
 
 | Resource | Used for |
 |----------|----------|
@@ -51,9 +49,9 @@ Diagnostic settings specify how logged events and metrics are collected.
 
 1. Save the setting.
 
-1. After logging has been enabled, use your search service to start generating logs and metrics. It will take time before logged events and metrics become available.
+1. After logging is enabled, your search service will start generating logs and metrics. It can take some time before logged events and metrics become available.
 
-For Log Analytics, it will be several minutes before data is available, after which you can run Kusto queries to return data. For more information, see [Monitor query requests](search-monitor-logs.md).
+For Log Analytics, expect to wait several minutes before data is available, after which you can run Kusto queries to return data. For more information, see [Monitor query requests](search-monitor-logs.md).
 
 For Blob storage, it takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container. Containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 
@@ -66,7 +64,9 @@ Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnosti
 
 1. Under **Monitoring**, select **Logs**.
 
-1. Enter **AzureMetrics** in the query window. Run this simple query to get acquainted with the data collected in this table. Scroll across the table to view metrics and values. Notice the record count at the top, and if your service has been collecting metrics for a while, you might want to adjust the time interval to get a manageable data set.
+1. In the query window, type **AzureMetrics**, check the scope (your search service) and time range, and then click **Run** to get acquainted with the data collected in this table.
+
+   Scroll across the table to view metrics and values. Notice the record count at the top. If your service has been collecting metrics for a while, you might want to adjust the time interval to get a manageable data set.
 
    ![AzureMetrics table](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics table")
 
@@ -108,7 +108,7 @@ Correlate query request with indexing operations, and render the data points acr
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| summarize Count=count(), AvgLatency=avg(durationMs) by bin(TimeGenerated, 1h), OperationName
 | render timechart
 ```
 

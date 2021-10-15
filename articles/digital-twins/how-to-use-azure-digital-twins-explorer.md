@@ -210,7 +210,7 @@ To view the property values of a twin or a relationship, select the element in t
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-You can use this panel to directly edit writeable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
+You can use this panel to directly edit writable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 
@@ -488,7 +488,7 @@ Here is an example of a URL with the placeholder values filled in:
 
 `https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
 
-For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Concepts: Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
+For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
 ### Link with a query
 
@@ -527,5 +527,5 @@ Clicking the settings cog in the top right corner allows the configuration of th
 ## Next steps 
 
 Learn about writing queries for the Azure Digital Twins twin graph: 
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

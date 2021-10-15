@@ -38,6 +38,6 @@ This article provides:
 
 You can get these samples for Python by cloning the [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub repository.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](/python/api/overview/azure/hdinsight).

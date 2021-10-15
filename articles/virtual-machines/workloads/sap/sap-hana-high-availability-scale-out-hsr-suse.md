@@ -1,13 +1,9 @@
 ---
 title: SAP HANA scale-out with HSR and Pacemaker on SLES | Microsoft Docs
 description: SAP HANA scale-out with HSR and Pacemaker on SLES.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -26,7 +22,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -619,11 +614,11 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
      * For **Enter Root User Name [root]**: press Enter to accept the default
      * For **Select roles for host 'hana-s1-db2' [1]**: 1 (for worker)
      * For **Enter Host Failover Group for host 'hana-s1-db2' [default]**: press Enter to accept the default
-     * For **Enter Storage Partition Number for host 'hana-s1-db2' [<<assign automatically>>]**: press Enter to accept the default
+     * For **Enter Storage Partition Number for host 'hana-s1-db2' [\<\<assign automatically\>\>]**: press Enter to accept the default
      * For **Enter Worker Group for host 'hana-s1-db2' [default]**: press Enter to accept the default
      * For **Select roles for host 'hana-s1-db3' [1]**: 1 (for worker)
      * For **Enter Host Failover Group for host 'hana-s1-db3' [default]**: press Enter to accept the default
-     * For **Enter Storage Partition Number for host 'hana-s1-db3' [<<assign automatically>>]**: press Enter to accept the default
+     * For **Enter Storage Partition Number for host 'hana-s1-db3' [\<\<assign automatically\>\>]**: press Enter to accept the default
      * For **Enter Worker Group for host 'hana-s1-db3' [default]**: press Enter to accept the default
      * For **System Administrator (hn1adm) Password**: enter the password
      * For **Enter SAP Host Agent User (sapadm) Password**: enter the password

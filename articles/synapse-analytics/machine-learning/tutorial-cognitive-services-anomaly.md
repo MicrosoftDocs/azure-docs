@@ -7,7 +7,7 @@ ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 11/20/2020
+ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
 ---
@@ -52,7 +52,7 @@ You need a Spark table for this tutorial.
 
 ## Open the Cognitive Services wizard
 
-1. Right-click the Spark table created in the previous step. Select **Machine Learning** > **Enrich with existing model** to open the wizard.
+1. Right-click the Spark table created in the previous step. Select **Machine Learning** > **Predict with a model** to open the wizard.
 
    ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
 

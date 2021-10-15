@@ -2,14 +2,14 @@
 title: Tutorial - Create user flows and custom policies - Azure Active Directory B2C
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2021
-ms.author: mimart
+ms.date: 10/12/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -35,21 +35,21 @@ A user flow lets you determine how users interact with your application when the
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions: **Recommended** user flows with the latest features, and **Standard (Legacy)** user flows. In the public cloud, all legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md). *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).* 
+> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions: **Recommended** user flows with the latest features, and **Standard (Legacy)** user flows. All legacy preview user flows (V1.1 and V2) are deprecated. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md). *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## Prerequisites
 
 ::: zone pivot="b2c-user-flow"
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
+- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
-- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the reset of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
+- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
+- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the rest of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
 
 ::: zone-end
 
@@ -59,14 +59,12 @@ A user flow lets you determine how users interact with your application when the
 The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-
-    ![B2C tenant, Directory and Subscription pane, Azure portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
-
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 
-    ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
@@ -146,7 +144,8 @@ If you want to enable users to edit their profile in your application, you use a
 ## Add signing and encryption keys
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 
@@ -252,6 +251,7 @@ Custom policies are a set of XML files you upload to your Azure AD B2C tenant to
 Each starter pack contains:
 
 - **Base file** - Few modifications are required to the base. Example: *TrustFrameworkBase.xml*
+- **Localization file** - This file is where localization changes are made. Example: *TrustFrameworkLocalization.xml*
 - **Extension file** - This file is where most configuration changes are made. Example: *TrustFrameworkExtensions.xml*
 - **Relying party files** - Task-specific files called by your application. Examples: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
@@ -286,10 +286,11 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 1. Select **Upload custom policy**.
 1. In this order, upload the policy files:
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 
@@ -335,9 +336,17 @@ In this article, you learned how to:
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
-Next, learn how to use Azure AD B2C to sign in and sign up users in an application. Follow the ASP.NET web application linked below, or navigate to another application in the table of contents under **Authenticate users**.
+Next, learn how to use Azure AD B2C to sign in and sign up users in an application. Follow the sample apps linked below:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)
+- [Configure a sample ASP.NET Core web app](configure-authentication-sample-web-app.md)
+- [Configure a sample ASP.NET Core web app that calls a web API](configure-authentication-sample-web-app-with-api.md)
+- [Configure authentication in a sample Python web application](configure-authentication-sample-python-web-app.md)
+- [Configure a sample Single-page application (SPA)](configure-authentication-sample-spa-app.md)
+- [Configure a sample Angular single-page app](configure-authentication-sample-angular-spa-app.md)
+- [Configure a sample Android mobile app](configure-authentication-sample-android-app.md)
+- [Configure a sample iOS mobile app](configure-authentication-sample-ios-app.md)
+- [Configure authentication in a sample WPF desktop application](configure-authentication-sample-wpf-desktop-app.md)
+- [Enable authentication in your web API](enable-authentication-web-api.md)
+- [Configure a SAML application](saml-service-provider.md) 
 
 You can also learn more in the [Azure AD B2C Architecture Deep Dive Series](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

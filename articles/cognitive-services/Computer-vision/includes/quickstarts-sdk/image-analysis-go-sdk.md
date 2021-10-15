@@ -71,11 +71,11 @@ touch sample-app.go
 
 Open `sample-app.go` in your preferred IDE or text editor. Then add the package name and import the following libraries:
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_imports)]
 
 Also, declare a context at the root of your script. You'll need this object to execute most Image Analysis function calls:
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_context)]
 
 Next, you'll begin adding code to carry out different Computer Vision operations.
 
@@ -106,7 +106,7 @@ These code snippets show you how to do the following tasks with the Image Analys
 
 Create a `main` function and add the following code to it to instantiate a client with your endpoint and key.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_client)]
 
 > [!div class="nextstepaction"]
 > [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client&product=computer-vision&page=image-analysis-go-sdk)
@@ -119,40 +119,40 @@ The following code uses the client object to analyze a remote image and print th
 
 First save a reference to the URL of the image you want to analyze. Put this inside your `main` function.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_analyze_url)]
 
 > [!TIP]
-> You can also analyze a local image. See the [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) methods, such as **AnalyzeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go#L235) for scenarios involving local images.
+> You can also analyze a local image. See the [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) methods, such as **AnalyzeImageInStream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ImageAnalysisQuickstart.go) for scenarios involving local images.
 
 ### Specify visual features
 
 The following function calls extract different visual features from the sample image. You'll define these functions in the following sections.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_analyze)]
 
 ### Get image description
 
 The following function gets the list of generated captions for the image. For more information about image description, see [Describe images](../../concept-describing-images.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_analyze_describe)]
 
 ### Get image category
 
 The following function gets the detected category of the image. For more information, see [Categorize images](../../concept-categorizing-images.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_analyze_categorize)]
 
 ### Get image tags
 
 The following function gets the set of detected tags in the image. For more information, see [Content tags](../../concept-tagging-images.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_tags)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_tags)]
 
 ### Detect objects
 
 The following function detects common objects in the image and prints them to the console. For more information, see [Object detection](../../concept-object-detection.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_objects)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_objects)]
 
 ### Detect brands
 
@@ -160,29 +160,29 @@ The following code detects corporate brands and logos in the image and prints th
 
 First, declare a reference to a new image within your `main` function.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brand_url)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_brand_url)]
 
 The following code defines the brand detection function.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brands)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_brands)]
 
 ### Detect faces
 
 The following function returns the detected faces in the image with their rectangle coordinates and certain face attributes. For more information, see [Face detection](../../concept-detecting-faces.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_faces)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_faces)]
 
 ### Detect adult, racy, or gory content
 
 The following function prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../../concept-detecting-adult-content.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_adult)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_adult)]
 
 ### Get image color scheme
 
 The following function prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../../concept-detecting-color-schemes.md).
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_color)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_color)]
 
 ### Get domain-specific content
 
@@ -190,17 +190,17 @@ Image Analysis can use specialized models to do further analysis on images. For 
 
 The following code parses data about detected celebrities in the image.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_celebs)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_celebs)]
 
 The following code parses data about detected landmarks in the image.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_landmarks)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_landmarks)]
 
 ### Get the image type
 
 The following function prints information about the type of image&mdash;whether it's clip art or a line drawing.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ImageAnalysisQuickstart.go?name=snippet_type)]
 
 > [!div class="nextstepaction"]
 > [I analyzed an image](?success=analyze-image#run-the-application) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image&product=computer-vision&page=image-analysis-go-sdk)
@@ -235,5 +235,5 @@ In this quickstart, you learned how to install the Image Analysis client library
 >[Call the Analyze API](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ImageAnalysisQuickstart.go).
 

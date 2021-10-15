@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -17,7 +17,6 @@ ms.topic: how-to
 
 This document describes a simple process to get the AdventureWorks sample database restored into your SQL Managed Instance - Azure Arc.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Download the AdventureWorks backup file
 

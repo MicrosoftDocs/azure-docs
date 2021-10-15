@@ -5,6 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ---
@@ -378,7 +379,7 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
     ```
     You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Creation of an on-demand HDInsight cluster usually takes some time.
 
-    ![output data](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png" alt-text="output data":::
 
 > [!IMPORTANT]
 > Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.

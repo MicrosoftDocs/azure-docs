@@ -95,6 +95,10 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
 
+**How can I create Key Vault references using this task?**
+
+To create Key Vault references, set the "Content Type" parameter to *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8*. If not all key-values in a configuration file are Key Vault references, put Key Vault references and normal key-values in separate configuration files, and push them separately.
+
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 
 A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.

@@ -176,7 +176,7 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
 
 ### SQL Database blob auditing
 
-Azure SQL auditing can write SQL audit logs to your own storage account. If this storage account uses the virtual network service endpoints feature, see how to [write audit to a storage account behind VNet and firewall](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall).
+Azure SQL auditing can write SQL audit logs to your own storage account. If this storage account uses the virtual network service endpoints feature, see how to [write audit to a storage account behind VNet and firewall](./audit-write-storage-account-behind-vnet-firewall.md).
 
 ## Add a virtual network firewall rule to your server
 

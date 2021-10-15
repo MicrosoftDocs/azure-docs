@@ -2,9 +2,8 @@
 title: Hyperparameter tuning a model
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
-ms.author: anumamah
-author: Aniththa
-ms.reviewer: sgilley 
+ms.author: sgilley
+author: sdgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -428,7 +427,7 @@ You can visualize all of your hyperparameter tuning runs in the [Azure Machine L
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Hyperparameter tuning metrics chart":::
 
-- **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (click and drag by the axis label), and by highlighting values across a single axis (click and drag vertically along a single axis to highlight a range of desired values).
+- **Parallel Coordinates Chart**: This visualization shows the correlation between primary metric performance and individual hyperparameter values. The chart is interactive via movement of axes (click and drag by the axis label), and by highlighting values across a single axis (click and drag vertically along a single axis to highlight a range of desired values). The parallel coordinates chart includes an axis on the right most portion of the chart that plots the best metric value corresponding to the hyperparameters set for that run instance. This axis is provided in order to project the chart gradient legend onto the data in a more readable fashion.
 
     :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Hyperparameter tuning parallel coordinates chart":::
 

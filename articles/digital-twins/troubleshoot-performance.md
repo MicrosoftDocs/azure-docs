@@ -17,27 +17,27 @@ ms.service: digital-twins
 
 # Troubleshooting Azure Digital Twins: Performance
 
-If you are experiencing delays or other performance issues when working with Azure Digital Twins, use the tips in this article to help you troubleshoot.
+If you're experiencing delays or other performance issues when working with Azure Digital Twins, use the tips in this article to help you troubleshoot.
 
 ## Isolate the source of the delay
 
-Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
+Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this delay, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
 
 ## Check regions
 
-If your solution uses Azure Digital Twins in combination with other Azure services (like Azure Functions), check the region for the deployment of each service. If services are deployed in different regions, this may add delays across your solution. Unless you're intentionally creating a distributed solution, consider deploying all service instances within the same region to avoid accidentally introducing delays.
+If your solution uses Azure Digital Twins in combination with other Azure services (like Azure Functions), check the region for the deployment of each service. Services that are deployed in different regions may add delays across your solution. Unless you're intentionally creating a distributed solution, consider deploying all service instances within the same region to avoid accidentally introducing delays.
 
-## Leverage logs
+## Check logs
 
-Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they are consistent, and understand their source.
+Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they're consistent, and understand their source.
 
 ## Check API frequency
 
-Another factor that might affect performance is time taken to re-authorize API calls. Consider the frequency of your API calls. If there is a gap of more than 15 minutes between calls, the system may be re-authorizing with each call, taking up additional time to do so. You can prevent this by adding a timer or something similar in your code to ensure that you call into Azure Digital Twins at least once every 15 minutes.
+Another factor that might affect performance is time taken to reauthorize API calls. Consider the frequency of your API calls. If there's a gap of more than 15 minutes between calls, the system may be reauthorizing with each call, taking up extra time to do so. You can prevent this issue by adding a timer or something similar in your code to ensure that you call into Azure Digital Twins at least once every 15 minutes.
 
 ## Contact support
 
-If you're still experiencing performance issues after troubleshooting with the steps above, you can create a support request from Azure Help + Support for additional troubleshooting assistance. 
+If you're still experiencing performance issues after troubleshooting with the steps above, you can create a support request from Azure Help + Support for more troubleshooting assistance. 
 
 Follow these steps:
 

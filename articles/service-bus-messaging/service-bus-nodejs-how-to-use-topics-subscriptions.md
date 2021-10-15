@@ -204,6 +204,6 @@ On this page, if you select a subscription, you get to the **Service Bus Subscri
 See the following documentation and samples: 
 
 - [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [JavaScript samples](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [TypeScript samples](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [API reference documentation](/javascript/api/overview/azure/service-bus)

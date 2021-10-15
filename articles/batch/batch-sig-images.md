@@ -76,7 +76,7 @@ Follow these guidelines when creating VMs:
 
 ### Create a VM snapshot
 
-A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) or [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VMs.
+A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](../virtual-machines/snapshot-copy-managed-disk.md).
 
 ### Create an image from one or more snapshots
 
@@ -84,7 +84,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 ### Create a Shared Image Gallery
 
-Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery with Azure CLI](../virtual-machines/shared-images-cli.md) or [Create a Shared Image Gallery using the Azure portal](../virtual-machines/linux/shared-images-portal.md).
+Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery](../virtual-machines/create-gallery.md).
 
 ## Create a pool from a Shared Image using the Azure CLI
 

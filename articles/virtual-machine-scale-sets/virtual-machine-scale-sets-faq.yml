@@ -29,6 +29,7 @@ sections:
           Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
           * Azure files (SMB shared drives)
+          * Azure shared disks
           * OS drive
           * Temp drive (local, not backed by Azure Storage)
           * Azure data service (for example, Azure tables, Azure blobs)
@@ -368,7 +369,7 @@ sections:
       - question: |
           Does managed identities for Azure resources work with virtual machine scale sets?
         answer: |
-          Yes. You can [see](../active-directory/managed-identities-azure-resources/overview.md) some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+          Yes. You can [see](../active-directory/managed-identities-azure-resources/overview.md) some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-msi).
 
   - name: Deleting
     questions:
@@ -456,16 +457,6 @@ sections:
           If your virtual machine scale set extension is trying to install something that requires a reboot, you can use the Azure Automation Desired State Configuration (Automation DSC) extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration.
 
       - question: |
-          How do I turn on antimalware in my virtual machine scale set?
-        answer: |
-          To turn on antimalware on your virtual machine scale set, use the following PowerShell example:
-
-          ```powershell
-          $rgname = 'autolap'
-          $vmssname = 'autolapbr'
-          $location = 'eastus'
-
-      - question: |
           How do I execute a custom script that's hosted in a private storage account?
         answer: |
           To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
@@ -481,7 +472,7 @@ sections:
 
               Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
-          - Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+          - Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
               Use the following PowerShell example:
 

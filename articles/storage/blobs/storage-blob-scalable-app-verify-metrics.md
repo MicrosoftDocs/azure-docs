@@ -16,8 +16,8 @@ This tutorial is part four and the final part of a series. In the previous tutor
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Configure charts in the Azure portal
-> * Verify throughput and latency metrics
+> - Configure charts in the Azure portal
+> - Verify throughput and latency metrics
 
 [Azure storage metrics](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) uses Azure monitor to provide a unified view into the performance and availability of your storage account.
 
@@ -62,8 +62,8 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 In part four of the series, you learned about viewing metrics for the example solution, such as how to:
 
 > [!div class="checklist"]
-> * Configure charts in the Azure portal
-> * Verify throughput and latency metrics
+> - Configure charts in the Azure portal
+> - Verify throughput and latency metrics
 
 Follow this link to see pre-built storage samples.
 

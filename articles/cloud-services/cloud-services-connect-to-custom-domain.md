@@ -4,16 +4,15 @@ description: Learn how to connect your web/worker roles to a custom AD Domain us
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---
 
 # Connecting Azure Cloud Services (classic) Roles to a custom AD Domain Controller hosted in Azure
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 We will first set up a Virtual Network (VNet) in Azure. We will then add an Active Directory Domain Controller (hosted on an Azure Virtual Machine) to the VNet. Next, we will add existing cloud service roles to the pre-created VNet, then connect them to the Domain Controller.
 

@@ -37,7 +37,7 @@ The following Message Routes are configured for Device Update:
 |   Route Name    | Data Source | Routing Query  | Endpoint | Description  |
 | :--------- | :---- |:---- |:---- |:---- |
 |  DeviceUpdate.DigitalTwinChanges | DigitalTwinChangeEvents | true | events | Listens for Digital Twin Changes Events  |
-|  DeviceUpdate.DeviceLifeCycle | DeviceLifeCycleEvents | opType = 'deleteDeviceIdentity' OR opType = 'deleteModuleIdentity'  | events | Listens for Devices that have been deleted |
+|  DeviceUpdate.DeviceLifecycle | DeviceLifecycleEvents | opType = 'deleteDeviceIdentity' OR opType = 'deleteModuleIdentity'  | events | Listens for Devices that have been deleted |
 |  DeviceUpdate.DeviceTwinEvents| TwinChangeEvents | (opType = 'updateTwin' OR opType = 'replaceTwin') AND IS_DEFINED($body.tags.ADUGroup) | events | Listens for new Device Update Groups |
 
 > [!NOTE]

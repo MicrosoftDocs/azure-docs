@@ -28,7 +28,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | ---- | --------------------- | ---------------- |
 > | Configure application proxy app | Application Administrator |  |
 > | Configure connector group properties | Application Administrator |  |
-> | Create application registration when ability is disabled for all users | Application Developer | Cloud Application Administrator, Application Administrator |
+> | Create application registration when ability is disabled for all users | Application Developer | Cloud Application Administrator<br/>Application Administrator |
 > | Create connector group | Application Administrator |  |
 > | Delete connector group | Application Administrator |  |
 > | Disable application proxy | Application Administrator |  |
@@ -51,6 +51,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Create, read, update, and delete sign-up user flow |External ID User Flow Administrator |  |
 > | Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator |  |
 > | Create, read, update, and delete users | User Administrator |  |
+> | Configure B2B external collaboration settings | Global Administrator |  |
 > | Read all configuration | Global Reader |  |
 > | Read B2C audit logs | Global Reader ([see documentation](../../active-directory-b2c/faq.yml)) |  |
 
@@ -100,13 +101,13 @@ In this article, you can find the information needed to restrict a user's admini
 > | Configure notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner |
 > | Configure settings | Owner ([see documentation](../hybrid/how-to-connect-health-operations.md)) |  |
 > | Configure sync notifications | Contributor ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Owner |
-> | Read ADFS security reports | Security Reader | Contributor, Owner
-> | Read all configuration | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner |
-> | Read sync errors | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner |
-> | Read sync services | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner |
-> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner |
-> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner |
-> | View sync service metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor, Owner |
+> | Read ADFS security reports | Security Reader | Contributor<br/>Owner
+> | Read all configuration | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
+> | Read sync errors | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
+> | Read sync services | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
+> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
+> | View metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
+> | View sync service metrics and alerts | Reader ([see documentation](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)) | Contributor<br/>Owner |
 
 ## Custom domain names
 
@@ -133,7 +134,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Disable device | Cloud Device Administrator |  |
 > | Enable device | Cloud Device Administrator |  |
 > | Read basic configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) |  |
-> | Read BitLocker keys | Security Reader | Password Administrator, Security Administrator |
+> | Read BitLocker keys | Security Reader | Password Administrator<br/>Security Administrator |
 
 ## Enterprise applications
 
@@ -147,22 +148,22 @@ In this article, you can find the information needed to restrict a user's admini
 > | Create enterprise application | Cloud Application Administrator | Application Administrator |
 > | Manage Application Proxy | Application Administrator |  |
 > | Manage user settings | Global Administrator |  |
-> | Read access review of a group or of an app | Security Reader | Security Administrator, User Administrator |
+> | Read access review of a group or of an app | Security Reader | Security Administrator<br/>User Administrator |
 > | Read all configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) |  |
-> | Update enterprise application assignments | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator |
-> | Update enterprise application owners | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator |
-> | Update enterprise application properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator |
-> | Update enterprise application provisioning | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator |
-> | Update enterprise application self-service | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator |
-> | Update single sign-on properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator |
+> | Update enterprise application assignments | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator<br/>Application Administrator |
+> | Update enterprise application owners | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator<br/>Application Administrator |
+> | Update enterprise application properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator<br/>Application Administrator |
+> | Update enterprise application provisioning | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator<br/>Application Administrator |
+> | Update enterprise application self-service | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator<br/>Application Administrator |
+> | Update single sign-on properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator<br/>Application Administrator |
 
 ## Entitlement management
 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Add resources to a catalog | User Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
-> | Add SharePoint Online sites to catalog | Global Administrator |  |
+> | Add resources to a catalog | Identity Governance Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-more-catalog-owners)) |
+> | Add SharePoint Online sites to catalog | SharePoint Administrator |  |
 
 ## Groups
 
@@ -175,8 +176,8 @@ In this article, you can find the information needed to restrict a user's admini
 > | Manage group expiration | User Administrator |  |
 > | Manage group settings | Groups Administrator | User Administrator |
 > | Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) |
-> | Read hidden membership | Group member | Group owner, Password Administrator, Exchange Administrator, SharePoint Administrator, Teams Administrator, User Administrator |
-> | Read membership of groups with hidden membership | Helpdesk Administrator | User Administrator, Teams Administrator |
+> | Read hidden membership | Group member | Group owner<br/>Password Administrator<br/>Exchange Administrator<br/>SharePoint Administrator<br/>Teams Administrator<br/>User Administrator |
+> | Read membership of groups with hidden membership | Helpdesk Administrator | User Administrator<br/>Teams Administrator |
 > | Revoke license | License Administrator | User Administrator |
 > | Update group membership | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User Administrator |
 > | Update group owners | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User Administrator |
@@ -214,14 +215,14 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Read audit logs | Reports Reader | Security Reader, Security Administrator |
+> | Read audit logs | Reports Reader | Security Reader<br/>Security Administrator |
 
 ## Monitoring - Sign-ins
 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Read sign-in logs | Reports Reader | Security Reader, Security Administrator |
+> | Read sign-in logs | Reports Reader | Security Reader<br/>Security Administrator<br/> Global Reader |
 
 ## Multi-factor authentication
 
@@ -292,7 +293,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
 > | Manage role assignments | Privileged Role Administrator |  |
-> | Read access review of an Azure AD role  | Security Reader | Security Administrator, Privileged Role Administrator |
+> | Read access review of an Azure AD role  | Security Reader | Security Administrator<br/>Privileged Role Administrator |
 > | Read all configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) |  |
 
 ## Security - Authentication methods
@@ -324,7 +325,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Manage named locations | Conditional Access Administrator | Security Administrator |
 > | Manage terms of use | Conditional Access Administrator | Security Administrator |
 > | Read all configuration | Security Reader | Security Administrator |
-> | Read named locations | Security Reader | Conditional Access Administrator, Security Administrator |
+> | Read named locations | Security Reader | Conditional Access Administrator<br/>Security Administrator |
 
 ## Security - Identity security score
 
@@ -375,14 +376,14 @@ In this article, you can find the information needed to restrict a user's admini
 > | Update User Principal Name for limited admins (see documentation) | User Administrator |  |
 > | Update User Principal Name property on privileged admins (see documentation) | Global Administrator |  |
 > | Update user settings | Global Administrator |  |
-> | Update Authentication methods | Authentication Administrator | Privileged Authentication Administrator, Global Administrator |
+> | Update Authentication methods | Authentication Administrator | Privileged Authentication Administrator<br/>Global Administrator |
 
 ## Support
 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Submit support ticket | Service Administrator | Application Administrator, Azure Information Protection Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator |
+> | Submit support ticket | Service Support Administrator | Application Administrator<br/>Azure Information Protection Administrator<br/>Billing Administrator<br/>Cloud Application Administrator<br/>Compliance Administrator<br/>Dynamics 365 Administrator<br/>Desktop Analytics Administrator<br/>Exchange Administrator<br/>Intune Administrator<br/>Password Administrator<br/>Power BI Administrator<br/>Privileged Authentication Administrator<br/>SharePoint Administrator<br/>Skype for Business Administrator<br/>Teams Administrator<br/>Teams Communications Administrator<br/>User Administrator<br/>Workplace Analytics Administrator |
 
 ## Next steps
 

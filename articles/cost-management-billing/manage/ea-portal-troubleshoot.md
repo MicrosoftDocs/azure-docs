@@ -3,7 +3,7 @@ title: Troubleshoot Azure EA portal access
 description: This article describes some common issues that can occur with an Azure Enterprise Agreement (EA) in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/26/2021
+ms.date: 07/26/2021
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -14,7 +14,7 @@ ms.reviewer: boalcsva
 
 This article describes some common issues that can occur with an Azure Enterprise Agreement (EA). The Azure EA portal is used to manage enterprise agreement users and costs. You might come across these issues when you're configuring or updating Azure EA portal access.
 
-## Issues adding an admin to an enrollment
+## Issues adding a user to an enrollment
 
 There are different types of authentication levels for enterprise enrollments. When authentication levels are applied incorrectly, you might have issues when you try to sign in to the Azure EA portal.
 

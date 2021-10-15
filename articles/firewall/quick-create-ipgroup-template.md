@@ -28,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 This template creates an Azure Firewall and IP Groups, along with the necessary resources to support the Azure Firewall.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json":::
 
@@ -73,7 +73,7 @@ In the Azure portal, review the deployed resources, especially the firewall rule
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Network rules.":::
 
-To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/microsoft.network/azurefirewalls).
 
 ## Clean up resources
 

@@ -2,13 +2,11 @@
 title: Author entry script for advanced scenarios
 titleSuffix: Azure Machine Learning entry script authoring
 description: Learn how to write Azure Machine Learning entry scripts for pre- and post-processing during deployment.
-author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.date: 09/17/2020
-ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
 ---
@@ -163,7 +161,7 @@ import requests
 uri = service.scoring_uri
 image_path = 'test.jpg'
 files = {'image': open(image_path, 'rb').read()}
-response = requests.post(url, files=files)
+response = requests.post(uri, files=files)
 
 print(response.json)
 ```
@@ -306,7 +304,7 @@ More entry script examples for specific machine learning use cases can be found 
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

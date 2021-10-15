@@ -1,6 +1,6 @@
 ---
-title: Install language packs on Windows 10 VMs in Windows Virtual Desktop - Azure
-description: How to install language packs for Windows 10 multi-session VMs in Windows Virtual Desktop.
+title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
+description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/03/2020
@@ -9,7 +9,7 @@ manager: femila
 ---
 # Add language packs to a Windows 10 multi-session image
 
-Windows Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise multi-session image displays.
+Azure Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise multi-session image displays.
 
 There are two ways you can accommodate the language needs of your users:
 
@@ -51,7 +51,8 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004, 20H2, or 21H1 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
           - [Windows 10, version 2004, 20H2, or 21H1 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
           - [Windows 10, version 2004, 20H2, or 21H1 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **4C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2104C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **7C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2107C.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
@@ -227,7 +228,7 @@ To run sysprep:
 
 2. Stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
-3. You can now use the customized image to deploy a Windows Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
+3. You can now use the customized image to deploy a Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 ## Enable languages in Windows settings app
 
@@ -243,7 +244,7 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
-After a user changes their language settings, they'll need to sign out of their Windows Virtual Desktop session and sign in again for the changes to take effect. 
+After a user changes their language settings, they'll need to sign out of their Azure Virtual Desktop session and sign in again for the changes to take effect. 
 
 ## Next steps
 

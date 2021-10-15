@@ -243,10 +243,11 @@ The following examples show common scenarios for creating more than one instance
 |[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys more than one storage account with an index number in the name. |
 |[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys several storage accounts one at time. The name includes the index number. |
 |[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys several storage accounts. The name includes a value from an array. |
+| [Copy resource group](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyrg.json) | Deploys multiple resource groups. |
 
 ## Next steps
 
-- To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+- To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 - For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - For other uses of the copy loop, see:

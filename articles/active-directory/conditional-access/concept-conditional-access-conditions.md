@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ For customers with access to [Identity Protection](../identity-protection/overvi
 
 ## User risk 
 
-For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-risk) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+For customers with access to [Identity Protection](../identity-protection/overview-identity-protection.md), user risk can be evaluated as part of a Conditional Access policy. User risk represents the probability that a given identity or account is compromised. More information about user risk can be found in the articles, [What is risk](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) and [How To: Configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## Device platforms
 
@@ -104,7 +104,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 
 | OS | Browsers |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome, [Firefox 91+](https://support.mozilla.org/kb/windows-sso) |
 | Windows 8 / 8.1 | Internet Explorer, Chrome |
 | Windows 7 | Internet Explorer, Chrome |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -114,7 +114,9 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled.
 
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
@@ -141,8 +143,6 @@ For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 - Name 1
 - Type REG_SZ (String)
 - Data {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
-
-These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode.
 
 ### Supported mobile applications and desktop clients
 

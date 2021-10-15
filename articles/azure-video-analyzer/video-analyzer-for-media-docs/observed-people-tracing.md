@@ -1,13 +1,8 @@
 ---
 title: Trace observed people in a video
-titleSuffix: Azure Media Services
 description: This topic gives an overview of a Trace observed people in a video concept.
-services: media-services
-author: Juliako
-manager: femila
 
-ms.service: azure-video-analyzer
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: juliako
 ---

@@ -1,16 +1,16 @@
 ---
-title: Multi-Factor Authentication in Azure Active Directory B2C | Microsoft Docs
+title: Multi-Factor Authentication in Azure Active Directory B2C  
 description: How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -26,12 +26,21 @@ This feature helps applications handle scenarios such as:
 - You don't require multi-factor authentication to access one application, but you do require it to access another. For example, the customer can sign into an auto insurance application with a social or local account, but must verify the phone number before accessing the home insurance application registered in the same directory.
 - You don't require multi-factor authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the customer can sign in to a banking application with a social or local account and check the account balance, but must verify the phone number before attempting a wire transfer.
 
+### Verification methods
+
+With [Conditional Access](conditional-access-identity-protection-overview.md) users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator. The methods of the multi-factor authentication are:
+
+- Email
+- SMS
+- Phone calls
+
 ## Set multi-factor authentication
 
 ::: zone pivot="b2c-user-flow"
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select the user flow for which you want to enable MFA. For example, *B2C_1_signinsignup*.
@@ -42,8 +51,8 @@ This feature helps applications handle scenarios such as:
    - **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.
    - **Conditional** - During sign-up and sign-in, users are prompted to enroll in MFA (both new users and existing users who aren't enrolled in MFA). During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
 
-      - If the result is an MFA challenge with no risk, MFA is enforced. If the user isn't already enrolled in MFA, they're prompted to enroll.
-      - If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked.
+    - If the result is an MFA challenge with no risk, MFA is enforced. If the user isn't already enrolled in MFA, they're prompted to enroll.
+    - If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked.
 
    > [!NOTE]
    >

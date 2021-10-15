@@ -1,29 +1,34 @@
 ---
-title: How to configure an indexer to pull content and metadata from Azure Data Lake Storage Gen2
+title: Index data from Azure Data Lake Storage Gen2
 titleSuffix: Azure Cognitive Search
-description: Learn how to index content and metadata in Azure Data Lake Storage Gen2.
+description: Set up an Azure Data Lake Storage Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
-manager: luisca
 author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ---
 
-# How to configure an indexer to pull content and metadata from Azure Data Lake Storage Gen2
+# Index data from Azure Data Lake Storage Gen2
 
-When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+This article shows you how to configure an Azure Data Lake Storage Gen2 indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Data Lake Storage Gen2.
 
-This article describes how to get started with indexing documents that are in Azure Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 is available through Azure Storage. When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+
+Examples in this article use the portal and REST APIs. For examples in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 ## Supported access tiers
 
-Data Lake Storage Gen2 [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
+Data Lake Storage Gen2 [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
 
 ## Access control
 
-Data Lake Storage Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). When indexing content from Data Lake Storage Gen2, Azure Cognitive Search will not extract the Azure RBAC and ACL information from the content. As a result, this information will not be included in your Azure Cognitive Search index.
+Data Lake Storage Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). Access control lists are partially supported in Azure Cognitive Search scenarios:
+
++ Support for access control is enabled on indexer access to content in Data Lake Storage Gen2. For a search service that has a system or user-assigned managed identity, you can define role assignments that determine indexer access to specific files and folders in Azure Storage.
+
++ Support for document-level permissions on an index is not available. If your access controls vary the level of access on a per user basis, those permissions cannot be carried forward into a search index on your search service. All users have the same level of access to all searchable and retrievable content in the index.
 
 If maintaining access control on each document in the index is important, it is up to the application developer to implement [security trimming](./search-security-trimming-for-azure-search.md).
 
@@ -35,11 +40,11 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## Getting started with the Azure portal
+## Indexing through the Azure portal
 
 The Azure portal supports importing data from Azure Data Lake Storage Gen2. To import data from Data Lake Storage Gen2, navigate to your Azure Cognitive Search service page in the Azure portal, select **Import data**, select **Azure Data Lake Storage Gen2**, then continue to follow the Import data flow to create your data source, skillset, index, and indexer.
 
-## Getting started with the REST API
+## Indexing with the REST API
 
 The Data Lake Storage Gen2 indexer is supported by the REST API. Follow the instructions below to set up a data source, index, and indexer.
 
@@ -94,7 +99,7 @@ The SAS should have the list and read permissions on the container. For more inf
 
 ### Step 2 - Create an index
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination. The following example creates a simple index using the [Create Index (REST API)](/rest/api/searchservice/create-index). 
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination. The following example uses the [Create Index (REST API)](/rest/api/searchservice/create-index). 
 
 ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -118,7 +123,7 @@ You could also add fields for any blob metadata that you want in the index. The 
 
 ### Step 3 - Configure and run the indexer
 
-Once the index and data source have been created, you're ready to create the indexer:
+Once the index and data source have been created, you're ready to [create the indexer](/rest/api/searchservice/create-indexer):
 
 ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -135,11 +140,7 @@ Once the index and data source have been created, you're ready to create the ind
     }
 ```
 
-This indexer runs every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
-
-For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
-
-For more information about defining indexer schedules, see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+This indexer runs immediately, and then [on a schedule](search-howto-schedule-indexers.md) every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.
 
 <a name="DocumentKeys"></a>
 
@@ -151,7 +152,7 @@ In a search index, the document key uniquely identifies each document. The field
 
   Another potential issue about the storage name is that it might contain characters that are invalid for document keys, such as dashes. You can handle invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
 
-+ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://docs.microsoft.com/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
++ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
 
 + A third option is to add a custom metadata property to the blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed.
 
@@ -266,7 +267,11 @@ It's important to point out that you don't need to define fields for all of the 
 
 ## How to control which blobs are indexed
 
-You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
+You can control which blobs are indexed, and which are skipped, by setting role assignments, the blob's file type, or by setting properties on the blob themselves, causing the indexer to skip over them.
+
+### Use access controls and role assignments
+
+Indexers that run under a system or user-assigned managed identity can have membership in either a Reader or Storage Blob Data Reader role that grants read permissions on specific files and folders.
 
 ### Include specific file extensions
 
@@ -338,7 +343,7 @@ To run multiple indexers in parallel, scale out your search service by creating 
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Troubleshooting common indexer issues](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 ### Respond to errors
 
@@ -382,6 +387,7 @@ You can also set [blob configuration properties](/rest/api/searchservice/create-
 
 ## See also
 
++ [C# Sample: Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 + [Create an indexer](search-howto-create-indexers.md)
 + [AI enrichment over blobs overview](search-blob-ai-integration.md)

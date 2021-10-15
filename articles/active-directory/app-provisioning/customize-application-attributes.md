@@ -3,12 +3,12 @@ title: Tutorial - Customize Azure Active Directory attribute mappings in Applica
 description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -115,7 +115,7 @@ Applications and systems that support customization of the attribute list includ
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute is not automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute is not automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
 
 When editing the list of supported attributes, the following properties are provided:
 
@@ -146,15 +146,14 @@ For SCIM applications, the attribute name must follow the pattern shown in the e
 
 These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 
-Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery.  
+Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example below as it is not sent in requests from the Azure AD SCIM client. This issue will be fixed in the future and the header will be sent in the request.  
  
 **Example representation of a user with an extension attribute:**
 
 ```json
    {
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
      "userName":"bjensen",
      "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
@@ -229,16 +228,16 @@ Use the steps below to provision roles for a user to your application. Note that
   
   - **Example output (PATCH)** 
     
-   ```
+   ```json
    "Operations": [
-   {
-   "op": "Add",
-   "path": "roles",
-   "value": [
-   {
-   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
-   }
-   ]
+     {
+       "op": "Add",
+       "path": "roles",
+       "value": [
+         {
+           "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+         }
+       ]
    ```  
 The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 

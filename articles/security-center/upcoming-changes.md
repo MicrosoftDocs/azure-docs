@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 05/25/2021
+ms.date: 10/13/2021
 ms.author: memildin
 
 ---
@@ -15,108 +15,153 @@ ms.author: memildin
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Security Center. It describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Security Center. The page describes planned modifications to the product that might impact things like your secure score or workflows.
 
 If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
 
 
 ## Planned changes
 
-| Planned change                                                                                                                                                        | Estimated date for change |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | June 2021                  |
-| [Prefix for Kubernetes alerts changing from "AKS_" to "K8s_"](#prefix-for-kubernetes-alerts-changing-from-aks_-to-k8s_)                                               | June 2021                 |
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | June 2021                 |
-| [Recommendations to encrypt with customer-managed keys (CMKs) being disabled](#recommendations-to-encrypt-with-customer-managed-keys-cmks-being-disabled)             | June 2021                 |
-| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q3 2021                   |
-| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | Q3 2021                   |
-|                                                                                                                                                                       |                           |
-
-
-### Two recommendations from "Apply system updates" security control being deprecated
-
-**Estimated date for change:** June 2021
-
-The following two recommendations are being deprecated:
-
-- **OS version should be updated for your cloud service roles** - By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
-- **Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version** - This recommendation's evaluations aren't as wide-ranging as we'd like them to be. The current version of this recommendation will eventually be replaced with an enhanced version that's better aligned with our customer's security needs.
-
-
-### Prefix for Kubernetes alerts changing from "AKS_" to "K8s_"
-
-**Estimated date for change:** June 2021
-
-Azure Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multi cloud environments. Learn more in [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](release-notes.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
-
-To reflect the fact that the security alerts provided by Azure Defender for Kubernetes are no longer restricted to clusters on Azure Kubernetes Service, the prefix for the alert types is changing from "AKS_" to "K8s_". Where necessary, the names and descriptions will be updated too. For example, this alert:
-
-|Alert (alert type)|Description|
-|----|----|
-|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.
+| Planned change       | Estimated date for change |
+|----------------------|---------------------------|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | October 2021|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| October 2021|
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | November 2021| 
+| [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | November 2021    |
+| [Changes to a security alert from Azure Defender for Storage](#changes-to-a-security-alert-from-azure-defender-for-storage)  | November 2021    |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | Q1 2022    |
 |||
 
-will become:
+### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
-|Alert (alert type)|Description|
-|----|----|
-|Kubernetes penetration testing tool detected<br>(**K8s**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **Kubernetes** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.|
+**Estimated date for change:** October 2021
+
+We'll be deprecating the following preview alert:
+
+|Alert name| Description|
+|----------------------|---------------------------|
+|**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Cloud App Security license.|
 |||
 
-Any suppression rules that refer to alerts beginning "AKS_" will be automatically converted. If you've setup SIEM exports, or custom automation scripts that refer to Kubernetes alerts by alert type, you'll need to update them with the new alert types.
-
-For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-akscluster).
+We've created new alerts that provide this information and add to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Cloud App Security.
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
+
+**Estimated date for change:** October 2021
 
 The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-### Recommendations to encrypt with customer-managed keys (CMKs) being disabled
+### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** June 2021
+**Estimated date for change:** November 2021
 
-Security Center includes multiple recommendations to encrypt data at rest with customer-managed keys, such as:
+In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
-- Container registries should be encrypted with a customer-managed key (CMK)
-- Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
-- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
+When the recommendations are released to general availability, they will replace the following existing recommendations:
 
-Data in Azure is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when required for compliance with a specific policy your organization is choosing to enforce.
+- **Endpoint protection should be installed on your machines** will replace:
+    - [Install endpoint protection solution on virtual machines (key: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
+    - [Install endpoint protection solution on your machines (key: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
 
-With this change, the recommendations to use CMKs will be **disabled by default**. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to **AuditIfNotExists** or **Enforce**. Learn more in [Enable a security policy](tutorial-security-policy.md#enable-a-security-policy).
+- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
+    - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
+    - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
 
-Initially, this change will be reflected in the names of the recommendation with a new prefix, **[Enable if required]**, as shown in the following examples:
-
-- [Enable if required] Storage accounts should use customer-managed key to encrypt data at rest
-- [Enable if required] Container registries should be encrypted with a customer-managed key (CMK)
-- [Enable if required] Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
-
-:::image type="content" source="media/upcoming-changes/customer-managed-keys-disabled.png" alt-text="Security Center's CMK recommendations will be disabled by default." lightbox="media/upcoming-changes/customer-managed-keys-disabled.png":::
+Learn more:
+- [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
+- [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
 
 
-### Enhancements to SQL data classification recommendation
 
-**Estimated date for change:** Q3 2021
+### Inventory display of on-premises machines will use different template for resource name
+
+**Estimated date for change:** November 2021
+
+To improve the presentation of resources in the [Asset inventory](asset-inventory.md), we'll be removing the "source-computer-IP" element from the template for naming on-premises machines.
+
+- **Current format:** ``machine-name_source-computer-id_VMUUID``
+- **From the update:** ``machine-name_VMUUID``
+
+
+### Multiple changes to identity recommendations
+
+**Estimated date for change:** November 2021
+
+Security Center includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
+
+- **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
+
+- **Account exemption capability** - Security Center has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
+
+    Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
+
+    > [!TIP]
+    > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
+
+    |Recommendation| Assessment key|
+    |-|-|
+    |[MFA should be enabled on accounts with owner permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/94290b00-4d0c-d7b4-7cea-064a9554e681)|94290b00-4d0c-d7b4-7cea-064a9554e681|
+    |[MFA should be enabled on accounts with read permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/151e82c5-5341-a74b-1eb0-bc38d2c84bb5)|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
+    |[MFA should be enabled on accounts with write permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/57e98606-6b1e-6193-0e3d-fe621387c16b)|57e98606-6b1e-6193-0e3d-fe621387c16b|
+    |[External accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c3b6ae71-f1f0-31b4-e6c1-d5951285d03d)|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
+    |[External accounts with read permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
+    |[External accounts with write permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/04e7147b-0deb-9796-2e5c-0336343ceb3d)|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+    |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)|e52064aa-6853-e252-a11e-dffc675689c2|
+    |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|00c6d40b-e990-6acf-d4f3-471e747a27c4|
+    |||
+ 
+- **Recommendations rename** - From this update, we're renaming two recommendations. We're also revising their descriptions. The assessment keys will remain unchanged. 
+
+
+    |Property  |Current value  | From the update|
+    |---------|---------|---------|
+    |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        | Unchanged|
+    |Name     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions        |
+    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Related policy     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |
+    |||
+
+    |Property  |Current value  | From the update|
+    |---------|---------|---------|
+    |Assessment key     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Unchanged|
+    |Name     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
+    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
+    |||
+ 
+
+
+
+
+### Changes to a security alert from Azure Defender for Storage
+
+**Estimated date for change:** November 2021
+
+One of the preview alerts provided by Azure Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
+
+**The alert type is changing too.**
+
+- Before the change, the alert was:<br>
+    "Preview - Anonymous scan of public storage containers"<br>(Storage.Blob_ContainerAnonymousScan)
+
+- From this change, there'll be two recommendations:
+
+    - "Open storage containers discovered by external scanning tool or script"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - "Successful discovery of open storage containers by external scanning script or tool"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+More details of these alerts will be published when the change is released.
+
+
+### Enhancements to recommendation to classify sensitive data in SQL databases
+
+**Estimated date for change:** Q1 2022
 
 The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
-
-### Enable Azure Defender security control to be included in secure score
-
-**Estimated date for change:** Q3 2021
-
-Security Center's hardening recommendations are grouped into security controls. Each control is a logical group of related security recommendations, and reflects a vulnerable attack surface. The contribution of each security control towards the overall secure score is shown clearly on the recommendations page as well as in the list of controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
-
-Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. **With this change, the control will contribute towards your secure score**.
-
-When you enable Azure Defender you'll extend the capabilities of Security Center's free mode to your workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major features of Azure Defender are: integrated Microsoft Defender for Endpoint licenses for your servers, vulnerability scanning for virtual machines and container registries, security alerts based on advanced behavioral analytics and machine learning, and container security features. For a full list, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
-
-With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender. We suggest you enable Azure Defender before this change occurs to ensure there is no impact on your scores. 
-
-Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 
 ## Next steps
 
-For all recent changes to the product, see [What's new in Azure Security Center?](release-notes.md).
+For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)

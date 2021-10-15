@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 06/17/2021
 ---
 
 # Semantic ranking in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API and portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 Semantic ranking is an extension of the query execution pipeline that improves precision by reranking the top matches of an initial result set. Semantic ranking is backed by large transformer-based networks, trained for capturing the semantic meaning of query terms, as opposed to linguistic matching on keywords. In contrast with the [default similarity ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance.
 
@@ -36,8 +36,10 @@ Before scoring for relevance, content must be reduced to a manageable number of 
 
 Each document is now represented by a single long string.
 
+The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens is roughly equivalent to a string that is 128 words in length. 
+
 > [!NOTE]
-> The string is composed of tokens, not characters or words. Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+>Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ## Extraction
 

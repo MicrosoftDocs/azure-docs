@@ -1,12 +1,12 @@
 ---
 title: Create plans for a virtual machine offer on Azure Marketplace
-description: Learn how to create plans for a virtual machine offer on Azure Marketplace.
+description: Create plans for a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 05/20/2021
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 10/13/2021
 ---
 
 # Create plans for a virtual machine offer
@@ -26,7 +26,7 @@ After you create your plans, select the **Plan overview** tab to display:
 The actions available on this pane vary depending on the current status of your plan.
 
 - If the plan status is a draft, select **Delete draft**.
-- If the plan status is published live, select **Stop sell plan** or **Sync private audience**.
+- If the plan status is published live, select **Deprecate plan** or **Sync private audience**.
 
 ## Create a new plan
 
@@ -125,13 +125,13 @@ You can offer a one-, three-, or six-month **Free Trial** to your customers.
 
 ### Plan visibility
 
-You can design each plan to be visible to everyone or only to a preselected audience. Assign memberships in this restricted audience by using Azure subscription IDs.
+You can design each plan to be visible to everyone or only to a preselected audience. Assign memberships in this restricted audience by using Azure tenant IDs, subscription IDs, or both.
 
 **Public**: Your plan can be seen by everyone.
 
 **Private**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
 
-Assign the audience that will have access to this private plan using **Azure subscription ID**s. Optionally, include a **Description** of each Azure subscription ID that you assign. Add up to 10 subscription IDs manually or up to 20,000 if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs and all letters must be lowercase.
+Assign the audience that will have access to this private plan using *Azure tenant IDs*, *subscription IDs*, or both. Optionally, include a **Description** of each Azure tenant ID or subscription ID that you assign. Add up to 10 subscription IDs and tenant IDs manually or import a CSV spreadsheet if more than 10 IDs are required.
 
 > [!NOTE]
 > A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer *before* it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
@@ -144,7 +144,7 @@ If your virtual machine is meant to be used only indirectly when it's referenced
 
 Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**. 
 
-Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
+Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
@@ -154,7 +154,17 @@ Provide the images and other technical properties associated with this plan.
 
 ### Reuse technical configuration
 
-If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
+This option allows you to use the same technical configuration settings across plans within the same offer and therefore leverage the same set of images. If you enable the reuse technical configuration option, your plan will inherit the same technical configuration settings as the base plan you select.  When you change the base plan, the changes are reflected on the plan reusing the configuration.
+
+Some common reasons for reusing the technical configuration settings from another plan include:
+
+1. The same images are available for both *Pay as you go* and *BYOL*.
+2. To reuse the same technical configuration from a public plan for a private plan with a different price. 
+3. Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
+
+Leverage [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
+
+If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later. 
 
 ### Operating system
 
@@ -174,7 +184,23 @@ Add open public or private ports on a deployed virtual machine.
 
 ### Properties
 
-Select if your VM **Supports Accelerated Networking**. For details, see [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+Here is a list of properties that can be selected for your VM.
+
+- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](../backup/backup-azure-vms-introduction.md).
+
+- **Supports accelerated networking**: Enable this property if the VM images for this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](../virtual-machines/linux/using-cloud-init.md).
+
+- **Supports hotpatch**: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](../automanage/automanage-hotpatch.md).
+
+- **Supports extensions**: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](./azure-vm-create-certification-faq.yml#vm-extensions).
+
+- **Is a network virtual appliance**: Enable this property if this product is a Network Virtual Appliance. A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
+
+- **Remote desktop or SSH disabled**: Enable this property if virtual Machines deployed with these images do not allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer).
+
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-create-certification-faq.yml#custom-templates).
 
 ### Generations
 
@@ -198,6 +224,9 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
+> [!NOTE]
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
+
 ### VM images
 
 Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
@@ -212,7 +241,7 @@ Data disks (select **Add data disk (maximum 16)**) are also VHD shared access si
 Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
 
 > [!NOTE]
-> If you provide your images using SAS and have data disks, you also need to provide them as SAS URI. If you are using shared image, they are captured as part of your image in shared image gallery.
+> If you provide your images using SAS and have data disks, you also need to provide them as SAS URI. If you are using shared image, they are captured as part of your image in shared image gallery. Once your offer is published to Azure Marketplace, you can delete the image from your Azure storage or shared image gallery.
 
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
 

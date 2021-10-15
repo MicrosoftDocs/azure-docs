@@ -43,7 +43,7 @@ required for your use case. Optionally, you can enter a node configuration to as
 
 ### Enable a VM using Azure Resource Manager templates
 
-You can install and enable a VM for State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) for an example template that enables an existing VM for State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+You can install and enable a VM for State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/automation-configuration/) for an example template that enables an existing VM for State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/vmss-automation-dsc/).
 
 ### Enable machines using PowerShell
 

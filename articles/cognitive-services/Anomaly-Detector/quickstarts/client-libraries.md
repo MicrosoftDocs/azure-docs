@@ -16,7 +16,7 @@ keywords: anomaly detection, algorithms
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 ---
 
-# Quickstart: Use the Anomaly Detector client library
+# Quickstart: Use the Anomaly Detector univariate client library
 
 ::: zone pivot="programming-language-csharp"
 

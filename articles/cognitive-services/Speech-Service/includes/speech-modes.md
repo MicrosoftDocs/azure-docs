@@ -1,10 +1,10 @@
 ---
-author: trevorbye
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 **Interactive**

@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -67,7 +67,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
   pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
-- The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
+- The [guest configuration](../concepts/guest-configuration.md) resource provider is updated with
   compliance details by a managed resource.
 
 - On-demand scan
@@ -273,9 +273,9 @@ Besides **Compliant** and **Non-compliant**, policies and resources have four ot
 
 Azure Policy uses the **type**, **name**, or **kind** fields in the definition to determine whether
 a resource is a match. When the resource matches, it's considered applicable and has a status of
-either **Compliant**, **Non-compliant**, or **Exempt**. If either **type**, **name**, or **kind** is
-the only property in the definition, then all included and non-exempt resources are considered
-applicable and are evaluated.
+either **Compliant**, **Non-compliant**, or **Exempt**. If either **name** or **kind** is the only
+property in the definition, then all included and non-exempt resources are considered applicable and
+are evaluated.
 
 The compliance percentage is determined by dividing **Compliant** and **Exempt** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,

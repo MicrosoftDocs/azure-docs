@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 09/30/2021
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -134,6 +134,8 @@ To avoid having the deployment fail when trying to validate the custom metric’
         ]
     }
 ```
+> [!NOTE] 
+> Using the *skipMetricValidation* parameter might also be required when defining an alert rule on an existing custom metric that hasn't been emitted in several days.
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
@@ -238,7 +240,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with a space or a period
-- The combined resource group name and alert rule name can’t exceed 253 characters
+- The combined resource group name and alert rule name can’t exceed 252 characters
 
 > [!NOTE] 
 > If the alert rule name contains characters that aren't alphabetic or numeric (for example: spaces, punctuation marks or symbols), these characters may be URL-encoded when retrieved by certain clients.
@@ -280,7 +282,22 @@ When a metric exhibits large fluctuation, Dynamic Thresholds will build a wider 
 2. The median values are close to zero
 3. The metric exhibits an irregular behavior with high variance (there are spikes or dips in the data)
 
-When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregulaity from the historical data used to build the model.
+When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregularity from the historical data used to build the model.
+
+## The Dynamic Thresholds alert rule is too noisy (fires too much)
+To reduce the sensitivity of your Dynamic Thresholds alert rule, use one of the following options:
+1. Threshold sensitivity - Set the sensitivity to *Low* in order to be more tolerant for deviations.
+2. Number of violations (under *Advanced settings*) - Configure the alert rule to trigger only if a number of deviations occur within a certain period of time. This will make the rule less susceptible to transient deviations.
+
+
+## The Dynamic Thresholds alert rule is too insensitive (doesn't fire)
+Sometimes, an alert rule won't trigger even when a high sensitivity is configured. This usually happens when the metric's distribution is highly irregular.
+Consider one of the following options:
+* Move to monitoring a complementary metric that's suitable for your scenario (if applicable). For example, check for changes in success rate, rather than failure rate.
+* Try selecting a different aggregation granularity (period). 
+* Check if there was a drastic change in the metric behavior in the last 10 days (an outage). An abrupt change can impact the upper and lower thresholds calculated for the metric and make them broader. Wait for a few days until the outage is no longer taken into the thresholds calculation, or use the *Ignore data before* option (under *Advanced settings*).
+* If your data has weekly seasonality, but not enough history is available for the metric, the calculated thresholds can result in having broad upper and lower bounds. For example, the calculation can treat weekdays and weekends in the same way, and build wide borders that don't always fit the data. This should resolve itself once enough metric history is available, at which point the correct seasonality will be detected and the calculated thresholds will update accordingly.
+
 
 ## Next steps
 

@@ -51,7 +51,7 @@ Selecting either **Transactional processing** (OLTP) or **Data warehousing** wil
 
 The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
-Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching.
+Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssds). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching.
 
 Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*.
 
@@ -79,8 +79,8 @@ For a full walkthrough of how to create a SQL Server VM in the Azure portal, see
 If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
 
 * [Create VM with Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-sql-full-autobackup)
-* [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-* [Create VM with AKV Integration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
+* [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-sql-full-autopatching)
+* [Create VM with AKV Integration](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-sql-full-keyvault)
 
 ### Quickstart template
 
@@ -91,9 +91,7 @@ You can use the following quickstart template to deploy a SQL Server VM using st
 
 ## Existing VMs
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
 
 * SQL data
 * SQL log

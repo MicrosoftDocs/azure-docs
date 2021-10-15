@@ -24,5 +24,4 @@ For information about encrypting table data, see [Client-Side Encryption and Azu
 
 - [Table Design Patterns](table-storage-design-patterns.md)
 - [Modeling relationships](table-storage-design-modeling.md)
-- [Modeling relationships](table-storage-design-modeling.md)
 - [Design for data modification](table-storage-design-for-modification.md)

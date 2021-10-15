@@ -85,7 +85,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
-[ , ESCAPE_CHAR = 'char' ] 
+[ , ESCAPECHAR = 'char' ] 
 [ , FIRSTROW = 'first_row' ]     
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
@@ -93,6 +93,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
+[ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
 ```
 
 ## Arguments
@@ -108,10 +109,10 @@ You have two choices for input files that contain the target data for querying. 
 **'unstructured_data_path'**
 
 The unstructured_data_path that establishes a path to the data may be an absolute or relative path:
-- Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>' enables a user to directly read the files.
-- Relative path in the format '<storage_path>' that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
+- Absolute path in the format `\<prefix>://\<storage_account_path>/\<storage_path>` enables a user to directly read the files.
+- Relative path in the format `<storage_path>` that must be used with the `DATA_SOURCE` parameter and describes the file pattern within the <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
-Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
+Below you'll find the relevant \<storage account path> values that will link to your particular external data source. 
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -185,11 +186,14 @@ ROWTERMINATOR ='row_terminator'`
 
 Specifies the row terminator to be used. If row terminator is not specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
+> [!NOTE]
+> When you use PARSER_VERSION='1.0' and specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
+
 ESCAPE_CHAR = 'char'
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
+The ESCAPECHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 FIRSTROW = 'first_row' 
 
@@ -217,6 +221,8 @@ CSV parser version 1.0 is default and feature rich. Version 2.0 is built for per
 CSV parser version 1.0 specifics:
 
 - Following options aren't supported: HEADER_ROW.
+- Default terminators are \r\n, \n and \r. 
+- If you specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
 
 CSV parser version 2.0 specifics:
 
@@ -229,18 +235,23 @@ CSV parser version 2.0 specifics:
 - Supported format for DATE data type: YYYY-MM-DD
 - Supported format for TIME data type: HH:MM:SS[.fractional seconds]
 - Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
+- Default terminators are \r\n and \n.
 
 HEADER_ROW = { TRUE | FALSE }
 
-Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument. If TRUE and schema is specified using WITH, binding of column names will be done by column name, not ordinal positions.
+Specifies whether a CSV file contains header row. Default is `FALSE.` Supported in PARSER_VERSION='2.0'. If TRUE, the column names will be read from the first row according to FIRSTROW argument. If TRUE and schema is specified using WITH, binding of column names will be done by column name, not ordinal positions.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 
-Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+Specifies encoding: `char` is used for UTF8, `widechar` is used for UTF16 files.
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
 Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+
+ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+This option will disable the file modification check during the query execution, and read the files that are updated while the query is running. This is useful option when you need to read append-only files that are appended while the query is running. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. See more information in [querying appendable CSV files](query-single-csv-file.md#querying-appendable-files) section.
 
 ## Fast delimited text parsing
 
@@ -250,9 +261,9 @@ There are two delimited text parser versions you can use. CSV parser version 1.0
 
 You can easily query both CSV and Parquet files without knowing or specifying schema by omitting WITH clause. Column names and data types will be inferred from files.
 
-Parquet files contain column metadata which will be read, type mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
+Parquet files contain column metadata, which will be read, type mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
 
-For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
+For the CSV files, column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
 > [!IMPORTANT]
 > There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
@@ -416,5 +427,4 @@ AS [r]
 
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](best-practices-sql-on-demand.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
-
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

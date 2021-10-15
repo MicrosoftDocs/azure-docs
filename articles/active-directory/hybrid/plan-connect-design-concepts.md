@@ -21,10 +21,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Design concepts
-The purpose of this document is to describe areas that must be thought through during the implementation design of Azure AD Connect. This document is a deep dive on certain areas and these concepts are briefly described in other documents as well.
+The purpose of this document is to describe areas that must be considered while configuring Azure AD Connect. This document is a deep dive on certain areas and these concepts are briefly described in other documents as well.
 
 ## sourceAnchor
-The sourceAnchor attribute is defined as *an attribute immutable during the lifetime of an object*. It uniquely identifies an object as being the same object on-premises and in Azure AD. The attribute is also called **immutableId** and the two names are used interchangeable.
+The sourceAnchor attribute is defined as *an attribute immutable during the lifetime of an object*. It uniquely identifies an object as being the same object on-premises and in Azure AD. The attribute is also called **immutableId** and the two names are used interchangeably.
 
 The word immutable, that is "cannot be changed", is important to this document. Since this attribute’s value cannot be changed after it has been set, it is important to pick a design that supports your scenario.
 

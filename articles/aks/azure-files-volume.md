@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 07/08/2021
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
@@ -67,7 +67,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## Mount file share as an inline volume
-> Note: starting from 1.18.15, 1.19.7, 1.20.2, 1.21.0, secret namespace in inline `azureFile` volume can only be set as `default` namespace, to specify a different secret namespace, please use below persistent volume example instead.
+> Note: inline `azureFile` volume can only access secret in the same namespace as pod, to specify a different secret namespace, please use below persistent volume example instead.
 
 To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
@@ -225,6 +225,14 @@ Update your container spec to reference your *PersistentVolumeClaim* and update 
   - name: azure
     persistentVolumeClaim:
       claimName: azurefile
+```
+
+As the pod spec can't be updated in place, use `kubectl` commands to delete, and then re-create the pod:
+
+```console
+kubectl delete pod mypod
+
+kubectl apply -f azure-files-pod.yaml
 ```
 
 ## Next steps

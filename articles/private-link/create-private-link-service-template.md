@@ -30,7 +30,7 @@ You need an Azure account with an active subscription. [Create an account for fr
 
 This template creates a private link service.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/privatelink-service/azuredeploy.json":::
 

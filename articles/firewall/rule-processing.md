@@ -5,12 +5,12 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/01/2021
+ms.date: 09/28/2021
 ms.author: victorh
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. 
+You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic.
 
 ## Rule processing using classic rules
 
@@ -39,7 +39,7 @@ Here's an example policy:
 |NetworkRc1     |Network rule collection  | 800        |    1     |Parent policy|
 |BaseRCG2  |Rule collection group         |300         | 3        |Parent policy|
 |AppRCG2     |Application rule collection | 1200        |2         |Parent policy
-|NetworkRC2     |Network rule collection         |1300         |         |Parent policy|
+|NetworkRC2     |Network rule collection         |1300         |    1     |Parent policy|
 |ChildRCG1  | Rule collection group        | 300        |5         |-|
 |ChAppRC1     |Application rule collection         |  700       | 3        |-|
 |ChNetRC1       |   Network rule collection      |    900     |    2     |-|
@@ -154,6 +154,14 @@ SSH connections are denied because a higher priority network rule collection blo
 ## Rule changes
 
 If you change a rule to deny previously allowed traffic, any relevant existing sessions are dropped.
+
+## 3-way handshake behavior
+
+As a stateful service, Azure Firewall completes a TCP 3-way handshake for allowed traffic, from a source to the destination. For example, VNet-A to VNet-B.
+
+Creating an allow rule from VNet-A to VNet-B does not mean that new initiated connections from VNet-B to VNet-A are allowed.
+
+As a result, there is no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you'll interrupt the 3-way handshake from the initial allow rule from VNet-A to VNet-B. 
 
 ## Next steps
 

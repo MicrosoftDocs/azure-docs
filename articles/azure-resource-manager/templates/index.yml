@@ -28,9 +28,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Best practices
-            url: template-best-practices.md
+            url: ./best-practices.md
           - text: Frequently asked questions
-            url: frequently-asked-questions.md
+            url: ./frequently-asked-questions.yml
           - text: Template specs
             url: template-specs.md
           - text: Deployment modes
@@ -76,18 +76,18 @@ landingContent:
           - text: Use functions
             url: template-functions.md
           - text: Define parameters
-            url: template-parameters.md
+            url: ./parameters.md
           - text: Define variables
-            url: template-variables.md
+            url: ./variables.md
           - text: Define resources
-            url: template-syntax.md#resources
+            url: ./syntax.md#resources
           - text: Define outputs
-            url: template-outputs.md
+            url: ./outputs.md
 
       - linkListType: reference
         links:
           - text: Template file syntax
-            url: template-syntax.md
+            url: ./syntax.md
           - text: Azure Quickstart templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
@@ -112,7 +112,7 @@ landingContent:
           - text: Cloud Shell
             url: deploy-cloud-shell.md
           - text: What-if deployment
-            url: template-deploy-what-if.md
+            url: ./deploy-what-if.md
 
   # Card
   - title: Scoped deployments

@@ -47,7 +47,7 @@ AMQP calls the communicating programs *containers*; those contain *nodes*, which
 
 The network connection is thus anchored on the container. It is initiated by the container in the client role making an outbound TCP socket connection to a container in the receiver role, which listens for and accepts inbound TCP connections. The connection handshake includes negotiating the protocol version, declaring or negotiating the use of Transport Level Security (TLS/SSL), and an authentication/authorization handshake at the connection scope that is based on SASL.
 
-Azure Service Bus requires the use of TLS at all times. It supports connections over TCP port 5671, whereby the TCP connection is first overlaid with TLS before entering the AMQP protocol handshake, and also supports connections over TCP port 5672 whereby the server immediately offers a mandatory upgrade of connection to TLS using the AMQP-prescribed model. The AMQP WebSockets binding creates a tunnel over TCP port 443 that is then equivalent to AMQP 5671 connections.
+Azure Service Bus or Azure Event Hubs requires the use of TLS at all times. It supports connections over TCP port 5671, whereby the TCP connection is first overlaid with TLS before entering the AMQP protocol handshake, and also supports connections over TCP port 5672 whereby the server immediately offers a mandatory upgrade of connection to TLS using the AMQP-prescribed model. The AMQP WebSockets binding creates a tunnel over TCP port 443 that is then equivalent to AMQP 5671 connections.
 
 After setting up the connection and TLS, Service Bus offers two SASL mechanism options:
 
@@ -399,12 +399,7 @@ With this functionality, you create a sender and establish the link to the `via-
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## Next steps
-
-To learn more about AMQP, visit the following links:
-
-* [Service Bus AMQP overview]
-* [AMQP 1.0 support for Service Bus partitioned queues and topics]
-* [AMQP in Service Bus for Windows Server]
+To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overview.md).
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -412,6 +407,3 @@ To learn more about AMQP, visit the following links:
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Service Bus AMQP overview]: service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

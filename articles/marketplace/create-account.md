@@ -40,7 +40,7 @@ Use this method if you're new to Partner Center and are not enrolled in the Micr
 
 #### Register on the Partner Center enrollment page
 
-Review the information on the [Welcome to Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) enrollment page, and then register for an account.
+Review the information on the [Welcome to Microsoft Partner Center](https://go.microsoft.com/fwlink/?linkid=2165529) enrollment page, and then register for an account.
 
 #### Sign in with a work account
 
@@ -75,7 +75,7 @@ You can then assign the appropriate user roles and permissions to your users, so
 
 **Enroll in the commercial marketplace**
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/) with your Microsoft Partner Network account.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507) with your Microsoft Partner Network account.
 
     >[!NOTE]
     > You must have an **account admin** or a **global admin** role to sign in to Microsoft Partner Network.
@@ -110,7 +110,7 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 
 When you register for the commercial marketplace program with the same account as your developer program, you can see all of your existing program enrollments in the left pane of Partner Center.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/) with your existing account.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507) with your existing account.
 1. In the top-right, select **Settings** > **Account settings** > **Programs**.
 1. Under **Commercial Marketplace**, select **Get Started**, and enter your work email address.
 1. Complete the details on the **Publisher profile** page.
@@ -129,7 +129,7 @@ You've now created a commercial marketplace account in Partner Center. For help 
 
 If you had a Cloud Partner Portal account, we moved it to Partner Center. You don't need to create a new Partner Center account. You should have received a customized link to your new Partner Center account both in email and in a banner notification after you signed in to your existing Cloud Partner Portal account.
 
-After you select the customized link and enabled your new Partner Center account, you can return to your account by going to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+After you select the customized link and enabled your new Partner Center account, you can return to your account by going to the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) in Partner Center.
 
 The publishing agreement and company profile information transition to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers that were associated with your Cloud Partner Portal account.
 

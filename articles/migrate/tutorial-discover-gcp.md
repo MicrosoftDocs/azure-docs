@@ -83,7 +83,7 @@ Set up an account that the appliance can use to access servers on  GCP.
         * Performance Log users.
 * For **Linux servers**:
     * You need a root account on the Linux servers that you want to discover. If you are not able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#physical-server-requirements) for an alternative.
-    * Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
+    * Azure Migrate uses password authentication when discovering GCP instances. GCP instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
         1. Sign into each Linux  machine.
         2. Open the sshd_config file : vi /etc/ssh/sshd_config
         3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
@@ -181,16 +181,20 @@ The installer script does the following:
 Run the script as follows:
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
-2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: 
+2. Launch PowerShell on the above server with administrative (elevated) privilege.
+
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
+
+4. Run the script named `AzureMigrateInstaller.ps1` by running the following command:
+
+   - For the public cloud: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - For Azure Government: 
+     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1`
+
+   - For Azure Government: 
     
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+     `PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1`
 
     The script will launch the appliance web application when it finishes successfully.
 

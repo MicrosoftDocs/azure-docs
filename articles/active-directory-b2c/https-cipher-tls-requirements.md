@@ -3,15 +3,15 @@ title: TLS and cipher suite requirements - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Notes for developers on HTTPS cipher suite and TLS requirements when interacting with web API endpoints.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 04/30/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -71,10 +71,6 @@ To verify that your endpoints comply with the requirements described in this art
 See also following articles:
 
 - [Troubleshooting applications that don't support TLS 1.2](../cloud-services/applications-dont-support-tls-1-2.md)
-- [Cipher Suites in TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/win32/secauthn/cipher-suites-in-schannel)
-- [How to enable TLS 1.2](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2)
-- [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/engineering/solving-tls1-problem)
-
-
-
-
+- [Cipher Suites in TLS/SSL (Schannel SSP)](/windows/win32/secauthn/cipher-suites-in-schannel)
+- [How to enable TLS 1.2](/mem/configmgr/core/plan-design/security/enable-tls-1-2)
+- [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem)

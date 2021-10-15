@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Data Science for Beginners - Azure'
-description: Data Science for Beginners is teaches basic concepts in 5 short videos, starting with The 5 Questions Data Science Answers. From Azure Machine Learning.
+description: Data Science for Beginners is teaches basic concepts in 5 short videos, starting with The 5 Questions Data Science Answers. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -12,6 +12,8 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ---
 # Data Science for Beginners video 1: The 5 questions data science answers
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos from a top data scientist. These videos are basic but useful, whether you're interested in doing data science or you work with data scientists.
 
@@ -131,4 +133,4 @@ So that's it - The 5 questions data science can answer.
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)
