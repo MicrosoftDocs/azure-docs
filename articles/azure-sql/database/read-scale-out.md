@@ -195,7 +195,7 @@ In this fashion, creating a geo-replica can provide multiple additional read-onl
 
 A list of the behavior of some features on read-only replicas is below:
 * Auditing on read-only replicas is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see [SQL Database Audit Log Format](audit-log-format.md).
-* [Query Performance Insight](query-performance-insight-use.md) relies on data from the [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store.md), which currently does not track activity on the read-only replica. Query Performance Insight will not show queries which execute on the read-only replica.
+* [Query Performance Insight](query-performance-insight-use.md) relies on data from the [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store), which currently does not track activity on the read-only replica. Query Performance Insight will not show queries which execute on the read-only replica.
 * Automatic tuning relies on the Query Store, as detailed in the [Automatic tuning paper](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf). Automatic tuning only works for workloads running on the primary replica.
 
 ## Next steps
