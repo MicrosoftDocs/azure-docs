@@ -18,9 +18,9 @@ ms.author: mmcrey
 
 The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption Multi-Key, customers can ensure their data is always encrypted and protected in use. 
 
-These machines are backed by the latest 3rd Generation Intel® Xeon Scalable processors, and leverage Intel® Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
+These machines are powered by the latest 3rd Generation Intel® Xeon Scalable processors, and leverage Intel® Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, CPU Cores have increased 6x (up to a maximum of 48 Physical Cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios. 
 
 > [!NOTE]
 > Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
@@ -33,6 +33,7 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Base All-Core Frequency]: 2.8 GHz<br>
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
+[Total Memory Encryption]: Multi Key Supported<br>
 [Premium Storage and Caching]: Supported<br>
 [Ultra-Disk Storage]: Supported<br>
 [Accelerated Networking]: Supported (CLI provisioning or ARM template only)<br>
@@ -41,7 +42,7 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Memory Preserving Updates]: Not Supported<br>
 [VM OS Generation Support]: Generation 2<br>
 [Ephemeral OS Disks]: Supported<br>
-[Dedicated Host]: Not Supported<br>
+[Dedicated Host]: Not Supported Initially<br>
 
 ## DCsv3-series Technical specifications
 
