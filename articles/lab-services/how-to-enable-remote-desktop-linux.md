@@ -73,16 +73,15 @@ Follow the below steps to set up the template VM:
 4. Finally, install either RDP or X2Go along with the graphical desktop environment of your choice.
 
 For optimal performance, we typically recommend using the XFCE graphical desktop and for users to connect to the desktop using X2Go.  To set up XFCE with X2Go on Ubuntu, use the following instructions:
-  - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
+  - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
 
-In cases where you instead need to have users connect to the desktop on Ubuntu using RDP, use the following instructions:
+In cases where you instead need to have users connect to the graphical desktop with RDP, use the following instructions for Ubuntu:
   - [Install and configure RDP](../virtual-machines/linux/use-remote-desktop.md)
 
 For the GNOME or MATE graphical desktop environments, you may encounter a networking conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  For example, by default if you create a lab from an Ubuntu 18.04 LTS image that has GNOME or MATE installed, lab creation will fail with the following error message: **Communication could not be established with the VM agent.  Please verify that the VM agent is enabled and functioning.**  Likewise, this networking conflict will cause publish to hang when attempting to provision the student VMs.
 
-We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.
- - [Install and configure RDP with GNOME](TODO - link to GitHub Readme and script)
- - [Install and configure X2Go with MATE](TODO - link to GitHub Readme and script)
+We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.  They also support Ubuntu 20.04 LTS and 21.04 LTS:
+ - [Install and configure GNOME/RDP and MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## Connect to the template VM via the GUI
 
