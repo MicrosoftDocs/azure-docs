@@ -10,14 +10,14 @@ ms.date: 10/15/2020
 
 In this article, you'll learn about using Azure Private Link to connect to an HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md), which focuses on restricting public connectivity. If you want public connectivity to or within your HDInsight clusters and dependent resources, consider restricting the connectivity of your cluster by following guidelines in [Control network traffic in Azure HDInsight](./control-network-traffic.md).
 
-Private Link can be used in cross-network scenarios where virtual network peering is not available or enabled. For example, you might want to integrate Azure Data Factory with Azure HDInsight, and you need to have Azure Data Factory connect to HDInsight clusters over a private network (that is, Private Link) for compliance and security reasons.
+Private Link can be used in cross-network scenarios where virtual network peering is not available or enabled. For example, you want to integrate Azure Data Factory with Azure HDInsight, and you need to have Azure Data Factory connect to HDInsight clusters over a private network (that is, Private Link) for compliance and security reasons.
 
 > [!NOTE]
 > Restricting public connectivity is a prerequisite for enabling Private Link and shouldn't be considered the same capability.
 
 The use of Private Link to connect to an HDInsight cluster is an optional feature and is disabled by default. The feature is available only when the `resourceProviderConnection` network property is set to *outbound*, as described in the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
-When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
+When `privateLink` is set to *enabled*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLBs) are created, and an Azure Private Link service is provisioned for each SLB. The Private Link service is what allows you to access the HDInsight cluster from private endpoints.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ The following table shows the various HDInsight resource actions and the resulti
 
 After you've set up the networking, you can create a cluster with an outbound resource provider connection and Private Link enabled.
 
-To access private clusters, you can use Private Link DNS extensions and private endpoints. When the `privateLink` setting is set to *enabled*, you can create private endpoints and configure DNS resolution through private DNS zones.
+To access private clusters, you can use Private Link DNS extensions and private endpoints. When `privateLink` is set to *enabled*, you can create private endpoints and configure DNS resolution through private DNS zones.
 
 The Private Link entries created in the Azure-managed public DNS zone `azurehdinsight.net` are as follows:
 
