@@ -45,7 +45,7 @@ The following `RouterRule` types exist in Job Router to provide flexibility in h
 
 **Expression rule -** An expression rule uses the [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to process the Job labels and return an object representing the parsed value.
 
-**Azure Function rule -** Specifying a URI and an `AzureFunctionRuleCredential`, this rule allows the Job Router to pass the Job labels as a payload and respond back with a string representing the Queue ID. This rule type can be used when your requirements are complex or you prefer to use your own parsing language and platform.
+**Azure Function rule -** Specifying a URI and an `AzureFunctionRuleCredential`, this rule allows the Job Router to pass the input labels as a payload and respond back with an output value. This rule type can be used when your requirements are complex.
 
 > [!NOTE]
 > Although the **Direct Map rule** is part of the Job Router SDK, it is only supported in the `NearestQueueLabelSelector` at this time.
