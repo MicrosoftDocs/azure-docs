@@ -12,13 +12,13 @@ ms.author: JenCook
 
 # Building confidential computing solutions
 
-Azure confidential computing offers various options for building confidential solutions. The spectrum of option ranges from enabling &quot;lift &amp; shift&quot; scenarios of existing applications, to a full control of various features of security. These features include: control on the level of access to data and code by the host provider, the VM or container operator, and any other rootkit or malware access that may compromise the integrity of workloads running in the cloud.
+Azure confidential computing offers various options for building confidential solutions. The spectrum of option ranges from enabling &quot;lift &amp; shift&quot; scenarios of existing applications, to a full control of various features of security. These features include control on the level of access. This means you set host provider or guest operator access levels to data and code. You can also control other rootkit or malware access that may compromise the integrity of workloads running in the cloud.
 
 Technologies such as secure enclaves or confidential virtual machines allow for customers to choose the approach that they want to take in building confidential solutions.
 
-- Existing applications with no access to source code may benefit of confidential VMs based on AMD SEV-SNP technology for easy onboarding to the Azure confidential computing platform.
-- At the opposite side of the spectrum, sophisticated workloads that include proprietary code to protect from any trust vector may benefit of secure enclave technology based on Intel SGX, which provides protection of data and code running in a hardware-encrypted memory space. These applications typically require communication with and attestation of the secure enclave, which is obtained by leveraging open-source frameworks, as described later.
-- A balanced approach based on containerized solutions running on [confidential containers](confidential-containers) enabled in Azure Kubernetes Service may fit more appropriately scenarios where existing apps can be packaged and deployed in containers with limited changes, but still offering full security isolation from the cloud service provider and administrators.
+- Existing applications with no access to source code may benefit from confidential VMs based on AMD SEV-SNP technology for easy onboarding to the Azure confidential computing platform.
+- Sophisticated workloads that include proprietary code to protect from any trust vector, may benefit of secure application enclave technology. Azure current offers application enclaves in VMs based on Intel SGX. Intel SGX provides protection of data and code running in a hardware-encrypted memory space. These applications typically require communication with an attested secure enclave, which is obtained by using open-source frameworks.
+- Containerized solutions running on [confidential containers](confidential-containers.md) enabled in Azure Kubernetes Service may fit customers looking for a balanced approach to confidentiality. In these scenarios, existing apps can be packaged and deployed in containers with limited changes, but still offering full security isolation from the cloud service provider and administrators.
 
 ![confidential computing spectrum](media/confidential-computing-solutions/spectrum.png)
 
@@ -26,7 +26,7 @@ _The Azure confidential computing spectrum._
 
 ## Application development on Intel SGX
 
-This section specifically discusses concepts related to application development for Azure confidential computing virtual machines running on Intel SGX. Before reading this section,it&#39;s recommended to read the [introduction of Intel SGX virtual machines and enclaves](confidential-computing-enclaves.md).
+This section  discusses concepts related to application development for Azure confidential computing Intel SGX virtual machines. Before reading this section,it&#39;s recommended to read the [introduction of Intel SGX virtual machines and enclaves](confidential-computing-enclaves.md).
 
 To leverage the power of enclaves and isolated environments, you&#39;ll need to use tools that support confidential computing. There are various tools that support enclave application development. For example, you can use these open-source frameworks:
 
@@ -82,8 +82,8 @@ Marblerun supports confidential containers created with Graphene, Occlum, and EG
 
 ## Confidential Consortium Framework
 
-The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework leverages the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure virtual machines ([DCsv2-Series](https://docs.microsoft.com/en-us/azure/confidential-computing/confidential-computing-enclaves)) and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
+The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework leverages the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure virtual machines ([DCsv2-Series](confidential-computing-enclaves.md) and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
 
-In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by a certain number of nodes to reach consensus.
+In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach consensus.
 
 ## Next Steps
