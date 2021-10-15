@@ -17,9 +17,10 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | ? |
-| `maxReplicas` | Maximum number of replicas running for your container app. | ? | ? | 25|
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 25 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 25 |
 
+- If your container app scales to zero, then you are not billed.
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
@@ -110,10 +111,9 @@ The following example shows how to create a scale rule based on an [Azure Queue 
 
 In this example, the container app scales according to the following behavior:
 
-- At a minimum, a single replica remains in memory.
 - Code in the container app is run as new messages arrive in the queue.
-- As the messages count in the queue exceeds 20, new replicas are provided.
-- The connection string to the queue is provided as a parameter to the configuration file and referenced via the `secretref` property.
+- As the messages count in the queue exceeds 20, new replicas are created.
+- The connection string to the queue is provided as a parameter to the configuration file and referenced via the `secretRef` property.
 
 ## CPU
 
@@ -146,6 +146,8 @@ The following example shows how to create a CPU scaling rule.
   }
 }
 ```
+
+- At a minimum, a single replica remains in memory.
 
 In this example, the container app scales when CPU utilization exceeds 50%.
 
@@ -180,6 +182,8 @@ The following example shows how to create a memory scaling rule.
   }
 }
 ```
+
+- At a minimum, a single replica remains in memory.
 
 In this example, the container app scales when memory utilization exceeds 50%.
 
