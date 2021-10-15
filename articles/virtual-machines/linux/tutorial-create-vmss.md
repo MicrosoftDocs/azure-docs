@@ -87,50 +87,49 @@ Use the Azure portal to create a Flexible scale set.
 1. Under **Custom data and cloud init**, copy the following and paste it into the **Custom data** text box:
     ```yml
     #cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
+    package_upgrade: true
+    packages:
+      - nginx
+      - nodejs
+      - npm
+    write_files:
+      - owner: www-data:www-data
+      - path: /etc/nginx/sites-available/default
+        content: |
+          server {
+            listen 80;
+            location / {
+              proxy_pass http://localhost:3000;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection keep-alive;
+              proxy_set_header Host $host;
+              proxy_cache_bypass $http_upgrade;
+            }
+          }
+      - owner: azureuser:azureuser
+      - path: /home/azureuser/myapp/index.js
+        content: |
+          var express = require('express')
+          var app = express()
+          var os = require('os');
+          app.get('/', function (req, res) {
+            res.send('Hello World from host ' + os.hostname() + '!')
+          })
+          app.listen(3000, function () {
+            console.log('Hello world app listening on port 3000!')
+          })
+    runcmd:
+      - service nginx restart
+      - cd "/home/azureuser/myapp"
+      - npm init
+      - npm install express -y
+      - nodejs index.js
     ```
 1. When you are done, select **Review + create**.
 1. Once you see that validation has passed, you can select **Create** at the bottom of the page to deploy your scale set.
 1. 1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 1. When the deployment is complete, select **Go to resource** to see your scale set.
-
 
 
 ## View the VMs in your scale set
