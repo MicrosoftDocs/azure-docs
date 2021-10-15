@@ -1,12 +1,12 @@
 ---
-title: Restrict Public Connectivity in Azure HDInsight (preview)
+title: Restrict Public Connectivity in Azure HDInsight
 description: Learn to remove access to all outbound public IP addresses
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/20/2021
 ---
 
-# Restrict Public Connectivity in Azure HDInsight (preview)
+# Restrict Public Connectivity in Azure HDInsight
 
 ## Overview
 In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster over public network. In this article, you learn about the advanced controls you can use to create a restricted HDInsight cluster where inbound connectivity is restricted to the private network. In the case where you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md). In addition to restricting public connectivity, we are adding support for private link enabled dependency resources that can be configured to use with these clusters.
