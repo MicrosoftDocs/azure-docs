@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - Telephony and SMS Events
-description: This article describes how to use Azure Communication Services as an Event Grid event source for Chat Events.
+description: This article describes how to use Azure Communication Services as an Event Grid event source for telephony and SMS Events.
 ms.topic: conceptual
 ms.date: 10/15/2021
 ms.author: vikramdh
