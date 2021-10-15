@@ -5,6 +5,8 @@ description: Learn how to use a custom container to use open-source servers in A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
@@ -42,7 +44,7 @@ Custom container deployments can use web servers other than the default Python F
 
 To follow along with this tutorial, download the source code below.
 
-```azurecli-interactive
+```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli
 ```
@@ -51,47 +53,53 @@ cd azureml-examples/cli
 
 Define environment variables:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="initialize_variables":::
 
 ## Download a TensorFlow model
 
 Download and unzip a model that divides an input by two and adds 2 to the result:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
 
 ## Run a TF Serving image locally to test that it works
 
 Use docker to run your image locally for testing:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
 
 ### Check that you can send liveness and scoring requests to the image
 
 First, check that the container is "alive," meaning that the process inside the container is still running. You should get a 200 (OK) response.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="check_liveness_locally":::
 
 Then, check that you can get predictions about unlabeled data:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="check_scoring_locally":::
 
 ### Stop the image
 
 Now that you've tested locally, stop the image:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="stop_image":::
 
-## Create a YAML file for your endpoint
+## Create a YAML file for your endpoint and deployment
 
-You can configure your cloud deployment using YAML. Take a look at the sample YAML for this endpoint:
+You can configure your cloud deployment using YAML. Take a look at the sample YAML for this example:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+__tfserving-endpoint.yml__
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+
+__tfserving-deployment.yml__
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
 
 There are a few important concepts to notice in this YAML:
 
 ### Readiness route vs. liveness route
 
-An HTTP server can optionally define paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do some work. In machine learning inference, a server could respond 200 OK to a liveness request before loading a model. The server could respond 200 OK to a readiness request only after the model has been loaded into memory.
+An HTTP server defines paths for both _liveness_ and _readiness_. A liveness route is used to check whether the server is running. A readiness route is used to check whether the server is ready to do work. In machine learning inference, a server could respond 200 OK to a liveness request before loading a model. The server could respond 200 OK to a readiness request only after the model has been loaded into memory.
 
 Review the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information about liveness and readiness probes.
 
@@ -101,55 +109,78 @@ Notice that this deployment uses the same path for both liveness and readiness, 
 
 When you deploy a model as a real-time endpoint, Azure Machine Learning _mounts_ your model to your endpoint. Model mounting enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
 
-So, for example, if you have the following directory structure on your local machine:
+For example, if you have the following directory structure on your local machine:
 
-```
-azureml-examples
-  cli
-    endpoints
-      online
-        custom-container
-          half_plus_two
-          tfserving-endpoint.yml    
-```     
+:::image type="content" source="./media/how-to-deploy-custom-container/local-directory-structure.png" alt-text="Tree view screenshot of /azureml-examples/cli/endpoints/online/custom-container directory structure":::
 
-and `tfserving-endpoint.yml` contains:
+and `tfserving-deployment.yml` contains:
 
-```
+```yaml
 model:
     name: tfserving-mounted
     version: 1
     local_path: ./half_plus_two
 ```
 
-then your model will be located at the following location in your endpoint:
+then your model will be located at the following location in your deployment:
 
+:::image type="content" source="./media/how-to-deploy-custom-container/deployment-location.png" alt-text="Tree view screenshot of /var/azureml-app/azureml-models/tfserving-deployment/1 directory structure":::
+
+You can optionally configure your __model_mount_path__. It enables you to change the path where the model is mounted.
+
+For example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_
+
+> [!IMPORTANT]
+> The `model_mount_path` must be a valid absolute path in Linux (the OS of the container image).
+
+```YAML
+name: tfserving-deployment
+endpoint_name: tfserving-endpoint
+model:
+  name: tfserving-mounted
+  version: 1
+  local_path: ./half_plus_two
+model_mount_path: /var/tfserving-model-mount
+.....
 ```
-var 
-  azureml-app
-    azureml-models
-      tfserving-endpoint
-        1
-          half_plus_two
+
+then your model will be located at the following location in your deployment:
+
+:::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Tree view screenshot of /var/tfserving-model-mount/tfserving-deployment/1 directory structure":::
+
+### Create your endpoint and deployment
+
+Now that you've understood how the YAML was constructed, create your endpoint.
+
+```azurecli
+az ml online-endpoint create --name tfserving-endpoint -f endpoints/online/custom-container/tfserving-endpoint.yml
 ```
 
-### Create the endpoint
+Creating a deployment may take few minutes.
 
-Now that you've understood how the YAML was constructed, create your endpoint. This command can take a few minutes to complete.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="create_endpoint":::
+
+```azurecli
+az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml
+```
 
 ### Invoke the endpoint
 
 Once your deployment completes, see if you can make a scoring request to the deployed endpoint.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-tfserving.sh" id="invoke_endpoint":::
 
 ### Delete endpoint and model
 
 Now that you've successfully scored with your endpoint, you can delete it:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="delete_endpoint_and_model":::
+```azurecli
+az ml online-endpoint delete --name tfserving-endpoint
+```
+
+```azurecli
+az ml model delete -n tfserving-mounted --version 1
+```
 
 ## Next steps
 
