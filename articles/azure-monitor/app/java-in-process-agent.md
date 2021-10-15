@@ -16,7 +16,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 Java auto-instrumentation can be enabled without any code changes.
 
 ### Prerequisites
-- Java Application using version 8+
+- Java Application using Java 8+
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource - [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 
