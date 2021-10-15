@@ -46,11 +46,11 @@ The calling composite provide an end two end experience, optimizing development 
 
 :::image type="content" source="../media/mobile-ui/Calling_composite.png" alt-text="Meeting experience.":::
 
-**The calling experience provides all those capabilities in one single composite: *calling composite*, providing a clear path without complex code, and quickly implementing and faster development.**
+**The calling experience provides all these capabilities in one single composite component, providing a clear path without complex code which leads to faster development time.**
 
 ### Quality and security
 
-Mobile Composites are initialized using Azure Communication Services access tokens. For more information on [how to generate and manage access tokens.](../../quickstarts/access-tokens.md)
+Mobile Composites are initialized using [Azure Communication Services access tokens](../../quickstarts/access-tokens.md).
 
 ### More details
 
@@ -66,8 +66,7 @@ Understanding these requirements will help you choose the right client library:
 
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
-
-Details about feature availability in the [UI Library is available here](mobile-ui-use-cases.md), but key trade-offs are summarized below.
+Details about the feature availability in the [UI Library is available here](mobile-ui-use-cases.md), but key trade-offs are summarized below.
 
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |

@@ -11,11 +11,11 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
 ---
 
-# Quickstart: Get started with UI Library
+# Quickstart: Get started with Calling Composite 
 
-Get started with Azure Communication Services by using the UI Library to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how to integrate UI Library into your Android application.
+Get started with Azure Communication Services by using the UI Library to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how to integrate the Calling composite into your Android application.
 
-UI library render a full communication experience right into your application. They take care of connecting to the desired call and setting it up behind the scenes. As a developer you just need to worry about where in your experience you want the communication experience to launch. The composite takes the user through setting up their devices, joining the call and participating in it, and rendering other participants.
+The UI library will render a full communication experience right into your application. It takes care of connecting to the desired call and setting it up behind the scenes. As a developer you just need to worry about where in your experience you want the communication experience to launch. The composite takes the user through setting up their devices, joining the call and participating in it, and rendering other participants.
 
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
@@ -32,4 +32,4 @@ UI library render a full communication experience right into your application. T
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group.
 
 Deleting the resource group also deletes any other resources associated with it.
-Learn more about [cleaning up resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
+Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).

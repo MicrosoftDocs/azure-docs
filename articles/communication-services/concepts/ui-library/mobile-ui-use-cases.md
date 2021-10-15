@@ -47,7 +47,7 @@ For more information on authentication, see [Authentication](../authentication.m
 
 ![Teams Interop pattern for calling and chat](../media/mobile-ui/TeamsInteropDiagram.png)
 
-For [Teams Interop](../teams-interop.md) scenarios, developers can use UI Mobile Library Components to join Teams meetings through Azure Communication Services.
+For [Teams Interop](../teams-interop.md) scenarios, developers can use the UI Mobile Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
 :::image type="content" source="../media/mobile-ui/teams_meet.png" alt-text="Pre-meeting experience":::
@@ -71,7 +71,7 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 ## Recommended Architecture
 
-Composite are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
+Composites are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
 trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
 
 :::image type="content" source="../media/mobile-ui/ui-library-architecture.png" alt-text="Recommended architecture diagram":::
@@ -94,17 +94,17 @@ These client libraries also require the context for the call they will join. Sim
 
 ## Accessibility
 
-Accessibility by design is a principle across Microsoft products.
-UI Library follows this principle in making sure that all UI Components are fully accessible.
-During public preview, the UI Library will continue to improve and add accessibility feature to the UI Components.
-We expect to add more details on accessibility ahead of the UI Library being in General Availability.
+- Accessibility by design is a principle across Microsoft products.
+- UI Library follows this principle in making sure that all UI Components are fully accessible.
+- During public preview, the UI Library will continue to improve and add accessibility feature to the UI Components.
+- We expect to add more details on accessibility ahead of the UI Library being in General Availability.
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages.
-UI Library will provide out of the box support for some languages and capabilities such as RTL.
-Developers can provide their own localization files to be used for the UI Library.
-These localization capabilities will be added ahead of general availability.
+- Localization is a key to making products that can be used across the world and by people who speak different languages.
+- UI Library will provide out of the box support for some languages and capabilities such as RTL.
+- Developers can provide their own localization files to be used for the UI Library.
+- These localization capabilities will be added ahead of the UI Library being in General Availability.
 
 > [!div class="nextstepaction"]
 
