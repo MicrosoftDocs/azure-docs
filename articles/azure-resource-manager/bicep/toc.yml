@@ -92,6 +92,8 @@
         href: linter.md
       - name: Linter rules
         items:
+        - name: Admin user name not literal
+          href: linter-rule-adminusername-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
         - name: No unused parameters
