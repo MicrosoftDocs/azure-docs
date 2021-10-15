@@ -15,9 +15,6 @@ ms.date: 08/31/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
-
 Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) are authorized to connect to the server or database.
 
 Azure AD-only authentication can be enabled or disabled using the Azure portal, Azure CLI, PowerShell, or REST API. Azure AD-only authentication can also be configured during server creation with an ARM template.
