@@ -15,7 +15,7 @@ ms.custom: contperf-fy22q2
 
 # What is Spatial Analysis?
 
-Spatial Analysis is an AI service that helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, extract insights from the video streams, and generate events to be used by other systems. With input from a camera stream, the service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines.
+The Computer Vision Spatial Analysis service can analysis video to help organizations maximize the value of their physical spaces by understanding people's movements and presence. Using a camera stream, the service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. It allows you to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. 
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
