@@ -21,7 +21,7 @@ ms.custom: seodec18
 - **New chatbot voice in `en-US` English (US)**: Sara, represents a young female adult that talks more casually and fits best for the chatbot scenarios. 
 - **New styles added for `ja-JP` Japanese voice Nanami**: Three new styles are now available with Nanami: chat, customer service, and cheerful.
 - **Overal pronunciation improvement**: Ardi in `id-ID`, Premwadee in `th-TH`, Christel in `da-DK`, HoaiMy and NamMinh in `vi-VN`.
-- **Two new voices in `zh-CN` Mandarin Chinese (Mainland China) in preview**: Xiaochen & Xiaoyan, optimized for spontaneous speech and customer service scenarios.
+- **Two new voices in `zh-CN` Chinese (Mandarin, China) in preview**: Xiaochen & Xiaoyan, optimized for spontaneous speech and customer service scenarios.
 
 ## Text-to-speech 2021-July release
 
