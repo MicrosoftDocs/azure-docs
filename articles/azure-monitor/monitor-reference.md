@@ -10,27 +10,38 @@ ms.date: 07/15/2021
 
 # What is monitored by Azure Monitor?
 
-This article describes the different applications and services that are monitored by Azure Monitor. 
+This article is a reference of the different applications and services that are monitored by Azure Monitor.
 
-## Insights
+## Insights and curated experiences
 
-<<<<<<< HEAD
-Some services have a dedicated customized monitoring experience called an "insight". Insights are a feature of Azure Monitor which provide a starting point for common services.  They collect and analyze a subset of logs and metrics for that resource. Depending on the insight, it may also provide out-of-the-box alerting. Insights are considered part of Azure Monitor and follow the support and service level agreements for Azure. They are supported in all Azure regions where Azure Monitor is available.
-=======
-| Insight | Description |
-|:---|:---|
-| [Application Insights](app/app-insights-overview.md) | Extensible Application Performance Management (APM) service to monitor your live web application on any platform. |
-| [Container insights](containers/container-insights-overview.md) | Monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). |
-| [Cosmos DB insights](insights/cosmosdb-insights-overview.md) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. |
-| [Networks insights (preview)](insights/network-insights-overview.md) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. |
-[Resource Group insights (preview)](insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
-| [Storage insights](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
-| [VM insights](vm/vminsights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
-| [Key Vault insights (preview)](./insights/key-vault-insights-overview.md) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. |
-| [Azure Cache for Redis insights (preview)](insights/redis-cache-insights-overview.md) |  Provides a unified, interactive view of overall performance, failures, capacity, and operational health. |
->>>>>>> 5f0bd44e00905371e9b0f84c839d2a8c279649f8
+Some services have a curated monitoring experience. That is, Microsoft provides customized functionality meant to act as a starting point for monitoring those services. Those experiences collect and analyze a subset of logs and metrics and depending on the service, may also provide out-of-the-box alerting. 
 
-For a list of available insights, see [Overview of Azure Monitor - Insights](overview.md#insights)
+Some of the insights are considered part of Azure Monitor and follow the support and service level agreements for Azure.  They are supported in all Azure regions where Azure Monitor is available. Other curated experiences provide less functionality.  
+
+|Name with docs link | State | Azure portal link | Description |
+|:--|:--|:--|:--|
+ | [Azure Monitor Workbooks for Active Directory](/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Workbooks) | Azure Active Directory provides workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications. | 
+ | [Azure Monitor for Backup](/azure/backup/backup-azure-monitoring-use-azuremonitor) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Provides built-in monitoring and alerting capabilities in a Recovery Services vault. | 
+ | [Azure Cache for Redis Insights(preview)](azure/azure-monitor/insights/redis-cache-insights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/redisCacheInsights) | Provides a unified, interactive view of overall performance, failures, capacity, and operational health | 
+ | [Cosmos DB Insights](/azure/azure-monitor/insights/cosmosdb-insights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/cosmosDBInsights) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. | 
+ | [Azure Data Explorer](/azure/azure-monitor/insights/data-explorer) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures. | 
+ |[HD Insight insights](/azure/hdinsight/log-analytics-migration#insights) | Preview |  | A Azure Monitor workbook that collects important performance metrics from your HDInsight cluster and provides the visualizations and dashboards for most common scenarios. Gives a complete view of a single HDInsight cluster including resource utilization and application status. | 
+ | [IOT Edge Insights](https://www.youtube.com/embed/b2U21R2ZPfQ) | Released | ? |  | 
+ | [Key Vault Insights (preview)](/azure/azure-monitor/insights/key-vault-insights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/keyvaultsInsights) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. | 
+ | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/applicationsInsights) | Extensible Application Performance Management (APM) service which monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. It enables you to diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes. | 
+ | [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) | Preview | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/lawsInsights) | Log Analytics Workspace Insights (preview) provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries, and change log. This article will help you understand how to onboard and use Log Analytics Workspace Insights (preview). | 
+ | ?????[Service Bus](/azure/service-bus/) | Preview | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/serviceBusInsights) | TODO | 
+ | [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview) | Released |  | A comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. Note: If you are just setting up SQL monitoring, use this instead of the SQL Analytics solution. | 
+ | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/storageInsights) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. | 
+ | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/virtualMachines) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes.  | 
+ | [Network Insights (preview)](/azure/azure-monitor/insights/network-insights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/networkInsights) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. | 
+ | [Container Insights](/azure/azure-monitor/insights/container-insights-overview) | Released | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/containerInsights) | Monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. | 
+ | [Resource Group Insights (preview)](/azure/azure-monitor/insights/resource-group-insights) | Released |  | Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. | 
+ | [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) | Released |  | I’ll put together and share a video of Azure Monitor for SAP Solutions by beginning of next week. | 
+ | [Stack HCL Insights](/azure-stack/hci/manage/azure-stack-hci-insights) | Preview | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/azureStackHCIInsights) | Arpita Duppala | 
+ | [Azure Monitor for Windows Virtual Desktop (Preview)](/azure/virtual-desktop/azure-monitor) | Released |  | Azure Monitor for Windows Virtual Desktop (preview) is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Windows Virtual Desktop environments. This topic will walk you through how to set up Azure Monitor for Windows Virtual Desktop to monitor your Windows Virtual Desktop environments. | 
+
+
 
 ## Product integrations
 
@@ -60,7 +71,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 - Logs - The service supports diagnostic settings which can collect platform logs and metrics to Azure Monitor Logs.
 - Insight - There is an insight available for the service which provides a customized monitoring experience for the service.
 
-| Service | Resourse Provider Namespace | Has Metrics | Has Logs | Insight
+| Service Name | Resource Provider Namespace | Has Metrics | Has Logs | Insight
 |---------|-----------------------------|-------------|----------|-----------|
  | Application Gateway | Microsoft.Network/applicationGateways | **Yes** | **Yes** | [Application Gateway](/azure/application-gateway/) | 
  | Azure Active Directory | Microsoft.Aadiam/azureADMetrics | **Yes** | No | [Azure Active Directory Domain Services](/azure/active-directory-domain-services/)   | 

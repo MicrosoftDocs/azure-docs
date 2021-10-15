@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/17/2019
+ms.date: 10/14/2021
 
 ---
 
@@ -47,12 +47,11 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 ![Diagram shows Logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
 ## What data does Azure Monitor collect?
-
 Azure Monitor can collect data from a [variety of sources](monitor-reference.md). This ranges from your application, any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
 - **Application monitoring data**: Data about the performance and functionality of the code you have written, regardless of its platform.
 - **Guest OS monitoring data**: Data about the operating system on which your application is running. This could be running in Azure, another cloud, or on-premises. 
-- **Azure resource monitoring data**: Data about the operation of an Azure resource.
+- **Azure resource monitoring data**: Data about the operation of an Azure resource. For a complete list of the resources that have metrics or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md#list-of-azure monitor-supported-services).
 - **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
 - **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 
@@ -63,42 +62,15 @@ As soon as you create an Azure subscription and start adding resources such as v
 Enable monitoring for your application with [Application Insights](app/app-insights-overview.md) to collect detailed information including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](app/monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
-
 Azure Monitor can collect log data from any REST client using the [Data Collector API](logs/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
-## Insights and curated visualizations
+## Insights and curated experiences
+Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated experience" which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger scalable curated visualizations are known at "insights" and marked with that name in the documentation and Azure portal.   VM insights and Container insights are examples.  
 
-Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization" which gives you a customized monitoring experience for that particular service or set of services. These visualizations generally require minimal configuration. Larger scalable curated visualizations are known at "insights" and marked with that name in the documentation and Azure portal.   VM insights and Container insights are examples.  
-
-When you want to monitor a service/area, it's best to see if the area already has an insight/curated visualization that you can use.  If you need additional functionality, you can always add additional monitoring on top of what it already provides.
-
-The following table lists services that have curated visualization. The [Insight hub in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/more) also links to the official more in-depth insights.
-
-|Name with docs link)| Azure Portal Link| Description
-|:--|:--|:--|
- | [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/lawsInsights) | Log Analytics Workspace Insights (preview) provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries, and change log. This article will help you understand how to onboard and use Log Analytics Workspace Insights (preview).
- | Service Bus | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/serviceBusInsights) | 
- | [Stack HCL Insights](/azure-stack/hci/manage/azure-stack-hci-insights) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/azureStackHCIInsights) | Arpita Duppala
- | [Azure Monitor Workbooks for Active Directory](/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Workbooks) | Azure Active Directory provides workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
- | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/applicationsInsights) | Extensible Application Performance Management (APM) service which monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. It enables you to diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
- | [Azure Monitor for Backup](/azure/backup/backup-azure-monitoring-use-azuremonitor) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Provides built-in monitoring and alerting capabilities in a Recovery Services vault.
- | [Azure Cache for Redis Insights(preview)](azure/azure-monitor/insights/redis-cache-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/redisCacheInsights) | Provides a unified, interactive view of overall performance, failures, capacity, and operational health
- | [Container Insights](/azure/azure-monitor/insights/container-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/containerInsights) | Monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.
- | [Cosmos DB Insights](/azure/azure-monitor/insights/cosmosdb-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/cosmosDBInsights) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience.
- | [Azure Data Explorer](/azure/azure-monitor/insights/data-explorer) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures.
- | [IOT Edge Insights](https://www.youtube.com/embed/b2U21R2ZPfQ) | ? | TODO
- | [Key Vault Insights (preview)](/azure/azure-monitor/insights/key-vault-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/keyvaultsInsights) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency.
- | [Resource Group Insights (preview)](/azure/azure-monitor/insights/resource-group-insights) |  | Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole.
- | [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) |  | I’ll put together and share a video of Azure Monitor for SAP Solutions by beginning of next week.
- | [SQL Insights](/azure/azure-monitor/insights/sql-insights-overview) |  | A comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance.
- | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/storageInsights) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability.
- | [Azure Monitor for Windows Virtual Desktop (Preview)](/azure/virtual-desktop/azure-monitor) |  | Azure Monitor for Windows Virtual Desktop (preview) is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Windows Virtual Desktop environments. This topic will walk you through how to set up Azure Monitor for Windows Virtual Desktop to monitor your Windows Virtual Desktop environments.
- | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/virtualMachines) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. 
- | [Network Insights (preview)](/azure/azure-monitor/insights/network-insights-overview) | [Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/networkInsights) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name.
+For more information, see [List of Insights and curated experience in Azure Monitor](monitor-reference#insights-and-curated-experiences)
 
 ## Responding to critical situations
 In addition to allowing you to interactively analyze monitoring data, an effective monitoring solution must be able to proactively respond to critical conditions identified in the data that it collects. This could be sending a text or mail to an administrator responsible for investigating an issue. Or you could launch an automated process that attempts to correct an error condition.
-
 
 ### Alerts
 [Alerts in Azure Monitor](alerts/alerts-overview.md) proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on metrics provide near real time alerts based on numeric values. Rules based on logs allow for complex logic across data from multiple sources.
