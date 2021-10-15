@@ -129,7 +129,7 @@ Ultra disk is not supported on all VM series and has other limitations such as r
 
 ## Standard HDDs and SSDs
 
-[Standard HDDs](../../../virtual-machines/disks-types.md#standard-hdd) and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs. If you are using Standard SSD (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) and use disk striping with Storage Spaces for the best performance.
+[Standard HDDs](../../../virtual-machines/disks-types.md#standard-hdds) and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs. If you are using Standard SSD (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) and use disk striping with Storage Spaces for the best performance.
 
 ## Caching
 
