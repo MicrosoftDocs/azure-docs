@@ -92,7 +92,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
     ```bash
     bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"
     ```
-    Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are using a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
     
     The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
     
@@ -123,7 +123,7 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The `CognitiveServicesVisionProcessor` node does two things:
 
 - It gathers the results and publishes events to the [IoT Hub sink](../pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
-- It also captures a 30 second video clip from the RTSP source using a [signal gate processor](../pipeline.md#signal-gate-processor) and stores it as a Video file.
+- It also captures a 30-second video clip from the RTSP source using a [signal gate processor](../pipeline.md#signal-gate-processor) and stores it as a Video sink.
 
 ## Create the Computer Vision resource
 
@@ -171,7 +171,7 @@ A key is used to start the spatial-analysis container, and is available on the A
 
 ## Configure deployment template
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are avaedge module, rtspsim module, and our spatialanalysis module.
 
 There are a few things you need to pay attention to in the deployment template file:
 
@@ -332,7 +332,7 @@ Run a debug session by selecting F5 and follow **TERMINAL** instructions, it wil
 
 ## Interpret results
 
-The `spatialanalysis` is a large container and its startup time can take up to 30 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events. You will see events such as:
+The `spatialanalysis` is a large container and its startup time can take up to 30 seconds. Once the spatialanalysis container is up and running, it will start to send the inferences events. You will see events such as:
 
 ```JSON
 [IoTHubMonitor] [3:37:28 PM] Message received from [ase03-edge/avaedge]:
@@ -400,9 +400,9 @@ You can examine the Video Analyzer video resource that was created by the live p
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Metadata rendering icon":::
 
     You will find 3 options to view as overlay on the video:  
-      - **Bounding boxes**: This will display a bounding box boxes around each person with a unique id
-      - **Attributes** - This will display person attributes such as its speed (in ft/s) and orientation (using an arrow), when available
-      - **Object path** - This will display a short trail for each person's movement, when available
+      - **Bounding boxes**: Display a bounding box boxes around each person with a unique id
+      - **Attributes** - Display person attributes such as its speed (in ft/s) and orientation (using an arrow), when available
+      - **Object path** - Display a short trail for each person's movement, when available
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/sa-video-playback-bounding-boxes.png" alt-text="Screenshot of video playback with bounding boxes":::
@@ -411,7 +411,7 @@ You can examine the Video Analyzer video resource that was created by the live p
 
 ## Next steps
 
-Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies:
+Try different operations that the `spatialAnalysis` module offers, refer to the following pipelineTopologies:
 
 - [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
 - [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json)

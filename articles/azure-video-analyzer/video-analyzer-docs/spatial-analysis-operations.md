@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 11/01/2021
 
 ---
-# Spatial Analysis operations
+# Supported Spatial Analysis operations
 
 Spatial Analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations will generate an output stream of JSON messages sent to Azure Video Analyzer. 
 
