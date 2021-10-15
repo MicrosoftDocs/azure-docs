@@ -14,7 +14,7 @@ You'll also learn how to consume the logs that the service generates.
 
 Below diagram represents common taxonomy used for the events or telemetry data  emitted by Video Analyzer Service:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/taxonomy-cloudnew.png" alt-text="Diagram that shows the taxonomy of events.":::
+> :::image type="content" source="./media/event-taxonomy-cloud.png" alt-text="Diagram that shows the taxonomy of events.":::
 
 **Event Types:** Service emits following types of event data
 
@@ -32,25 +32,25 @@ Below diagram represents common taxonomy used for the events or telemetry data  
    *Sample operational event*
       
 ```json
-        {
-            "time": "2021-10-06T21:19:36.0988630Z",
-            "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
-            "region": "westcentralus",
-            "category": "Operational",
-            "operationName": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
-            "operationVersion": "1.0",
-            "level": "Informational",
-            "correlationId": "c7887efd-0043-4ada-aa3d-9a411e612497",
-            "traceContext": "{\n  \"traceId\": \"e74a9d4c-c4b9-4024-9acf-06be76d978ad\"\n}",
-            "properties": {
-                "subject": "/livePipelines/livepipeline/sinks/videoSink",
-                "body": {
-                    "type": "video",
-                    "location": "/videos/livetest1",
-                    "startTime": "2021-10-06T21:19:32.520Z"
-                        }
-                          }
-        }
+{
+  "time": "2021-10-06T21:19:36.0988630Z",
+  "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+  "region": "westcentralus",
+  "category": "Operational",
+  "operationName": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
+  "operationVersion": "1.0",
+  "level": "Informational",
+  "correlationId": "c7887efd-0043-4ada-aa3d-9a411e612497",
+  "traceContext": "{\n  \"traceId\": \"e74a9d4c-c4b9-4024-9acf-06be76d978ad\"\n}",
+  "properties": {
+    "subject": "/livePipelines/livepipeline/sinks/videoSink",
+    "body": {
+      "type": "video",
+      "location": "/videos/livetest1",
+      "startTime": "2021-10-06T21:19:32.520Z"
+    }
+  }
+}
 ```
 
 * **Diagnostics:** Events that help to diagnose problems and/or performance.
@@ -62,36 +62,35 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 |AuthenticationError|Error|Server/Client authentication error|
 |AuthorizationError |	Error|	Server/Client authorization error|
 |FormatError        |	Error|	Packaging, format or encoding issues|
-|MediaSessionEstablished|	Information|	SDP or other session information|
+|MediaSessionEstablished|	Informational|	SDP or other session information|
 |NetworkError        |	Error|	DNS, Network Error|
 |ProtocolError        |	Error|	RTSP or any other protocol error|
 |StorageError        |	Error|	Storage read/write error|
-|RtspPlaybackSessionEstablished|	Information| RTSP Playback session is establised|	
+|RtspPlaybackSessionEstablished|	Informational| RTSP Playback session is establised|	
 |RtspPlaybackSessionClosed|	Informational|	RTSP Playback session is closed|
 
 *Sample diagnostic event*
   
 ```json
-    {
-    "time": "2021-10-06T21:19:34.1290000Z",
-    "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/NEWIGNITERELEASETEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
-    "region": "westcentralus",
-    "category": "Diagnostics",
-    "operationName": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
-    "operationVersion": "1.0",
-    "level": "Informational",
-    "traceContext": "{\n  \"traceId\": \"b03cabe2-b9d1-4be7-9770-4ac9e4fdc012\"\n}",
-    "properties": {
-        "subject": "/livePipelines/livepipemayank/sources/rtspSource",
-        "body": {
-            "sdp": "SDP:\nv=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=Azure Media Services\r\nc=IN IP4 127.0.0.1\r\nt=0 0\r\na=tool:libavformat 58.29.100\r\nm=video 0 RTP/AVP 96\r\nb=AS:1250\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1; sprop-parameter-sets=Z00AKeKQDwBE/LgLcBAQGkHiRFQ=,aO48gA==; profile-level-id=4D0029\r\na=range:npt=now-\r\na=control:streamid=0\r\n"
-                }
-                  }
+{
+  "time": "2021-10-06T21:19:34.1290000Z",
+  "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/NEWIGNITERELEASETEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+  "region": "westcentralus",
+  "category": "Diagnostics",
+  "operationName": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
+  "operationVersion": "1.0",
+  "level": "Informational",
+  "traceContext": "{\n  \"traceId\": \"b03cabe2-b9d1-4be7-9770-4ac9e4fdc012\"\n}",
+  "properties": {
+    "subject": "/livePipelines/livepipesample/sources/rtspSource",
+    "body": {
+      "sdp": "SDP:\nv=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=Azure Media Services\r\nc=IN IP4 127.0.0.1\r\nt=0 0\r\na=tool:libavformat 58.29.100\r\nm=video 0 RTP/AVP 96\r\nb=AS:1250\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1; sprop-parameter-sets=Z00AKeKQDwBE/LgLcBAQGkHiRFQ=,aO48gA==; profile-level-id=4D0029\r\na=range:npt=now-\r\na=control:streamid=0\r\n"
     }
+  }
+}
 
 ```
-* **Audit:** Audit event is used to log API access. User will see audit logs in Activity logs on Azure portal or could download logs from the configured storage account
-    * Following fields will be visible to user in Activity logs section: Operation name, Status, Time stamp.
+* **Audit:** Event is used to log API access. 
     * Volume: Usually low. Recommended to only enable these events when auditing is needed.
 
 *Sample diagnostic event*
@@ -121,19 +120,18 @@ Below diagram represents common taxonomy used for the events or telemetry data  
     }
   ],
   "traceContext": "{\n  \"traceId\": \"4bb0dcf5-5c6d-4aa3-8c03-3f3d7e2c6210\"\n}",
-  "properties": { "subject": "/videos/batchjobsinknodemayank" }
+  "properties": { "subject": "/videos/batchjobsinknodesample" }
 }
 
 ```
+
 ## Events monitoring
 
-You can use Video Analyzer’s metrics & diagnostic events published by service to your storage account by going to Azure portal -> Video Analyzer account -> Monitoring option.
-
-**Activity log** is also generated automatically and can be accessed by selecting 'Activity log' in the Video Analyzer account management blade under overview option in left pane.
+You can use Video Analyzer’s events generated by service to your storage account. Events that originate from the service can be consumed by Azure monitor.
 
 ## Event schema
 
-Events that originate from the service can be consumed by Azure monitor. Events generated by Video Analyzer conform to the [streaming messaging pattern](../../../iot-hub/iot-hub-devguide-messages-construct.md) established by Azure IoT Hub. The pattern consists of system properties, application properties, and a body.
+ Events generated by Video Analyzer conform to the [streaming messaging pattern](../../../iot-hub/iot-hub-devguide-messages-construct.md) established by Azure IoT Hub. The pattern consists of system properties, application properties, and a body.
 
 ### Common Properties
 
@@ -156,46 +154,44 @@ Every event, when observed via IoT Hub, has a set of common properties:
 ```json
 // Azure Monitor Logs Event Sample
 {
-    // Common
-    "time": "2021-08-23T12:00:00.000Z",
-    "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
-    "region": "{regionNameWithoutSpaces}",
-    "category": "{category}",                                               // Audit, Operational, Diagnostics
-    "operationName": "Microsoft.VideoAnalyzer.{EventClass}.{EventName}",    // Event Type
-    "operationVersion": "1.0",                                              // Event Data Version (present only when the event has data)
-    "level": "[Informational|Warning|Error|Critical]",                      // Event Level
-    // Optional (present for request logging)
-    "uri": "{Absolute Resource URI}",
-    "resultType": "[Started|In Progress|Succeeded|Failed|Active|Resolved]",
-    "resultSignature": "{HTTP STATUS CODE WHEN APPLICABLE}",
-    "durationMs": 0,
-    "callerIpAddress": "{IP Address}",
-    "identity": {
-        // A JSON blob that describes the identity of the user or application that performed the operation. 
-                },
-
-    // Tracing
-    "correlationId": "{Optional correlation id for the customer}",
-    "traceContext": {
-        "traceId" : "0af7651916cd43dd8448eb211c80319c"                      // Event Id
-                     },
-    // Event Properties
-    "properties": {
-        // Event Headers
-        "subject": "/livePipelines/{livePipelineName}/[sources|processors|sinks]/{nodeName}",
-        "body": {
-            // Event Specific Properties
-            "property1": "propertyValue1"
-                }
-                }
+  // Common
+  "time": "2021-08-23T12:00:00.000Z",
+  "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
+  "region": "{regionNameWithoutSpaces}",
+  "category": "{category}", // Audit, Operational, Diagnostics
+  "operationName": "Microsoft.VideoAnalyzer.{EventClass}.{EventName}", // Event Type
+  "operationVersion": "1.0", // Event Data Version (present only when the event has data)
+  "level": "[Informational|Warning|Error|Critical]", // Event Level
+  // Optional (present for request logging)
+  "uri": "{Absolute Resource URI}",
+  "resultType": "[Started|In Progress|Succeeded|Failed|Active|Resolved]",
+  "resultSignature": "{HTTP STATUS CODE WHEN APPLICABLE}",
+  "durationMs": 0,
+  "callerIpAddress": "{IP Address}",
+  "identity": {
+    // A JSON blob that describes the identity of the user or application that performed the operation. 
+  },
+  // Tracing
+  "correlationId": "{Optional correlation id for the customer}",
+  "traceContext": {
+    "traceId": "0af7651916cd43dd8448eb211c80319c" // Event Id
+  },
+  // Event Properties
+  "properties": {
+    // Event Headers
+    "subject": "/livePipelines/{livePipelineName}/[sources|processors|sinks]/{nodeName}",
+    "body": {
+      // Event Specific Properties
+      "property1": "propertyValue1"
+    }
+  }
 } 
-
 ```
 
 ## Metrics
 
-Below metrics will be reported from Video Analyzer service, users have access to 90 days of metric history without any additional configuration. You can create alerts and notifications on these or stream/archive them to storage accounts.
-Metrics namespace: Standard metrics
+You can access pipeline metrics on Azure portal, navigate to Monitoring section of your Video Analyzer account and select metrics.
+Below mentioned metrics will be available for pipelines in monitoring section & also archived as logs in the configured storage account.
 
 | Metric name                           | Type    | Labels                                                                              | Description                                                  |
 | ------------------------------------- | ------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -206,24 +202,21 @@ Metrics namespace: Standard metrics
 
 ## Azure Monitor log collection 
 
-Use [Azure Monitor](../../../azure-monitor/overview.md) to consume events generated by Azure services, customers have a built-in monitoring experience via Azure Monitor. Currently Video Analyzer service **only supports Azure Monitor** as the recommended way to consume service telemetry events.
+Video Analyzer service currently **only supports Azure Monitor** as the recommended way to consume service telemetry events. Use [Azure Monitor](../../../azure-monitor/overview.md) to consume events generated by service, customers have a built-in monitoring experience via Azure Monitor.
 
-Follow the steps for storage account configuration with Azure Monitor:
-* Go to Diagnostic settings under monitoring option of Video Analyzer Account management blade
-* Click 'Add Diagnostic setting' above to configure/control the collection of the following data:
+Follow the steps to enable monitoring & events collection with Azure Monitor:
+* On Azure Portal navigate to Monitoring section of your Video Analyzer account & select Diagnostic settings.
+* Click on 'Add Diagnostic setting' to enable the collection of the following logs:
     *	Operational
     *	Diagnostics
     *	Audit
-    *	Pipeline
-*	'Diagnostic setting' configuration blade will appear
-    *	Select the log types which you would like to enable and corresponding retention period
-    *	For destination details, select ‘Archive to a storage account’ option as destination where these events will be streamed or stored
+* Select the logs category which you would like to enable and corresponding retention period
+* For destination details, select ‘Archive to a storage account’ and specify the storage account where these log events will be stored
     > [!IMPORTANT]
     > Event log storage to log analytics, event hub & partner solution destinations is currently not enabled for Video Analyzer service
-    *	Click Save after configuring the diagnostic settings
-*	To access the diagnostic logs go-to storage explorer, select the storage account which was configured in previous steps.
-    *	Under storage blob container you would see blob entries created for logs and metrics
-    *	Download the desired log file and it would look similar to sample below:
+* Click Save after configuring the diagnostic settings
+* To access the diagnostic logs, navigate to your storage account & you will see a container "insights-logs-category". This container will have logs in a json file format. 
+* Download the desired log file and content of the file would look similar to sample below:
 
 ```json
 {
@@ -261,6 +254,8 @@ Follow the steps for storage account configuration with Azure Monitor:
         }
     }
 ```
+
+**Activity log** is also generated automatically and can be accessed by selecting 'Activity log' in the Video Analyzer account management blade under overview option in left pane.
 
 ## FAQ
 
