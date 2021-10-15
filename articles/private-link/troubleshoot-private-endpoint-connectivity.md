@@ -100,7 +100,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 1. Source Virtual Machine should have the route to Private Endpoint IP next hop as InterfaceEndpoints in the NIC Effective Routes. 
 
     a. If you are not able to see the Private Endpoint Route in the Source VM, check if 
-     - The Source VM and the Private Endpoint belongs to the same VNET. If yes, then you need to engage support. 
+     - The Source VM and the Private Endpoint are part of the same VNET. If yes, then you need to engage support. 
      - The Source VM and the Private Endpoint are part of different VNETs that are directly peered with each other. If yes, then you need to engage support.
      - The Source VM and the Private Endpoint are part of different VNETs that are not directly peered with each other, then check for the IP connectivity between the VNETs.
 
