@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I create an access review on groups that can be assigned to Azure AD roles (specifically, groups with isAssignableToRole property set to true)?  
         answer: |
-          Yes, you can. Global Administrators, User Administrators and Privileged Role Administrators can create access reviews on role-assignable groups.
+          Yes, you can. Global Administrators and Privileged Role Administrators can create access reviews on role-assignable groups.
           
       - question: |
           Can I create an access package and put groups that can be assigned to Azure AD roles in it?
