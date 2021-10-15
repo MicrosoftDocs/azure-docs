@@ -19,13 +19,13 @@ ms.custom: aaddev, has-adal-ref
 
 # Single sign-on with MSAL.js
 
-Single Sign-On (SSO) enables users to enter their credentials once to sign in and establish a session, which can be reused across multiple applications without requiring to authenticate again. Session provides a seamless experience to the user and reduces the repeated prompts for credentials.
+Single Sign-On (SSO) enables users to enter their credentials once to sign in and establish a session, which can be reused across multiple applications without requiring to authenticate again. The session provides a seamless experience to the user and reduces the repeated prompts for credentials.
 
 Azure Active Directory (Azure AD) provides SSO capabilities to applications by setting a session cookie when the user authenticates the first time. The MSAL.js library allows applications to apply session cookie in a few ways.
 
 ## SSO between browser tabs
 
-When your application is open in multiple tabs and you first sign in the user on one tab, the user is also signed in on the other tabs without being prompted. MSAL.js caches the ID token for the user in the browser `localStorage` and will sign the user into the application on the other open tabs.
+When your application is open in multiple tabs and you first sign in the user on one tab, the user is also signed in on the other tabs without being prompted. MSAL.js caches the ID token for the user in the browser `localStorage` and will sign the user in to the application on the other open tabs.
 
 By default, MSAL.js uses `sessionStorage`, which doesn't allow the session to be shared between tabs. To get SSO between tabs, make sure to set the `cacheLocation` in MSAL.js to `localStorage` as shown below.
 
@@ -54,15 +54,17 @@ When applications are hosted on the same domain, the user can sign into an app o
 
 When applications are hosted on different domains, the tokens cached on domain A cannot be accessed by MSAL.js in domain B.
 
-This means when users signed in on domain A navigate to an application on domain B, they'll be redirected or prompted with the sign in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials. If the user has multiple user accounts in session with Azure AD, the user will be prompted to pick the relevant account to sign in with.
+When users signed in on domain A navigate to an application on domain B, they'll be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials. 
+
+If the user has multiple user accounts in session with Azure AD, the user will be prompted to pick the relevant account to sign in with.
 
 ### Automatically select account on Azure AD
 
-In certain cases, the application has access to the user's authentication context and wants to avoid the Azure AD account selection prompt when multiple accounts are signed in. This can be done in a few different ways:
+In certain cases, the application has access to the user's authentication context and there's a need to bypass the Azure AD account selection prompt when multiple accounts are signed in. This can be done in a few different ways:
 
 **Using Session ID**
 
-Session ID (SID) is an [optional claim](active-directory-optional-claims.md) that can be configured in the ID tokens. This claim allows the application to identify the user’s Azure AD session independent of the user’s account name or username. You can pass the SID in the request parameters to the `acquireTokenSilent` call. This will allow Azure AD to bypass the account selection. SID is bound to the session cookie and won't cross browser contexts.
+Session ID (SID) is an [optional claim](active-directory-optional-claims.md) that can be configured in the ID tokens. A claim allows the application to identify the user’s Azure AD session independent of the user’s account name or username. You can pass the SID in the request parameters to the `acquireTokenSilent` call. This will allow Azure AD to bypass the account selection. SID is bound to the session cookie and won't cross browser contexts.
 
 ```javascript
 var request = {
@@ -80,9 +82,7 @@ userAgentApplication
   });
 ```
 
-> [!Note]
-> SID can be used only with silent authentication requests made by `acquireTokenSilent` call in MSAL.js.
-> You can find the steps to configure optional claims in your application manifest [here](active-directory-optional-claims.md).
+SID can be used only with silent authentication requests made by `acquireTokenSilent` call in MSAL.js. You can find the steps to configure optional claims in your application manifest [here](active-directory-optional-claims.md).
 
 **Using Login Hint**
 
@@ -106,8 +106,6 @@ You can get the values for login_hint and domain_hint by reading the claims retu
 
 Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values for login hint and domain hint.
 
-> [!Note]
-> You cannot pass SID and login_hint at the same time. This will result in error response.
 
 ## SSO without MSAL.js login
 
