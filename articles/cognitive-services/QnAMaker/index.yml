@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: QnA Maker documentation
-summary: Newer version of question and answering capability is now available as part of Azure Cognitive Services for Language. For more information see [Azure Cognitive Services for Language Documentation](../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../language-service/custom-question-answering/overview.md)
+summary: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers.
 
 metadata:
   ms.topic: landing-page
