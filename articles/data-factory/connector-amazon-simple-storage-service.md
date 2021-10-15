@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 10/14/2021
 ---
 
 # Copy data from Amazon Simple Storage Service using Azure Data Factory or Synapse Analytics
@@ -276,6 +276,81 @@ Assume that you have the following source folder structure and want to copy the 
 ## Preserve metadata during copy
 
 When you copy files from Amazon S3 to Azure Data Lake Storage Gen2 or Azure Blob storage, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+
+## Mapping data flow properties
+
+When you're transforming data in mapping data flows, you can read files from Amazon S3 in the following formats:
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+- [Delta](format-delta.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
+
+Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md).
+
+> [!NOTE]
+> The source transformation is only supported in **Azure Synapse Analytics** workspace now.
+
+### Source transformation
+
+In source transformation, you can read from a container, folder, or individual file in Amazon S3. Use the **Source options** tab to manage how the files are read. 
+
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
+
+**Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
+
+From your source container, choose a series of files that match a pattern. Only a container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
+
+Wildcard examples:
+
+- `*` Represents any set of characters.
+- `**` Represents recursive directory nesting.
+- `?` Replaces one character.
+- `[]` Matches one or more characters in the brackets.
+
+- `/data/sales/**/*.csv` Gets all .csv files under /data/sales.
+- `/data/sales/20??/**/` Gets all files in the 20th century.
+- `/data/sales/*/*/*.csv` Gets .csv files two levels under /data/sales.
+- `/data/sales/2004/*/12/[XY]1?.csv` Gets all .csv files in December 2004 starting with X or Y prefixed by a two-digit number.
+
+**Partition root path:** If you have partitioned folders in your file source with  a `key=value` format (for example, `year=2019`), then you can assign the top level of that partition folder tree to a column name in your data flow's data stream.
+
+First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
+
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
+
+Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
+
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Partition root path":::
+
+**List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
+
+**Column to store file name:** Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.
+
+**After completion:** Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
+
+To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you're not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
+
+If you have a source path with wildcard, your syntax will look like this:
+
+`/data/sales/20??/**/*.csv`
+
+You can specify "from" as:
+
+`/data/sales`
+
+And you can specify "to" as:
+
+`/backup/priorSales`
+
+In this case, all files that were sourced under `/data/sales` are moved to `/backup/priorSales`.
+
+> [!NOTE]
+> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
+
+**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All datetimes are in UTC. 
 
 ## Lookup activity properties
 
