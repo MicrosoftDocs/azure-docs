@@ -7,8 +7,8 @@ author: palatter
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource).
-- Azure Communication Services Token. [See example.](../../../identity/quick-create-identity)
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- Azure Communication Services Token. [See example.](../../../identity/quick-create-identity.md)
 
 ## Setting up
 
@@ -149,7 +149,7 @@ Initialize a `CommunicationTokenCredential` instance inside the `startCallCompos
 let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 ```
 
-Refer to the [user access token](../../../identity/quick-create-identity) documentation if you don't already have a token available.
+Refer to the [user access token](../../../identity/quick-create-identity.md) documentation if you don't already have a token available.
 
 ### Setup Group Call or Teams Meeting Options
 
