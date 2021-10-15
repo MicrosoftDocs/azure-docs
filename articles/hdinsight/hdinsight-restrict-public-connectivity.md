@@ -122,7 +122,7 @@ foreach($label in $endpointMapping.Keys)
 
 ```
 
-## Add private link connectivity to cluster-dependent resources (optional)
+## Add Private Link connectivity to cluster-dependent resources (optional)
 
 Configuring `resourceProviderConnection` to *outbound* also allows you to access cluster-specific resources by using private endpoints. These resources include:
 
