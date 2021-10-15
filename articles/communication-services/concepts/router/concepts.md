@@ -20,11 +20,11 @@ Azure Communication Services Job Router solves the problem of matching some abst
 
 ## Job Router overview
 
-The Job Router SDKs can be used to build various business scenarios where you have the need to match a unit of work to a particular resource. For example, the work could be defined as a series of phone calls with many potential contact center agents, or a web chat request with a live agent handling multiple concurrent sessions with other people. The need to route some abstract unit of work to an available resource requires you to define the work, known as a [Job](#job), a [Queue](#queue), the [Worker](#worker), and a set of [Policies](#policies), which define the behavioral aspects of how these components interact with each other
+The Job Router SDKs can be used to build various business scenarios where you have the need to match a unit of work to a particular resource. For example, the work could be defined as a series of phone calls with many potential contact center agents, or a web chat request with a live agent handling multiple concurrent sessions with other people. The need to route some abstract unit of work to an available resource requires you to define the work, known as a [Job](#job), a [Queue](#queue), the [Worker](#worker), and a set of [Policies](#policies), which define the behavioral aspects of how these components interact with each other.
 
 ## Job Router architecture
 
-Azure Communication Services Job Router uses events to notify your applications about actions within the service. The following diagrams illustrate a simple flow common to Job Router; submitting a Job, registering a Worker, handling the Job Offer
+Azure Communication Services Job Router uses events to notify your applications about actions within the service. The following diagrams illustrate a simplified flow common to Job Router; submitting a Job, registering a Worker, handling the Job Offer.
 
 ### Job submission flow
 
@@ -82,6 +82,7 @@ Azure Communication Services Job Router applies flexible Policies to attach dyna
 
 - [Router Rule concepts](router-rule-concepts.md)
 - [Classification concepts](classification-concepts.md)
+- [Distribution concepts](distribution-concepts.md)
 - [Quickstart guide](../../quickstarts/router/get-started-router.md)
 - [Manage queues](../../how-tos/router-sdk/manage-queue.md)
 - [Classifying a Job](../../how-tos/router-sdk/job-classification.md)
