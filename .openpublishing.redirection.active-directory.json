@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+          "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
+          "redirect_url": "/azure/active-directory/manage-apps/what-is-application-managment",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/active-directory/manage-apps/application-management-fundamentals.md",
+          "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
             "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
             "redirect_document_id": false
