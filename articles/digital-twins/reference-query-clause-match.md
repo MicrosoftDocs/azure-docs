@@ -304,40 +304,40 @@ MATCH (twin_1)-[]-(twin_2)
 
 ### Examples
 
-The following example specifies an **exact number of hops**. The query will only return relationships between twins *r* and *c* that are exactly 3 hops.
+The following example specifies an **exact number of hops**. The query will only return relationships between twins *floor* and *room* that are exactly 3 hops.
 
 ```sql
 -- <MatchHopsExactExample>
 SELECT * FROM DIGITALTWINS 
-MATCH (r)-[*3]-(c)
-WHERE r.$dtId = '0'
+MATCH (floor)-[*3]-(room)
+WHERE floor.$dtId = 'thermostat-15' 
 ```
 
-The following example specifies a **range of hops**. The query will return relationships between twins *r* and *c* that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
+The following example specifies a **range of hops**. The query will return relationships between twins *floor* and *room* that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
 
 ```sql
 -- <MatchHopsRangeExample1>
 SELECT * FROM DIGITALTWINS 
-MATCH (r)-[*1..3]-(c)
-WHERE r.$dtId = '0'
+MATCH (floor)-[*1..3]-(room)
+WHERE floor.$dtId = 'thermostat-15'
 ```
 
-You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins *r* and *c* that are at most 2 hops (meaning the number of hops is either 1 or 2).
+You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins *floor* and *room* that are at most 2 hops (meaning the number of hops is either 1 or 2).
 
 ```sql
 -- <MatchHopsRangeEndingExample>
 SELECT * FROM DIGITALTWINS 
-MATCH (r)-[*..2]-(c)
-WHERE r.$dtId = '0'
+MATCH (floor)-[*..2]-(room)
+WHERE floor.$dtId = 'thermostat-15'
 ```
 
-The following example has no specified number of hops, so will default to **one hop**.
+The following example has no specified number of hops, so will default to **one hop** between twins *floor* and *room*.
 
 ```sql
 -- <MatchHopsOneExample>
 SELECT * FROM DIGITALTWINS  
-MATCH (r)-[]-(c)
-WHERE r.$dtId = '0'
+MATCH (floor)-[]-(room)
+WHERE floor.$dtId = 'thermostat-15'
 ```
 
 ## Assign query variable to relationship (and specify relationship properties)
@@ -365,13 +365,13 @@ MATCH (twin_1)-[relationship_variable]-(twin_2>)
 
 ### Examples
 
-The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship *r* should have a length property that's equal to 10.
+The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship *rel* should have a name property with a value of 'child'.
 
 ```sql
 -- <MatchVariableExample>
-SELECT t, c, r FROM DIGITALTWINS   
-MATCH (t)-[r]-(c)  
-WHERE t.$dtId = 'thermostat-15' AND r.length = 10 
+SELECT floor,cafe, rel DIGITALTWINS   
+MATCH (floor)-[rel]-(cafe)  
+WHERE floor.$dtId = 'thermostat-15' AND rel.name = 'child'
 ```
 
 ## Combine MATCH operations
@@ -417,65 +417,65 @@ WHERE twin_or_twin_collection.$dtId = 'twin_ID'
 
 ### Examples
 
-Here's an example that combines **relationship direction, relationship name, and number of hops**. The following query finds twins *t* and *c*, where the relationship between *t* and *c* meets these conditions:
-* the relationship is left-to-right, with *t* as the source and *c* as the target
+Here's an example that combines **relationship direction, relationship name, and number of hops**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* meets these conditions:
+* the relationship is left-to-right, with *floor* as the source and *room* as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops
 
-The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
 ```sql
 -- <MatchCombinedHopsExample>
-SELECT t, c FROM DIGITALTWINS    
-MATCH (t)-[:contains|isAssociatedWith*3..5]->(c) 
-WHERE t.$dtId = 'thermostat-15'
+SELECT floor, room FROM DIGITALTWINS    
+MATCH (floor)-[:contains|isAssociatedWith*3..5]->(room) 
+WHERE floor.$dtId = 'thermostat-15'
 ```
 
-Here is an example that combines **relationship direction, relationship name, and a named query variable for the relationship**. The following query finds twins *t* and *c*, where the relationship between *t* and *c* is assigned to a query variable *r* and meets these conditions:
-* the relationship is left-to-right, with *t* as the source and *c* as the target
+Here is an example that combines **relationship direction, relationship name, and a named query variable for the relationship**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
+* the relationship is left-to-right, with *floor* as the source and *room* as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship, which is given a query variable *r*, has a length property equal to 10
 
-The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
 ```sql
 -- <MatchCombinedVariableExample>
-SELECT t, c FROM DIGITALTWINS    
-MATCH (t)-[r:contains|isAssociatedWith]->(c) 
-WHERE t.$dtId = 'thermostat-15' AND r.length = 10
+SELECT floor, room FROM DIGITALTWINS    
+MATCH (floor)-[r:contains|isAssociatedWith]->(room) 
+WHERE floor.$dtId = 'thermostat-15' AND r.length = 10
 ```
 
-The following example illustrates **chained** relationship conditions. The query finds twins *t1*, *t2*, and *c*, where...
-* the relationship between *t1* and *c* meets these conditions:
-    - the relationship is left-to-right, with *t* as the source and *c* as the target
+The following example illustrates **chained** relationship conditions. The query finds twins *floor*, *cafe*, and *room*, where...
+* the relationship between *floor* and *room* meets these conditions:
+    - the relationship is left-to-right, with *floor* as the source and *cafe* as the target
     - the relationship has a name of either 'contains' or 'isAssociatedWith'
     - the relationship, which is given query variable *r*, has a length property equal to 10
-* the relationship between *c* and *t2* meets these conditions:
-    - the relationship is right-to-left, with *t2* as the source and *c* as the target
+* the relationship between *cafe* and *room* meets these conditions:
+    - the relationship is right-to-left, with *room* as the source and *cafe* as the target
     - the relationship has a name of either 'has' or 'includes'
     - the relationship has up to 3 (so 1, 2, or 3) hops
 
-The query also specifies that twin *t1* has a `$dtId` of 'thermostat-15' and twin *t2* has a temperature of 55.
+The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15' and twin *cafe* has a temperature of 55.
 
 ```sql
 -- <MatchCombinedChainExample>
-SELECT t1, t2, c FROM DIGITALTWINS    
-MATCH (t1)-[r:contains|isAssociatedWith]->(c)<-[has|includes*..3]-(t2)  
-WHERE t1.$dtId = 'thermostat-15'  AND r.length = 10 AND t2.temperature = 55  
+SELECT floor, room, cafe FROM DIGITALTWINS    
+MATCH (floor)-[r:contains|isAssociatedWith]->(cafe)<-[has|includes*..3]-(room)  
+WHERE floor.$dtId = 'thermostat-15'  AND r.length = 10 AND cafe.temperature = 55 
 ```
 
-You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *t* and *c*, where the relationship between *t* and *c* is assigned to a query variable *r* and meets these conditions:
-* the relationship is bi-directional, so it goes from *t* to *c* and also from *c* to t
+You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
+* the relationship is bi-directional, so it goes from *floor* to *room* and also from *room* to *floor*
 * the relationship has a name of 'isAssociatedWith'
 * the relationship, given a variable name of *r*, has a length property of 10
 
-The query also specifies that twin *t* has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
 ```sql
 -- <MatchCombinedChainBDExample>
-SELECT t, c FROM DIGITALTWINS    
-MATCH (t)-[r:isAssociatedWith]->(c)<-[r:isAssociatedWith]-(t)
-WHERE t.$dtId = 'thermostat-15'  AND r.length = 10
+SELECT floor, room FROM DIGITALTWINS    
+MATCH (floor)-[r:isAssociatedWith]->(room)-[r:isAssociatedWith]->(floor)
+WHERE floor.$dtId = 'thermostat-15'  AND r.length = 10
 ```
 
 ## Limitations
