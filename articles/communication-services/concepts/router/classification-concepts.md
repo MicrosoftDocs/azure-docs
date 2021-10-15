@@ -75,7 +75,7 @@ Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make 
 > The weighted allocation label selector is currently only supported for attaching new `WorkerSelectors` to the Job and should not be used in a `QueueSelector`.
 
 ## Reclassifying a job
-Once a Job has been classified by a policy, it can be reclassified in the following ways:
+Once a Job has been classified, it can be reclassified in the following ways:
 
 1. You can update the Job labels, which will cause the Job Router to evaluate the new labels with the previous Classification Policy.
 2. You can update the Classification Policy ID of a Job, which will cause Job Router to process the existing Job against the new policy.
