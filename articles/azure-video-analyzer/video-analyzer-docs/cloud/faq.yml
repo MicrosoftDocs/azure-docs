@@ -24,11 +24,11 @@ sections:
           | System.PipelineName | Represents the name of the live pipeline. | 
 
           > [!Note] 
-          > System.Runtime.DateTime and System.Runtime.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a [FileSink](pipeline.md#file-sink), for naming the file.
+          > System.Runtime.DateTime and System.Runtime.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a [FileSink](../pipeline.md#file-sink), for naming the file.
 
           **What is the difference between Live and Batch Pipelines of Video Analyzer service?**
 
-          For more information, see [Pipeline](pipeline.md)
+          For more information, see [Pipeline](../pipeline.md)
 
           **How do I operate cloud pipelines?**
 
@@ -102,4 +102,4 @@ additionalContent: |
 
   ## Next steps
 
-  [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
+  [Quickstart: Get started with Azure Video Analyzer](../edge/get-started-detect-motion-emit-events.md)
