@@ -255,9 +255,9 @@ The `OutputClaims` element contains a list of claims returned by your identity p
 
 ::: zone-end
 
-## Add the identity provider to a user flow 
-
 ::: zone pivot="b2c-user-flow"
+
+## Add the identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the identity provider. 
