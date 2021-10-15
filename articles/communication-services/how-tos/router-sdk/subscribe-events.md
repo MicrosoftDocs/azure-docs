@@ -24,9 +24,6 @@ This guide outlines the steps to subscribe to Job Router events from your Azure 
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 - Install the [Azure Resource Manager (ARM) client](https://github.com/projectkudu/ARMClient)
 
-
-
-
 ## Create an Event Grid subscription
 
 > [!NOTE]
@@ -271,8 +268,6 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value if there is a direct queue assignment. |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
----------------------------------------------------------------------------------------------------------
-
 ### Microsoft.Communication.RouterJobClassified
 
 [Back to Event Catalog](#events-catalog)
@@ -319,10 +314,10 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job (direct queue assignment)
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job (direct queue assignment) |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
 | priority | `int` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobLabelsUpdated
 
@@ -366,13 +361,13 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> <li>Queued</li> <li>Assigned</li> <li>Completed</li> <li>Closed</li> <li>Canceled</li> <li>ClassificationFailed</li> </ul>
+| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> <li>Queued</li> <li>Assigned</li> <li>Completed</li> <li>Closed</li> <li>Canceled</li> <li>ClassificationFailed</li> </ul> |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
 | priority | `int` | ❌ |
-| labelsAddedOrChanged | `Dictionary<string, object>` | ✔️ | | Labels added or changed based on user input.
-| labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job.
+| labelsAddedOrChanged | `Dictionary<string, object>` | ✔️ | | Labels added or changed based on user input. |
+| labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job. |
 
 ### Microsoft.Communication.RouterJobClassificationFailed
 
@@ -419,7 +414,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | classificationPolicyId | `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobCompleted
 
@@ -459,7 +454,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ | |
 | assignmentId| `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 | workerId | `string` | ❌ | |
 
 ### Microsoft.Communication.RouterJobClosed
@@ -500,10 +495,10 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ | |
-| dispositionCode| `string` | ✔️ | | Based on user input
+| dispositionCode| `string` | ✔️ | | Based on user input |
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobCancelled
 
@@ -538,13 +533,13 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| note| `string` | ✔️ | | Based on user input
+| note| `string` | ✔️ | | Based on user input |
 | dispositionCode| `string` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| queueId | `string` | ✔️ | | Non-null when job is canceled after successful classification.
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| queueId | `string` | ✔️ | | Non-null when job is canceled after successful classification. |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
@@ -583,7 +578,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 | channelId | `string` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobExceptionCleared
 
@@ -620,7 +615,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 | channelId | `string` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ## Worker Events
 
@@ -669,7 +664,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | offerTimeUtc | `DateTimeOffset` | ❌ |
 | expiryTimeUtc| `DateTimeOffset` | ❌ |
 | jobPriority| `int` | ❌ |
-| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
@@ -709,7 +704,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | workerId | `string` | ❌ |
 | jobId| `string` | ❌ |
 | jobPriority| `int` | ❌ |
-| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
@@ -869,7 +864,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | workerId | `string` | ❌ |
 | totalCapacity | `int` | ❌ |
 | queueAssignments| `List<QueueInfo>` | ❌ |
-| labels| `Dictionary<string, object>` | ✔️ | | Based on user input
+| labels| `Dictionary<string, object>` | ✔️ | | Based on user input |
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 
 ### Microsoft.Communication.RouterWorkerDeregistered
