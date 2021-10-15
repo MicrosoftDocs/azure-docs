@@ -138,188 +138,188 @@ landingContent:
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
 
-  #Card
-  - title: Layout models
-    linkLists:
-      - linkListType: get-started
-        inks:
-              - itemType: concept
-                text: Model overview
-                url: concept-layout.md
-              - itemType: quickstart
-                text: Using the .NET SDK
-                url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
-              - itemType: quickstart
-                text: Using the Python SDK
-                url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
-              - itemType: quickstart
-                text: Using the Java SDK
-                url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
-              - itemType: quickstart
-                text: Using the JavaScript SDK
-                url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
-              - itemType: quickstart
-                text: Using the REST API (cURL)
-                url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
-              - itemType: get-started
-                text: Using the sample labeling tool
-                url: "concept-layout.md#try-it-sample-labeling-tool"
+#   #Card
+#   - title: Layout models
+#     linkLists:
+#       - linkListType: get-started
+#         inks:
+#               - itemType: concept
+#                 text: Model overview
+#                 url: concept-layout.md
+#               - itemType: quickstart
+#                 text: Using the .NET SDK
+#                 url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
+#               - itemType: quickstart
+#                 text: Using the Python SDK
+#                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
+#               - itemType: quickstart
+#                 text: Using the Java SDK
+#                 url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
+#               - itemType: quickstart
+#                 text: Using the JavaScript SDK
+#                 url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
+#               - itemType: quickstart
+#                 text: Using the REST API (cURL)
+#                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
+#               - itemType: get-started
+#                 text: Using the sample labeling tool
+#                 url: "concept-layout.md#try-it-sample-labeling-tool"
 
-#Card
-  - title: Custom model
-    linkLists:
-      - linkListType: get-started
-         links:
-               - itemType: concept
-                 text: Custom model overview
-                 url: concept-custom.md
-               - itemType: quickstart
-                 text: Using the .NET SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-               - itemType: quickstart
-                 text: Using the Python SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-               - itemType: quickstart
-                 text: Using the Java SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-               - itemType: quickstart
-                 text: Using the JavaScript SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-               - itemType: quickstart
-                 text: Using the REST API (cURL)
-                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
-               - itemType: get-started
-                 text: Using the Sample Labeling tool
-                 url: "concept-custom.md#try-it-sample-labeling-tool"    
+# #Card
+#   - title: Custom model
+#     linkLists:
+#       - linkListType: get-started
+#          links:
+#                - itemType: concept
+#                  text: Custom model overview
+#                  url: concept-custom.md
+#                - itemType: quickstart
+#                  text: Using the .NET SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+#                - itemType: quickstart
+#                  text: Using the Python SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+#                - itemType: quickstart
+#                  text: Using the Java SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+#                - itemType: quickstart
+#                  text: Using the JavaScript SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+#                - itemType: quickstart
+#                  text: Using the REST API (cURL)
+#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+#                - itemType: get-started
+#                  text: Using the Sample Labeling tool
+#                  url: "concept-custom.md#try-it-sample-labeling-tool"    
 
 
 
- #Card
-  - title: Invoice model
-    linkLists:
-      - linkListType: get-started
-       links:
-               - itemType: concept
-                 text: Model overview
-                 url: concept-invoice.md
-               - itemType: quickstart
-                 text: Using the .NET SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
-               - itemType: quickstart
-                 text: Using the Python SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
-               - itemType: quickstart
-                 text: Using the Java SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
-               - itemType: quickstart
-                 text: Using the JavaScript SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
-               - itemType: quickstart
-                 text: Using the REST API (cURL)
-                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-               - itemType: get-started
-                 text: Using the Sample Labeling tool
-                 url: "concept-business-card.md#try-it-sample-labeling-tool"
+#  #Card
+#   - title: Invoice model
+#     linkLists:
+#       - linkListType: get-started
+#        links:
+#                - itemType: concept
+#                  text: Model overview
+#                  url: concept-invoice.md
+#                - itemType: quickstart
+#                  text: Using the .NET SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
+#                - itemType: quickstart
+#                  text: Using the Python SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
+#                - itemType: quickstart
+#                  text: Using the Java SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
+#                - itemType: quickstart
+#                  text: Using the JavaScript SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
+#                - itemType: quickstart
+#                  text: Using the REST API (cURL)
+#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
+#                - itemType: get-started
+#                  text: Using the Sample Labeling tool
+#                  url: "concept-business-card.md#try-it-sample-labeling-tool"
 
- #Card
-  - title: Receipt model
-    linkLists:
-      - linkListType: get-started     
-         links:
-               - itemType: concept
-                 text: Model overview
-                 url: concept-receipt.md
-               - itemType: quickstart
-                 text: Using the .NET SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
-               - itemType: quickstart
-                 text: Using the Python SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
-               - itemType: quickstart
-                 text: Using the Java SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
-               - itemType: quickstart
-                 text: Using the JavaScript SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
-               - itemType: quickstart
-                 text: Using the REST API (cURL)
-                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
-               - itemType: get-started
-                 text: Using the Sample Labeling tool
-                 url: "concept-receipt.md#try-it-sample-labeling-tool"
+#  #Card
+#   - title: Receipt model
+#     linkLists:
+#       - linkListType: get-started     
+#          links:
+#                - itemType: concept
+#                  text: Model overview
+#                  url: concept-receipt.md
+#                - itemType: quickstart
+#                  text: Using the .NET SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
+#                - itemType: quickstart
+#                  text: Using the Python SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
+#                - itemType: quickstart
+#                  text: Using the Java SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
+#                - itemType: quickstart
+#                  text: Using the JavaScript SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
+#                - itemType: quickstart
+#                  text: Using the REST API (cURL)
+#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+#                - itemType: get-started
+#                  text: Using the Sample Labeling tool
+#                  url: "concept-receipt.md#try-it-sample-labeling-tool"
 
-#Card
-  - title: ID document model
-    linkLists:
-      - linkListType: get-started
-        links:
-               - itemType: concept
-                 text: Model overview
-                 url: concept-id-document.md
-               - itemType: quickstart
-                 text: Using the .NET SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
-               - itemType: quickstart
-                 text: Using the Python SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-identity-documents
-               - itemType: quickstart
-                 text: Using the Java SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-identity-documents
-               - itemType: quickstart
-                 text: Using the JavaScript SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
-               - itemType: quickstart
-                 text: Using the REST API (cURL)
-                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
-               - itemType: get-started
-                 text: Using the Sample Labeling tool
-                 url: "concept-id-document.md#try-it-sample-labeling-tool"     
+# #Card
+#   - title: ID document model
+#     linkLists:
+#       - linkListType: get-started
+#         links:
+#                - itemType: concept
+#                  text: Model overview
+#                  url: concept-id-document.md
+#                - itemType: quickstart
+#                  text: Using the .NET SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
+#                - itemType: quickstart
+#                  text: Using the Python SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-identity-documents
+#                - itemType: quickstart
+#                  text: Using the Java SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-identity-documents
+#                - itemType: quickstart
+#                  text: Using the JavaScript SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
+#                - itemType: quickstart
+#                  text: Using the REST API (cURL)
+#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
+#                - itemType: get-started
+#                  text: Using the Sample Labeling tool
+#                  url: "concept-id-document.md#try-it-sample-labeling-tool"     
 
-#Card
-  - title: Business card model
-    linkLists:
-      - linkListType: get-started
-        links:
-               - itemType: concept
-                 text: Model overview
-                 url: concept-business-card.md
-               - itemType: quickstart
-                 text: Using the .NET SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
-               - itemType: quickstart
-                 text: Using the Python SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
-               - itemType: quickstart
-                 text: Using the Java SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
-               - itemType: quickstart
-                 text: Using the JavaScript SDK
-                 url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
-               - itemType: quickstart
-                 text: Using the REST API (cURL)
-                 url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
-               - itemType: get-started
-                 text: Using the Sample Labeling tool
-                 url: "concept-business-card.md#try-it-sample-labeling-tool"
+# #Card
+#   - title: Business card model
+#     linkLists:
+#       - linkListType: get-started
+#         links:
+#                - itemType: concept
+#                  text: Model overview
+#                  url: concept-business-card.md
+#                - itemType: quickstart
+#                  text: Using the .NET SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
+#                - itemType: quickstart
+#                  text: Using the Python SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+#                - itemType: quickstart
+#                  text: Using the Java SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+#                - itemType: quickstart
+#                  text: Using the JavaScript SDK
+#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
+#                - itemType: quickstart
+#                  text: Using the REST API (cURL)
+#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+#                - itemType: get-started
+#                  text: Using the Sample Labeling tool
+#                  url: "concept-business-card.md#try-it-sample-labeling-tool"
 
-# Card
- - title: Responsible AI
-    linkLists:
-      - linkListType: get-started
-        links:
-            links:
-               - itemType: concept
-                 text: Transparency notes
-                 url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
-               - itemType: concept
-                 text: Characteristics and limitations
-                 url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
-               - itemType: concept
-                 text: Guidance for integration and responsible use
-                 url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
-               - itemType: concept
-                 text: Data privacy, compliance, and security
-                 url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+# # Card
+#  - title: Responsible AI
+#     linkLists:
+#       - linkListType: get-started
+#         links:
+#             links:
+#                - itemType: concept
+#                  text: Transparency notes
+#                  url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+#                - itemType: concept
+#                  text: Characteristics and limitations
+#                  url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+#                - itemType: concept
+#                  text: Guidance for integration and responsible use
+#                  url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+#                - itemType: concept
+#                  text: Data privacy, compliance, and security
+#                  url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 
 
 
