@@ -19,7 +19,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card
+  # Card 1
   - title: About Azure Form Recognizer
     linkLists:
       - linkListType: overview
@@ -34,8 +34,7 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-
-#Card
+#Card 2
   - title: Features 
     linkLists:
       - linkListType: concept
@@ -54,8 +53,8 @@ landingContent:
             url: concept-business-card.md
           - text: Custom model
             url: concept-custom.md
-#Card
-  - title: Features 
+#Card 3
+  - title: Development Options
     linkLists:
       - linkListType: quickstart
         links:
@@ -73,8 +72,14 @@ landingContent:
           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript
         - text: Python SDK
           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
+      - linkListType: video
+        links:
+          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
+            url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+          - text: AI-powered process automation
+            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
-#Card
+#Card 4
   - title: 🆕Form Recognizer Studio
     linkLists:
       - linkListType: overview
@@ -97,9 +102,7 @@ landingContent:
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
           - text: Using the Custom model
             url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
-
-
-#Card
+#Card 5
   - title: Sample Labeling tool
     linkLists:
       - linkListType: get-started
@@ -118,8 +121,7 @@ landingContent:
             url: concept-business-card.md#try-it-sample-labeling-tool
           - text: Using the Custom model
             url: concept-custom.md#try-it-sample-labeling-tool
-
-#Card
+#Card 6
   - title: 🆕General document
     linkLists:
       - linkListType: overview
@@ -140,9 +142,7 @@ landingContent:
             url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
           - text: Using the Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
-
-
-#Card
+#Card 7
   - title: Layout
     linkLists:
     - linkListType: overview
@@ -163,8 +163,7 @@ landingContent:
           url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
         - text: Using the sample labeling tool
           url: "concept-layout.md#try-it-sample-labeling-tool"
-
-# Card
+# Card 8
   - title: Custom
     linkLists:
       - linkListType: overview
@@ -185,10 +184,7 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the Sample Labeling tool
             url: "concept-custom.md#try-it-sample-labeling-tool"
-
-
-
-#Card
+#Card 9
   - title: Invoice
     linkLists:
       - linkListType: overview
@@ -209,8 +205,7 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
           - text: Using the Sample Labeling tool
             url: "concept-business-card.md#try-it-sample-labeling-tool"
-
-#Card
+#Card 10
   - title: Receipt model
     linkLists:
       - linkListType: overview
@@ -231,13 +226,12 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
           - text: Using the Sample Labeling tool
             url: "concept-receipt.md#try-it-sample-labeling-tool"
-
-#Card
-  - title: ID document model
+#Card 11
+  - title: ID document  and Business Card models
     linkLists:
       - linkListType: overview
         links:
-          - text: Model overview
+          - text: ID document overview
             url: concept-id-document.md
       - linkListType: get-started
         links:
@@ -253,13 +247,9 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
           - text: Using the Sample Labeling tool
             url: "concept-id-document.md#try-it-sample-labeling-tool"
-
-#Card
-  - title: Business card model
-    linkLists:
       - linkListType: overview
         links:
-          - text: Model overview
+          - text: Business card overview
             url: concept-business-card.md
       - linkListType: get-started
         links:
@@ -276,8 +266,8 @@ landingContent:
           - text: Using the Sample Labeling tool
             url: "concept-business-card.md#try-it-sample-labeling-tool"
 
-# Card
-  - title: Responsible AI and Video Support
+# Card 12
+  - title: Responsible AI and Community Support
     linkLists:
       - linkListType: reference
         links:
@@ -289,12 +279,23 @@ landingContent:
              url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
            - text: Data privacy, compliance, and security
              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-      - linkListType: video
+      - linkListType: reference
         links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+          - text: Extract data from PDFs with or without code
+            url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
+          - text: Read more languages, process IDs and invoices, train on tables, and more
+            url:  https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
+          - text: Build a personal finance app using Form Recognizer
+            url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
+          - text: Enhanced document table extraction
+            url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
+          - text: Use a meta-data-driven approach to extract key-value pairs
+            url:  https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
+          - text: Accelerate text, data, and structure extraction from documents
+            url:  https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
+          - text: Automating form processing to enhance productivity
+            url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
+ 
 
 
 
@@ -415,23 +416,7 @@ landingContent:
 
   # - title: Microsoft tech community
   #   linkLists:
-  #     - linkListType: reference
-  #       links:
-  #         - text: Extract data from PDFs with or without code
-  #           url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
-  #         - text: Read more languages, process IDs and invoices, train on tables, and more
-  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
-  #         - text: Build a personal finance app using Form Recognizer
-  #           url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
-  #         - text: Enhanced document table extraction
-  #           url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
-  #         - text: Use a meta-data-driven approach to extract key-value pairs
-  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
-  #         - text: Accelerate text, data, and structure extraction from documents
-  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
-  #         - text: Automating form processing to enhance productivity
-  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
-
+  
   # - title: Train a custom model and extract data
   #   linkLists:
   #     - linkListType: quickstart
