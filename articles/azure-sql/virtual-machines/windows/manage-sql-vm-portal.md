@@ -120,6 +120,13 @@ Use the **Security Center** page of the SQL virtual machines resource to view Se
 
 ![Configure SQL Server Security Center settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
+## SQL Assessment (Preview)
+
+Use the **SQL Assessment** page of the SQL virtual machines resource to assess the health of your SQL VM. Once enabled, it will scan your SQL Server instance and databases to provide recommendations on things like indexes, deprecated features, trace flag usage, statistics, etc. You will be able to see if your SQL VM follows the recommended best practices. SQL Assessment is currently in preview. 
+
+IMAGE (workbook)
+
+To learn more, see [SQL Assessment for Azure SQL VM (Preview)](sql-assessment-for-sql-vm.md).
 
 ## Next steps
 
