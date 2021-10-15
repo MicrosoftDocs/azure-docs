@@ -44,7 +44,7 @@ This article steps through using Azure portal to create a virtual machine scale 
 1. Go to the **Networking** tab and explicitly define your outbound connectivity.
 
     > [!IMPORTANT]
-    > Explicitly defined outbound connectivity is required for virtual machine scale sets with flexible orchestration. Refer to [explicit outbound network connectivity](flexible-virtual-machine-scale-sets.md#explicit-network-outbound-connectivity-required) for more information.
+    > Explicitly defined outbound connectivity is required for virtual machine scale sets with flexible orchestration. Refer to [explicit outbound network connectivity](flexible-virtual-machine-scale-sets-migration-resources.md#explicit-network-outbound-connectivity-required) for more information.
 
 1. Finish creating your virtual machine.
 
