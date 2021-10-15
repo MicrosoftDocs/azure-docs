@@ -6,7 +6,11 @@ ms.date: 10/15/2021
 ms.author: vikramdh
 ---
 
-# Events types
+# Azure Communication Services - Presence events
+
+This article provides the properties and schema for communication services presence events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+## Events types
 
 Azure Communication Services emits the following user presence event types:
 
@@ -14,7 +18,7 @@ Azure Communication Services emits the following user presence event types:
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.UserDisconnected | Published after a Communication Services user is designated as having disconnected from the Communication Services |
 
-# Event responses
+## Event responses
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
