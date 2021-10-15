@@ -2,11 +2,11 @@
 title: Troubleshoot backend health issues in Azure Application Gateway
 description: Describes how to troubleshoot backend health issues for Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb 
+ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
