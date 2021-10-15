@@ -162,7 +162,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```cpp
 std::shared_ptr<SpeechConfig> speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT | AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION);
+std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
 std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromDefaultMicrophoneInput(processingOptions);
 
 std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
