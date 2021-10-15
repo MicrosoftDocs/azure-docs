@@ -203,10 +203,10 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
   - name: FAQ
     items:
-  - name: Edge module FAQ
-    href: edge/faq.yml 
-  - name: Cloud pipelines FAQ
-    href: cloud/faq.yml     
+    - name: Edge module FAQ
+      href: edge/faq.yml 
+    - name: Cloud pipelines FAQ
+      href: cloud/faq.yml     
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: Terraform resource
