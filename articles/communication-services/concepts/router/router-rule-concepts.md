@@ -1,7 +1,7 @@
 ---	
-title: Router rule engine concepts for Azure Communication Services
+title: Router rules engine concepts for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document	
-description: Learn about the Azure Communication Services Job Router rule engine concepts.	
+description: Learn about the Azure Communication Services Job Router rules engine concepts.	
 author: jasonshave	
 manager: phans
 services: azure-communication-services
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Job Router rule engine concepts
+# Job Router rules engine concepts
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 Azure Communication Services Job Router uses an extensible rules engine to process data and make decisions about your Jobs and Workers. This document covers what the rule engine does and why you may want to apply it in your implementation.
 
-## Rule engine overview
+## Rules engine overview
 
 Controlling the behavior of your implementation can often include complex decision making. Job Router provides a flexible way to invoke behavior programmatically using various rule engines. Job Router's rule engines generally take a set of **labels** defined on objects such as a Job, a Queue, or a Worker as an input, apply the rule and produce an output.
 
