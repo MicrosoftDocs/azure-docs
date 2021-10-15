@@ -44,33 +44,15 @@ Here's the basic `MATCH` syntax.
 
 The placeholder values shown in the `MATCH` clause that should be replaced with your values are `twin_1`, `relationship_condition`, and `twin_2`. The placeholder values in the `WHERE` clause that should be replaced with your values are `twin_or_twin_collection` and `twin_ID`.
 
-```sql
--- <MatchSyntax>
---SELECT ... FROM ...  
-MATCH (twin_1)-[relationship_condition]-(twin_2)
-WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
--- AND ... 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchSyntax":::
 
 You can leave out the name of one of the twins in order to allow any twin name to work in that spot.
 
 You can also change the number of relationship conditions, to have multiple [chained](#combine-match-operations) relationship conditions or no relationship condition at all:
 
-```sql
--- <MatchChainSyntax>
---Chained relationship conditions
--- SELECT ... FROM ... 
-MATCH (twin_1)-[relationship_condition]-(twin_2)-[relationship_condition]-(twin_3)...
-WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchChainSyntax":::
 
-```sql
--- <MatchNodeSyntax>
--- No relationship condition
--- SELECT ... FROM ... 
-MATCH (twin_1)
-WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNodeSyntax":::
 
 For more detail about each type of relationship condition and how to combine them, see the other sections of this document.
 
@@ -83,12 +65,7 @@ The query specifies a [relationship direction](#specify-relationship-direction),
 * the sensor has a temperature above 50.
 The building and sensor are both included in the query result.
 
-```sql
--- <MatchExample>
-SELECT building, sensor FROM DIGITALTWINS 
-MATCH (building)-[]->(sensor) 
-WHERE building.$dtId = 'Building21' AND sensor.temperature > 50  
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchExample":::
 
 ## Specify relationship direction
 
@@ -102,37 +79,21 @@ Use the relationship condition in the `MATCH` clause to specify a relationship d
 >[!NOTE]
 > The examples in this section focus on relationship direction. They don't specify relationship types, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship type](#specify-relationship-type), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
-
 Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship type](#specify-number-of-hops). 
 
 This section shows the syntax for different directions of relationships. The placeholder values that should be replaced with your values are `source_twin` and `target_twin`.
 
 For a **left-to-right** relationship, use the following syntax.
 
-```sql
--- <MatchDirectionLRSyntax>
--- SELECT ... FROM ...
-MATCH (source_twin)-[]->(target_twin)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionLRSyntax":::
 
 For a **right-to-left** relationship, use the following syntax.
 
-```sql
--- <MatchDirectionRLSyntax>
--- SELECT ... FROM ...
-MATCH (target_twin)<-[]-(source_twin)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionRLSyntax":::
 
 For a **non-directional** relationship, use the following syntax. This will not specify a direction for the relationship, so relationships of any direction will be included in the result.
 
-```sql
--- <MatchDirectionNDSyntax>
--- SELECT ... FROM ...
-MATCH (source_twin)-[]-(target_twin)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionNDSyntax":::
 
 >[!TIP]
 >Non-directional queries require additional processing, which may result in increased latency and cost.
@@ -144,33 +105,21 @@ The first example shows a **left-to-right** directional traversal. This query fi
 * *room* has a temperature value that's greater than 50
 * *factory* has a `$dtId` of 'ABC'
 
-```sql
--- <MatchDirectionLRExample>
-SELECT room, factory FROM DIGITALTWINS MATCH (room)-[]->(factory) 
-WHERE room.temperature > 50 AND factory.$dtId = 'ABC' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionLRExample":::
 
 The following example shows a **right-to-left** directional traversal. This query looks similar to the one above, but the direction of the relationship between *room* and *factory* is reversed. This query finds twins *room* and *factory* where...
 * *factory* targets *room* (with any type of relationship)
 * *factory* has a `$dtId` of 'ABC'
 * *room* has a temperature value that's greater than 50
 
-```sql
--- <MatchDirectionRLExample>
-SELECT room, factory FROM DIGITALTWINS MATCH (room)<-[]-(factory) 
-WHERE factory.$dtId = 'ABC' AND room.temperature > 50  
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionRLExample":::
 
 The following example shows a **non-directional** traversal. This query finds twins *room* and *factory* where...
 * *room* and *factory* share any type of relationship, going in either direction
 * *factory* has a `$dtId` of 'ABC'
 * *room* has a humidity value that's greater than 70
 
-```sql
--- <MatchDirectionNDExample>
-SELECT factory, room FROM DIGITALTWINS MATCH (factory)-[]-(room) 
-WHERE factory.$dtId ='ABC'  AND room.humidity > 70 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionNDExample":::
 
 ## Specify relationship type
 
@@ -190,30 +139,15 @@ Specify the type of a relationship to traverse in the `MATCH` clause within squa
 
 For a **single type**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_type`, and `twin_2`.
 
-```sql
--- <MatchTypeSingleSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)-[:relationship_type]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeSingleSyntax":::
 
 For **multiple possible types**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_type_option_1`, `relationship_type_option_2`, `twin_2`, and the note to continue the pattern as needed for the number of relationship types you want to enter.
 
-```sql
--- <MatchTypeMultiSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)-[:relationship_type_option_1|relationship_type_option_2|continue pattern as needed...]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeMultiSyntax":::
 
 (Default) To leave type **unspecified**, leave the brackets empty of type information, like this:
 
-```sql
--- <MatchTypeAllSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)-[]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeAllSyntax":::
 
 ### Examples
 
@@ -221,34 +155,19 @@ The following example shows a **single relationship type**. This query finds twi
 * *building* has a 'contains' relationship to *sensor* (going in either direction)
 * *building* has a `$dtId` of 'Seattle21'
 
-```sql
--- <MatchTypeSingleExample>
-SELECT building, sensor FROM DIGITALTWINS   
-MATCH (building)-[:contains]-(sensor)  
-WHERE building.$dtId = 'Seattle21'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeSingleExample":::
 
 The following example shows **multiple possible relationship types**. This query looks similar to the one above, but there are multiple possible relationship types that are included in the result. This query finds twins *building* and *sensor* where...
 * *building* has either a 'contains' or 'isAssociatedWith' relationship to *sensor* (going in either direction)
 * *building* has a `$dtId` of 'Seattle21'
 
-```sql
--- <MatchTypeMultiExample>
-SELECT building, sensor FROM DIGITALTWINS   
-MATCH (building)-[:contains|isAssociatedWith]-(sensor)  
-WHERE building.$dtId = 'Seattle21'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeMultiExample":::
 
 The following example has **no specified relationship type**. As a result, relationships with any type will be included in the query result. This query finds twins *building* and *sensor* where...
 * *building* has a relationship to *sensor* with any type (and going in either direction)
 * *building* has a `$dtId` of 'Seattle21'
 
-```sql
--- <MatchTypeAllExample>
-SELECT building, sensor FROM DIGITALTWINS   
-MATCH (building-[]-(sensor)  
-WHERE building.$dtId = 'Seattle21'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeAllExample":::
 
 ## Specify number of hops
 
@@ -268,77 +187,37 @@ Specify the number of hops to traverse in the `MATCH` clause within the square b
 
 To specify an **exact number of hops**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `number_of_hops`, and `twin_2`.
 
-```sql
--- <MatchHopsExactSyntax>
--- SELECT ... FROM ... 
-MATCH (twin_1)-[*number_of_hops]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsExactSyntax":::
 
 To specify a **range of hops**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `starting_limit`,  `ending_limit` and `twin_2`. The starting limit **is not** included in the range, while the ending limit **is** included.
 
-```sql
--- <MatchHopsRangeSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)-[*starting_limit..ending_limit]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeSyntax":::
 
 You can also leave out the starting limit to indicate "anything up to" (and including) the ending limit. An ending limit must always be provided.
 
-```sql
--- <MatchHopsRangeEndingSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)-[*..ending_limit]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeEndingSyntax":::
 
 (Default) To default to **one hop**, leave the brackets empty of hop information, like this:
 
-```sql
--- <MatchHopsOneSyntax>
--- SELECT ... FROM ... 
-MATCH (twin_1)-[]-(twin_2)
--- WHERE ...
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsOneSyntax":::
 
 ### Examples
 
 The following example specifies an **exact number of hops**. The query will only return relationships between twins *floor* and *room* that are exactly 3 hops.
 
-```sql
--- <MatchHopsExactExample>
-SELECT * FROM DIGITALTWINS 
-MATCH (floor)-[*3]-(room)
-WHERE floor.$dtId = 'thermostat-15' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsExactExample":::
 
 The following example specifies a **range of hops**. The query will return relationships between twins *floor* and *room* that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
 
-```sql
--- <MatchHopsRangeExample1>
-SELECT * FROM DIGITALTWINS 
-MATCH (floor)-[*1..3]-(room)
-WHERE floor.$dtId = 'thermostat-15'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeExample1":::
 
 You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins *floor* and *room* that are at most 2 hops (meaning the number of hops is either 1 or 2).
 
-```sql
--- <MatchHopsRangeEndingExample>
-SELECT * FROM DIGITALTWINS 
-MATCH (floor)-[*..2]-(room)
-WHERE floor.$dtId = 'thermostat-15'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeEndingExample":::
 
 The following example has no specified number of hops, so will default to **one hop** between twins *floor* and *room*.
 
-```sql
--- <MatchHopsOneExample>
-SELECT * FROM DIGITALTWINS  
-MATCH (floor)-[]-(room)
-WHERE floor.$dtId = 'thermostat-15'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsOneExample":::
 
 ## Assign query variable to relationship (and specify relationship properties)
 
@@ -356,23 +235,13 @@ A useful result of doing this is the ability to filter on relationship propertie
 
 To assign a query variable to the relationship, put the variable name in the square brackets (`[]`). The placeholder values shown below that should be replaced with your values are `twin_1`, `relationship_variable`, and `twin_2`.
 
-```sql
--- <MatchVariableSyntax>
--- SELECT ... FROM ...   
-MATCH (twin_1)-[relationship_variable]-(twin_2>) 
--- WHERE ... 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchVariableSyntax":::
 
 ### Examples
 
 The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship *rel* should have a name property with a value of 'child'.
 
-```sql
--- <MatchVariableExample>
-SELECT floor,cafe, rel DIGITALTWINS   
-MATCH (floor)-[rel]-(cafe)  
-WHERE floor.$dtId = 'thermostat-15' AND rel.name = 'child'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchVariableExample":::
 
 ## Combine MATCH operations
 
@@ -386,34 +255,18 @@ These syntax examples show how these attributes can be combined. You can also le
 
 To specify **relationship direction, relationship type, and number of hops** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_type(s)`, and `number_of_hops`.
 
-```sql
--- <MatchCombinedHopsSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)optional_left_angle_bracket-[:relationship_type(s)*number_of_hops]-optional_right_angle_bracket(twin_2)
--- WHERE
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedHopsSyntax":::
 
 To specify **relationship direction, relationship type, and a query variable for the relationship** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_type(s)`.
 
-```sql
--- <MatchCombinedVariableSyntax>
--- SELECT ... FROM ...
-MATCH (twin_1)optional_left_angle_bracket-[relationship_variable:relationship_type(s)]-optional_right_angle_bracket(twin_2)
--- WHERE
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedVariableSyntax":::
 
 >[!NOTE]
 >As per the options for [specifying relationship direction](#specify-relationship-direction), you must pick between a left angle bracket for a left-to-right relationship or a right angle bracket for a right-to-left relationship. You can't include both on the same arrow, but can represent bi-directional relationships by chaining.
 
 You can **chain** multiple relationship conditions together, like this. The placeholder values that should be replaced with your values are `twin_1`, all instances of `relationship_condition`, and `twin_2`.
 
-```sql
--- <MatchChainSyntax>
--- Chained relationship conditions
--- SELECT ... FROM ... 
-MATCH (twin_1)-[relationship_condition]-(twin_2)-[relationship_condition]-(twin_3)...
-WHERE twin_or_twin_collection.$dtId = 'twin_ID' 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchChainSyntax":::
 
 ### Examples
 
@@ -424,12 +277,7 @@ Here's an example that combines **relationship direction, relationship type, and
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
-```sql
--- <MatchCombinedHopsExample>
-SELECT floor, room FROM DIGITALTWINS    
-MATCH (floor)-[:contains|isAssociatedWith*3..5]->(room) 
-WHERE floor.$dtId = 'thermostat-15'
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedHopsExample":::
 
 Here is an example that combines **relationship direction, relationship type, and a named query variable for the relationship**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
 * the relationship is left-to-right, with *floor* as the source and *room* as the target
@@ -438,12 +286,7 @@ Here is an example that combines **relationship direction, relationship type, an
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
-```sql
--- <MatchCombinedVariableExample>
-SELECT floor, room FROM DIGITALTWINS    
-MATCH (floor)-[r:contains|isAssociatedWith]->(room) 
-WHERE floor.$dtId = 'thermostat-15' AND r.length = 10
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedVariableExample":::
 
 The following example illustrates **chained** relationship conditions. The query finds twins *floor*, *cafe*, and *room*, where...
 * the relationship between *floor* and *room* meets these conditions:
@@ -457,12 +300,7 @@ The following example illustrates **chained** relationship conditions. The query
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15' and twin *cafe* has a temperature of 55.
 
-```sql
--- <MatchCombinedChainExample>
-SELECT floor, room, cafe FROM DIGITALTWINS    
-MATCH (floor)-[r:contains|isAssociatedWith]->(cafe)<-[has|includes*..3]-(room)  
-WHERE floor.$dtId = 'thermostat-15'  AND r.length = 10 AND cafe.temperature = 55 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedChainExample":::
 
 You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
 * the relationship is bi-directional, so it goes from *floor* to *room* and also from *room* to *floor*
@@ -471,12 +309,7 @@ You can also use chained relationship conditions to express **bi-directional rel
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
-```sql
--- <MatchCombinedChainBDExample>
-SELECT floor, room FROM DIGITALTWINS    
-MATCH (floor)-[r:isAssociatedWith]->(room)-[r:isAssociatedWith]->(floor)
-WHERE floor.$dtId = 'thermostat-15'  AND r.length = 10
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedChainBDExample":::
 
 ## Limitations
 
