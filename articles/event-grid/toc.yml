@@ -129,7 +129,15 @@
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
       - name: Azure Communication Services
-        href: event-schema-communication-services.md
+        items:
+        - name: Overview
+          href: event-schema-communication-services.md
+        - name: Chat Events
+          href: communication-services-chat-events.md
+        - name: SMS Events
+          href: communication-services-sms-events.md
+        - name: Presence Events
+          href: communication-services-presence-events.md
       - name: Azure Container Registry
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
