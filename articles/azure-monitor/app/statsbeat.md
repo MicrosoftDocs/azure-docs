@@ -51,7 +51,7 @@ Statsbeat collects essential and non-essential metrics.
 |-----|-----|-----|
 |Feature|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Feature`, `Type`, `Operating System`, `Language`, `Version`|
 
-### Non-Essential Statsbeat
+### Non-essential Statsbeat
 
 - Track the success and failure of disk persistence
 - Live metrics network statsbeat
