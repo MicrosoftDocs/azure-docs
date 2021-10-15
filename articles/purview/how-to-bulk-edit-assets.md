@@ -41,11 +41,11 @@ You can also add an asset to the bulk edit list in the asset detail page. Select
 
 1. Review the list and select **Deselect** if you want to remove any assets from the list.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/remove-list.png" alt-text="Screenshot of the remove.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/remove-list.png" alt-text="Screenshot with the Deselect button highlighted.":::
 
 1. Select **Bulk edit** to add, remove or replace glossary terms for all the selected assets.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/bulk-edit.png" alt-text="Screenshot of the remove.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/bulk-edit.png" alt-text="Screenshot with the bulk edit button highlighted.":::
 
 1. To add glossary terms, select Operation as **Add**. Select all the glossary terms you want to add in the New value. Select Apply when complete.
     - Add operation will append New value to the list of glossary terms already tagged to data assets.  
