@@ -57,10 +57,10 @@ The RDP client includes various settings that can be adjusted to optimize the us
 
 If your instructor has configured the GNOME graphical desktop with the RDP client, we recommend the following settings to optimize performance:
 - Under the **Display** tab, set the color depth to **High Color (15 bit)**.
-    ![RDP Display Settings](./media/how-to-enable-remote-desktop-linux/rdp-display-settings.png)
+    ![Change RDP Display Settings](./media/how-to-enable-remote-desktop-linux/rdp-display-settings.png)
 
 - Under the **Experience** tab, set the connection speed to **Modem (56 kbps)**.
-    ![RDP Display Settings](./media/how-to-enable-remote-desktop-linux/rdp-experience-settings.png)
+    ![Change RDP Experience Settings](./media/how-to-enable-remote-desktop-linux/rdp-experience-settings.png)
 
 ### Connect to the student VM using X2Go
 Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment (such as XFCE, MATE, and so on).
