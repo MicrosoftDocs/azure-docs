@@ -24,12 +24,6 @@ Many times, when processing data for ETL jobs, you will need to change the colum
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 ## Prerequisites
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
-
-
-
-## Prerequisites
 
 1. [Create an Azure subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription#:~:text=Create%20Subscription%20Azure%201%20Sign%20in%20to%20the,for%20each%20type%20of%20billing%20account.%20See%20More.) if you don't have one already.
 2. [Create an Azure Synapse Workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace#:~:text=%20Create%20a%20Synapse%20workspace%20%201%20Open,choice%20is%20to%20create%20a%20new...%20More%20) if you don't have one already.
