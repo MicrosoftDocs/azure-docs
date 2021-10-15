@@ -232,8 +232,6 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Identify and diagnose issues
-    href: diagnostics-role-service.md
   - name: Getting started feature 
     href: troubleshoot-getting-started.md
   - name: Host pool creation

@@ -1,26 +1,29 @@
 # Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
+#
+# Help: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# Background: https://github.blog/2017-07-06-introducing-code-owners/
+# NOTE: The people you choose as code owners must have _write_ permissions for the repository. When the code owner is a team, that team must be _visible_ and it must have _write_ permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
-# Horizontals
-
-## Azure Policy: Samples and Compliance Controls
+# Azure Policy: Samples and Compliance Controls
 /articles/**/policy-reference.md @DCtheGeek
 /articles/**/security-controls-policy.md @DCtheGeek
 /includes/policy/ @DCtheGeek
 
 # Azure Monitor
-/articles/azure-monitor/* @bwren
-/articles/azure-monitor/agents @bwren
-/articles/azure-monitor/alerts @rboucher
-/articles/azure-monitor/app @bwren @lgayhardt
-/articles/azure-monitor/autoscale @rboucher
-/articles/azure-monitor/containers @bwren
-/articles/azure-monitor/essentials @bwren @rboucher
-/articles/azure-monitor/insights @bwren @rboucher @lgayhardt
-/articles/azure-monitor/logs @bwren
-/articles/azure-monitor/visualize @bwren @lgayhardt
-/articles/azure-monitor/vm @bwren
-/articles/advisor @rboucher
-/articles/service-health @rboucher
+articles/azure-monitor/* @bwren
+articles/azure-monitor/agents @bwren
+articles/azure-monitor/alerts @rboucher @abbyMSFT
+articles/azure-monitor/app @bwren 
+articles/azure-monitor/autoscale @rboucher
+articles/azure-monitor/containers @bwren
+articles/azure-monitor/essentials @bwren @rboucher
+articles/azure-monitor/insights @bwren @rboucher 
+articles/azure-monitor/logs @bwren @abbyMSFT
+articles/azure-monitor/visualize @bwren  @rboucher
+articles/azure-monitor/vm @bwren
+articles/advisor @rboucher
+articles/service-health @rboucher
+
 
 # Azure Active Directory
 /articles/active-directory-b2c/ @msmimart @yoelhor

@@ -695,6 +695,8 @@
       items:
       - name: Insufficient fault domains
         href: ./kafka/kafka-troubleshoot-insufficient-domains.md
+      - name: Full data disk
+        href: ./kafka/kafka-troubleshoot-full-disk.md
 - name: Apache HBase
   items:
   - name: Overview
@@ -1004,7 +1006,7 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
-    - name: Restrict Public Connectivity
+    - name: Restrict public connectivity
       href: ./hdinsight-restrict-public-connectivity.md
     - name: Private link
       href: ./hdinsight-private-link.md
