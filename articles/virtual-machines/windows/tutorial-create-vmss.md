@@ -5,7 +5,6 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machines
-ms.subservice: availability
 ms.collection: windows
 ms.date: 10/15/2021
 ms.reviewer: mimckitt
@@ -16,7 +15,7 @@ ms.custom: mimckitt
 # Tutorial: Create a virtual machine scale set and deploy a highly available app on Windows
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-Virtual machine scale sets with [Flexible orchestration](flexible-virtual-machine-scale-sets.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+Virtual machine scale sets with [Flexible orchestration](../flexible-virtual-machine-scale-sets.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 
 In this tutorial, you deploy a virtual machine scale set in Azure and learn how to:
 
@@ -44,7 +43,7 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 - Services that want to mix virtual machine types or leverage Spot and on-demand VMs together
 - Existing Availability Set applications
 
-Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
+Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
 
 
