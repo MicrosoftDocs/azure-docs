@@ -1,11 +1,8 @@
 ---
 title: Use managed identities from a virtual machine to access Cosmos DB  | Microsoft Docs 
 description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
-services: active-directory
 author: barclayn
 manager: karenh444
-editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
@@ -13,9 +10,7 @@ ms.topic: tutorial
 ms.date: 10/14/2021
 ms.author: barclayn
 ms.custom: ep-miar
-
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
-
 ---
 
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
@@ -387,7 +382,7 @@ Initialize your Cosmos DB client:
 CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
 ```
 
-Then [read and write data](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples).
+Then [read and write data](../../cosmos-db/sql/sql-api-dotnet-v3sdk-samples.md).
 
 ### Java
 
@@ -397,7 +392,7 @@ Initialize your Cosmos DB client:
 CosmosAsyncClient Client = new CosmosClientBuilder().endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
 
-Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples)
+Then read and write data as described in [these samples](../../cosmos-db/sql/sql-api-java-sdk-samples.md)
 
 ### JavaScript
 
@@ -407,7 +402,7 @@ Initialize your Cosmos DB client:
 const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
 ```
 
-Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples)
+Then read and write data as described in [these samples](../../cosmos-db/sql/sql-api-nodejs-samples.md)
 
 ## Clean up steps
 
