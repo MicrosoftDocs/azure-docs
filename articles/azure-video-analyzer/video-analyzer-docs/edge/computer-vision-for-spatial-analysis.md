@@ -220,6 +220,8 @@ Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.tem
 #### [Azure VM with GPU](#tab/virtual-machine)
 Look for the deployment file in /src/edge/deployment.spatialAnalysis.generic.template.json. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.  
 
+---
+
 ## Generate and deploy the deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules.
