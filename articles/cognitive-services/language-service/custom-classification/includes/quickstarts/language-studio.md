@@ -38,7 +38,7 @@ After you have created an Azure storage account and linked it to your Language S
 
     :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
 
-5. Select your project type. For this quickstart, we will create a multi label classification project. Then click **Next**.
+5. Select your project type. For this quickstart, we will create a multi label classification project. Then click **Next**. You can learn more abou project types [here](../../definitions.md#Project)
 
 6. Enter the project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
 
