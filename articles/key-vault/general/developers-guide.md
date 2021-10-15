@@ -169,5 +169,5 @@ To learn about:
 ## Social
 
 - [Key Vault blog](/archive/blogs/kv/)
-- [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+- [Microsoft Q&A](/answers/products/)
 - [Stack Overflow for Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)
