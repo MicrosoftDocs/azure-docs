@@ -50,7 +50,7 @@ The following pages consist of language-by-language guidance to enable and confi
 * [.NET](opentelemetry-enable.md?tabs=net)
 * [Java](java-in-process-agent.md)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
-* [Python](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=python)
+* [Python](opentelemetry-enable.md?tabs=python)
 
 ## Enable via OpenCensus
 
