@@ -49,6 +49,8 @@ In this example, you put your values in place of the placeholder tokens surround
 
 ## properties.configuration
 
+Changes made to the configuration are an application-scope change. Does not create new revisions.
+
 A resource's `properties.configuration` object has the following properties:
 
 | Property | Description | Data type |
@@ -59,6 +61,8 @@ A resource's `properties.configuration` object has the following properties:
 | `registries` | Configuration object that references credentials for private container registries. Entries defined with `secretref` reference the secrets configuration object. | object |
 
 ## properties.template
+
+Changes made to the configuration are an revision-scope change. Does create new revisions.
 
 A resource's `properties.template` object has the following properties:
 
