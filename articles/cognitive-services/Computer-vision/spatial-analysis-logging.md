@@ -33,7 +33,7 @@ If your device is a local desktop machine or Azure GPU VM (with remote desktop e
             }
     }
     ```
-4. Update the graph in deployment manifest you want to run in debug mode. In the example below, we update the operationId  to cognitiveservices.vision.spatialanalysis-personcrossingpolygon.**debug** and a new parameter `VISUALIZER_NODE_CONFIG` is required to enable the visualizer winodw. All operations are available in debug flavor. When using shared nodes, use the cognitiveservices.vision.spatialanalysis.debug operation and add `VISUALIZER_NODE_CONFIG` to the instance parameters. 
+4. Update the graph in the deployment manifest you want to run in debug mode. In the example below, we update the operationId  to cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug. A new parameter `VISUALIZER_NODE_CONFIG` is required to enable the visualizer window. All operations are available in debug flavor. When using shared nodes, use the cognitiveservices.vision.spatialanalysis.debug operation and add `VISUALIZER_NODE_CONFIG` to the instance parameters. 
 
     ```
     "zonecrossing": {
