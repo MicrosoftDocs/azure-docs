@@ -12,9 +12,14 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-## Create a new resource from the Azure portal
+## Create a new Azure resource and Azure Blob Storage account
 
-To create an Azure Text Analytics resource with an Azure blob storage account configured to work with Custom Text Classification: 
+Before you can use custom text classification, you will need to create a Text Analytics resource, which will give you the subscription and credentials you will need to create a project and start training a model. You will also need an Azure blob storage account, which is the required online data storage to hold text for analysis. 
+
+> [!IMPORTANT]
+> To get started quickly, we recommend creating a new Azure Text Analytics resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
+>
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 
@@ -44,7 +49,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 ## Create a custom classification project
 
-Creating a Text Analytics resource and blob storage container will let you begin working with Custom Text Classification. A project will contain your text classification model, and be the work area for building your custom model.  
+Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
 1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
@@ -75,8 +80,7 @@ Creating a Text Analytics resource and blob storage container will let you begin
 
 Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure blob storage account.
 
-In this step, your model will start learning from the tagged data. 
-
+A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
 
 To start training your model:
 
