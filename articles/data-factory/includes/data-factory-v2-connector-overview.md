@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/14/2021
+ms.date: 10/15/2021
 ms.author: jianleishen
 ---
 
@@ -57,7 +57,7 @@ ms.author: jianleishen
 | &nbsp;                | [Couchbase (Preview)](../connector-couchbase.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [MongoDB](../connector-mongodb.md)     | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
 | &nbsp;                | [MongoDB Atlas](../connector-mongodb-atlas.md) | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
-| **File**              | [Amazon S3](../connector-amazon-simple-storage-service.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
+| **File**              | [Amazon S3](../connector-amazon-simple-storage-service.md) | ✓/−                                                          | ✓/−                                                             | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;              | [Amazon S3 Compatible Storage](../connector-amazon-s3-compatible-storage.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [File System](../connector-file-system.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [FTP](../connector-ftp.md)             | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
