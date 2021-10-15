@@ -128,7 +128,7 @@ Use the Azure portal to create a Flexible scale set.
     ```
 1. When you are done, select **Review + create**.
 1. Once you see that validation has passed, you can select **Create** at the bottom of the page to deploy your scale set.
-1. 1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 1. When the deployment is complete, select **Go to resource** to see your scale set.
 
 
