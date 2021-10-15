@@ -36,7 +36,7 @@ landingContent:
              url: language-support.md
 
 #Card
-  - title: Features and Development Options
+  - title: Features 
     linkLists:
       - linkListType: concept
         links:
@@ -54,6 +54,9 @@ landingContent:
             url: concept-business-card.md
           - text: Custom model
             url: concept-custom.md
+#Card
+  - title: Features 
+    linkLists:
       - linkListType: quickstart
         links:
         - text: 🆕Form Recognizer Studio (preview)
