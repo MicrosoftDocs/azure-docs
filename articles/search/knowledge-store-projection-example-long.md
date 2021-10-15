@@ -15,13 +15,13 @@ ms.date: 10/15/2021
 
 This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by walking you through the shaping and projection steps required for fully expressing the output of a rich skillset in a [knowledge store](knowledge-store-concept-intro.md).
 
-If your application requirements call for multiple skills and projections, this example can give you a better understanding of how to shape and project your content.
+If your application requirements call for multiple skills and projections, this example can give you a better understanding of how shapes and projections intersect.
 
 ## Example skillset
 
-To understand the intersection between shapes and projections, review the following skillset that creates enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
+To understand the dependency between shapes and projections, review the following skillset that creates enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
 
-Pay close attention to skill outputs (targetNames). Outputs written to the enriched document tree are referenced in projections and Shaper skills.
+Pay close attention to skill outputs (targetNames). Outputs written to the enriched document tree are referenced in projections and in shapes (via Shaper skills).
 
 ```json
 {
@@ -644,10 +644,9 @@ When building projections of different types, file and object projections are ge
 }
 ```
 
-
 ## Next steps
 
 The example in this article demonstrates common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
 
 > [!div class="nextstepaction"]
-> [Configure caching for incremental enrichment i](search-howto-incremental-index.md)
+> [Configure caching for incremental enrichment](search-howto-incremental-index.md)
