@@ -69,7 +69,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 
 **Search results summary**: describe the purpose or goal of your offer in 100 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
-**Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in Azure portal.
+**Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
 
 **Description**: describe your offer in 3,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
 
@@ -93,9 +93,9 @@ You can use HTML tags to format your description. For information about HTML for
 
 **Marketplace media – logos**: provide a PNG file for the large-size logo of your offer. Partner Center will use it to create medium and small logos. You can optionally replace these logos with a different image later.
 
-* The large logo (from 216 x 216 to 350 x 350 px) appears on your offer listing on Azure Marketplace.
-* The medium logo (90 x 90 px) is shown when a new resource is created.
-* The small logo (48 x 48 px) is used on the Azure Marketplace search results.
+* The large logo (from 216x216 to 350x350 px) appears on your offer listing on Azure Marketplace.
+* The medium logo (90x90 px) is shown when a new resource is created.
+* The small logo (48x48 px) is used on the Azure Marketplace search results.
 
 Follow these guidelines for your logos:
 
@@ -105,9 +105,9 @@ Follow these guidelines for your logos:
 * If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
 * The look and feel of your logo should be flat. Avoid gradients. Don't place text on the logo, not even your company or brand name.
 
-**Marketplace media – screenshots** (optional): Add up to five images that demonstrate how your offer works. All images must be 1280 x 720 pixels in size and in .PNG format.
+**Marketplace media – screenshots** (optional): Add up to five images that demonstrate how your offer works. All images must be 1280x720 pixels in size and in .PNG format.
 
-**Marketplace media – videos** (optional): upload up to five videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+**Marketplace media – videos** (optional): upload up to five videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280x720 PNG file).
 
 ## Preview audience
 
