@@ -69,7 +69,7 @@ Use this article to learn about the data and rate limits when using custom class
 
 * You can only train one model at a time per project.
 
-## Classes
+## Classes limits
 
 * You must have at least 2 classes in your project. <!-- The maximum is 200 classes. -->
 
