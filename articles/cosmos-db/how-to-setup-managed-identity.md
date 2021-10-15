@@ -4,7 +4,7 @@ description: Learn how to configure managed identities with Azure Active Directo
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/15/2021
 ms.author: thweiss
 ---
 
