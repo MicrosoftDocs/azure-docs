@@ -393,6 +393,9 @@ The updated policy takes up to 24 hours to go into effect. Once the policy is in
 
 When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.
 
+**Is there a way to identify at which time the policy will be executing?**
+Unfortunately, there is no way to track at which time the policy will be executing as it is a background scheduling process. However, the platform will be running the policy once a day.
+
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
