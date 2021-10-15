@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/14/2021
+ms.date: 10/15/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -54,7 +54,7 @@ When applications are hosted on the same domain, the user can sign into an app o
 
 When applications are hosted on different domains, the tokens cached on domain A cannot be accessed by MSAL.js in domain B.
 
-When a user is signed in on domain A navigate to an application on domain B, the user will be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials. 
+When a user is signed in on domain A navigate to an application on domain B, the user will be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials.
 
 If the user has multiple user accounts in session with Azure AD, the user will be prompted to pick the relevant account to sign in with.
 
@@ -105,7 +105,6 @@ To get the values for login_hint and domain_hint by reading the claims returned 
 - **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` it's consumers. Otherwise, it's organizations.
 
 Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values for login hint and domain hint.
-
 
 ## SSO without MSAL.js login
 
