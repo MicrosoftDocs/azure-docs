@@ -6,7 +6,11 @@ ms.date: 10/15/2021
 ms.author: vikramdh
 ---
 
-# Events types
+# Azure Communication Services - Voice and video calling events
+
+This article provides the properties and schema for communication services voice and video calling events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+## Events types
 
 Azure Communication Services emits the following voice and video calling event types:
 
@@ -14,7 +18,7 @@ Azure Communication Services emits the following voice and video calling event t
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.RecordingFileStatusUpdated | Published when recording file is available |
 
-# Event responses
+## Event responses
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
