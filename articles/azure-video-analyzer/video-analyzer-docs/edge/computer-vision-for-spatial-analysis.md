@@ -752,9 +752,14 @@ You can examine the Video Analyzer video resource that was created by the live p
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/sa-video-playback.png" alt-text="Screenshot of video playback":::
    
-1. To view the inference metadata as bounding boxes on the video, click the **Metadata rendering** icon
+1. To view the inference metadata on the video, click the **Metadata rendering** icon
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Metadata rendering icon":::
+
+    You will find 3 options to view as overlay on the video:  
+      - **Bounding boxes**: This will display a bounding box boxes around each person with a unique id
+      - **Attributes** - This will display person attributes such as its speed (in ft/s) and orientation (using an arrow), when available
+      - **Object path** - This will display a short trail for each person's movement, when available
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/sa-video-playback-bounding-boxes.png" alt-text="Screenshot of video playback with bounding boxes":::
