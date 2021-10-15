@@ -56,7 +56,7 @@ Azure SQL Managed Instance allows you to scale as well:
 
 ## Impact of scale up or scale down operations
 
-Initiating a scale up, or scale down action, in any of the flavors would restart the database engine process and move it to a different virtual machine if needed. Moving the database engine process to a new virtual machine is an **online process** during which you can continue using your existing Azure SQL Database service. Once the target database engine is ready to process queries, open connections to the current database engine will be [terminated](single-database-scale.md#impact) and uncommitted transactions will be rolled back. New connections will be made to the target database engine.
+Initiating a scale up, or scale down action, in any of the flavors mentioned above, restarts the database engine process, and moves it to a different virtual machine if needed. Moving the database engine process to a new virtual machine is an **online process** during which you can continue using your existing Azure SQL Database service. Once the target database engine is ready to process queries, open connections to the current database engine will be [terminated](single-database-scale.md#impact), and uncommitted transactions will be rolled back. New connections will be made to the target database engine.
 
 > [!NOTE]
 > It is not recommended to scale your managed instance if a long-running transaction, such as data import, data processing jobs, index rebuild, etc., is running, or if you have any active connection on the instance. To prevent the scaling from taking longer time to complete than usual, you should scale the instance upon the completion of all long-running operations.
