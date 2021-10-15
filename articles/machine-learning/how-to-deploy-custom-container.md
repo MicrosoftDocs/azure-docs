@@ -44,7 +44,7 @@ Custom container deployments can use web servers other than the default Python F
 
 To follow along with this tutorial, download the source code below.
 
-```azurecli-interactive
+```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli
 ```
@@ -111,16 +111,6 @@ When you deploy a model as a real-time endpoint, Azure Machine Learning _mounts_
 
 For example, if you have the following directory structure on your local machine:
 
-```
-azureml-examples
-  cli
-    endpoints
-      online
-        custom-container
-          half_plus_two
-          tfserving-deployment.yml    
-```
-
 :::image type="content" source="./media/how-to-deploy-custom-container/local-directory-structure.png" alt-text="Tree view screenshot of /azureml-examples/cli/endpoints/online/custom-container directory structure":::
 
 and `tfserving-deployment.yml` contains:
@@ -133,15 +123,6 @@ model:
 ```
 
 then your model will be located at the following location in your deployment:
-
-```
-var 
-  azureml-app
-    azureml-models
-      tfserving-deployment
-        1
-          half_plus_two
-```
 
 :::image type="content" source="./media/how-to-deploy-custom-container/deployment-location.png" alt-text="Tree view screenshot of /var/azureml-app/azureml-models/tfserving-deployment/1 directory structure":::
 
@@ -162,15 +143,8 @@ model:
 model_mount_path: /var/tfserving-model-mount
 .....
 ```
-then your model will be located at the following location in your deployment:
 
-```
-var 
-  tfserving-model-mount
-    tfserving-deployment
-      1
-        half_plus_two
-```
+then your model will be located at the following location in your deployment:
 
 :::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Tree view screenshot of /var/tfserving-model-mount/tfserving-deployment/1 directory structure":::
 
@@ -178,13 +152,15 @@ var
 
 Now that you've understood how the YAML was constructed, create your endpoint.
 
-```YAML
+```azurecli
 az ml online-endpoint create --name tfserving-endpoint -f endpoints/online/custom-container/tfserving-endpoint.yml
 ```
 
 Creating a deployment may take few minutes.
 
-```YAML
+
+
+```azurecli
 az ml online-deployment create --name tfserving-deployment -f endpoints/online/custom-container/tfserving-deployment.yml
 ```
 
@@ -198,11 +174,11 @@ Once your deployment completes, see if you can make a scoring request to the dep
 
 Now that you've successfully scored with your endpoint, you can delete it:
 
-```YAML
+```azurecli
 az ml online-endpoint delete --name tfserving-endpoint
 ```
 
-```YAML
+```azurecli
 az ml model delete -n tfserving-mounted --version 1
 ```
 
