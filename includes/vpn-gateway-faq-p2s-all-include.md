@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/15/2021
+ ms.date: 10/14/2021
  ms.author: cherylmc
  ms.custom: include file, devx-track-azurepowershell
 ---
@@ -24,6 +24,7 @@ The following client operating systems are supported:
 * Windows Server 2016 (64-bit only)
 * Windows Server 2019 (64-bit only)
 * Windows 10
+* Windows 11 
 * macOS version 10.11 or above
 * Linux (StrongSwan)
 * iOS

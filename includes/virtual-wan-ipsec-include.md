@@ -11,7 +11,7 @@
 ---
 
 >[!NOTE]
->When working with Default policies, Azure can act as both initiator and responder during an IPsec tunnel setup. There is no support for Azure as a responder only.
+>When working with Default policies, Azure can act as both initiator and responder during an IPsec tunnel setup.
 >
 
 ### Initiator
