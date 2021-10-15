@@ -20,7 +20,7 @@ Azure Communication Services Job Router uses an extensible rules engine to proce
 
 ## Rule engine overview
 
-Controlling the behavior of your implementation can often include complex decision making. Job Router provides a flexible way to invoke behavior programmatically using various RouterRule types as part of its rules engine. Job Router's rule engine generally relies on the use of **labels** defined on objects such as a Job, a Queue, or a Worker. Labels are key/value pairs stored on the object, and can be evaluated within the rules engine during the lifecycle of a particular object.
+Controlling the behavior of your implementation can often include complex decision making. Job Router provides a flexible way to invoke behavior programmatically using various rule engines. Job Router's rule engines generally take a set of **labels** defined on objects such as a Job, a Queue, or a Worker as an input, apply the rule and produce an output.
 
 > [!NOTE]
 > Although the rule engine typically uses labels as input, it can also set values such as a Queue ID without the use of evaluating labels.
@@ -41,11 +41,11 @@ await client.SetClassificationPolicyAsync(
 
 The following `RouterRule` types exist in Job Router to provide flexibility in how your Jobs are processed.
 
-**Static rule -** This rule can be used specify a static input such as selecting a specific Queue ID.
+**Static rule -** This rule can be used specify a static value such as selecting a specific Queue ID.
 
 **Expression rule -** An expression rule uses the [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to process the Job labels and return an object representing the parsed value.
 
-**Azure Function rule -** Specifying a URI and an `AzureFunctionRuleCredential`, this rule allows the Job Router to pass the Job labels as a payload and respond back with a string representing the Queue ID. This rule type can be used when your requirements are complex or you prefer to use your own parsing language and platform.
+**Azure Function rule -** Specifying a URI and an `AzureFunctionRuleCredential`, this rule allows the Job Router to pass the input labels as a payload and respond back with an output value. This rule type can be used when your requirements are complex.
 
 > [!NOTE]
 > Although the **Direct Map rule** is part of the Job Router SDK, it is only supported in the `NearestQueueLabelSelector` at this time.

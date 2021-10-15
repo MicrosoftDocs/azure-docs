@@ -58,7 +58,7 @@ A Job represents the unit of work, which needs to be routed to an available Work
 
 ## Queue
 
-When a Job is created it is assigned to a Queue, either statically at the time of submission, or dynamically through the application of a classification policy. Jobs are grouped together by their defined Queue ID and can take on different characteristics depending on how you intend on distributing the workload. Queues require a defined **Distribution Policy** to determine how workers are selected and offered Jobs at runtime.
+When a Job is created it is assigned to a Queue, either statically at the time of submission, or dynamically through the application of a classification policy. Jobs are grouped together by their assigned Queue and can take on different characteristics depending on how you intend on distributing the workload. Queues require a **Distribution Policy** to determine how jobs are offered to eligible workers.
 
 Queues in the Job Router can also contain Exception Policies that determine the behavior of Jobs when certain conditions arise. For example, you may want a Job to be moved to a different Queue, the priority increased, or both based on a timer or some other condition.
 

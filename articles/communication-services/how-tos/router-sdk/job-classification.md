@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Classifying a job
 
-Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker selectors of a Job.
+Learn to use a classification policy in Job Router to dynamically resolve the queue and priority while also attaching worker selectors to a Job.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -54,7 +54,7 @@ As described above, an easy way of submitting a Job is to specify the Priority, 
 
 ### Create a classification policy
 
-The following classification policy will use the low-code [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`. Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
+The following classification policy will use the low-code [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`.  If the `XBOX_DEFAULT_QUEUE` was also not found, then the job will automatically be sent to the fallback queue `DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
 
 ```csharp
 var policy = await client.SetClassificationPolicyAsync(
