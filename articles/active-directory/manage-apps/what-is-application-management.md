@@ -41,7 +41,7 @@ Many applications are already pre-integrated (shown as “Cloud applications” 
 
 ### Your own applications
 
-If you develop your own business application, you can register it with Azure AD to take advantage of the security features that the tenant provides. You can register your application in **App Registrations**, or you can register it using the **Create your own application** link when adding a new application in **Enterprise applications**. You should consider how [authentication](../develop/authentication-vs-authorization.md) is implemented for your application. 
+If you develop your own business application, you can register it with Azure AD to take advantage of the security features that the tenant provides. You can register your application in **App Registrations**, or you can register it using the **Create your own application** link when adding a new application in **Enterprise applications**. Consider how [authentication](../develop/authentication-vs-authorization.md) is implemented in your application for integration with Azure AD. 
 
 If you want to make your application available through the gallery, you can [submit a request to have it added](../develop/v2-howto-app-gallery-listing.md).
 
@@ -66,7 +66,7 @@ You can [manage user consent settings](configure-user-consent.md) to choose whet
 
 Users often are unable to consent to the permissions an application is requesting. Configure the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to provide a justification and request an administrator's review and approval of an application.
 
-As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. This is necessary when an application requires permissions that regular users aren't allowed to grant, and allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
+As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant, and allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
 
 ### Single sign-on
 
@@ -92,7 +92,7 @@ Azure AD provides customizable ways to deploy applications to users in your orga
 
 ## Configure properties
 
-When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that affect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
+When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that effect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
 
 ## Secure the application
 
