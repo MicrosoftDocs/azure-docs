@@ -56,7 +56,7 @@ You'll require the following files in your repository for running the load test.
 
 ## Set up a GitHub workflow to integrate with Azure Load testing service
 
-1. Create an [Azure Service Principal for Roll-based access control (RBAC)](../../role-based-access-control/overview.md) by running the below Azure CLI command:  
+1. Create an [Azure Service Principal for Roll-based access control (RBAC)](../role-based-access-control/overview.md) by running the below Azure CLI command:  
 
     ```azurecli
     az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -196,7 +196,7 @@ To add parameters to your load test from the workflow:
 
 1. Save and run the pipeline.  
 
-The Azure Load Testing task, passes the secret from the workflow to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded. These are failure criteria and the test will fail if the criteria evaluate to true.  
+The Azure Load Testing task, passes the secret from the workflow to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded.  
 
 Take a look at the overview of the Azure Load Testing action in the next section.  
 
