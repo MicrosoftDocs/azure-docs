@@ -12,8 +12,6 @@
       href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Continuous regression testing in GitHub with Azure Load Testing
       href: tutorial-continuous-regression-testing-cicd-github-actions.md
-#    - name: Continuous regression testing in Azure Pipelines with Azure Load Testing
-#      href: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
 - name: Reference
   items: 
     - name: CLI 

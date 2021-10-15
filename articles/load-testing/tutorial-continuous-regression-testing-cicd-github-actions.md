@@ -252,4 +252,4 @@ This action creates and runs an Azure load test from a GitHub Workflow. The acti
 You can find our set of GitHub Actions grouped into different repositories on GitHub, each contains documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.  
 
 > [!div class="nextstepaction"]
-> [Azure and GitHub integration](../../developer/github/index.yml)
+> [Azure and GitHub integration](/azure/developer/github/index.yml)
