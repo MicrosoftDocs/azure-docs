@@ -54,7 +54,7 @@ If your device is a local desktop machine or Azure GPU VM (with remote desktop e
     ```
     
 5. Redeploy and you will see the visualizer window on the host computer
-6. After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container, and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
+6. After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
 
     ```bash
     sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
