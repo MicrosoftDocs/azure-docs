@@ -28,7 +28,7 @@ Azure Communication Services Job Router uses events to notify your applications 
 
 ### Job submission flow
 
-1. The Contoso Application submits a Job to the Job Router in the Azure Communication Services instance.
+1. The Contoso application submits a Job to the Job Router in the Azure Communication Services instance.
 2. The Job is classified and an event is raised called **RouterJobClassified** which includes all the information about the Job and how the classification process may have modified its properties.
  
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram showing Communication Services' Job Router submitting a job.":::
