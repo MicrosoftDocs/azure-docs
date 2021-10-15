@@ -9,13 +9,14 @@ ms.date: 13/10/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Quick Start 
+# Quickstart: Create a new Lake database leveragin database templates
 
 This quick start gives you a run through of an end-2-end scenario on how you can leverage the database templates to create a lake database, align data to your new model and use the integrated experience to analyze the data. 
 
 ## Prerequisites
-
-This quickstart assumes you have already created a Synapse Analytics workspace. 
+- At least Synapse User role permissions are required for exploring an lake database template from Gallery.
+- Synapse Administrator, or Synapse Contributor permissions are required on the Synapse workspace for creating a lake database.
+- Storage Blob Data Contributor permissions are required on data lake.
 
 ## Create a lake database from database templates
 
@@ -75,3 +76,10 @@ df.show(10)
 ## Train machine learning models
 
 You can use lake database to train your machine learning models and score the data. For more details [Train machine learning models](./synapse-analytics/machine-learning/tutorial-automl.md) 
+
+## Next steps
+Continue to explore the capabilities of the database designer using the links below.
+ - [Database templates concept](concepts-database-templates.md)
+ - [Lake database concept](concepts-lake-database.md)
+ - [How to create a lake database](create-empty-lake-database.md)
+

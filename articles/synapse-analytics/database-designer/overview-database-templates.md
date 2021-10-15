@@ -8,7 +8,7 @@ ms.date: 13/10/2021
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-# Azure Synapse database templates
+# What is Azure Synapse database templates
 
 
 The journey of data from source systems to data warehouses and data marts to solve business problems starts with data and how they are shaped. Database templates are a set of business and technical data definitions that are pre-designed to meet the needs of a particular industry. They act as blueprints that provide common elements derived from best practices, government regulations and the complex data and analytic needs of an industry-specific organization. 
@@ -35,9 +35,9 @@ A typical database template addresses the core requirements of a specific indust
 
 
 
-# Available database templates 
+## Available database templates 
 
-Currently there are 6 database templates available that customers can leverage to start creating their lake database. 
+Currently there are 6 database templates available within the Azrue Synapse Stuido that customers can leverage to start creating their lake database. 
 
  - **Banking** - For companies who are analyzing banking data.
  - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
@@ -48,3 +48,7 @@ Currently there are 6 database templates available that customers can leverage t
 
 As emission and carbon management has become a very important topic in all industires we have included those components in all the available database templates to make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
+## Next steps
+Continue to explore the capabilities of the database designer using the links below.
+- [Database templates concept](concepts-database-templates.md)
+- [Quick start](quick-start-create-lake-database.md)

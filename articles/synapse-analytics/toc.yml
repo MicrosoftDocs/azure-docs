@@ -207,6 +207,31 @@ items:
         href: troubleshoot/reading-utf8-text.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
+- name: Database templates
+  items:
+  - name: Overview
+    items:
+    - name: Database templates overview
+      href: database-designer/overview-database-templates.md
+      displayName: overview
+  - name: Quickstarts
+    items:
+    - name: Create a lake database
+      href: database-designer/quick-start-create-lake-database.md
+  - name: Concepts
+    items:
+    - name: Database templates
+      href: database-designer/concepts-database-templates.md
+    - name: Lake database
+      href: database-designer/concepts-lake-database.md   
+  - name: How-to guides      
+    items:
+    - name: Create an empty lake database
+      href: database-designer/create-empty-lake-database.md
+    - name: Create lake dtabase from database templates
+      href: database-designer/database-from-lake-database-templates.md
+    - name: Modify a lake database
+      href: database-designer/modify-lake-database.md
 - name: Migration guides
   items:
   - name: Migrate to a dedicated SQL pool

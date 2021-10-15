@@ -48,3 +48,8 @@ Relations are associations or interactions between any two tables. For example, 
 
 ## Table partitions
 Lake database allows for the underlying data to be partitioned for a table for better performance. You can set partition configuration in the storage settings of a table in database editor.
+
+## Next steps
+Continue to explore the capabilities of the database designer using the links below.
+- [Quick start](quick-start-create-lake-database.md)
+- [Lake database Concept](concepts-lake-database.md)
