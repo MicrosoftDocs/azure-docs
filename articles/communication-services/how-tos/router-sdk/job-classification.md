@@ -73,7 +73,7 @@ var policy = await client.SetClassificationPolicyAsync(
         )
     },
     prioritizationRule: new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
-    defaultQueueId: "DEFAULT_QUEUE"
+    fallbackQueueId: "DEFAULT_QUEUE"
 );
 ```
 

@@ -145,7 +145,7 @@ Use the Job Router client connection to query the Worker and observe the ID of t
     // wait 500ms for the Job Router to offer the Job to the Worker
     Task.Delay(500).Wait();
 
-    var result = client.GetWorker(edmontonWorker.Value.Id);
+    var result = await client.GetWorkerAsync(edmontonWorker.Value.Id);
 
     Console.WriteLine(
         $"Job ID: {job.Value.Id} offered to {edmontonWorker.Value.Id} " +

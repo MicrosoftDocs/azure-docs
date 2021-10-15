@@ -54,7 +54,7 @@ Azure Communication Services relies on Event Grid's messaging platform to send n
 
 ## Job
 
-A Job represents the unit of work, which needs to be routed to an available Worker. Jobs are defined using the Azure Communication Services Router SDKs or by submitting an authenticated request to the REST API. Jobs often contain a reference to some unique identifier you may have such as a call ID or a ticket number, along with the characteristics of the work being performed.
+A Job represents the unit of work, which needs to be routed to an available Worker. Jobs are defined using the Azure Communication Services Job Router SDKs or by submitting an authenticated request to the REST API. Jobs often contain a reference to some unique identifier you may have such as a call ID or a ticket number, along with the characteristics of the work being performed.
 
 ## Queue
 

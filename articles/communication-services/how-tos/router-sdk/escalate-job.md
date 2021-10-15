@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Escalate a job
 
-This guide shows you how to escalate a Job in a Queue by using an Escalation Policy.
+This guide shows you how to escalate a Job in a Queue by using an Exception Policy.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
