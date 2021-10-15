@@ -1,25 +1,36 @@
-This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory.  It covers  how to set up and use the generic LDAP connector with the Azure AD ECMA Connector Host. 
+This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document focuses on AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Please note that provisioning users into Active Directory Domain Services through this solution is not supported. 
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
-## Prerequisites for the Azure AD ECMA Connector Host
+## Prerequisites for provisioning users into an LDAP directory
 
 >[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
+> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability. Please note that provisioning users into Active Directory Domain Services is not supported through this preview. 
 
 
 ### On-premises prerequisites
 
- - A target system, such as a Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted.
- - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have an LDAP instance in your environment and use the generic LDAP connector.
+ - A target system, such as a Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not be used to provision users into Azure AD as you may create a loop with Azure AD Connect. 
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
 
 Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. For purposes of this configuration, the user object type is used. Use the following information to guide you in your configuration. 
 
 #### Supported systems
-* Active Directory Lightweight Directory Services
 * OpenLDAP
+* Microsoft Active Directory Lightweight Directory Services
+* 389 Directory Server
+* pache Directory Server
+* IBM Tivoli DS
+* Isode Directory
+* NetIQ eDirectory
+* Novell eDirectory
+* Open DJ
+* Open DS
+* Open LDAP (openldap.org)
+* Oracle (previously Sun) Directory Server Enterprise Edition
+* RadiantOne Virtual Directory Server (VDS)
+* Sun One Directory Server
 
 ### Cloud requirements
 
@@ -29,7 +40,7 @@ Depending on the options you select, some of the wizard screens might not be ava
  - The Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
 
 ## Prepare the LDAP directory
-The following information is provided to help create a test LDAP environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information see [Active Directory Lightweight Directory Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)).
+The following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information see [Active Directory Lightweight Directory Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)). 
 
 If you already have AD LDS setup in a test environment you can skip the following sections and move to installing the ECMA Host connector section.
 
