@@ -1384,18 +1384,18 @@
     items:
     - name: Platform metrics
       href: essentials/metrics-supported.md
-    - name: Metrics in diagnostic settings
+    - name: Export via diagnostic settings
       href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
       href: alerts/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
-    - name: Activity log schema
-      href: essentials/activity-log-schema.md
-    - name: Resource log schemas
-      href: essentials/resource-logs-schema.md
     - name: Supported resource log categories
       href: essentials/resource-logs-categories.md
+    - name: Resource log schemas
+      href: essentials/resource-logs-schema.md
+    - name: Activity log schema
+      href: essentials/activity-log-schema.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
