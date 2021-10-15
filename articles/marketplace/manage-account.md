@@ -1,6 +1,6 @@
 ---
-title: How to manage a commercial marketplace account in Microsoft Partner Center - Azure Marketplace
-description: Learn how to manage a commercial marketplace account in Microsoft Partner Center.
+title: Manage a commercial marketplace account in Partner Center
+description: Manage a commercial marketplace account in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -9,14 +9,14 @@ ms.author: vavargh
 ms.date: 09/27/2021
 ---
 
-# Manage your commercial marketplace account in Partner Center
+# Manage a commercial marketplace account in Partner Center
 
 **Appropriate roles**
 
 - Owner
 - Manager
 
-Once you've [created a Partner Center account](./create-account.md), you can use the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to manage your account and offers.
+Once you've [created a Partner Center account](./create-account.md), use the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to manage your account and offers.
 
 ## Access your account settings
 
@@ -32,7 +32,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
+1. Under **Account settings**, select **Legal**, then the **Developer** tab to view details related to your commercial marketplace account.
 
     [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -45,7 +45,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
    :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Screenshot showing the Account Settings option in Partner Center.":::
 
-1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
+1. Under **Account settings**, select **Legal**, then the **Developer** tab to view details related to your commercial marketplace account.
 
    :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Screenshot showing the Developer tab." lightbox="media/manage-accounts/developer-tab.png":::
 

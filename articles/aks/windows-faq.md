@@ -64,8 +64,7 @@ Yes. For the implications and options that are available, see [Maximum number of
 
 If you created your cluster before February 2020 and have never done any cluster upgrade operations, the cluster still uses an old Windows image. You may have seen an error that resembles:
 
-"The following list of images referenced from the deployment template is not found: Publisher: MicrosoftWindowsServer, Offer: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, Version: latest. Please refer to [Find and use Azure Marketplace VM images with Azure PowerShell
-](../virtual-machines/windows/cli-ps-findimage.md) for instructions on finding available images.
+"The following list of images referenced from the deployment template is not found: Publisher: MicrosoftWindowsServer, Offer: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, Version: latest. Please refer to [Find and use Azure Marketplace VM images with Azure PowerShell](../virtual-machines/windows/cli-ps-findimage.md) for instructions on finding available images.
 
 To fix this error:
 

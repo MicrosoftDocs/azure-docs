@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD role settings in Privileged Identity Management
 
-A privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment.
+A privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment. For information on the PIM events that trigger notifications and which administrators receive them, see [Email notifications in Privileged Identity Management](pim-email-notifications.md#notifications-for-azure-ad-roles)
 
 ## Open role settings
 

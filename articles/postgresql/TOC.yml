@@ -466,6 +466,8 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
@@ -728,6 +730,8 @@
       href: howto-hyperscale-restart.md
     - name: Monitor
       items:
+      - name: View metrics
+        href: howto-hyperscale-monitoring.md
       - name: Create alerts on metrics
         href: howto-hyperscale-alert-on-metric.md
         dispalyName: alerts on hyperscale

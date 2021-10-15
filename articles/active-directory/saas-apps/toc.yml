@@ -489,6 +489,8 @@
         href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
         href: contractsafe-saml2-sso-tutorial.md
+      - name: ContractS CLM
+        href: holmes-tutorial.md  
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Contrast Security
@@ -894,12 +896,12 @@
         href: hightail-tutorial.md
       - name: Hirebridge ATS
         href: hirebridge-ats-tutorial.md
+      - name: Hiretual-SSO
+        href: hiretual-tutorial.md  
       - name: HireVue
         href: hirevue-tutorial.md
       - name: Hive
         href: hive-tutorial.md
-      - name: Holmes
-        href: holmes-tutorial.md
       - name: Honestly
         href: honestly-tutorial.md
       - name: Hootsuite
@@ -2367,6 +2369,8 @@
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
       - name: AWS Single Sign-On
         href: aws-single-sign-on-provisioning-tutorial.md
+      - name: BenQ IAM
+        href: benq-iam-provisioning-tutorial.md 
       - name: Bentley - Automatic User Provisioning
         href: bentley-automatic-user-provisioning-tutorial.md  
       - name: BitaBIZ
@@ -2525,6 +2529,8 @@
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Klaxoon SAML
+        href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
         href: kpifire-provisioning-tutorial.md
       - name: LimbleCMMS

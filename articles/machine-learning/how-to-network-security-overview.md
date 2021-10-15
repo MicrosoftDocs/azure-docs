@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network (VNet).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
@@ -163,7 +163,7 @@ To enable full studio functionality, see [Use Azure Machine Learning studio in a
 
 ### Limitations
 
-[ML-assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
+[ML-assisted data labeling](how-to-create-image-labeling-projects.md#use-ml-assisted-data-labeling) doesn't support a default storage account behind a virtual network. Instead, use a storage account other than the default for ML assisted data labeling. 
 
 > [!TIP]
 > As long as it is not the default storage account, the account used by data labeling can be secured behind the virtual network. 

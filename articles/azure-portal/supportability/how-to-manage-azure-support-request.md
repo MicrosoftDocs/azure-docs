@@ -3,7 +3,7 @@ title: Manage an Azure support request
 description: Describes how to view support requests, send messages, change the request severity level, share diagnostic information with Azure support, reopen a closed support request, and upload files.
 tags: billing
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/30/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
@@ -48,7 +48,7 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Share diagnostic information with Azure support
 
-When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue.
 
 To change your **Share diagnostic information** selection after the request has been created:
 

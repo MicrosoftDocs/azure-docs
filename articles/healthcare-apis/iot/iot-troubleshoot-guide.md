@@ -1,23 +1,20 @@
 ---
-title: Azure IoT Connector for FHIR (preview) - Troubleshooting guide and how-to
-description: This article helps users troubleshoot common error messages, conditions, and how to copy mapping files.
+title: IoT connector troubleshooting guide and how-to - Azure Healthcare APIs
+description: This article helps users troubleshoot IoT connector common error messages, conditions, and how to copy mapping files.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/28/2021
+ms.date: 10/01/2021
 ms.author: jasteppe
 ---
-# Azure IoT Connector for FHIR troubleshooting guide
+# IoT connector troubleshooting guide
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR Device and FHIR destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
-
-> [!NOTE]
-> In the remainder of this article, Azure IoT Connector for FHIR will be referred to as IoT connector.
+This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
 
 > [!TIP]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
@@ -65,12 +62,12 @@ This section describes the validation process that the IoT connector does. The v
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace is still provisioning.|Wait until the parent Workspace provisioning has completed and submit the provisioning request again.
 |`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT connector provisioning request `location` property is different from the parent Workspace `location` property.|Set the `location` property of the IoT connector in the provisioning request to the same value as the parent Workspace `location` property.
 
-### Destination resource
+### Destination Resource
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
-|The maximum number of resource type `iotconnectors/destinations` has been reached.|API and Azure portal|IoT connector Destination Resource quota is reached and the default is 1 per IoT connector).|Delete the existing instance of IoT connector Destination. Only one Destination Resource is permitted per IoT connector.
-|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of Azure API for FHIR.|Ensure the resource ID is formatted correctly, and make sure the resource ID is for an Azure API for FHIR instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`
+|The maximum number of resource type `iotconnectors/destinations` has been reached.|API and Azure portal|IoT connector Destination Resource quota is reached and the default is 1 per IoT connector).|Delete the existing instance of IoT connector Destination Resource. Only one Destination Resource is permitted per IoT connector.
+|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of the Azure Healthcare APIs FHIR service.|Ensure the resource ID is formatted correctly, and make sure the resource ID is for an Azure Healthcare APIs FHIR instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace or the parent IoT connector is still provisioning.|Wait until the parent Workspace or the parent IoT connector provisioning completes, and then submit the provisioning request again.
 |`Location` property of child resources must match the `Location` property of parent resources.|API|The Destination provisioning request `location` property is different from the parent IoT connector `location` property.|Set the `location` property of the Destination in the provisioning request to the same value as the parent IoT connector `location` property.
 
@@ -81,19 +78,19 @@ This section describes the validation process that the IoT connector does. The v
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~15 minutes).  It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
 |Device mapping hasn't been configured.|Configure and save conforming Device mapping.|
 |FHIR destination mapping hasn't been configured.|Configure and save conforming FHIR destination mapping.|
-|The device message doesn't contain an expected expression defined in the device mapping.|Verify `JsonPath` expressions defined in the device-mapping match tokens defined in the device message.|
+|The device message doesn't contain an expected expression defined in the Device mapping.|Verify `JsonPath` expressions defined in the Device mapping match tokens defined in the device message.|
 |A Device Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Device Resource in the FHIR service. Ensure the Device Resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A Patient Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
-*Reference [Quickstart: Deploy Azure IoT Connector using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup or Create).
+*Reference [Quickstart: Deploy IoT connector using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the IoT connector resolution types (For example: Lookup or Create).
 
 ### The operation done by the IoT connector
 
 This property represents the operation being performed by the IoT connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
 
 > [!NOTE]
-> For information about the different stages of data flow in the IoT connector, see [IoT connector for FHIR: data flow](iot-data-flow.md).
+> For information about the different stages of data flow in the IoT connector, see [IoT connector data flow](iot-data-flow.md).
 
 |Data flow stage|Description|
 |---------------|-----------|
@@ -123,7 +120,7 @@ This property signifies a category for a given error, which it basically represe
 |`DeviceMessageError`|This error type occurs when processing a specific device message.|
 |`FHIRTemplateError`|This error type is related to the FHIR destination mapping|
 |`FHIRConversionError`|This error type occurs when transforming a message into a FHIR resource.|
-|`FHIRResourceError`|This error type is related to existing resources in the FHIR server that are referenced by the IoT connector.|
+|`FHIRResourceError`|This error type is related to existing resources in the FHIR service that are referenced by the IoT connector.|
 |`FHIRServerError`|This error type occurs when communicating with the FHIR service.|
 |`GeneralError`|This error type is about all other types of errors.|
 
@@ -153,7 +150,7 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 > JSON is the only supported format for Device and FHIR destination mappings at this time.
 
 > [!TIP]
-> Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](how-to-use-fhir-mapping-iot.md)
+> Learn more about the IoT connector [Device and FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
 
 1. Select **"IoT connectors"** on the left side of the Healthcare APIs Workspace.
 
@@ -180,4 +177,4 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 >[!div class="nextstepaction"]
 >[IoT connector Overview](iot-connector-overview.md)
 
-FHIR is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

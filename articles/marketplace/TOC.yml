@@ -147,6 +147,8 @@
       href: azure-app-test-publish.md
     - name: Market your offer
       href: azure-app-marketing.md
+    - name: Managed app metered billing
+      href: azure-app-metered-billing.md   
     - name: Metered billing
       href: marketplace-metering-service-apis.md
     - name: Configure prices for usage based monthly billing

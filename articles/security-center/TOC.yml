@@ -132,9 +132,12 @@
     - name: Overview of Azure Defender for servers
       displayName: VM
       href: defender-for-servers-introduction.md
+    - name: Apply Azure security baselines
+      displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
+      href: apply-security-baseline.md
     - name: Vulnerability scanning
       items:
-      - name: Scan your machines with the integrated VA scanner
+      - name: Scan your machines with the integrated Qualys scanner
         displayName: qualys, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
@@ -160,6 +163,9 @@
     - name: Define lists of safe applications for machines
       displayName: aac, whitelist, allowlist, reviewgroup, adaptive application controls
       href: security-center-adaptive-application.md
+    - name: Review applications and software installed on your machines
+      displayName: inventory, apps, software inventory, mde, tvm
+      href: asset-inventory.md#access-a-software-inventory
     - name: Track changes to files and registries
       items:
       - name: Overview of file integrity monitoring

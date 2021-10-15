@@ -284,6 +284,8 @@
         href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: DHCP normalization schema
+        href: dhcp-normalization-schema.md
       - name: File event normalization schema
         href: file-event-normalization-schema.md
       - name: Network normalization schema

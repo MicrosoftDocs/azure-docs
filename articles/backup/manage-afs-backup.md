@@ -23,6 +23,10 @@ To open the **Backup Jobs** page:
 
    ![Workload name](./media/manage-afs-backup/workload-name.png)
 
+## Monitor using Azure Backup reports
+
+Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md).These resources help you get rich insights into your backups. You can leverage these reports to gain visibility into Azure Files backup items, jobs at item level and details of active policies. Using the Email Report feature available in Backup Reports, you can create automated tasks to receive periodic reports via email.[Learn](/azure/backup/configure-reports#get-started) how to configure and view Azure Backup reports.
+
 ## Create a new policy
 
 You can create a new policy to back up Azure file shares from the **Backup policies** section of the Recovery Services vault. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.

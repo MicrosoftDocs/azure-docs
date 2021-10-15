@@ -36,7 +36,7 @@ Choosing an SSO method depends on how the application is configured for authenti
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **Password** - On-premises applications can use password-based, integrated Windows authentication, header-based, linked-based methods for SSO. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
+- **Password** - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked-based methods for SSO. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
     With password-based SSO, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD provides the username and password to the application. Password-based SSO enables secure application password storage and replay using a web browser extension or mobile app. This option uses the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
 

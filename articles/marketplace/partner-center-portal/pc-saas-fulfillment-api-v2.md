@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-author: mingshen-ms
-ms.author: mingshen
+author: saasguide
+ms.author: souchak
 ---
 
 # SaaS fulfillment APIs version 2 in the commercial marketplace

@@ -134,8 +134,12 @@
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
-  - name: Install language packs
-    href: language-packs.md
+  - name: Install language packages
+    items:
+    - name: Windows 10 multi-session images
+      href: language-packs.md
+    - name: Windows 11 Enterprise images
+      href: windows-11-language-packs.md
   - name: Use Azure Advisor
     href: azure-advisor.md
   - name: Resolve recommendations

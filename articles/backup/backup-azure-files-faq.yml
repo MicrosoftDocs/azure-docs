@@ -81,6 +81,11 @@ sections:
           Can I use PowerShell to configure/manage/restore backups of Azure File shares?
         answer: |
           Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
+       
+      - question: |
+          Why Azure Files backups doesn't replicate based on the Storage Replication Type setting of the vault?
+        answer: |
+          The Storage Replication setting of the vault isn't relevant for Azure Files backup. This is because the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share, and therefore replicated as per the replication setting of storage account.
           
       - question: |
           Can I access the snapshots taken by Azure Backups and mount them?
