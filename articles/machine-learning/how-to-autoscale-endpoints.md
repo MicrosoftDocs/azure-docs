@@ -24,7 +24,7 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Prerequisites
+## Prerequisites 
 
 * A deployed endpoint. [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md). 
 
