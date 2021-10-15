@@ -5,7 +5,7 @@ author:  KarlErickson
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 10/19/2021
 ms.custom: devx-track-java
 ---
 
@@ -54,9 +54,9 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
 
     ```azurecli
     az spring-cloud app create \
-        -g "resourceGroupName" \
-        -s "serviceName" \
-        --name "appName" \
+        --resource-group "<your-resource-group-name>" \
+        --service "<your-Azure-Spring-Cloud-instance-name>" \
+        --name "<your-app-name>" \
         --is-public true
     ```
 
@@ -64,17 +64,17 @@ In order to connect the AppDynamics Java In-Process Agent to AppDynamics Control
 
     ```azurecli
     az spring-cloud app deploy \
-        -g "resourceGroupName" \
-        -s "serviceName" \
-        --name "appName" \
+        --resource-group "<your-resource-group-name>" \
+        --service "<your-Azure-Spring-Cloud-instance-name>" \
+        --name "<your-app-name>" \
         --jar-path app.jar \
         --jvm-options="-javaagent:/opt/agents/appdynamics/java/javaagent.jar" \
-        --env APPDYNAMICS_AGENT_APPLICATION_NAME=<YOUR_APPLICATION_NAME> \
-              APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=<YOUR_AGENT_ACCESS_KEY> \
-              APPDYNAMICS_AGENT_ACCOUNT_NAME=<YOUR_AGENT_ACCOUNT_NAME> \
-              APPDYNAMICS_AGENT_NODE_NAME=<YOUR_AGENT_NODE_NAME> \
-              APPDYNAMICS_AGENT_TIER_NAME=<YOUR_AGENT_TIER_NAME> \
-              APPDYNAMICS_CONTROLLER_HOST_NAME=<YOUR_APPDYNAMICS_CONTROLLER_HOST_NAME> \
+        --env APPDYNAMICS_AGENT_APPLICATION_NAME=<your-app-name> \
+              APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=<your-agent-access-key> \
+              APPDYNAMICS_AGENT_ACCOUNT_NAME=<your-agent-account-name> \
+              APPDYNAMICS_AGENT_NODE_NAME=<your-agent-node-name> \
+              APPDYNAMICS_AGENT_TIER_NAME=<your-agent-tier-name> \
+              APPDYNAMICS_CONTROLLER_HOST_NAME=<your-AppDynamics-controller-host-name> \
               APPDYNAMICS_CONTROLLER_SSL_ENABLED=true \
               APPDYNAMICS_CONTROLLER_PORT=443
     ```
@@ -85,19 +85,19 @@ Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/age
 
 1. Find the application from **Settings**/**Apps** in the navigation pane.
 
-   ![Find app to monitor](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app_list.png)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app_list.png" alt-text="Azure portal screenshot showing the Apps section" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app_list.png":::
 
-2. Click the application to jump to the **Overview** page.
+2. Select the application to jump to the **Overview** page.
 
-   ![Overview page](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-overview.png)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-overview.png" alt-text="Azure portal screenshot the app's Overview page" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-overview.png":::
 
-3. Click **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
+3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
 
-   ![Update environment](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-env.png)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-env.png" alt-text="Azure portal screenshot showing the 'Environment variables' section of the app's Configuration page " lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-env.png":::
 
-4. Click **General settings** to add/update/delete the **JVM Option** of the application.
+4. Select **General settings** to add/update/delete the **JVM Option** of the application.
 
-   ![Update JVM Option](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png" alt-text="Azure portal screenshot showing the 'General settings' section of the app's Configuration page, with 'JVM options' highlighted" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png":::
 
 ## Automation
 
@@ -113,13 +113,12 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
   jvm_options = "-javaagent:/opt/agents/appdynamics/java/javaagent.jar"
   ...
     environment_variables = {
-      "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<YOUR_APPLICATION_NAME>",
-      "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<YOUR_APPLICATION_NAME>",
-      "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY" : "<YOUR_AGENT_ACCESS_KEY>",
-      "APPDYNAMICS_AGENT_ACCOUNT_NAME" : "<YOUR_AGENT_ACCOUNT_NAME>",
-      "APPDYNAMICS_AGENT_NODE_NAME" : "<YOUR_AGENT_NODE_NAME>",
-      "APPDYNAMICS_AGENT_TIER_NAME" : "<YOUR_AGENT_TIER_NAME>",
-      "APPDYNAMICS_CONTROLLER_HOST_NAME" : "<YOUR_APPDYNAMICS_CONTROLLER_HOST_NAME>",
+      "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<your-app-name>",
+      "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY" : "<your-agent-access-key>",
+      "APPDYNAMICS_AGENT_ACCOUNT_NAME" : "<your-agent-account-name>",
+      "APPDYNAMICS_AGENT_NODE_NAME" : "<your-agent-node-name>",
+      "APPDYNAMICS_AGENT_TIER_NAME" : "<your-agent-tier-name>",
+      "APPDYNAMICS_CONTROLLER_HOST_NAME" : "<your-AppDynamics-controller-host-name>",
       "APPDYNAMICS_CONTROLLER_SSL_ENABLED" : "true",
       "APPDYNAMICS_CONTROLLER_PORT" : "443"
   }
@@ -133,13 +132,12 @@ To configure the environment variables in an ARM template, add the following cod
 ```ARM template
 "deploymentSettings": {
   "environmentVariables": {
-    "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<YOUR_APPLICATION_NAME>",
-    "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<YOUR_APPLICATION_NAME>",
-    "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY" : "<YOUR_AGENT_ACCESS_KEY>",
-    "APPDYNAMICS_AGENT_ACCOUNT_NAME" : "<YOUR_AGENT_ACCOUNT_NAME>",
-    "APPDYNAMICS_AGENT_NODE_NAME" : "<YOUR_AGENT_NODE_NAME>",
-    "APPDYNAMICS_AGENT_TIER_NAME" : "<YOUR_AGENT_TIER_NAME>",
-    "APPDYNAMICS_CONTROLLER_HOST_NAME" : "<YOUR_APPDYNAMICS_CONTROLLER_HOST_NAME>",
+    "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<your-app-name>",
+    "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY" : "<your-agent-access-key>",
+    "APPDYNAMICS_AGENT_ACCOUNT_NAME" : "<your-agent-account-name>",
+    "APPDYNAMICS_AGENT_NODE_NAME" : "<your-agent-node-name>",
+    "APPDYNAMICS_AGENT_TIER_NAME" : "<your-agent-tier-name>",
+    "APPDYNAMICS_CONTROLLER_HOST_NAME" : "<your-AppDynamics-controller-host-name>",
     "APPDYNAMICS_CONTROLLER_SSL_ENABLED" : "true",
     "APPDYNAMICS_CONTROLLER_PORT" : "443"
   },
@@ -152,43 +150,43 @@ To configure the environment variables in an ARM template, add the following cod
 
 1. You can take an overview of your apps in the AppDynamics dashboard
 
-   ![appdynamics dashboard birds eye view of apps](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg" alt-text="AppDynamics screenshot showing the Applications page" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg":::
 
 2. You can find the overall information for your apps
 
    - `api-gateway`
 
-      ![appdynamics dashboard api gateway](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg)
+      :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg" alt-text="AppDynamics screenshot showing the Application Dashboard for the example api-gateway app" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg":::
 
    - `customers-service`
 
-      ![appdynamics dashboard customers service](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg)
+      :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg" alt-text="AppDynamics screenshot showing the Application Dashboard for the example customers-service app" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg":::
 
 3. You can find the basic information for database calls
 
-   ![appdynamics dashboard customer service db calls](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg" alt-text="AppDynamics screenshot showing the Database Calls dashboard" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg":::
 
 4. You can dig deeper to find slowest database calls
 
-   ![appdynamics dashboard slowest db calls from customers service](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg" alt-text="AppDynamics screenshot showing the Slowest Database Calls page" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg":::
 
-   ![appdynamics dashboard slowest db calls from customers service 2](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg" alt-text="AppDynamics screenshot showing the Correlated Snapshots page accessed from the Slowest Database Calls page" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg":::
 
 5. You can find the memory usage analysis
 
-   ![appdynamics dashboard customers service memory usage](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg" alt-text="AppDynamics screenshot showing the Heap section of the Memory page" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg":::
 
 6. You can find the garbage collection process
 
-   ![appdynamics dashboard customers service garbage collection](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg" alt-text="AppDynamics screenshot showing the Garbage Collection section of the Memory page" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg":::
 
 7. You can find slowest transactions 
 
-   ![appdynamics dashboard customers service slowest transactions](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg" alt-text="AppDynamics screenshot showing the Slow Transactions page" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg":::
 
 8. You can define more metrics for JVM
 
-   ![appdynamics dashboard customers service jvm metric browser](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg)
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg" alt-text="AppDynamics screenshot showing the Metric Browser" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg":::
 
 ## AppDynamics Agent Logging
 
