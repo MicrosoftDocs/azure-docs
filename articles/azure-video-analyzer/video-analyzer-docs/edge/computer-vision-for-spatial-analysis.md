@@ -171,7 +171,9 @@ A key is used to start the spatial-analysis container, and is available on the A
 
 ## Configure deployment template
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are avaedge module, rtspsim module, and our spatialanalysis module.
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are avaedge module, rtspsim module, and our spatialanalysis module. 
+
+The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 
 There are a few things you need to pay attention to in the deployment template file:
 
@@ -216,9 +218,13 @@ There are a few things you need to pay attention to in the deployment template f
                         }
       ```
 #### [Desktop machine](#tab/desktop-machine)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module. 
+
+The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 #### [Azure VM with GPU](#tab/virtual-machine)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.  
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+
+The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 
 ---
 
