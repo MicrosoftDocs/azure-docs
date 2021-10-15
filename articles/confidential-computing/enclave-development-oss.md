@@ -25,7 +25,7 @@ For example, you can use these open-source frameworks:
 - [The Intel SGX SDK](#intel-sdk)
 - [The Confidential Consortium Framework (CCF)](#ccf)
 
-If you're not looking to write new application code, you can wrap a containerized application using [confidential container enablers](confidential-containers.md#confidential-container-enablers)
+If you're not looking to write new application code, you can wrap a containerized application using [confidential container enablers](confidential-containers.md)
 
 
 ### Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>

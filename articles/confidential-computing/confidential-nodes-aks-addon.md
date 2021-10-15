@@ -5,7 +5,7 @@ author: agowdamsft
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
-ms.topic: feature
+ms.topic: article
 ms.date: 11/1/2021
 ms.author: amgowda
 ---
