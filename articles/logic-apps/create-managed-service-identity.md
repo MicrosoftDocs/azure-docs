@@ -544,21 +544,21 @@ The following example shows a sample HTTP action with all the previously describ
    > Not all triggers and actions support letting you add an authentication type. For more information, review 
    > [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-1. From the **Authentication type** list, select **Managed Identity**.
+1. From the **Authentication type** list, select **Managed identity**.
 
-   ![Screenshot showing Consumption workflow with HTTP action and "Authentication" property with "Managed Identity" value selected.](./media/create-managed-service-identity/select-managed-identity.png)
+   ![Screenshot showing Consumption workflow with HTTP action and "Authentication" property with "Managed identity" value selected.](./media/create-managed-service-identity/select-managed-identity.png)
 
 1. From the managed identity list, select from the available options based on your scenario.
 
-   * If you set up the system-assigned identity, select **System Assigned Managed Identity** if not already selected.
+   * If you set up the system-assigned identity, select **System-assigned managed identity** if not already selected.
 
-     ![Screenshot showing Consumption workflow with HTTP action and "Managed Identity" property with "System Assigned Managed Identity" value elected.](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
+     ![Screenshot showing Consumption workflow with HTTP action and "Managed identity" property with "System-assigned managed identity" value elected.](./media/create-managed-service-identity/select-system-assigned-identity.png)
 
    * If you set up a user-assigned identity, select that identity if not already selected.
 
-     ![Screenshot showing Consumption workflow with HTTP action and "Managed Identity" property with user-assigned identity selected.](./media/create-managed-service-identity/select-user-assigned-identity-for-action.png)
+     ![Screenshot showing Consumption workflow with HTTP action and "Managed identity" property with user-assigned identity selected.](./media/create-managed-service-identity/select-user-assigned-identity-action.png)
 
-   This example continues with the **System Assigned Managed Identity**.
+   This example continues with the **System-assigned managed identity**.
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
   
@@ -570,7 +570,7 @@ The following example shows a sample HTTP action with all the previously describ
    > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
    > [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://fabrikamstorageaccount.blob.core.windows.net`, for a specific storage account.
+   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://<your-storage-account>.blob.core.windows.net`, for a specific storage account.
 
    ![Screenshot showing Consumption workflow with HTTP action and "Audience" property set to target resource ID.](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
@@ -596,21 +596,13 @@ The following example shows a sample HTTP action with all the previously describ
    > Not all triggers and actions support letting you add an authentication type. For more information, review 
    > [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-1. From the **Authentication type** list, select **Managed Identity**.
+1. From the **Authentication type** list, select **Managed identity**.
 
-   ![For "Authentication", select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
+   ![Screenshot showing Standard workflow with HTTP action and "Authentication" property with "Managed Identity" value selected.](./media/create-managed-service-identity/select-managed-identity-standard.png)
 
-1. From the managed identity list, select from the available options based on your scenario.
+1. From the managed identity list, select **System-assigned-managed identity** if not already selected.
 
-   * If you set up the system-assigned identity, select **System Assigned Managed Identity** if not already selected.
-
-     ![Select "System Assigned Managed Identity"](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
-
-   * If you set up a user-assigned identity, select that identity if not already selected.
-
-     ![Select the user-assigned identity](./media/create-managed-service-identity/select-user-assigned-identity-for-action.png)
-
-   This example continues with the **System Assigned Managed Identity**.
+     ![Select "System Assigned Managed Identity"](./media/create-managed-service-identity/select-system-assigned-identity-for-action-standard.png)
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
   
@@ -622,18 +614,16 @@ The following example shows a sample HTTP action with all the previously describ
    > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
    > [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://fabrikamstorageaccount.blob.core.windows.net`, for a specific storage account.
+   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://<your-storage-account>.blob.core.windows.net`, for a specific storage account.
 
-   ![Set "Audience" property to target resource ID](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
+   ![Set "Audience" property to target resource ID](./media/create-managed-service-identity/specify-audience-url-target-resource-standard.png)
 
    For more information about authorizing access with Azure AD for Azure Storage, review the following documentation:
 
    * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
-
    * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the workflow the way that you want.
-
 
 ---
 
