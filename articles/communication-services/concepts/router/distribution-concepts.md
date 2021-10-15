@@ -16,11 +16,11 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router uses a flexible distribution process which involves the use of a policy and a Job offer lifecycle to assign Workers. This article describes the different ways a Job can be distributed, what the Job offer lifecycle is, and the effect this process has on Workers.
+Azure Communication Services Job Router uses a flexible distribution process, which involves the use of a policy and a Job offer lifecycle to assign Workers. This article describes the different ways a Job can be distributed, what the Job offer lifecycle is, and the effect this process has on Workers.
 
 ## Job distribution overview
 
-Deciding how to distribute Jobs to Workers is a key feature of Job Router and the SDK offers a similarly flexible and extensible model. Once a new incoming Job has been classified, Job Router will look for a suitable Worker based on the characteristics of the Job and the Distribution Policy. Alternatively, if Workers are busy, Job Router will look for a suitable Job when a Worker becomes available. Worker suitability is decided across three characteristics; [an available channel](#channel-configurations), their [abilities](#worker-abilities) and [status](#worker-status). Once a suitable Worker has been found, a check is performed to make sure they have an open channel the Job can be assigned to.
+Deciding how to distribute Jobs to Workers is a key feature of Job Router and the SDK offers a similarly flexible and extensible model. Once a new incoming Job has been classified, Job Router will look for a suitable Worker based on the characteristics of the Job and the Distribution Policy. Alternatively, if Workers are busy, Job Router will look for a suitable Job when a Worker becomes available. Worker suitability is decided across three characteristics; [an available channel](#channel-configurations), their [abilities,](#worker-abilities) and [status](#worker-status). Once a suitable Worker has been found, a check is performed to make sure they have an open channel the Job can be assigned to.
 
 These two approaches are key concepts in how Job Router initiates the discovery of Jobs or Workers.
 
@@ -30,7 +30,7 @@ When a new Job has completed the [classification process](classification-concept
 
 ### Finding a job for a worker
 
-There are several scenarios which will trigger Job Router to find a job for a worker:
+There are several scenarios, which will trigger Job Router to find a job for a worker:
 
 - When a Worker registers with Job Router
 - When a Job is closed and the channel is released
@@ -138,10 +138,10 @@ await client.RegisterWorkerAsync(
 );
 ```
 
-The above example illustrates three abstract channels each with their own cost per Job. Given this, the following Job concurrency examples are possible for the `PizzaCook` Worker:
+The above example illustrates three abstract channels each with their own cost per Job. As such, the following Job concurrency examples are possible for the `PizzaCook` Worker:
 
 | MakePizza | MakeDonair | MakeBurger | Score |
-| --        | --         | --         | --    |
+|--|--|--|--|
 | 2         |            |            | 100   |
 |           | 3          |            | 99    |
 | 1         | 1          |            | 83    |
@@ -164,7 +164,7 @@ new LabelCollection
     }
 ```
 
-When a Job is submitted, the **worker selectors** are used to define the requirements for that particular unit of work. If a Job requires an English-speaking person who is particularly good at making donairs, the SDK call would look like this:
+When a Job is submitted, the **worker selectors** are used to define the requirements for that particular unit of work. If a Job requires an English-speaking person who is good at making donairs, the SDK call would be as follows:
 
 ```csharp
 await client.CreateJobAsync(
@@ -197,7 +197,7 @@ Since Job Router can handle concurrent Jobs for a Worker depending on their Chan
 
 ## Job offer overview
 
-When the distribution process locates a suitable Worker who has an open channel and has the correct status, a Job offer is generated and a event is sent. The Distribution Policy contains the following configurable properties for the offer:
+When the distribution process locates a suitable Worker who has an open channel and has the correct status, a Job offer is generated and an event is sent. The Distribution Policy contains the following configurable properties for the offer:
 
 **OfferTTL -** The time-to-live for each offer generated
 
