@@ -15,23 +15,19 @@ ms.author: aahi
 # How to train your model
 
 
-Training is the process where the model learns from your [tagged data](tag-data.md). Training uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can [view model evaluation](../how-to/view-model-evaluation.md), and [Improve your model](../how-to/improve-model.md). 
+Training is the process where the model learns from your [tagged data](tag-data.md) to output a trained model. At the start of thr training process the tags file containing tagged data and classes is sent to the service along with the tagged files. Tagged files are split into train and test sets<!-- , where the split can either be pre-defined by developers in tags file or chosen at random during training-->. The train set alongside the tags file are processed during training to create the custom classification model. The test set is later processed by the trained model to evaluate its performance. You can have a maximum of 10 models within you rproject but you can only train one model at a time. The user can choose to train a new model or overwrite an existing one.
 
 > [!NOTE]
-> * You must have a minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
-> * While there is no minimum of tagged instances per class, you can start with 20 files per class. Model performance depends on how distinct the entities in your documents are, and how easily they can be differentiated from each other.
-
-The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
+> * The minimum number of tagged instances per class is 10, you can start with this and add more tagged instances was needed. Model performance depends on how distinct the classes in your documents are, and how easily they can be differentiated from each other.
+> The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
 ## Data splits
 
-Before starting the training process, files in your dataset are divided into three groups at random: 
+Before starting the training process, files in your dataset are divided into two sets at random: 
 
-* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
+* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model alongside with the tags file.
 
-* The **validation set** contains 10% and is introduced to the model during training. Later you can view the incorrect predictions made by the model on this set so you examine your data and tags and make necessary adjustments.
-
-* The **test set** contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
+* The **test set** contains 20% of the files available in your dataset. This set is a blind set which means that it is not introduced to the model during training. Test set is later used to provide [evaluation](../how-to/view-model-evaluation.md) of the model. You can also view the correct and incorrect predictions for this set so that you can readjust the training data to [improve model](improve-model.md).
 
 ## Prerequisites
 
