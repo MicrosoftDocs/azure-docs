@@ -4,6 +4,8 @@
   items:
   - name: About Azure Video Analyzer
     href: overview.md
+  - name: About Video Analyzer for Media
+    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Video Analyzer terminology
     href: terminology.md
   - name: What's new
@@ -24,7 +26,7 @@
       href: edge/detect-motion-emit-events-quickstart.md
     - name: Detect motion, record video
       items:
-      - name: Record locally on edge
+      - name: Record locally on the edge
         href: edge/detect-motion-record-video-edge-devices.md
       - name: Record to the cloud
         href: edge/detect-motion-record-video-clips-cloud.md
@@ -48,7 +50,7 @@
   items:
   - name: Edge module
     items:
-    - name: Continuous video recording to cloud
+    - name: Continuous video recording to the cloud
       href: edge/use-continuous-video-recording.md
     - name: Event-based video recording
       href: edge/record-event-based-live-video.md
@@ -69,14 +71,14 @@
         href: edge/analyze-live-video-custom-vision.md 
       - name: With Spatial Analysis
         href: edge/computer-vision-for-spatial-analysis.md    
+    - name: Visualize AI inference events
+      href: visualize-ai-events-power-bi.md
   - name: Cloud pipelines
     items:
-    - name: Connect camera to cloud using portal
+    - name: Connect camera to cloud using portal  #??
       href: overview.md
-    - name: Export a clip (batch pipeline)
+    - name: Export a clip (batch pipeline)         #??
       href: overview.md
-  - name: Visualize AI inference events
-    href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
   - name: C# sample repository
@@ -93,8 +95,8 @@
     href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
-  - name: Connect cameras to cloud
-    href: cloud/connect-cameras-to-cloud.md
+  - name: Connect cameras to the cloud
+    href: cloud/connect-cameras-to-cloud.md #??
   - name: Scenarios 
     items:
     - name: Analyze live videos
@@ -119,8 +121,8 @@
     items:  
     - name: Deploy to an IoT Edge device
       href: edge/deploy-iot-edge-device.md
-    - name: Deploy to an IoT Edge for Linux on Windows
-      href: edge/deploy-iot-edge-linux-on-windows.md
+    - name: Deploy to a Windows device
+      href: edge/deploy-iot-edge-linux-on-windows.md  #??
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
   - name: Playback
@@ -133,26 +135,36 @@
     items:
     - name: Manage retention policy
       href: manage-retention-policy.md
-    - name: Configure a signal gate
-      href: edge/configure-signal-gate.md
-  - name: Apply AI
-    items:      
+    - name: Export a clip
+      href: overview.md
+  - name: Apply AI on the edge
+    items:   
+    - name: Configure a signal gate     
+      href: edge/configure-signal-gate.md    
     - name: Develop and deploy gRPC inference server
       href: edge/develop-deploy-grpc-inference-srv.md
-    - name: Analyze using AI composition
-      href: edge/analyze-ai-composition.md
-  - name: Portal
-    items:      
-    - name: Invoke direct methods with the portal
-      href: edge/use-azure-portal-to-invoke-direct-methods.md
-  - name: Operate
+  - name: Operate edge module
     items:
-    - name: Monitor and logging
-      href: edge/monitor-log-edge.md 
-    - name: Public endpoints
-      href: access-public-endpoints-networking.md
+    - name: Invoke direct methods
+      href: edge/use-azure-portal-to-invoke-direct-methods.md      
     - name: Use the Visual Studio Code extension
       href: edge/use-visual-studio-code-extension.md
+    - name: Monitor and logging
+      href: edge/monitor-log-edge.md 
+    - name: Troubleshoot
+      href: edge/troubleshoot.md      
+  - name: Operate cloud pipeline
+    items:
+    - name: Connect Axis cameras
+      href: overview.md
+    - name: Connect devices
+      href: overview.md
+    - name: Use Video Analyzer edge as a transparent gateway
+      href: overview.md     
+    - name: Monitor  
+      href: overview.md       
+    - name: Troubleshoot      
+      href: overview.md       
   - name: Visualize
     items:
     - name: Embed player widget in a web app
@@ -161,8 +173,6 @@
       href: sample-player-widget.md
     - name: Embed player widget in Power BI
       href: embed-player-in-power-bi.md
-  - name: Troubleshoot
-    href: edge/troubleshoot.md
   - name: Connect cameras to cloud via remote device adapter
     href: cloud/use-remote-device-adapter.md
   - name: Camera discovery
@@ -175,10 +185,10 @@
     href: sdk.md
   - name: REST APIs
     href: https://docs.microsoft.com/rest/api/videoanalyzer/
+  - name: Visual Studio Code extension
+    href: visual-studio-code-extension.md  
   - name: Transparency and responsible AI principles
     href: https://go.microsoft.com/fwlink/?linkid=2163476
-  - name: Visual Studio Code extension
-    href: visual-studio-code-extension.md
   - name: Edge module
     items:
     - name: Direct methods
