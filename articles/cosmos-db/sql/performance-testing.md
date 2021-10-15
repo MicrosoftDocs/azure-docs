@@ -22,7 +22,7 @@ After reading this article, you'll be able to answer the following questions:
 * Where can I find a sample .NET client application for performance testing of Azure Cosmos DB? 
 * How do I achieve high throughput levels with Azure Cosmos DB from my client application?
 
-To get started with code, download the project from [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark). 
+To get started with code, download the project from [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark). 
 
 > [!NOTE]
 > The goal of this application is to demonstrate how to get the best performance from Azure Cosmos DB with a small number of client machines. The goal of the sample is not to achieve the peak throughput capacity of Azure Cosmos DB (which can scale without any limits).
