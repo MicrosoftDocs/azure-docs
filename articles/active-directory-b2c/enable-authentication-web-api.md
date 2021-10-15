@@ -384,7 +384,7 @@ Add the following JSON snippet to the *appsettings.json* file.
       "Http": {
         "Url": "http://localhost:6000"
       },
-      "Https"{
+      "Https": {
          "Url": "https://localhost:6001"   
         }
     }
