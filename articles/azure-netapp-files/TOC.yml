@@ -87,7 +87,7 @@
         href: cross-region-replication-requirements-considerations.md
     - name: What is Azure Application Consistent Snapshot Tool
       href: azacsnap-introduction.md
-  - name: Solutions
+  - name: Solutions and benefits
     items:
     - name: Solution architectures using Azure NetApp Files
       href: azure-netapp-files-solution-architectures.md
