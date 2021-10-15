@@ -157,7 +157,7 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 
 #### Group Call
 
-Initialize a `GroupCallOptions ` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group id for your call and `<DISPLAY_NAME>` with your name.
+Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group id for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
@@ -167,7 +167,7 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 
 #### Teams Meeting
 
-Initialize a `TeamsMeetingOptions ` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group id for your call and `<DISPLAY_NAME>` with your name.
+Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group id for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
