@@ -38,7 +38,7 @@ Access to diagnostic logs is essential for any healthcare service. Compliance wi
 
    - **Stream to an event hub** is for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this option.
    
-   - **Send to partner solution** should be selected if you have enabled a partner solution that Azure supports. For more information, see [Extend Azure with solutions from partners](https://docs.microsoft.com/azure/partner-solutions/overview).
+   - **Send to partner solution** should be selected if you have enabled a partner solution that Azure supports. For more information, see [Extend Azure with solutions from partners](../../partner-solutions/overview.md).
 
 6. Select **AuditLogs**.
 

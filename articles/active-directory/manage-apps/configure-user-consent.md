@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, contperf-fy22q2
 ---
 
 # Configure how end-users consent to applications using Azure Active Directory
