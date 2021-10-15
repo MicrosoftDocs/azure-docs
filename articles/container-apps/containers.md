@@ -22,7 +22,7 @@ Azure Container Apps supports:
 
 There is no required base container image when running containers in Azure Container Apps.
 
-Any changes to the `containers` section triggers a new [container app revision](application-lifecycle-management.md).
+Any changes to the `template` section triggers a new [container app revision](application-lifecycle-management.md).
 
 If your container crashes, then it automatically restarts.
 
@@ -57,9 +57,9 @@ The following example configuration shows the options available when setting up 
 
 | Setting | Description | Remarks |
 |---|---|---|
-| `image` | The container image name for your container app. | This value takes the form of `publisher/image-name:tag`. |
+| `image` | The container image name for your container app. | This value takes the form of `repository/image-name:tag`. |
 | `name` | Friendly name of the container. | Used for reporting and identification. |
-| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces. This concatenation allows you to have spaces in your startup command.  |
+| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | |
 | `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1` or `2`. |
@@ -96,7 +96,7 @@ To use a container registry, you first define the required fields to the configu
 }
 ```
 
-With this set up, the saved credentials are used when you reference a container image in an `image` in the `containers` array.
+With this set up, the saved credentials can be used when you reference a container image in an `image` in the `containers` array.
 
 The following example shows how to deploy an app from the Azure Container Registry.
 
