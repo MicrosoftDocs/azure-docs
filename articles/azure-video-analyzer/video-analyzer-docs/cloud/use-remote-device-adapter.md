@@ -19,7 +19,7 @@ Connecting cameras to the cloud using a remote device adapter allows cameras to 
 > The Video Analyzer edge module is not acting as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./cloud/media/use-remote-device-adapter/use-remote-device-adapter.svg" alt-text="Connect cameras to the cloud with a remote device adapter":::
+> :::image type="content" source="./media/use-remote-device-adapter/use-remote-device-adapter.svg" alt-text="Connect cameras to the cloud with a remote device adapter":::
 
 ## Pre-reading
 
