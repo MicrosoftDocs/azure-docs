@@ -78,10 +78,12 @@ landingContent:
 #Card
   - title: 🆕Form Recognizer Studio
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Studio overview | Preview
             url: concept-form-recognizer-studio.md
+      - linkListType: get-started
+        links:
           - text: Using the General document model (preview)
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
           - text: Using the Layout model
@@ -121,10 +123,12 @@ landingContent:
 #Card
   - title: 🆕General document
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Model overview | Preview
             url: concept-general-document.md
+      - linkListType: get-started
+        links:
           - text: Using the .NET SDK
             url: "quickstarts/try-v3-csharp-sdk.md#try-it-general-document-model"
           - text: Using the Python SDK
@@ -142,10 +146,12 @@ landingContent:
   #Card
   - title: Layout
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Model overview
             url: concept-layout.md
+      - linkListType: get-started
+        links:
           - text: Using the .NET SDK
             url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
           - text: Using the Python SDK
@@ -162,10 +168,12 @@ landingContent:
 # Card
   - title: Custom model
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Custom model overview
             url: concept-custom.md
+      - linkListType: get-started
+        links:
           - text: Using the .NET SDK
             url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the Python SDK
@@ -178,16 +186,18 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the Sample Labeling tool
             url: "concept-custom.md#try-it-sample-labeling-tool"
-  
+
 
 
 #Card
   - title: Invoice
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Model overview
             url: concept-invoice.md
+      - linkListType: get-started
+        links:
           - text: Using the .NET SDK
             url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
           - text: Using the Python SDK
@@ -204,10 +214,12 @@ landingContent:
 #Card
   - title: Receipt model
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Model overview
             url: concept-receipt.md
+      - linkListType: get-started
+        links:
           - text: Using the .NET SDK
             url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
           - text: Using the Python SDK
@@ -304,7 +316,7 @@ landingContent:
 #             url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 
-      
+
   # - title: Extract layout and structure from documents
   #   linkLists:
   #     - linkListType: concept
