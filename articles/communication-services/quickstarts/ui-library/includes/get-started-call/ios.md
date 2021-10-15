@@ -33,7 +33,7 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'azure-communication-ui-library', '1.0.0-alpha.1'
+    pod 'azure-communication-ui', '1.0.0-alpha.1'
     pod 'AzureCommunicationCalling', '2.0.1-beta.1'
     pod 'MicrosoftFluentUI', '0.3.3'
 end
