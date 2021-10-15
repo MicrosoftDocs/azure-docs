@@ -50,7 +50,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  China East 2          |  40.73.82.1, 52.130.120.89            | 
 |  China East 3          |  52.131.155.192      | 
 |  China North           |  139.219.15.17    |        |                                               |
-|  China North 2         |  40.73.50.0          |                                               |
+|  China North 2         |  40.73.50.0          |                                        |
 |  China North 3         |  52.131.27.192     |          |
 |  East Asia             |  13.75.33.20, 52.175.33.150,   13.75.33.20, 13.75.33.21  |                |                                               |
 |  East US               |  40.71.8.203, 40.71.83.113                                 |  40.121.158.30                  |  191.238.6.43                   |
