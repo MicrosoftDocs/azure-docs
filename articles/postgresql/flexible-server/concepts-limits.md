@@ -24,13 +24,13 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | B1ms                 | 1      | 2 GiB       | 50              | 47                   |
 | B2s                  | 2      | 4 GiB       | 100             | 97                   |
 | **General Purpose**  |        |             |                 |                      |
-| D2s_v3               | 2      | 8 GiB       | 859             | 856                  |
-| D4s_v3               | 4      | 16 GiB      | 1719            | 1716                 |
-| D8s_v3               | 8      | 32 GiB      | 3438            | 3435                 |
-| D16s_v3              | 16     | 64 GiB      | 5000            | 4997                 |
-| D32s_v3              | 32     | 128 GiB     | 5000            | 4997                 |
-| D48s_v3              | 48     | 192 GiB     | 5000            | 4997                 |
-| D64s_v3              | 64     | 256 GiB     | 5000            | 4997                 |
+| D2s_v3  / D2ds_v4    | 2      | 8 GiB       | 859             | 856                  |
+| D4s_v3  / D4ds_v4    | 4      | 16 GiB      | 1719            | 1716                 |
+| D8s_v3  / D8ds_V4    | 8      | 32 GiB      | 3438            | 3435                 |
+| D16s_v3 / D16ds_v4   | 16     | 64 GiB      | 5000            | 4997                 |
+| D32s_v3 / D32ds_v4   | 32     | 128 GiB     | 5000            | 4997                 |
+| D48s_v3 / D48ds_v4   | 48     | 192 GiB     | 5000            | 4997                 |
+| D64s_v3 / D64ds_v4   | 64     | 256 GiB     | 5000            | 4997                 |
 | **Memory Optimized** |        |             |                 |                      |
 | E2s_v3               | 2      | 16 GiB      | 1719            | 1716                 |
 | E4s_v3               | 4      | 32 GiB      | 3438            | 3433                 |
