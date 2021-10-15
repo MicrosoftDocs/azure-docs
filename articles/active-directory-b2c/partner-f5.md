@@ -27,7 +27,7 @@ To get started, you'll need:
 
 - An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
 
-- An existing BIG-IP or deploy a trial [BIG-IP Virtual Environment (VE) on Azure](../manage-apps/f5-bigip-deployment-guide.md)
+- An existing BIG-IP or deploy a trial [BIG-IP Virtual Environment (VE) on Azure](../active-directory/manage-apps/f5-bigip-deployment-guide.md)
 
 - Any of the following F5 BIG-IP license SKUs
 
@@ -41,7 +41,7 @@ To get started, you'll need:
 
 - An existing header-based web application or [setup an IIS app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 
-- [SSL certificate](../manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
+- [SSL certificate](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
 
 ## Scenario description
 
