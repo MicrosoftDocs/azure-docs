@@ -61,7 +61,7 @@ The following table lists the latest versions of the WebSocket service:
 #### Updates for version 1.0.2110.15002
 
 - Fixed an issue that caused the screen to turn black while screen sharing. If you've been experiencing this issue, confirm that this update will resolve it by resizing the Teams window. If screen sharing starts working again after resizing, the update will resolve this issue.
-- You can now control the meeting, ringtone, and notification volume from the host VM. You can only use this feature with version 1.2.2459 or later of the Windows Desktop client.
+- You can now control the meeting, ringtone, and notification volume from the host VM. You can only use this feature with version 1.2.2459 or later of [the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 - The installer will now make sure that Teams is closed before installing updates.
 - Fixed an issue that caused Teams to turn off full screen mode and move the call to the upper left-hand corner whenever the user navigated away from a call.
 
