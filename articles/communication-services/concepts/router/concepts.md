@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router solves the problem of matching some abstract supply with some abstract demand on a system. Using an event-driven architecture, combined with Azure Communication Services Event Grid messaging, Job Router provides real-time notifications to your custom applications. This design allows you to build reactive applications to control the behavior of your Job Router instance.
+Azure Communication Services Job Router solves the problem of matching some abstract supply with some abstract demand on a system. Integrated with Azure Event Grid, Job Router delivers real-time notifications to you, enabling you to build reactive applications to control the behavior of your Job Router instance.
 
 ## Job Router overview
 
