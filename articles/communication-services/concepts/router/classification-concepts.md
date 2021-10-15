@@ -69,7 +69,7 @@ Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make 
 
 **Rule label selector -** Sources a collection of selectors from one of many rule engines. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
-**Weighted allocation label selector -** A collection of `WeightedAllocation` types each with a collection of `LabelSelector` types can be used to attach `WorkerSelectors` to the Job for distributing work with a weighted behavior. For example, you may want 30% of the Jobs to go to "Contoso" and 70% of Jobs to go to "Fabrikam".
+**Weighted allocation label selector -** A collection of `WeightedAllocation` objects that each specify a percentage based weighting and a collection of selector to apply based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Contoso" and 70% of Jobs to go to "Fabrikam".
 
 > [!NOTE]
 > The weighted allocation label selector is currently only supported for attaching new `WorkerSelectors` to the Job and should not be used in a `QueueSelector`.
