@@ -15,6 +15,16 @@ Azure Container Apps exposes each container app through a domain name. If [ingre
 
 Once you know a container app's domain name, then you can call the location within your application code to connect multiple container apps together.
 
+internal domain name
+
+or 
+
+Dapr
+
+mutual TLS
+retries
+distributed tracing if App Insights is enabled
+
 ## Location
 
 A container app's location is composed of values associated with its environment, name, and region. Available through the `containerapps.io` top-level domain, the fully qualified domain name uses:
@@ -59,12 +69,14 @@ Use the values specific to your environment along with the container app's name 
 
 ## Dapr location
 
-When using Dapr, the location is available through a port off `localhost`. The settings needed for a Dapr location include:
-
-- the Dapr port number
-- the container app name
+When using Dapr, the location is available through the following URL:
 
 :::image type="content" source="media/connect-apps/azure-container-apps-location-dapr.png" alt-text="Azure Container Apps: Container app location with Dapr":::
+
+if you're using Dapr
+ - mutual TLS
+ - retries
+
 
 ## Next steps
 
