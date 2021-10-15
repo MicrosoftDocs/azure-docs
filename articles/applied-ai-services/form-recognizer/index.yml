@@ -34,6 +34,9 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
+        footerLink:
+          url: ""
+          text: More       
 #Card 2
    - title: View Form Recognizer Features
      linkLists:
