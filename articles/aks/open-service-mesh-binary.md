@@ -36,4 +36,4 @@ This article will discuss how to download the OSM client library to be used to o
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
 
 > [!NOTE]
-> It is recommended to configure the OSM CLI to [customize the OSM AKS addon experience](/open-service-mesh-customize-addon-experience.md) after installing the binary, before using the OSM CLI. 
+> It is recommended to configure the OSM CLI to [customize the OSM AKS addon experience](/azure/aks/open-service-mesh-customize-add-on-experience) after installing the binary, before using the OSM CLI. 
