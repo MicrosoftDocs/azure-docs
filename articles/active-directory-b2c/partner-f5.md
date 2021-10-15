@@ -2,15 +2,14 @@
 title: Tutorial to configure Azure Active Directory B2C with F5 BIG-IP  
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
-services: active-directory-b2c
 author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.service: active-directory
+ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.author: gasinh
-ms.subservice: B2C
 ---
 
 # Tutorial: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IP
@@ -26,9 +25,9 @@ It provides an abundance of features including application-level inspection and 
 
 To get started, you'll need:
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) linked to your Azure subscription
+- An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
 
-- An existing BIG-IP or deploy a trial [BIG-IP Virtual Environment (VE) on Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+- An existing BIG-IP or deploy a trial [BIG-IP Virtual Environment (VE) on Azure](../active-directory/manage-apps/f5-bigip-deployment-guide.md)
 
 - Any of the following F5 BIG-IP license SKUs
 
@@ -40,9 +39,9 @@ To get started, you'll need:
 
   - 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
 
-- An existing header-based web application or [setup an IIS app](https://docs.microsoft.com/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
+- An existing header-based web application or [setup an IIS app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 
-- [SSL certificate](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS or use default while testing.
+- [SSL certificate](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
 
 ## Scenario description
 
@@ -81,7 +80,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Azure AD B2C Configuration
 
-Enabling a BIG-IP with Azure AD B2C authentication requires an Azure AD B2C tenant with a suitable user flow or custom policy. [Set up an Azure AD B2C user flow](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows).
+Enabling a BIG-IP with Azure AD B2C authentication requires an Azure AD B2C tenant with a suitable user flow or custom policy. [Set up an Azure AD B2C user flow](tutorial-create-user-flows.md).
 
 ### Create custom attributes
 
@@ -108,7 +107,7 @@ displays them all.
 
 4. Select **Application claims** and add both custom attributes plus also the **Display Name**. These are the attributes that will be sent to the BIG-IP.
 
-You can use the [Run user flow](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) feature
+You can use the [Run user flow](tutorial-create-user-flows.md) feature
 in the user flow menu on the left navigation bar to verify it prompts for all defined attributes.
 
 ### Azure AD B2C federation
@@ -132,7 +131,7 @@ federating, so the BIG-IP must be registered in the Azure AD B2C tenant as an OI
 
 8. Note down the client secret, you'll need this later for configuring the BIG-IP.
 
-The redirect URI is the BIG-IP endpoint to which a user is sent back to by the authorization server - Azure AD B2C, after authenticating. [Register an application](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) for Azure AD B2C.
+The redirect URI is the BIG-IP endpoint to which a user is sent back to by the authorization server - Azure AD B2C, after authenticating. [Register an application](tutorial-register-applications.md) for Azure AD B2C.
 
 ## BIG-IP configuration
 
@@ -328,7 +327,7 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
 ## Related information
 
 The last step provides an overview of configurations. Hitting Deploy will commit your settings and create all necessary BIG-IP and APM objects to enable secure hybrid access to the application.
-The application should also be visible as a target resource in CA. See the [guidance for building CA policies for Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/conditional-access-identity-protection-overview).
+The application should also be visible as a target resource in CA. See the [guidance for building CA policies for Azure AD B2C](conditional-access-identity-protection-overview.md).
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
 ## Next steps
@@ -345,14 +344,14 @@ You will then be redirected to sign up and authenticate against your Azure AD B2
 
 **Single Log-Out (SLO)**
 
-Azure AD B2C fully supports IdP and application sign out through various [mechanisms](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#single-sign-out).
+Azure AD B2C fully supports IdP and application sign out through various [mechanisms](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 Having your application’s sign-out function call the Azure AD B2C log-out endpoint would be one way of achieving SLO. That way we can be sure Azure AD B2C issues a final redirect to the BIG-IP to ensure the APM session between the user and the application has also been terminated.
 Another alternative is to have the BIG-IP listen for the request when selecting the applications sign out button, and upon detecting the request it makes a simultaneous call to the Azure AD B2C logoff endpoint. This approach would avoid having to make any changes to the application itself yet achieves SLO. More details on using BIG-IP iRules to implement this are [available](https://support.f5.com/csp/article/K42052145).
 In either case your Azure AD B2C tenant would need to know the APM’s logout endpoint. 
 
 1. Navigate to **Manage** > **Manifest** in your Azure AD B2C portal and locate the logoutUrl property. It should read null.
 
-2. Add the APM’s post logout URI: https://<mysite.com>/my.logout.php3, where <mysite.com> is the BIG-IP FQDN for your own header-based application.
+2. Add the APM’s post logout URI: `https://<mysite.com>/my.logout.php3`, where `<mysite.com>` is the BIG-IP FQDN for your own header-based application.
 
 **Optimized login flow**
 
