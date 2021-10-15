@@ -10,6 +10,13 @@ ms.date: 09/29/2021
 
 This script provides the configuration to deliver events to HTTPS endpoints protected by Azure AD User using Azure Event Grid.
 
+Here are the high level steps from the script:
+
+1. Create a service principal for **Microsoft.EventGrid** if it doesn't already exist.
+1. Create a role named **AzureEventGridSecureWebhookSubscriber** in the **Azure AD app for your Webhook**.
+1. Add service principal of user who will be creating the subscription to the AzureEventGridSecureWebhookSubscriber role.
+1. Add service principal of Microsoft.EventGrid to the AzureEventGridSecureWebhookSubscriber.
+
 ## Sample script - stable
 
 ```azurepowershell
