@@ -130,7 +130,7 @@ To configure Azure Files:
     6. Create a service principal for the storage account by running this cmdlet:
 
         ```powershell
-        $servicePrincipal = New-AzureADServicePrincipal -AccountEnabled $true -AppId $application.AppId -ServicePrincipalType "Application”;
+        $servicePrincipal = New-AzureADServicePrincipal -AccountEnabled $true -AppId $application.AppId -ServicePrincipalType "Application";
         ```
 
     7. Set the password for the storage account's service principal by running the following cmdlets. Make sure to use the *$password* value you used in step 3.b.
@@ -181,7 +181,7 @@ To configure Azure Files:
 5. Create a file share under the storage account through the [Azure portal](../storage/files/storage-how-to-use-files-portal.md) or in PowerShell by running this cmdlet:
 
     ```powershell
-    New-AzRmStorageShare -StorageAccount $storageAccountName -Name “<your-share-name-here>” -QuotaGiB 1024 | Out-Null
+    New-AzRmStorageShare -StorageAccount $storageAccountName -Name "<your-share-name-here>" -QuotaGiB 1024 | Out-Null
     ```
     
 6. You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md). All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
