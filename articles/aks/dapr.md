@@ -160,7 +160,7 @@ If the extension fails to create or update, you can inspect where the creation o
 -->
 <!-- TODO: add az k8s-extension list CLI reference -->
 
-```bash
+```azure-cli-interactive
 az k8s-extension list --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
 
@@ -182,7 +182,7 @@ The below JSON is returned, and the error message is captured in the `message` p
 
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
-```bash
+```azure-cli-interactive
 az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name myDaprExtension --debug -y --no-wait
 ```
 
