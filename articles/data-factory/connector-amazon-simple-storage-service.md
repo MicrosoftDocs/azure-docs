@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/14/2021
+ms.date: 10/15/2021
 ---
 
 # Copy data from Amazon Simple Storage Service using Azure Data Factory or Synapse Analytics
@@ -291,7 +291,7 @@ When you're transforming data in mapping data flows, you can read files from Ama
 Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md).
 
 > [!NOTE]
-> The source transformation is only supported in **Azure Synapse Analytics** workspace now.
+> The Amazon S3 source transformation is only supported in the **Azure Synapse Analytics** workspace now.
 
 ### Source transformation
 
