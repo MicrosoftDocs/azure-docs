@@ -343,7 +343,7 @@ Then, select either **NC6** or **NC6_Promo**.
 
 :::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promotional-selection.png":::
 
-Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
+Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. Click on "Add" to bring up the extensions window with all available extensions. Search for and select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
 Once the extension is successfully applied, navigate to the VM main page in the Azure portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpful as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](../../virtual-machines/linux/use-remote-desktop.md) and opening a remote desktop connection to the VM.
 
