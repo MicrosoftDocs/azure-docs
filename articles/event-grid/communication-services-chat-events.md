@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - Chat Events
-description: This article describes how to use Azure Communication Services as an Event Grid event source for Chat Events.
+description: This article describes how to use Azure Communication Services as an Event Grid event source for chat Events.
 ms.topic: conceptual
 ms.date: 10/15/2021
 ms.author: vikramdh
@@ -30,7 +30,6 @@ Azure Communication Services emits the following chat event types:
 | Microsoft.Communication.ChatThreadPropertiesUpdated| Published when a chat thread's properties like topic are updated.|    
 | Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
-
 
 # Event responses
 
