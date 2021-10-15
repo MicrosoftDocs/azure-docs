@@ -47,7 +47,7 @@ Application Insights now supports distributed tracing through [OpenTelemetry](ht
 
 The following pages consist of language-by-language guidance to enable and configure Microsoft’s OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
 
-* [.NET](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
+* [.NET](opentelemetry-enable.md?tabs=net)
 * [Java](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
 * [Node.js](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=nodejs)
 * [Python](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=python)
