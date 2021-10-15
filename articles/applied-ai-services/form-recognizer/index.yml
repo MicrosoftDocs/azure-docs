@@ -30,10 +30,10 @@ landingContent:
 # Card
   - title: What's new?
     linkLists:
-    - linkListType: overview
-      links:
-        -text: What's new in Form Recognizer?
-        url: whats-new.md
+      - linkListType: overview
+        links:
+          - text: What's new in Form Recognizer?
+            url: whats-new.md
 
 # Card
   - title: Language Support
