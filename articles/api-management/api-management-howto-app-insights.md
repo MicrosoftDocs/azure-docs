@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/11/2021
+ms.date: 10/15/2021
 ms.author: danlep
 
 ---
@@ -93,18 +93,22 @@ To use Application Insights, [create an instance of the Application Insights ser
 
 Application Insights receives:
 
-+ *Request* telemetry item, for every incoming request:
-    + *frontend request*, *frontend response*
-+ *Dependency* telemetry item, for every request forwarded to a backend service:
-    + *backend request*, *backend response*
-+ *Exception* telemetry item, for every failed request:
-    + failed because of a closed client connection
-    + triggered an *on-error* section of the API policies
-    + has a response HTTP status code matching 4xx or 5xx
-+ *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. 
-    + The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
+| Telemetry item | Description |
+| -------------- | ----------- |
+| *Request* | For every incoming request: <ul><li>*frontend request*</li><li>*frontend response*</li></ul> |
+| *Dependency* | For every request forwarded to a backend service: <ul><li>*backend request*</li><li>*backend response*</li></ul> |
+| *Exception* | For every failed request: <ul><li>Failed because of a closed client connection</li><li>Triggered an *on-error* section of the API policies</li><li>Has a response HTTP status code matching 4xx or 5xx</li></ul> |
+| *Trace* | If you configure a [trace](api-management-advanced-policies.md#Trace) policy. <br /> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
 
-You can also emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy.
+### Emit metrics
+You can also emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy. 
+
+### Pre-aggregated metrics
+To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable metrics.
+1. Set up the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](https://docs.microsoft.com/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update).
+1. Add `"metrics":true` to the payload, along with any other properties.
+
+
 
 > [!NOTE]
 > See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
