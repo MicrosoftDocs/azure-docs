@@ -34,10 +34,10 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-      - linkListType: reference
-        links:  
-            - text: Data privacy, compliance, and security
-              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Data privacy, compliance, and security
+             url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Help and support
+             url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context  
 #Card 2
    - title: View Form Recognizer Features
      linkLists:
@@ -435,8 +435,24 @@ landingContent:
 
   # - title: Microsoft tech community
   #   linkLists:
+  #     - linkListType: reference
+  #       links:
+  #         - text: Extract data from PDFs with or without code
+  #           url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
+  #         - text: Read more languages, process IDs and invoices, train on tables, and more
+  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
+  #         - text: Build a personal finance app using Form Recognizer
+  #           url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
+  #         - text: Enhanced document table extraction
+  #           url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
+  #         - text: Use a meta-data-driven approach to extract key-value pairs
+  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
+  #         - text: Accelerate text, data, and structure extraction from documents
+  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
+  #         - text: Automating form processing to enhance productivity
+  #           url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
 
-  # - title: Train a custom model and extract data
+  # # - title: Train a custom model and extract data
   #   linkLists:
   #     - linkListType: quickstart
   #       links:
@@ -499,7 +515,4 @@ landingContent:
 
   # - title: Help and feedback
   #   linkLists:
-  #     - linkListType: reference
-  #       links:
-  #         - text: Support and help options
-  #           url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+      
