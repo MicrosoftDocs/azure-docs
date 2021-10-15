@@ -23,7 +23,7 @@ Clusters created with customer-managed keys have a default storage class enabled
 It is the responsibility of the customers to maintain the Key Vault and Disk Encryption Set in Azure. Failure to maintain the keys will result in broken ARO clusters. The VMs stop working and therefore the entire ARO cluster stops functioning. The Azure Red Hat OpenShift Engineering team cannot access the keys; therefore, they cannot back up, replicate, or retrieve the keys. For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
 
 ## Prerequisites
-* [Verify your permissions](tutorial-create-cluster#verify-your-permissions). You must have either Contributor and User Access Administrator permissions, or Owner permissions.
+* [Verify your permissions](tutorial-create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions, or Owner permissions.
 * Register the resource providers if you have multiple Azure subscriptions. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
 
 ## Install the preview Azure CLI extension
