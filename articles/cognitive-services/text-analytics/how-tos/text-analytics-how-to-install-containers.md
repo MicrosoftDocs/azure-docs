@@ -52,7 +52,7 @@ The following table describes the minimum and recommended specifications for the
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
 | **Language detection**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
-| **key phrase extraction (preview)**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
+| **key phrase extraction (preview)**   | 2 core, 2GB memory | 2 core, 4GB memory |15 | 30| 
 | **Sentiment Analysis**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
 | **Text Analytics for health - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
 | **Text Analytics for health - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
