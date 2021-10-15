@@ -23,7 +23,7 @@ Besides original in-tree driver features, Azure Disk CSI driver already provides
 - performance improvement when attach or detach disks in parallel
   - in-tree driver attaches or detaches disks in serial while CSI driver would attach or detach disks in batch, there would be magnificent improvement when there are multiple disks attaching to one node.
 - ZRS disk support
-  - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks-preview)
+  - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy)
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
 
