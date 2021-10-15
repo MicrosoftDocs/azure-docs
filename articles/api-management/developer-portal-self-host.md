@@ -63,7 +63,7 @@ To set up your local environment, you'll have to clone the repository, switch to
 
 ## Step 2: Configure JSON files, static website, and CORS settings
 
-The developer portal requires API Management's REST API to manage the content.
+The developer portal requires the API Management REST API to manage the content.
 
 ### config.design.json file
 

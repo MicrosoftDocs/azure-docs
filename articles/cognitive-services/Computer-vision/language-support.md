@@ -18,7 +18,7 @@ Some features of Computer Vision support multiple languages; any features not me
 
 ## Optical Character Recognition (OCR)
 
-Computer Vision's OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including same text line without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+The Computer Vision OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including same text line without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
 
 > [!NOTE]

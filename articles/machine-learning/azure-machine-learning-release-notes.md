@@ -2,7 +2,6 @@
 title: What's new in the release?
 titleSuffix: Azure Machine Learning
 description: Learn about the latest updates to Azure Machine Learning and the machine learning and data prep Python SDKs.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
@@ -38,7 +37,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-responsibleai**
     + Improve error message on failed dashboard download
   + **azureml-train-automl-client**
-    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models
+    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: [How to automatically train image models](how-to-auto-train-image-models.md)
     + Enable binary metrics calculation
   + **azureml-train-automl-runtime**
     + Add TCNForecaster support to model test runs.
