@@ -37,7 +37,7 @@ android {
 
 ```groovy
 dependencies {
-    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.0'
+    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.1'
 }
 ```
 
@@ -55,16 +55,20 @@ dependencyResolutionManagement {
             name='github'
             url = 'https://maven.pkg.github.com/Azure/communication-preview'
             credentials {
-                username '<you user name>'
-                password '<you personal access token>'
+                username '<your GitHub user name>'
+                password '<your personal access token>'
             }
         }
     }
 }
 ```
 
-You need to provide your personal access token that has read:packages scope selected.<br/>
-Also make sure your GitHub user has access to https://github.com/Azure/communication-preview<br/>
+You need to provide your personal access token that has read:packages scope selected.
+
+You might need to have SSO enabled for that PAT.
+
+Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
+
 Personal access token can be generated: [here](https://github.com/settings/tokens)
 
 
