@@ -43,7 +43,7 @@ The following `RouterRule` types exist in Job Router to provide flexibility in h
 
 **Static rule -** This rule can be used specify a static value such as selecting a specific Queue ID.
 
-**Expression rule -** An expression rule uses the [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to process the Job labels and return an object representing the parsed value.
+**Expression rule -** An expression rule uses the [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to define your rule as an inline expression.
 
 **Azure Function rule -** Specifying a URI and an `AzureFunctionRuleCredential`, this rule allows the Job Router to pass the input labels as a payload and respond back with an output value. This rule type can be used when your requirements are complex.
 
