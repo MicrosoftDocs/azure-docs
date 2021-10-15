@@ -11,7 +11,7 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv 
 ms.reviewer: mathoma, vladiv, sachinp
-ms.date: 10/08/2021
+ms.date: 10/15/2021
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,6 +24,9 @@ This article provides an overview of the technical characteristics and resource 
 ## Hardware generation characteristics
 
 SQL Managed Instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. SQL Managed Instance can be deployed on multiple hardware generations. 
+
+> [!NOTE]
+> The Gen5 hardware generation is now **Standard Series**, and the newest hardware generations will be available in two **Premium Series** tiers.
 
 For information on legacy hardware generations, see [Legacy hardware generation details](#legacy-hardware-generation-details) later in this article. 
 
@@ -64,7 +67,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Number of vCores\* | **Standard Series (Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium Series**: 4, 8, 16, 24, 32, 40, 64, 80<BR> **Premium Series - Memory Optimized**: 4, 8, 16, 24, 32, 40, 64, 80|  **Standard Series (Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium Series**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium Series - Memory Optimized**: 4, 8, 16, 24, 32, 40, 64, 80<br/>\*Same number of vCores is dedicated for read-only queries. |
 | Max memory | **Standard Series (Gen5)**: 20.4 GB - 408 GB (5.1GB/vCore)<BR> **Premium Series**: 28 GB - 560 GB (7GB/vCore)<BR> **Premium Series - Memory Optimized**: 54.4 GB - 1088 GB (13.6GB/vCore) | **Standard Series (Gen5)**: 20.4 GB - 408 GB (5.1GB/vCore) on each replica<BR> **Premium Series**: 28 GB - 560 GB (7GB/vCore) on each replica<BR> **Premium Series - Memory Optimized**: 54.4 GB - 1088 GB (13.6GB/vCore) |
 | Max instance storage size (reserved) | **Standard Series (Gen5)**:<br/>- 2 TB for 4 vCores<br/>- 8 TB for other sizes<br/>- 16 TB (preview) for 16 vCores <BR> **Premium Series**: <BR> **Premium Series - Memory Optimized**: | **Standard Series (Gen5)**: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores <BR> **Premium Series**: <BR> **Premium Series - Memory Optimized**: |
-| Max database size | Up to currently available instance size (max 2 TB - 8 TB, 16 TB (preview) depending on the number of vCores). | Up to currently available instance size (max 1 TB - 4 TB depending on the number of vCores). |
+| Max database size | Up to currently available instance size (max 2 TB - 8 TB, 16 TB (preview), depending on the number of vCores). | Up to currently available instance size (max 1 TB - 4 TB, 16 TB (preview), depending on the number of vCores). |
 | Max tempDB size | Limited to 24 GB/vCore (96 - 1,920 GB) and currently available instance storage size.<br/>Add more vCores to get more TempDB space.<br/> Log file size is limited to 120 GB.| Up to currently available instance storage size. |
 | Max number of databases per instance | 100 user databases, unless the instance storage size limit has been reached. | 100 user databases, unless the instance storage size limit has been reached. |
 | Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
