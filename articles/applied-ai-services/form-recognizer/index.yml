@@ -34,9 +34,10 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-        footerLink:
-          url: ""
-          text: More       
+      - linkListType: reference
+        links:  
+            - text: Data privacy, compliance, and security
+              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 #Card 2
    - title: View Form Recognizer Features
      linkLists:
