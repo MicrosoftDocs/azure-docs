@@ -33,7 +33,6 @@ You use workload identity federation to configure an Azure AD app registration t
 The following scenarios are supported for accessing Azure and Microsoft Graph resources without needing to manage secrets:
 
 - GitHub Actions. First, [Configure a trust relationship](workload-identity-federation-create-trust-github.md) between your app in Azure AD and a GitHub repo in the Azure portal or using Microsoft Graph. Then configure a GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (which is described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
-
 - Workloads running on Kubernetes. Install the Azure AD workload identity webhook and establish a trust relationship between your app in Azure AD and a Kubernetes workload (described in the [Kubernetes](https://azure.github.io/azure-workload-identity/) content).
 
 ## How it works
