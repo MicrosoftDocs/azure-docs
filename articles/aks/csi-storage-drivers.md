@@ -29,7 +29,7 @@ The CSI storage driver support on AKS allows you to natively use:
 - The minimum Kubernetes minor version that supports CSI drivers is v1.17.
 - The default storage class will be the `managed-csi` storage class.
 
-## Create a new cluster that can use CSI storage drivers
+## Install CSI storage drivers on a new cluster with version < 1.21
 
 Create a new cluster that can use CSI storage drivers for Azure disks and Azure Files by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableAzureDiskFileCSIDriver` feature.
 
@@ -47,7 +47,7 @@ Create the AKS cluster with support for CSI storage drivers:
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure  --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-If you want to create clusters in tree storage drivers instead of CSI storage drivers, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create clusters in tree storage drivers instead of CSI storage drivers, you can do so by omitting the custom `--aks-custom-headers` parameter. Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default.
 
 
 Check how many Azure disk-based volumes you can attach to this node by running:
@@ -61,6 +61,10 @@ aks-nodepool1-25371499-vmss000002
 $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocatable.count}")
 8
 ```
+
+## Install CSI storage drivers on an existing cluster with version < 1.21
+ - [Set up Azure Disk CSI driver on AKS cluster](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/install-driver-on-aks.md)
+ - [Set up Azure File CSI driver on AKS cluster](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/install-driver-on-aks.md)
 
 ## Migrating custom in-tree storage classes to CSI
 If you have created custom storage classes based on the in-tree storage drivers, these will need to be migrated when you have upgraded your cluster to 1.21.x.
