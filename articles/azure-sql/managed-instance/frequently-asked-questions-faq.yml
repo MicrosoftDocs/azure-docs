@@ -73,14 +73,14 @@ sections:
         answer: |
           ### Where can I find known issues and defects?
           
-          For product defects and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
+          For product defects and known issues, see [Known issues](doc-changes-updates-known-issues.md).
           
       - question: |
           New features
         answer: |
           ### Where can I find latest features and the features in public preview?
           
-          For new and preview features, see [Release notes](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
+          For new and preview features, see [What's new](doc-changes-updates-release-notes-whats-new.md).
           
       - question: |
           Create, update, delete or move SQL Managed Instance

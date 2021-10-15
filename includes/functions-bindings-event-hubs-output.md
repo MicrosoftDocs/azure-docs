@@ -245,9 +245,11 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The variable name used in function code that represents the event. |
 |**path** |**EventHubName** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have send permissions to send the message to the event stream. <br><br>If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](../articles/azure-functions/functions-reference.md#connections).|
+|**connection** |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
 
 ## Usage
 
