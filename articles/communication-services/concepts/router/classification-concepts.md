@@ -63,7 +63,7 @@ Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make 
 
 **Static label selector -** Always attaches the given `LabelSelector`.
 
-**Conditional label selector -** Uses a `RouterRule` together with a collection of `LabelSelector` types for filtering and merging.
+**Conditional label selector -** Will evaluate a condition defined by a rule.  If it resolves to `true`, then the specified collection of selectors will be applied.
 
 **Passthrough label selector -** Uses a key and `LabelOperator` to check for the existence of the key. This selector can be used in the `QueueLabelSelector` to match a Queue based on the set of labels. When used with the `WorkerSelectors`, the Job's key/value pair are attached to the `WorkerSelectors` of the Job.
 
