@@ -43,7 +43,7 @@ With the proper Application Insights SDK installed and configured, tracing infor
 
 ## Enable via OpenTelemetry
 
-Application Insights now supports distributed tracing through [OpenTelemetry](https://opentelemetry.io/). OpenTelemetry provides a vendor-neutral instrumentation to send traces, metrics, and logs to Application Insights. Initially the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable) only include Distributed Tracing. However, our Java OpenTelemetry-based Azure Monitor offering is GA and fully supported. 
+Application Insights now supports distributed tracing through [OpenTelemetry](https://opentelemetry.io/). OpenTelemetry provides a vendor-neutral instrumentation to send traces, metrics, and logs to Application Insights. Initially the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our [Azure Monitor OpenTelemetry-based exporter preview offerings for .NET, Python, and JavaScript](opentelemetry-enable.md) only include Distributed Tracing. However, our Java OpenTelemetry-based Azure Monitor offering is GA and fully supported. 
 
 The following pages consist of language-by-language guidance to enable and configure Microsoft’s OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
 
