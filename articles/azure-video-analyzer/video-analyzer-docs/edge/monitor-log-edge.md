@@ -422,7 +422,7 @@ You can stop log collection by setting the value in **Module Identity Twin** to 
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](../edge/faq.yml#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](faq.yml#monitoring-and-metrics).
 
 ## Next steps
 
