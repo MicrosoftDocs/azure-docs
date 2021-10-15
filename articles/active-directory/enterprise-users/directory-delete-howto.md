@@ -4,13 +4,13 @@ description: Explains how to prepare an Azure AD organization (tenant) for delet
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 10/13/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro

@@ -11,11 +11,12 @@ ms.author: cshoe
 
 # Quotas for Azure Container Apps
 
-<!-- PRELIMINARY OUTLINE
+The following quotas exist for Azure Container Apps Preview.
 
--->
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Get started](get-started.md)
+| Feature | Quantity |
+|---|---|
+| Environments | 2 |
+| Container apps per environment | 5 |
+| Replicas per container app | 25 |
+| Cores per replica | 2 |
+| Cores per environment | 50 |
