@@ -13,12 +13,12 @@ ms.custom: template-how-to
 
 You can use a chaos experiment to verify that your application is resilient against failures by causing those failures in a controlled environment. In this guide, you will cause a multi-read, single-write Comos DB failover using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against data loss when a failover event occurs.
 
-These same steps can be used to setup and run an experiment for any service-direct fault. A **service-direct** fault runs directly against an Azure resource without any need for instrumentation, unlike agent-based faults which require installation of the chaos agent.
+These same steps can be used to set up and run an experiment for any service-direct fault. A **service-direct** fault runs directly against an Azure resource without any need for instrumentation, unlike agent-based faults, which require installation of the chaos agent.
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 
-- A Cosmos DB account. If you do not have a Cosmos DB account, you can [follow these steps to create one](../cosmos-db/sql/create-cosmosdb-resources-portal).
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- A Cosmos DB account. If you do not have a Cosmos DB account, you can [follow these steps to create one](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 - At least one read and one write region setup for your Cosmos DB account.
 
 
@@ -40,7 +40,7 @@ You have now successfully onboarded your Cosmos DB account to Chaos Studio. In t
 ## Create an experiment
 With your Cosmos DB account now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel.
 
-1. Click on the **Experiments** tab in the Chaos Studio navigation. In this view you can see and manage all of your chaos experiments. Click on **Add an experiment**
+1. Click on the **Experiments** tab in the Chaos Studio navigation. In this view, you can see and manage all of your chaos experiments. Click on **Add an experiment**
 ![Experiments view in the Azure portal](images/tutorial-service-direct-add.png)
 2. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a **Name**. Click **Next : Experiment designer >**
 ![Adding basic experiment details](images/tutorial-service-direct-add-basics.png)
