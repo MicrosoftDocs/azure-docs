@@ -47,7 +47,7 @@ This sample shows how to use MAS with all default enhancement options on input f
 ```csharp
 SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioInputProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
 AudioConfig audioConfig = AudioConfig.FromDefaultMicrophoneInput(processingOptions);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
@@ -77,7 +77,7 @@ This sample shows how to use MAS with a predefined microphone geometry on a spec
 ```csharp
 SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioInputProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry.Linear2);
+AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry.Linear2);
 AudioConfig audioConfig = AudioConfig.FromMicrophoneInput("hw:0,1", processingOptions);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
@@ -115,7 +115,7 @@ MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[4]
     new MicrophoneCoordinates(-42, 0, 0)
 };
 MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, microphoneCoordinates);
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioInputProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
+AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
 AudioConfig audioConfig = AudioConfig.FromMicrophoneInput("hw:0,1", processingOptions);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
@@ -140,8 +140,10 @@ std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(spee
 
 ### Using Microsoft Audio Stack with select enhancements
 
-This sample shows how to use MAS with a custom set of enhancements on the input audio. In this example:
-* **Enhancement options** - All default enhancements will be applied on the input audio stream except echo cancellation.
+This sample shows how to use MAS with a custom set of enhancements on the input audio. By default, all enhancements are enabled but there are options to disable dereverberation, noise suppression, automatic gain control, and echo cancellation individually by using `AudioProcessingOptions`.
+
+In this example:
+* **Enhancement options** - Echo cancellation and noise suppression will be disabled, while all other enhancements remain enabled.
 * **Audio input device** - The audio input device is the default microphone of the device.
 
 #### [C#](#tab/csharp)
@@ -149,7 +151,7 @@ This sample shows how to use MAS with a custom set of enhancements on the input 
 ```csharp
 SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioInputProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT | AudioProcessingOptions.AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION);
+AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
 AudioConfig audioConfig = AudioConfig.FromDefaultMicrophoneInput(processingOptions);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
@@ -182,7 +184,7 @@ MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[4]
     new MicrophoneCoordinates(60, 0, 0)
 };
 MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Linear, 70, 110, microphoneCoordinates);
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioInputProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
+AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
 PushAudioInputStream pushStream = AudioInputStream.CreatePushStream();
 AudioConfig audioInput = AudioConfig.FromStreamInput(pushStream, processingOptions);
 
