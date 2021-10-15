@@ -1,8 +1,6 @@
 ---
 title: Dapr extension for Azure Kubernetes Service (AKS) (preview)
-description: "Install and configure Dapr on your Azure Kubernetes Service (AKS) cluster using the Dapr extension"
-weight: 3000
-description: Learn how to use the secrets store CSI driver to integrate secrets stores with Azure Kubernetes Service (AKS).
+description: Install and configure Dapr on your Azure Kubernetes Service (AKS) cluster using the Dapr cluster extension.
 author: greenie-msft 
 ms.author: nicholas.greenfield
 ms.service: container-service
