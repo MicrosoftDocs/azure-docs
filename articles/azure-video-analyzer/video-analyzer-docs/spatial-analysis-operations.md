@@ -14,10 +14,10 @@ Video Analyzer implements the following Spatial Analysis operations:
 
 | Operation Identifier| Description|
 |---------|---------|
-| Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation | Counts people in a designated zone in the camera's field of view. The zone must be fully covered by a single camera in order for PersonCount to record an accurate total.  |
-| Microsoft.VideoAnalyzer.SpatialAnalysisPersonLineCrossingOperation | Tracks when a person crosses a designated line in the camera's field of view.  
 | Microsoft.VideoAnalyzer.SpatialAnalysisPersonZoneCrossingOperation | Emits a _personZoneEnterExitEvent_ event when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed. Emits a _personZoneDwellTimeEvent_ when the person exits the zone and provides directional info as well as the number of milliseconds the person spent inside the zone. |
+| Microsoft.VideoAnalyzer.SpatialAnalysisPersonLineCrossingOperation | Tracks when a person crosses a designated line in the camera's field of view.  |
 | Microsoft.VideoAnalyzer.SpatialAnalysisPersonDistanceOperation | Tracks when people violate a distance rule.  |
+| Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation | Counts people in a designated zone in the camera's field of view. The zone must be fully covered by a single camera in order for PersonCount to record an accurate total.  |
 | Microsoft.VideoAnalyzer.SpatialAnalysisCustomOperation | Generic operation which can be used to run all scenarios mentioned above. This option is more useful when you want to run multiple scenarios on the same camera or use system resources (e.g. GPU) more efficiently. |
 
 
