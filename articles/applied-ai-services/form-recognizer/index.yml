@@ -192,47 +192,40 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-                 - text: Model overview
-                   url: concept-invoice.md
-                 - text: Using the .NET SDK
-                   url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
-                 - text: Using the Python SDK
-                   url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
-                 - text: Using the Java SDK
-                   url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
-                 - text: Using the JavaScript SDK
-                   url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
-                 - text: Using the REST API (cURL)
-                   url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-                 - text: Using the Sample Labeling tool
-                   url: "concept-business-card.md#try-it-sample-labeling-tool"
+          - text: Model overview
+            url: concept-invoice.md
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
+          - text: Using the REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
+          - text: Using the Sample Labeling tool
+            url: "concept-business-card.md#try-it-sample-labeling-tool"
 
-#  #Card
-#   - title: Receipt model
-#     linkLists:
-#       - linkListType: get-started
-#          links:
-#
-#                  text: Model overview
-#                  url: concept-receipt.md
-#
-#                  text: Using the .NET SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
-#
-#                  text: Using the Python SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
-#
-#                  text: Using the Java SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
-#
-#                  text: Using the JavaScript SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
-#
-#                  text: Using the REST API (cURL)
-#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
-#
-#                  text: Using the Sample Labeling tool
-#                  url: "concept-receipt.md#try-it-sample-labeling-tool"
+#Card
+  - title: Receipt model
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Model overview
+            url: concept-receipt.md
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
+          - text: Using the REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+          - text: Using the Sample Labeling tool
+            url: "concept-receipt.md#try-it-sample-labeling-tool"
 
 # #Card
 #   - title: ID document model
