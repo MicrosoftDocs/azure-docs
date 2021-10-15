@@ -189,12 +189,12 @@ Use the [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_b
 az sql db ltr-backup list \
    --location eastus2 \
    --server myserver \
-   --database mydb \
+   --database mydb
 ```
 
 ### Delete LTR backups
 
-Run the [az sql db ltr-backup delete](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_delete) command to remove an LTR backup.
+Run the [az sql db ltr-backup delete](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_delete) command to remove an LTR backup. You can use [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_list) to find the backup `name`.
 
 ```azurecli
 az sql db ltr-backup delete \

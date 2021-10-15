@@ -215,7 +215,7 @@ az sql midb ltr-backup list \
 
 ### Delete LTR backups
 
-Run the [az sql midb ltr-backup delete](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_delete) command to remove an LTR backup.
+Run the [az sql midb ltr-backup delete](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_delete) command to remove an LTR backup. You can run [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_list) to get the backup `name`.
 
 ```azurecli
 az sql midb ltr-backup delete \

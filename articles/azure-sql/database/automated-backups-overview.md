@@ -307,7 +307,7 @@ Use the following example to change the PITR backup retention of a **single acti
 ```azurecli
 # Set new PITR backup retention period on an active individual database
 # Valid backup retention must be between 1 and 35 days
-az sql midb short-term-retention-policy set
+az sql midb short-term-retention-policy set \
     --resource-group myresourcegroup \
     --managed-instance myinstance \
     --name mymanageddb \
@@ -319,27 +319,11 @@ Use the following example to change the PITR backup retention for **all active**
 ```azurecli
 # Set new PITR backup retention period for ALL active databases
 # Valid backup retention must be between 1 and 35 days
-az sql midb short-term-retention-policy set
+az sql midb short-term-retention-policy set \
     --resource-group myresourcegroup \
     --managed-instance myinstance \
     --retention-days 1 \
 ```
-
-Use the following example to change the PITR backup retention for a **single dropped** database in a SQL Managed Instance.
-
-```azurecli
-# Set new PITR backup retention on an individual dropped database
-# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
-az sql midb short-term-retention-policy set
-    --resource-group myresourcegroup \
-    --managed-instance myinstance \
-    --name mymanageddb \
-    --deleted-time "2021-05-20T05:34:22" \
-    --retention-days 0 \
-```
-
-Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
-Once PITR backup retention has been reduced for a deleted database, it no longer can be increased.
 
 ---
 
