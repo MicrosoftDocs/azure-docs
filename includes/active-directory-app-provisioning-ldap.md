@@ -11,7 +11,7 @@ For important details on what this service does, how it works, and frequently as
 ### On-premises prerequisites
 
  - A target system, such as a Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted.
- - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have a SQL Server instance in your environment and use the generic SQL connector.
+ - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have an LDAP instance in your environment and use the generic LDAP connector.
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
 
@@ -34,7 +34,7 @@ The following information is provided to help create a test LDAP environment.  T
 If you already have AD LDS setup in a test environment you can skip the following sections and move to installing the ECMA Host connector section.
 
 ### Create an SSL certificate, a test directory and install AD LDS.
-The use the PowerShell script from [Appendix A].  The script does the following:
+The use the PowerShell script from [Appendix A](#appendix-a---install-ad-lds-powershell-script).  The script does the following:
   - Creates a self-signed certificate that will be used by the LDAP connector
   - Creates a directory for the feature install log
   - Installs the AD LDS role on our virtual machine 
@@ -44,13 +44,13 @@ On the Windows Server virtual machine you are using to test the LDAP connector r
 ### Create the AddPerson.LDF file
 AD LDS installs with a minimum set of schema files.  In order to support app provisioning with the ECMA Host connector and AD LDS, we need to create a specialized LDF file and import it in to the schema.  
 
-Copy the contents of [Appendix B] in to a text file and save it as **AddPerson.LDF** in **"C:\Windows\ADAM"**.
+Copy the contents of [Appendix B](#appendix-b---addpersonldf-file) in to a text file and save it as **AddPerson.LDF** in **"C:\Windows\ADAM"**.
 
 
 ### Create an instance of AD LDS
 Now that the role has been installed, you need to create an instance of AD LDS.  To do this, you can use the answer file provided below.  This will install the instance quietly without using the UI.
 
-Copy the contents of [Appendix C] in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
+Copy the contents of [Appendix C](#appendix-c---answer-file) in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
 
 Now open a cmd prompt with administrative priviledges and run the following:
 
