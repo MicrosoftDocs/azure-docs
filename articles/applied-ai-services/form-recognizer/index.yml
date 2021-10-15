@@ -34,7 +34,16 @@ landingContent:
     links:
            - text: Language support
              url: language-support.md
-
+  - linkListType: reference
+    links:
+          - text: Transparency notes
+            url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+          - text: Characteristics and limitations
+            url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+          - text: Guidance for integration and responsible use
+            url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+          - text: Data privacy, compliance, and security
+            url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 
 #Card
   - title: Features
