@@ -1,7 +1,7 @@
 ---
-title: Copy data from Amazon Simple Storage Service (S3)
+title: Copy and transform data in Amazon Simple Storage Service (S3)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores using Azure Data Factory or Synapse Analytics pipelines.
+description: Learn how to copy data from Amazon Simple Storage Service (S3), and transform data in Amazon Simple Storage Service (S3) using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 10/15/2021
 ---
 
-# Copy data from Amazon Simple Storage Service using Azure Data Factory or Synapse Analytics
+# Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -19,7 +19,7 @@ ms.date: 10/15/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3). To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to use Copy Activity to copy data from Amazon Simple Storage Service (Amazon S3), and use Data Flow to transform data in Amazon S3. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
 >To learn more about the data migration scenario from Amazon S3 to Azure Storage, see [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
