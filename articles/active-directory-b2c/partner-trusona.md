@@ -3,14 +3,14 @@ title: Trusona and Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to add Trusona as an identity provider on Azure AD B2C to enable passwordless authentication.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
