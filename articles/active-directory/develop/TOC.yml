@@ -546,7 +546,9 @@
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
-      href: howto-create-service-principal-portal.md    
+      href: howto-create-service-principal-portal.md   
+    - name: Configure an app to trust a GitHub repo
+      href: workload-identity-federation-create-trust-github.md 
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
@@ -563,9 +565,7 @@
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Implement RBAC in your application
-      href: howto-implement-rbac-for-apps.md
-    - name: Create a trust relationship with GitHub
-      href: workload-identity-federation-create-trust-github.md  
+      href: howto-implement-rbac-for-apps.md      
   - name: Build for resilience
     items:
     - name: Development Overview
