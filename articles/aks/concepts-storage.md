@@ -191,12 +191,6 @@ For mounting a volume in a Windows container, specify the drive letter and path.
 ...
 ```
 
-## Storage with Dapr
-
-Dapr is a open-source, portable runtime helping developers to solve common challenges present when building a distributed microservice application. You can read more about Dapr in the [upstream documentation][dapr-docs].
-
-Dapr provides a robust state management component that can interface with various data stores. For more on this component, see the [state management overview][dapr-state-management].
-
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
@@ -217,8 +211,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[dapr-docs]: https://docs.dapr.io/
-[dapr-state-management]: https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/
 
 <!-- INTERNAL LINKS -->
 [aks-static-disks]: azure-disk-volume.md
