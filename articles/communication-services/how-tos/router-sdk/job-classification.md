@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Classifying a job
 
-Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker selectors of a Job.
+Learn to use a classification policy in Job Router to dynamically resolve the queue and priority while also attaching worker selectors to a Job.
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
