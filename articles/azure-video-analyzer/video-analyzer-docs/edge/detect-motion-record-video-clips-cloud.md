@@ -45,7 +45,7 @@ When you complete the steps below, you will have used the Video Analyzer edge mo
 The diagram below is the visual representation of the overall flow.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/detect-motion-record-video-clips-cloud/topology.png" alt-text="Event-based video recording to a video resource based on motion events":::
+> :::image type="content" source="./media/detect-motion-record-video-clips-cloud/topology.svg" alt-text="Event-based video recording to a video resource based on motion events":::
 
 ## Set up your development environment
 
