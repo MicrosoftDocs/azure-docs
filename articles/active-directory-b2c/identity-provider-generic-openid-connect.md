@@ -130,16 +130,17 @@ In the `<Item Key="client_id">` technical profile metadata, enter the client ID.
 If client secret is required, store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework**.
-5. Select **Policy Keys** and then select **Add**.
-6. For **Options**, choose `Manual`.
-7. Enter a **Name** for the policy key. For example, `ContosoSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-8. In **Secret**, enter your client secret that you previously recorded.
-9. For **Key usage**, select `Signature`.
-10. Click **Create**.
-11. In the `CryptographicKeys` XML element, add the following element:
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the portal toolbar.
+3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+4. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+5. On the Overview page, select **Identity Experience Framework**.
+6. Select **Policy Keys** and then select **Add**.
+7. For **Options**, choose `Manual`.
+8. Enter a **Name** for the policy key. For example, `ContosoSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
+9. In **Secret**, enter your client secret that you previously recorded.
+10. For **Key usage**, select `Signature`.
+11. Click **Create**.
+12. In the `CryptographicKeys` XML element, add the following element:
     
     ```xml
     <CryptographicKeys>
