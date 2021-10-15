@@ -5,10 +5,10 @@ services: sql-data-warehouse
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: metadata
-ms.date: 10/05/2021
-author: maburd 
-ms.author: maburd 
-ms.reviewer: jrasnick, wiassaf
+ms.date: 10/13/2021
+author: ma77b
+ms.author: maburd
+ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
 ---
 
@@ -44,6 +44,9 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
   Spark also provides ways to create external tables over existing data, either by providing the `LOCATION` option or using the Hive format. Such external tables can be over a variety of data formats, including Parquet.
 
 Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet or CSV format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
+
+> [!NOTE] 
+> Currently, only Parquet and CSV formats are synced to serverless SQL pool. A Spark delta table metadata will not sync to the SQL engine, even though Delta table uses Parquet as the snapshot's storage format. External tables from Spark are currently not synchronizing into dedicated SQL pool databases.
 
 ### Share Spark tables
 

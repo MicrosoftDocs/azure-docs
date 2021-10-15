@@ -77,7 +77,7 @@ Here is a list of the supported storage types for the Data Box Disk.
 | General-purpose v1 Premium   |  |
 | General-purpose v2 Standard<sup>*</sup> | Hot, Cool |
 | General-purpose v2 Premium   |  |
-| Blob storage account <!--Verify: Is the supported account type "Blob storage Standard"?--> | |
+| Blob storage account | |
 
 <sup>*</sup> *Azure Data Lake Storage Gen2 (ADLS Gen2) is supported.*
 
