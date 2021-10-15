@@ -14,7 +14,7 @@ You'll also learn how to consume the logs that the service generates.
 
 Below diagram represents common taxonomy used for the events or telemetry data  emitted by Video Analyzer Service:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-taxonomy-cloud.png" alt-text="Diagram that shows the taxonomy of events.":::
+> :::image type="content" source="./media/event-taxonomy-cloud.jpg" alt-text="Diagram that shows the taxonomy of events.":::
 
 **Event Types:** Service emits following types of event data
 
@@ -34,7 +34,7 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 ```json
 {
   "time": "2021-10-06T21:19:36.0988630Z",
-  "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+  "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
   "region": "westcentralus",
   "category": "Operational",
   "operationName": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
@@ -74,7 +74,7 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 ```json
 {
   "time": "2021-10-06T21:19:34.1290000Z",
-  "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID/RESOURCEGROUPS/NEWIGNITERELEASETEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+  "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
   "region": "westcentralus",
   "category": "Diagnostics",
   "operationName": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
@@ -98,7 +98,7 @@ Below diagram represents common taxonomy used for the events or telemetry data  
 ```json
 {
   "time": "2021-10-07T23:53:31.6792370Z",
-  "resourceId": "/SUBSCRIPTIONS/SUBSCRIPTIONID /RESOURCEGROUPS/NEWIGNITERELEASEMAYANK/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+  "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
   "region": "westcentralus",
   "category": "Audit",
   "operationName": "Microsoft.VideoAnalyzer.Audit.ResourceGet",
@@ -221,7 +221,7 @@ Follow the steps to enable monitoring & events collection with Azure Monitor:
 ```json
 {
     "time": "2021-10-06T21:19:36.0988630Z",
-    "resourceId": "/SUBSCRIPTIONS/35C2594A-23DA-4FCE-B59C-F6FB9513EEEB/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+    "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
     "region": "westcentralus",
     "category": "Operational",
     "operationName": "Microsoft.VideoAnalyzer.Operational.RecordingStarted",
@@ -230,7 +230,7 @@ Follow the steps to enable monitoring & events collection with Azure Monitor:
     "correlationId": "c7887efd-0043-4ada-aa3d-9a411e612497",
     "traceContext": "{\n  \"traceId\": \"e74a9d4c-c4b9-4024-9acf-06be76d978ad\"\n}",
     "properties": {
-        "subject": "/livePipelines/livepipemayank/sinks/videoSink",
+        "subject": "/livePipelines/livepipesample/sinks/videoSink",
         "body": {
             "type": "video",
             "location": "/videos/livetest1",
@@ -240,7 +240,7 @@ Follow the steps to enable monitoring & events collection with Azure Monitor:
 }
 {
     "time": "2021-10-06T21:19:34.1290000Z",
-    "resourceId": "/SUBSCRIPTIONS/35C2594A-23DA-4FCE-B59C-F6FB9513EEEB/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLE5LFGGVOMCM7VA",
+    "resourceId": "/SUBSCRIPTIONS/{SUBID}/RESOURCEGROUPS/{RGNAME}/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/{NAME}",
     "region": "westcentralus",
     "category": "Diagnostics",
     "operationName": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
