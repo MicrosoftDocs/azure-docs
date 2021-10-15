@@ -1,22 +1,21 @@
 ---
-title: Build a web API using Azure Cosmos DB's API for MongoDB and .NET SDK
-description: Presents a .NET code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
+title: Get started using Azure Cosmos DB API for MongoDB and Python
+description: Presents a Python code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 
-ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 8/26/2021
-ms.custom: devx-track-csharp
+ms.date: 10/22/2021
 ---
 
-# Quickstart: Build a .NET web API using Azure Cosmos DB's API for MongoDB
+# Quickstart: Get started using Azure Cosmos DB API for MongoDB and Python
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
