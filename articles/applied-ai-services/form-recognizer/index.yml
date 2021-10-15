@@ -34,12 +34,6 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-      - linkListType: video
-        links:
-          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-            url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-          - text: AI-powered process automation
-            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 #Card
   - title: Features
@@ -302,7 +296,12 @@ landingContent:
 
 
 
-
+# - linkListType: video
+#         links:
+#           - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
+#             url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+#           - text: AI-powered process automation
+#             url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 
       
