@@ -39,7 +39,7 @@ There are always a multitude of [design considerations](/azure/architecture/refe
 * The related resources that the VM needs
 
 ### Locations
-All resources created in Azure are distributed across multiple [geographical regions](https://azure.microsoft.com/regions/) around the world. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
+There are multiple [geographical regions](https://azure.microsoft.com/regions/) around the world where you can create Azure resources. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks will be stored.
 
 This table shows some of the ways you can get a list of available locations.
 

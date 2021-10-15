@@ -71,7 +71,7 @@ Close the elevated PowerShell console.
 Minimum version of Az modules required to support attestation operations:
 - Az 4.5.0
 - Az.Accounts 1.9.2
-- Az.Attestation 0.1.8
+- Az.Attestation 1.0.0
 
 Run the below command to verify the installed version of all Az modules 
 
