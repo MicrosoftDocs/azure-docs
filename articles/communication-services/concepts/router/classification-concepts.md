@@ -22,7 +22,7 @@ Azure Communication Services Job Router uses a process called **classification**
 
 Job Router uses two primary methods for classifying a Job; static or dynamic. If the calling application has knowledge about the Queue ID, Priority, or Worker Selectors, the Job can be submitted without a Classification Policy; known as **static classification**. If you prefer to let Job Router decide the Queue ID, a Classification Policy can be used to modify the Job's properties; known as **dynamic classification**.
 
-When you submit a Job using the Job Router SDK, the process of classification will result in an event being sent to your Azure Communication Services Event Grid subscription. The events generated as part of the classification lifecycle give insights into what actions the Job Router is taking. For example, a successful classification will produce a **JobClassifiedEvent** and a failure will produce a **JobClassificationFailedEvent**.
+When you submit a Job using the Job Router SDK, the process of classification will result in an event being sent to your Azure Communication Services Event Grid subscription. The events generated as part of the classification lifecycle give insights into what actions the Job Router is taking. For example, a successful classification will produce a **RouterJobClassified** and a failure will produce a **RouterJobClassificationFailed**.
 
 The process of classifying a Job involves optionally setting the following properties:
 

@@ -210,11 +210,11 @@ When the distribution process locates a suitable Worker who has an open channel 
 
 The following Job offer lifecycle events can be observed through your Event Grid subscription:
 
-- OfferIssuedEvent
-- OfferAcceptedEvent
-- OfferDeclinedEvent
-- OfferExpiredEvent
-- OfferRevokedEvent
+- RouterWorkerOfferIssued
+- RouterWorkerOfferAccepted
+- RouterWorkerOfferDeclined
+- RouterWorkerOfferExpired
+- RouterWorkerOfferRevoked
 
 > [!NOTE]
 > An offer can be accepted or declined by a Worker by using the SDK while all other events are internally generated.

@@ -119,6 +119,6 @@ await client.CreateJobWithClassificationPolicyAsync(
 
 The following lifecycle steps will be taken once the configuration is complete and the Job is ready to be submitted:
 
-1. The Job is sent to Job Router and since a Classification Policy is attached, it will be evaluated and produce both a `JobReceivedEvent` and a `JobClassifiedEvent`.
-2. Next, the 5-minute timer begins and will eventually be triggered if no Worker can be assigned. Assuming no Workers are registered, resulting in a `JobExceptionTriggeredEvent` and another `JobClassifiedEvent`.
+1. The Job is sent to Job Router and since a Classification Policy is attached, it will be evaluated and produce both a `RouterJobReceived` and a `RouterJobClassified`.
+2. Next, the 5-minute timer begins and will eventually be triggered if no Worker can be assigned. Assuming no Workers are registered, resulting in a `RouterJobExceptionTriggered` and another `RouterJobClassified`.
 3. At this point, the Job will be in the `XBOX_Escalation_Queue` and the priority will be set to `10`.

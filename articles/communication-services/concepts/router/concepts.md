@@ -29,22 +29,22 @@ Azure Communication Services Job Router uses events to notify your applications 
 ### Job submission flow
 
 1. The Contoso Application submits a Job to the Job Router in the Azure Communication Services instance.
-2. The Job is classified and an event is raised called **JobClassifiedEvent** which includes all the information about the Job and how the classification process may have modified its properties.
+2. The Job is classified and an event is raised called **RouterJobClassified** which includes all the information about the Job and how the classification process may have modified its properties.
  
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram showing Communication Services' Job Router submitting a job.":::
 
 ### Worker registration flow
 
 1. When a Worker is ready to accept a Job, they register with the Job Router via Contoso's Application.
-2. Job Router then sends back a **WorkerRegisteredEvent**
+2. Job Router then sends back a **RouterWorkerRegistered**
 
     :::image type="content" source="../media/router/acs-router-worker-registration.png" alt-text="Diagram showing Communication Services' Job Router worker registration.":::
 
 ### Matching and accepting a job flow
 
-1. When Job Router finds a matching Worker for a Job, it offers the work by sending a **OfferIssuedEvent** which the Contoso Application would receive and send a signal to the connected user using a platform such as the Azure SignalR Service.
+1. When Job Router finds a matching Worker for a Job, it offers the work by sending a **RouterWorkerOfferIssued** which the Contoso Application would receive and send a signal to the connected user using a platform such as the Azure SignalR Service.
 2. The Worker accepts the Offer.
-3. Job Router sends an **OfferAcceptedEvent** signifying to the Contoso Application the Worker is assigned to the Job.
+3. Job Router sends an **RouterWorkerOfferAccepted** signifying to the Contoso Application the Worker is assigned to the Job.
 
     :::image type="content" source="../media/router/acs-router-accept-offer.png" alt-text="Diagram showing Communication Services' Job Router accept offer.":::
 
