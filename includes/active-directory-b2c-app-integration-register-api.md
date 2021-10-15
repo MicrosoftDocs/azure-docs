@@ -11,8 +11,9 @@ ms.author: kengaderdus
 To create the web API app registration (**App ID: 2**), follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon on the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-1. Search for and select **Azure AD B2C**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter a name for the application (for example, **my-api1**). Leave the default values for **Redirect URI**. 
 1. Select **Register**.
