@@ -335,6 +335,8 @@ Workspace.list('<subscription-id>')
 
 When you no longer need a workspace, delete it.  
 
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
 # [Python](#tab/python)
 
 Delete the workspace `ws`:
