@@ -149,7 +149,7 @@ az k8s-extension show --cluster-type managedClusters \
 --name myDaprExtension
 ```
 
-### Troubleshooting extension errors
+## Troubleshooting extension errors
 
 If the extension fails to create or update, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings for `global.ha=false`: 
 
@@ -178,7 +178,7 @@ The below JSON is returned, and the error message is captured in the `message` p
 ],
 ```
 
-### Delete the extension
+## Delete the extension
 
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
@@ -186,7 +186,7 @@ If you need to delete the extension and remove Dapr from your AKS cluster, you c
 az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name myDaprExtension --debug -y --no-wait
 ```
 
-### Next Steps
+## Next Steps
 - Once you have successfully provisioned Dapr in your AKS cluster, you can try one of the [sample applications][sample-applications]
 
 
@@ -197,7 +197,6 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [az-provider-register]: /cli/azure/provider#az_provider_register
 
 <!-- LINKS EXTERNAL -->
-
 [kubernetes-production]: https://docs.dapr.io <!-- TODO: fill in with real link -->
 [building-blocks-concepts]: https://docs.dapr.io/concepts/building-blocks-concept
 [dapr-configuration-options]: https://github.com/dapr/dapr/blob/master/charts/dapr/README.md#configuration
