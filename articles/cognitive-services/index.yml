@@ -64,7 +64,7 @@ conceptualContent:
       links:
         - url: ./language-service/index.yml
           itemType: overview
-          text: Azure Cognitive Service for language
+          text: Azure Cognitive Service for Language
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
