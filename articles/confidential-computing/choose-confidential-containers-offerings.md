@@ -30,7 +30,7 @@ Containers deployed in this mode have a tightest security and compute isolation 
 
 There are two programmings & deployment model on Azure Kubernetes Service (AKS) 
 
-1. Unmodified containers support for higher programming languages on Intel SGX through Azure Partner ecosystem of OSS projects. [Read more on the deployment flow and samples](./confidential-containers-intelsgx.md).  
+1. Unmodified containers support for higher programming languages on Intel SGX through Azure Partner ecosystem of OSS projects. [Read more on the deployment flow and samples](./confidential-containers.md).  
 1. Enclave aware containers through custom Intel SGX programming model. [Read more on the deployment flow and samples](./enclave-aware-containers.md). 
 
 Below is the isolation and security boundaries of enclave confidential containers on Intel SGX.
@@ -41,7 +41,7 @@ Below is the isolation and security boundaries of enclave confidential container
 ## Containers in a Confidential VM <a id="Containers-in-a-Confidential-VM"></a>
 
 > [!NOTE]
-> Confidential VM's with AMD SEV-SNP is coming soon on AKS. [Please get added to the notification list for this capability on Azure Kubernetes Service](virtual-machine-solutions.md).
+> Confidential VM's with AMD SEV-SNP is coming soon on AKS. [Please get added to the notification list for this capability on Azure Kubernetes Service](virtual-machine-solutions-sgx.md).
 
 Combining the security features of trusted launch and full node in-memory encryption enabled through AMD’s SEV-SNP confidential computing technology. The in-memory encryption keys are not accessible by Azure. SEV-SNP enabled VM nodes on AKS will also allow you to lift & shift the current sensitive workloads making it a straight forward process for developers or operations. The added integrity assurances of SEV-SNP will continuously protect data corruption, replay, memory aliasing, and memory remapping​ that can help meet your security requirements. Summarizing the features: 
 

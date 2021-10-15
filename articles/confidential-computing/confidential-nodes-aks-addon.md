@@ -1,7 +1,7 @@
 ---
-title:  Confidential Computing plugin on AKS for Enclave aware Azure  VM's
+title:  Confidential Computing plugin on AKS for Enclave aware Azure VM's
 description: AKS Addon fro Confidential Computing details.
-author: amgowda
+author: agowdamsft
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
@@ -10,19 +10,20 @@ ms.date: 11/1/2021
 ms.author: amgowda
 ---
 
+# Confidential computing plugin for Intel SGX Confidential Virtual Machines 
 
-# Feature: Intel SGX Device Plugin for Azure Kubernetes Service (AKS)
+## Feature: Intel SGX Device Plugin for Azure Kubernetes Service (AKS)
 
 The SGX Device Plugin implements the Kubernetes device plugin interface for EPC memory. Effectively, this plugin makes EPC memory an additional resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 
-# Feature: Platform Software Management with SGX quote helper daemon set
+## Feature: Platform Software Management with SGX quote helper daemon set
 
-Enclave applications that perform remote attestation need to generate a QUOTE. The QUOTE provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. It can leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. [Read more](confidential-nodes-out-of-proc-attestation.md) on its usage and feature details.
+Enclave applications that perform remote attestation need to generate a QUOTE. The QUOTE provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. It can leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
 
 [Enclave applications](confidential-computing-enclaves.md) that perform remote attestation requires a generated QUOTE. This QUOTE provides cryptographic proof of the identity and the state of the application, as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components that are part of the Intel’s Platform Software Components (PSW).
 
-## Overview
+### Overview
 
 > [!NOTE]
 > This addon is only needed for DCsv2/DCsv3 VMs that use specialized Intel SGX hardware. 
@@ -36,7 +37,7 @@ SGX applications built using Open Enclave SDK by default use in-proc attestation
 
 Utilizing this feature is **highly recommended**, as it enhances uptime for your enclave apps during Intel Platform updates or DCAP driver updates.
 
-## Why and What are the benefits of out-of-proc?
+### Why and What are the benefits of out-of-proc?
 
 -	No updates are required for quote generation components of PSW for each containerized application:
 With out-of-proc, container owners don’t need to manage updates within their container. Container owners instead rely on the provider provided interface that invokes the centralized service outside of the container, which will be updated and managed by provider.
@@ -52,7 +53,7 @@ When the SGX driver is up streamed into Linux kernel, there will be enforcement 
 
 -	No need to check for backward compatibility with PSW & DCAP. The updates to the quote generation components of PSW are validated for backward compatibility by the provider before updating. This will help in handling the compatibility issues upfront and address them before deploying updates for confidential workloads.
 
-## How does the out-of-proc attestation mode work for confidential workloads scenario?
+### How does the out-of-proc attestation mode work for confidential workloads scenario?
 
 The high-level design follows the model where the quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation will be done in a centralized manner and serves requests for QUOTES from all entities. The interface needs to be properly defined and discoverable for any entity to request quotes.
 
@@ -64,7 +65,7 @@ Each container needs to opt in to use out-of-proc quote generation by setting th
 
 An application can still use the in-proc attestation as before, but both in-proc and out-of-proc can’t be used simultaneously within an application. The out-of-proc infrastructure is available by default and consumes resources.
 
-## Sample Implementation
+### Sample Implementation
 
 The below docker file is a sample for an Open Enclave-based application. Set the SGX_AESM_ADDR=1 environment variable in the docker file or by set it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
 
@@ -134,12 +135,12 @@ spec:
 ```
 
 ## Next Steps
-[Provision Confidential Nodes (DCsv2/DCsv3-Series) on AKS](./confidential-nodes-aks-get-started.md)
+[Provision Confidential Nodes (DCsv2/DCsv3-Series) on AKS](./confidential-enclavenodes-aks-get-started.md)
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 
 [DCsv2 SKU List](../virtual-machines/dcv2-series.md)
-[DCSv3 SKU List](../en-us/azure/virtual-machines/dcv3-series.md)
+[DCSv3 SKU List](../virtual-machines/dcv3-series.md)
 
 <!-- LINKS - external -->
 [Azure Attestation]: ../attestation/index.yml

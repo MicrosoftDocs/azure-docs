@@ -33,7 +33,7 @@ sections:
 
       - question: Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
         answer: |
-          Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-get-started.md).
+          Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-enclavenodes-aks-get-started.md).
 
       - question: Can I run Windows Nodes and windows containers with ACC?
         answer: |

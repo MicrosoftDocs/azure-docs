@@ -49,7 +49,7 @@ Confidential computing nodes on AKS also support containers that are programmed 
 
 ## Next Steps
 
-[Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-get-started.md)
+[Deploy AKS Cluster with confidential computing nodes](./confidential-enclavenodes-aks-get-started.md)
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
