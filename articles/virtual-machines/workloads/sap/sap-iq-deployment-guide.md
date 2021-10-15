@@ -94,7 +94,7 @@ For SAP IQ on Azure, you can use the following Azure storage types. The choice d
 
 - Azure managed disks
 
-  A [managed disk](../../managed-disks-overview.md) is a block-level storage volume that Azure manages. You can use managed disks for SAP IQ simplex deployment. Various types of managed disks are available, but we recommend that you use [premium SSDs](../../disks-types.md#premium-ssd) for SAP IQ. 
+  A [managed disk](../../managed-disks-overview.md) is a block-level storage volume that Azure manages. You can use managed disks for SAP IQ simplex deployment. Various types of managed disks are available, but we recommend that you use [premium SSDs](../../disks-types.md#premium-ssds) for SAP IQ. 
 
 - Azure shared disks
 

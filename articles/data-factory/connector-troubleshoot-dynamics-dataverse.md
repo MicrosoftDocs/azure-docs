@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -143,6 +143,40 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 - **Cause**: Sink columns in the column mapping miss the 'type' property. 
  
 - **Recommendation**: You can add the 'type' property to those columns in the column mapping by using JSON editor on the portal. 
+
+## The copy activity from the Dynamics 365 reads more rows than the actual number
+
+- **Symptoms**: The copy activity from the Dynamics 365 reads more rows than the actual number.
+
+- **Cause**: The Dynamics 365 server always indicates more available records. 
+
+- **Recommendation**: Use **XrmToolBox** to test the FetchXML with paging. **XrmToolBox** with some installed tools can get records count. For more information, see [XrmToolBox](https://www.xrmtoolbox.com/).
+
+## Cannot access virtual columns from Dynamics sources in the copy activity
+
+- **Symptoms**: You cannot access virtual columns from Dynamics sources in the copy activity.
+
+- **Cause**: The virtual column is not supported now. 
+
+- **Recommendation**: For the Option Set value, follow the options below to get it:
+  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) and [Dynamics 365 blog](https://dynamicscrmdotblog.wordpress.com/).
+  - You can link the StringMap entity to your target entity and get the associated values.
+
+## The parallel copy in a Dynamics CRM data store
+
+- **Symptoms**: You don't know if it is possible to configure the parallel copy in a Dynamics CRM data store, and you also don't know the range of values that can be set in the "Degree of copy parallelism" section.
+
+- **Recommendation**: The parallel copy controls parallelism, and the "Degree of copy parallelism" section can be set to non-zero value. Large number may cause throttling on dynamics server side, which may reduce the throughput, but now the throttling is handled by taking the public SDK.
+
+  :::image type="content" source="./media/connector-troubleshoot-guide/degree-of-copy-parallelism-section.png" alt-text="Diagram of Degree of copy parallelism section.":::
+
+## Dynamics type conversion
+
+- **Symptoms**: You try to convert the GUID to a string in the Dynamics source, but you encounter an error.
+
+- **Cause**: When Dynamics is used as the source, the type conversion is not supported.
+
+- **Recommendation**: Enable the staging and retry.
 
 ## Next steps
 
