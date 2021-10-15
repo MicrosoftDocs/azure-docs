@@ -40,7 +40,7 @@ landingContent:
     linkLists:
     - linkListType: reference
       links:
-          - text: What languages are supported by Azure Form Recognizer?
+          - text: Language Support for Form Recognizer
             url: language-support.md
 
 #Card
@@ -81,7 +81,27 @@ landingContent:
          - text: Python SDK
            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
 
-
+#Card
+    - title: 🆕Form Recognizer Studio (preview)
+      linkLists:
+       - linkListType: get-started
+         links:
+           - text: Studio overview
+             url: concept-form-recognizer-studio.md
+           - text: Using the General document model (preview)
+             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+           - text: Using the Layout model
+             url: quickstarts/try-v3-form-recognizer-studio.md#layout
+           - text: Using the Invoice model
+             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+           - text: Using the Receipt model
+             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+           - text: Using the ID document model
+             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+           - text: Using the Business card model
+             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+           - text: Using the Custom model
+             url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
 
 
 
