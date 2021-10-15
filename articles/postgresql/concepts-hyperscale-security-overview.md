@@ -11,7 +11,7 @@ ms.date: 10/15/2021
 
 # Security in Azure Database for PostgreSQL – Hyperscale (Citus)
 
-There are multiple layers of security available to protect the data in your
+This page outlines the multiple layers of security available to protect the data in your
 Hyperscale (Citus) server group. This page outlines them.
 
 ## Information protection and encryption
