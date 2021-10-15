@@ -29,6 +29,10 @@ As a message is logged, the following information is gathered.
 |Location|Location where the container app is hosted.|
 |ContainerId|The container's unique identifier. You can use this value to help identify container crashes. |
 
+
+
+
+
 ### Simple text vs structured data
 
 You can log a single text string or line of serialized JSON data. Information is displayed differently depending on what type of data you log.
@@ -40,12 +44,12 @@ You can log a single text string or line of serialized JSON data. Information is
 
 ## Viewing Logs
 
-Data logged via a container app are stored in the `WorkerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
 
 Use the following CLI command to view logs on the command line.
 
 ```azurecli
-$ az monitor log-analytics query -w <workspace-d> --analytics-query "WorkerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
+$ az monitor log-analytics query -w <workspace-d> --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
