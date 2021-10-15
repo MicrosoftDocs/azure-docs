@@ -23,7 +23,7 @@ Get started with this [quickstart](quickstart.md) and follow the [recommended pr
 
 ## How many tagged files are needed?
 
-Generally, more [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged entities that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your entities. Ambiguous entity types need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 200. 
+Generally, diverse and representitive [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged entities that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your entities. Ambiguous entity types need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 200. 
 
 ## What are the service limits?
 
@@ -31,7 +31,7 @@ See the [service limits article](concepts/data-limits.md) for more information.
 
 ## What to do if my model scores poorly?
 
-Model evaluation may not always be comprehensive, especially if a specific entity is missing or under-represented in your test set. Consider adding more tagged data to your model to both improve performance, and have a more representative test set.
+Model evaluation may not always be comprehensive, especially if a specific class is missing or under-represented in your test set. Consider adding more tagged data to your model to both improve performance, and have a more representative test set.
 
 ## How do I improve model performance?
 
