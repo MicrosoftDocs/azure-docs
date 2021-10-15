@@ -14,7 +14,7 @@ ms.author: zhenlwa
 ---
 # Tutorial: Use dynamic configuration in an ASP.NET web application (.NET Framework)
 
-Data from App Configuration can be loaded as App Settings in a .NET Framework application. See the [quickstart](./quickstart-dotnet-app.md) for more details. However, as is designed by the .NET Framework, the App Settings can only refresh upon application restart. The App Configuration .NET provider is a .NET Standard library. It supports caching and refreshing configuration dynamically without application restart. This tutorial shows how you can implement dynamic configuration updates in an ASP.NET Web Forms application. The same technique applies to .NET Framework MVC applications.
+Data from App Configuration can be loaded as App Settings in a .NET Framework application. For more information, see the [quickstart](./quickstart-dotnet-app.md). However, as is designed by the .NET Framework, the App Settings can only refresh upon application restart. The App Configuration .NET provider is a .NET Standard library. It supports caching and refreshing configuration dynamically without application restart. This tutorial shows how you can implement dynamic configuration updates in an ASP.NET Web Forms application. The same technique applies to .NET Framework MVC applications.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
+7. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
@@ -93,7 +93,7 @@ In this tutorial, you learn how to:
         Configuration = builder.Build();
     }
     ```
-    The `Application_Start` method is called upon the first request to your web application. It is called only once during the application's life cycle. Therefore, this is a good time to initialize your `IConfiguration` object to load data from App Configuration.
+    The `Application_Start` method is called upon the first request to your web application. It is called only once during the application's life cycle. As such it is a good place to initialize your `IConfiguration` object and load data from App Configuration.
 
     In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. In this example, the key *TestApp:Settings:Sentinel* is a *sentinel* key that you update after you complete the change of all other keys. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application compared to monitoring all keys for changes.
     
@@ -195,7 +195,7 @@ In this tutorial, you learn how to:
     ![App refresh local](./media/dotnet-fx-web-app-refresh.png)
 
 > [!NOTE]
-> You can download the example code used in this tutorial from [Azure App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetFramework/WebFormApp).
+> You can download the example code used in this tutorial from the [Azure App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetFramework/WebFormApp).
 
 ## Clean up resources
 

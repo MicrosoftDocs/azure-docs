@@ -15,9 +15,9 @@ ms.author: alkemper
 ---
 # Quickstart: Create a .NET Framework app with Azure App Configuration
 
-There are two ways to incorporate Azure App Configuration into a .NET Framework-based app: a console app, an ASP.NET Web Forms app, or an ASP.NET MVC app.
-- The configuration builder for App Configuration enables data from App Configuration to be loaded to App Settings. Your app accesses configuration as it always does. You don't need to make any code changes other than updates to *app.config* or *web.config* files. This quickstart will walk you through this option.
-- As is designed by the .NET Framework, the App Settings can only refresh upon application restart. The App Configuration .NET provider is a .NET Standard library. It supports caching and refreshing configuration dynamically without application restart. If dynamic configuration is essential to you and you are willing to make code changes, see tutorials how you can implement dynamic configuration updates in a [.NET Framework console app](./enable-dynamic-configuration-dotnet.md) or an [ASP.NET web app](./enable-dynamic-configuration-aspnet-netfx.md).
+There are two ways to incorporate Azure App Configuration into a .NET Framework-based app.
+- The configuration builder for App Configuration enables data from App Configuration to be loaded to App Settings. Your app accesses configuration as it always does via `ConfigurationManager`. You don't need to make any code change other than updates to *app.config* or *web.config* files. This quickstart will walk you through this option.
+- As is designed by the .NET Framework, the App Settings can only refresh upon application restart. The App Configuration .NET provider is a .NET Standard library. It supports caching and refreshing configuration dynamically without application restart. If the dynamic configuration is essential to you and you are willing to make code changes, see tutorials on how you can implement dynamic configuration updates in a [.NET Framework console app](./enable-dynamic-configuration-dotnet.md) or an [ASP.NET web app](./enable-dynamic-configuration-aspnet-netfx.md).
 
 In this quickstart, a .NET Framework console app is used as an example, but the same technique applies to an ASP.NET Web Forms/MVC app.
 
@@ -31,7 +31,7 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Configuration explorer** > **+ Create** > **Key-value** to add the following key-value:
+7. Select **Configuration explorer** > **+ Create** > **Key-value** to add the following key-value:
 
     | Key                        | Value                               |
     |----------------------------|-------------------------------------|
