@@ -23,7 +23,7 @@ Image Builder lets you start with Windows or Linux images, from the Azure Market
 
 ## Features
 
-Azure VM Image Builder is built on [HashiCorp Packer](https://packer.io/) which provides benefits of a managed service and simplifies the image bulding process when compared to other tools.
+While it is possible to create custom VM images by hand or by other tools, the process can be cumbersome and unreliable. Azure VM Image Builder, which is built on HashiCorp Packer, provides you with benefits of a managed service
 
 ### Simplicity
 
@@ -78,7 +78,7 @@ Azure Image Builder will support Azure Marketplace base OS images:
 - Windows 2019
 
 >[!IMPORTANT]
-> Listed the operating systems have been tested and know work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.
+> Listed operating systems have been tested and know work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.
 
 ## How it works
 
