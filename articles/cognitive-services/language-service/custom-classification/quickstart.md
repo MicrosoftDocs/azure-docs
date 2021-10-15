@@ -32,9 +32,8 @@ Use this article to get started with creating and using a text classification mo
 ## Next steps
 
 After you've created a text classification model, you can:
-* [Send text classification requests to your model](how-to/run-inference.md)
-* [Improve your model's performance](how-to/improve-model.md).
+* [Use the runtime API to classify text](how-to/run-inference.md)
 
-As you create Text Classification projects:
-* [View the recommended practices](concepts/recommended-practices.md)
-* [Learn how to improve your model by using evaluation metrics](how-to/view-model-evaluation.md).
+When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
+
+(TODO: Add how-to links here) 
