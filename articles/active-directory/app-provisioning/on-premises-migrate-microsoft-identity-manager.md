@@ -3,7 +3,7 @@ title: 'Export a Microsoft Identity Manager connector for use with the Azure AD 
 description: Describes how to create and export a connector from MIM Sync to be used with the Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -51,7 +51,4 @@ At this point, the MIM Sync server is no longer needed.
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)

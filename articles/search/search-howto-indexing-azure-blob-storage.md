@@ -28,7 +28,7 @@ This article uses the REST APIs.
 
 ## Supported access tiers
 
-Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
+Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
 
 <a name="SupportedFormats"></a>
 

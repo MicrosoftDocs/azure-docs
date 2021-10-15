@@ -124,7 +124,7 @@ For a desktop app to call a web API that signs in users, use the interactive tok
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
-There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [Integrated Windows Authentication](https://aka.ms/msal-net-iwa).
+There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
 
 Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](https://aka.ms/msal-net-device-code-flow).
 
@@ -157,7 +157,7 @@ For more information, see [Mobile app that calls web APIs](scenario-mobile-overv
 
 ### Protected web API
 
-You can use the Microsoft identity platform endpoint to secure web services like your app's RESTful web API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
+You can use the Microsoft identity platform endpoint to secure web services like your app's RESTful API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
 
 If you want to protect your ASP.NET or ASP.NET Core web API, validate the access token. For this validation, you use the ASP.NET JWT middleware. The validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library and not by MSAL.NET.
 
@@ -228,7 +228,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td>Integrated Windows Authentication</td>
+   <td>Integrated Windows authentication</td>
    <td>Work or school accounts</td>
  </tr>
 

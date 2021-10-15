@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning pipelines ingest data, and how to manage and move data between pipeline steps.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
@@ -15,7 +15,7 @@ ms.custom: contperf-fy20q4, devx-track-python, data4ml
 
 # Moving data into and between ML pipeline steps (Python)
 
-This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
+This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md)
 
 This article will show you how to:
 

@@ -15,7 +15,7 @@ ms.subservice: identity
 # Quickstart: Set up and manage Teams access tokens
 
 > [!IMPORTANT]
-> To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
+> This feature is available in preview only. To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
 
 In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Azure Active Directory (Azure AD) user token. You'll then exchange that token for a Teams access token with the Azure Communication Services Identity SDK. The Teams access token can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
 

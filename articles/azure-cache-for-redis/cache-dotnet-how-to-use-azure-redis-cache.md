@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in .NET Framework'
 description: In this quickstart, learn how to access Azure Cache for Redis from your .NET apps
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart

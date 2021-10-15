@@ -82,6 +82,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | French (France)                    | `fr-FR` | Audio (20201015)<br>Text<br>Pronunciation|      Yes                     |                          |
 | French (Switzerland)               | `fr-CH` | Text<br>Pronunciation                  |                           |                          |
 | German (Austria)                   | `de-AT` | Text<br>Pronunciation                  |                           |                          |
+| German (Switzerland)               | `de-CH` | Text<br>Pronunciation                  |                           |                          |
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |                          |
 | Greek (Greece)                     | `el-GR` | Text                                   |  Yes                         |                          |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |                          |
@@ -92,6 +93,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Irish (Ireland)                    | `ga-IE` | Text<br>Pronunciation                  |                           |                          |
 | Italian (Italy)                    | `it-IT` | Audio (20201016)<br>Text<br>Pronunciation|      Yes                     |                          |
 | Japanese (Japan)                   | `ja-JP` | Text                                   |      Yes                     |                          |
+| Kannada  (India)                   | `kn-IN` | Text                                   |                           |                          |
 | Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Text                 |      Yes                     |                          |
 | Latvian (Latvia)                   | `lv-LV` | Text<br>Pronunciation                  |                           |                          |
 | Lithuanian (Lithuania)             | `lt-LT` | Text<br>Pronunciation                  |                           |                          |
@@ -211,7 +213,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (South Africa) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retires Oct 15, see below</sup> | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retires Oct 30, see below</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -333,7 +335,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
 > [!IMPORTANT]
-> The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **October 30th, 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **October 30th, 2021**.
+> The English (United Kingdom) voice `en-GB-MiaNeural` will be retired on **30 October 2021**. All service requests to `en-GB-MiaNeural` will be re-directed to `en-GB-SoniaNeural` automatically after **30 October 2021**.
+> If you are using container Neural TTS, please [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version before **30 October 2021**. After **30 October 2021**, all requests with previous versions will be rejected.
 
 #### Neural voices in preview
 
@@ -497,83 +500,103 @@ Select the right locale that matches the training data you have to train a custo
 
 ## Speech translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the  [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 
 | Text language           | Language code |
 |:------------------------|:-------------:|
-| Afrikaans               | `af`          |
-| Arabic                  | `ar`          |
-| Bangla                  | `bn`          |
-| Bosnian (Latin)         | `bs`          |
-| Bulgarian               | `bg`          |
-| Cantonese (Traditional) | `yue`         |
-| Catalan                 | `ca`          |
-| Chinese Simplified      | `zh-Hans`     |
-| Chinese Traditional     | `zh-Hant`     |
-| Croatian                | `hr`          |
-| Czech                   | `cs`          |
-| Danish                  | `da`          |
-| Dutch                   | `nl`          |
-| English                 | `en`          |
-| Estonian                | `et`          |
-| Fijian                  | `fj`          |
-| Filipino                | `fil`         |
-| Finnish                 | `fi`          |
-| French                  | `fr`          |
-| German                  | `de`          |
-| Greek                   | `el`          |
-| Gujarati                | `gu`          |
-| Haitian Creole          | `ht`          |
-| Hebrew                  | `he`          |
-| Hindi                   | `hi`          |
-| Hmong Daw               | `mww`         |
-| Hungarian               | `hu`          |
-| Indonesian              | `id`          |
-| Irish                   | `ga`          |
-| Italian                 | `it`          |
-| Japanese                | `ja`          |
-| Kannada                 | `kn`          |
-| Kiswahili               | `sw`          |
-| Klingon                 | `tlh-Latn`    |
-| Klingon (plqaD)         | `tlh-Piqd`    |
-| Korean                  | `ko`          |
-| Latvian                 | `lv`          |
-| Lithuanian              | `lt`          |
-| Malagasy                | `mg`          |
-| Malay                   | `ms`          |
-| Malayalam               | `ml`          |
-| Maltese                 | `mt`          |
-| Maori                   | `mi`          |
-| Marathi                 | `mr`          |
-| Norwegian               | `nb`          |
-| Persian                 | `fa`          |
-| Polish                  | `pl`          |
-| Portuguese (Brazil)     | `pt-br`       |
-| Portuguese (Portugal)   | `pt-pt`       |
-| Punjabi                 | `pa`          |
-| Queretaro Otomi         | `otq`         |
-| Romanian                | `ro`          |
-| Russian                 | `ru`          |
-| Samoan                  | `sm`          |
-| Serbian (Cyrillic)      | `sr-Cyrl`     |
-| Serbian (Latin)         | `sr-Latn`     |
-| Slovak                  | `sk`          |
-| Slovenian               | `sl`          |
-| Spanish                 | `es`          |
-| Swedish                 | `sv`          |
-| Tahitian                | `ty`          |
-| Tamil                   | `ta`          |
-| Telugu                  | `te`          |
-| Thai                    | `th`          |
-| Tongan                  | `to`          |
-| Turkish                 | `tr`          |
-| Ukrainian               | `uk`          |
-| Urdu                    | `ur`          |
-| Vietnamese              | `vi`          |
-| Welsh                   | `cy`          |
-| Yucatec Maya            | `yua`         |
+| Afrikaans | `af` |
+| Albanian | `sq` |
+| Amharic | `am` |
+| Arabic | `ar` |
+| Armenian | `hy` |
+| Assamese | `as` |
+| Azerbaijani | `az` |
+| Bangla | `bn` |
+| Bosnian (Latin) | `bs` |
+| Bulgarian | `bg` |
+| Cantonese (Traditional) | `yue` |
+| Catalan | `ca` |
+| Chinese (Literary) | `lzh` |
+| Chinese Simplified | `zh-Hans` |
+| Chinese Traditional | `zh-Hant` |
+| Croatian | `hr` |
+| Czech | `cs` |
+| Danish | `da` |
+| Dari | `prs` |
+| Dutch | `nl` |
+| English | `en` |
+| Estonian | `et` |
+| Fijian | `fj` |
+| Filipino | `fil` |
+| Finnish | `fi` |
+| French | `fr` |
+| French (Canada) | `fr-ca` |
+| German | `de` |
+| Greek | `el` |
+| Gujarati | `gu` |
+| Haitian Creole | `ht` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Hmong Daw | `mww` |
+| Hungarian | `hu` |
+| Icelandic | `is` |
+| Indonesian | `id` |
+| Inuktitut | `iu` |
+| Irish | `ga` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Kannada | `kn` |
+| Kazakh | `kk` |
+| Khmer | `km` |
+| Klingon | `tlh-Latn` |
+| Klingon (plqaD) | `tlh-Piqd` |
+| Korean | `ko` |
+| Kurdish (Central) | `ku` |
+| Kurdish (Northern) | `kmr` |
+| Lao | `lo` |
+| Latvian | `lv` |
+| Lithuanian | `lt` |
+| Malagasy | `mg` |
+| Malay | `ms` |
+| Malayalam | `ml` |
+| Maltese | `mt` |
+| Maori | `mi` |
+| Marathi | `mr` |
+| Myanmar | `my` |
+| Nepali | `ne` |
+| Norwegian | `nb` |
+| Odia | `or` |
+| Pashto | `ps` |
+| Persian | `fa` |
+| Polish | `pl` |
+| Portuguese (Brazil) | `pt` |
+| Portuguese (Portugal) | `pt-pt` |
+| Punjabi | `pa` |
+| Queretaro Otomi | `otq` |
+| Romanian | `ro` |
+| Russian | `ru` |
+| Samoan | `sm` |
+| Serbian (Cyrillic) | `sr-Cyrl` |
+| Serbian (Latin) | `sr-Latn` |
+| Slovak | `sk` |
+| Slovenian | `sl` |
+| Spanish | `es` |
+| Swahili | `sw` |
+| Swedish | `sv` |
+| Tahitian | `ty` |
+| Tamil | `ta` |
+| Telugu | `te` |
+| Thai | `th` |
+| Tigrinya | `ti` |
+| Tongan | `to` |
+| Turkish | `tr` |
+| Ukrainian | `uk` |
+| Urdu | `ur` |
+| Vietnamese | `vi` |
+| Welsh | `cy` |
+| Yucatec Maya | `yua` |
 
 ## Speaker Recognition
 

@@ -69,7 +69,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 
 **Search results summary**: describe the purpose or goal of your offer in 100 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
-**Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in Azure portal.
+**Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
 
 **Description**: describe your offer in 3,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
 

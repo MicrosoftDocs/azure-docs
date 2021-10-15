@@ -906,10 +906,10 @@ Jump to a resource provider namespace:
 > | diskEncryptionSets | Yes | Yes |
 > | disks | Yes | Yes |
 > | galleries | Yes | Yes |
-> | galleries / applications | No | No |
-> | galleries / applications / versions | No | No |
-> | galleries / images | No | No |
-> | galleries / images / versions | No | No |
+> | galleries / applications | Yes | No |
+> | galleries / applications / versions | Yes | No |
+> | galleries / images | Yes | No |
+> | galleries / images / versions | Yes | No |
 > | hostGroups | Yes | Yes |
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |

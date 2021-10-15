@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/25/2021
+ms.date: 09/23/2021
 ms.author: aahi
 ---
 
 
 #### [Version 3.2-preview.1](#tab/version-3-2)
 
-[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1)
+[v3.2 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1)
 
 #### [Version 3.1](#tab/version-3-1)
 

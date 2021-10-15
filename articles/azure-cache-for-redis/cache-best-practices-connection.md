@@ -5,7 +5,7 @@ description: Learn how to make your Azure Cache for Redis connections resilient.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/11/2021
 ms.author: shpathak
 ---
 
@@ -19,19 +19,38 @@ Configure your client connections to retry commands with exponential backoff. Fo
 
 Test your system's resiliency to connection breaks using a [reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
 
+## TCP settings for Linux-hosted client applications
+
+Some Linux versions use optimistic TCP settings by default. The TCP settings can create a situation where a client connection to a cache cannot be reestablished for a long time when a Redis server stops responding before closing the connection gracefully. The failure to reestablish a connection can happen if the primary node of your Azure Cache For Redis becomes unavailable, for example, for unplanned maintenance.
+
+We recommend these TCP settings:
+
+|Setting  |Value |
+|---------|---------|
+| *net.ipv4.tcp_retries2*   | 5 |
+| *TCP_KEEPIDLE*   | 15 |
+| *TCP_KEEPINTVL*  | 5 |
+| *TCP_KEEPCNT* | 3 |
+
+Consider using the *ForceReconnect* pattern. For an implementation of the pattern, see the code in [Reconnecting with Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
+
+For more information about the scenario can be found here, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
+
 ## Configure appropriate timeouts
 
-Configure your client library to use *connect timeout* of 10 to 15 seconds and a *command timeout* of 5 seconds. The *connect timeout* is the time your client waits to establish a connection with Redis server. Most client libraries have another timeout configuration for *command timeouts*, which is the time the client waits for a response from Redis server.
+Two timeout values are important to consider in connection resiliency: [connect timeout](#connect-timeout) and [command timeout](#command-timeout).
 
-Some libraries have the *command timeout* set to 5 seconds by default. Consider setting it higher or lower depending on your scenario and the sizes of the values that are stored in your cache.
+### Connect timeout
 
-If the *command timeout* is too small, the connection can look unstable. However, if the *command timeout* is too large, your application might have to wait for a long time to find out whether the command is going to timeout or not.
+The `connect timeout` is the time your client waits to establish a connection with Redis server. Configure your client library to use a `connect timeout` of five seconds, giving the system sufficient time to connect even under higher CPU conditions.
 
-Configure your client library to use a *connect timeout* of at least 15 seconds, giving the system sufficient time to connect even under higher CPU conditions. A small *connection timeout* value doesn't guarantee a connection is established in that time frame.
+A small `connection timeout` value doesn't guarantee a connection is established in that time frame. If something goes wrong (high client CPU, high server CPU, and so on), then a short `connection timeout` value causes the connection attempt to fail. This behavior often makes a bad situation worse. Instead of helping, shorter timeouts aggravate the problem by forcing the system to restart the process of trying to reconnect, which can lead to a *connect -> fail -> retry* loop.
 
-If something goes wrong (high client CPU, high server CPU, and so on), then a short connection timeout value causes the connection attempt to fail. This behavior often makes a bad situation worse. Instead of helping, shorter timeouts aggravate the problem by forcing the system to restart the process of trying to reconnect, which can lead to a *connect -> fail -> retry* loop.
+### Command timeout
 
-We generally recommend that you leave your *connection timeout* at 15 seconds or higher. It's better to let your connection attempt to succeed after 15 or 20 seconds than to have it fail quickly only to retry. Such a retry loop can cause your outage to last longer than if you let the system just take longer initially.
+Most client libraries have another timeout configuration for `command timeouts`, which is the time the client waits for a response from Redis server. Although we recommend an initial setting of less than five seconds, consider setting the `command timeout` higher or lower depending on your scenario and the sizes of the values that are stored in your cache.
+
+If the `command timeout` is too small, the connection can look unstable. However, if the `command timeout` is too large, your application might have to wait for a long time to find out whether the command is going to time out or not.
 
 ## Avoid client connection spikes
 
@@ -61,3 +80,9 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 ## Idle timeout
 
 Azure Cache for Redis currently has a 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+
+## Next steps
+
+- [Best practices for development](cache-best-practices-development.md)
+- [Azure Cache for Redis development FAQ](cache-development-faq.yml)
+- [Failover and patching](cache-failover.md)

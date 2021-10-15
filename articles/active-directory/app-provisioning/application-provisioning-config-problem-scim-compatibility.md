@@ -3,7 +3,7 @@ title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -101,33 +101,27 @@ Below are sample requests to help outline what the sync engine currently sends v
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
-        {
-            "op": "Add",
-            "path": "nickName",
-            "value": [
-                {
-                    "value": "Babs"
-                }
-            ]
-        }
-    ]
-}   
+    {
+        "op": "Add",
+        "path": "nickName",
+        "value": "Babs"
+     }
+   ]
+}
+
   ```
 
 **With feature flag**
   ```json
-  {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "value": {
-                "nickName": "Babs"
-            }
-        }
-    ]
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+  "Operations": [
+    {
+      "op": "add",
+      "path": "nickName",
+      "value": "Babs"
+    }
+  ]
 }
   ```
 

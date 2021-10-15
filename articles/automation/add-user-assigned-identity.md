@@ -3,7 +3,7 @@ title: Using a user-assigned managed identity for an Azure Automation account (p
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/26/2021
+ms.date: 09/23/2021
 ms.topic: conceptual 
 ---
 
@@ -44,7 +44,7 @@ You can add a user-assigned managed identity for an Azure Automation account usi
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -314,8 +314,14 @@ New-AzRoleAssignment `
 After you enable the user-assigned managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
 ```powershell
-Connect-AzAccount -Identity `
-    -AccountId <user-assigned-identity-ClientId> 
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with user-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity -AccountId <user-assigned-identity-ClientId>).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 ## Generate an access token without using Azure cmdlets

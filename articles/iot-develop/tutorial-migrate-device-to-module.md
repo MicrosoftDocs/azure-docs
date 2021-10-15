@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft Docs
 description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
-author: ericmitt
-ms.author: ericmitt
+author: RamIoTMalhotra
+ms.author: ramal
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
@@ -105,7 +105,7 @@ To open and prepare the sample project:
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | The module connection string you made a note of previously |
 
-    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/master/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
+    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
 
 ## Modify the code
 

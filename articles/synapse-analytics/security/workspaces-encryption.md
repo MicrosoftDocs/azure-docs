@@ -29,7 +29,7 @@ The first layer of encryption for Azure services is enabled with platform-manage
 This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA 2048 and 3072 byte-sized keys, as well as RSA-HSM keys.
 
 > [!NOTE]
-> Synapse workspaces do not support the use of EC, EC-HSM, RSA-HSM, and oct-HSM keys for encryption. 
+> Synapse workspaces do not support the use of EC, EC-HSM, and oct-HSM keys for encryption. 
 
 The data in the following Synapse components is encrypted with the customer-managed key configured at the workspace level:
 * SQL pools

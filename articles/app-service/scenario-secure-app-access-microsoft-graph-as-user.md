@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 09/14/2021
+ms.date: 09/23/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -50,7 +50,7 @@ Select **Delegated permissions**, and then select **User.Read** from the list. S
 
 ## Configure App Service to return a usable access token
 
-The web app now has the required permissions to access Microsoft Graph as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing Microsoft Graph. For this step, you need the client/app ID of the downstream service (Microsoft Graph). The app ID for Microsoft Graph is *00000003-0000-0000-c000-000000000000*.
+The web app now has the required permissions to access Microsoft Graph as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing Microsoft Graph. For this step, you need to add the User.Read scope for the downstream service (Microsoft Graph): `https://graph.microsoft.com/User.Read`.
 
 > [!IMPORTANT]
 > If you don't configure App Service to return a usable access token, you receive a ```CompactToken parsing failed with error code: 80049217``` error when you call Microsoft Graph APIs in your code.
@@ -62,7 +62,7 @@ The Azure Resource Explorer is now opened with your web app selected in the reso
 
 In the left browser, drill down to **config** > **authsettingsV2**.
 
-In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]` .
+In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
 "identityProviders": {
@@ -71,7 +71,7 @@ In the **authsettingsV2** view, select **Edit**. Find the **login** section of *
       "login": {
         "loginParameters":[
           "response_type=code id_token",
-          "resource=00000003-0000-0000-c000-000000000000"
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
         ]
       }
     }
@@ -95,7 +95,7 @@ Get your existing 'config/authsettingsv2’ settings and save to a local *authse
 az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
 ```
 
-Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]` .
+Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
 "identityProviders": {
@@ -104,7 +104,7 @@ Open the authsettings.json file using your preferred text editor. Find the **log
       "login": {
         "loginParameters":[
           "response_type=code id_token",
-          "resource=00000003-0000-0000-c000-000000000000"
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
         ]
       }
     }
@@ -118,13 +118,6 @@ Save your changes to the *authsettings.json* file and upload the local settings 
 az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2?api-version=2020-06-01' --body @./authsettings.json
 ```
 ---
-
-## Update the issuer URL
-In the [Azure portal](https://portal.azure.com), navigate to your App Service and then the **Authentication** blade.
-
-Click the **Edit** link next to the Microsoft identity provider.
-
-Check the the **Issuer URL** in the **Basics** tab. If the **Issuer URL** contains "/v2.0" at the end of it, remove it and click **Save**. If you don’t remove “/v2.0”, you get an *AADSTS901002: The 'resource' request parameter is not supported* when you sign in to the web app.
 
 ## Call Microsoft Graph (.NET)
 

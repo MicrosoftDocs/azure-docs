@@ -17,9 +17,6 @@ The log data each tile in the dashboard displays is refreshed every hour, with a
 
 To learn about working with a log-based dashboard, see the following [tutorial](../../azure-monitor/visualize/tutorial-logs-dashboards.md).
 
-> [!NOTE]
-> If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 
-
 ## Configure email notifications
 
 To change email notifications after Start/Stop VMs v2 (preview) is deployed, you can modify the action group created during deployment.

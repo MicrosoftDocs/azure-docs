@@ -83,6 +83,7 @@ The table below lists the available resources that support a private endpoint:
 | **Azure Event Grid** | Microsoft.EventGrid/domains | domain |
 | **Azure Event Grid** | Microsoft.EventGrid/topics  | Event grid topic |
 | **Azure Event Hub** | Microsoft.EventHub/namespaces | namespace |
+| **Azure HDInsight** | Microsoft.HDInsight/clusters | cluster |
 | **Azure API for FHIR** | Microsoft.HealthcareApis/services | service |
 | **Azure Keyvault HSM** | Microsoft.Keyvault/managedHSMs | HSM |
 | **Azure Key Vault** | Microsoft.KeyVault/vaults | vault |
@@ -92,6 +93,7 @@ The table below lists the available resources that support a private endpoint:
 | **Private Link Service** (Your own service) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | **Azure Purview** | Microsoft.Purview/accounts | account |
+| **Azure Purview** | Microsoft.Purview/accounts | portal |
 | **Azure Backup** | Microsoft.RecoveryServices/vaults | vault |
 | **Azure Relay** | Microsoft.Relay/namespaces | namespace |
 | **Microsoft Search** | Microsoft.Search/searchServices | search service |
@@ -153,7 +155,7 @@ The following table includes a list of known limitations when using private endp
 | Traffic destined to a private endpoint using a user-defined route may be asymmetric. | Return traffic from a private endpoint bypasses a Network Virtual Appliance (NVA) and attempts to return to the source VM. | Source Network Address Translation (SNAT) is used to ensure symmetric routing. For all traffic destined to a private endpoint using a UDR, it's recommended to use SNAT for traffic at the NVA. |
 
 > [!IMPORTANT]
-> NSG and UDR support for private endpoints is in public preview.
+> NSG and UDR support for private endpoints are in public preview on select regions. For more information, see [Public preview of Private Link UDR Support](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) and [Public preview of Private Link Network Security Group Support](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

@@ -237,7 +237,7 @@ To resolve this issue, reinstall the side-by-side stack:
 3. Go to **Control Panel** > **Programs** > **Programs and Features**.
 4. Uninstall the latest version of the **Remote Desktop Services SxS Network Stack** or the version listed in **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** under **ReverseConnectListener**.
 5. Open a console window as an administrator and go to **Program Files** > **Microsoft RDInfra**.
-6. Select the **SxSStack** component or run the **msiexec /i SxsStack-<version>.msi** command to install the MSI.
+6. Select the **SxSStack** component or run the **`msiexec /i SxsStack-<version>.msi`** command to install the MSI.
 8. Restart your VM.
 9. Go back to the command prompt and run the **qwinsta** command.
 10. Verify that the stack component installed in step 6 says **Listen** next to it.
