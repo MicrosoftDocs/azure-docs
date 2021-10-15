@@ -9,7 +9,7 @@ ms.date: 10/14/2021
 
 To share [modules](modules.md) within your organization, you can create a private module registry. You publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files.
 
-To work with module registries, you must have Bicep CLI version **x.xx or later**.
+To work with module registries, you must have Bicep CLI version **0.4.1008 or later**.
 
 ## Configure private registry
 

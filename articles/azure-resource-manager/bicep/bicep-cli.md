@@ -54,7 +54,7 @@ The module with reference "br/exampleregistry.azurecr.io/bicep/modules/storage:v
 
 When you get this error, either run the `build` command without the `--no-restore` switch or run `bicep restore` first.
 
-To use the `--no-restore` switch, you must have Bicep CLI version **x.xx or later**.
+To use the `--no-restore` switch, you must have Bicep CLI version **0.4.1008 or later**.
 
 ## decompile
 
@@ -118,7 +118,7 @@ The `publish` command adds a module to a registry. The Azure container registry 
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
-To use the publish command, you must have Bicep CLI version **x.xx or later**.
+To use the publish command, you must have Bicep CLI version **0.4.1008 or later**.
 
 To publish a module to a registry, use:
 
@@ -141,7 +141,7 @@ The `publish` command doesn't recognize aliases that you've defined in a [bicepc
 
 When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
 
-To use the restore command, you must have Bicep CLI version **x.xx or later**.
+To use the restore command, you must have Bicep CLI version **0.4.1008 or later**.
 
 To manually restore the external modules for a file, use:
 
