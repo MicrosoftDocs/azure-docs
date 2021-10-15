@@ -6,7 +6,11 @@ ms.date: 10/15/2021
 ms.author: vikramdh
 ---
 
-# Events types
+# Azure Communication Services - Chat events
+
+This article provides the properties and schema for communication services chat events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+## Event types
 
 Azure Communication Services emits the following chat event types:
 
@@ -31,13 +35,13 @@ Azure Communication Services emits the following chat event types:
 | Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
 
-# Event responses
+## Event responses
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
 This section contains an example of what that data would look like for each event.
 
-## Microsoft.Communication.ChatMessageReceived event
+### Microsoft.Communication.ChatMessageReceived event
 
 ```json
 [{
@@ -80,7 +84,7 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
-## Microsoft.Communication.ChatMessageEdited event
+### Microsoft.Communication.ChatMessageEdited event
 
 ```json
 [{
@@ -123,7 +127,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatMessageDeleted event
+### Microsoft.Communication.ChatMessageDeleted event
 ```json
 [{
     "id": "23cfcc13-33f2-4ae1-8d23-b5015b05302b",
@@ -160,7 +164,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatThreadCreatedWithUser event
+### Microsoft.Communication.ChatThreadCreatedWithUser event
 
 ```json
 [{
@@ -227,7 +231,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatThreadWithUserDeleted event
+### Microsoft.Communication.ChatThreadWithUserDeleted event
 
 ```json
 [{
@@ -262,7 +266,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatParticipantAddedToThreadWithUser  event 
+### Microsoft.Communication.ChatParticipantAddedToThreadWithUser  event 
 ```json
 [{
     "id": "049a5a7f-6cd7-43c1-b352-df9e9e6146d1",
@@ -303,7 +307,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser event 
+### Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser event 
 ```json
 [{
     "id": "e8a4df24-799d-4c53-94fd-1e05703a4549",
@@ -344,7 +348,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event
+### Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event
 
 ```json
 [{
@@ -382,7 +386,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-## Microsoft.Communication.ChatMemberAddedToThreadWithUser event
+### Microsoft.Communication.ChatMemberAddedToThreadWithUser event
 
 ```json
 [{
@@ -409,7 +413,7 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
-## Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
+### Microsoft.Communication.ChatMemberRemovedFromThreadWithUser event
 
 ```json
 [{
@@ -436,7 +440,7 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
-## Microsoft.Communication.ChatThreadCreated event
+### Microsoft.Communication.ChatThreadCreated event
 
 ```json
 [ {
@@ -502,7 +506,7 @@ This section contains an example of what that data would look like for each even
     "eventTime": "2021-02-20T00:31:54.5369967Z"
   }]
 ```
-## Microsoft.Communication.ChatThreadPropertiesUpdated event
+### Microsoft.Communication.ChatThreadPropertiesUpdated event
 
 ```json
 [{
@@ -531,7 +535,7 @@ This section contains an example of what that data would look like for each even
     "eventTime": "2021-02-20T00:04:07.8410277Z"
   }]
 ```
-## Microsoft.Communication.ChatThreadDeleted event
+### Microsoft.Communication.ChatThreadDeleted event
 
 ```json
 [
@@ -559,7 +563,7 @@ This section contains an example of what that data would look like for each even
   }
   ]
 ```
-## Microsoft.Communication.ChatThreadParticipantAdded event
+### Microsoft.Communication.ChatThreadParticipantAdded event
 
 ```json
 [
@@ -596,7 +600,7 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
-## Microsoft.Communication.ChatThreadParticipantRemoved event
+### Microsoft.Communication.ChatThreadParticipantRemoved event
 
 ```json
 [
@@ -633,7 +637,7 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
-## Microsoft.Communication.ChatMessageReceivedInThread event
+### Microsoft.Communication.ChatMessageReceivedInThread event
 
 ```json
 [
@@ -668,7 +672,7 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
-## Microsoft.Communication.ChatMessageEditedInThread event
+### Microsoft.Communication.ChatMessageEditedInThread event
 
 ```json
 [
@@ -705,7 +709,7 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
-## Microsoft.Communication.ChatMessageDeletedInThread event
+### Microsoft.Communication.ChatMessageDeletedInThread event
 
 ```json
 [
