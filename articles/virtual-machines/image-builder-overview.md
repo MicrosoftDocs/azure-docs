@@ -15,24 +15,34 @@ ms.reviewer: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a configuration describing your image, submit it to the service, and the image is built, and distributed.
- 
-The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/) you will see some similarities, but have the benefit of a managed service. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](shared-image-galleries.md), as a managed image or a VHD.
+Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in their deployments. Images typically include predefined security, configuration settings, and necessary software. Setting up your own imaging pipeline requires time, infrastructure, and setup. With Azure VM Image Builder (Image Builder), you just need to create a configuration describing your image and submit it to the service where the image is built and then distributed.
 
+With Image Builder, you can migrate your existing image customization pipeline to Azure while continuing to use existing scripts, commands, and processes to customize images. Using Image Builder, you can integrate your core applications into a VM image so your VMs can take on workloads at once after creation. You can even add configurations to build images for Azure Virtual Desktop or as VHDs for use in Azure Stack or for ease of exporting.
+
+Image Builder lets you start with Windows or Linux images, from the Azure Marketplace or existing custom images, and add your own customizations. You can also specify where you would like your resulting images hosted - in the [Azure Shared Image Gallery](shared-image-galleries.md), as a managed image or as a VHD.
 
 ## Features
 
-Azure Image Builder supports the following features:
+While it is possible to create custom VM images by hand or by other tools, the process can be cumbersome and unreliable. Azure VM Image Builder, which is built on [HashiCorp Packer](https://packer.io/), provides you with benefits of a managed service -
 
-- Creation of baseline images, that includes your minimum security and corporate configurations, and allow departments to customize it further.
-- Integration of core applications, so VM can take on workloads after creation, or add configurations to support Azure Virtual Desktop images.
-- Patching of existing images, Image Builder will allow you to continually patch existing custom images.
-- Connect image builder to your existing virtual networks, so you can connect to existing configuration servers (DSC, Chef, Puppet etc.), file shares, or any other routable servers/services.
-- Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
-- Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Image Builder Azure DevOps Task.
-- Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
-- Creation of images in VHD format to support Azure Stack.
- 
+### Simplicity
+
+- There is no need for you to learn complex tooling, processes, and extraneous manual steps for creating a VM image. Image Builder abstracts out all these details. Furthermore, Image Builder hides away Azure specific requirements like the need to generalize the image (for example, sysprep) while also giving more advanced users the ability to override them.
+- Image Builder can integrate with existing image build pipelines for a click-and-go experience. You can just call Image Builder from your pipeline, or use the [Azure Image Builder Service DevOps Task (preview)](./linux/image-builder-devops-task.md).
+- Image Builder can fetch customization data from various sources, which means you do not need to collect them all together in one place to build a VM image.
+- Integration of Image Builder with the Azure Shared Image Gallery gives you an image management system that allows you to distribute, replicate, version, and scale images globally. Additionally, you can distribute the same resulting image as a VHD, or as one or more managed images without rebuilding from scratch.
+
+### Infrastructure As Code
+
+- There is no need for you to manage long-term infrastructure (*like Storage Accounts to hold customization data*) or transient infrastructure (*like temporary Virtual Machine to build the image*). Image Builder manages those aspects for you.
+- Furthermore, Image Builder stores your VM image build specification and customization artifacts as Azure resources. This takes away your burden of having to maintain offline definitions and the risk of environment drifts caused by accidental deletions or updates.
+
+### Security
+
+- Image Builder enables creation of baseline images (*which can include your minimum security and corporate configurations*) and allows different departments to customize it further. Next, these images can be kept secure and compliant by using Image Builder to quickly rebuild a golden image using the latest patched version of a source image. Image Builder also makes it easier for you to build images that meet the Azure Windows Baseline (you can find a sample quickstart [here](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/imagebuilder-windowsbaseline)).
+- You do not have to make your customization artifacts publicly accessible for Image Builder to be able to fetch them. Image Builder can use your [Azure Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) to fetch these resources and you can restrict the privileges of this identity as tightly as required using Azure-RBAC. This not only means you can keep your artifacts secret, but they also cannot be tampered with by unauthorized actors.
+- Copies of customization artifacts, transient compute & storage resources, and resulting images are all stored securely within your subscription with access controlled by Azure-RBAC. This includes the build VM used to create the customized image - so you can rest assured that your customization scripts and files are not being copied to an unknown VM in an unknown subscription. Furthermore, you can achieve a high degree of isolation from other customers’ workloads using [Isolated VM offerings](./isolation.md) for the build VM.
+- You can connect Image Builder to your existing virtual networks so you can communicate with existing configuration servers (DSC, Chef, Puppet, etc.), file shares, or any other routable servers & services.
 
 ## Regions
 
