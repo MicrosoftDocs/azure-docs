@@ -12,9 +12,11 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Recommended practices for custom text classification
+# How to prepare data and define a schema
 
-Use this article to learn more about recommended practices when using custom text classification.
+In order to create a custom classification model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. A schema defines the classes that you need your model to classify your text into at runtime. 
+
+:::image type="content" source="../media/development-lifecycle/schema-design.png" alt-text="An image showing the schema definition portion of the development lifecycle" lightbox="../media/development-lifecycle/schema-design.png":::
 
 ## Data selection
 
@@ -58,21 +60,7 @@ The schema defines the classes that you need your model to classify your text in
 
 * **Out of scope data**: When using your model in production, consider adding an *out of scope* class to your schema if you expect files that don't belong to any of your classes. Then add a few files to your dataset to be tagged as *out of scope*. The model can learn to recognize irrelevant files, and predict their tags accordingly.
 
-## Data tagging
-
-* In general, more tagged data leads to better results, provided the data is tagged accurately.
-
-* Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model to perform the best, because model performance also depends on possible ambiguity in your schema, and the quality of your tagged data.
-
-* [View model evaluation details](../how-to/view-model-evaluation.md) After model training, model evaluation is done against the [test set](../how-to/train-model.md#data-splits), which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
-
-* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution-from-language-studio) Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged significantly less frequent than the others, this means this class is under-represented and most probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
-
-* [Improve performance](../how-to/improve-model.md) Other than revising tagged data based on error analysis, you may want to increase the number of tags for under-performing entity types, or improve the diversity of your tagged data. This will help your model learn to give correct predictions, over potential linguistic phenomena that cause failure.
-
-<!-- * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged classes.
- -->
 ## Next steps
 
-* [Create a project](../quickstart.md)
-* [Tag data](../how-to/tag-data.md)
+If you haven't already, create a custom classification project. If it's your first time using custom classification, consider following the [quickstart](../quickstart.md) to create an example project. You can also see the [project requirements](../how-to/use-azure-resources.md) for more details on what you need to create a project. 
+
