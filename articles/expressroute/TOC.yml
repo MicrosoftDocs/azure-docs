@@ -167,7 +167,7 @@
       - name: Azure PowerShell
         href: expressroute-howto-reset-peering.md
     - name: Configure BGP community value
-      href: how-to-configure-custom-bgp-community.md
+      href: how-to-configure-custom-bgp-communities.md
     - name: Move from public peering to Microsoft peering
       href: how-to-move-peering.md
   - name: Encrypt traffic over circuits
