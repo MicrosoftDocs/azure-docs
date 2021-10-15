@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: references_regions
 ---
 
-# Using Azure resources for custom text classification
+# Using Azure resources for custom text classification and custom NER
 
 Before starting with custom text classification projects, you will create an Azure Text Analytics resource and connect it to your Azure storage account where your data is uploaded. Use this article to learn how to set up Azure resources to work with custom classification.
 
@@ -43,7 +43,7 @@ To use custom classification, you'll need to [create an Azure storage account](/
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Text Analytics resource. 
 
-# [Azure CLI](#tab/cli)
+# [Azure PowerShell](#tab/powershell)
 
 ### Create a new resource with the Azure CLI
 
@@ -88,6 +88,9 @@ To use custom classification, you'll need to [create an Azure storage account](/
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Text Analytics resource. 
 
+## Roles for your Azure resource
+
+You should have the owner or contributor role assigned on your Azure resource.
 
 ## Enable identity management for your resource
 

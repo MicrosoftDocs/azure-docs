@@ -4,13 +4,16 @@ description: Recommended ways for you to manage your Azure Virtual Desktop envir
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
 ---
 # Microsoft Endpoint Manager and Intune for Azure Virtual Desktop
 
 We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment after deployment. Microsoft Endpoint Manager is a unified management platform that includes Microsoft Endpoint Configuration Manager and Microsoft Intune.
+
+> [!NOTE]
+> Managing Azure Virtual Desktop session hosts using Microsoft Endpoint Manager is currently only supported in the Azure Public cloud.
 
 ## Microsoft Endpoint Configuration Manager
 
