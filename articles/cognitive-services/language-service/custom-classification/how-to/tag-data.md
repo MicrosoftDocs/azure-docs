@@ -84,7 +84,7 @@ Your tags file should be in the `json` format below.
 ```json
 {
   //List of intent names. Their index within this array is used as an ID.
-  "intentNames": [
+  "classNames": [
       "intent_name1",
       "intent_name2"
   ],
