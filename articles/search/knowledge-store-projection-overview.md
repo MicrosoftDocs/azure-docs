@@ -89,11 +89,11 @@ Projection groups have the following key characteristics of mutual exclusivity a
 
 The source parameter is the third component of a projection definition. Because projections store data from an AI enrichment pipeline, the source of a projection is always the output of a skill. As such, output might be a single node (for example, a field of translated text), but it's more common for the node to be a reference to a data shape.
 
-Data shapes come from your skillset. Among all of the built-in skills provided in Cognitive Search, there is a utility skill called the [Shaper skill](cognitive-search-skill-shaper.md) that's used to create data shapes. You can include Shaper skills (as many as you need) to support the projections in the knowledge store.
+Data shapes come from your skillset. Among all of the built-in skills provided in Cognitive Search, there is a utility skill called the [**Shaper skill**](cognitive-search-skill-shaper.md) that's used to create data shapes. You can include Shaper skills (as many as you need) to support the projections in the knowledge store.
 
 Shapes are frequently used with table projections, where the shape not only specifies which rows go into the table, but also which columns are created. You can also pass a shape to an object projection.
 
-Shapes can be complex and it's out of scope to discuss them in depth here, but the following example briefly illustrates a simple shape. The output of the shape is specified as the source of a table projection. Within the table projection itself will be columns for "metadata-storage_path", "reviews_text", "reviews_title", and so forth.
+Shapes can be complex and it's out of scope to discuss them in depth here, but the following example briefly illustrates a simple shape. The output of the shape is specified as the source of a table projection. Within the table projection itself will be columns for "metadata-storage_path", "reviews_text", "reviews_title", and so forth, as specified in the shape.
 
 ```json
 {
@@ -129,8 +129,6 @@ Shapes can be complex and it's out of scope to discuss them in depth here, but t
     ]
 }
 ```
-
-The Shaper skill allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. It also allows you to define complex types with nested objects. For examples, see the [Shaper skill](cognitive-search-skill-shaper.md) documentation.
 
 ## Projection lifecycle
 

@@ -71,6 +71,6 @@ The following  table provides links to more recent SDK versions.
 | [Python azure-search-documents 11.0](https://pypi.org/project/azure-search-documents/) | Stable | New client library from Azure Python SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
 | [Python azure-mgmt-search 8.0](https://pypi.org/project/azure-mgmt-search/) | Stable | Targets the Management REST api-version=2015-08-19. |
 
-## All Azure SDK packages and docs
+## All Azure SDKs
 
 If you are looking for beta client libraries and documentation, [this page](https://azure.github.io/azure-sdk/releases/latest/index.html) contains links to all of the Azure SDK library packages, code, and docs. 
