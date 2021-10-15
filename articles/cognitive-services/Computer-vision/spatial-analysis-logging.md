@@ -22,7 +22,7 @@ To enable a visualization of AI Insight events in a video frame, you need to use
 
 If your device is a local desktop machine or Azure GPU VM (with remote desktop enabled), then then you can switch to debug vertsion of any operation and visualize the output.
 
-1.  Open the desktop either physically or by using a remote desktop client on the host computer running Spatial Analysis
+1.  Open the desktop either locally or by using a remote desktop client on the host computer running Spatial Analysis
 2.  Open the terminal in the host computer and type `xhost +`
 3.  In the same terminal type `echo $DISPLAY`
 4.  Update the [deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) with value of `DISPLAY` environment variable under `spaceanalytics` module
