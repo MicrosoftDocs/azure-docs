@@ -113,11 +113,10 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
 
     - **Subscription**: Select the subscription you want to be billed for this resource.
-    - **Resource group**: Creating new resource groups for new resources is a best practice. Note that this will be used in later steps as **\<resource group name\>**.
+    - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Location**: Select the location for your service instance.
-    - Select *Standard* for the **Pricing tier** option.
-    - On the **Application insights** tab, select *yes* for **Enable Java in-process agent**.
+    - Select **Standard** for the **Pricing tier** option.
 
     ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -150,7 +149,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
     ```azurecli
     az group create --name <resource group name>
-    az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
+    az spring-cloud create -n <service instance name> -g <resource group name>
     ```
 
     Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).

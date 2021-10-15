@@ -3,15 +3,15 @@ title: Add user attributes and customize user input
 titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -156,7 +156,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
         <Enumeration Text="Berlin" Value="berlin" />
-        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="London" Value="london" />
         <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
@@ -170,7 +170,7 @@ Include the [SelectByDefault](claimsschema.md#enumeration) attribute on an `Enum
 ```xml
 <Restriction>
   <Enumeration Text="Berlin" Value="berlin" />
-  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="London" Value="london" SelectByDefault="true" />
   <Enumeration Text="Seattle" Value="seattle" />
 </Restriction>
 ```
