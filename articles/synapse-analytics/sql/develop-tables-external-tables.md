@@ -294,17 +294,17 @@ The CREATE EXTERNAL TABLE command creates an external table for Synapse SQL to a
 
 ### Syntax for CREATE EXTERNAL TABLE
 
-```sql
+```syntaxsql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
-        FILE_FORMAT = external_file_format_name,
+        FILE_FORMAT = external_file_format_name
         [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
         [, <reject_options> [ ,...n ] ] 
-    )  
-[;]    
+    )
+[;] 
 
 <column_definition> ::=
 column_name <data_type>
