@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Quickstart: Form Recognizer C# client library SDKs v3.0 | Preview
+# Quickstart: C# client library SDK v3.0 | Preview
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities. 
@@ -30,10 +30,6 @@ In this quickstart you'll use following features to analyze and extract data and
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
 * [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
-
-> [!IMPORTANT]
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## Prerequisites
 

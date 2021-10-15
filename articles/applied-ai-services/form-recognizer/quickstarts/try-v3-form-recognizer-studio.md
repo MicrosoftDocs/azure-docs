@@ -34,6 +34,22 @@ A **standard performance** [**Azure Blob Storage account**](https://ms.portal.az
   * [**Create a storage account**](/azure/storage/common/storage-account-create). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
   * [**Create a container**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
+### Configure CORS
+
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
+
+:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+1. Select the CORS blade for the storage account.
+2. Start by creating a new CORS entry in the Blob service.
+3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+4. Select all the available 8 options for **Allowed methods**.
+5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+6. Set the **Max Age** to 120 seconds or any acceptable value.
+7. Click the save button at the top of the page to save the changes.
+
+CORS should now be configured to use the storage account from Form Recognizer Studio.
+
 ### Sample documents set
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
@@ -153,15 +169,15 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 ## Labeling as tables
 
-While creating your custom models, you may need to extract collections of values from your documents. These collections appear in various formats. For example:
+While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
-* A dynamic collection of values (rows) for a given set of fields (columns)
+* Dynamic or variable count of values (rows) for a given set of fields (columns)
 
-* A fixed collection of values grouped by a second set of fields (rows or columns)
+* Specific collection of values for a given set of fields (columns and/or rows)
 
 ### Label as dynamic table
 
-For labeling dynamic rows of data for a given set of fields:
+Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
 1. Add a new "Table" type label, select "Dynamic table" type, and name your label.
 
@@ -173,7 +189,7 @@ For labeling dynamic rows of data for a given set of fields:
 
 ### Label as fixed table
 
-For labeling fixed collections of data grouped by two sets of fields:
+Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 
 1. Create a new "Table" type label, select "Fixed table" type, and name it.
 
@@ -196,5 +212,9 @@ To label for signature detection:
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Form Recognizer labeling for signature detection example":::
 
 ## Next steps
+
+* Follow our [**Form Recognizer v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Explore our [**preview SDK quickstarts**](try-v3-python-sdk.md) to try the preview features in your applications using the new SDKs.
+* Refer to our [**preview REST API quickstarts**](try-v3-rest-api.md) to try the preview features using the new RESt API.
 
 [Get started with the Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
