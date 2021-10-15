@@ -28,7 +28,6 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 
 | Feature | Details |
 | ---| --- |
-| [16 TB support for SQL Managed Instance General Purpose](resource-limits.md)| Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
 | [Azure Active Directory-only authentication for Azure SQL](../database/authentication-azure-ad-only-authentication.md) |  It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. |
 | [Elastic transactions](../database/elastic-transactions-overview.md) | Elastic transactions let you execute distributed transactions across cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
 | [Instance pools](instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
@@ -48,6 +47,8 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
+| [16 TB support in General Purpose](resource-limits.md)| November 2021 | Support for allocation up to 16 TB of space for SQL Managed Instance in the General Purpose tier. |
+| [Azure Active Directory-only authentication](../database/authentication-azure-ad-only-authentication.md) | November 2021 | It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. |
 | [Machine Learning Service](machine-learning-services-overview.md) | March 2021 | Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. |
 | [Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 

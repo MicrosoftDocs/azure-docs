@@ -27,7 +27,6 @@ The following table lists the features of Azure SQL Database that are currently 
 
 | Feature | Details |
 | ---| --- |
-| [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) | It's possible to configure your Azure SQL Database to allow authentication only from Azure Active Directory. | 
 | [Change data capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Change data capture (CDC) lets you track all the changes that occur on a database. Though this feature has been available for SQL Server for quite some time, using it with Azure SQL Database is currently in preview. |
 | [Elastic jobs](elastic-jobs-overview.md) | The elastic jobs feature is the SQL Server Agent replacement for Azure SQL Database as a PaaS offering.  |
 | [Elastic queries](elastic-query-overview.md) | The elastic queries feature allows for cross-database queries in Azure SQL Database. |
@@ -47,6 +46,7 @@ The following table lists the features of Azure SQL Database that have transitio
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
+| [Azure Active Directory-only authentication](authentication-azure-ad-only-authentication.md) | November 2021 | It's possible to configure your Azure SQL Database to allow authentication only from Azure Active Directory. | 
 | [AAD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals).| 
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
 |||| 
