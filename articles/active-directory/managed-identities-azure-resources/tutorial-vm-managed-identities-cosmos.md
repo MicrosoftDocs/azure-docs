@@ -292,7 +292,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## Access data
 
-Getting access to Cosmos using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) directly or use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+Getting access to Cosmos using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) directly or use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme) class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
