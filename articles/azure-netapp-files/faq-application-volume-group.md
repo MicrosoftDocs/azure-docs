@@ -58,7 +58,7 @@ For each host and each partition you want to create, you need to rerun applicati
 
 ## Why is 1500 MiB/s the maximum throughput value that application volume group for SAP HANA proposes for the data volume?
 
-NFSv4.1 is the supported protocol for SAP HANA.  As such, one TCP/IP session is supported when you mount a single volume. For running a single TCP session (that is, from a single host) against a single volume, 1500 MiB/s is the typical I/O limit identified. That's why application volume group for SAP HANA avoids allocating more throughput than you can realistically achieve. If you need more throughput, especially for larger HANA databases (for example, 12 TB), you should use multiple partitions.
+NFSv4.1 is the supported protocol for SAP HANA.  As such, one TCP/IP session is supported when you mount a single volume. For running a single TCP session (that is, from a single host) against a single volume, 1500 MiB/s is the typical I/O limit identified. That's why application volume group for SAP HANA avoids allocating more throughput than you can realistically achieve. If you need more throughput, especially for larger HANA databases (for example, 12 TiB), you should use multiple partitions.
 
 ## Can I use `nconnect` as a mount option?
 
