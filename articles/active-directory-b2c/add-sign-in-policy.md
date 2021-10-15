@@ -33,7 +33,8 @@ The sign-in policy lets users:
 
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+- If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+- Complete the steps in [Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md).
 
 ::: zone pivot="b2c-user-flow"
 

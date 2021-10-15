@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 09/29/2021
 ---
 
-# Publish events to Azure Active Directory protected endpoints
+# Deliver events to Azure Active Directory protected endpoints
 This article describes how to use Azure Active Directory (Azure AD) to secure the connection between your **event subscription** and your **webhook endpoint**. For an overview of Azure AD applications and service principals, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
 
 This article uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
@@ -13,7 +13,7 @@ This article uses the Azure portal for demonstration, however the feature can al
 > [!IMPORTANT]
 > Additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Please reconfigure your AAD Application following the new instructions below.
 
-## Single tenant events with Azure AD and Webhooks
+## Deliver events to a Webhook in the same Azure AD tenant
 
 ![Secure WebHook delivery with Azure AD in Azure Event Grid](./media/secure-webhook-delivery/single-tenant-diagram.png)
 
@@ -109,7 +109,7 @@ Based on the diagram above, follow the next steps to configure the tenant.
     > [!NOTE]
     > At this point Event Grid is now passing the Azure AD Bearer token to the webhook client in every message, you'll need to validate the Authorization token in your webhook.
 
-## Multitenant events with Azure AD and Webhooks
+## Deliver events to a Webhook in a different Azure AD tenant 
 
 To enable a secure webhook subscription across multiple tenants you'll need to do this task by using an Azure AD Application, this process isn't currently available by using the Azure AD user from the portal.
 
