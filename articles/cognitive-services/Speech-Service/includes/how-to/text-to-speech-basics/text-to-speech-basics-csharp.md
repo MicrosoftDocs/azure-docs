@@ -76,6 +76,24 @@ public class Program
 }
 ```
 
+## Select synthesis language and voice
+
+The Azure Text to Speech service supports more than 70 languages and variants and over 250 voices.
+You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](/services/cognitive-services/text-to-speech/#features).
+Specify the language or voice of [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the desired voice.
+
+```csharp
+static async Task SynthesizeAudioAsync()
+{
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config.SpeechSynthesisLanguage = "<your synthesis language>"; // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config.SpeechSynthesisVoiceName = "<your desired voice>";
+}
+```
+
 ## Synthesize speech to a file
 
 Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) accepts as params the [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) object created in the previous step, and an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled.
