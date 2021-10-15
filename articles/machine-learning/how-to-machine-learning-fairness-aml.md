@@ -279,8 +279,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
 
     from raiwidgets import FairnessDashboard
 
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test.tolist(),
                       y_pred=ys_pred)
     ```
