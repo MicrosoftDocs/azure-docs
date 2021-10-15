@@ -63,12 +63,10 @@ To configure and test Azure AD SSO with Datadog, perform the following steps:
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Datadog** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
+
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
-
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. In the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -76,17 +74,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.datadoghq.com/account/login/id/<CUSTOM_IDENTIFIER>`
 
     > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [Datadog Client support team](mailto:support@datadoghq.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL in your [Datadog SAML settings](https://app.datadoghq.com/organization-settings/login-methods/saml). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. Using IdP initiated login and SP initiated login together requires both version of the ACS URL configured in Azure.
 
 1. Click **Save**.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page under User Attributes & Claims, click the pencil icon to edit the settings.
 
-	![The Certificate download link](common/metadataxml.png)
+1. Click the Add a group claim button. By default in Azure AD, the group claim name is a url. For example,  `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`). If you want change this to a more user-friendly value like `groups`, select Advanced options and customize the name of the group claim to `groups`.
+
+   > [!NOTE]
+       > The source attribute is set to `Group ID`. This is the UUID of the group in Azure AD. This means that the group ID is sent by Azure AD as group claim attribute value, not the group name. You need to change mappings in Datadog to map to the group ID instead of the group name. See the [Datadog SAML mappings documentation](https://docs.datadoghq.com/account_management/saml/#mapping-saml-attributes-to-datadog-roles).
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 1. On the **Set up Datadog** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -114,21 +115,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Datadog SSO
 
-To configure single sign-on on **Datadog** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datadog support team](mailto:support@datadoghq.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create Datadog test user
-
-In this section, you create a user called B.Simon in Datadog. Work with [Datadog support team](mailto:support@datadoghq.com) to add the users in the Datadog platform.
+To configure single sign-on on **Datadog** side, you need to upload the downloaded **Federation Metadata XML** in the [Datadog SAML settings](https://app.datadoghq.com/organization-settings/login-methods/saml).
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+Test your Azure AD single sign-on configuration with following options. 
 
 #### SP initiated:
 
 * Click on **Test this application** in Azure portal. This will redirect to Datadog Sign on URL where you can initiate the login flow.  
 
-* Go to Datadog Sign-on URL directly and initiate the login flow from there.
+* Go to the Datadog Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
