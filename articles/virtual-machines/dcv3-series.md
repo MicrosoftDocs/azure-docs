@@ -33,8 +33,8 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Base All-Core Frequency]: 2.8 GHz<br>
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
-[Premium Storage and Caching]: Supported<br>
 [Total Memory Encryption]: Multi Key Supported<br>
+[Premium Storage and Caching]: Supported<br>
 [Ultra-Disk Storage]: Supported<br>
 [Accelerated Networking]: Supported (CLI provisioning or ARM template only)<br>
 [Azure Kubernetes Service]: Supported (CLI provisioning only initially)<br>
@@ -42,7 +42,7 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Memory Preserving Updates]: Not Supported<br>
 [VM OS Generation Support]: Generation 2<br>
 [Ephemeral OS Disks]: Supported<br>
-[Dedicated Host]: Not Supported<br>
+[Dedicated Host]: Not Supported Initially<br>
 
 ## DCsv3-series Technical specifications
 
