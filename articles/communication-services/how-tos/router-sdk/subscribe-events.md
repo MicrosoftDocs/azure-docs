@@ -22,11 +22,21 @@ This guide outlines the steps to subscribe to Job Router events from your Azure 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
+- Install the [Azure Resource Manager (ARM) client](https://github.com/projectkudu/ARMClient)
+
+
+
 
 ## Create an Event Grid subscription
 
 > [!NOTE]
 > The following scripts are being executed using PowerShell
+
+**Log into your Azure account**
+
+```powershell
+armclient azlogin
+```
 
 **Set subscription and resource group name**
 ```powershell
