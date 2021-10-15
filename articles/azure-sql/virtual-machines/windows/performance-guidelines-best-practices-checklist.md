@@ -52,8 +52,8 @@ The following is a quick checklist of storage configuration best practices for r
 - Monitor the application and [determine storage bandwidth and latency requirements](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements) for SQL Server data, log, and tempdb files before choosing the disk type. 
 - To optimize storage performance, plan for highest uncached IOPS available and use data caching as a performance feature for data reads while avoiding [virtual machine and disks capping/throttling](../../../virtual-machines/premium-storage-performance.md#throttling).
 - Place data, log, and tempdb files on separate drives.
-    - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
-    - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssd).
+    - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssds) to ensure the availability of cache support
+    - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssds).
       - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disks) for the transaction log. 
       - For M-series virtual machine deployments consider [Write Accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Azure ultra disks.
     - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD (default `D:\`) drive for most SQL Server workloads after choosing the optimal VM size. 

@@ -108,7 +108,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         - Check the document [Azure Storage types for SAP workload](./planning-guide-storage.md)
         - At a minimum, use [Azure Standard SSD storage](../../disks-types.md#standard-ssd) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
         - In general, we don't recommend the use of [Azure Standard HDD disks](../../disks-types.md#standard-hdd).
-        - Use [Azure Premium Storage](../../disks-types.md#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
+        - Use [Azure Premium Storage](../../disks-types.md#premium-ssds) for any DBMS VMs that are remotely performance sensitive.
         - Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
         - Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write Accelerator limits and usage, as documented in [Write Accelerator](../../how-to-enable-write-accelerator.md).
         - For the different DBMS types, check the [generic SAP-related DBMS documentation](./dbms_guide_general.md) and the DBMS-specific documentation that the generic document points to.

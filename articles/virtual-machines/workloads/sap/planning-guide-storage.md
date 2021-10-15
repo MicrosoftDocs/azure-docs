@@ -128,7 +128,7 @@ Azure premium SSD storage got introduced with the goal to provide:
 * Less variability in I/O latency
 
 This type of storage is targeting DBMS workloads, storage traffic that requires low single digit millisecond latency, and SLAs on IOPS and throughput
-Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssd). Conclusions out of this article are:
+Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssds). Conclusions out of this article are:
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
 - The IOPS per GiB are not tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1

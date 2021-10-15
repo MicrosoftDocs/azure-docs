@@ -33,8 +33,8 @@ Review the following checklist for a brief overview of the storage best practice
 - Monitor the application and [determine storage bandwidth and latency requirements](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements) for SQL Server data, log, and tempdb files before choosing the disk type. 
 - To optimize storage performance, plan for highest uncached IOPS available and use data caching as a performance feature for data reads while avoiding [virtual machine and disks capping](../../../virtual-machines/premium-storage-performance.md#throttling).
 - Place data, log, and tempdb files on separate drives.
-    - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssd) to ensure the availability of cache support
-    - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssd)
+    - For the data drive, only use [premium P30 and P40 disks](../../../virtual-machines/disks-types.md#premium-ssds) to ensure the availability of cache support
+    - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssds)
       - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disks) for the transaction log.
       - For M-series virtual machine deployments consider [write accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Azure ultra disks.
     - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD `D:\` drive for most SQL Server workloads after choosing the optimal VM size. 
@@ -65,7 +65,7 @@ The type of disk depends on both the file type that's hosted on the disk and you
 
 You have a choice in the performance level for your disks. The types of managed disks available as underlying storage (listed by increasing performance capabilities) are standard hard disk drives (HDD), standard SSDs, premium solid-state drives (SSD), and ultra disks. 
 
-The performance of the disk increases with the capacity, grouped by [premium disk labels](../../../virtual-machines/disks-types.md#premium-ssd) such as the P1 with 4 GiB of space and 120 IOPS to the P80 with 32 TiB of storage and 20,000 IOPS. Premium storage supports a storage cache that helps improve read and write performance for some workloads. For more information, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md). 
+The performance of the disk increases with the capacity, grouped by [premium disk labels](../../../virtual-machines/disks-types.md#premium-ssds) such as the P1 with 4 GiB of space and 120 IOPS to the P80 with 32 TiB of storage and 20,000 IOPS. Premium storage supports a storage cache that helps improve read and write performance for some workloads. For more information, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md). 
 
 There are also three main [disk types](../../../virtual-machines/managed-disks-overview.md#disk-roles) to consider for your SQL Server on Azure VM -  an OS disk, a temporary disk, and your data disks. Carefully choose what is stored on the operating system drive `(C:\)` and the ephemeral temporary drive `(D:\)`. 
 
@@ -103,7 +103,7 @@ For OLTP workloads, match the target IOPS per disk (or storage pool) with your p
 
 Use Storage Spaces to achieve optimal performance, configure two pools, one for the log file(s) and the other for the data files. If you are not using disk striping, use two premium SSD disks mapped to separate drives, where one drive contains the log file and the other contains the data.
 
-The [provisioned IOPS and throughput](../../../virtual-machines/disks-types.md#premium-ssd) per disk that is used as part of your storage pool. The combined IOPS and throughput capabilities of the disks is the maximum capability up to the throughput limits of the virtual machine.
+The [provisioned IOPS and throughput](../../../virtual-machines/disks-types.md#premium-ssds) per disk that is used as part of your storage pool. The combined IOPS and throughput capabilities of the disks is the maximum capability up to the throughput limits of the virtual machine.
 
 The best practice is to use the least number of disks possible while meeting the minimal requirements for IOPS (and throughput) and capacity. However, the balance of price and performance tends to be better with a large number of small disks rather than a small number of large disks.
 

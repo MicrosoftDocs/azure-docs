@@ -127,7 +127,7 @@ When selecting the technology for for shared disk, keep in mind the following co
 **Azure shared disk for SAP workloads**
 
 - Allows you to attach Azure managed disk to multiple VMs simultaneously without the need for additional software to maintain and operate.
-- [Azure shared disk](../../disks-shared.md) with [Premium SSD](../../disks-types.md#premium-ssd) disks is supported for SAP deployment in availability set and availability zones.
+- [Azure shared disk](../../disks-shared.md) with [Premium SSD](../../disks-types.md#premium-ssds) disks is supported for SAP deployment in availability set and availability zones.
 - [Azure Ultra disk](../../disks-types.md#ultra-disks) and [Azure Standard disks](../../disks-types.md#standard-ssd) is not supported as Azure shared disk for SAP workloads.
 - Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster).
  
@@ -146,7 +146,7 @@ Microsoft is offering [Azure shared disks](../../disks-shared.md), which can be 
 Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
 -  [Azure Ultra disk](../../disks-types.md#ultra-disks) and [Standard SSD disks](../../disks-types.md#standard-ssd) is not supported as Azure Shared Disk for SAP workloads.
--  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types.md#premium-ssd) is supported for SAP deployment in availability set and availability zones.
+-  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
 -  Azure shared disk with Premium SSD disks comes with two storage SKUs.
    - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in Azure availability set.
    - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in Azure availability zones.
