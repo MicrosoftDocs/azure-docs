@@ -1,6 +1,6 @@
 ---
 title: Add a preview audience for an Azure Application offer
-description: Add a preview audience for an Azure application offer in Partner Center (Azure Marketplace).
+description: Add a preview audience for an Azure application offer in Partner Center.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers

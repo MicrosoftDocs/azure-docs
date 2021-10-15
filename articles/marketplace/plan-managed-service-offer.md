@@ -1,6 +1,6 @@
 ---
-title: Plan a Managed Service offer for the Microsoft commercial marketplace 
-description: How to plan a new Managed Service offer for Azure Marketplace using the commercial marketplace program in Microsoft Partner Center. 
+title: Plan a Managed Service offer for the commercial marketplace 
+description: Plan a Managed Service offer for Azure Marketplace in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -10,9 +10,9 @@ ms.reviewer: anbene
 ms.date: 12/23/2020
 ---
 
-# How to plan a Managed Service offer for the Microsoft commercial marketplace
+# Plan a Managed Service offer
 
-This article introduces the requirements for publishing a Managed Service offer to the Microsoft commercial marketplace through Partner Center.
+This article introduces the requirements for publishing a Managed Service offer to the commercial marketplace through Partner Center.
 
 Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using the [Azure delegated resource management](../lighthouse/concepts/architecture.md) capabilities of Azure Lighthouse.
 

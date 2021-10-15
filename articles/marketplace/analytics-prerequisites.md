@@ -1,6 +1,6 @@
 ---
 title: Prerequisites to programmatically access analytics data
-description: Learn the requirements you need to meet before you can programmatically access commercial marketplace analytics data.
+description: Learn the requirements you need to meet before you can programmatically access commercial marketplace analytics data in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article

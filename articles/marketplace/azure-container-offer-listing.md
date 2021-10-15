@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Container offer listing details on Microsoft AppSource
-description: Configure Azure Container offer listing details on Microsoft AppSource.
+description: Configure Azure Container offer listing details in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

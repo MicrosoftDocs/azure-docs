@@ -1,6 +1,6 @@
 ---
 title: Find Tenant ID, Object ID, and partner association details in Azure Marketplace
-description: How to Find the Tenant ID, Object ID, and partner association details of a subscription ID in the Azure Marketplace.
+description: Find the Tenant ID, Object ID, and partner association details of a subscription ID in Azure Marketplace.
 ms.service: marketplace
 ms.topic: article
 author: keferna
