@@ -67,7 +67,7 @@ Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make 
 
 **Passthrough label selector -** Uses a key and `LabelOperator` to check for the existence of the key. This selector can be used in the `QueueLabelSelector` to match a Queue based on the set of labels. When used with the `WorkerSelectors`, the Job's key/value pair are attached to the `WorkerSelectors` of the Job.
 
-**Rule label selector -** Uses a `RouterRule` to determine a suitable Queue, or in the context of `WorkerSelectors`, it attaches new selectors based on the outcome of the processed rule. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
+**Rule label selector -** Sources a collection of selectors from one of many rule engines. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
 **Weighted allocation label selector -** A collection of `WeightedAllocation` types each with a collection of `LabelSelector` types can be used to attach `WorkerSelectors` to the Job for distributing work with a weighted behavior. For example, you may want 30% of the Jobs to go to "Contoso" and 70% of Jobs to go to "Fabrikam".
 
