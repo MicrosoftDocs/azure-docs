@@ -203,7 +203,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 :::image type="content" source="media/advanced-filters.png" alt-text="Advanced filters output":::
 
 > [!NOTE]
-> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](https://docs.microsoft.com/azure/event-grid/event-filtering#operators)
+> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](../../../event-grid/event-filtering#operators)
 
 ## Events Catalog
 
