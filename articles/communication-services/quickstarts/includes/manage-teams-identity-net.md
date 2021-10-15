@@ -40,7 +40,7 @@ While still in the application directory, install the Azure Communication Servic
 
 ```console
 dotnet add package Azure.Communication.Identity --version 1.0.0
-dotnet add package Microsoft.Identity.Client -Version 4.36.2
+dotnet add package Microsoft.Identity.Client --version 4.36.2
 ```
 
 ### Set up the app framework
