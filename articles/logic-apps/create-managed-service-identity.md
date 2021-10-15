@@ -602,7 +602,7 @@ The following example shows a sample HTTP action with all the previously describ
 
 1. From the managed identity list, select **System-assigned-managed identity** if not already selected.
 
-     ![Select "System Assigned Managed Identity"](./media/create-managed-service-identity/select-system-assigned-identity-for-action-standard.png)
+     ![Select "System Assigned Managed Identity"](./media/create-managed-service-identity/select-system-assigned-identity-action-standard.png)
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
   
