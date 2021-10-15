@@ -5,7 +5,7 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 10/14/2021
+ms.date: 10/15/2021
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
@@ -76,7 +76,10 @@ Before you start with LiveData Migrator for Azure, review these [prerequisites](
 
 To perform a migration:
 
-1. Register for the WANdisco resource provider by running `az provider register --namespace Wandisco.Fusion --consent-to-permissions` in the Azure CLI.
+1. In the Azure CLI: 
+
+   - Register for the WANdisco resource provider in the Azure CLI by running `az provider register --namespace Wandisco.Fusion --consent-to-permissions`.
+   - Accept the metered billing terms of LiveData Platform by running `az vm image terms accept --offer ldma --plan metered-v1 --publisher Wandisco --subscription <subscriptionID>`.
 
 2. Deploy a LiveData Migrator instance from the Azure portal to your on-premises Hadoop cluster. (You do not need to make changes to or restart the cluster.)
 
