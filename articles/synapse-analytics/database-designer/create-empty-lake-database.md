@@ -17,22 +17,22 @@ In this article, you will learn how to create an empty [lake database](./concept
 
 ## Prerequisites
 
-- At least Synapse User role permissions are required for exploring an lake database template from Gallery.
-- Synapse Administrator, or Synapse Contributor permissions are required on the Synapse workspace for creating a lake database.
+- At least Synapse User role permissions are required for exploring a lake database template from Gallery.
+- Synapse Administrator, Synapse Contributor, or Synapse Artifact Publisher permissions are required on the Synapse workspace for creating a lake database.
 - Storage Blob Data Contributor permissions are required on data lake.
 
 ## Create lake database from database template
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. This will open the **Data** tab where you can see the list of databases that already exist in your workspace.
-2. Hover over the **Databases** section and select the ellipsis **...**, then choose **Lake database (preview)**.
+2. Hover over the **+** button and select, then choose **Lake database (preview)**.
 ![Screenshot showing create empty lake database](./media/create-empty-lake-database/create-empty-lakedb.png)
 3. The database designer tab will open with an empty database.
 4. The database designer has **Properties** on the right that need to be configured.
-    - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
-    - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
-    - **Storage settings for database** is a section containing the default storage information for tables in the database. This default is applied to each table in the database unless it is overridden on the table itself.
-    - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. 
-    - **Input folder** used to set the default container and folder path within that linked service using the file browser.
-    - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
+    - **Name** - Give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
+    - **Description** - Giving your database a description is optional, but it allows users to understand the purpose of the database.
+    - **Storage settings for database** - This section contains the default storage information for tables in the database. This default is applied to each table in the database unless it is overridden on the table itself.
+    - **Linked service** - It is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. 
+    - **Input folder** - Used to set the default container and folder path within that linked service using the file browser.
+    - **Data format** - Lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
 5. To add a table to the database, select the **+ Table** button. 
@@ -53,8 +53,9 @@ In this article, you will learn how to create an empty [lake database](./concept
     - A new table with the name you selected will be added to the canvas, and the **Storage settings for table** section will show the file that you specified.
 10.   With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [Learn more about source control in Azure Synapse](././cicd/../../cicd/source-control.md) If you are using Synapse Live mode, you can click "publish".
     - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
-![Screenshot of the validation pane showing validation errors in the database](./media/create-empty-lake-database/validation-error.png)
-    - Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+    ![Screenshot of the validation pane showing validation errors in the database](./media/create-empty-lake-database/validation-error.png)
+      
+      Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
 11. You have now created an empty lake database in Azure Synapse, and added tables to it using the **Custom** and **From data lake** options.
 
