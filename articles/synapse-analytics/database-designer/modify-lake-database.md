@@ -23,16 +23,18 @@ In this article, you will learn how to modify an existing [lake database](./conc
 ## Modify database properties
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. This will open the **Data** tab where you can see the list of databases that already exist in your workspace.
 2. Hover over the **Databases** section and select the ellipsis **...** next to the database you want to modify, then choose **Open (preview)**.
-   1. :::image type="content" source="/media/modify-lake-database/open-designer.png" alt-text="Screenshot showing how to open an existing database":::
+
+![Screenshot showing how to open an existing database](./media/modify-lake-database/open-designer.png)
+
 3. The database designer tab will open with your selected database loaded on the canvas.
 4. The database designer has **Properties** pane that can be opened by selecting the **Properties** icon in the upper right of the tab.
-:::image type="content" source="/media/modify-lake-database/properties-location.png" alt-text="Screenshot showing the location of the properties icon":::
+![Screenshot showing the location of the properties icon](./media/modify-lake-database/properties-location.png)
     - **Name** Names cannot be edited after the database is published, so make sure the name you choose is correct.
     - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
     - **Storage settings for database** is a section containing the default storage information for tables in the database. This default is applied to each table in the database unless it is overridden on the table itself.
     - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. This will show the default linked service associated with the Synapse workspace, but you can change this to any ADLS storage account you like. 
     - **Input folder** used to set the default container and folder path within that linked service using the file browser.
-    - **Data format** lake databases in Synapse support parquet and delimited text as the storage formats for data.
+    - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
 5. To add a table to the database, select the **+ Table** button. 
     - **Custom** will add a new table to the canvas.
     - **From template** will open the gallery and let you select a database template to use when adding a new table. See [Create lake database from database template](./create-lake-database-from-lake-database-template.md) for more information
@@ -44,15 +46,15 @@ In this article, you will learn how to modify an existing [lake database](./conc
     - **External table name** the name you want to give the table you are creating.
     - **Linked service** the linked service containing the Azure Data Lake Storage location where your data file lives.
     - **Input file or folder** use the file browser to navigate to and select a file on your lake you want to create a table using.
-:::image type="content" source="/media/modify-lake-database/create-from-lake.png" alt-text="Screenshot showing the options on the create external table from data lake pane":::
-    - On the next screen, Synapse will preview the file and detect the schema.
-    - You will land on the **New external table** page where you can update any settings related to the data format, as well as **Preview Data** to check if Synapse identified the file correctly.
+![Screenshot showing the options on the create external table from data lake pane](./media/modify-lake-database/create-from-lake.png)
+    - On the next screen, Azure Synapse will preview the file and detect the schema.
+    - You will land on the **New external table** page where you can update any settings related to the data format, as well as **Preview Data** to check if Azure Synapse identified the file correctly.
     - When you are happy with the settings, select **Create**.
     - A new table with the name you selected will be added to the canvas, and the **Storage settings for table** section will show the file that you specified.
 10.   With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [link]() If you are using Synapse Live mode, you can click "publish".
-    - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
-    :::image type="content" source="/media/create-lake-database-from-lake-database-template/validation-errors.png" alt-text="Screenshot of the validation pane showing validation errors in the database":::
-    - Publishing will create your database schema in the Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+   - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
+![Screenshot of the validation pane showing validation errors in the database](./media/create-lake-database-from-lake-database-template/validation-error.png)
+   - Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
 
 ## Customize tables within a database
@@ -64,12 +66,12 @@ The **General** tab contains information specific to the table itself.
    - **Inherited from** (optional) this value will be present if the table was created from a database template. It cannot be edited and tells the user which template table it was derived from.
    - **Description** a description of the table. If the table was created from a database template, this will contain a description of the concept represented by this table. This field is editable and can be changed to match the description that matches your business requirements.
    - **Display folder** provides the name of the business area folder this table was grouped under as part of the database template. For custom tables, this value will be "Other".
-:::image type="content" source="/media/modify-lake-database/general-tab.png" alt-text="Screenshot of the General tab":::
+![Screenshot of the General tab](./media/modify-lake-database/general-tab.png)
 In addition, there is a collapseable section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
    - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
       - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. Change this to pick a different ADLS account.     
       - **Input folder** the folder in ADLS where the data loaded to this table will live. This can be edited via the file browser.
-      - **Data format** the data format of the data in the **Input folder** Lake databases in Synapse support parquet and delimited text as the storage formats for data. If the data format does not match the data in the folder, queries to the table will fail.
+      - **Data format** the data format of the data in the **Input folder** Lake databases in Azure Synapse support parquet and delimited text as the storage formats for data. If the data format does not match the data in the folder, queries to the table will fail.
    - For a **Data format** of Delimited text, there are additional settings:
         - **Row headers** check this box if the data has row headers.
         - **Line breaks** check this box if the data has line breaks in any of its rows. This will prevent formatting issues.
@@ -80,7 +82,7 @@ In addition, there is a collapseable section called **Storage settings for table
 
 ### Columns
 The **Columns** tab is where the columns for the table are listed and can be modified. On this tab are two lists of columns: **Standard columns** and **Partition columns**. **Standard columns** are any column that stores data, is a primary key, and otherwise is not used for the partitioning of the data. **Partition columns** store data as well, but are used to partition the underlying data into folders based on the values contained in the column. Each column has the following properties.
-:::image type="content" source="/media/modify-lake-database/columns-tab.png" alt-text="Screenshot of the Columns tab":::
+![Screenshot of the Columns tab](./media/modify-lake-database/columns-tab.png)
    - **Name** the name of the column. Must be unique within the table.
    - **PK** or primary key. Indicates whether the column is a primary key for the table. Not applicable to partition columns.
    - **Description** a description of the column. If the column was created from a database template, this will contain a description of the concept represented by this column. This field is editable and can be changed to match the description that matches your business requirements.
@@ -98,17 +100,17 @@ At the top of the **Columns** tab is a command bar that can be used to interact 
    - **Delete** deletes the selected columns from the table. This action is irreversible. 
 
 #### Partition Columns
-Partition columns are used to partition the physical data in your database based on values in those columns. Partition columns allow an easy way to distribute data on disk into more performant chunks. Partition columns in Synapse are always at the end of the table schema. In addition, they are used from top to bottom when creating the partition folders. For example, if your partition columns were Year and Month, you would end up with a structure in ADLS like this:
+Partition columns are used to partition the physical data in your database based on values in those columns. Partition columns allow an easy way to distribute data on disk into more performant chunks. Partition columns in Azure Synapse are always at the end of the table schema. In addition, they are used from top to bottom when creating the partition folders. For example, if your partition columns were Year and Month, you would end up with a structure in ADLS like this:
 
-:::image type="content" source="/media/modify-lake-database/partition-example.png" alt-text="Screenshot showing hierarchy of folders from partitioning: 2020 -> Jan, Feb -> files":::
+![Screenshot showing hierarchy of folders from partitioning: 2020 -> Jan, Feb -> files](./media/modify-lake-database/partition-example.png)
 
 Where each of file1 and file2 contained all the rows where the values of Year and Month were 2020 and Jan respectively. As more partition columns are added to a table, the more files are added to this hierarchy, making the overall file size of the partitions smaller.
 
-Synapse does not enforce or create this hierarchy by adding partition columns to a table. Data must be loaded into the table using either Synapse Pipelines or a Spark notebook in order for the partition structure to be created. 
+Azure Synapse does not enforce or create this hierarchy by adding partition columns to a table. Data must be loaded into the table using either Synapse Pipelines or a Spark notebook in order for the partition structure to be created. 
 
 ### Relationships
 The relationships tab lets you specify relationships between tables in the database. Relationships in the database designer are informational, and do not enforce any constraints on the underlying data. They are read by other Microsoft applications can be used to accelerate transformations or provide business users insight into how tables are connected. The relationships pane has the following info.
-:::image type="content" source="/media/modify-lake-database/relationships-tab.png" alt-text="Screenshot of the Relationships tab":::
+![Screenshot of the Relationships tab](./media/modify-lake-database/relationships-tab.png)
    - **Relationships from (Table)** is when one or more tables have foreign keys connected to this table. This is sometimes called a parent relationship.
    - **Relationships to (Table)** is when a table which has foreign key and is connected to other table. This is sometimes called a child relationship.
    - Both relationship types have the following properties.
