@@ -34,7 +34,7 @@ To monitor your Spring Cloud workloads with AppDynamics, you **must** activate A
 
 ## Activate AppDynamics Java In-Process Agent
 
-![AppDynamics Activation](media/appdynamics-agent/appdynamics_activation.jpg)
+![AppDynamics Activation](media/how-to-appdynamics-java-agent-monitor/appdynamics_activation.jpg)
 
 For the whole workflow, you need to:
 
@@ -85,19 +85,19 @@ Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/age
 
 1. Find the application from **Settings**/**Apps** in the navigation pane.
 
-   ![Find app to monitor](media/appdynamics-agent/1.png)
+   ![Find app to monitor](media/how-to-appdynamics-java-agent-monitor/1.png)
 
 2. Click the application to jump to the **Overview** page.
 
-   ![Overview page](media/appdynamics-agent/2.png)
+   ![Overview page](media/how-to-appdynamics-java-agent-monitor/2.png)
 
 3. Click **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
 
-   ![Update environment](media/appdynamics-agent/3.png)
+   ![Update environment](media/how-to-appdynamics-java-agent-monitor/3.png)
 
 4. Click **General settings** to add/update/delete the **JVM Option** of the application.
 
-   ![Update JVM Option](media/appdynamics-agent/4.png)
+   ![Update JVM Option](media/how-to-appdynamics-java-agent-monitor/4.png)
 
 ## Automation
 
@@ -152,43 +152,43 @@ To configure the environment variables in an ARM template, add the following cod
 
 1. You can take an overview of your apps in the AppDynamics dashboard
 
-   ![appdynamics dashboard birds eye view of apps](media/appdynamics-agent/appdynamics-dashboard-birds-eye-view-of-apps.jpg)
+   ![appdynamics dashboard birds eye view of apps](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-birds-eye-view-of-apps.jpg)
 
 2. You can find the overall information for your apps
 
    - `api-gateway`
 
-      ![appdynamics dashboard api gateway](media/appdynamics-agent/appdynamics-dashboard-api-gateway.jpg)
+      ![appdynamics dashboard api gateway](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-api-gateway.jpg)
 
    - `customers-service`
 
-      ![appdynamics dashboard customers service](media/appdynamics-agent/appdynamics-dashboard-customers-service.jpg)
+      ![appdynamics dashboard customers service](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg)
 
 3. You can find the basic information for database calls
 
-   ![appdynamics dashboard customer service db calls](media/appdynamics-agent/appdynamics-dashboard-customer-service-db-calls.jpg)
+   ![appdynamics dashboard customer service db calls](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg)
 
 4. You can dig deeper to find slowest database calls
 
-   ![appdynamics dashboard slowest db calls from customers service](media/appdynamics-agent/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg)
+   ![appdynamics dashboard slowest db calls from customers service](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service.jpg)
 
-   ![appdynamics dashboard slowest db calls from customers service 2](media/appdynamics-agent/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg)
+   ![appdynamics dashboard slowest db calls from customers service 2](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-slowest-db-calls-from-customers-service-2.jpg)
 
 5. You can find the memory usage analysis
 
-   ![appdynamics dashboard customers service memory usage](media/appdynamics-agent/appdynamics-dashboard-customers-service-memory-usage.jpg)
+   ![appdynamics dashboard customers service memory usage](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-memory-usage.jpg)
 
 6. You can find the garbage collection process
 
-   ![appdynamics dashboard customers service garbage collection](media/appdynamics-agent/appdynamics-dashboard-customers-service-garbage-collection.jpg)
+   ![appdynamics dashboard customers service garbage collection](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg)
 
 7. You can find slowest transactions 
 
-   ![appdynamics dashboard customers service slowest transactions](media/appdynamics-agent/appdynamics-dashboard-customers-service-slowest-transactions.jpg)
+   ![appdynamics dashboard customers service slowest transactions](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg)
 
 8. You can define more metrics for JVM
 
-   ![appdynamics dashboard customers service jvm metric browser](media/appdynamics-agent/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg)
+   ![appdynamics dashboard customers service jvm metric browser](media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg)
 
 ## AppDynamics Agent Logging
 
