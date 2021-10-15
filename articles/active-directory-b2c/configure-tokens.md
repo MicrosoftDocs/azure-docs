@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -154,10 +154,10 @@ To change the settings on your token compatibility, you set the [Token Issuer](j
     </ClaimType>
     ```
 
-    In your **OutputClaims** element, add this element:
+    In your [relying party policy](#relyingparty.md), under the **OutputClaims** element, add the following output claim:
 
     ```xml
-    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
     ```
 
     For ACR, remove the **AuthenticationContextReferenceClaimPattern** item.
