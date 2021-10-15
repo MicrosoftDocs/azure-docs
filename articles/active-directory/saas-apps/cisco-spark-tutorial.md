@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://web.ciscospark.com/idb/Consumer/metaAlias/<ID>/sp`
 	
 	> [!NOTE]
-	> This value is not real. Copy the lateral Reply URL value and add this value to the `https://web.ciscospark.com/` to formulate the actual Sign on URL value.
+	> This value is not real. Copy the literal Reply URL value and add this value to the `https://web.ciscospark.com/` to formulate the actual Sign on URL value.
 
 1. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -197,7 +197,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Cisco Webex Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Cisco Webex tile in the My Apps, this will redirect to Cisco Webex Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Cisco Webex tile in the My Apps, this will redirect to Cisco Webex Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps

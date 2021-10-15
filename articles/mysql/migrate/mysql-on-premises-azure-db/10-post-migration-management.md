@@ -25,7 +25,7 @@ Once the migration has been successfully completed, the next phase it to manage 
 
 Azure Database for MySQL provides for the ability to monitor both of these types of operational activities using Azure-based tools such as [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) and [Azure Sentinel.](../../../sentinel/overview.md) In addition to the Azure-based tools, security information and event management (SIEM) systems can be configured to consume these logs as well.
 
-Whichever tool is used to monitor the new cloud-based workloads, alerts need to be created to warn Azure and database administrators of any suspicious activity. If a particular alert event has a well-defined remediation path, alerts can fire automated [Azure run books](../../../automation/automation-quickstart-create-runbook.md) to address the event.
+Whichever tool is used to monitor the new cloud-based workloads, alerts need to be created to warn Azure and database administrators of any suspicious activity. If a particular alert event has a well-defined remediation path, alerts can fire automated [Azure run books](../../../automation/learn/powershell-runbook-managed-identity.md) to address the event.
 
 The first step to creating a fully monitored environment is to enable MySQL log data to flow into Azure Monitor. Reference [Configure and access audit logs for Azure Database for MySQL in the Azure portal](../../howto-configure-audit-logs-portal.md) for more information.
 

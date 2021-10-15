@@ -5,11 +5,11 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 08/24/2021
 
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 ---
@@ -41,18 +41,18 @@ You can also design the interaction as an orchestration step. This is suitable w
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD B2C**.
-4. Select **API connectors**, and then select **New API connector**.
+1. Under **Azure services**, select **Azure AD B2C**.
+1. Select **API connectors**, and then select **New API connector**.
 
    ![Screenshot of basic configuration for an API connector](media/add-api-connector/api-connector-new.png)
 
-5. Provide a display name for the call. For example, **Validate user information**.
-6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
+1. Provide a display name for the call. For example, **Validate user information**.
+1. Provide the **Endpoint URL** for the API call.
+1. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
    ![Screenshot of authentication configuration for an API connector](media/add-api-connector/api-connector-config.png)
 
-8. Select **Save**.
+1. Select **Save**.
 
 ## The request sent to your API
 An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
@@ -109,9 +109,9 @@ Additionally, these claims are typically sent in all requests:
 Follow these steps to add an API connector to a sign-up user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD B2C**.
-4. Select **User flows**, and then select the user flow you want to add the API connector to.
-5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
+1. Under **Azure services**, select **Azure AD B2C**.
+1. Select **User flows**, and then select the user flow you want to add the API connector to.
+1. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
    - **After federating with an identity provider during sign-up**
    - **Before creating the user**
@@ -119,7 +119,7 @@ Follow these steps to add an API connector to a sign-up user flow.
 
    ![Selecting an API connector for a step in the user flow](media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Select **Save**.
+1. Select **Save**.
 
 These steps only exist for **Sign up and sign in (Recommended)** and **Sign up (Recommended)** but only apply to the sign-up part of the experience.
 
@@ -572,7 +572,8 @@ To return the promo code claim back to the relying party application, add an out
 ## Test the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml*. 

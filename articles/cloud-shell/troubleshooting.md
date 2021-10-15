@@ -127,6 +127,10 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
 
+### Supported entry point limitations
+
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal, do not support the use of commands that modify UX components in Cloud Shell, such as `Code`.
+
 ## Bash limitations
 
 ### Editing .bashrc
@@ -148,7 +152,7 @@ Azure Cloud Shell takes your personal data seriously, the data captured and stor
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
 
-1. [![Image showing a button labeled Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Launch Cloud Shell.
 
 2. Run the following commands in Bash or PowerShell:
 
@@ -187,7 +191,7 @@ PowerShell:
 
   ```powershell
   $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## Azure Government limitations
 Azure Cloud Shell in Azure Government is only accessible through the Azure portal.

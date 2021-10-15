@@ -56,9 +56,9 @@ To import threat indicators into Azure Sentinel from a TAXII server, follow thes
 
 1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and click the **Open connector page** button.
+1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
 
-1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Click the **Add** button.
+1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 
     :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-configure-taxii-servers.png" alt-text="Configure TAXII servers":::
  

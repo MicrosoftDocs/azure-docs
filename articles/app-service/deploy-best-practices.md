@@ -123,7 +123,7 @@ In your script, log in using `az login --service-principal`, providing the princ
 
 ### Java
 
-Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
+Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-warjarear-packages) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### Node
 

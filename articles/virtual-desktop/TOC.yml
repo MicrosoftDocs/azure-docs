@@ -16,7 +16,7 @@
     href: getting-started-feature.md
 - name: Tutorials
   items:
-  - name: 1. Create a host pool with the Azure portal
+  - name: 1. Create a host pool
     href: create-host-pools-azure-marketplace.md
   - name: 2. Manage app groups
     href: manage-app-groups.md
@@ -26,8 +26,12 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
-  - name: Migrate manually
-    href: manual-migration.md
+  - name: Migrate your deployment
+    items:
+      - name: Migrate automatically 
+        href: automatic-migration.md
+      - name: Migrate manually
+        href: manual-migration.md
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
@@ -50,7 +54,7 @@
     href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
-      - name: PowerShell
+      - name: Create a host pool using PowerShell or the Azure CLI
         href: create-host-pools-powershell.md
       - name: Deploy an Azure AD joined session host
         href: deploy-azure-ad-joined-vm.md
@@ -60,7 +64,7 @@
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
-      - name: Manage app groups with PowerShell
+      - name: Manage app groups using PowerShell or the Azure CLI
         href: manage-app-groups-powershell.md
   - name: Delete a host pool
     href: delete-host-pool.md
@@ -70,12 +74,16 @@
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
         href: create-fslogix-profile-container.md
+      - name: Use Azure NetApp Files and MSIX app attach
+        href: create-netapp-files.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
       - name: Use Azure Files and AD DS
         href: create-file-share.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
+      - name: Authorize an account to use Azure Files
+        href: azure-files-authorization.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -126,8 +134,12 @@
     href: configure-automatic-updates.md
   - name: Set up multimedia redirection (preview)
     href: multimedia-redirection.md
-  - name: Install language packs
-    href: language-packs.md
+  - name: Install language packages
+    items:
+    - name: Windows 10 multi-session images
+      href: language-packs.md
+    - name: Windows 11 Enterprise images
+      href: windows-11-language-packs.md
   - name: Use Azure Advisor
     href: azure-advisor.md
   - name: Resolve recommendations
@@ -202,12 +214,12 @@
     items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
+      - name: Screen capture protection
+        href: screen-capture-protection.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Identify and diagnose issues
-    href: diagnostics-role-service.md
   - name: Getting started feature 
     href: troubleshoot-getting-started.md
   - name: Host pool creation
@@ -230,6 +242,8 @@
     href: troubleshoot-azure-ad-connections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
+  - name: Azure Files authorization
+    href: troubleshoot-authorization.md
 - name: Reference
   items:
   - name: Security best practices
@@ -264,8 +278,8 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-  - name: Microsoft 365 roadmap
-    href: https://aka.ms/wvdroadmap
+  - name: Azure update roadmap
+    href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
   - name: Azure compliance offerings

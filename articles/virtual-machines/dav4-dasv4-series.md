@@ -12,6 +12,8 @@ ms.reviewer: jushiman
 
 # Dav4 and Dasv4-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The Dav4-series and Dasv4-series are new sizes utilizing AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256 MB L3 cache dedicating 8 MB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Dav4-series and Dasv4-series have the same memory and disk configurations as the D & Dsv3-series.
 
 ## Dav4-series
@@ -50,22 +52,22 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
 Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) |
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2as_v4<sup>2</sup>|2|8|16|4|4000 / 32 (50)|3200 / 48| 4000/200 | 2 | 2000 |
-| Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96| 8000/200 |2 | 4000 |
-| Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192| 16000/400 |4 | 8000 |
-| Standard_D16as_v4|16|64|128|32|32000 / 255 (400)|25600 / 384| 32000/800 |8 | 10000 |
-| Standard_D32as_v4|32|128|256|32|64000 / 510 (800)|51200 / 768| 64000/1600 |8 | 16000 |
-| Standard_D48as_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148| 80000/2000 |8 | 24000 |
-| Standard_D64as_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200| 80000/2000 |8 | 32000 | 
-| Standard_D96as_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200| 80000/2000 |8 | 40000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max burst cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2as_v4<sup>2</sup>|2|8|16|4|4000 / 32 (50)| 4000/100  |3200 / 48| 4000/200 | 2 | 2000 |
+| Standard_D4as_v4|4|16|32|8|8000 / 64 (100)| 8000/200 |6400 / 96| 8000/200 |2 | 4000 |
+| Standard_D8as_v4|8|32|64|16|16000 / 128 (200)| 16000/400 |12800 / 192| 16000/400 |4 | 8000 |
+| Standard_D16as_v4|16|64|128|32|32000 / 255 (400)| 32000/800 |25600 / 384| 32000/800 |8 | 10000 |
+| Standard_D32as_v4|32|128|256|32|64000 / 510 (800)| 64000/1600 |51200 / 768| 64000/1600 |8 | 16000 |
+| Standard_D48as_v4|48|192|384|32|96000 / 1020 (1200)| 96000/2000 |76800 / 1148| 80000/2000 |8 | 24000 |
+| Standard_D64as_v4|64|256|512|32|128000 / 1020 (1600)| 128000/2000 |80000 / 1200| 80000/2000 |8 | 32000 | 
+| Standard_D96as_v4|96|384|768|32|192000 / 1020 (2400)| 192000/2000 |80000 / 1200| 80000/2000 |8 | 40000 |
 
 <sup>1</sup>  Dasv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 <sup>2</sup> Accelerated networking can only be applied to a single NIC. 
@@ -83,7 +85,7 @@ Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 ## Next steps
 

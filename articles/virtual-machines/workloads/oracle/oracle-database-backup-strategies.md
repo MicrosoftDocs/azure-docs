@@ -14,6 +14,8 @@ ms.reviewer: dbakevlar
 
 # Oracle Database in Azure Linux VM backup strategies
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Database backups protect the database against data loss due to storage component failure and data center failure. They can also be a means of recovery from human error and a way to clone a database for development or testing purposes. 
 
 In Azure, as all storage is highly redundant and the loss of one or more disks will not lead to a database outage, backups are most often used to protect against human error, for cloning operations or data preservation for regulatory purposes. They are also a means to protect against regional outage where a disaster recovery technology like DataGuard is not in use. In this case, the backups must be stored in different Azure regions using geo-redundant replication, so as to be available outside of the primary database region.

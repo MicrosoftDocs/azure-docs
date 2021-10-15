@@ -99,7 +99,7 @@ To collect your Windows security events in Azure Sentinel:
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Security Events**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Security Events**, and then **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -107,13 +107,13 @@ To collect your Windows security events in Azure Sentinel:
 
     For Azure Virtual Machines:
     
-    1. Click on **Install agent on Azure Windows Virtual Machine**, and then on the link that appears below.
-    1. For each virtual machine that you want to connect, click on its name in the list that appears on the right, and then click **Connect**.
+    1. Select **Install agent on Azure Windows Virtual Machine**, and then on the link that appears below.
+    1. For each virtual machine that you want to connect, select its name in the list that appears on the right, and then select **Connect**.
 
     For non-Azure Windows machines (physical, virtual on-prem, or virtual in another cloud):
 
-    1. Click on **Install agent on non-Azure Windows Machine**, and then on the link that appears below.
-    1. Click on the appropriate download links that appear on the right, under **Windows Computers**.
+    1. Select **Install agent on non-Azure Windows Machine**, and then on the link that appears below.
+    1. Select the appropriate download links that appear on the right, under **Windows Computers**.
     1. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links mentioned above.
 
     > [!NOTE]
@@ -126,13 +126,13 @@ To collect your Windows security events in Azure Sentinel:
 
 1. Select which event set (All, Common, or Minimal) you want to stream. See the [lists of event IDs included](#event-id-reference) in the Minimal and Common event sets.
 
-1. Click **Update**.
+1. Select **Update**.
 
 1. To use the relevant schema in Log Analytics for Windows security events, type `SecurityEvent` in the query window.
 
 # [Azure Monitor Agent (New)](#tab/AMA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Windows Security Events (Preview)**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Windows Security Events (Preview)**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -248,7 +248,7 @@ Azure Sentinel can apply machine learning (ML) to Security events data to identi
 
 1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](#event-id-reference) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
 
-1. From the Azure Sentinel portal, click **Analytics**, and then click the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
+1. From the Azure Sentinel portal, select **Analytics**, and then select the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
 
     > [!NOTE]
     > As the machine learning algorithm requires 30 days' worth of data to build a baseline profile of user behavior, you must allow 30 days of Windows Security events data to be collected before any incidents can be detected.

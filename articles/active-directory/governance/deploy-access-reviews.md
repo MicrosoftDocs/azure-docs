@@ -190,10 +190,10 @@ The administrative role required to create, manage, or read an Access Review dep
 
 | Resource type| Create and manage Access Reviews (Creators)| Read Access Review results |
 | - | - | -|
-| Group or application| Global Administrator <p>User Administrator| Creators and Security Administrator |
-| Privileged roles in Azure AD| Global Administrator <p>Privileged Role Administrator| Creators <p>Security Reader<p>Security Administrator |
-| Privileged roles in Azure (resources)| Global Administrator<p>User Administrator<p>Resource Owner| Creators |
-| Access package| Global Administrator<p>Creator of Access Package| Global Administrator only |
+| Group or application| Global Administrator <p>User Administrator<p>Identity Governance Administrator<p>Privileged Role Admin (only reviews on for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview))| Global Administrator<p>Global Reader<p>User Administrator<p>Identity Governance Administrator<p>Privileged Role Admin<p>Security Reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview)) |
+|Azure AD roles| Global Administrator <p>Privileged Role Administrator|  Global Administrator<p>Global Reader<p>User Administrator<p>Privileged Role Admin<p> <p>Security Reader |
+| Azure resource roles| Global Administrator<p>Resource Owner| Global Administrator<p>Global Reader<p>User Administrator<p>Privileged Role Admin<p> <p>Security Reader  |
+| Access package| Global Administrator<p>User Administrator<p>Identity Governance Administrator| Global Administrator<p>Global Reader<p>User Administrator<p>Identity Governance Administrator<p> <p>Security Reader  |
 
 For more information, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).
 
@@ -438,9 +438,9 @@ Follow the instructions in the links below:
 
 | How-to articles | Description |
 | - | - |
- [Create Access Reviews](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
-| [Self-review your access](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
+ [Create Access Reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ### Review Azure resource roles
@@ -453,9 +453,9 @@ Follow the instructions in the links below:
 
 | How-to articles| Description |
 | - | -|
-| [Create Access Reviews](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM |
-| [Self-review your access](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
+| [Create Access Reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ## Use the Access Reviews API

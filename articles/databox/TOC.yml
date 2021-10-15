@@ -116,6 +116,8 @@
           href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
       - name: Troubleshoot
         items:
+        - name: Data Box share access
+          href: data-box-troubleshoot-share-access.md
         - name: Data Box copy issues
           href: data-box-troubleshoot.md
         - name: Data Box upload issues

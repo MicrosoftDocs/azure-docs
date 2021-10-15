@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/13/2020
+ms.date: 09/10/2021
 ms.author: rabhaiya
 ---
 
@@ -31,7 +31,7 @@ Azure IoT Connector for FHIR uses an Azure Event Hub instance under the hood to 
 
 ## Connect Azure IoT Hub with the Azure IoT Connector for FHIR (preview)
 
-Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. Azure IoT Connector for FHIR leverages this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
+Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. Azure IoT Connector for FHIR uses this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
 
 > [!NOTE] 
 > At this time you can only use PowerShell or CLI command to [create message routing](../../iot-hub/tutorial-routing.md) because Azure IoT Connector for FHIR's Event Hub is not hosted on the customer subscription, hence it won't be visible to you through the Azure portal. Though, once the message route objects are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
@@ -39,7 +39,7 @@ Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-
 Setting up a message routing consists of two steps.
 
 ### Add an endpoint
-This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az_iot_hub_routing_endpoint_create) CLI command, based on your preference.
+This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to create an endpoint:
 
@@ -49,8 +49,8 @@ Here is the list of parameters to use with the command to create an endpoint:
 |Name|hub-name|Name of your IoT Hub resource.|
 |EndpointName|endpoint-name|Use a name that you would like to assign to the endpoint being created.|
 |EndpointType|endpoint-type|Type of endpoint that IoT Hub needs to connect with. Use literal value of "EventHub" for PowerShell and "eventhub" for CLI.|
-|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
-|EndpointSubscriptionId|endpoint-subscription-id|Subscription Id for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for the FHIR Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointSubscriptionId|endpoint-subscription-id|Subscription ID for your Azure IoT Connector for the FHIR Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
 |ConnectionString|connection-string|Connection string to your Azure IoT Connector for FHIR. Use the value you obtained in the previous step.|
 
 ### Add a message route
@@ -88,7 +88,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. Set up your [Postman to access Azure API for FHIR](access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.

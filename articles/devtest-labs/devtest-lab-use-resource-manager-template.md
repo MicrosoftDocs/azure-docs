@@ -1,7 +1,7 @@
 ---
 title: View and use a virtual machine's Azure Resource Manager template
 description: Learn how to use the Azure Resource Manager template from a virtual machine to create other VMs
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

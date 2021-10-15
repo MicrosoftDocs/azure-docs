@@ -49,8 +49,6 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the Calling SDK
-      href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
     - name: Use the call automation APIs
@@ -125,6 +123,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Call diagnostics
+        href: concepts/voice-video-calling/call-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues
@@ -150,7 +150,11 @@ items:
   - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
-    href: concepts/teams-interop.md
+    items:
+      - name: Overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Service Events (EventGrid)
     href: ../event-grid/event-schema-communication-services.md
     maintainContext: true
@@ -158,8 +162,32 @@ items:
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Azure Advisor
+    href: concepts/advisor-overview.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+- name: How-to guides
+  items:
+  - name: Using the Calling SDK
+    items:
+      - name: Manage calls
+        href: how-tos/calling-sdk/manage-calls.md
+      - name: Manage video
+        href: how-tos/calling-sdk/manage-video.md
+      - name: Record calls
+        href: how-tos/calling-sdk/record-calls.md
+      - name: Enable push notifications
+        href: how-tos/calling-sdk/push-notifications.md
+      - name: Show transcription state
+        href: how-tos/calling-sdk/call-transcription.md
+      - name: Show active speakers
+        href: how-tos/calling-sdk/dominant-speaker.md
+      - name: Transfer calls
+        href: how-tos/calling-sdk/transfer-calls.md
+      - name: Join a Teams meeting
+        href: how-tos/calling-sdk/teams-interoperability.md
+      - name: Subscribe to SDK events
+        href: how-tos/calling-sdk/events.md
 - name: Samples
   items:
   - name: Overview

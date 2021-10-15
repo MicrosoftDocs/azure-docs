@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/14/2021
 ms.author: pafarley
 ---
 
@@ -19,6 +19,7 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
 
@@ -103,39 +104,54 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 
 ###  Enable MPS on Azure Stack Edge 
 
-1. Run a Windows PowerShell session as an Administrator. 
+Follow these steps to remotely connect from a Windows client.
 
-2. Make sure that the Windows Remote Management service is running on your client. In the PowerShell terminal, use the following command 
-    
+1. Run a Windows PowerShell session as an administrator.
+2. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type:
+
     ```powershell
     winrm quickconfig
     ```
-    
-    If you see warnings about a firewall exception, check your network connection type, and see the [Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) documentation.
 
-3. Assign a variable to the device IP address. 
-    
-    ```powershell
-    $ip = "<device-IP-address>" 
-    ```
-    
-4. To add the IP address of your device to the client's trusted hosts list, use the following command: 
-    
-    ```powershell
-    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force 
-    ```
+    For more information, see [Installation and configuration for Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
 
-5. Start a Windows PowerShell session on the device. 
+3. Assign a variable to the connection string used in the `hosts` file.
 
     ```powershell
-    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell 
+    $Name = "<Node serial number>.<DNS domain of the device>"
+    ``` 
+
+    Replace `<Node serial number>` and `<DNS domain of the device>` with the node serial number and DNS domain of your device. You can get the values for node serial number from the **Certificates** page and DNS domain from the **Device** page in the local web UI of your device.
+
+4. To add this connection string for your device to the client’s trusted hosts list, type the following command:
+
+    ```powershell
+    Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
     ```
 
-6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is `Password1`.
+5. Start a Windows PowerShell session on the device:
 
-Type `Start-HcsGpuMPS` to start the MPS service on the device. 
+    ```powershell
+    Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+    ```
 
-For help troubleshooting the Azure Stack Edge device, see [Troubleshooting the Azure Stack Edge device](spatial-analysis-logging.md#troubleshooting-the-azure-stack-edge-device) 
+    If you see an error related to trust relationship, then check if the signing chain of the node certificate uploaded to your device is also installed on the client accessing your device.
+
+6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
+
+    ```
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+    
+    PS C:\WINDOWS\system32> winrm quickconfig
+    WinRM service is already running on this machine.
+    PS C:\WINDOWS\system32> $Name = "1HXQG13.wdshcsso.com"
+    PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
+    PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL
+
+    WARNING: The Windows PowerShell interface of your device is intended to be used only for the initial network configuration. Please engage Microsoft Support if you need to access this interface to troubleshoot any potential issues you may be experiencing. Changes made through this interface without involving Microsoft Support could result in an unsupported configuration.
+    [1HXQG13.wdshcsso.com]: PS>
+    ```
 
 #### [Desktop machine](#tab/desktop-machine)
 
@@ -569,6 +585,8 @@ The Spatial Analysis module will start consuming video file and will continuousl
 ## Troubleshooting
 
 If you encounter issues when starting or running the container, see [telemetry and troubleshooting](spatial-analysis-logging.md) for steps for common issues. This article also contains information on generating and collecting logs and collecting system health.
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 

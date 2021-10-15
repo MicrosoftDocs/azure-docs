@@ -51,25 +51,32 @@
     href: concept-security-agent-authentication.md
   - name: Security posture - CIS benchmark
     href: concept-security-posture.md
+  - name: Micro agent configurations (Preview)
+    displayNAme: collectors, configuration, configurations, event-based, trigger, general
+    href: concept-micro-agent-configuration.md
   - name: Micro agent event collection (Preview)
     displayName: process events, network connection
     href: concept-event-aggregation.md
   - name: Micro agent linux dependencies
     displayName: linux, micro agent, agent
     href: concept-micro-agent-linux-dependencies.md
-  - name: Built-in alerts for IoT Hub
-    displayName: binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker, 
-    href: concept-security-alerts.md
-  - name: Custom security alerts for IoT Hub
-    href: concept-customizable-security-alerts.md
-  - name: Security recommendations for IoT Hub
-    href: concept-recommendations.md
+  - name: Security alerts
+    items:
+    - name: Micro agent security alerts (Preview)
+      href: concept-agent-based-security-alerts.md
+    - name: Built-in alerts for IoT Hub
+      displayName: binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker, 
+      href: concept-security-alerts.md
+    - name: Custom security alerts for IoT Hub
+      href: concept-customizable-security-alerts.md
+    - name: Security recommendations for IoT Hub
+      href: concept-recommendations.md
   - name: Classic
     items:
     - name: Defender-IoT-micro-agent
       displayName: device twins, Defender-IoT-micro-agent twin
       href: concept-security-module.md
-    - name: Edge Defender-IoT-micro-agent
+    - name: Edge azureiotsecurity
       href: security-edge-architecture.md
     - name: Security agents
       href: overview-security-agents.md
@@ -85,7 +92,7 @@
     - name: Defender-IoT-micro-agent classic event aggregation                                          
       displayName: twin, default, configuration, alerts
       href: event-aggregation.md
-    - name: Agent based security alerts
+    - name: Classic agent based security alerts
       href: agent-based-security-alerts.md
     - name: Agent based security custom alerts
       href: agent-based-security-custom-alerts.md
@@ -133,7 +140,7 @@
           href: azure-iot-security-local-configuration-c.md
         - name: Local configuration C#
           href: azure-iot-security-local-configuration-csharp.md 
-      - name: Deploy Edge Defender-IoT-micro-agent
+      - name: Deploy Edge azureiotsecurity
         href: how-to-deploy-edge.md
       - name: Configure security agents
         displayName: property

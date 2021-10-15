@@ -8,9 +8,15 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: rezar
-
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-vm
 ---
 # What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on Azure virtual machines. These solutions are jointly developed and supported by Oracle and Microsoft.
 

@@ -4,10 +4,10 @@ description: The information you provide on the Co-sell with Microsoft tab for y
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: palanis-MSFT
-ms.author: palanis
+author: sharath-satish-msft
+ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 07/13/2021
+ms.date: 09/27/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -20,7 +20,7 @@ The Co-sell option is available for the following offer types.
 - Azure Container
 - Azure Virtual Machine
 - Consulting service
-- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for operations
 - Dynamics 365 business central
 - IoT Edge Module
@@ -29,6 +29,30 @@ The Co-sell option is available for the following offer types.
 - Software as a service (SaaS)
 
 ## Go to the Co-sell with Microsoft tab
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+     [ ![Illustrates the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+    > [!TIP]
+    > If you don’t see the **Marketplace offers** tile, [create a commercial marketplace account in Partner Center](create-account.md) and make sure your account is enrolled in the commercial marketplace program.
+
+1. On the Marketplace offers page, select the offer you want to co-sell.
+
+    > [!NOTE]
+    > You can configure co-sell for a new offer that’s not yet published or with an offer that’s already published.
+
+1. In the menu on the left, select **Co-sell with Microsoft**.
+
+    [ ![Illustrates the Co-sell with Microsoft page.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
+
+#### [Current view](#tab/current-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
@@ -41,6 +65,8 @@ The Co-sell option is available for the following offer types.
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
     [![Illustrates the Co-sell with Microsoft link in the left navigation.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+---
 
 ## Co-sell listings
 
@@ -74,11 +100,11 @@ Solution types help define the scenarios that your offer is designed to address.
 
 ### Select solution areas
 
-Solution areas help to further define your solution. This helps Microsoft sales teams find and understand your solution’s value proposition. You must select at least one and up to a maximum of three solution areas for your offer. For each solution area, you can further choose up to two solution sub-areas.
+Solution areas help to further define your solution. This helps Microsoft sales teams find and understand your solution’s value proposition. You must select at least one and up to a maximum of five solution areas for your offer. For each solution area, you can further choose up to five solution sub-areas.
 
-1. Select the **+ Add solution area (3 Max)** link.
+1. Select the **+ Add solution area (5 Max)** link.
 1. Select a solution area from the drop-down list that appears.
-1. Select at least one and up to two solution sub-areas. To select multiple sub-areas, use the `Ctrl` key (on Windows) or `Command` key (on macOS).
+1. Select at least one and up to five solution sub-areas. To select multiple sub-areas, use the `Ctrl` key (on Windows) or `Command` key (on macOS).
 1. To add another solution area, repeat steps 1 through 3.
 
 ## Upload documents

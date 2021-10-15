@@ -28,11 +28,11 @@ To configure the deallocation policy:
 >[!NOTE]
 >Make sure to set the time limit for the "End a disconnected session" policy to a value greater than five minutes. A low time limit can cause users' sessions to end if their network loses connection for too long, resulting in lost work.
 
-Signing users out won't deallocate their VMs. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md).
+Signing users out won't deallocate their VMs. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md) for personal host pools and [Scale session hosts using Azure Automation](set-up-scaling-script.md) for pooled host pools.
 
 ## Can users turn off the VM from their clients?
 
-Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md).
+Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md) for personal host pools and [Scale session hosts using Azure Automation](set-up-scaling-script.md) for pooled host pools.
 
 ## Next steps
 

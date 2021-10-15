@@ -87,7 +87,7 @@ In addition to the paths, include the [mount command options](#use-recommended-m
 
 To ensure a seamless client mount, pass these settings and arguments in your mount command:
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+`mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}`
 
 | Required settings | Description |
 --- | ---
@@ -96,9 +96,9 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
 
-| Preferred settings  | Description |
---- | ---
-``nointr``            | If your clients use older OS kernels (before April 2008) that support this option, use it. The option "intr" is the default.
+| Preferred settings | Description |
+| --- | --- |
+| `nointr` | If your clients use older OS kernels (before April 2008) that support this option, use it. The option "intr" is the default. |
 
 ## Next steps
 

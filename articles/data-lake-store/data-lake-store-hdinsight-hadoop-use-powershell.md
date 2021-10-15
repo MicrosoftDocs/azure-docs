@@ -2,11 +2,11 @@
 title: PowerShell - HDInsight with Data Lake Storage Gen1 - add-on storage - Azure
 description: Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Storage Gen1 as additional storage.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley 
+ms.author: normesta 
 ms.custom: devx-track-azurepowershell
 
 ---

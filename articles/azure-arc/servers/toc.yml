@@ -4,8 +4,10 @@
   items:
   - name: About Azure Arc-enabled servers
     href: overview.md
-  - name: What's new with Connected Machine agent
+  - name: What's new with Connected Machine agent?
     href: agent-release-notes.md
+  - name: Archive for Connected Machine agent release notes
+    href: agent-release-notes-archive.md
 - name: Quickstarts
   items:
   - name: Enable Arc-enabled servers agent
@@ -39,10 +41,12 @@
       href: agent-overview.md
     - name: Plan for deployment
       href: plan-at-scale-deployment.md
-    - name: Connect machines to Azure Arc from the Azure portal
+    - name: Connect machines using a deployment script
       href: onboard-portal.md
     - name: Connect machines at scale using a service principal
       href: onboard-service-principal.md
+    - name: Connect machines from Automation Update Management
+      href: onboard-update-management-machines.md
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: onboard-dsc.md
     - name: Connect machines from Windows Admin Center

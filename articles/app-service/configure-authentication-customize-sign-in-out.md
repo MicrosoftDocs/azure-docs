@@ -29,10 +29,10 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
 
-To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
+To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
 ```html
-<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+<a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
 ```
 
 ## Client-directed sign-in

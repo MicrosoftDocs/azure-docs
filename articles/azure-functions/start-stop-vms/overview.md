@@ -13,9 +13,6 @@ The Start/Stop VMs v2 (preview) feature starts or stops Azure virtual machines (
 
 This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
-> [!NOTE]
-> If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 
-
 ## Overview
 
 Start/Stop VMs v2 (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
@@ -43,14 +40,20 @@ The queue-based trigger functions are required in support of this feature. All t
 
  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) is used to configure and manage the start and stop schedules for the VM take action by calling the function using a JSON payload. By default, during initial deployment it creates a total of five Logic Apps for the following scenarios:
 
-- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs. **ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
+- **Scheduled** - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs. **ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
-- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
+- **Sequenced** - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop. 
+
+    The proper way to use the sequence functionality is to create a tag named **sequencestart** on each VM you wish to be started in a sequence. The tag value needs to be an integer ranging from 1 to N for each VM in the respective scope. The tag is optional and if not present, the VM simply won't participate in the sequencing. The same criteria applies to stopping VMs with only the tag name being different and use **sequencestop** in this case. You have to configure both the tags in each VM to get start and stop action.
+
+    For example, the following table shows how two VMs with opposite sequences end up running in the same order:
+
+    :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="Table that shows sequence settings tag examples":::
 
     > [!NOTE]
     > This scenario only supports Azure Resource Manager VMs.
 
-- AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action. **ststv2_vms_AutoStop** configures the auto stop functionality.
+- **AutoStop** - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action. **ststv2_vms_AutoStop** configures the auto stop functionality.
 
 Each Start/Stop action supports assignment of one or more subscriptions, resource groups, or a list of VMs.
 

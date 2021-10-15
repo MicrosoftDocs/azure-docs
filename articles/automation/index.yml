@@ -24,11 +24,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Create an Automation account
-            url: automation-quickstart-create-account.md
+            url: ./quickstarts/create-account-portal.md
       - linkListType: quickstart
         links:
           - text: Create a runbook
-            url: automation-quickstart-create-runbook.md
+            url: ./learn/powershell-runbook-managed-identity.md
       - linkListType: deploy
         links: 
           - text: Start/Stop VMs during off-hours

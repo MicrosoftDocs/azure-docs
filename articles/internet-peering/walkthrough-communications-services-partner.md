@@ -47,7 +47,7 @@ In case Peer already associated public ASN to Azure subscription, please ignore 
 The next step is to create a Direct peering connection for Peering Service.
 
 > [!NOTE]
-> Once ASN association is approved, email us at peeringservices@microsoft.com with your ASN and subscription ID to associate your subscription with Communications services. 
+> Once ASN association is approved, email us at peeringservice@microsoft.com with your ASN and subscription ID to associate your subscription with Communications services. 
 
 **2.	Create Direct peering connection for Peering Service:**
 

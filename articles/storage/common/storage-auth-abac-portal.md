@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/06/2021
+ms.date: 09/24/2021
 
-#Customer intent: 
+#Customer intent:
 
 ---
+
 # Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)
 
 > [!IMPORTANT]
@@ -26,8 +27,8 @@ In most cases, a role assignment will grant the permissions you need to Azure re
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add a condition to a role assignment
-> * Restrict access to blobs based on a blob index tag
+> - Add a condition to a role assignment
+> - Restrict access to blobs based on a blob index tag
 
 ## Prerequisites
 
@@ -64,7 +65,7 @@ Here is what the condition looks like in code:
 1. Sign in to the Azure portal as an Owner of a subscription.
 
 1. Click **Azure Active Directory**.
-    
+
 1. Create a user or find an existing user. This tutorial uses Chandra as the example.
 
 ## Step 2: Set up storage
@@ -84,7 +85,7 @@ Here is what the condition looks like in code:
     If you don't see the Blob index tags section and you just registered your subscription, you might need to wait a few minutes for changes to propagate. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. 
+    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.
 
     | Key | Value |
     | --- | --- |
@@ -130,7 +131,7 @@ Here is what the condition looks like in code:
 
 ## Step 4: Add a condition
 
-1. On the **Condition** tab, click **Add condition**.
+1. On the **Conditions (optional)** tab, click **Add condition**.
 
     ![Screenshot of Add role assignment condition page for a new condition.](./media/storage-auth-abac-portal/condition-add-new.png)
 
@@ -138,7 +139,7 @@ Here is what the condition looks like in code:
 
 1. In the Add action section, click **Select actions**.
 
-    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. 
+    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition.
 
     ![Screenshot of Select an action pane with an action selected.](./media/storage-auth-abac-portal/condition-actions-select.png)
 
@@ -210,7 +211,7 @@ To test the condition, you'll need to use Azure PowerShell.
     ```
 
     Here's an example of the output. Notice that you **can't** read the file because of the condition you added.
-    
+
     ```azurepowershell
     Get-AzStorageBlob: This request is not authorized to perform this operation using this permission. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
     ErrorCode: AuthorizationPermissionMismatch
@@ -218,7 +219,7 @@ To test the condition, you'll need to use Azure PowerShell.
     RequestId: <requestId>
     Time: Sun, 13 Sep 2020 12:33:42 GMT
     ```
-    
+
 1. Read the file for the Cascade project.
 
     ```azurepowershell
@@ -226,10 +227,10 @@ To test the condition, you'll need to use Azure PowerShell.
     ```
 
     Here's an example of the output. Notice that you can read the file because it has the tag Project=Cascade.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------

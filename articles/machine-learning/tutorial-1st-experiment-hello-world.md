@@ -144,13 +144,19 @@ Here's a description of how the control script works:
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
-Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
+1. Select **Save and run script in terminal** to run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](quickstart-create-resources.md).
 
-In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
+1. In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
-> [!TIP]
-> If you just finished creating the compute cluster, you may see the error "UserError: Required Docker image not found..." Wait about 5 minutes or so, and try again.  The compute cluster may need more time before it is ready to spin up nodes.
+1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the run.
 
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+## View the output
+
+1. In the page that opens, you'll see the run status.
+1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
+1. Select **70_driver_log.txt** to view the output of your run.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 

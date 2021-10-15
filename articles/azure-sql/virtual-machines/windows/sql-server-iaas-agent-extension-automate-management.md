@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 9/01/2021 
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
@@ -25,6 +25,9 @@ ms.custom: "seo-lt-2019"
 The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
 This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-agent-extension-automatic-registration-all-vms.md), [Single VMs](sql-agent-extension-manually-register-single-vm.md),  or [VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md). 
+
+> [!NOTE]
+> Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
 
 ## Overview
 
@@ -79,9 +82,9 @@ The following table details these benefits:
 
 You can choose to register your SQL IaaS extension in three management modes: 
 
-- **Lightweight** mode copies extension binaries to the VM, but does not install the agent, and does not restart the SQL Server service. Lightweight mode only supports changing the license type and edition of SQL Server and provides limited portal management. Use this option for SQL Server VMs with multiple instances, or those participating in a failover cluster instance (FCI). Lightweight mode is the default management mode when using the [automatic registration](sql-agent-extension-automatic-registration-all-vms.md) feature, or when a management type is not specified during manual registration. There is no impact to memory or CPU when using the lightweight mode, and there is no associated cost. It is recommended to register your SQL Server VM in lightweight mode first, and then upgrade to Full mode during a scheduled maintenance window. 
+- **Lightweight** mode copies extension binaries to the VM, but does not install the agent. Lightweight mode _only_ supports changing the license type and edition of SQL Server and provides limited portal management. Use this option for SQL Server VMs with multiple instances, or those participating in a failover cluster instance (FCI). Lightweight mode is the default management mode when using the [automatic registration](sql-agent-extension-automatic-registration-all-vms.md) feature, or when a management type is not specified during manual registration. There is no impact to memory or CPU when using the lightweight mode, and there is no associated cost. 
 
-- **Full** mode installs the SQL IaaS Agent to the VM to deliver all functionality, but requires a restart of the SQL Server service and system administrator permissions. Use it for managing a SQL Server VM with a single instance. Full mode installs two windows services that have a minimal impact to memory and CPU - these can be monitored through task manager. There is no cost associated with using the full manageability mode. 
+- **Full** mode installs the SQL IaaS Agent to the VM to deliver full functionality. Use it for managing a SQL Server VM with a single instance. Full mode installs two Windows services that have a minimal impact to memory and CPU - these can be monitored through task manager. There is no cost associated with using the full manageability mode. System administrator permissions are required. As of September 2021, restarting the SQL Server service is no longer necessary when registering your SQL Server VM in full management mode. 
 
 - **NoAgent** mode is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. There is no impact to memory or CPU when using the NoAgent mode. There is no cost associated with using the NoAgent manageability mode, the SQL Server is not restarted, and an agent is not installed to the VM. 
 
@@ -96,11 +99,11 @@ You can view the current mode of your SQL Server IaaS agent by using Azure Power
 
 ## Installation
 
-Register your SQL Server VM with the SQL Server IaaS Agent extension to create the **SQL virtual machine** _resource_ within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+Register your SQL Server VM with the SQL Server IaaS Agent extension to create the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
 
-Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the extension. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL IaaS extension to unlock feature benefits. 
+Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the extension in full. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL IaaS extension to unlock feature benefits. 
 
-Registering the extension in lightweight mode will copy the binaries but not install the agent to the VM. The agent is installed to the VM when the extension is upgraded to full management mode. 
+Registering the extension in lightweight mode copies binaries but does not install the agent to the VM. The agent is installed to the VM when the extension is installed in full management mode. 
 
 There are three ways to register with the extension: 
 - [Automatically for all current and future VMs in a subscription](sql-agent-extension-automatic-registration-all-vms.md)
@@ -109,7 +112,7 @@ There are three ways to register with the extension:
 
 ### Named instance support
 
-The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. The extension fails to install on VMs that have multiple named SQL Server instances if there is no default instance on the VM. 
+The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. If a VM has multiple named SQL Server instances and no default instance, then the SQL IaaS extension will register in lightweight mode and pick either the instance with the highest edition, or the first instance, if all the instances have the same edition. 
 
 To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL IaaS Extension](sql-agent-extension-manually-register-single-vm.md).
 
@@ -119,7 +122,7 @@ Alternatively, to use a named instance with an Azure Marketplace SQL Server imag
    1. [Unregister](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. 
    1. Uninstall SQL Server completely within the SQL Server VM.
    1. Install SQL Server with a named instance within the SQL Server VM. 
-   1. [Register the VM with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md#register-with-extension). 
+   1. [Register the VM with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md#full-mode). 
 
 ## Verify status of extension
 
@@ -157,9 +160,13 @@ The SQL IaaS Agent extension only supports:
 
 - SQL Server VMs deployed through the Azure Resource Manager. SQL Server VMs deployed through the classic model are not supported. 
 - SQL Server VMs deployed to the public or Azure Government cloud. Deployments to other private or government clouds are not supported. 
+- Failover cluster instances (FCIs) in lightweight mode. 
+- Named instances with multiple instances on a single VM in lightweight mode. 
+
 
 
 ## In-region data residency
+
 Azure SQL virtual machine and the SQL IaaS Agent Extension do not move or store customer data out of the region in which they are deployed.
 
 ## Next steps

@@ -35,7 +35,6 @@ Virtual machine must be located in one of the following regions:
 - Australia East
 - Australia Southeast
 - Brazil South
-- Brazil Southeast
 - Canada Central
 - Central India
 - Central US
@@ -55,7 +54,6 @@ Virtual machine must be located in one of the following regions:
 - South Africa North
 - Southeast Asia
 - Switzerland North
-- Switzerland West
 - UAE North
 - UK South
 - UK West
@@ -70,6 +68,8 @@ Log Analytics workspace must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
 - Canada Central
 - Canada India
 - Central US
@@ -79,11 +79,15 @@ Log Analytics workspace must be located in one of the following regions:
 - East US 2 EUAP
 - France Central
 - Japan East
+- Japan West
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - Southeast Asia
 - Switzerland North
+- Switzerland West
+- UAE North
 - UK South
 - West Europe region
 - West US

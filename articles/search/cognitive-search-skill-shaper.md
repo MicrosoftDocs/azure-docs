@@ -32,7 +32,6 @@ However, another approach for creating complex types is through the **Shaper** s
 
 The following example skill definition provides the member names as the input. 
 
-
 ```json
 {
   "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
@@ -61,26 +60,26 @@ The following example skill definition provides the member names as the input.
 A skillset is invoked by an indexer, and an indexer requires an index. A complex field representation in your index might look like the following example. 
 
 ```json
-
-	"name": "my-index",
-	"fields": [
-		{	"name": "myId", "type": "Edm.String", "key": true, "filterable": true 	},
-		{	"name": "analyzedText", "type": "Edm.ComplexType",
-			"fields": [{
-					"name": "text",
-					"type": "Edm.String",
-					"filterable": false,
-					"sortable": false,
-					"facetable": false,
-					"searchable": true 	},
-          {
-					"name": "sentiment",
-					"type": "Edm.Double",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				},
+"name":"my-index",
+"fields":[
+   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
+   { "name":"analyzedText", "type":"Edm.ComplexType",
+      "fields":[
+         {
+            "name":"text",
+            "type":"Edm.String",
+            "facetable":false,
+            "filterable":false,
+            "searchable":true,
+            "sortable":false  },
+         {
+            "name":"sentiment",
+            "type":"Edm.Double",
+            "facetable":true,
+            "filterable":true,
+            "searchable":true,
+            "sortable":true }
+      }
 ```
 
 ###	Skill input

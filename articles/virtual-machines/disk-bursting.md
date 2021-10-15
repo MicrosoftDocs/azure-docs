@@ -11,6 +11,8 @@ ms.custom: references_regions
 ---
 # Managed disk bursting
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Azure offers the ability to boost disk storage IOPS and MB/s performance, this is referred to as bursting for both virtual machines (VM) and disks. You can effectively use VM and disk bursting to achieve better bursting performance on both your VMs and disk.
 
 Bursting for Azure VMs and disk resources aren't dependent on each other. You don't need to have a burst-capable VM for an attached burst-capable disk to burst. Similarly, you don't need to have a burst-capable disk attached to your burst-capable VM for the VM to burst.
@@ -23,12 +25,12 @@ The following scenarios can benefit greatly from bursting:
 
 ## Disk-level bursting
 
-Currently, there are two managed disk types that can burst, [premium SSDs](disks-types.md#premium-ssd), and [standard SSDs](disks-types.md#standard-ssd). Other disk types cannot currently burst. There are two models of bursting for disks:
+Currently, there are two managed disk types that can burst, [premium SSDs](disks-types.md#premium-ssds), and [standard SSDs](disks-types.md#standard-ssds). Other disk types cannot currently burst. There are two models of bursting for disks:
 
 - An on-demand bursting model (preview), where the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for premium SSDs larger than 512 GiB.
 - A credit-based model, where the disk will burst only if it has burst credits accumulated in its credit bucket. This model does not incur additional charges when the disk bursts. Credit-based bursting is only available for premium and standard SSDs 512 GiB and smaller.
 
-Azure [premium SSDs](disks-types.md#premium-ssd) can use either bursting model, but [standard SSDs](disks-types.md#standard-ssd) currently only offer credit-based bursting.
+Azure [premium SSDs](disks-types.md#premium-ssds) can use either bursting model, but [standard SSDs](disks-types.md#standard-ssds) currently only offer credit-based bursting.
 
 Additionally, the [performance tier of managed disks can be changed](disks-change-performance.md), which could be ideal if your workload would otherwise be running in burst.
 

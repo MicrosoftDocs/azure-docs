@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 08/26/2021
 ---
 
 # Azure Cosmos DB NoSQL migration and application development partners
@@ -46,6 +46,10 @@ From NoSQL migration to application development, you can choose from a variety o
 ## Next steps
 
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
+
+Trying to do capacity planning for a migration to Azure Cosmos DB?
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png

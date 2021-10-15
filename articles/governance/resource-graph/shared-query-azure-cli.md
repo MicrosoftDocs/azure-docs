@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a shared query with Azure CLI"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and create a shared query.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a Resource Graph shared query using Azure CLI

@@ -14,7 +14,7 @@ ms.author: cavoeg
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-How FHIR service validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+How the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 
@@ -98,7 +98,7 @@ The important properties for the FHIR server are `jwks_uri`, which tells the ser
 
 Once the server has verified the authenticity of the token, the FHIR server will then proceed to validate that the client has the required claims to access the token.
 
-When using FHIR service, the server will validate:
+When using the FHIR service, the server will validate:
 
 1. The token has the right `Audience` (`aud` claim).
 1. The user or principal that the token was issued for is allowed to access the FHIR server data plane. The `oid` claim of the token contains an identity object ID, which uniquely identifies the user or principal.

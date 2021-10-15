@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 08/23/2021
 ---
 
 # Usage metering, billing, and pricing models for Azure Logic Apps
@@ -37,7 +37,7 @@ The following table summarizes how the Consumption model handles metering and bi
 
 Except for the initial number of free built-in operation executions, per Azure subscription, that a workflow can run, the Consumption model meters and bills an operation based on *each execution*, whether or not the overall workflow successfully runs, finishes, or is even instantiated. An operation usually makes a single execution [unless the operation has retry attempts enabled](#other-operation-behavior). In turn, an execution usually makes a single call [unless the operation supports and enables chunking or pagination to get large amounts of data](logic-apps-handle-large-messages.md). If chunking or pagination is enabled, an operation execution might have to make multiple calls. The Consumption model meters and bills an operation *per execution, not per call*.
 
-For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed as a single execution, whether or not the trigger fires or is skipped. The trigger state controls whether or not the workflow instance is created and run. Now, suppose the operation also supports and has enabled chunking or pagination. If the operation has to make 10 calls to finish getting all the data, the operation is still metered and billed as a *single execution*, despite making multiple calls.
+For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed as a single execution, whether or not the trigger fires or is skipped, such as when a trigger checks an endpoint but doesn't find any data or events. The trigger state controls whether or not the workflow instance is created and run. Now, suppose the operation also supports and has enabled chunking or pagination. If the operation has to make 10 calls to finish getting all the data, the operation is still metered and billed as a *single execution*, despite making multiple calls.
 
 The following table summarizes how the Consumption model handles metering and billing for these operation types when used with a logic app and workflow in multi-tenant Azure Logic Apps:
 
@@ -69,9 +69,11 @@ To help you estimate more accurate consumption costs, review these tips:
 In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier, which differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
 
 > [!IMPORTANT]
-> When you create or deploy new logic apps based on the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions, or you can use the App Service hosting plan, but only when you select the **App Service Environment v3** region on the **Basics** tab.
+> When you create or deploy logic apps with the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions. You can use 
+> an App Service hosting plan *only* if you use an existing **App Service Environment v3 (ASEv3)** resource as the region where you create and deploy your logic app resource.
 >
-> Although the preview **Logic App (Standard)** resource type lets you use the App Service plan, Functions Premium plan, App Service Environment v1, and App Service Environment v2, these options are no longer available or supported for the public release of this Azure Logic Apps resource type.
+> The following options are no longer available or supported with the public release of the **Logic App (Standard)** resource type in Azure regions: 
+> Functions Premium plan, App Service Environment v1, and App Service Environment v2. The App Service plan is unavailable and unsupported except with ASEv3.
 
 The following table summarizes how the Standard model handles metering and billing for the following components when used with a logic app and a workflow in single-tenant Azure Logic Apps:
 
@@ -174,7 +176,7 @@ The following table summarizes how the ISE model handles the following operation
 | Operation type | Description | Metering and billing |
 |----------------|-------------|----------------------|
 | [*Built-in*](../connectors/built-in.md) | These operations run directly and natively with the Azure Logic Apps runtime and in the same ISE as your logic app workflow. In the designer, you can find these operations under the **Built-in** label, but each operation also displays the **CORE** label. <p>For example, the HTTP trigger and Request trigger are built-in triggers. The HTTP action and Response action are built-in actions. Other built-in operations include workflow control actions such as loops and conditions, data operations, batch operations, and others. | The ISE model includes these operations *for free*, but are subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| [*Managed connector*](../connectors/managed.md) | Whether *Standard* or *Enterprise*, managed connector operations run in either your ISE or multi-tenant Azure, based on whether the connector or operation displays the **ISE** label. <p><p>- **ISE** label: These operations run in the same ISE as your logic app and work without requiring the [on-premises data gateway](#data-gateway). <p><p>- No **ISE** label: These operations run in multi-tenant Azure. | The ISE model includes both **ISE** and no **ISE** labelled operations *for free*, but are subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| [*Managed connector*](../connectors/managed.md) | Whether *Standard* or *Enterprise*, managed connector operations run in either your ISE or multi-tenant Azure, based on whether the connector or operation displays the **ISE** label. <p><p>- **ISE** label: These operations run in the same ISE as your logic app and work without requiring the [on-premises data gateway](#data-gateway). <p><p>- No **ISE** label: These operations run in multi-tenant Azure. | The ISE model includes both **ISE** and no **ISE** labeled operations *for free*, but are subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | In the designer, you can find these operations under the **Custom** label. | The ISE model includes these operations *for free*, but are subject to [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). |
 ||||
 

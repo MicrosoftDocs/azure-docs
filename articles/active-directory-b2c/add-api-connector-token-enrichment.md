@@ -2,14 +2,14 @@
 title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external sources using APIs.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/04/2021
-ms.author: mimart
+ms.date: 08/29/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -88,7 +88,6 @@ Content-type: application/json
  "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
  "step": "PreTokenIssuance",
  "ui_locales":"en-US"
@@ -253,7 +252,7 @@ After you deploy your REST API, set the metadata of the `REST-GetProfile` techni
 	
 See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure your RESTful API](secure-rest-api.md).
 
 ## Add an orchestration step
 
@@ -320,7 +319,8 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
 ## Test the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
