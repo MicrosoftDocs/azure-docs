@@ -15,26 +15,34 @@ zone_pivot_groups: usage-custom-language-features
 
 # Quickstart: Custom text classification (preview)
 
-Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example for creating a model for classifying support tickets.
+Use this article to get started with using Custom text classification. Follow these steps to create an AI model that classifies technical support tickets. This quickstart will explain the required steps to successfully use custom text classification:
 
-This quickstart will explain the following steps to successfully use text classification:
 
-1. **Create a project**, which requires a Text Analytics Azure resource. This resource provides:
-    * A "key", which is a password string to access this service.
-    * An "endpoint", which is a URL you will use to later send data to your model. 
-    * A connection to an Azure blob storage account, which is an online data storage solution required to hold your text for analysis.
 
-2. **Download the example data**
-    * Later in this quickstart, we will provide some data for you to upload to this storage account. This data consists of tagged text files that will be used to train your model.
+1. **Create a Text Analytics resource** and an **Azure blob storage account**
 
-3. **Train a model**
-    * A model is the machine learning object that will be trained to classify text from tagged data.
-    * Your model will learn from the example tagged data file.
+    Before you can use custom text classification, you will need to create a Text Analytics resource, which will give you the subscription and credentials you will need to create a project and start training a model. You will also need an Azure blob storage account, which is the required online data storage to hold text for analysis. 
 
-4. **Deploy a model**
-    * Deploy a model, making it available for use via the Analyze API.
+    > [!IMPORTANT]
+    > To get started quickly, we recommend creating a new Azure Text Analytics resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
+    >
+    > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
 
-7. **Classify text**: Use your custom modeled for you to test and use for text classification.
+2. **Create a custom text classification project**
+
+    A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+
+3. **Download the example data**
+    
+    Later in this quickstart, we will provide some data for you to upload to this storage account. This data consists of tagged text files that will be used to train your model.
+
+4. **Train a model**
+
+    A model is the machine learning object that will be trained to classify text from tagged data. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
+
+5. **Deploy a model** and use it to **classify text**
+
+    When you deploy a model, you make it available for use. At this stage, you can start classifying text and send API requests to it. 
 
 
 ::: zone pivot="language-studio"

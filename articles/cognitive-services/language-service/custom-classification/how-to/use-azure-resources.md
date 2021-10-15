@@ -13,13 +13,19 @@ ms.author: aahi
 ms.custom: references_regions
 ---
 
-# Using Azure resources for custom text classification and custom NER
+# Text classification project requirements
 
-Before starting with custom text classification projects, you will create an Azure Text Analytics resource and connect it to your Azure storage account where your data is uploaded. Use this article to learn how to set up Azure resources to work with custom classification.
+Before you start using custom text classification, you will need several things:
 
-## Creating new Azure resources
+* An Azure Text Analytics resource 
+* An Azure storage account where you will upload your data
+* Text files that will be used to train an AI model to classify text
 
-Before you start using custom classification, you will need a Text Analytics resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
+Use this article to learn how to prepare the requirements for using custom text classification.
+
+## Azure resources
+
+Before you start using custom classification, you will need a Text Analytics resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
 # [Azure portal](#tab/portal)
 
@@ -74,7 +80,7 @@ See the ARM template documentation for information on [deploying templates](/azu
 
 --- 
 
-## (optional) Using a pre-existing Azure resource
+## Using a pre-existing Azure resource
 
 You can use an existing Text Analytics resource to get started with custom features as long as this resource meets the below requirements:
 
@@ -127,9 +133,14 @@ To set proper roles on your storage account:
 * You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](tag-data.md#data-tag-json-file-format). 
 
 >[!TIP]
-> Review the [recommended practices](..//concepts/recommended-practices.md) for data selection.
+> Review the [recommended practices](..//concepts/recommended-practices.md) for data selection and preparation.
+
+## Create a project
+
+Once your Azure resource and storage account are configured, you can create a project, using the [Azure portal](../quickstart.md?pivots=language-studio#create-a-custom-classification-project) or [REST API](../quickstart.md?pivots=rest-api#create-project).
 
 ## Next steps
 
-* [Custom classification quickstart](../quickstart.md)
-* [Recommended practices](../concepts/recommended-practices.md)
+After your project is created, you can start [tagging your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.
+
+As you work with your text classification project, review the [recommended practices](../concepts/recommended-practices.md).

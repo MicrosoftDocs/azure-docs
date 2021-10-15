@@ -12,21 +12,18 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# How to train your model
+# How to train a text classification model
 
 
-Training is the process where the model learns from your [tagged data](tag-data.md), which uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can:
-
-* [Use the model evaluation metrics](../how-to/view-model-evaluation.md) to [improve your model](../how-to/improve-model.md)
-* Deploy the model and [use it to make text classification requests](run-inference.md)
-
-:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
+Training is the process where the model learns from your [tagged data](tag-data.md), which uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to [improve your model](../how-to/improve-model.md).
 
 > [!NOTE]
 > * You must have a minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
 > * While there is no minimum of tagged instances per class, you can start with 20 files per class. Model performance depends on how distinct the entities in your documents are, and how easily they can be differentiated from each other.
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
+
+:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
 
 ## Data splits
 
@@ -59,6 +56,4 @@ Before starting the training process, files in your dataset are divided into thr
 
 ## Next steps
 
-* [View the model evaluation details](view-model-evaluation.md)
-* [Improve model](improve-model.md)
-* [Use the model to make text classification requests](run-inference.md)
+After training is completed you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to [improve your model](../how-to/improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](run-inference.md).

@@ -17,10 +17,7 @@ ms.author: aahi
 Before creating a custom text classification model, you need to have tagged data first. If your data is not tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
 
 Before you can tag data, you need [a successfully created project](../quickstart.md) with a valid resource and storage account.
-You will then need to [upload training data](use-azure-resources.md#prepare-training-data) for your model to learn from. When thinking about developing text classification projects, tagging your data lets you train your model, and later:
-* [Evaluate the model](view-model-evaluation.md)
-* [Train the model](train-model.md), and finally deploy the model before:
-* [Use the model to make text classification requests](run-inference.md)
+You will then need to [upload training data](use-azure-resources.md#prepare-training-data) for your model to learn from. Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](run-inference.md).
 
 
 
@@ -121,6 +118,4 @@ Your tags file should be in the `json` format below.
 
 ## Next steps
 
-* [Evaluate the model](view-model-evaluation.md)
-* [Train the model](train-model.md)
-* [Use the model to make text classification requests](run-inference.md)
+After you've tagged your data, you can begin [training a model](train-model.md) that will learn based on your data.

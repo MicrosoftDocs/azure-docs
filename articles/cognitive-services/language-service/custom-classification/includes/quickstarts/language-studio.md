@@ -12,21 +12,6 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-> [!IMPORTANT]
-> In this quickstart, we recommend creating a new Azure Text Analytics resource using the steps provided below. Using these steps will let you create and configure an Azure blob storage account at the same time, which is easier than doing it later. 
->
-> **If you already have a resource** that you want to use, you will need to ensure that:
-> * Your resource is in the "West US 2" or "West Europe" region, with the Standard (**S**) pricing tier. The free (**F0**) tier is not supported.
-> * Your resources has managed identity enabled.   
-> * You have the owner or contributor role assigned on your Azure resource. 
->
-> You must also have an Azure storage account with:
->    * The **owner** or **contributor** role on the storage account.
->    * The **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
->    * The **Reader** role on the storage account.
->
-> See [**Using Azure resources with Custom Text Classification**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource) for information on completing these requirements.
-
 ## Create a new resource from the Azure portal
 
 To create an Azure Text Analytics resource with an Azure blob storage account configured to work with Custom Text Classification: 

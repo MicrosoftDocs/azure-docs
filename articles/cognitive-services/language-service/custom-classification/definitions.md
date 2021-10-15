@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Custom text classification
+# Terms and definitions used in custom text classification 
 
 Learn about definitions used in the custom text classification feature of Language Services. 
 

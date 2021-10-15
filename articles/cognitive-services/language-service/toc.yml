@@ -35,7 +35,7 @@ items:
     href: custom-classification/faq.md
   - name: How-to guides
     items:
-    - name: Using Azure resources
+    - name: Project requirements
       href: custom-classification/how-to/use-azure-resources.md
     - name: Tag data
       href: custom-classification/how-to/tag-data.md
@@ -51,14 +51,15 @@ items:
     items:
     - name: Recommended practices
       href: custom-classification/concepts/recommended-practices.md
-    - name: Definitions
-      href: custom-classification/definitions.md
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
     - name: Data limits
       href: custom-classification/concepts/data-limits.md
   - name: Reference
     items:
+    - name: Glossary
+      href: custom-classification/definitions.md
+      displayName: Model, Project, Class 
     - name: Prediction
       items:
       - name: REST API
