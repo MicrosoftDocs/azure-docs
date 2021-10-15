@@ -203,27 +203,28 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 :::image type="content" source="media/advanced-filters.png" alt-text="Advanced filters output":::
 
 > [!NOTE]
-> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](https://docs.microsoft.com/en-us/azure/event-grid/event-filtering#operators)
+> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](https://docs.microsoft.com/azure/event-grid/event-filtering#operators)
 
 ## Events Catalog
+
 | Events | Subdomain | Description |
 |------|:------------:| ---------- |
-| [`RouterJobReceived`](#Microsoft.Communication.RouterJobReceived) | `Job` | A new job was created for routing |
-| [`RouterJobClassified`](#Microsoft.Communication.RouterJobClassified)| `Job` | The classification policy was applied to a job |
-| [`RouterJobLabelsUpdated`](#Microsoft.Communication.RouterJobLabelsUpdated) | `Job` | The labels of the job were changed |
-| [`RouterJobClassificationFailed`](#Microsoft.Communication.RouterJobClassificationFailed) | `Job` | Router failed to classify job using classification policy |
-| [`RouterJobCompleted`](#Microsoft.Communication.RouterJobCompleted) | `Job` | A job was completed and enters wrap-up |
-| [`RouterJobClosed`](#Microsoft.Communication.RouterJobClosed) | `Job` | A job was closed and wrap-up is finished |
-| [`RouterJobCancelled`](#Microsoft.Communication.RouterJobCancelled) | `Job` | A job was canceled |
-| [`RouterJobExceptionTriggered`](#Microsoft.Communication.RouterJobExceptionTriggered) | `Job` | A job exception has been triggered |
-| [`RouterJobExceptionCleared`](#Microsoft.Communication.RouterJobExceptionCleared) | `Job` | A job exception has cleared |
-| [`RouterWorkerOfferIssued`](#Microsoft.Communication.RouterWorkerOfferIssued) | `Worker` | A job was offered to a worker |
-| [`RouterWorkerOfferAccepted`](#Microsoft.Communication.RouterWorkerOfferAccepted) | `Worker` | An offer to a worker was accepted |
-| [`RouterWorkerOfferDeclined`](#Microsoft.Communication.RouterWorkerOfferDeclined) | `Worker` | An offer to a worker was declined |
-| [`RouterWorkerOfferRevoked`](#Microsoft.Communication.RouterWorkerOfferRevoked)  | `Worker` | An offer to a worker was revoked |
-| [`RouterWorkerOfferExpired`](#Microsoft.Communication.RouterWorkerOfferExpired)  | `Worker` | An offer to a worker has expired |
-| [`RouterWorkerRegistered`](#Microsoft.Communication.RouterWorkerRegistered)  | `Worker` | A worker has been registered |
-| [`RouterWorkerDeregistered`](#Microsoft.Communication.RouterWorkerDeregistered)  | `Worker` | A worker has been deregistered |
+| [`RouterJobReceived`](#microsoftcommunicationrouterjobreceived) | `Job` | A new job was created for routing |
+| [`RouterJobClassified`](#microsoftcommunicationrouterjobclassified)| `Job` | The classification policy was applied to a job |
+| [`RouterJobLabelsUpdated`](#microsoftcommunicationrouterjoblabelsupdated) | `Job` | The labels of the job were changed |
+| [`RouterJobClassificationFailed`](#microsoftcommunicationrouterjobclassificationfailed) | `Job` | Router failed to classify job using classification policy |
+| [`RouterJobCompleted`](#microsoftcommunicationrouterjobcompleted) | `Job` | A job was completed and enters wrap-up |
+| [`RouterJobClosed`](#microsoftcommunicationrouterjobclosed) | `Job` | A job was closed and wrap-up is finished |
+| [`RouterJobCancelled`](#microsoftcommunicationrouterjobcancelled) | `Job` | A job was canceled |
+| [`RouterJobExceptionTriggered`](#microsoftcommunicationrouterjobexceptiontriggered) | `Job` | A job exception has been triggered |
+| [`RouterJobExceptionCleared`](#microsoftcommunicationrouterjobexceptioncleared) | `Job` | A job exception has cleared |
+| [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
+| [`RouterWorkerOfferAccepted`](#microsoftcommunicationrouterworkerofferaccepted) | `Worker` | An offer to a worker was accepted |
+| [`RouterWorkerOfferDeclined`](#microsoftcommunicationrouterworkerofferdeclined) | `Worker` | An offer to a worker was declined |
+| [`RouterWorkerOfferRevoked`](#microsoftcommunicationrouterworkerofferrevoked)  | `Worker` | An offer to a worker was revoked |
+| [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | An offer to a worker has expired |
+| [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered |
+| [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered |
 
 <!--
 | Events | Sub-domain | Description
@@ -242,10 +243,9 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | `OfferRevokedEvent` | `Offer` | An offer to a worker was revoked |
 -->
 
-# Event Schemas
 ## Router Events
 ### Microsoft.Communication.RouterJobReceived
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
@@ -319,7 +319,7 @@ _**Attribute list**_
 ---------------------------------------------------------------------------------------------------------
 
 ### Microsoft.Communication.RouterJobClassified
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -413,7 +413,7 @@ _**Attribute list**_
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobLabelsUpdated
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -460,7 +460,7 @@ _**Attribute list**_
 | labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job.
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobClassificationFailed
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -544,7 +544,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobCompleted
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -612,7 +612,7 @@ _**Attribute list**_
 | workerId | `string` | ❌ | |
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobClosed
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -684,7 +684,7 @@ _**Attribute list**_
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobCancelled
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
@@ -756,7 +756,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobExceptionTriggered
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -792,7 +792,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterJobExceptionCleared
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -828,7 +828,7 @@ _**Attribute list**_
 ## Worker Events
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -907,7 +907,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerOfferAccepted
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -973,7 +973,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerOfferDeclined
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1029,7 +1029,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerOfferRevoked
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1080,9 +1080,9 @@ _**Attribute list**_
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
----------------------------------------------------------------------------------------------------------
+
 ### Microsoft.Communication.RouterWorkerOfferExpired
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1114,7 +1114,7 @@ _**Attribute list**_
 | queueId | `string` | ❌ |
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerRegistered
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 ```json
 {
   "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
@@ -1163,7 +1163,7 @@ _**Attribute list**_
 
 ---------------------------------------------------------------------------------------------------------
 ### Microsoft.Communication.RouterWorkerDeregistered
-<font size=2>[Back to Event Catalog](#Events-Catalog)</font> 
+<font size=2>[Back to Event Catalog](#events-catalog)</font> 
 
 ```json
 {
@@ -1179,7 +1179,7 @@ _**Attribute list**_
   "eventTime": "2021-06-23T02:43:31Z"
 }
 ```
-_**Attribute list**_
+*Attribute list*
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -1217,81 +1217,3 @@ public class ChannelConfiguration
     public int CapacityCostPerJob { get; set; }
 }
 ```
-
-# Abandoned
----------------------------------------------------------------------------------------------------------
-### ~~Microsoft.Communication.RouterJobReset~~
-<!--
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/reasoncode/{reason-code}",
-  "data": {
-    "labelsAddedOrChanged": {},
-    "reasonCode": "IncorrectUserInput",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "PendingClassification",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.RouterJobReset",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
-
-
-```json
-{
-  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/reasoncode/{reason-code}/event/JobResetEvent",
-  "data": {
-    "labelsAddedOrChanged": {},
-    "reasonCode": "IncorrectUserInput",
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "jobStatus": "ClassificationFailed",
-    "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
-    "queueId": "",
-    "priority": 5,
-    "requiredAbilities": {},
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "timestampUtc": "2021-06-23T02:43:29.2764523Z"
-  },
-  "eventType": "Microsoft.Communication.JobResetEvent",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
-}
-```
-
-_**Attribute list**_
-| Attribute | Type | Nullable |Description | Notes |
-|:--------- |:-----:|:-------:|-------------|-------|
-| labelsAddedOrChanged| `Dictionary<string, string>` | ❌ |
-| reasonCode| `string` | ❌ |
-| jobId| `string` | ❌ |
-| channelReference | `string` | ✔️ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> <li>Queued</li> <li>Assigned</li> <li>Completed</li> <li>Closed</li> <li>Cancelled</li> <li>ClassificationFailed</li> </ul>
-|channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
-| labels | `Dictionary<string, string>` | ✔️ | | Based on user input
-| timestampUtc | `DateTimeOffset` | ❌ |
--->
