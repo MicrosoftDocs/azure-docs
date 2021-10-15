@@ -225,7 +225,7 @@ Job Router includes the following distribution modes:
 
 **LongestIdleMode -** Generates Offer for the longest idle Worker in a Queue
 
-**RoundRobinMode -** Given a collection of Workers, pick the next worker after the last one that was picked ordered by ID.
+**RoundRobinMode -** Given a collection of Workers, pick the next Worker after the last one that was picked ordered by ID.
 
 **BestWorkerMode -** Use the Job Router's [RuleEngine](router-rule-concepts.md) to choose a Worker based on their labels
 
