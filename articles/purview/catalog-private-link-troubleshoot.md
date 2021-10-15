@@ -196,7 +196,7 @@ In this case, to open Azure Purview Studio, either use a machine that is deploye
 ### Issue
 You may receive the following error message when scanning a SQL server, using a self-hosted integration runtime:
 
-    `Message=This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms`
+  `Message=This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms`
 
 ### Cause 
 Self-hosted integration runtime machine has enabled the FIPS mode.
