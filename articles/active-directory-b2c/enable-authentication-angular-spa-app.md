@@ -2,13 +2,13 @@
 title: Enable authentication in an Angular application by using Azure Active Directory B2C building blocks
 description:  Use the building blocks of Azure Active Directory B2C to sign in and sign up users in an Angular application.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -107,12 +107,12 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn.
+         authority: b2cPolicies.authorities.signUpSignIn,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },
      cache: {
-         cacheLocation: BrowserCacheLocation.LocalStorage,.
+         cacheLocation: BrowserCacheLocation.LocalStorage,
          storeAuthStateInCookie: isIE, 
      },
      system: {
@@ -129,7 +129,7 @@ export const msalConfig: Configuration = {
 export const protectedResources = {
   todoListApi: {
     endpoint: "http://localhost:5000/api/todolist",
-    scopes: ["https://your-tenant-namee.onmicrosoft.com/api/tasks.read"],
+    scopes: ["https://your-tenant-name.onmicrosoft.com/api/tasks.read"],
   },
 }
 export const loginRequest = {

@@ -12,8 +12,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Confidential VMs
-    items:
   - name: Confidential VMs with enclaves
     items:
       - name: Deploy Intel SGX
@@ -45,10 +43,8 @@
           href: application-development.md
         - name: Open-source projects for development
           href: enclave-development-oss.md
-      - name: Intel SGX
-        items:
-        - name: Deploying Intel SGX virtual machines
-          href: virtual-machine-solutions-sgx.md
+      - name: Deploying Intel SGX virtual machines
+        href: virtual-machine-solutions-sgx.md
       - name: Application enclave VM FAQ
         href: faq-application-enclaves.yml 
   - name: Confidential containers

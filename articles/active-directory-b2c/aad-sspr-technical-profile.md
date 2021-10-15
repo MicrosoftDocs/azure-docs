@@ -3,14 +3,14 @@ title: Azure AD SSPR technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Azure AD SSPR technical profiles in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/23/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
