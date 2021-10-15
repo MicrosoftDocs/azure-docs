@@ -54,7 +54,7 @@ When applications are hosted on the same domain, the user can sign into an app o
 
 When applications are hosted on different domains, the tokens cached on domain A cannot be accessed by MSAL.js in domain B.
 
-When a user is signed in on domain A navigate to an application on domain B, the user will be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials.
+When a user is signed in on domain A navigate to an application on domain B, the user will be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and no prompt for credentials.
 
 If the user has multiple user accounts in session with Azure AD, the user will be prompted to pick the relevant account to sign in with.
 
@@ -163,7 +163,7 @@ const config = {
 const myMSALObj = new UserAgentApplication(config);
 ```
 
-Once this is configured, MSAL.js can read the cached state of the authenticated user in ADAL.js and use that to provide SSO in MSAL.js.
+Once the `cacheLocation` is configured, MSAL.js can read the cached state of the authenticated user in ADAL.js and use that to provide SSO in MSAL.js.
 
 ## Next steps
 
