@@ -46,7 +46,7 @@ For example, for your private DNS zone `azurehdinsight.net`, you can add your pr
 > [!NOTE]
 > We don't recommend putting restricted clusters in the same virtual network (with a private DNS zone for `azurehdinsight.net`) as other clusters where public connectivity is enabled. It might cause unintended DNS resolution behavior or conflicts.
 
-To make your DNS setup easier, return the FQDNs and corresponding private IP addresses as part of the cluster `GET` response. You can use this PowerShell snippet to get started:
+To make your DNS setup easier, we return the FQDNs and corresponding private IP addresses as part of the cluster `GET` response. You can use this PowerShell snippet to get started:
 
 ```powershell
 <#
