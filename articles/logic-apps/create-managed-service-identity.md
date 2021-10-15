@@ -503,7 +503,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
 ## Example: Authenticate built-in trigger or action with a managed identity
 
-The HTTP trigger or action can use the system-assigned identity that you enabled for your logic app resource. In general, the HTTP trigger or action uses the following properties to specify the resource or entity that you want to access:
+The built-in HTTP trigger or action can use the system-assigned identity that you enable on your logic app resource. In general, the HTTP trigger or action uses the following properties to specify the resource or entity that you want to access:
 
 | Property | Required | Description |
 |----------|----------|-------------|
@@ -598,11 +598,11 @@ The following example shows a sample HTTP action with all the previously describ
 
 1. From the **Authentication type** list, select **Managed identity**.
 
-   ![Screenshot showing Standard workflow with HTTP action and "Authentication" property with "Managed Identity" value selected.](./media/create-managed-service-identity/select-managed-identity-standard.png)
+   ![Screenshot showing Standard workflow with HTTP action and "Authentication" property with "Managed identity" value selected.](./media/create-managed-service-identity/select-managed-identity-standard.png)
 
-1. From the managed identity list, select **System-assigned-managed identity** if not already selected.
+1. From the managed identity list, select **System-assigned managed identity** if not already selected.
 
-     ![Select "System Assigned Managed Identity"](./media/create-managed-service-identity/select-system-assigned-identity-action-standard.png)
+     ![Screenshot showing Standard workflow with HTTP action and "Managed identity" list open with "System-assigned managed identity" selected.](./media/create-managed-service-identity/select-system-assigned-identity-standard.png)
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
   
@@ -631,15 +631,21 @@ The following example shows a sample HTTP action with all the previously describ
 
 ## Example: Authenticate managed connector trigger or action with a managed identity
 
-The Azure Resource Manager action, **Read a resource**, can use the managed identity that you enabled for your logic app. This example shows how to use the system-assigned managed identity.
+The Azure Resource Manager managed connector has an action, **Read a resource**, that can use the managed identity that you enable on your logic app resource. This example shows how to use the system-assigned managed identity.
 
-1. After you add the action to your workflow, on the tenant selection page, select **Connect with managed identity (preview)**.
+### [Consumption](#tab/consumption)
+
+1. After you add the action to your workflow and select your Azure AD tenant, select **Connect with managed identity (preview)**.
 
    ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
-   The action now shows the connection name page with the managed identity list, which includes the managed identity type that's currently enabled on the logic app.
+1. On the connection name page, provide a name for the connection, and select the managed identity that you want to use.
 
-1. On the connection name page, provide a name for the connection. From the managed identity list, select the managed identity, which is **System-assigned managed identity** in this example, and select **Create**. If you enabled a user-assigned managed identity, select that identity instead.
+   The Azure Resource Manager action is a single-authentication action, so the connection information pane shows a **Managed identity** list that automatically selects the managed identity that's currently enabled on the logic app resource. If you enabled a system-assigned managed identity, the **Managed identity** list selects **System-assigned managed identity**. If you had enabled a user-assigned managed identity instead, the list selects that identity instead.
+
+   If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Managed identity** option among other authentication types.
+
+   In this example, **System-assigned managed identity** is the only selection available.
 
    ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
 
@@ -649,15 +655,47 @@ The Azure Resource Manager action, **Read a resource**, can use the managed iden
 
    ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
 
+1. When you're ready, select **Create**.
+
 1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
 
-1. Continue building the logic app the way that you want.
+1. Continue building the workflow the way that you want.
+
+### [Standard](#tab/standard)
+
+1. After you add the action to your workflow, on the action's **Create Connection** pane, select your Azure AD tenant, and then select **Connect with managed identity (preview)**.
+
+   ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
+
+1. On the connection name page, provide a name for the connection. 
+
+   The Azure Resource Manager action is a single-authentication action, so the connection information pane shows a **Managed identity** list that automatically selects the managed identity that's currently enabled on the logic app resource. If you enabled a system-assigned managed identity, the **Managed identity** list selects **System-assigned managed identity**. If you had enabled a user-assigned managed identity instead, the list selects that identity instead.
+
+   In this example, **System-assigned managed identity** is the only selection available.
+
+   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
+
+   If the managed identity isn't enabled, the following error appears when you try to create the connection:
+
+   *You have to enable the managed identity for your logic app and then grant required access to the identity in the target resource.*
+
+   ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+
+   If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Managed identity** option among other authentication types.
+
+1. When you're ready, select **Create**.
+
+1. After successfully creating the connection, the designer can fetch any dynamic values, content, or schema by using managed identity authentication.
+
+1. Continue building the workflow the way that you want.
+
+---
 
 <a name="logic-app-resource-definition-connection-managed-identity"></a>
 
 ## Logic app resource definition and connections that use a managed identity (Consumption)
 
-A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
+A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app resource. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
 
 This example shows what the configuration looks like when the logic app enables the system-assigned managed identity:
 
@@ -702,13 +740,13 @@ This example shows what the configuration looks like when the logic app enables 
 }
 ```
 
-During runtime, the Logic Apps service checks whether any managed connector trigger and actions in the logic app are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, the Logic Apps service retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
+During runtime, the Azure Logic Apps service checks whether any managed connector trigger and actions in the logic app workflow are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, Azure Logic Apps retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
 
 <a name="arm-templates-connection-resource-managed-identity"></a>
 
 ## ARM template for managed connections and managed identities (Consumption)
 
-If you automate deployment with an ARM template, and your logic app includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueType` property with `Alternative` as the property value. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
+If you automate deployment with an ARM template, and your logic app workflow includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueType` property with `Alternative` as the property value. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
 
 For example, here's the underlying connection resource definition for an Azure Automation action that uses a managed identity where the definition includes the `parameterValueType` property, which is set to `Alternative` as the property value:
 
@@ -734,19 +772,22 @@ For example, here's the underlying connection resource definition for an Azure A
 
 ## Disable managed identity
 
-To stop using the managed identity for authentication, first remove the identity's access to [your target resource](#disable-identity-target-resource). Next, turn off the system-assigned identity or remove the user-assigned identity from [your logic app resource](#disable-identity-logic-app).
+To stop using the managed identity for authentication, first [remove the identity's access to the target resource](#disable-identity-target-resource). Next, on your logic app resource, [turn off the system-assigned identity or remove the user-assigned identity](#disable-identity-logic-app).
 
 When you disable the managed identity on your logic app resource, you remove the capability for that identity to request access for Azure resources where the identity had access.
 
 > [!NOTE]
-> If you disable the system-assigned identity, any and all connections used by workflows in that logic app won't work at runtime, 
-> even if you immediately enable the identity again. This behavior happens because disabling the identity deletes the object ID. 
-> Each time that you enable the identity, Azure generates that identity with a different and unique object ID. To resolve this problem, 
-> you have to create the connections again so that they use the object ID for the most recently generated system-assigned identity.
-> So, try to avoid disabling the system-assigned identity as much as possible. If you want to remove the identity's access to 
-> Azure resources, remove the identity's role assignment from the target resource.
+> If you disable the system-assigned identity, any and all connections used by workflows in that 
+> logic app's workflow won't work at runtime, even if you immediately enable the identity again. 
+> This behavior happens because disabling the identity deletes the object ID. Each time that you 
+> enable the identity, Azure generates the identity with a different and unique object ID. To resolve 
+> this problem, you have to recreate the connections so that they use the current object ID for the 
+> current system-assigned identity.
 >
-> If you delete your logic app, Azure automatically removes the managed identity from Azure AD.
+> Try to avoid disabling the system-assigned identity as much as possible. If you want to remove 
+> the identity's access to Azure resources, remove the identity's role assignment from the target 
+> resource.If you delete your logic app resource, Azure automatically removes the managed identity 
+> from Azure AD.
 
 The steps in this section cover using the [Azure portal](#azure-portal-disable) and [Azure Resource Manager template (ARM template)](#template-disable). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
