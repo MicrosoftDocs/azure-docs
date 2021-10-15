@@ -85,19 +85,19 @@ Azure Spring Cloud pre-installs the AppDynamics Java agent to the path `/opt/age
 
 1. Find the application from **Settings**/**Apps** in the navigation pane.
 
-   ![Find app to monitor](media/how-to-appdynamics-java-agent-monitor/1.png)
+   ![Find app to monitor](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app_list.png)
 
 2. Click the application to jump to the **Overview** page.
 
-   ![Overview page](media/how-to-appdynamics-java-agent-monitor/2.png)
+   ![Overview page](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-overview.png)
 
 3. Click **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
 
-   ![Update environment](media/how-to-appdynamics-java-agent-monitor/3.png)
+   ![Update environment](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-env.png)
 
 4. Click **General settings** to add/update/delete the **JVM Option** of the application.
 
-   ![Update JVM Option](media/how-to-appdynamics-java-agent-monitor/4.png)
+   ![Update JVM Option](media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png)
 
 ## Automation
 
