@@ -26,9 +26,9 @@ A collection is a tool Azure Purview uses to group assets, sources, and other ar
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
 - **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
-- **Data curators** - a role  that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and review insights. Data curators can create, read, modify, move, apply annotations to, and delete assets.
-- **Data source admins** - a role that can manage data sources and scans. A user in the Data source admin role alone doesn't have access to the Azure Purview studio. Combining this role with the Data reader or Data curator roles provides broader access.
-- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections, glossary, and insights.
+- **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and insights.
+- **Data source admins** - a role that allows a user to manage data sources and scans. A user in the Data source admin role doesn't have access to Azure Purview studio. Combining this role with the Data reader or Data curator roles at any collection scope provides Azure Purview studio access.
 
 ## Who should be assigned to what role?
 
