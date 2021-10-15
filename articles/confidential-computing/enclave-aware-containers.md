@@ -25,7 +25,7 @@ Enclave aware containers application architecture give you the most control on t
 ## Enablers
 
 ### Open Enclave SDK
-[Open Enclave SDK]("https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs") is a hardware-agnostic open-source library for developing C, C++ applications that uses Hardware-based Trusted Execution Environments. The current implementation provides support for Intel SGX and preview support for [OP-TEE OS on Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
+[Open Enclave SDK](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs) is a hardware-agnostic open-source library for developing C, C++ applications that uses Hardware-based Trusted Execution Environments. The current implementation provides support for Intel SGX and preview support for [OP-TEE OS on Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
 
 Get started with Open Enclave based container application [here](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs)
 
@@ -60,5 +60,5 @@ The open-source [EGo SDK](https://www.ego.dev) brings support for the Go program
 
 
 <!-- LINKS - internal -->
-[Confidential Virtual Machine Offerings](./virtual-machine-solutions.md)
+[Intel SGX Confidential Virtual Machine on Azure](./virtual-machine-solutions-sgx.md)
 [Confidential Containers](./confidential-containers.md)

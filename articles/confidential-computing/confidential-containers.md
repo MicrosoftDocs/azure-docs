@@ -4,7 +4,7 @@
  services: container-service
  author: agowdamsft
  ms.topic: article
- ms.date: 10/1/2011
+ ms.date: 11/1/2011
  ms.author: amgowda
  ms.service: container-service
 ---
@@ -98,6 +98,6 @@ Have questions with your implementation or want to become an enabler? Send an em
 
 [Microsoft Azure Attestation](../attestation/overview.md)
 
-[Confidential Intel SGX Virtual Machines](virtual-machine-solutions.md)
+[Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
 
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)

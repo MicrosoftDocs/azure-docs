@@ -45,11 +45,10 @@ sections:
 
       - question: What is the VM SKU I should be choosing for confidential computing nodes?
         answer: |
-          DCSv2 SKUs. The [DCSv2 SKUs](../virtual-machines/dcv2-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-      
+          DCSv2/DCsv3 SKUs. More about [DCSv2](../virtual-machines/dcv2-series.md) and [DCSv3](../virtual-machines/dcv3-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)      
       - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
         answer: |
-          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-get-started.md).
+          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclavenodes-aks-get-started.md).
           
        
       - question: What Ubuntu version and VM generation is supported? 
@@ -64,9 +63,9 @@ sections:
           - Dev Spaces on AKS for confidential apps are not currently supported   
  
           
-      - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
+      - question: Can I provision AKS with DCSv2/DCSv3 Node Pools through Azure portal? 
         answer: |
-          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-get-started.md).
+          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclavenodes-aks-get-started.md).
           
    
       - question: What Ubuntu version and VM generation is supported?
@@ -78,7 +77,7 @@ sections:
     questions:
       - question: Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing?
         answer: |
-              Yes you will an SGX wrapper software to run in an enclave, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
+              Yes you will bring SGX wrapper software to run in an Intel SGX enclave, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
       - question: Should I be using a Docker base image to get started on enclave applications? 
         answer: |
               Various enablers (ISVs and OSS projects) provide ways to enable confidential containers. Review the [confidential containers page](confidential-containers.md) for more details and individual references to implementations.
@@ -133,7 +132,7 @@ sections:
  
       - question: Do I have to mount the driver volumes in my deployment yaml?
         answer: |
-          No. Product provides ACC Add On that includes the (confcom) will help you with this. Read more on the deployment details [here](confidential-nodes-aks-overview.md).  
+          No. Product provides ACC Add On that includes the (confcom) will help you with this. Read more on the deployment details [here](confidential-enclavenodes-aks-get-started.md).  
                   
      
       - question: Can we change the current Intel SGX DCAP diver version on AKS? 

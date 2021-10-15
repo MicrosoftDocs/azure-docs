@@ -4,7 +4,7 @@ description: Choosing the right confidential container offerings to meet your se
 author: agowdamsft
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/8/2021
+ms.date: 11/1/2021
 ms.author: amgowda
 ---
 
@@ -24,21 +24,21 @@ Confidential capability of the offerings in this space allows your apps to achie
 - hardware-based assurances
 - create hardware root of trust
 
-##  Enclave Confidential Containers
+## Enclave Confidential Containers <a id="Enclave-Confidential-Containers"></a>##  
 
 Containers deployed in this mode have a tightest security and compute isolation with a lower Trusted Computing Base (TCB). Intel SGX based confidential containers running in the hardware based Trusted Execution Environment (TEE) support both a lift and shift of existing container apps or allow building custom apps with enclave awareness.
 
 There are two programmings & deployment model on Azure Kubernetes Service (AKS) 
 
 1. Unmodified containers support for higher programming languages on Intel SGX through Azure Partner ecosystem of OSS projects. [Read more on the deployment flow and samples](./confidential-containers-intelsgx.md).  
-1. Enclave aware containers through custom Intel SGX programming model. [Read more on the deployment flow and samples](./confidential-containers-intelsgx.md). 
+1. Enclave aware containers through custom Intel SGX programming model. [Read more on the deployment flow and samples](./enclave-aware-containers.md). 
 
 Below is the isolation and security boundaries of enclave confidential containers on Intel SGX.
 
 ![Enclave Confidential Container with Intel SGX](./media/confidential-containers/confidential-container-intelsgx.png)
 
 
-## Containers in a Confidential VM
+## Containers in a Confidential VM <a id="Containers-in-a-Confidential-VM"></a>
 
 > [!NOTE]
 > Confidential VM's with AMD SEV-SNP is coming soon on AKS. [Please get added to the notification list for this capability on Azure Kubernetes Service](virtual-machine-solutions.md).
@@ -56,7 +56,7 @@ Combining the security features of trusted launch and full node in-memory encryp
 
 ## Learn more
 
-[ Confidential Virtual Machines on Azure](./virtual-machine-solutions.md)
+[ Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)
 
 <!-- LINKS - internal -->
 

@@ -1,121 +1,149 @@
 ---
-title: Frequently asked questions for confidential capability on Azure Kubernetes Service (AKS)
-description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) nodes support.
-author: agowdamsft
-ms.service: container-service
-ms.topic: conceptual
-ms.date: 10/12/2021
+title:  Confidential Computing plugin on AKS for Enclave aware Azure  VM's
+description: AKS Addon fro Confidential Computing details.
+author: amgowda
+ms.service: virtual-machines
+ms.subservice: workloads
+ms.workload: infrastructure
+ms.topic: feature
+ms.date: 11/1/2021
 ms.author: amgowda
 ---
 
-# Frequently asked questions about confidential capability on Azure Kubernetes Service (AKS)
 
-This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email acconaks@microsoft.com.
+# Feature: Intel SGX Device Plugin for Azure Kubernetes Service (AKS)
+
+The SGX Device Plugin implements the Kubernetes device plugin interface for EPC memory. Effectively, this plugin makes EPC memory an additional resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 
-## What is attestation and how can we do attestation of apps running in enclaves? 
+# Feature: Platform Software Management with SGX quote helper daemon set
 
-Attestation is the process of demonstrating and validating that a piece of software has been properly instantiated on the specific hardware platform. The evidence is verifiable to provide assurances that it is running in a secure platform and has not been tampered with. [Read more](attestation.md) on how attestation is done for enclave apps.
+Enclave applications that perform remote attestation need to generate a QUOTE. The QUOTE provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. It can leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. [Read more](confidential-nodes-out-of-proc-attestation.md) on its usage and feature details.
 
-## Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing? 
+[Enclave applications](confidential-computing-enclaves.md) that perform remote attestation requires a generated QUOTE. This QUOTE provides cryptographic proof of the identity and the state of the application, as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components that are part of the Intel’s Platform Software Components (PSW).
 
-Yes, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.
+## Overview
 
-## What Intel SGX Driver version is installed in the AKS Image? 
+> [!NOTE]
+> This addon is only needed for DCsv2/DCsv3 VMs that use specialized Intel SGX hardware. 
+ 
+Intel supports two attestation modes to run the quote generation:
+- **in-proc**: hosts the trusted software components inside the enclave application process
 
-Currently, Azure confidential computing DCSv2/DCSv3 VMs with Ubuntu 18.04 are installed with Intel SGX DCAP 1.33.2
+- **out-of-proc**: hosts the trusted software components outside of the enclave application.
+ 
+SGX applications built using Open Enclave SDK by default use in-proc attestation mode. SGX-based applications allow out-of-proc and would require extra hosting and exposing the required components such as Architectural Enclave Service Manager (AESM), external to the application.
 
-## Can I inject post install scripts/customize drivers to the Nodes provisioned by AKS? 
+Utilizing this feature is **highly recommended**, as it enhances uptime for your enclave apps during Intel Platform updates or DCAP driver updates.
 
-No. [AKS-Engine based confidential computing nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) support confidential computing nodes that allow custom installations.
+## Why and What are the benefits of out-of-proc?
 
-## Should I be using a Docker base image to get started on enclave applications? 
+-	No updates are required for quote generation components of PSW for each containerized application:
+With out-of-proc, container owners don’t need to manage updates within their container. Container owners instead rely on the provider provided interface that invokes the centralized service outside of the container, which will be updated and managed by provider.
 
-ISVs and OSS projects provide ways to enable confidential containers with Intel SGX enclaves. Review the [confidential containers page](confidential-containers.md) for more details and individual references to implementations.
+-	No need to worry about attestation failures due to out-of-date PSW components:
+The quote generation involves the trusted SW components - Quoting Enclave (QE) & Provisioning Certificate Enclave (PCE), which are part of the trusted computing base (TCB). These SW components must be up to date to maintain the attestation requirements. Since the provider manages the updates to these components, customers will never have to deal with attestation failures due to out-of-date trusted SW components within their container.
 
-## Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
+-	Better utilization of EPC memory
+In in-proc attestation mode, each enclave application needs to instantiate the copy of QE and PCE for remote attestation. With out-of-proc, there is no need for the container to host those enclaves, and thus doesn’t consume enclave memory from the container quota.
 
-Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-nodes-aks-get-started.md).
+-	Safeguards against Kernel enforcement 
+When the SGX driver is up streamed into Linux kernel, there will be enforcement for an enclave to have higher privilege. This privilege allows the enclave to invoke PCE, which will break the enclave application running in in-proc mode. By default, enclaves don't get this permission. Granting this privilege to an enclave application requires changes to the application installation process. This is handled easily for out-of-proc model as the provider of the service that handles out-of-proc requests will make sure the service is installed with this privilege.
 
-## Can I run Windows Nodes and windows containers with ACC? 
+-	No need to check for backward compatibility with PSW & DCAP. The updates to the quote generation components of PSW are validated for backward compatibility by the provider before updating. This will help in handling the compatibility issues upfront and address them before deploying updates for confidential workloads.
 
-Not at this time. Contact us if you have Windows nodes or container needs. 
+## How does the out-of-proc attestation mode work for confidential workloads scenario?
 
-## What Service Level Agreement (SLA) and Azure Support is provided during the preview? 
+The high-level design follows the model where the quote requestor and quote generation are executed separately, but on the same physical machine. The quote generation will be done in a centralized manner and serves requests for QUOTES from all entities. The interface needs to be properly defined and discoverable for any entity to request quotes.
 
-SLA is not provided during the product preview as defined [here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). However, product support is provided through Azure support.
+![sgx quote helper aesm](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
-## What if my container size is more than available EPC memory? 
+The above abstract model applies to confidential workload scenario, by taking advantage of already available AESM service. AESM is containerized and deployed as a daemonSet across the Kubernetes cluster. Kubernetes guarantees a single instance of an AESM service container, wrapped in a Pod, to be deployed on each agent node. The new SGX Quote daemonset will have a dependency on the sgx-device-plugin daemonset, since the AESM service container would request EPC memory from sgx-device-plugin for launching QE and PCE enclaves.
 
-The EPC memory applies to the part of your application that is programmed to execute in the enclave. The total size of your container is not the right way to compare it with the max available EPC memory. New Intel SGX Vm Sized [Intel SGX powered DCSv3](../en-us/azure/virtual-machines/dcv3-series.md) allow much higher EPC memory sizes for your intensive workloads
+Each container needs to opt in to use out-of-proc quote generation by setting the environment variable **SGX_AESM_ADDR=1** during creation. The container should also include the package libsgx-quote-ex that is responsible to direct the request to default Unix domain socket
 
-To better manage the EPC memory in the worker nodes, consider the EPC memory-based limits management through Kubernetes. Follow the example below as reference
+An application can still use the in-proc attestation as before, but both in-proc and out-of-proc can’t be used simultaneously within an application. The out-of-proc infrastructure is available by default and consumes resources.
+
+## Sample Implementation
+
+The below docker file is a sample for an Open Enclave-based application. Set the SGX_AESM_ADDR=1 environment variable in the docker file or by set it on the deployment file. Follow the below sample for docker file and deployment yaml details. 
+
+  > [!Note] 
+  > The **libsgx-quote-ex** from Intel needs to be packaged in the application container for out-of-proc attestation to work properly.
+    
+```yaml
+# Refer to Intel_SGX_Installation_Guide_Linux for detail
+FROM ubuntu:18.04 as sgx_base
+RUN apt-get update && apt-get install -y \
+    wget \
+    gnupg
+
+# Add the repository to sources, and add the key to the list of
+# trusted keys used by the apt to authenticate packages
+RUN echo "deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main" | tee /etc/apt/sources.list.d/intel-sgx.list \
+    && wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | apt-key add -
+# Add Microsoft repo for az-dcap-client
+RUN echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/18.04/prod bionic main" | tee /etc/apt/sources.list.d/msprod.list \
+    && wget -qO - https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+FROM sgx_base as sgx_sample
+RUN apt-get update && apt-get install -y \
+    clang-7 \
+    libssl-dev \
+    gdb \
+    libprotobuf10 \
+    libsgx-dcap-ql \
+    libsgx-quote-ex \
+    az-dcap-client \
+    open-enclave
+WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
+RUN . /opt/openenclave/share/openenclave/openenclaverc \
+    && make build
+# this sets the flag for out of proc attestation mode. alternatively you can set this flag on the deployment files
+ENV SGX_AESM_ADDR=1 
+
+CMD make run
+```
+Alternatively, the out-of-proc attestation mode can be set in the deployment yaml file as shown below
 
 ```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: sgx-test
-  labels:
-    app: sgx-test
 spec:
   template:
-    metadata:
-      labels:
-        app: sgx-test
     spec:
       containers:
       - name: sgxtest
-        image: oeciteam/sgx-test:1.0
+        image: <registry>/<repository>:<version>
+        env:
+        - name: SGX_AESM_ADDR
+          value: 1
         resources:
           limits:
-            kubernetes.azure.com/sgx_epc_mem_in_MiB: 10 # This limit will automatically place the job into confidential computing node. Alternatively you can target deployment to nodepools
-      restartPolicy: Never
-  backoffLimit: 0
+            kubernetes.azure.com/sgx_epc_mem_in_MiB: 10
+        volumeMounts:
+        - name: var-run-aesmd
+          mountPath: /var/run/aesmd
+      restartPolicy: "Never"
+      volumes:
+      - name: var-run-aesmd
+        hostPath:
+          path: /var/run/aesmd
 ```
 
-## What happens if my enclave consumes more than maximum available EPC memory? 
-
-Total available EPC memory is shared between the enclave applications in the same VMs or worker nodes. If your application uses EPC memory more than available then the application performance might be impacted. For this reason, we recommend you setting toleration per application in your deployment yaml file to better manage the available EPC memory per worker nodes as shown in the examples above. Alternatively, you can always choose to move up on the worker node pool VM sizes or add more nodes. 
-
-## Why can't I do forks () and exec to run multiple processes in my enclave application? 
-
-Currently,  Azure confidential computing DCsv2 SKU VMs support a single address space for the program executing in an enclave. Single process is a current limitation designed around high security. However, confidential container enablers may have alternate implementations to overcome this limitation.
-
-## Do you automatically install any other daemonsets to expose the SGX drivers? 
-
-Yes. The name of the daemonset is sgx-device-plugin and sgx-quote-helper. Read more on their respective purposes [here](confidential-nodes-aks-overview.md).  
-
-## What is the VM SKU I should be choosing for confidential computing nodes? 
-
-DCSv2/DCsv3 SKUs. More about [DCSv2](../virtual-machines/dcv2-series.md) and [DCSv3](../en-us/azure/virtual-machines/dcv3-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-
-## Can I still schedule and run non-enclave containers on confidential computing nodes? 
-
-Yes. The VMs also have a regular memory that can run standard container workloads. Consider the security and threat model of your applications before you decide on the deployment models.
-
-## Can I provision AKS with DCSv2 Node Pools through Azure portal? 
-
-Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-get-started.md).
-
-## What Ubuntu version and VM generation is supported? 
-
-18.04 on Gen 2. 
-
-## Can we change the current Intel SGX DCAP diver version on AKS? 
-
-No. To perform any custom installations, we recommend you choose [AKS-Engine Confidential Computing Worker Nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) deployments. 
-
-## What version of Kubernetes do you support and recommend? 
-
-We support and recommend Kubernetes version 1.16 and above 
-
-## What are the known current limitation or technical limitations of the product in preview? 
-
-- Supports Ubuntu 18.04 Gen 2 VM Nodes only 
-- No Windows Nodes Support or Windows Containers Support
-- EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
-- Dev Spaces on AKS for confidential apps are not currently supported
-
 ## Next Steps
-Review the [confidential containers page](confidential-containers.md) for more details unmodified containers support with confidential containers.
+[Provision Confidential Nodes (DCsv2/DCsv3-Series) on AKS](./confidential-nodes-aks-get-started.md)
+
+[Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
+
+[DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+[DCSv3 SKU List](../en-us/azure/virtual-machines/dcv3-series.md)
+
+<!-- LINKS - external -->
+[Azure Attestation]: ../attestation/index.yml
+
+
+<!-- LINKS - internal -->
+[Intel SGX Confidential Virtual Machines on Azure]: /confidential-computing/virtual-machine-solutions-sgx.md
