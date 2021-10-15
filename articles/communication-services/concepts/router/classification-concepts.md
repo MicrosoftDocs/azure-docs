@@ -61,7 +61,7 @@ The priority of a Job can be resolved during classification using one of many ru
 
 Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make various decisions about routing. When using a `LabelSelectorAttachment` on a `QueueSelector`, it acts like a filter. When used within the context of `WorkerSelectors`, it attaches selectors to the initial set that was created with the job. The following `LabelSelectorAttachment` types can be used:
 
-**Static label selector -** Uses a simple `LabelSelector` involving a key, operator, and value.
+**Static label selector -** Always attaches the given `LabelSelector`.
 
 **Conditional label selector -** Uses a `RouterRule` together with a collection of `LabelSelector` types for filtering and merging.
 
