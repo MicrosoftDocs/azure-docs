@@ -183,8 +183,8 @@ After the change is rolled out to your region, guests will see the following beh
 
 - With email one-time passcode disabled:
 
-  - If a guest has an existing unmanaged Azure AD account, they'll use a Microsoft account to redeem and sign in going forward.
-  - If a guest previously redeemed an invitation to your tenant using an unmanaged Azure AD account, and you reset their redemption status and reinvite them, they'll use a Microsoft account to redeem and sign in going forward.
+  - If a guest has an existing unmanaged Azure AD account, they'll use a Microsoft account to redeem. They'll end up with two accounts (the unmanaged Azure AD account and the Microsoft account). To prevent this from happening, we strongly encourage you to enable email one-time passcode.
+  - If a guest previously redeemed an invitation to your tenant using an unmanaged Azure AD account, and you reset their redemption status and reinvite them, they'll use a Microsoft account to redeem. They'll end up with two accounts (the unmanaged Azure AD account and the Microsoft account). To prevent this from happening, we strongly encourage you to enable email one-time passcode.
   - If a guest doesn't have an unmanaged Azure AD account, they'll use a Microsoft account to redeem and sign in going forward.
 
 For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
