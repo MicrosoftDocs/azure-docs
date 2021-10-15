@@ -34,6 +34,7 @@ We are offering two variants dependent on whether the workload benefits from a l
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
 [Premium Storage and Caching]: Supported<br>
+[Total Memory Encryption]: Multi Key Supported<br>
 [Ultra-Disk Storage]: Supported<br>
 [Accelerated Networking]: Supported (CLI provisioning or ARM template only)<br>
 [Azure Kubernetes Service]: Supported (CLI provisioning only initially)<br>
