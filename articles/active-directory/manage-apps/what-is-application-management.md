@@ -92,7 +92,7 @@ Azure AD provides customizable ways to deploy applications to users in your orga
 
 ## Configure properties
 
-When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that effect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
+When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that affect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
 
 ## Secure the application
 
@@ -102,7 +102,7 @@ There are several methods available to help you keep your enterprise application
 
 It's important to periodically review and, if necessary, [manage the permissions granted to an application or service](manage-application-permissions.md). Make sure that you only allow the appropriate access to your applications by regularly evaluating whether suspicious activity exists.
 
-[Permission classifications](configure-permission-classifications.md) allow you to identify the affect of different permissions according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
+[Permission classifications](configure-permission-classifications.md) allow you to identify the effect of different permissions according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
 ### Multifactor authentication and conditional access
 
