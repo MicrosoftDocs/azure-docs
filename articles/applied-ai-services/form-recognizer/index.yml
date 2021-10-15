@@ -19,9 +19,9 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card 1
-  - title: About Azure Form Recognizer
-    linkLists:
+# Card 1
+   - title: About Azure Form Recognizer
+     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Form Recognizer?
@@ -35,8 +35,8 @@ landingContent:
            - text: Language support
              url: language-support.md
 #Card 2
-  - title: Features 
-    linkLists:
+   - title: Features 
+     linkLists:
       - linkListType: concept
         links:
           - text: 🆕General document model (preview)
@@ -54,8 +54,8 @@ landingContent:
           - text: Custom model
             url: concept-custom.md
 #Card 3
-  - title: Development Options
-    linkLists:
+   - title: Development Options
+     linkLists:
       - linkListType: quickstart
         links:
         - text: 🆕Form Recognizer Studio (preview)
@@ -80,8 +80,8 @@ landingContent:
             url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 #Card 4
-  - title: 🆕Form Recognizer Studio
-    linkLists:
+   - title: 🆕Form Recognizer Studio
+     linkLists:
       - linkListType: overview
         links:
           - text: Studio overview | Preview
@@ -103,8 +103,8 @@ landingContent:
           - text: Using the Custom model
             url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
 #Card 5
-  - title: Sample Labeling tool
-    linkLists:
+   - title: Sample Labeling tool
+     linkLists:
       - linkListType: get-started
         links:
           - text: Get started
@@ -122,8 +122,8 @@ landingContent:
           - text: Using the Custom model
             url: concept-custom.md#try-it-sample-labeling-tool
 #Card 6
-  - title: 🆕General document
-    linkLists:
+   - title: 🆕General document
+     linkLists:
       - linkListType: overview
         links:
           - text: Model overview | Preview
@@ -143,14 +143,14 @@ landingContent:
           - text: Using the Form Recognizer Studio
             url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 #Card 7
-  - title: Layout
-    linkLists:
-    - linkListType: overview
-      links:
+   - title: Layout
+     linkLists:
+     - linkListType: overview
+       links:
         - text: Model overview
           url: concept-layout.md
-    - linkListType: get-started
-      links:
+     - linkListType: get-started
+       links:
         - text: Using the .NET SDK
           url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
         - text: Using the Python SDK
@@ -164,8 +164,8 @@ landingContent:
         - text: Using the sample labeling tool
           url: "concept-layout.md#try-it-sample-labeling-tool"
 # Card 8
-  - title: Custom
-    linkLists:
+   - title: Custom
+     linkLists:
       - linkListType: overview
         links:
           - text: Custom model overview
@@ -185,8 +185,8 @@ landingContent:
           - text: Using the Sample Labeling tool
             url: "concept-custom.md#try-it-sample-labeling-tool"
 #Card 9
-  - title: Invoice
-    linkLists:
+   - title: Invoice
+     linkLists:
       - linkListType: overview
         links:
           - text: Model overview
@@ -206,8 +206,8 @@ landingContent:
           - text: Using the Sample Labeling tool
             url: "concept-business-card.md#try-it-sample-labeling-tool"
 #Card 10
-  - title: Receipt model
-    linkLists:
+   - title: Receipt model
+     linkLists:
       - linkListType: overview
         links:
           - text: Model overview
@@ -227,8 +227,8 @@ landingContent:
           - text: Using the Sample Labeling tool
             url: "concept-receipt.md#try-it-sample-labeling-tool"
 #Card 11
-  - title: ID document  and Business Card models
-    linkLists:
+   - title: ID document  and Business Card models
+     linkLists:
       - linkListType: overview
         links:
           - text: ID document overview
@@ -267,8 +267,8 @@ landingContent:
             url: "concept-business-card.md#try-it-sample-labeling-tool"
 
 # Card 12
-  - title: Responsible AI and Community Support
-    linkLists:
+   - title: Responsible AI and Community Support
+     linkLists:
       - linkListType: reference
         links:
            - text: Transparency notes
