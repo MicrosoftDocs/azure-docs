@@ -503,7 +503,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
 ## Example: Authenticate built-in trigger or action with a managed identity
 
-The HTTP trigger or action can use the system-assigned identity that you enabled for your logic app. In general, the HTTP trigger or action uses these properties to specify the resource or entity that you want to access:
+The HTTP trigger or action can use the system-assigned identity that you enabled for your logic app resource. In general, the HTTP trigger or action uses the following properties to specify the resource or entity that you want to access:
 
 | Property | Required | Description |
 |----------|----------|-------------|
@@ -526,17 +526,71 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 |----------|----------|---------------|-------------|
 | **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
 | **URI** | Yes | `https://<storage-account-name>/<folder-name>/{name}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
-| **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your logic app fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <p>For more information, review these topics: <p><p>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your workflow fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <p>For more information, review these topics: <p><p>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
 | **Queries** | Only for the Snapshot Blob operation | `comp` = `snapshot` | The query parameter name and value for the operation. |
 |||||
 
-Here is the example HTTP action that shows all these property values:
+### [Consumption](#tab/consumption)
 
-![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
+The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
+
+![Screenshot showing Azure portal with Consumption logic app workflow and HTTP action set up to access resource.](./media/create-managed-service-identity/http-action-example.png)
 
 1. After you add the HTTP action, add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
 
-   ![Add "Authentication" property to HTTP action](./media/create-managed-service-identity/add-authentication-property.png)
+   ![Screenshot showing Consumption workflow with HTTP action and "Add new parameter" list open with "Authentication" property selected.](./media/create-managed-service-identity/add-authentication-property.png)
+
+   > [!NOTE]
+   > Not all triggers and actions support letting you add an authentication type. For more information, review 
+   > [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+1. From the **Authentication type** list, select **Managed Identity**.
+
+   ![Screenshot showing Consumption workflow with HTTP action and "Authentication" property with "Managed Identity" value selected.](./media/create-managed-service-identity/select-managed-identity.png)
+
+1. From the managed identity list, select from the available options based on your scenario.
+
+   * If you set up the system-assigned identity, select **System Assigned Managed Identity** if not already selected.
+
+     ![Screenshot showing Consumption workflow with HTTP action and "Managed Identity" property with "System Assigned Managed Identity" value elected.](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
+
+   * If you set up a user-assigned identity, select that identity if not already selected.
+
+     ![Screenshot showing Consumption workflow with HTTP action and "Managed Identity" property with user-assigned identity selected.](./media/create-managed-service-identity/select-user-assigned-identity-for-action.png)
+
+   This example continues with the **System Assigned Managed Identity**.
+
+1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
+  
+    For example, if you want to authenticate access to a [Key Vault resource in the global Azure cloud](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to *exactly* the following resource ID: `https://vault.azure.net`. Note that this specific resource ID *doesn't* have any trailing slashes. In fact, including a trailing slash might produce either a `400 Bad Request` error or a `401 Unauthorized` error.
+
+   > [!IMPORTANT]
+   > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
+   > including any required trailing slashes. For example, the resource ID for all Azure Blob Storage accounts requires 
+   > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
+   > [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://fabrikamstorageaccount.blob.core.windows.net`, for a specific storage account.
+
+   ![Screenshot showing Consumption workflow with HTTP action and "Audience" property set to target resource ID.](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
+
+   For more information about authorizing access with Azure AD for Azure Storage, review the following documentation:
+
+   * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+
+   * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+
+1. Continue building the workflow the way that you want.
+
+### [Standard](#tab/standard)
+
+The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
+
+![Screenshot showing Azure portal with Standard logic app workflow and HTTP action set up to access resource.](./media/create-managed-service-identity/http-action-example-standard.png)
+
+1. After you add the HTTP action, add the **Authentication** property to the HTTP action. From the **Add new parameter** list, select **Authentication**.
+
+   ![Screenshot showing Standard workflow with HTTP action and "Add new parameter" list open with "Authentication" property selected.](./media/create-managed-service-identity/add-authentication-property-standard.png)
 
    > [!NOTE]
    > Not all triggers and actions support letting you add an authentication type. For more information, review 
@@ -578,7 +632,10 @@ Here is the example HTTP action that shows all these property values:
 
    * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
-1. Continue building the logic app the way that you want.
+1. Continue building the workflow the way that you want.
+
+
+---
 
 <a name="authenticate-managed-connector-managed-identity"></a>
 
