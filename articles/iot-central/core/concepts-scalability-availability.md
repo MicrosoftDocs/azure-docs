@@ -38,9 +38,9 @@ To learn more about how to verify your device firmware can handle connection fai
 
 IoT Central applications often use other, user configured services. For example, you can configure your IoT Central application to continuously export data to services such as Azure Event Hubs and Azure Blob Storage.
 
-If a configured data export can't connect to its destination, IoT Central tries to retransmit the data for 15 minutes. After 15 minutes, IoT Central falls back to a two-hour retry window. There's a risk of data loss after the first 15-minute retry window expires.
+If a configured data export can't write to its destination, IoT Central tries to retransmit the data for up to 15 minutes, after which IoT Central marks the destination as failed. Failed destinations are periodically checked to verify if they are writable.
 
-You can force IoT Central to retry the export before the two-hour window expires by disabling and re-enabling the data export.
+You can force IoT Central to restart the failed exports by disabling and re-enabling the data export.
 
 Review the high availability and scalability best practices for the data export destination service you're using:
 
