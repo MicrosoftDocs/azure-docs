@@ -1,12 +1,12 @@
 ---
-title: Enable Private Link on a restricted HDInsight cluster (preview)
+title: Enable Private Link on a Azure HDInsight cluster
 description: Learn how to connect outside HDInsight cluster using Azure Private Link.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
 ---
 
-# Enable Private Link on HDInsight cluster (preview)
+# Enable Private Link on HDInsight cluster
 
 ## Overview
 In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of our main article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md) where we focused on restricting public connectivity. In the case where you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md)
@@ -56,7 +56,7 @@ There are two connection approval methods that a Private Link service consumer (
 * **Automatic**: If the service consumer has Azure RBAC permissions on the HDInsight resource the consumer can choose the automatic approval method. In this case, when the request reaches the HDInsight resource, no action is required from the HDInsight resource and the connection is automatically approved.
 * **Manual**: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the HDInsight resource, the consumer can choose the manual approval method. In this case, the connection request appears on the HDInsight resources as Pending. The request needs to be manually approved by HDInsight resource before connections can be established. 
 
-To manage private endpoints, in your cluster view in Azure Portal, navigate to Networking (preview) section under Security + Networking. Here you will be able to see all existing connections, connection states, and private endpoint details.
+To manage private endpoints, in your cluster view in Azure Portal, navigate to Networking section under Security + Networking. Here you will be able to see all existing connections, connection states, and private endpoint details.
 You can also approve, reject or remove existing connections. When creating a private connection, you can specify which HDInsight sub-resource (Gateway, Headnode. etc.) you want to connect to as well.
 
 The table below shows the various HDInsight resource actions and the resulting connection states for private endpoints. HDInsight resource can also change the connection state of the private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
