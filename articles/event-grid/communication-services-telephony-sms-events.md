@@ -6,7 +6,11 @@ ms.date: 10/15/2021
 ms.author: vikramdh
 ---
 
-# Events types
+# Azure Communication Services - Telephony and SMS events
+
+This article provides the properties and schema for communication services telephony and SMS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+## Events types
 
 Azure Communication Services emits the following telephony and SMS event types:
 
@@ -15,7 +19,7 @@ Azure Communication Services emits the following telephony and SMS event types:
 | Microsoft.Communication.SMSReceived                         | Published when an SMS is received by a phone number associated with the Communication Service. |
 | Microsoft.Communication.SMSDeliveryReportReceived           | Published when a delivery report is received for an SMS sent by the Communication Service.     |
 
-# Event responses
+## Event responses
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints.
 
