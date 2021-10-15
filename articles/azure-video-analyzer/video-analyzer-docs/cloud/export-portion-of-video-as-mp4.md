@@ -110,7 +110,7 @@ The encoder processor node allows user to specify encoding properties when conve
       "name": "{H264SingleBitrateSD|H264SingleBitrate720p|H264SingleBitrate1080p}" 
     }, 
     // Alternatively, custom preset 
-    "preset": 
+    "preset":
     { 
       "@type": "#Microsoft.VideoAnalyzer.Encoder.CustomPreset", 
       "videoEncoder": { 
