@@ -23,7 +23,7 @@ Image Builder lets you start with Windows or Linux images, from the Azure Market
 
 ## Features
 
-While it is possible to create custom VM images by hand or by other tools, the process can be cumbersome and unreliable. Azure VM Image Builder, which is built on HashiCorp Packer, provides you with benefits of a managed service
+While it is possible to create custom VM images by hand or by other tools, the process can be cumbersome and unreliable. Azure VM Image Builder, which is built on [HashiCorp Packer](https://www.packer.io/), provides you with benefits of a managed service.
 
 ### Simplicity
 
