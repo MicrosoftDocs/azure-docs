@@ -117,7 +117,7 @@
       href: managed-identity.md
     - name: Customer managed keys
       href: customer-managed-keys.md
-  - name: Deploy
+  - name: Deploy to the edge
     items:  
     - name: Deploy to an IoT Edge device
       href: edge/deploy-iot-edge-device.md
