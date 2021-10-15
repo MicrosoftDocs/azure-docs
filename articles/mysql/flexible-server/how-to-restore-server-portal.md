@@ -45,65 +45,44 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 8. A notification will be shown that the restore operation has been initiated.
 
-## Geo-restore to latest restore point
-
-1. In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
-
-2. Click **Overview** from the left panel.
-
-3. From the overview page, click **Restore**.
-
-4. Restore page will be shown with an option to choose **Geo-redundant restore**. If you have configured your server for geographically redundant backups, the server can be restored to the corresponding Azure paired region and the geo-redundant restore option can be enabled. Geo-redundant restore option restores the server to Latest UTC Now timestamp and hence after selection of Geo-redundant restore, the point-in-time restore options cannot be selected simultaneously.
-
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-flex.png" alt-text="Geo-restore option":::
-
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore-enabled-flex.png" alt-text="Enabling Geo-Restore":::
-
-5. Provide a new server name in the **Name** field in the Server details section.
-
-6. Select **Review + Create** to review your selections. 
-
-7. A notification will be shown that the restore operation has been initiated. This operation may take a few minutes. 
-
-The new server created by geo-restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's Overview page. Additionally during a geo-restore, **Networking** settings such as virtual network settings and firewall rules can be configured as described in the below section.
-
 ## Using restore to move a server from Public access to Private access
 
 Follow these steps to restore your flexible server using an earliest existing backup.
 
-1. In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
+1. In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from.
 
 2. From the overview page, click **Restore**.
 
-3. Restore page will be shown with an option to choose between Geo-restore or Point-in-time restore options.
+3. Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
-4. Choose either **Geo-restore** or a **Point-in-time restore** option.
+4. Choose either **Earliest restore point** or a **Custom restore point**.
 
 5. Provide a new server name in the **Restore to new server** field.
 
+6. Provide a new server name in the **Restore to new server** field.
+
     :::image type="content" source="./media/how-to-restore-server-portal/point-in-time-restore-private-dns-zone.png" alt-text="view overview":::
 
-6. Go to the **Networking** tab to configure networking settings.
+7. Go to the **Networking** tab to configure networking settings.
 
-7. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by clicking the *create virtual network* link.
+8. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by clicking the *create virtual network* link.
     > [!Note]
     > Only virtual networks and subnets in the same region and subscription will be listed in the drop down. </br>
     > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL Flexible Servers can use that subnet.</br>
 
     :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet configuration":::
 
-8. Create a new or Select an existing **Private DNS Zone**.
+9. Create a new or Select an existing **Private DNS Zone**.
     > [!NOTE]
     > Private DNS zone names must end with `mysql.database.azure.com`. </br>
     > If you do not see the option to create a new private dns zone, please enter the server name on the **Basics** tab.</br>
     > After the flexible server is deployed to a virtual network and subnet, you cannot move it to Public access (allowed IP addresses).</br>
 
     :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="dns configuration":::
-9. Select **Review + create** to review your flexible server configuration.
-10. Select **Create** to provision the server. Provisioning can take a few minutes.
+10. Select **Review + create** to review your flexible server configuration.
+11. Select **Create** to provision the server. Provisioning can take a few minutes.
 
-11. A notification will be shown that the restore operation has been initiated.
-
+12. A notification will be shown that the restore operation has been initiated.
 
 ## Perform post-restore tasks
 
