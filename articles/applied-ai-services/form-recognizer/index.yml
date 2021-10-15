@@ -26,24 +26,24 @@ landingContent:
         links:
           - text: What is Azure Form Recognizer?
             url: overview.md
-  - linkListType: whats-new
-    links:
+      - linkListType: whats-new
+        links:
           - text: What's new in Azure Form Recognizer?
             url: whats-new.md
-  - linkListType: reference
-    links:
+      - linkListType: reference
+        links:
            - text: Language support
              url: language-support.md
-  - linkListType: reference
-    links:
-          - text: Transparency notes
-            url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
-          - text: Characteristics and limitations
-            url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
-          - text: Guidance for integration and responsible use
-            url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
-          - text: Data privacy, compliance, and security
-            url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+      - linkListType: reference
+        links:
+              - text: Transparency notes
+                url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+              - text: Characteristics and limitations
+                url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+              - text: Guidance for integration and responsible use
+                url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+              - text: Data privacy, compliance, and security
+                url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 
 #Card
   - title: Features
@@ -109,9 +109,44 @@ landingContent:
 
 
 #Card
+  - title: Form Recognizer Sample Labeling tool
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started
+            url: quickstarts/try-sample-label-tool.md
+          - text: Using the Layout model
+            url: concept-layout.md#try-it-sample-labeling-tool
+          - text: Using the Invoice model
+            url: concept-invoice.md#try-it-sample-labeling-tool
+          - text: Using the Receipt model
+            url: concept-receipt.md#try-it-sample-labeling-tool
+          - text: Using the ID document model
+            url: concept-id-document.md#try-it-sample-labeling-tool
+          - text: Using the Business card model
+            url: concept-business-card.md#try-it-sample-labeling-tool
+          - text: Using the Custom model
+            url: concept-custom.md#try-it-sample-labeling-tool
 
-
-
+#Card
+  - title: 🆕General document Model (preview)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Model overview
+            url: concept-general-document.md
+          - text: Using the .NET SDK
+            url: "quickstarts/try-v3-csharp-sdk.md#try-it-general-document-model"
+          - text: Using the Python SDK
+            url: "quickstarts/try-v3-python-sdk.md#try-it-general-document-model"
+          - text: Using the Java SDK
+            url: "quickstarts/try-v3-java-sdk.md#try-it-general-document-model"
+          - text: Using the JavaScript SDK
+            url: ""
+          - text: Using the REST API (cURL)
+            url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
+          - text: Using the Form Recognizer Studio
+            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
 
 
       # - linkListType: video
