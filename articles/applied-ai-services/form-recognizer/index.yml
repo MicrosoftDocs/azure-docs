@@ -57,20 +57,20 @@ landingContent:
       linkLists:
       - linkListType: quickstart
         links:
-         - text: 🆕Form Recognizer Studio (preview)
-           url: concept-form-recognizer-studio.md
-         - text: Form Recognizer Sample Labeling tool
-           url: quickstarts/try-sample-label-tool.md
-         - text: REST API
-           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
-         - text: C# SDK
-           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp
-         - text: Java SDK
-           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-java
-         - text: JavaScript SDK
-           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript
-         - text: Python SDK
-           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
+          - text: 🆕Form Recognizer Studio (preview)
+            url: concept-form-recognizer-studio.md
+          - text: Form Recognizer Sample Labeling tool
+            url: quickstarts/try-sample-label-tool.md
+          - text: REST API
+            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
+          - text: C# SDK
+            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp
+          - text: Java SDK
+            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-java
+          - text: JavaScript SDK
+            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript
+          - text: Python SDK
+            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
 
 #Card
   - title: 🆕Form Recognizer Studio
