@@ -5,7 +5,7 @@
  ms.service: postgresql
  ms.subservice: hyperscale-citus
  ms.topic: include
- ms.date: 9/20/2021
+ ms.date: 10/15/2021
  ms.author: jonels
  ms.custom: include file
 ---

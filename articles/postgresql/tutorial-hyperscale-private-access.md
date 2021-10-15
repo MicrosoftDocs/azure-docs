@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 ---
 
 # Create server group with private access (preview) in Azure Database for PostgreSQL - Hyperscale (Citus)

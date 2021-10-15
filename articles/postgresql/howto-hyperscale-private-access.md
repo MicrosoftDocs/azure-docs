@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 ---
 
 # Private access (preview) in Azure Database for PostgreSQL Hyperscale (Citus)

@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 9/20/2021
+ms.date: 10/15/2021
 ---
 
 # Security in Azure Database for PostgreSQL – Hyperscale (Citus)
