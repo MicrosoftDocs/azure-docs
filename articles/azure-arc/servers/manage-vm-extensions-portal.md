@@ -64,7 +64,7 @@ Upgrading an extension to the newest version does not affect the configuration o
 You can upgrade one, or select multiple extensions eligible for an upgrade from the Azure portal by performing the following steps.
 
 > [!NOTE]
-> Currently you can only upgrade extensions from the Azure portal. Performing this operation from the Azure CLI, or using an Azure Resource Manager template is not supported at this time.
+> Currently you can only upgrade extensions from the Azure portal. Performing this operation from the Azure CLI or using an Azure Resource Manager template is not supported at this time.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
