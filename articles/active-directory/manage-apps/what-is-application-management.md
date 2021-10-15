@@ -16,7 +16,7 @@ ms.reviewer: sureshja, napuri
 
 # What is application management in Azure Active Directory?
 
-Application management in Active Directory (Azure AD) is the process of creating, configuring, managing, and monitoring applications in the cloud. When an application is registered in an Azure AD tenant, users who have been assigned to it can securely access it. Many types of applications can be registered in Azure AD. For more information, see [Application types for the Microsoft Identity Platform](../develop/v2-app-types.md).
+Application management in Azure Active Directory (Azure AD) is the process of creating, configuring, managing, and monitoring applications in the cloud. When an application is registered in an Azure AD tenant, users who have been assigned to it can securely access it. Many types of applications can be registered in Azure AD. For more information, see [Application types for the Microsoft Identity Platform](../develop/v2-app-types.md).
 
 In this article, you learn these important aspects of managing the lifecycle of an application:
 
@@ -29,7 +29,7 @@ In this article, you learn these important aspects of managing the lifecycle of 
 
 ## Develop, add, or connect
 
-There are several ways that you might manage applications in Azure AD. The easiest way to start managing an application is to use a pre-integrated application from the Azure AD gallery. You can start fresh to develop your own application, or you can continue to use an on-premises application.
+There are several ways that you might manage applications in Azure AD. The easiest way to start managing an application is to use a pre-integrated application from the Azure AD gallery. Developing your own application and registering it Azure AD is an option, or you can continue to use an on-premises application.
 
 The following image shows how these applications interact with Azure AD.
 
@@ -74,7 +74,9 @@ Consider implementing SSO in your application. You can manually configure most a
 
 ### User, group, and owner assignment
 
-By default, all users can access your enterprise applications without being assigned to them. However, if you want to assign the application to a set of users, your application requires user assignment. For a simple example of how to create and assign a user account to an application, see [Quickstart: Create and assign a user account](add-application-portal-assign-users.md). If included in your subscription, [assign groups to an application](assign-user-or-group-access-portal.md) so that you can delegate ongoing access management to the group owner. 
+By default, all users can access your enterprise applications without being assigned to them. However, if you want to assign the application to a set of users, your application requires user assignment. For a simple example of how to create and assign a user account to an application, see [Quickstart: Create and assign a user account](add-application-portal-assign-users.md). 
+
+If included in your subscription, [assign groups to an application](assign-user-or-group-access-portal.md) so that you can delegate ongoing access management to the group owner. 
 
 [Assigning owners](assign-app-owners.md) is a simple way to grant the ability to manage all aspects of Azure AD configuration for an application. As an owner, a user can manage the organization-specific configuration of the application.
 
