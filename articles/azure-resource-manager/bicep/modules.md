@@ -69,7 +69,7 @@ For example, to deploy a file that is up one level in the directory from your ma
 If you have [published a module to a registry](bicep-cli.md#publish), you can link to that module. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
 
 ```bicep
-module <symbolic-name> 'br/<registry-name>.azurecr.io/<file-path>:<tag>' = {
+module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
 - **br** is the schema name for a Bicep registry.

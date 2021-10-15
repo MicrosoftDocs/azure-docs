@@ -55,7 +55,7 @@ The following example shows a sample config file that defines two module aliases
 **Without the aliases**, you would link to the module with the full path.
 
 ```bicep
-module stgModule 'br/contosoregistry.azurecr.io/bicep/modules/core/storage:v1' = {
+module stgModule 'br:contosoregistry.azurecr.io/bicep/modules/core/storage:v1' = {
 ```
 
 **With the aliases**, you can simplify the link by using the alias for the registry.
