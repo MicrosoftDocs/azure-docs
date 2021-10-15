@@ -47,7 +47,7 @@ A Classification Policy can reference a `QueueSelector`, which is used by the cl
 
 **QueueLabelSelector -** When you create a Job Router Queue you can specify labels to help the Queue selection process during Job classification. This type of selector uses a collection of `LabelSelectorAttachment` types to offer the most flexibility in selecting the Queue during the classification process. Use this selector to allow the Job classification process to select the Queue ID based on its labels. For more information See the section [below](#using-labels-and-selectors-in-classification).
 
-**QueueIdSelector -** This selector will allow the use of a polymorphic `RouterRule` to determine the Queue ID of the Job based on the result of the rule engine. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
+**QueueIdSelector -** This selector will enable the use of one of many rule engines to determine the Queue ID of the Job based on the result of the rule. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
 ### Worker selectors
 
