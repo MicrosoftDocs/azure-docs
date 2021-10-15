@@ -27,7 +27,14 @@ landingContent:
           - text: What is Azure Form Recognizer?
             url: overview.md
 
-   
+# Card
+  - title: What's new?
+    linkLists:
+    - linkListType: overview
+      links:
+        -text: What's new in Form Recognizer?
+        url: whats-new.md
+
 # Card
   - title: Language Support
     linkLists:
