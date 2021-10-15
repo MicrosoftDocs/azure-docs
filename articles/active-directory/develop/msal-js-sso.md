@@ -48,13 +48,13 @@ When a user authenticates, a session cookie is set on the Azure AD domain in the
 
 ### Applications on the same domain
 
-When applications are hosted on the same domain, the user can sign into an app once and then get authenticated to the other apps without a prompt. MSAL.js leverages the tokens cached for the user on the domain to provide SSO.
+When applications are hosted on the same domain, the user can sign into an app once and then get authenticated to the other apps without a prompt. MSAL.js uses the tokens cached for the user on the domain to provide SSO.
 
 ### Applications on different domain
 
 When applications are hosted on different domains, the tokens cached on domain A cannot be accessed by MSAL.js in domain B.
 
-When users signed in on domain A navigate to an application on domain B, they'll be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials. 
+When a user is signed in on domain A navigate to an application on domain B, the user will be redirected or prompted with the sign-in page. Since Azure AD still has the user session cookie, it will sign in the user and they won't have to re-enter the credentials. 
 
 If the user has multiple user accounts in session with Azure AD, the user will be prompted to pick the relevant account to sign in with.
 
@@ -64,7 +64,7 @@ In certain cases, the application has access to the user's authentication contex
 
 **Using Session ID**
 
-Session ID (SID) is an [optional claim](active-directory-optional-claims.md) that can be configured in the ID tokens. A claim allows the application to identify the user’s Azure AD session independent of the user’s account name or username. You can pass the SID in the request parameters to the `acquireTokenSilent` call. This will allow Azure AD to bypass the account selection. SID is bound to the session cookie and won't cross browser contexts.
+Session ID (SID) is an [optional claim](active-directory-optional-claims.md) that can be configured in the ID tokens. A claim allows the application to identify the user’s Azure AD session independent of the user’s account name or username. You can pass the SID in the request parameters to the `acquireTokenSilent` call. The `acquireTokenSilent` in the request parameters allow Azure AD to bypass the account selection. SID is bound to the session cookie and won't cross browser contexts.
 
 ```javascript
 var request = {
@@ -113,7 +113,7 @@ By design, MSAL.js requires that a login method is called to establish a user co
 
 There are certain cases in which applications have access to the authenticated user's context or ID token through authentication initiated in another application and want to use SSO to acquire tokens without first signing in through MSAL.js.
 
-A good example of this is: A user is signed into a parent web application, which hosts another JavaScript application running as an add-on or plugin.
+An example: A user is signed in to Microsoft account in a browser that hosts another JavaScript application running as an add-on or plugin, which requires a Microsoft account sign-in.
 
 The SSO experience in this scenario can be achieved as follows:
 
