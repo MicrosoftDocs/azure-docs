@@ -59,7 +59,7 @@ The priority of a Job can be resolved during classification using one of many ru
 
 ## Using labels and selectors in classification
 
-Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make various decisions about routing and queueing. When using a `LabelSelectorAttachment` on a `QueueSelector`, it acts like a filter. When used on a `WorkerSelectors` object, it attaches selectors to the existing set. The following polymorphic `LabelSelectorAttachment` types exist in Job router and are available in multiple stages of the classification process:
+Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make various decisions about routing. When using a `LabelSelectorAttachment` on a `QueueSelector`, it acts like a filter. When used within the context of `WorkerSelectors`, it attaches selectors to the initial set that was created with the job. The following `LabelSelectorAttachment` types can be used:
 
 **Static label selector -** Uses a simple `LabelSelector` involving a key, operator, and value.
 
