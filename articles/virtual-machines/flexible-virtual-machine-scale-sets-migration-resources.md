@@ -17,7 +17,7 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 You can update from using [availability sets](availability-set-overview.md) and [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) to using virtual machine scale sets in Flexible orchestration. This article goes over migration considerations for both scenarios and other things to think about when switching to Flexible orchestration mode for virtual machine scale sets. 
 
-## Update Availability Set deployments templates and scripts
+## Update availability set deployments templates and scripts
 
 First, you need to create a virtual machine scale set with no auto scaling profile via [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md). Azure portal only allows creating a virtual machine scale set with an autoscaling profile. If you do not want or need an autoscaling profile and you want to create a scale set using [Azure portal](flexible-virtual-machine-scale-sets-portal.md), you can set the initial capacity to 0. 
  
@@ -30,22 +30,22 @@ Flexible orchestration for virtual machine scale sets also supports deploying in
 The last step in this process is to create a virtual machine. Instead of specifying an availability set, specify the virtual machine scale set. Optionally, you can specify the availability zone or fault domain in which you wish to place the VM. 
 
 
-## Migrate existing Availability Set VMs 
+## Migrate existing availability set VMs 
 
 There is currently no automated tooling to directly move existing instances in an Availability Set to a virtual machine scale set. However, there are several strategies you can utilize to migrate existing instances to a Flexible scale set: 
 
-### Blue/Green or Side by side migration 
+### Blue/green or side by side migration 
 
-1. Bring up new scale set virtual machine instances with similar configuration into the same resource group, virtual network, load balancer, etc as the VMs in the availability 
-1. Migrate data, network traffic, etc to use the new scale set instances 
+1. Bring up new scale set virtual machine instances with similar configuration into the same resource group, virtual network, load balancer, etc. as the VMs in the availability 
+1. Migrate data, network traffic, etc. to use the new scale set instances 
 1. Deallocate or remove the original Availability Set virtual machines, leaving the scale set VMs running for your application
 
-### Replace VM Instances 
+### Replace VM instances 
 
-1. Note the parameters you want to keep from the virtual machine (name, NIC id, OS and data disk IDs, VM configuration settings, fault domain placement, etc) 
+1. Note the parameters you want to keep from the virtual machine (name, NIC ID, OS and data disk IDs, VM configuration settings, fault domain placement, etc.) 
 1. Delete the availability set virtual machine. The NICs and disks for the VM will not be deleted  
 1. Create a new virtual machine object, using the parameters from the original VM 
-    1. NIC id 
+    1. NIC ID 
     1. OS and Data disks 
     1. Fault domain placement 
     1. Other VM settings 
@@ -70,10 +70,10 @@ Update Uniform virtual machine scale sets deployment templates and scripts to us
 
 There is currently no automated tooling to directly move existing instances or upgrade a Uniform scale set to a Flexible virtual machine scale set. However, here is a strategy you can utilize to migrate existing instances to a Flexible scale set:
 
-### Blue/Green or Side by side migration 
+### Blue/green or side by side migration 
 
-1. Bring up new Flexible orchestration mode scale set with similar configuration into the same resource group, virtual network, load balancer, etc as the original scale set in Uniform orchestration mode
-1. Migrate data, network traffic, etc to use the new scale set instances 
+1. Bring up new Flexible orchestration mode scale set with similar configuration into the same resource group, virtual network, load balancer, etc. as the original scale set in Uniform orchestration mode
+1. Migrate data, network traffic, etc. to use the new scale set instances 
 1. Scale down or remove the original Uniform scale set virtual machines, leaving the scale set virtual machines running for your application
 
 
@@ -81,7 +81,7 @@ There is currently no automated tooling to directly move existing instances or u
 
 Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of availability sets. The following are key considerations when deciding to work with the Flexible orchestration mode. 
 
-### Explicit Network Outbound Connectivity required 
+### Explicit network outbound connectivity required 
 
 In order to enhance default network security, Virtual machine scale sets with Flexible orchestration will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
 
@@ -134,7 +134,7 @@ Querying resources with [Azure Resource Graph](../governance/resource-graph/over
 - Use the Get VM API and commands to get model and instance view for a single instance.
 
 
-### Scale sets VM Batch operations
+### Scale sets VM batch operations
 Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) are not used with Flexible orchestration mode.
 
 

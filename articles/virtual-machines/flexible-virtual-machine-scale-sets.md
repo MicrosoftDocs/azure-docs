@@ -97,7 +97,7 @@ az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[nam
 ## Features
 The following tables list the Flexible orchestration mode features and links to the appropriate documentation.
 
-### Basic Setup
+### Basic setup
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
@@ -120,7 +120,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | UserData  | Partial, UserData can be specified for individual VMs |
 
 
-### Autoscaling and Instance Orchestration
+### Autoscaling and instance orchestration
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
@@ -137,9 +137,9 @@ The following tables list the Flexible orchestration mode features and links to 
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
 | Perform Maintenance | No (can trigger maintenance on each instance using VM API) |
-| VM Batch Operations (Start all, Stop all, delete subset, etc) | No (can trigger operations on each instance using VM API) |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) |
 
-### High Availability 
+### High availability 
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
@@ -163,12 +163,12 @@ The following tables list the Flexible orchestration mode features and links to 
 | Basic SLB | No |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) |
 
-### Backup and Recovery 
+### Backup and recovery 
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
 | Azure Backup  | Yes |
-| Azure Site Recovery | Yes (via Powershell) |
+| Azure Site Recovery | Yes (via PowerShell) |
 | Azure Alerts  | Yes |
 | VM Insights  | No |
 
