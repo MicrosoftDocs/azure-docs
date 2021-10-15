@@ -59,17 +59,17 @@ For information about Video Analyzer sources, processors, and sinks see [Sources
 Allows a Video Analyzer video recording to be used as a source. The node requires you to specify the name of the video resource, as well as the start and end time of the portion(s) of the recorded video to be processed.
 
 ```json
-// Video Source  
+// Video Source
 { 
   "@type": "#Microsoft.VideoAnalyzer.VideoSource",
   "name": "{nodeName}", //Node identifier within the topology
-  "videoName": "{videoName}", // Name of the source video
+  "videoName": "{videoName}", // Name of the source video
   // Accuracy is implicit based on the presence of an encoder node
-  "sequences ":  
-   { 
-     "@type": "#Microsoft.VideoAnalyzer.VideoDateTimeSequencesString",
-     "dateTimeMarkers": "[[2020-10-05T03:30:00Z,2020-10-05T03:40:00Z],[..,..]]"  // [startTime,endTime] DateLiteral as per ISO8601
-    }
+  "sequences ":
+   {
+    "@type": "#Microsoft.VideoAnalyzer.VideoDateTimeSequencesString",
+    "dateTimeMarkers": "[[2020-10-05T03:30:00Z,2020-10-05T03:40:00Z],[..,..]]"  // [startTime,endTime] DateLiteral as per ISO8601
+   }
 }
 ```
 
@@ -85,7 +85,7 @@ The encoder processor node allows user to specify encoding properties when conve
   - width - same as source
   - height - same as source
   - Audio encoder
-    - same as source.
+  - same as source.
 
 - Custom Preset - Allows for configuration of:
 
@@ -105,7 +105,7 @@ The encoder processor node allows user to specify encoding properties when conve
 
   ```json
   // Encoder Processor 
-  { 
+  {
     "@type": "#Microsoft.VideoAnalyzer.EncoderProcessor", 
     "name": "{nodeName}",           // Node identifier within the topology 
     // System presets 
