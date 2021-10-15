@@ -139,6 +139,9 @@ To set proper roles on your storage account:
 
 Once your Azure resource and storage account are configured, you can create a project, using the [Azure portal](../quickstart.md?pivots=language-studio#create-a-custom-classification-project) or [REST API](../quickstart.md?pivots=rest-api#create-project).
 
+>[!NOTE]
+> If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
+
 ## Next steps
 
 After your project is created, you can start [tagging your data](tag-data.md), which will inform your text classification model how to interpret text, and is used for training and evaluation.

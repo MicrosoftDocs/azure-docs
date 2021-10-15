@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Improve model performance
 
-After you've trained your model you reviewed its evaluation details, you can start to improve model performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
+After you've trained your model you reviewed its evaluation details, you can decide if you need to improve your model's performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
 
 Improving the model comes after you've:
 
@@ -22,7 +22,7 @@ Improving the model comes after you've:
 * Completed [model training](train-model.md) successfully.
 * Viewed the [model evaluation details](view-model-evaluation.md) to know how well your model performs.
 
-:::image type="content" source="../media/development-lifecycle/improve-deploy-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/improve-deploy-model.png":::
+:::image type="content" source="../media/development-lifecycle/improve-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/improve-model.png":::
 
 ## Review test set predictions
 

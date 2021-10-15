@@ -12,48 +12,45 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Send a text classification request using the API
+# Deploy a model and classify text using the runtime API
 
-After deploying your model it is ready for you to send text classification tasks to it. This is the final step in the application development lifecyclee, after you've:
+After you're satisfied with your model, and made any necessary improvements, you can deploy it and start classifying text. Deploying a model makes it available for use through the runtime API.
 
-* Successfully created a [Custom text classification project](../quickstart.md) 
-* [Tagged your data](tag-data.md).
-* [Trained your model](train-model.md) and deployed it.  
+:::image type="content" source="../media/development-lifecycle/deploy-classify.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/deploy-classify.png":::
 
-:::image type="content" source="../media/development-lifecycle/send-requests.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/send-requests.png":::
+> [!TIP]
+> You can test your model in Language Studio by sending samples of text for it to classify. 
+> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
+> 2. Select the model you want to test.
+> 3. Add your text to the textbox, you can also upload a `.txt` file. 
+> 4. Click on **Run the test**.
+> 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
 
-## Prerequisites
+## Deploy your model
 
-* [cURL](https://curl.haxx.se/) installed
+You can deploy your model by navigating to your project in [Language Studio](https://language.azure.com/customText/projects/classification), and selecting **Deploy model** from the menu on the left part of the screen.
 
 ## Send a text classification request to your model
-
->[!IMPORTANT]
-> You can start a text classification job using Language Studio, but you will only be able to retrieve and view it programmatically. 
 
 # [Using Language Studio](#tab/language-studio)
 
 ### Using Language studio
 
-1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/classification).
-
-2. Select **Deploy model** from the left side menu.
-
-3. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
+1. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
 
     :::image type="content" source="../media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../media/get-prediction-url-1.png":::
 
-4. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
+2. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
 
-5. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
+3. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
 
     :::image type="content" source="../media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../media/get-prediction-url-2.png":::
 
-6. Submit the request
+4. Submit the request
 
-7. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId}>`
+5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId}>`
 
-8. Copy the retrieve request and replace `jobId` and submit the request.
+6. Copy the retrieve request and replace `jobId` and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 

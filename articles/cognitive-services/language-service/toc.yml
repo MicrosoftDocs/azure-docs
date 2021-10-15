@@ -39,6 +39,7 @@ items:
       href: custom-classification/how-to/use-azure-resources.md
     - name: Data selection and schema design
       href: custom-classification/concepts/recommended-practices.md
+      displayName: Best practices
     - name: Tag data
       href: custom-classification/how-to/tag-data.md
     - name: Train a model
@@ -47,19 +48,22 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Call the API runtime to classify text
+    - name: Deploy a model and call the runtime API to classify text
       href: custom-classification/how-to/run-inference.md
   - name: Concepts
     items:
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
-    - name: Data limits
-      href: custom-classification/concepts/data-limits.md
+    - name: Accepted data tag formats
+      href: custom-classification/concepts/data-formats.md
+      displayName: Data representation
   - name: Reference
     items:
     - name: Glossary
       href: custom-classification/definitions.md
       displayName: Model, Project, Class 
+    - name: Service limits
+      href: custom-classification/concepts/data-limits.md
     - name: Prediction
       items:
       - name: REST API

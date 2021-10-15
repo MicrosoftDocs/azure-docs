@@ -51,6 +51,13 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * Project names have to be unique within the same resource, across both the custom Named Entity Recognition (NER) and custom text classification features.
 
+### Regional availability
+
+Custom entity extraction is only available in the following regions:
+
+* West US 2
+* West Europe
+
 ## Project limits
 
 * You can only connect 1 storage container for each project. This process is irreversible, if you connect a container to your resource you can't disconnect it later.

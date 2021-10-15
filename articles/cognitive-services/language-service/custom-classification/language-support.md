@@ -1,5 +1,5 @@
 ---
-title: Language support in custom entity extraction 
+title: Language support in custom classification
 titleSuffix: Azure Cognitive Services
 description: Learn about which languages are supported by custom entity extraction, which is a part of Language Services.
 services: cognitive-services
@@ -29,6 +29,14 @@ Custom text classification supports `.txt` files in the following languages:
 | Spanish (Spain) |`es-ES` |
 | Portuguese (Portugal) | `pt-PT` |
 | Portuguese (Brazil) | `pt-BR` |
+
+## Multiple language support
+
+With custom entity extraction, your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages.
+
+> [!NOTE]
+> To enable support for multiple languages, you need to enable this option
+If your files are in multiple languages you need to enable this option when [creating your project](quickstart.md).
 
 ## Next steps
 

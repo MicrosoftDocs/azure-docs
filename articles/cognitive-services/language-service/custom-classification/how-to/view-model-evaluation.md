@@ -51,5 +51,5 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 
 ## Next steps
 
-As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation.md) that are used. Once you know how you might improve performance, you can begin [improving the model](improve-model.md).
+As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation.md) that are used. Once you know whether your model performance needs to improve, you can begin [improving the model](improve-model.md).
 

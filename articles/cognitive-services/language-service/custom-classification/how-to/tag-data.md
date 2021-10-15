@@ -30,7 +30,7 @@ As you tag your data, keep in mind:
 
 ## Tag your data
 
-After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classifications you need.
+After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
 
 1. Go to your projects page in [Language Studio](https://language.azure.com/customText/projects/classifciation) and select your project.
 
@@ -38,16 +38,12 @@ After training data is uploaded to your Azure storage account, you will need to 
 
 3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the top-right menu to navigate.
     
-    >[!TIP]
-    > See the [recommended practices](../concepts/recommended-practices.md#data-tagging) for tagging your data
-    
-4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu.
+4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu. 
+
+    > [!NOTE]
+    > If you enabled multiple languages for your project, you will find an additional **Language** drop-down menu. Select the language of each document.
 
     :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
-
-5. If you enabled multiple languages for your project, you will find an additional **Language** drop-down menu. Select the language of each document.
-
-    :::image type="content" source="../media/tag-multilingual.png" alt-text="A screenshot showing the multilingual selector" lightbox="../media/tag-multilingual.png":::
 
 6. Before you start tagging, add classes to your project from the top-right corner
 
@@ -85,41 +81,6 @@ To delete/rename a class,
 
 As you tag your data, you can find a training readiness recommendation in the top-right corner of the page.
 :::image type="content" source="../media/tag-train-ready.png" alt-text="Readiness recommendation" lightbox="../media/tag-train-ready.png":::
-
-## Data tag JSON file format
-
-Your tags file should be in the `json` format below.
-
-```json
-{
-  //List of intent names. Their index within this array is used as an ID.
-  "intentNames": [
-      "intent_name1",
-      "intent_name2"
-  ],
-  "documents": [
-      {
-          "location": "path to document", //Relative file path to get the text.
-          "culture": "en-US", //Standard culture strings supported by CultureInfo
-          "intents": [
-              0,
-              3
-          ]
-      }
-  ]
-}
-```
-
-### Data description
-
-* `intentNames`: An array of classes. Index of the class within the array is used as its ID.
-* `documents`: An array of tagged documents. For example:
-    * `file.txt` For documents on the same level as the tags file. 
-    * `dir1/file.txt` For documents within a directory level. 
-    *  `../file.txt` For documents one directory level above.
-* `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
-* `culture`: Culture/language of the document. Use one of the [supported culture locales](../language-support.md).
-* `intents`: Array of classes assigned to the document. If you're working on a single classification project, this value must be one item only.
 
 ## Next steps
 
