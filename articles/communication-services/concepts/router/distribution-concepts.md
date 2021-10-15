@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router uses a flexible distribution process which involves the use of a policy and a Job Offer lifecycle to assign Workers. This article describes the different ways a Job can be distributed, what the Job Offer lifecycle is, and the effect this process has on Workers.
+Azure Communication Services Job Router uses a flexible distribution process which involves the use of a policy and a Job offer lifecycle to assign Workers. This article describes the different ways a Job can be distributed, what the Job offer lifecycle is, and the effect this process has on Workers.
 
 ## Job distribution overview
 
@@ -34,9 +34,9 @@ There are several scenarios which will trigger Job Router to find a job for a wo
 
 - When a Worker registers with Job Router
 - When a Job is closed and the channel is released
-- When a Job Offer is declined or revoked
+- When a Job offer is declined or revoked
 
-The distribution process is the same as finding Workers for a Job.
+The distribution process is the same as finding Workers for a Job. When a worker is found, an [offer](#job-offer-overview) is generated.
 
 ## Worker overview
 
@@ -138,13 +138,16 @@ await client.RegisterWorkerAsync(
 );
 ```
 
-The above example illustrates three abstract channels each with their own cost per Job. Given this, the following Job concurrency is possible for the `PizzaCook` Worker:
+The above example illustrates three abstract channels each with their own cost per Job. Given this, the following Job concurrency examples are possible for the `PizzaCook` Worker:
 
-- 2 MakePizza Jobs = 100
-- 3 MakeDonair Jobs = 99
-- 4 MakeBurger Jobs = 100
-- 1 MakePizza and 1 MakeDonair Jobs = 83
-- 2 MakeDonair and 1 MakeBurger Jobs = 91
+| MakePizza | MakeDonair | MakeBurger | Score |
+| --        | --         | --         | --    |
+| 2         |            |            | 100   |
+|           | 3          |            | 99    |
+| 1         | 1          |            | 83    |
+|           | 2          | 1          | 91    |
+|           |            | 4          | 100   |
+|           | 1          | 2          | 83    |
 
 ### Worker abilities
 
@@ -154,6 +157,7 @@ Aside from the available channels a Worker may have, the distribution process us
 new LabelCollection
     {
         { "Location", "New Jersey" },
+        { "Language", "English" },
         { "PizzaMaker", 7 },
         { "DonairMaker", 10},
         { "BurgerMaker", 5}
@@ -193,4 +197,35 @@ Since Job Router can handle concurrent Jobs for a Worker depending on their Chan
 
 ## Job offer overview
 
-When the distribution process locates 
+When the distribution process locates a suitable Worker who has an open channel and has the correct status, a Job offer is generated and a event is sent. The Distribution Policy contains the following configurable properties for the offer:
+
+**OfferTTL -** The time-to-live for each offer generated
+
+**Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties.
+
+### Job offer lifecycle
+
+The following Job offer lifecycle events can be observed through your Event Grid subscription:
+
+- OfferIssuedEvent
+- OfferAcceptedEvent
+- OfferDeclinedEvent
+- OfferExpiredEvent
+- OfferRevokedEvent
+
+> [!NOTE]
+> An offer can be accepted or declined by a Worker by using the SDK while all other events are internally generated.
+
+## Distribution modes
+
+Job Router includes the following distribution modes:
+
+**LongestIdleMode -** Generates Offer for the longest idle Worker in a Queue
+
+**RoundRobinMode -** Given a collection of Workers, randomly choose a Worker in a round-robin fashion
+
+**BestWorkerMode -** Use the Job Router's [RuleEngine](router-rule-concepts.md) to choose a Worker based on their labels
+
+## Distribution summary
+
+Depending on several factors such as a Worker's status, channel configuration/capacity, the distribution policy's mode, and offer concurrency can influence the way Job offers are generated. It is suggested to start with a simple implementation and add complexity as your requirements dictate.
