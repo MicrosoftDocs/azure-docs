@@ -14,17 +14,17 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 By default, the OS disks of the virtual machines in an Azure Red Hat OpenShift cluster were encrypted with auto-generated keys managed by Microsoft Azure. For additional security, customers can encrypt the OS disks with self-managed keys when deploying an ARO cluster. This features allows for more control by encrypting confidential data with customer-managed keys.
 
-Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](https://docs.microsoft.com/en-us/azure/key-vault/) in the Microsoft Azure documentation.
+Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](../key-vault/general/basic-concepts.md) in the Microsoft Azure documentation.
 
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Preview features are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Preview features are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
 
 ## Limitation
-It is the responsibility of the customers to maintain the Key Vault and Disk Encryption Set in Azure. Failure to maintain the keys will result in broken ARO clusters. The VMs stop working and therefore the entire ARO cluster stops functioning. The Azure Red Hat OpenShift Engineering team cannot access the keys; therefore, they cannot back up, replicate, or retrieve the keys. For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](https://docs.microsoft.com/en-us/azure/virtual-machines/disk-encryption) in the Microsoft Azure documentation.
+It is the responsibility of the customers to maintain the Key Vault and Disk Encryption Set in Azure. Failure to maintain the keys will result in broken ARO clusters. The VMs stop working and therefore the entire ARO cluster stops functioning. The Azure Red Hat OpenShift Engineering team cannot access the keys; therefore, they cannot back up, replicate, or retrieve the keys. For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
 
 ## Prerequisites
-* [Verify your permissions](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster#verify-your-permissions). You must have either Contributor and User Access Administrator permissions, or Owner permissions.
-* Register the resource providers if you have multiple Azure subscriptions. For registration details, see [Register the resource providers](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster#register-the-resource-providers).
+* [Verify your permissions](tutorial-create-cluster#verify-your-permissions). You must have either Contributor and User Access Administrator permissions, or Owner permissions.
+* Register the resource providers if you have multiple Azure subscriptions. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
 
 ## Install the preview Azure CLI extension
 Install and use the Azure Command-Line Interface (CLI) to create a Key Vault. The Azure CLI allows the execution of commands through a terminal using interactive command-line prompts or a script.
@@ -53,7 +53,7 @@ Install and use the Azure Command-Line Interface (CLI) to create a Key Vault. Th
     ```
 
 ## Create a virtual network containing two empty subnets
-Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster#create-a-virtual-network-containing-two-empty-subnets).
+Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
 
 ## Create an Azure Key Vault instance
 You must use an Azure Key Vault instance to store your keys. Create a new Key Vault with purge protection enabled. Then, create a new key within the Key Vault to store your own custom key.
