@@ -71,9 +71,6 @@ Job Router uses the key/value pair "labels" of a Job, Worker, and Queue to make 
 
 **Weighted allocation label selector -** A collection of `WeightedAllocation` objects that each specify a percentage based weighting and a collection of selector to apply based on the weighting allocation. For example, you may want 30% of the Jobs to go to "Contoso" and 70% of Jobs to go to "Fabrikam".
 
-> [!NOTE]
-> The weighted allocation label selector is currently only supported for attaching new `WorkerSelectors` to the Job and should not be used in a `QueueSelector`.
-
 ## Reclassifying a job
 Once a Job has been classified, it can be reclassified in the following ways:
 
