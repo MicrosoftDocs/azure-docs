@@ -90,10 +90,10 @@ unless you select one of the private DNS zones previously created by Hyperscale
 overview](/azure/dns/private-dns-overview).
 
 Hyperscale (Citus) service creates DNS records such as
-`c.private.mygroup01.postgres.database.azure.com`  in the selected private DNS
-zone for each node with a private endpoint. When you connect to a Hyperscale
-(Citus) node from an Azure VM via private endpoint, Azure DNS resolves the
-node’s FQDN into a private IP address.
+`c.privatelink.mygroup01.postgres.database.azure.com`  in the selected private
+DNS zone for each node with a private endpoint. When you connect to a
+Hyperscale (Citus) node from an Azure VM via private endpoint, Azure DNS
+resolves the node’s FQDN into a private IP address.
 
 Private DNS zone settings and virtual network peering are independent of each
 other. If you want to connect to a node in the server group from a client
