@@ -12,16 +12,23 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Tag your data in language studio
+# Tag text data for training your model 
 
 Before creating a custom text classification model, you need to have tagged data first. If your data is not tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
 
+Before you can tag data, you need [a successfully created project](../quickstart.md) with a valid resource and storage account.
+You will then need to [upload training data](use-azure-resources.md#prepare-training-data) for your model to learn from. When thinking about developing text classification projects, tagging your data lets you train your model, and later:
+* [Evaluate the model](view-model-evaluation.md)
+* [Train the model](train-model.md), and finally deploy the model before:
+* [Use the model to make text classification requests](run-inference.md)
 
-## Prerequisites
 
-* a [created project](../quickstart.md) with a valid resource and storage account.
+
+:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
 
 ## Tag your data
+
+After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classifications you need.
 
 1. Go to your projects page in [Language Studio](https://language.azure.com/customText/projects/classifciation) and select your project.
 
@@ -112,6 +119,8 @@ Your tags file should be in the `json` format below.
 * `culture`: Culture/language of the document. Use one of the [supported culture locales](../language-support.md).
 * `intents`: Array of classes assigned to the document. If you're working on a single classification project, this value must be one item only.
 
-## Next Steps
+## Next steps
 
-* [Train your model](train-model.md)
+* [Evaluate the model](view-model-evaluation.md)
+* [Train the model](train-model.md)
+* [Use the model to make text classification requests](run-inference.md)

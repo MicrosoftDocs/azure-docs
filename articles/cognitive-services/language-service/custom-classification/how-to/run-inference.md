@@ -12,23 +12,24 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Submit text classification tasks
+# Send a text classification request using the API
 
-After deploying your model it is ready for you to send text classification tasks to it. 
+After deploying your model it is ready for you to send text classification tasks to it. This is the final step in the application development lifecyclee, after you've:
 
->[!IMPORTANT]
-> You can create a text classification job using Language Studio, but you will only be able to retrieve and view it programmatically. 
+* Successfully created a [Custom text classification project](../quickstart.md) 
+* [Tagged your data](tag-data.md).
+* [Trained your model](train-model.md) and deployed it.  
+
+:::image type="content" source="../media/development-lifecycle/send-requests.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/send-requests.png":::
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart.md) with
-    * Model training completed 
-    * Successful model deployment.
-* Completed [data tagging](tag-data.md).
-
 * [cURL](https://curl.haxx.se/) installed
 
-## Create a text classification job
+## Send a text classification request to your model
+
+>[!IMPORTANT]
+> You can start a text classification job using Language Studio, but you will only be able to retrieve and view it programmatically. 
 
 # [Using Language Studio](#tab/language-studio)
 

@@ -18,6 +18,8 @@ Reviewing model evaluation is an important step in developing a custom classific
 
 Model evaluation comes after you've [created a text classification project](../quickstart.md), and finished [training your model](train-model.md) successfully. The evaluation process uses the trained model to predict user-defined classes for files in the test set, and compares them with the provided data tags. The test set consists of data that was not introduced to the model during the training process. 
 
+:::image type="content" source="../media/development-lifecycle/evaluate-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/evaluate-model.png":::
+
 ## View the model details using Language Studio
 
 1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
@@ -50,4 +52,4 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 ## Next steps
 
 * [Improve model](improve-model.md)
-* [Evaluation metrics](../concepts/evaluation.md)
+* [Learn about the evaluation metrics](../concepts/evaluation.md)

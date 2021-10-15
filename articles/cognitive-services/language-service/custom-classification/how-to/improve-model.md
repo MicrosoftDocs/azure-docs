@@ -16,11 +16,13 @@ ms.author: aahi
 
 After you've trained your model you reviewed its evaluation details, you can start to improve model performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
 
-## Prerequisites
+Improving the model comes after you've:
 
 * Successfully created a [Custom text classification project](../quickstart.md).
 * Completed [model training](train-model.md) successfully.
-* Viewed [model evaluation details](view-model-evaluation.md).
+* Viewed the [model evaluation details](view-model-evaluation.md) to know how well your model performs.
+
+:::image type="content" source="../media/development-lifecycle/improve-deploy-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/improve-deploy-model.png":::
 
 ## Review test set predictions
 
@@ -64,4 +66,4 @@ You can [view recommended practices](../concepts/recommended-practices.md#data-t
 
 ## Next steps
 
-* [view recommended practices](../concepts/recommended-practices.md)
+* Once you're satisfied with how your model performs, you can start [sending text classification requests] using the runtime API.

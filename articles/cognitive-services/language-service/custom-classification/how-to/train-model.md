@@ -15,7 +15,12 @@ ms.author: aahi
 # How to train your model
 
 
-Training is the process where the model learns from your [tagged data](tag-data.md). Training uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can [view model evaluation](../how-to/view-model-evaluation.md), and [Improve your model](../how-to/improve-model.md). 
+Training is the process where the model learns from your [tagged data](tag-data.md), which uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you can:
+
+* [Use the model evaluation metrics](../how-to/view-model-evaluation.md) to [improve your model](../how-to/improve-model.md)
+* Deploy the model and [use it to make text classification requests](run-inference.md)
+
+:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
 
 > [!NOTE]
 > * You must have a minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
@@ -52,9 +57,8 @@ Before starting the training process, files in your dataset are divided into thr
 
 4. Select the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up window will appear to confirm overwriting the last model state.
 
-5. After training is completed, you can [view the model evaluation details](view-model-evaluation.md) and [improve your model](improve-model.md)
-
 ## Next steps
 
 * [View the model evaluation details](view-model-evaluation.md)
 * [Improve model](improve-model.md)
+* [Use the model to make text classification requests](run-inference.md)
