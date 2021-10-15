@@ -84,8 +84,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 10. In the **Specify recurrence of review** section, you must specify four different selections:
 - **Duration** - How long a review will be open for input from reviewers. 
 - **Review recurrence** - How often a review occurs such as **One Time, Weekly, Monthly, Quarterly, Semi-annually, Annually**.
-- **Start date** - When the review begins.
--  **End date** -When the review ends. You can specify that it **Never** ends, **End on a specific date**, or **End after number of occurrences**.
+- **Start date** - When the series of reviews begins.
+-  **End date** - When the series of reviews ends. You can specify that it **Never** ends, **End on a specific date**, or **End after number of occurrences**.
 
  
     ![Choose how often the review should happen](./media/create-access-review/frequency.png)
@@ -117,6 +117,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 13. Use **(Preview) At end of review, send notification to** to send notifications to other users or groups with completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
  
 14. In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended to be approved, while users who have not signed in during the past 30 days are recommended to be denied.
+
+> [!NOTE]
+ > If you are creating an access review based on applications, your recommendations will be be based on the 30 day interval period based on when the user last signed into the application rather than the tenant.
  
     ![Enable decision helpers options](./media/create-access-review/helpers.png)
  
@@ -130,13 +133,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
  
 16. Click on **Next: Review + Create** to move to the next page
  
+  ![create review screen](./media/create-access-review/create-review.png)
 17. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
  
 18. Review the information and select **Create**.
  
-       ![create review screen](./media/create-access-review/create-review.png)
+    
  
-## Allow  group owners to create and manage access reviews (Preview)
+## Allow group owners to create and manage access reviews of their groups (Preview)
  
 Prerequisite role: Global or User Administrator
  
@@ -159,24 +163,26 @@ Once you have specified the settings for an access review, click **Start**. The 
  
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
  
-If you have assigned guests as reviewers and they have not accepted the invite, they will not receive an email from access reviews because they must first accept the invite prior to reviewing.
+If you have assigned guests as reviewers and they have not accepted their invite to the tenant, they will not receive an email from access reviews because they must first accept the invite prior to reviewing.
 
 ## Update the access review
 
 After one or more access reviews have been started, you may want to modify or update the settings of your existing access reviews. Here are some common scenarios that you might want to consider:
 
+- **Updating settings or reviewers** - If an access review is recurring, there are separate settings under "Current" versus under "Series". Updating the settings or reviewers under "Current" will only apply changes to the current access review while updating the settings under "Series" will update the setting for all future recurrences.
+
+![Update Access Review Settings](./media/create-access-review/current-v-series-setting.png)
+
 - **Adding and removing reviewers** - When updating access reviews, you may choose to add a fallback reviewer in addition to the primary reviewer. Primary reviewers may be removed when updating an access review. However, fallback reviewers are not removable by design.
 
     > [!Note]
-    > Fallback reviewers can only be added when reviewer type is manager. Primary reviewers can be added when reviewer type is selected user.
+    > Fallback reviewers can only be added when reviewer type is manager  or group owner. Primary reviewers can be added when reviewer type is selected user.
 
 - **Reminding the reviewers** - When updating access reviews, you may choose to enable the reminder option under Advanced Settings. Once enabled, users will receive an email notification at the midpoint of the review period, regardless of whether they have completed the review or not. 
 
 ![Reminding Reviewers](./media/create-access-review/reminder-setting.png)
 
-- **Updating the settings** - If an access review is recurring, there are separate settings under "Current" versus under "Series". Updating the settings under "Current" will only apply changes to the current access review while updating the settings under "Series" will update the setting for all future recurrences.
 
-![Update Access Review Settings](./media/create-access-review/current-v-series-setting.png)
 
  
 ## Next steps

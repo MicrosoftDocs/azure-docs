@@ -83,11 +83,7 @@ To view the results of a completed instance of an access review that is recurrin
  
 To retrieve all the results of an access review, click the **Download** button. The resulting CSV file can be viewed in Excel or in other programs that open UTF-8 encoded CSV files.
 
-> [!NOTE]
-> Some denied users are unable to have results applied to them. Scenarios where this could happen include:
-> - Reviewing members of a synced on-premises Windows AD group: If the group is synced from on-premises  Windows AD, the group cannot be managed in Azure AD and therefore membership cannot be changed.
-> - Reviewing a resource (role, group, application) with nested groups assigned: For users who have membership through a nested group, we will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
-> - User not found / other errors can also result in an apply result not being supported.
+
  
 
 ## Apply the changes
@@ -104,7 +100,13 @@ Click **Apply** to manually apply the changes. If a user's access was denied in 
  
 The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Result applied**. You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
  
-Manually or automatically applying results doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
+Manually or automatically applying results doesn't have an effect on a group that originates in an on-premises directory. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
+
+> [!NOTE]
+> Some denied users are unable to have results applied to them. Scenarios where this could happen include:
+> - Reviewing members of a synced on-premises Windows AD group: If the group is synced from on-premises  Windows AD, the group cannot be managed in Azure AD and therefore membership cannot be changed.
+> - Reviewing a resource (role, group, application) with nested groups assigned: For users who have membership through a nested group, we will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
+> - User not found / other errors can also result in an apply result not being supported.
  
 
 ## Removing denied guest users from an access review
