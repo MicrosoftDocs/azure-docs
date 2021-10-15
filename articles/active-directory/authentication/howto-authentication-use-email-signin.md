@@ -29,7 +29,7 @@ Some organizations haven't moved to hybrid authentication for the following reas
 
 To help with the move to hybrid authentication, you can configure Azure AD to let users sign in with their email as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `ana@contoso.com` UPN, email as an alternate login ID can be used. To access an application or service, users would sign in to Azure AD using their non-UPN email, such as `ana@fabrikam.com`.
 
-:::image type="content" source="media/howto-authentication-use-email-signin/email-alternate-login-id.png" alt-text="Email as Alternate Login ID":::
+![Diagram of email as an alternate login ID.](media/howto-authentication-use-email-signin/email-alternate-login-id.png)
 
 This article shows you how to enable and use email as an alternate login ID.
 
@@ -123,7 +123,7 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 
 ## B2B guest user sign-in with an email address
 
-:::image type="content" source="media/howto-authentication-use-email-signin/email-alternate-login-id-for-b2b.png" alt-text="Email as Alternate Login ID for B2B Guest Users":::
+![Diagram of email as an alternate login ID for B2B guest user sign-in.](media/howto-authentication-use-email-signin/email-alternate-login-id-b2b.png)
 
 Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenanted endpoint. No action is required from the resource tenant to enable this functionality.
 
