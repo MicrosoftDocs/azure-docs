@@ -8,6 +8,8 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud using a remote device adapter
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 Azure Video Analyzer allows users to connect cameras directly to the cloud in order to capture and record video, using cloud pipelines.
 Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets via RTSP protocol. This approach is useful in the following scenarios:
 
