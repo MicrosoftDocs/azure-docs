@@ -252,60 +252,47 @@ landingContent:
           - text: Using the Sample Labeling tool
             url: "concept-id-document.md#try-it-sample-labeling-tool"
 
-# #Card
-#   - title: Business card model
-#     linkLists:
-#       - linkListType: get-started
-#         links:
-#
-#                  text: Model overview
-#                  url: concept-business-card.md
-#
-#                  text: Using the .NET SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
-#
-#                  text: Using the Python SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
-#
-#                  text: Using the Java SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
-#
-#                  text: Using the JavaScript SDK
-#                  url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
-#
-#                  text: Using the REST API (cURL)
-#                  url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
-#
-#                  text: Using the Sample Labeling tool
-#                  url: "concept-business-card.md#try-it-sample-labeling-tool"
+#Card
+  - title: Business card model
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Model overview
+            url: concept-business-card.md
+      - linkListType: get-started
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
+          - text: Using the REST API (cURL)
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+          - text: Using the Sample Labeling tool
+            url: "concept-business-card.md#try-it-sample-labeling-tool"
 
-# # Card
-#  - title: Responsible AI
-#     linkLists:
-#       - linkListType: get-started
-#         links:
-#             links:
-#
-#                  text: Transparency notes
-#                  url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
-#
-#                  text: Characteristics and limitations
-#                  url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
-#
-#                  text: Guidance for integration and responsible use
-#                  url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
-#
-#                  text: Data privacy, compliance, and security
-#                  url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-
-
-
-# - linkListType: video
-#         links:
-#           - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
-#             url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
-#           - text: AI-powered process automation
-#             url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+# Card
+  - title: Responsible AI and Video Support
+    linkLists:
+      - linkListType: reference
+        links:
+           - text: Transparency notes
+             url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Characteristics and limitations
+             url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Guidance for integration and responsible use
+             url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Data privacy, compliance, and security
+             url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+      - linkListType: video
+        links:
+          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
+            url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+          - text: AI-powered process automation
+            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
 
 
 
