@@ -26,7 +26,7 @@ These two approaches are key concepts in how Job Router initiates the discovery 
 
 ### Finding workers for a job
 
-When a new Job has completed the [classification process](classification-concepts.md), Job Router will use the Distribution Policy configured on the Queue to select an available Worker. 
+Once a Job has completed the [classification process](classification-concepts.md), Job Router will apply the Distribution Policy configured on the Queue to select one or more workers who meet the worker selectors on the job and generate offers for those workers to take on the job. 
 
 ### Finding a job for a worker
 
