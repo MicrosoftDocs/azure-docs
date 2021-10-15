@@ -119,11 +119,13 @@ azureml-examples
         custom-container
           half_plus_two
           tfserving-deployment.yml    
-```     
+```
+
+:::image type="content" source="./media/how-to-deploy-custom-container/local-directory-structure.png" alt-text="Tree view screenshot of /azureml-examples/cli/endpoints/online/custom-container directory structure":::
 
 and `tfserving-deployment.yml` contains:
 
-```
+```yaml
 model:
     name: tfserving-mounted
     version: 1
@@ -140,6 +142,8 @@ var
         1
           half_plus_two
 ```
+
+:::image type="content" source="./media/how-to-deploy-custom-container/deployment-location.png" alt-text="Tree view screenshot of /var/azureml-app/azureml-models/tfserving-deployment/1 directory structure":::
 
 You can optionally configure your __model_mount_path__. It enables you to change the path where the model is mounted.
 
@@ -167,6 +171,8 @@ var
       1
         half_plus_two
 ```
+
+:::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Tree view screenshot of /var/tfserving-model-mount/tfserving-deployment/1 directory structure":::
 
 ### Create your endpoint and deployment
 
