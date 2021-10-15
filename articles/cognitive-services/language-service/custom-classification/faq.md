@@ -43,7 +43,7 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 ## How do I use the analyze API?
 
-After deploying your model, you [submit text classification tasks](how-to/run-inference.md). See the [Analyze API reference](https://aka.ms/ct-runtime-swagger) for more information.
+After deploying your model, you [call the runtime API](how-to/call-api.md). See the [Analyze API reference](https://aka.ms/ct-runtime-swagger) for more information.
 
 ## Data privacy and security
 

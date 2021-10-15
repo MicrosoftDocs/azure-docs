@@ -32,7 +32,7 @@ Use this article to get started with creating and using a text classification mo
 ## Next steps
 
 After you've created a text classification model, you can:
-* [Use the runtime API to classify text](how-to/run-inference.md)
+* [Use the runtime API to classify text](how-to/call-api.md)
 
 When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
 

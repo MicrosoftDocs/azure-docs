@@ -19,7 +19,7 @@ Before you can use custom text classification, you will need to create a Text An
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Text Analytics resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
 >
-> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/project-requirements.md#optional-using-a-pre-existing-azure-resource)  for information.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 
@@ -121,9 +121,6 @@ After your model is deployed, you can start using it for text classification. Us
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
     :::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
-
-> [!IMPORTANT]
-> After you've tested your model using these steps, You will need to use the REST API or SDK to send [text classification requests](../../how-to/run-inference.md) to your applications.
 
 ## Clean up projects
 
