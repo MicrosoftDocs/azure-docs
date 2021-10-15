@@ -29,7 +29,7 @@ Each of these features has a demo-like experience inside Language Studio that le
 
 ## Language Studio customizable features
 
-The Language Service also offers multiple features that let you create, train, and publish custom models to better fit your data. For example, custom content classification and custom question answering. For features with customization, Language Studio offers workflows that let developers and subject matter experts build models without needing machine learning expertise. 
+The Language Service also offers multiple features that let you create, train, and deploy custom models to better fit your data. For example, custom content classification and custom question answering. For features with customization, Language Studio offers workflows that let developers and subject matter experts build models without needing machine learning expertise. 
 
 ## Clean up resources
 
