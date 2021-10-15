@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/10/2021
+ms.date: 10/13/2021
 ms.author: memildin
 
 ---
@@ -29,6 +29,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | November 2021| 
 | [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | November 2021    |
+| [Changes to a security alert from Azure Defender for Storage](#changes-to-a-security-alert-from-azure-defender-for-storage)  | November 2021    |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | Q1 2022    |
 |||
 
@@ -133,6 +134,25 @@ Security Center includes multiple recommendations for improving the management o
  
 
 
+
+
+### Changes to a security alert from Azure Defender for Storage
+
+**Estimated date for change:** November 2021
+
+One of the preview alerts provided by Azure Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
+
+**The alert type is changing too.**
+
+- Before the change, the alert was:<br>
+    "Preview - Anonymous scan of public storage containers"<br>(Storage.Blob_ContainerAnonymousScan)
+
+- From this change, there'll be two recommendations:
+
+    - "Open storage containers discovered by external scanning tool or script"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - "Successful discovery of open storage containers by external scanning script or tool"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+More details of these alerts will be published when the change is released.
 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases

@@ -8,7 +8,7 @@ ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: mtillman
+manager: karenh444
 ---
 
 # Azure Active Directory application proxy: What's new

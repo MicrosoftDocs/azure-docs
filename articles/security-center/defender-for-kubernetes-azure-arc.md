@@ -44,7 +44,6 @@ This diagram shows the interaction between Azure Defender for Kubernetes and the
 Before deploying the extension, ensure you:
 - [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Complete the [pre-requisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md#prerequisites).
-- Have [Helm 3](https://helm.sh/docs/intro/install) version 3.7.0 or newer
 - Configure **port 443** on the following endpoints for outbound access:
     - For clusters on Azure Government cloud:
         - *.ods.opinsights.azure.us

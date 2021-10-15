@@ -10,7 +10,7 @@ ms.service: security-center
 ms.topic: how-to
 ---
 
-# Explore and manage your resources with asset inventory
+# Use asset inventory to manage your resources' security posture
 
 The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud. 
 
@@ -23,7 +23,7 @@ Use this view and its filters to address such questions as:
 - Which of my subscriptions with Azure Defender enabled have outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
 - How many of my machines tagged with a specific tag have outstanding recommendations?
-- How many resources in a specific resource group have security findings from a vulnerability assessment service?
+- Which machines in a specific resource group have a known vulnerability (using a CVE number)?
 
 The asset management possibilities for this tool are substantial and continue to grow. 
 

@@ -63,7 +63,7 @@ To implement a **Fix**:
 
 ## Fix actions logged to the activity log <a name="activity-log"></a>
 
-The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-monitor/essentials/activity-log.md).
+The remediation operation uses a template deployment or REST API `PATCH` request to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-monitor/essentials/activity-log.md).
 
 
 ## Next steps
