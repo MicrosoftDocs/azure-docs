@@ -37,10 +37,10 @@ Video Analyzer can record videos from an RTSP source and in the Video Analyzer a
 
 In this tutorial, you will learn:
 
-1. About batch pipeline topologies and batch pipeline jobs
-2. How to create a batch topology.
-3. How to create a batch pipeline job from a Video Analyzer video archive that will create a MP4 file that contains a specified value of time (up to 24 hours).
-4. How to create a batch pipeline job from the Video Analyzer account blade that will create a MP4 file that contains video for a specific value of time (up to 24 hours).
+* About batch pipeline topologies and batch pipeline jobs
+* How to create a batch topology.
+* How to create a batch pipeline job from a Video Analyzer video archive that will create a MP4 file that contains a specified value of time (up to 24 hours).
+* How to create a batch pipeline job from the Video Analyzer account blade that will create a MP4 file that contains video for a specific value of time (up to 24 hours).
 
 ## Pipeline topologies of batch kind
 
@@ -48,10 +48,10 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
 
 ## Sources, Processors and sinks
 
-For information about Video Analyzer sources, processors, and sinks see this [documentation](../pipeline.md#sources-processors-and-sinks)
+For information about Video Analyzer sources, processors, and sinks see [Sources, Processors and Sinks](../pipeline.md#sources-processors-and-sinks)
 
 <details>
-    <summary>Click to expand and see the details about Video source and Endoder processor nodes.</summary>
+    <summary>Click to expand: Video source and Encoder processor details.</summary>
 ### Source
 
 #### Video Source
@@ -74,9 +74,6 @@ Allows a Video Analyzer video recording to be used as a source. The node require
 ```
 
 
-
-### Processor
-
 #### Encoder processor
 
 The encoder processor node allows user to specify encoding properties when converting the recorded video into the desired format for downstream processing. There are two presets, system and custom.  Below are the values for the system presets and custom presets.  
@@ -86,7 +83,7 @@ The encoder processor node allows user to specify encoding properties when conve
   - maximumBitrate - same as source
   - Scale mode - Pad
   - width - same as source
-  - height - same as souce
+  - height - same as source
   - Audio encoder
     - same as source.
 
@@ -150,34 +147,32 @@ For example video recorded from a camera configured for [4K resolution](https://
 
 For information about pipeline jobs see [lifecycle of a pipeline](./pipeline.md#Batch_pipeline)
 
-## Create a batch pipeline job through Video Analyzer videos
+## Create a pipeline job through Video Analyzer videos
 
 1. In the Azure portal navigate to your Video Analyzer account.
 
-2. Select **Videos** under the Video Analyzer section and then select the required video.
+1. Select **Videos** under the Video Analyzer section and then select the required video.
 
-3. Click on **Create Job** at the top.
+1. Click on **Create Job** at the top.
 
-4. In the **Create Job** fly out blade select either:
-   1. **Use existing** 
-      - Select the existing batch topology name from the drop down list.  
+1. In the `Create Job` fly out blade select:
+   
+   * **Create from sample**
       
-        [!NOTE]Select this option if you perfer to use a previously saved pipeline topology of batch kind.
-   2. **Create from sample**
+      - Select the `Video export` sample topology in the list.
       
-      - Select the sample topology in the list.
+      - Enter a name in the ` Batch topology name` to save the topology as.
       
-      - Enter a name to save the topology as.
-      
-        [!NOTE]The sample topology will be saved as the name entered above.  It will be available to re-use next time a video is to be exported.
+        >[!NOTE]The sample topology will be saved as the name entered above.  It will be available to re-use next time a video is to be exported.
 
-5. Enter the **Job name** and **Description**
+1. In the `Name your job` section enter a **Job name** in the Job name filed and a **Description** for the job in the description field (the description is optional)
 
-6. In the **Define parameters** section select the **sourceVideoName** from the drop down list.
+1. In the `Define parameters` section:
+    - Enter the name of the Video Analyzer recorded video in the `sourceVideoName` field.
+    - Enter a ISO 8601 date time value in the `videoSourceTimeSequenceParameter` field.  (Example: [["2021-10-12T18:37:00Z", "2021-10-12T18:39:00Z"]])
+    - Enter a name for the exported MP4 file in the `exportedVideoName` field.
 
-7. in the **Define parameters** section supply a name for the **exportedVideoName** and enter the start and end date and time.
-
-8. click **Create**.
+1. Click **Create**.
 
 The job will enter the processing state and when the pipeline job completes successfully it will transition to a completed state and present a link to the MP4 file in the top of the fly out blade.
 
@@ -187,20 +182,47 @@ The job will enter the processing state and when the pipeline job completes succ
 
 1. In the Azure portal navigate to the Video Analyzer account blade.
 
-2. Click on **Batch pipelines** under the Video Analyzer section.
+1. Click on **Batch** under the Video Analyzer section.
 
-3. In (1) **Create a batch topology** box click **Create**.
+1. Ensure that the Topologies tab is selected and then click on **Create**.
 
-    The job will enter the processing state and when the pipeline job completes successfully it will transition to a completed state and present a link to the MP4 file in the top of the fly out blade.
+1.  Click on `Try sample topologies` and select **Video export**
+
+1. In the pop up box `Load sample topology` click **Proceed**
+
+1. Enter a name for the topology in the `Topology name` field and (optional) enter a description of the topology in the `Description` field.
+
+1. Click **Save**
+
+Once the topology is saved select the `Jobs` tab
+
+1. Click on **Create**, select the previously created topology from the `Batch pipeline topology` drop down and click **Create**
+
+1.  Enter a name for the job in the `Pipeline job name` field and (optional) enter a description for the job in the `Description` field.
+
+1. Specify the name of a Video Analyzer recorded video in the `videoSourceVideoNameParameter` field.
+
+1. Enter a ISO 8601 date time value in the **videoSourceTimeSequenceParameter** field.  (Example: [["2021-10-12T18:37:00Z", "2021-10-12T18:39:00Z"]])
+
+1. Enter a name for the exported MP4 file in the `videoSinkNameParameter` field.
+
+1. Click **Create**
+
+In the `Jobs` tab you will see the previously created job enter the processing state.  When the job finishes you will be presented with a link to download the exported video.
+
+# TODO: CHECK THE JOBS STATUS PAGE
 
 ## Cancel a pipeline job
 
 Once a pipeline job has entered the processing state the job can be canceled.  To cancel a job:
 
-	1.  Navigate to the Video Analyzer account and select **Batch pipelines** under **Video Analyzer** section.
-	2.  In the Batch pipeline blade select the **Jobs** tab at the top.
-	3.  Under the jobs tab you will find a list of jobs that are in different stated.  Find the job in processing state and select **Cancel** on the right hand side of the Batch pipeline Jobs tab.
+1.  Navigate to the Video Analyzer account and select **Batch** under **Video Analyzer** section.
 
+1.  In the Batch blade select the **Jobs** tab at the top.
+
+1.  Under the jobs tab you will find a list of jobs that are in different stated.  Find the job in processing state and select **Cancel** on the right hand side of the Batch pipeline Jobs tab and then click **Yes**. 
+
+>[!NOTE]A failed pipeline job cannot be canceled.
 
 
 # TODO:  Check in portal for accuracy
@@ -210,11 +232,16 @@ Once a pipeline job has entered the processing state the job can be canceled.  T
 In order to delete a pipeline topology of batch kind all pipeline jobs that are currently in the processing state must be canceled.  Once all pipeline jobs have been completed or canceled the pipeline topology of batch kind can be deleted.  To delete a pipeline topology of batch kind:
 
 1. Navigate to the Video Analyzer account.
-2. Click on  **Batch topology** under **Video Analyzer** section.
-3. Under the topologies tab locate your pipeline topology of batch kind to delete and click on the `...` at the right hand side of the pipeline topology of batchkind.
-4. Click on **Delete topology**.
 
-# TODO:  Check in portal for accurarcy
+1. Click on  **Batch** under `Video Analyzer` section.
+
+1. Under the topologies tab locate your pipeline topology of batch kind to delete and click on the '**...**' at the right hand side of the pipeline topology of batch kind.
+
+1. Click on **Delete topology**.
+
+>[!NOTE]All pipeline jobs must be deleted from a pipeline topology of batch kind before a pipeline topology of batch kind can be deleted.
+
+# TODO:  Check in portal for accuracy
 
 
 
