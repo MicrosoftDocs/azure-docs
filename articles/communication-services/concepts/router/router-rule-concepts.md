@@ -41,7 +41,7 @@ await client.SetClassificationPolicyAsync(
 
 The following `RouterRule` types exist in Job Router to provide flexibility in how your Jobs are processed.
 
-**Static rule -** This rule can be used specify a static input such as selecting a specific Queue ID.
+**Static rule -** This rule can be used specify a static value such as selecting a specific Queue ID.
 
 **Expression rule -** An expression rule uses the [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to process the Job labels and return an object representing the parsed value.
 
