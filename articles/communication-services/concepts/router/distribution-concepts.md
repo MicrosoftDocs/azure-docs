@@ -20,7 +20,7 @@ Azure Communication Services Job Router uses a flexible distribution process, wh
 
 ## Job distribution overview
 
-Deciding how to distribute Jobs to Workers is a key feature of Job Router and the SDK offers a similarly flexible and extensible model. Once a new incoming Job has been classified, Job Router will look for a suitable Worker based on the characteristics of the Job and the Distribution Policy. Alternatively, if Workers are busy, Job Router will look for a suitable Job when a Worker becomes available. Worker suitability is decided across three characteristics; [an available channel](#channel-configurations), their [abilities,](#worker-abilities) and [status](#worker-status). Once a suitable Worker has been found, a check is performed to make sure they have an open channel the Job can be assigned to.
+Deciding how to distribute Jobs to Workers is a key feature of Job Router and the SDK offers a similarly flexible and extensible model for you to customize your environment. As described in the [classification concepts](classification-concepts.md) guide, once a Job has been classified, Job Router will look for a suitable Worker based on the characteristics of the Job and the Distribution Policy. Alternatively, if Workers are busy, Job Router will look for a suitable Job when a Worker becomes available. Worker suitability is decided across three characteristics; [an available channel](#channel-configurations), their [abilities,](#worker-abilities) and [status](#worker-status). Once a suitable Worker has been found, a check is performed to make sure they have an open channel the Job can be assigned to.
 
 These two approaches are key concepts in how Job Router initiates the discovery of Jobs or Workers.
 
@@ -52,7 +52,7 @@ Job Router will always hold a reference to any registered Worker even if they ar
 
 ### Channel configurations
 
-Each Job requires a channel ID property representing a pre-configured Job Router channel or a custom channel. A channel configuration consists of a `channelId` string and a `capacityCostPerJob` number. Together they represent an abstract mode of communication and the cost of that mode. For example, most people can only be on one phone call at a time, thus a `Voice` channel may have a high cost of `100`. In this example, the concurrency is relative to the total capacity of the worker. The following example illustrates this point:
+Each Job requires a channel ID property representing a pre-configured Job Router channel or a custom channel. A channel configuration consists of a `channelId` string and a `capacityCostPerJob` number. Together they represent an abstract mode of communication and the cost of that mode. For example, most people can only be on one phone call at a time, thus a `Voice` channel may have a high cost of `100`. Alternatively, certain workloads such as chat can have a higher concurrency which means they have a lower cost. You can think of channel configurations as open slots in which a Job can be assigned or attached to. The following example illustrates this point:
 
 ```csharp
 await client.RegisterWorkerAsync(
@@ -202,6 +202,9 @@ When the distribution process locates a suitable Worker who has an open channel 
 **OfferTTL -** The time-to-live for each offer generated
 
 **Mode -** The **distribution modes** which contain both `minConcurrentOffers` and `maxConcurrentOffers` properties.
+
+> [!Important]
+> When a Job offer is generated for a Worker it consumes one of the channel configurations matching the channel ID of the Job. The consumption of this channel means the Worker will not receive another offer unless additional capacity for that channel is available on the Worker. If the Worker declines the offer or the offer expires, the channel is released.
 
 ### Job offer lifecycle
 
