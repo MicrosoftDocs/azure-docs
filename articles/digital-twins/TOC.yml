@@ -133,25 +133,25 @@
       href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
-    - name: 'Troubleshooting: Metrics'
+    - name: Metrics
       href: troubleshoot-metrics.md
-    - name: 'Troubleshooting: Diagnostics logs'
+    - name: Diagnostics logs
       href: troubleshoot-diagnostics.md
-    - name: 'Troubleshooting: Alerts'
+    - name: Alerts
       href: troubleshoot-alerts.md
-    - name: 'Troubleshooting: Performance'
+    - name: Performance
       href: troubleshoot-performance.md
-    - name: 'Troubleshooting: Resource health'
+    - name: Resource health
       href: troubleshoot-resource-health.md
-    - name: 'Troubleshooting: Known issues'
+    - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
       items:
-      - name: 'Troubleshooting failed service request: Error 403 (Forbidden)'
+      - name: Error 403 (Forbidden)
         href: troubleshoot-error-403.md
-      - name: 'Troubleshooting failed service request: Error 404 (Sub-Domain not found)'
+      - name: Error 404 (Sub-Domain not found)
         href: troubleshoot-error-404.md
-      - name: 'Troubleshooting Azure Digital Twins Explorer: Authentication error'
+      - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
