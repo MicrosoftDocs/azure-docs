@@ -55,9 +55,9 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 4. Restore page will be shown with an option to choose **Geo-redundant restore**. If you have configured your server for geographically redundant backups, the server can be restored to the corresponding Azure paired region and the geo-redundant restore option can be enabled. Geo-redundant restore option restores the server to Latest UTC Now timestamp and hence after selection of Geo-redundant restore, the point-in-time restore options cannot be selected simultaneously.
 
- :::image type="content" source="./media/how-to-restore-server-portal/georestore-flex.png" alt-text="Geo-restore option":::
+   :::image type="content" source="./media/how-to-restore-server-portal/georestore-flex.png" alt-text="Geo-restore option":::
 
- :::image type="content" source="./media/how-to-restore-server-portal/georestore-enabled-flex.png" alt-text="Enabling Geo-Restore":::
+   :::image type="content" source="./media/how-to-restore-server-portal/georestore-enabled-flex.png" alt-text="Enabling Geo-Restore":::
 
 5. Provide a new server name in the **Name** field in the Server details section.
 
