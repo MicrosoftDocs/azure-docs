@@ -26,41 +26,34 @@ landingContent:
         links:
           - text: What is Azure Form Recognizer?
             url: overview.md
-
-# Card
-  - title: What's new?
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What's new in Form Recognizer?
+  - linkListType: whats-new
+    links:
+          - text: What's new in Azure Form Recognizer?
             url: whats-new.md
+  - linkListType: reference
+    links:
+           - text: Language support
+             url: language-support.md
 
-# Card
-  - title: Language Support
-    linkLists:
-    - linkListType: reference
-      links:
-          - text: Language Support for Form Recognizer
-            url: language-support.md
 
 #Card
   - title: Features
     linkLists:
     - linkListType: concept
       links:
-         - text: 🆕Analyze general document (preview)
+         - text: 🆕General document model (preview)
            url: concept-general-document.md
-         - text: Analyze layout
+         - text: Layout model
            url: concept-layout.md
-         - text: Analyze invoice
+         - text: Invoice model
            url: concept-invoice.md
-         - text: Analyze receipt
+         - text: Receipt model
            url: concept-receipt.md
-         - text: Analyze ID document
+         - text: ID document model
            url: concept-id-document.md
-         - text: Analyze business card
+         - text: Business card model
            url: concept-business-card.md
-         - text: Analyze custom forms
+         - text: Custom model
            url: concept-custom.md
 
 #Card
@@ -72,38 +65,41 @@ landingContent:
            url: concept-form-recognizer-studio.md
          - text: Form Recognizer Sample Labeling tool
            url: quickstarts/try-sample-label-tool.md
-         - text: Form Recognizer REST API
+         - text: REST API
            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
          - text: C# SDK
            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp
          - text: Java SDK
            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-java
+         - text: JavaScript SDK
+           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript
          - text: Python SDK
            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
 
 #Card
-    - title: 🆕Form Recognizer Studio (preview)
-      linkLists:
-       - linkListType: get-started
-         links:
-           - text: Studio overview
-             url: concept-form-recognizer-studio.md
-           - text: Using the General document model (preview)
-             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-           - text: Using the Layout model
-             url: quickstarts/try-v3-form-recognizer-studio.md#layout
-           - text: Using the Invoice model
-             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-           - text: Using the Receipt model
-             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-           - text: Using the ID document model
-             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-           - text: Using the Business card model
-             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
-           - text: Using the Custom model
-             url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+  - title: 🆕Form Recognizer Studio (preview)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Studio overview
+            url: concept-form-recognizer-studio.md
+          - text: Using the General document model (preview)
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+          - text: Using the Layout model
+            url: quickstarts/try-v3-form-recognizer-studio.md#layout
+          - text: Using the Invoice model
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+          - text: Using the Receipt model
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+          - text: Using the ID document model
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+          - text: Using the Business card model
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+          - text: Using the Custom model
+            url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
 
 
+#Card
 
 
 
