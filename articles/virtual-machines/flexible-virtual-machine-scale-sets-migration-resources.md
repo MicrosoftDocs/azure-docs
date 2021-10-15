@@ -45,10 +45,10 @@ There is currently no automated tooling to directly move existing instances in a
 1. Note the parameters you want to keep from the virtual machine (name, NIC ID, OS and data disk IDs, VM configuration settings, fault domain placement, etc.) 
 1. Delete the availability set virtual machine. The NICs and disks for the VM will not be deleted  
 1. Create a new virtual machine object, using the parameters from the original VM 
-    1. NIC ID 
-    1. OS and Data disks 
-    1. Fault domain placement 
-    1. Other VM settings 
+    - NIC ID 
+    - OS and Data disks 
+    - Fault domain placement 
+    - Other VM settings 
 
 
 ## Update Uniform scale sets deployment templates and scripts

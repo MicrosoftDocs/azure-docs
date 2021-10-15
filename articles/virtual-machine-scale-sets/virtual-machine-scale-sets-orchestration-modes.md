@@ -70,7 +70,7 @@ Querying resources with [Azure Resource Graph](../governance/resource-graph/over
 - Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
 - Use the Get VM API and commands to get model and instance view for a single instance.
 
-### Scale sets VM Batch operations
+### Scale sets VM batch operations
 Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) are not used with Flexible orchestration mode.
 
 ### Monitor application health
@@ -86,10 +86,10 @@ Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data
 Use extensions targeted for standard virtual machines, instead of extensions targeted for Uniform orchestration mode instances.
 
 
-## A comparison of Flexible, Uniform, and Availability Sets
+## A comparison of Flexible, Uniform, and availability sets
 The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
 
-### Basic Setup
+### Basic setup
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
 |---|---|---|---|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines)  | Scale Set specific VMs (Microsoft.compute/virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines) |
@@ -111,7 +111,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | UserData  | Partial, UserData can be specified for individual VMs | Yes  | UserData can be specified for individual VMs |
 
 
-### Autoscaling and Instance Orchestration
+### Autoscaling and instance orchestration
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
 |---|---|---|---|
 | List VMs in Set | Yes | Yes | Yes, list VMs in AvSet |
@@ -127,9 +127,9 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Scale In Policy | No | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
 | Perform Maintenance | No (can trigger maintenance on each instance using VM API) | Yes | N/A |
-| VM Batch Operations (Start all, Stop all, delete subset, etc) | No (can trigger operations on each instance using VM API) | Yes | No |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) | Yes | No |
 
-### High Availability 
+### High availability 
 
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
 |---|---|---|---|
@@ -153,12 +153,12 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Basic SLB | No | Yes | Yes |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) | Yes (NAT Pool) | Yes (NAT Rules for individual instances) |
 
-### Backup and Recovery 
+### Backup and recovery 
 
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
 |---|---|---|---|
 | Azure Backup  | Yes | No | Yes |
-| Azure Site Recovery | Yes (via Powershell) | No | Yes |
+| Azure Site Recovery | Yes (via PowerShell) | No | Yes |
 | Azure Alerts  | Yes | Yes | Yes |
 | VM Insights  | No | Yes | Yes |
 
