@@ -75,11 +75,11 @@ landingContent:
            url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-python
 
 #Card
-  - title: 🆕Form Recognizer Studio (preview)
+  - title: 🆕Form Recognizer Studio 
     linkLists:
       - linkListType: get-started
         links:
-          - text: Studio overview
+          - text: Studio overview | Preview
             url: concept-form-recognizer-studio.md
           - text: Using the General document model (preview)
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
@@ -118,11 +118,11 @@ landingContent:
             url: concept-custom.md#try-it-sample-labeling-tool
 
 #Card
-  - title: 🆕General document (preview)
+  - title: 🆕General document
     linkLists:
       - linkListType: get-started
         links:
-          - text: Model overview
+          - text: Model overview | Preview
             url: concept-general-document.md
           - text: Using the .NET SDK
             url: "quickstarts/try-v3-csharp-sdk.md#try-it-general-document-model"
