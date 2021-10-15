@@ -10,6 +10,9 @@ ms.date: 09/14/2021
 
 Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service. If you are trying the Custom question answering feature, you would need to create the Text Analytics resource and add the Custom question answering feature.
 
+> [!NOTE]
+> A newer version of the question and answering capability is now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md).
+
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 A solid understanding of the following concepts is helpful before creating your resource:

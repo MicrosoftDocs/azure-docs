@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 
-title: Azure Cognitive Service for language documentation
+title: Azure Cognitive Service for Language documentation
 summary: Learn how to integrate AI into your applications that can extract information, classify text, understand conversational language, answer questions and more.
 brand: azure
 
@@ -19,7 +19,7 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure Cognitive Service for language?
+    - title: What is Azure Cognitive Service for Language?
       itemType: overview
       url: overview.md
     - title: What's new?
