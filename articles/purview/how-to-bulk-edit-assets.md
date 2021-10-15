@@ -13,7 +13,7 @@ ms.date: 10/15/2021
 
 This article describes how to tag multiple glossary terms, classifications, owners and experts to a list of selected assets in a single action.
 
-### Add Assets to View selected list using search
+## Add Assets to View selected list using search
 
 1. Search on the data asset you want to add to the list for bulk editing.
 
@@ -27,15 +27,15 @@ This article describes how to tag multiple glossary terms, classifications, owne
 
 1. Repeat the above steps to add all the data assets to the list.
 
-### Add Assets to View selected list from asset detail page
+## Add Assets to View selected list from asset detail page
 
 You can also add an asset to the bulk edit list in the asset detail page. Select the checkbox at the top right corner to add the asset to the bulk edit list.
 
    :::image type="content" source="media/how-to-bulk-edit-assets/asset-list.png" alt-text="Screenshot of the asset.":::
 
-### Bulk edit assets in the View selected list to add, replace, or remove glossary terms.
+## Bulk edit assets in the View selected list to add, replace, or remove glossary terms.
 
-1. One you are done with the identification of all the data assets which needs to be bulk-edited, Select **View selected** list from search results page or asset details page.
+1. When you're done with the identification of all the data assets which needs to be bulk-edited, Select **View selected** list from search results page or asset details page.
 
     :::image type="content" source="media/how-to-bulk-edit-assets/view-list.png" alt-text="Screenshot of the view.":::
 
