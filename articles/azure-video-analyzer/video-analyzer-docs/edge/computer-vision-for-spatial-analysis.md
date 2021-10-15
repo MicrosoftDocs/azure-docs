@@ -318,7 +318,7 @@ In operations.json:
               "parameters": [
                   {
                       "name": "rtspUrl",
-                      "value": " rtsp://rtspsim:554/media/retailshop-15fps.mkv"
+                      "value": "rtsp://rtspsim:554/media/retailshop-15fps.mkv"
                   },
                   {
                       "name": "rtspUserName",
