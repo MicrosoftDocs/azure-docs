@@ -20,7 +20,7 @@ You can configure network [routing preference](../../virtual-network/routing-pre
 Configuring routing preference gives you the flexibility to optimize your traffic either for premium network performance or for cost. When you configure a routing preference, you specify how traffic will be directed to the public endpoint for your storage account by default. You can also publish route-specific endpoints for your storage account.
 
 > [!NOTE]
-> This feature is not supported in storage accounts that are configured to use the premium performance tier or Zone-redundant storage (ZRS).
+> This feature is not supported in premium performance storage accounts or accounts configured to use Zone-redundant storage (ZRS).
 
 ## Microsoft global network versus Internet routing
 
