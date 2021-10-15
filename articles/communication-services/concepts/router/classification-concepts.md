@@ -55,7 +55,7 @@ A Worker selector in a Classification Policy contains a collection of `LabelSele
 
 ### Prioritization rule
 
-The determination of the priority of a Job during classification can be handled using a `RouterRule`; similar to how the `QueueIdSelector` works. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
+The priority of a Job can be resolved during classification using one of many rule engines; similar to how the `QueueIdSelector` works. Read the [RouterRule concepts](router-rule-concepts.md) page for more information.
 
 ## Using labels and selectors in classification
 
