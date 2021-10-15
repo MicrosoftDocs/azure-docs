@@ -35,8 +35,7 @@ Custom text classification supports `.txt` files in the following languages:
 With custom entity extraction, your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages.
 
 > [!NOTE]
-> To enable support for multiple languages, you need to enable this option
-If your files are in multiple languages you need to enable this option when [creating your project](quickstart.md).
+> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/use-azure-resources.md#create-a-project.md).
 
 ## Next steps
 
