@@ -25,7 +25,6 @@ The following table outlines the regions ultra disks are available in, as well a
 
 Not every VM size is available in every supported region with ultra disks. The following table lists VM series which are compatible with ultra disks.
 
-[!div class="mx-tdCol2BreakAll"]
 |VM Type     |Sizes    |Description  |
 |------------|---------|-------------|
 | General purpose|[DSv3-series](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series), [Ddsv4-series](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), [Dsv4-series](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series), [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)| Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.|
