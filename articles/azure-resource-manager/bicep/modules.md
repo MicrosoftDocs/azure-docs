@@ -44,7 +44,7 @@ To **conditionally deploy a module**, add an `if` expression. The use is similar
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-To deploy **more than one instance** a module, add the `for` expression. For more information, see [Module iteration in Bicep](loop-modules.md).
+To deploy **more than one instance** of a module, add the `for` expression. For more information, see [Module iteration in Bicep](loop-modules.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
