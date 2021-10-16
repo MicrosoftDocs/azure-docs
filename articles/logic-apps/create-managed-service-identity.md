@@ -665,7 +665,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 1. After you add the action to your workflow, on the action's **Create Connection** pane, select your Azure AD tenant, and then select **Connect with managed identity (preview)**.
 
-   ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
+   ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
 
 1. On the connection name page, provide a name for the connection. 
 
@@ -673,13 +673,13 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
    In this example, **System-assigned managed identity** is the only selection available.
 
-   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
+   ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-standard.png)
 
    If the managed identity isn't enabled, the following error appears when you try to create the connection:
 
    *You have to enable the managed identity for your logic app and then grant required access to the identity in the target resource.*
 
-   ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+   ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled-standard.png)
 
    If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Managed identity** option among other authentication types.
 
