@@ -69,7 +69,7 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
     :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet configuration":::
 
-9. Create a new or Select an existing **Private DNS Zone**.
+9. Create a new or select an existing **Private DNS Zone**.
     > [!NOTE]
     > Private DNS zone names must end with `mysql.database.azure.com`. </br>
     > If you do not see the option to create a new private dns zone, please enter the server name on the **Basics** tab.</br>
