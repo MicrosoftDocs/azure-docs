@@ -151,9 +151,17 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
 > | Resource | Indicates that the attribute is on the resource, such as a container name. | `@Resource` |
 > | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
+> | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
+
+#### Resource and request attributes
+
+For a list of the storage blob attributes you can use in conditions, see:
+
+- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+
+#### Principal attributes
 
 To use principal attributes, you must have **all** of the following:
 
@@ -163,12 +171,9 @@ To use principal attributes, you must have **all** of the following:
 
 For more information about custom security attributes, see:
 
+- [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
 - [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
 - [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
-
-For a list of the storage blob attributes you can use in conditions, see:
-
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
 
 ## Operators
 
