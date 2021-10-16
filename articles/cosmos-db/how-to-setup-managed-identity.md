@@ -18,7 +18,7 @@ Managed identities for Azure resources provide Azure services with an automatica
 - If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). To learn about managed identity types, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 - To set up managed identities, your account needs to have the [DocumentDB Account Contributor role](../role-based-access-control/built-in-roles.md#documentdb-account-contributor).
 
-## <a id="add-system"></a> Add a system-assigned identity
+## Add a system-assigned identity
 
 ### Using the Azure portal
 
@@ -117,7 +117,7 @@ az cosmosdb identity show \
 }
 ```
 
-## <a id="add-user"></a> Add a user-assigned identity
+## Add a user-assigned identity
 
 ### Using the Azure portal
 

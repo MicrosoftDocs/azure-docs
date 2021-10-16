@@ -237,7 +237,7 @@ This access policy ensures that your encryption keys can be accessed by your Azu
 
 Because a system-assigned managed identity can only be retrieved after the creation of your account, you still need to initially create your account using the first-party identity, as described [above](#add-access-policy). Then:
 
-1.	If this wasn't done during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-system) on your account and copy the `principalId` that got assigned.
+1.	If this wasn't done during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-a-system-assigned-identity) on your account and copy the `principalId` that got assigned.
 
 1.	Add a new access policy to your Azure Key Vault account just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
 
