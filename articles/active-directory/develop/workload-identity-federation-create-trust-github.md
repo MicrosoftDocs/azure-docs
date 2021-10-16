@@ -1,7 +1,7 @@
 ---
 title: Create a trust relationship between an app and GitHub
 titleSuffix: Microsoft identity platform
-description: 
+description: Set up a trust relationship between an app in Azure AD and a GitHub repo.  This allows a GitHub Actions workflow to access Azure or Microsoft Graph resources without using secrets or certificates. 
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -17,24 +17,43 @@ ms.custom: aaddev
 ---
 
 # Configure an app to trust a GitHub repo
-This article describes how to configure a trust relationship between an application in Azure Active Directory (Azure AD) and a GitHub repo.  Create a federated credential in the Azure portal or by using Microsoft Graph.
+
+This article describes how to create a trust relationship between an application in Azure Active Directory (Azure AD) and a GitHub repo.  Configuring a federated identity credential on an app registration creates that trust relationship and allows a GitHub Actions workflow to access Azure or Microsoft Graph resources without needing to manage secrets. You can create the federated identity credential in the Azure portal or by using Microsoft Graph. To learn more, see [workload identity federation](workload-identity-federation.md).
 
 Anyone who can create an app reg and add a secret or cert can add a federated credential.  If the "don't let anyone create apps" switch is toggled, however, a dev won't be able to create an app reg or configure the credential.  Admin would have to do it on behalf of the dev.  Anyone in the app admin role or app owner role can do this.
 
-## Prerequistes
+After you configure an app to trust a GitHub repo, configure a GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
+
+## Prerequisites
 [Create an app registration](quickstart-register-app.md) in Azure AD.  Grant the app the appropriate access to the Azure resources targeted by your GitHub workflow.  
 
-Find the object ID of the app (not the application (client) ID, which you need in the following steps.
+Find the object ID of the app (not the application (client) ID), which you need in the following steps.
+
+## Microsoft Graph
 
 Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
 
-## Microsoft Graph
-### Create
+### Create a federated identity credential
 
-Run the following az rest command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta) on an app (specified by the object ID of the app):
+Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta) on an app (specified by the object ID of the app).  The *subject* identifies the GitHub repo and environment
 
 ```azurecli
-$ az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/e7617ce5-4fff-4e3d-a59b-4446db11ffae/federatedIdentityCredentials' --body '{"name":"Testing","issuer":https://token.actions.githubusercontent.com/,"subject":"repo:octo-org/octo-repo:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Testing","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:octo-org/octo-repo:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+```
+
+And you get the response:
+```azurecli
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('f6475511-fd81-4965-a00e-41e7792b7b9c')/federatedIdentityCredentials/$entity",
+  "audiences": [
+    "api://AzureADTokenExchange"
+  ],
+  "description": "Testing",
+  "id": "1aa3e6a7-464c-4cd2-88d3-90db98132755",
+  "issuer": "https://token.actions.githubusercontent.com/",
+  "name": "Testing",
+  "subject": "repo:octo-org/octo-repo:environment:Production"
+}
 ```
 
 *name*: The name of your Azure application.
@@ -42,37 +61,38 @@ $ az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/e76
 *issuer*: The path to the GitHub OIDC provider: `https://token.actions.githubusercontent.com/`. This issuer will become trusted by your Azure application.
 
 *subject*: Before Azure will grant an access token, the request must match the conditions defined here.
+    - For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
+    - For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+    - For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
 
-- For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
-- For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-- For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
+*audiences*: `api://AzureADTokenExchange` is the required value.
 
-*audiences*: `api://AzureADTokenExchange` is the recommended value, but you can also specify the workflow's repository URL here.
+> [!NOTE]
+> If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
 
-If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
+> [!IMPORTANT]
+> The *subject* setting values must exactly match the configuration on the GitHub workflow configuration.  Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
 
-The *subject* setting values must exactly match the configuration on the GitHub workflow configuration.  Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
-
-### List
+### List federated identity credentials on an app
 
 Run the following command to [list the federated identity credential(s)](/graph/api/application-list-federatedidentitycredentials?view=graph-rest-beta) for an app (specified by the object ID of the app):
 
 ```azurecli
-az rest -m GET -u 'https://graph.microsoft.com/beta/applications/e7617ce5-4fff-4e3d-a59b-4446db11ffae/federatedIdentityCredentials' 
+az rest -m GET -u 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' 
 ```
 
 And you get a response similar to:
 
 ```azurecli
 {
-  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('e7617ce5-4fff-4e3d-a59b-4446db11ffae')/federatedIdentityCredentials",
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('f6475511-fd81-4965-a00e-41e7792b7b9c')/federatedIdentityCredentials",
   "value": [
     {
       "audiences": [
         "api://AzureADTokenExchange"
       ],
       "description": "Testing",
-      "id": "68eedfd9-ad7a-47d7-9b0c-d7170cf645fb",
+      "id": "1aa3e6a7-464c-4cd2-88d3-90db98132755",
       "issuer": "https://token.actions.githubusercontent.com/",
       "name": "Testing",
       "subject": "repo:octo-org/octo-repo:environment:Production"
@@ -81,28 +101,30 @@ And you get a response similar to:
 }
 ```
 
-### Delete
+### Delete a federated identity credential
 
 Run the following command to [delete a federated identity credential](/graph/api/application-list-federatedidentitycredentials?view=graph-rest-beta) from an app (specified by the object ID of the app):
 
 ```azurecli
-az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/e7617ce5-4fff-4e3d-a59b-4446db11ffae/federatedIdentityCredentials/68eedfd9-ad7a-47d7-9b0c-d7170cf645fb' 
+az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials/1aa3e6a7-464c-4cd2-88d3-90db98132755' 
 ```
 
 ## Portal- draft, work in progress
 ### Configure the federated credentials on the application
 
-Navigate to the app registration in the Azure portal and setup a federated credential.
+Navigate to the app registration in the Azure portal and set up a federated credential.
 
-The **Organization**, **Repository**, and **Entity type** values must exactly match the configuration on the GitHub workflow configuration.  Otherwise Azure AD will look at the token and reject the exchange.  Won't get an error, it just won't work.
+> [!IMPORTANT]
+> The **Organization**, **Repository**, and **Entity type** values must exactly match the configuration on the GitHub workflow configuration. Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
 
-what if I accidently configure someone else's github repo?  Put typo in config settings that matches someone elses repo?  In Azure portal, would be able to configure.  But in GitHub configuration would get an error because you can't access the other person's repo.
+> [!NOTE]
+> If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
 
 ### Give the app registration appropriate access to the Azure resources targeted by your GitHub workflow
 
 Grant the application contributor role on a subscription; copy Subscription ID
 
-## Get the application (client) ID and tenant ID from Azure Portal
+## Get the application (client) ID and tenant ID from Azure portal
 
 Copy the *tenant-id* and *client-id* values of the app registration.  You need to set these values in your GitHub environment to use in the workflow Azure login action.  Two options now for GitHub in Azure Login Action.  Can store client ID and tenant ID in GitHub secrets if you want or you can inline client ID, tenant ID, subscription ID directly in your workflow.
 

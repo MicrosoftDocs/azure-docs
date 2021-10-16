@@ -1,7 +1,7 @@
 ---
 title: Workload identity federation 
 titleSuffix: Microsoft identity platform
-description: Learn about workload identity federation, which developers can use to grant workloads running outside of Azure access to Azure resources without using secrets or certificates. This eliminates the need for developers to store and maintain long-lived secrets or certificates outside of Azure.
+description: Use workload identity federation to grant workloads running outside of Azure access to Azure resources without using secrets or certificates. This eliminates the need for developers to store and maintain long-lived secrets or certificates outside of Azure.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -24,7 +24,7 @@ You can use workload identity federation with GitHub Actions or Kubernetes.
 
 ## Why use workload identity federation?
 
-Typically, a software workload (such as an application, service, script, or container-based application) needs an identity in order to authenticate and access resources or communicate with other services.  When these workloads run on Azure, you can use managed identities and the Azure platform manages the credentials for you.  For a software workload running outside of Azure, you use application credentials (a secret or certificate) to access Azure or Microsoft Graph resources.  You need to manage these application credentials, which is a maintenance burden and adds the risk of leaking secrets or having certificates expire.
+Typically, a software workload (such as an application, service, script, or container-based application) needs an identity in order to authenticate and access resources or communicate with other services.  When these workloads run on Azure, you can use managed identities and the Azure platform manages the credentials for you.  For a software workload running outside of Azure, you use application credentials (a secret or certificate) to access Azure or Microsoft Graph resources.  You manage these application credentials, which are a maintenance burden and adds the risk of leaking secrets or having certificates expire.
 
 You use workload identity federation to configure an Azure AD app registration to trust tokens from an external identity provider (IdP), such as GitHub.  Once that trust relationship is created, your software workload can exchange trusted tokens from the external IdP for access tokens from Microsoft identity platform.  Your software workload then uses that access token to access Azure and Microsoft Graph resources to which the workload has been granted access. This eliminates the maintenance burden of manually managing credentials and eliminates the risk of leaking secrets or having certificates expire.
 
