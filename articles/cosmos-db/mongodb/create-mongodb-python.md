@@ -24,16 +24,14 @@ ms.date: 10/22/2021
 
 This quickstart demonstrates how to:
 1. Create an [Azure Cosmos DB API for MongoDB account](mongodb-introduction.md) 
-2. Build a product catalog web API using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/)
-3. Import sample data
+2. Connect to your account using PyMongo
+3. Create a sample database and collection
+4. Perform CRUD operations in the sample collection
 
 ## Prerequisites to run the sample app
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
-* An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You can also [try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
-
-If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
+* Python 3.9+ (sample code may work on older versions of Python 3)
+* PyMongo installed on your machine
 
 <a id="create-account"></a>
 ## Create a database account
@@ -51,172 +49,94 @@ Before you continue building the application, let's look into the hierarchy of r
 
 To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
 
-## Install the sample app template
+## Get the code
 
-This sample is a dotnet project template, which can be installed to create a local copy. Run the following commands in a command window:
 
-```bash
-mkdir "C:\cosmos-samples"
-cd "C:\cosmos-samples"
-dotnet new -i Microsoft.Azure.Cosmos.Templates
-dotnet new cosmosmongo-webapi
+```python
+def gahl()
 ```
 
-The preceding commands:
+## Retrieve your connection string
 
-1. Create the *C:\cosmos-samples* directory for the sample. Choose a folder appropriate for your operating system.
-1. Change your current directory to the *C:\cosmos-samples* folder.
-1. Install the project template, making it available globally from the dotnet CLI.
-1. Create a local sample app using the project template.
+When running, the sample code will request that you enter your API for MongoDB account connection string. Here's where to find it:
 
-If you don't wish to use the dotnet CLI, you can also [download the project templates as a ZIP file](https://github.com/Azure/azure-cosmos-dotnet-templates). This sample is in the `Templates/APIForMongoDBQuickstart-WebAPI` folder.
+1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account.
 
-## Review the code
-
-The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update the application settings](#update-the-application-settings).
-
-### Setup connection
-
-The following snippet is from the *Services/MongoService.cs* file.
-
-* The following class represents the client and is injected by the .NET framework into services that consume it:
-
-    ```cs
-        public class MongoService
-        {
-            private static MongoClient _client;
-
-            public MongoService(IDatabaseSettings settings)
-            {
-                _client = new MongoClient(settings.MongoConnectionString);
-            }
-
-            public MongoClient GetClient()
-            {
-                return _client;
-            }
-        }
-    ```
-
-### Setup product catalog data service
-
-The following snippets are from the *Services/ProductService.cs* file.
-
-* The following code retrieves the database and the collection and will create them if they don't already exist:
-
-    ```csharp
-    private readonly IMongoCollection<Product> _products;        
-
-    public ProductService(MongoService mongo, IDatabaseSettings settings)
-    {
-        var db = mongo.GetClient().GetDatabase(settings.DatabaseName);
-        _products = db.GetCollection<Product>(settings.ProductCollectionName);
-    }
-    ```
-
-* The following code retrieves a document by sku, a unique product identifier:
-
-    ```csharp
-    public Task<Product> GetBySkuAsync(string sku)
-    {
-        return _products.Find(p => p.Sku == sku).FirstOrDefaultAsync();
-    }
-    ```
-
-* The following code creates a product and inserts it into the collection:
-
-    ```csharp
-    public Task CreateAsync(Product product)
-    {
-        _products.InsertOneAsync(product);
-    }
-    ```
-
-* The following code finds and updates a product:
-
-    ```csharp
-    public Task<Product> UpdateAsync(Product update)
-    {
-        return _products.FindOneAndReplaceAsync(
-            Builders<Product>.Filter.Eq(p => p.Sku, update.Sku), 
-            update, 
-            new FindOneAndReplaceOptions<Product> { ReturnDocument = ReturnDocument.After });
-    }
-    ```
-
-    Similarly, you can delete documents by using the [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) method.
-
-## Update the application settings
-
-From the Azure portal, copy the connection string information:
-
-1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the *appsettings.json* file in the next step.
-
-2. Open the *appsettings.json* file.
-
-3. Copy the **primary connection string** value from the portal (using the copy button) and make it the value of the **DatabaseSettings.MongoConnectionString** property in the **appsettings.json** file.
-
-4. Review the **database name** value in the **DatabaseSettings.DatabaseName** property in the **appsettings.json** file.
-
-5. Review the **collection name** value in the **DatabaseSettings.ProductCollectionName** property in the **appsettings.json** file.
+2. In the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string.
 
 > [!WARNING]
 > Never check passwords or other sensitive data into source code.
 
 You've now updated your app with all the info it needs to communicate with Cosmos DB.
 
-## Load sample data
+## Run the code
 
-[Download](https://www.mongodb.com/try/download/database-tools) [mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport), a CLI tool that easily imports small amounts of JSON, CSV, or TSV data. We will use mongoimport to load the sample product data provided in the `Data` folder of this project.
-
-From the Azure portal, copy the connection information and enter it in the command below: 
-
-```bash
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --db cosmicworks --collection products --ssl --jsonArray --writeConcern="{w:0}" --file Data/products.json
+```shell
+python run.py
 ```
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Cosmos DB API for MongoDB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. 
+## Understand how it works
 
-1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **\<HOST\>**.
+### Connecting
 
-1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **\<PORT\>**.
+The following prompts the user for the connection string. It's never a good idea to have your connection string in code since it enables anyone with it to read or write to your database.
 
-1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **\<USERNAME\>**.
-
-1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **\<PASSWORD\>**.
-
-1. Review the **database name** value and update it if you created something other than `cosmicworks`.
-
-1. Review the **collection name** value and update it if you created something other than `products`.
-
-> [!Note]
-> If you would like to skip this step you can create documents with the correct schema using the POST endpoint provided as part of this web api project.
-
-## Run the app
-
-From Visual Studio, select CTRL + F5 to run the app. The default browser is launched with the app.
-
-If you prefer the CLI, run the following command in a command window to start the sample app. This command will also install project dependencies and build the project, but will not automatically launch the browser.
-
-```bash
-dotnet run
+```python
+CONNECTION_STRING = getpass.getpass(prompt='Enter your primary connection string: ') # Prompts user for connection string
 ```
 
-After the application is running, navigate to `https://localhost:5001/swagger/index.html` to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
+The following creates a client connection your API for MongoDB and tests to make sure it's valid.
 
-Select the API you would like to test and select "Try it out".
+```python
+client = pymongo.MongoClient(CONNECTION_STRING)
+try:
+    client.server_info() # validate connection string
+except pymongo.errors.ServerSelectionTimeoutError:
+    raise TimeoutError("Invalid API for MongoDB connection string or timed out when attempting to connect")
+```
 
-:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Screenshot of the web API Swagger UI Try API endpoints page.":::
+### Resource creation
+The following creates the sample database and collection that will be used to perform CRUD operations. When creating resources programatically, it's recommended to use the API for MongoDB extension commands (as shown here) because these commands have the ability to set the resource throughput (RUs) and configure sharding. 
 
-Enter any necessary parameters and select "Execute."
+Implicitly creating resources will work but will default to recommended values for throughput and will not be sharded.
 
-## Clean up resources
+```python
+# Database with 400 RU throughput that can be shared across the DB's collections
+db.command({'customAction': "CreateDatabase", 'offerThroughput': 400})
+```
 
-[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
+```python
+ # Creates a unsharded collection that uses the DBs shared throughput
+db.command({'customAction': "CreateCollection", 'collection': UNSHARDED_COLLECTION_NAME})
+```
+
+### Writing a document
+The following inserts a sample document we will continue to use throughout the sample. We get its unique _id field value so that we can query it in subsequent operations.
+
+```python
+"""Insert a sample document and return the contents of its _id field"""
+document_id = collection.insert_one({SAMPLE_FIELD_NAME: randint(50, 500)}).inserted_id
+```
+
+### Writing a document
+The following queries, updates, and again queries for the document that we previously inserted.
+
+```python
+print("Found a document with _id {}: {}".format(document_id, collection.find_one({"_id": document_id})))
+
+collection.update_one({"_id": document_id}, {"$set":{SAMPLE_FIELD_NAME: "Updated!"}})
+print("Updated document with _id {}: {}".format(document_id, collection.find_one({"_id": document_id})))
+```
+
+### Deleting a document
+Lastly, we delete the document we created from the collection.
+```python
+"""Delete the document containing document_id from the collection"""
+collection.delete_one({"_id": document_id})
+```
 
 ## Next steps
-
-In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and run a web API app. You can now import additional data to your database. 
+In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and perform CRUD operations. 
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
