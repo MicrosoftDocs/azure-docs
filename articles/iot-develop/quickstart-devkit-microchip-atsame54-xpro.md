@@ -52,12 +52,12 @@ You will complete the following tasks:
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
-    * USB 2.0 A male to Micro USB male cable
-    * Wired Ethernet access
-    * Ethernet cable
-    * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
-    * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
+  * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * USB 2.0 A male to Micro USB male cable
+  * Wired Ethernet access
+  * Ethernet cable
+  * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
+  * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
 
 ## Prepare the development environment
 
@@ -252,14 +252,14 @@ Keep Termite open to monitor device output in the following steps.
 
 * Hardware
 
-    * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
-    * USB 2.0 A male to Micro USB male cable
-    * Wired Ethernet access
-    * Ethernet cable
+  * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * USB 2.0 A male to Micro USB male cable
+  * Wired Ethernet access
+  * Ethernet cable
 
 * [Termite](https://www.compuphase.com/software_termite.htm). On the web page, under **Downloads and license**, choose the complete setup. Termite is an RS232 terminal that you'll use to monitor output for your device.
 
-* IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [30-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
+* IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
 * Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
