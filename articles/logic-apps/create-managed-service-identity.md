@@ -825,7 +825,7 @@ The following steps remove access to the target resource from the managed identi
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
+1. On the logic app navigation menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
 
    * Select **System assigned** > **On** > **Save**. When Azure prompts you to confirm, select **Yes**.
 
