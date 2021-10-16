@@ -19,7 +19,7 @@ If you record video using the Video Analyzer edge module, you can enable the vid
 > [!NOTE]
 > The preview images will preserve the aspect ratio of video from the camera.
 
-The preview images are generated periodically, the frequency being determined by [`segmentLength`](../playback-recordings-how-to.md#recording-and-playback-latencies). If you are using [event-based recording](record-event-based-live-video.md), you should note that mages are generated only when the live pipeline is active and video is being recorded. Each time a set of preview images are generated, they will overwrite the previous set.
+The preview images are generated periodically, the frequency being determined by [`segmentLength`](../playback-recordings-how-to.md#recording-and-playback-latencies). If you are using [event-based recording](record-event-based-live-video.md), you should note that images are generated only when the live pipeline is active and video is being recorded. Each time a set of preview images are generated, they will overwrite the previous set.
 
 > [!NOTE]
 > This functionality is currently only available with Video Analyzer Edge module. Further, enabling this has an impact on your Azure storage costs, driven by the frequent transactions to write the images or view them, and the size of the images.
