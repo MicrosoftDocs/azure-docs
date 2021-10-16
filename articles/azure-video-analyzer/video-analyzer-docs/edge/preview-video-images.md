@@ -10,7 +10,7 @@ ms.date: 11/01/2021
 
 You can use Azure Video Analyzer to [capture and record video](../video-recording.md) from an RTSP camera. You would be creating a pipeline topology that includes a video sink node, as shown in this [quickstart](detect-motion-record-video-clips-cloud.md) or this [tutorial](use-continuous-video-recording.md). 
 
-If you record video using the Video Analyzer edge module, you can enable the video sink node to periodically generate a set of preview images of different sizes. These images can then be retreived from the [video resource](../terminology.md#video) in your Video Analyzer account. For example, if your camera generates a video that has a resolution of 1920x1080, then the preview images would have the following sizes:
+If you record video using the Video Analyzer edge module, you can enable the video sink node to periodically generate a set of preview images of different sizes. These images can then be retrieved from the [video resource](../terminology.md#video) in your Video Analyzer account. For example, if your camera generates a video that has a resolution of 1920x1080, then the preview images would have the following sizes:
 
   * 320 x 180: small
   * 640 x 360: medium
