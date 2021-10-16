@@ -38,9 +38,11 @@ Every custom security attribute must be part of an attribute set. An attribute s
 
 ## Step 2: Identify the needed scope
 
-Scope is the set of resources that the access applies to. For custom security attributes, you can assign roles at the tenant scope or at the attribute set scope. If you want to assign broad access, you can assign roles at tenant scope. However, if you want to limit access to particular attribute sets, you can assign roles at the attribute set scope.
+Scope is the set of resources that the access applies to. For custom security attributes, you can assign roles at tenant scope or at attribute set scope. If you want to assign broad access, you can assign roles at tenant scope. However, if you want to limit access to particular attribute sets, you can assign roles at attribute set scope.
 
 ![Diagram showing tenant scope and attribute set scope.](./media/custom-security-attributes-manage/scope-tenant-attribute-set.png)
+
+Azure AD role assignments are an additive model, so your effective permissions are the sum of your role assignments. For example, if you assign a user a role at tenant scope and assign the same user the same role at attribute set scope, the user will still have permissions at tenant scope. 
 
 ## Step 3: Review the available roles
 
@@ -68,32 +70,24 @@ This step describes two ways you can manage access to custom security attributes
 
 #### Manage attributes centrally
 
-An administrator that has been assigned the Attribute Definition Administrator and Attribute Assignment Administrator roles at the tenant scope can manage all aspects of custom security attributes. The following diagram shows how custom security attributes are defined and assigned by a single administrator.
+An administrator that has been assigned the Attribute Definition Administrator and Attribute Assignment Administrator roles at tenant scope can manage all aspects of custom security attributes. The following diagram shows how custom security attributes are defined and assigned by a single administrator.
 
 ![Diagram showing attributes managed centrally.](./media/custom-security-attributes-manage/central-manage-attributes.png)
 
 1. The administrator adds attribute sets and defines attributes.
 1. The administrator assigns attributes to Azure AD objects.
 
-> [!div class="mx-tableFixed"]
-> | Advantages | Disadvantages |
-> | --- | --- |
-> | <ul><li>All custom security attributes can be managed by one or two administrators</li><li>Can work for small organizations</li></ul> | <ul><li>Administrator might get several requests to define and assign custom security attributes</li><li>Does not scale for large organizations</li></ul> |
+Managing attributes centrally has the advantage that it can be managed by one or two administrators. The disadvantage is that the administrator might get several requests to define or assign custom security attributes. In this case, you might want to delegate management.
 
 #### Manage attributes with delegation
 
-An administrator may not know all the situations of how custom security attributes should be defined and assigned. Typically it's users within the respective departments, teams, or projects who know the most about their area. Instead of assigning one or two administrators to manage all custom security attributes, you can instead delegate the management at the attribute set scope. This also follows the best practice of least privilege to grant just the permissions other administrators need to do their job and avoid unnecessary access. The following diagram shows how the management of custom security attributes can be delegated to multiple administrators.
+An administrator may not know all the situations of how custom security attributes should be defined and assigned. Typically it's users within the respective departments, teams, or projects who know the most about their area. Instead of assigning one or two administrators to manage all custom security attributes, you can instead delegate the management at attribute set scope. This also follows the best practice of least privilege to grant just the permissions other administrators need to do their job and avoid unnecessary access. The following diagram shows how the management of custom security attributes can be delegated to multiple administrators.
 
 ![Diagram showing attributes managed with delegation.](./media/custom-security-attributes-manage/delegate-manage-attributes.png)
 
 1. The administrator adds attribute sets. The administrator delegates who can read, define, or assign custom security attributes for each attribute set.
 1. The delegated Attribute Definition Administrators (Alice and Chandra) define attributes in the attribute sets they have been granted access to.
 1. The delegated Attribute Assignment Administrators (Bob and Chandra) assign attributes from their attribute sets to Azure AD objects.
-
-> [!div class="mx-tableFixed"]
-> | Advantages | Disadvantages |
-> | --- | --- |
-> | <ul><li>Management is distributed</li><li>Allows delegated readers and administrators to read and manage their own custom security attributes</li><li>Grants just the permissions delegated readers and administrators need</li></ul> | <ul><li>Does require that an administrator develop an attribute set organization</li><li>Might require multiple delegated administrators to make changes</li></ul> |
 
 ## Step 5: Select the appropriate roles and scope
 
