@@ -68,20 +68,26 @@ items:
       href: how-to-integrate-sql.md
     - name: Azure Cosmos DB
       href: overview.md
-    - name: Azure Storage
-      href: overview.md
+    - name: Azure Blob Storage
+      href: how-to-integrate-storage-blob.md
+    - name: Azure Queue Storage
+      href: how-to-integrate-storage-queue.md
+    - name: Azure Table Storage
+      href: how-to-integrate-storage-table.md
+    - name: Azure File Storage
+      href: how-to-integrate-storage-file.md
     - name: Azure Key Vault
-      href: overview.md
+      href: how-to-integrate-key-vault.md
     - name: Azure Event Hubs
-      href: overview.md
+      href: how-to-integrate-event-hubs.md
     - name: Azure Service Bus
-      href: overview.md
+      href: how-to-integrate-service-bus.md
     - name: Azure SignalR Service
-      href: overview.md
+      href: how-to-integrate-signalr.md
     - name: Azure App Configuration
       href: how-to-integrate-app-config.md
     - name: Azure Web Pub/Sub Service
-      href: overview.md
+      href: how-to-integrate-web-pubsub.md
     - name: Azure Cache for Redis
       href: how-to-integrate-redis-cache.md
     - name: Apache Kafka on Confluent Cloud

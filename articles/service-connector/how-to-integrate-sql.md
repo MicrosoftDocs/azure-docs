@@ -37,7 +37,7 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_SQL_CONNECTIONSTRING | sqlClient connection string | `Data Source={your-sql-server}.database.windows.net,1433;Initial Catalog={sql-db};User ID={sql-user};Password={sql-pass}"` |
+| AZURE_SQL_CONNECTIONSTRING | sqlClient connection string | `Data Source={your-sql-server}.database.windows.net,1433;Initial Catalog={sql-db};User ID={sql-user};Password={sql-pass}` |
 
 ### Java (JDBC)
 
