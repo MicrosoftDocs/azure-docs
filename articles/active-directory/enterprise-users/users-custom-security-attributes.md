@@ -327,10 +327,10 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Filter all users with an attribute that equals a value
 
-The following example, retrieves users with a `Country` attribute in the `Marketing` attribute set that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with a `AppCountry` attribute in the `Marketing` attribute set that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/Country%20eq%20'Canada'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry%20eq%20'Canada'
 ```
 
 #### Filter all users with an attribute that starts with a value
@@ -343,10 +343,10 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 
 #### Filter all users with an attribute that does not equal a value
 
-The following example, retrieves users with a `Country` attribute in the `Marketing` attribute set that does not equal `Canada`. This query will also retrieve users that do not have the `Country` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with a `AppCountry` attribute in the `Marketing` attribute set that does not equal `Canada`. This query will also retrieve users that do not have the `AppCountry` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/Country%20ne%20'Canada'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry%20ne%20'Canada'
 ```
 
 ## Frequently asked questions
