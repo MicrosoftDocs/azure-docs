@@ -155,7 +155,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
    | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
    |||
 
-   For more information, see [Review runs history](monitor-logic-apps.md#review-runs-history)
+   For more information, see [Review runs history in monitoring view](monitor-logic-apps.md#review-runs-history).
 
 1. To view the statuses and other information for each step in a run, select that run.
 

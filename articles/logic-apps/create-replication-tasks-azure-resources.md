@@ -138,7 +138,7 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
 
-1. On **Review + create** pane, review and confirm the logic app resource information. When you're ready, select **Create**.
+1. On **Review + create** pane, review and confirm the logic app resource information.
 
    ![Screenshot showing "Review + create" pane with logic app information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
 
@@ -147,6 +147,8 @@ This example shows how to create a replication task for Service Bus queues.
    > after you create the task. In this scenario, this step is required so that the logic app workflow can 
    > access those resources or entities and perform the replication task.
 
+1. When you're ready, select **Create**.
+
    The task that you created, which is automatically live and running, now appears on the **Tasks** list.
 
    > [!TIP]
@@ -154,7 +156,7 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing "Tasks" pane with created replication task.](./media/create-replication-tasks-azure-resources/created-replication-task.png)
 
-1. If your resources are behind a virtual network, remember to set up permissions for the logic app and workflow to access those resources.
+1. If your resources are behind a virtual network, remember to set up permissions for the logic app resource and workflow to access those resources.
 
 ## Set up retry policy
 
@@ -176,15 +178,19 @@ This example shows how to view a task's history of workflow runs along with thei
 
 1. On the resource navigation menu, under **Settings**, in the **Automation** section, select **Tasks (preview)**.
 
-1. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
+1. On the **Tasks** pane, find the task that you want to review. In that task's **Runs** column, select **View**.
 
-   ![Screenshot that shows the "Tasks" pane, a replication task, and the selected "View" option.](./media/create-replication-tasks-azure-resources/view-runs-for-task.png)
+   ![Screenshot showing the "Tasks" pane, a replication task, and the selected "View" option.](./media/create-replication-tasks-azure-resources/view-runs-for-task.png)
 
-   The **Runs history** pane shows all the runs for the task along with their statuses, start times, identifiers, and run durations.
+   This step opens the **Overview** pane for the underlying stateless workflow, which is included in a Standard logic app resource.
 
-   ![Screenshot that shows a task's runs, their statuses, and other information.](./media/create-replication-tasks-azure-resources/view-runs-history.png)
+1. To view run history for a stateless workflow, on the **Overview** pane toolbar, select **Enable debug mode**.
 
-   Here the possible statuses for a run:
+   The **Run History** tab shows any previous, in progress, and waiting runs for the task along with their identifiers, statuses, start times, and run durations.
+
+   ![Screenshot showing a task's runs, their statuses, and other information.](./media/create-replication-tasks-azure-resources/run-history-list.png)
+
+   The following table describes the possible statuses for a run:
 
    | Status | Description |
    |--------|-------------|
@@ -195,26 +201,102 @@ This example shows how to view a task's history of workflow runs along with thei
    | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
    |||
 
-   For more information, see [Review runs history](monitor-logic-apps.md#review-runs-history)
-
 1. To view the statuses and other information for each step in a run, select that run.
 
-   The **Logic app run** pane opens and shows the underlying workflow that ran.
+   The run details pane opens and shows the underlying workflow that ran.
 
    - A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
    - Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
-   ![Screenshot that shows each step in the run, status, and run duration.](./media/create-replication-tasks-azure-resources/runs-history-details.png)
+   ![Screenshot showing each step in the run, status, and run duration.](./media/create-replication-tasks-azure-resources/run-history-details.png)
 
 1. To review the inputs and outputs for each step, select the step, which expands.
 
-   This example shows the inputs for the Recurrence trigger, which has no outputs because the trigger only specifies when the workflow runs and provides no outputs for the subsequent actions to process.
+   This example shows the inputs for the Service Bus trigger.
 
-   ![Screenshot that shows the expanded trigger and inputs.](./media/create-replication-tasks-azure-resources/view-trigger-inputs.png)
+   ![Screenshot showing the expanded trigger and inputs.](./media/create-replication-tasks-azure-resources/view-trigger-inputs.png)
 
-   In contrast, the **Send an email** action has inputs from earlier actions in the workflow and outputs.
+   In contrast, the Service Bus action action has inputs from earlier actions in the workflow and outputs.
 
-   ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-replication-tasks-azure-resources/view-action-inputs-outputs.png)
+   ![Screenshot showing an expanded action, inputs, and outputs.](./media/create-replication-tasks-azure-resources/view-action-inputs-outputs.png)
 
 To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+
+<a name="edit-task"></a>
+
+## Edit the task
+
+To change a task, you have these options:
+
+- [Edit the task "inline"](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information.
+
+- [Edit the task's underlying workflow](#edit-task-workflow) in the designer.
+
+<a name="edit-task-inline"></a>
+
+### Edit the task inline
+
+1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
+
+1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+
+1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
+
+   ![Screenshot showing the opened ellipses menu and the selected option, "Edit in-line".](./media/create-automation-tasks-azure-resources/view-task-inline.png)
+
+   By default, the **Authenticate** tab appears and shows the existing connections.
+
+1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
+
+   ![Screenshot showing the "Authentication" tab, existing connections, and the selected ellipses menu.](./media/create-automation-tasks-azure-resources/edit-connections.png)
+
+1. To update other task properties, select **Next: Configure**.
+
+   For the task in this example, the only property available for edit is the email address.
+
+   ![Screenshot showing the "Configure" tab.](./media/create-replication-tasks-azure-resources/edit-task-configuration.png)
+
+1. When you're done, select **Save**.
+
+<a name="edit-task-workflow"></a>
+
+### Edit the task's underlying workflow
+
+If you change the underlying workflow for a replication task, your changes affect the original configuration for the task instance that you created, but not the task template. After you make and save your changes, the name that you provided for your original task might not accurately describe the task anymore, so you might have to recreate the task with a different name.
+
+1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
+
+1. On the resource navigation menu, in the **Automation** section, select **Tasks**.
+
+1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
+
+   ![Screenshot showing the opened ellipses menu and the selected option, "Open in Logic Apps".](./media/create-replication-tasks-azure-resources/edit-task-logic-app-designer.png)
+
+   The Azure portal changes context to the **Overview** pane for the underlying workflow in the Standard logic app resource, which is powered by Azure Logic Apps. The **Overview** pane shows the same run history that's available for the task.
+
+   ![Screenshot showing the workflow in Azure Logic Apps view with the "Overview" pane selected.](./media/create-replication-tasks-azure-resources/task-logic-apps-view.png)
+
+1. To open the underlying workflow in the designer, on the workflow navigation menu, select **Designer**.
+
+   ![Screenshot showing the "Designer" menu option selected and designer surface with the underlying workflow.](./media/create-replication-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
+
+   You can now edit the properties for the workflow's trigger and actions as well as edit the trigger and actions that define the workflow itself.
+
+1. To view the properties for the trigger or an action, expand that trigger or action.
+
+   ![Screenshot showing the expanded Service Bus trigger.](./media/create-replication-tasks-azure-resources/edit-service-bus-trigger.png)
+
+1. To save your changes, on the designer toolbar, select **Save**.
+
+   ![Screenshot showing the designer toolbar and the selected "Save" command.](./media/create-replication-tasks-azure-resources/save-updated-workflow.png)
+
+1. To test and run the updated workflow, on the workflow navigation menu, select **Overview** > **Run Trigger**.
+
+   After the run finishes, the designer shows the workflow's run details.
+
+   ![Screenshot showing the workflow's run details.](./media/create-replication-tasks-azure-resources/view-run-details-designer.png)
+
+1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
+
+## Next steps
