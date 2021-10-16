@@ -25,7 +25,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
@@ -44,7 +44,7 @@ In this quickstart you'll use following features to analyze and extract data and
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -592,7 +592,7 @@ def analyze_invoice():
 
 1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
 
-1. Type the following in your terminal:
+1. Type the following command in your terminal:
 
 ```console
 python form_recognizer_quickstart.py

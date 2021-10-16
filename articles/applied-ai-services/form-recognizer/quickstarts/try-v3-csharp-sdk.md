@@ -25,7 +25,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
@@ -133,7 +133,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     using Azure.AI.FormRecognizer.DocumentAnalysis;
     ```
 
-1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.:
+1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
 
     ```csharp
     string endpoint = "<your-endpoint>";
@@ -142,7 +142,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
     ```
 
-1. Delete the line, `Console.Writeline("Hello World!");` and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
+1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 

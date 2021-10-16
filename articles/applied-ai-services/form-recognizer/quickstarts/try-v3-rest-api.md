@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 ---
 
@@ -24,7 +24,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
@@ -43,7 +43,7 @@ In this quickstart you'll use following features to analyze and extract data and
   > [!TIP]
   > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -385,7 +385,7 @@ Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `\"{your-document-url}` with with a sample invoice URL:
+1. Replace `\"{your-document-url}` with a sample invoice URL:
 
     ```http
     https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf
@@ -431,7 +431,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 ### Get a list of models
 
-The preview v3.0  [List models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) request returns a paged list of prebuilt models in addition to custom models. Only models with status of succeeded are included. In-progress or failed models can be enumerated via the [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) request. Use the nextLink property to access the next page of models, if any. To get get more information about each returned model, including the list of supported documents and their fields, pass the modelId to the [Get Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations)request.
+The preview v3.0  [List models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) request returns a paged list of prebuilt models in addition to custom models. Only models with status of succeeded are included. In-progress or failed models can be enumerated via the [List Operations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) request. Use the nextLink property to access the next page of models, if any. To get more information about each returned model, including the list of supported documents and their fields, pass the modelId to the [Get Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations)request.
 
 ```bash
 curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=2021-07-30-preview"
@@ -439,7 +439,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=202
 
 ### Get a specific model
 
-The preview v3.0 [Get model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel) retrieves information about a specific model with a status of succeeded. For failed and in-progress models use the [Get Operation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation) to track the status of model creation operations and any resulting errors.
+The preview v3.0 [Get model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel) retrieves information about a specific model with a status of succeeded. For failed and in-progress models, use the [Get Operation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation) to track the status of model creation operations and any resulting errors.
 
 ```bash
 curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview"

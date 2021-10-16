@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 recommendations: false
 ---

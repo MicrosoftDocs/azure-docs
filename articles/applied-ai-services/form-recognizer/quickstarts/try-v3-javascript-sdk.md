@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/13/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -25,7 +25,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
@@ -44,7 +44,7 @@ In this quickstart you'll use following features to analyze and extract data and
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -102,7 +102,7 @@ const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See our Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: General document model
 
@@ -299,7 +299,7 @@ main().catch((error) => {
 
 1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
 
-1. Type the following in your terminal:
+1. Type the following command in your terminal:
 
 ```console
 node index.js
