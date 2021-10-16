@@ -202,11 +202,11 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
-1. Select OK.
+1. Select **OK**.
 
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
 
-1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+1. In the **Termite** app, confirm the following checkpoint values to verify that the device is initialized and connected to Azure IoT.
 
     ```output
     Starting Azure thread
@@ -256,60 +256,18 @@ Keep Termite open to monitor device output in the following steps.
     * USB 2.0 A male to Micro USB male cable
     * Wired Ethernet access
     * Ethernet cable
-    * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
-    * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
 
-* [Termite](https://www.compuphase.com/software_termite.htm). On the web page, under **Downloads and license**, choose the complete setup. Termite is an RS232 terminal that you'll use to monitor serial port output for your device.
+* [Termite](https://www.compuphase.com/software_termite.htm). On the web page, under **Downloads and license**, choose the complete setup. Termite is an RS232 terminal that you'll use to monitor output for your device.
 
 * IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [30-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
 * Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
-## Prepare the development environment
-
-To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
-
-### Clone the repo for the quickstart
-
-Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
-
-To clone the repo, run the following command:
-
-```shell
-git clone --recursive https://github.com/azure-rtos/getting-started.git
-```
-
-### Install the tools
-
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device quickstart, you don't need to do it again.
-
-> [!NOTE]
-> The setup script installs the following tools:
->
-> * [CMake](https://cmake.org): Build
-> * [ARM GCC](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm): Compile
-> * [Termite](https://www.compuphase.com/software_termite.htm): Monitor serial port output for connected devices
-
-To install the tools:
-
-1. From File Explorer, navigate to the following path in the repo and run the setup script named ***get-toolchain.bat***:
-
-    *getting-started\tools\get-toolchain.bat*
-
-1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
-1. Run the following code to confirm that CMake version 3.14 or later is installed.
-
-    ```shell
-    cmake --version
-    ```
-
-1. Install [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
-
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## Prepare the device
 
-To connect the Microchip E54 to Azure, you'll connect the Microchip E54 to your computer, modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the Microchip E54 to Azure, you'll connect the Microchip E54 to your computer, modify a configuration file for Azure IoT settings, build the image, and flash the image to the device.
 
 ### Connect the device
 
@@ -339,7 +297,7 @@ You'll use the **Termite** app to monitor communication and confirm that your de
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
-1. Select OK.
+1. Select **OK**.
 
 Termite is now ready to receive output from the Microchip E54.
 
@@ -383,7 +341,151 @@ Termite is now ready to receive output from the Microchip E54.
 
 ### Confirm device connection details
 
-In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+In the **Termite** app, confirm the following checkpoint values to verify that the device is initialized and connected to Azure IoT.
+
+```output
+DHCP In Progress...
+IP address: 192.168.0.22
+Mask: 255.255.255.0
+Gateway: 192.168.0.1
+DNS Server address: 75.75.75.75
+SNTP Time Sync...
+SNTP Time Sync successfully.
+[INFO] Azure IoT Security Module has been enabled, status=0
+Start Provisioning Client...
+[INFO] IoTProvisioning client connect pending
+Registered Device Successfully.
+IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+Connected to IoTHub.
+Telemetry message send: {"temperature":22}.
+Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
+Failed to parse value
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+```
+
+Keep Termite open to monitor device output in the following steps.
+
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+
+## Prerequisites
+
+* A PC running Microsoft Windows 10
+
+* Hardware
+
+  * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * USB 2.0 A male to Micro USB male cable
+  * Wired Ethernet access
+  * Ethernet cable
+
+* [Termite](https://www.compuphase.com/software_termite.htm). On the web page, under **Downloads and license**, choose the complete setup. Termite is an RS232 terminal that you'll use to monitor output for your device.
+
+* [MPLAB X IDE 5.35](https://www.microchip.com/mplab/mplab-x-ide).
+
+* [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
+
+* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+
+[!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
+
+## Prepare the device
+
+To connect the Microchip E54 to Azure, you'll connect the Microchip E54 to your computer, modify a configuration file for Azure IoT settings, build the image, and flash the image to the device.
+
+### Connect the device
+
+1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**. Each component is highlighted in the following picture:
+
+    ![Locate key components on the Microchip E54 evaluation kit board](media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png)
+
+1. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
+
+    > [!NOTE]
+    > Optionally, for more information about setting up and getting started with the Microchip E54, see [SAM E54 Xplained Pro User's Guide](http://ww1.microchip.com/downloads/en/DeviceDoc/70005321A.pdf).
+
+1. Use the Ethernet cable to connect the Microchip E54 to an Ethernet port.
+
+### Configure Termite
+
+You'll use the **Termite** app to monitor communication and confirm that your device is set up correctly. In this section, you configure **Termite** to monitor the serial port for your device.
+
+1. Start **Termite**.
+
+1. Select **Settings**.
+
+1. In the **Serial port settings** dialog, check the following settings and update if needed:
+    * **Baud rate**: 115,200
+    * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
+    * **Flow control**: DTR/DSR
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
+
+1. Select **OK**.
+
+Termite is now ready to receive output from the Microchip E54.
+
+### Configure, build, flash, and run the image
+
+1. Open **MPLAB X IDE**  on your computer.
+
+1. Select **File > Open project**. In the open project dialog, navigate to the **same54Xpro\mplab** folder off the working folder where you extracted the zip file. Select all of the projects (don't select **common_hardware_code** or **docs** folders), and then select **Open Project**.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/open-project-mplab.png" alt-text="Open projects in the MPLab IDE":::
+
+1. Right-click the **sample_azure_iot_embedded_sdk_pnp** project in the left **Projects** pane and select **Set as Main Project**.
+
+1. Expand the **sample_azure_iot_embedded_sdk_pnp** project, then expand the **Header Files** folder and open the sample_config.h file.
+
+1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+
+    ```c
+    #define ENABLE_DPS_SAMPLE
+    ```
+
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources. The `ENDPOINT` constant is set to the global endpoint for Azure Device Provisioning Service (DPS).
+
+    |Constant name|Value|
+    |-------------|-----|
+    | `ENDPOINT` | "global.azure-devices-provisioning.net" |
+    | `ID_SCOPE` | {*Your ID scope value*} |
+    | `REGISTRATION_ID` | {*Your Device ID value*} |
+    | `DEVICE_SYMMETRIC_KEY` | {*Your Primary key value*} |
+
+    > [!NOTE]
+    > The`ENDPOINT`, `ID_SCOPE`, and `REGISTRATION_ID` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
+
+1. Save the file.
+
+1. Before you can build the sample, you must build the **sample_azure_iot_embedded_pnp** project's dependent libraries: **threadx**, **netxduo**, and **same54_lib**. To build each library right-click its project in the **Projects** pane and select **Build**. Wait for each build to complete before moving to the next library.
+
+1. After all prerequisite libraries have been successfully built, right-click the **sample_azure_iot_embedded_pnp** project and select **Build**.
+
+1. Select **Debug > Debug Main Project** from the top menu to download and start the program.
+
+1. If a **Tool not Found** dialog appears, select **ATESAME**, and then select **OK**.
+
+1. It may a few minutes for the program to download and start running. Once the program has successfully downloaded and is running, you'll see the following status in the MPLAB **Output** pane.
+
+    ```output
+    Programming complete
+    
+    Running
+    ```
+
+### Confirm device connection details
+
+In the **Termite** app, confirm the following checkpoint values to verify that the device is initialized and connected to Azure IoT.
 
 ```output
 DHCP In Progress...
