@@ -649,11 +649,10 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
    ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-consumption.png)
 
-   If the managed identity isn't enabled, the following error appears when you try to create the connection:
-
-   *You have to enable the managed identity for your logic app and then grant required access to the identity in the target resource.*
-
-   ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+   > [!NOTE]
+   > If the managed identity isn't enabled when you try to create the connection, change the connection, 
+   > or was removed while a managed identity-enabled connection still exists, you get an error appears 
+   > that you must enable the identity and grant access to the target resource.
 
 1. When you're ready, select **Create**.
 
@@ -667,7 +666,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
    ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
 
-1. On the connection name page, provide a name for the connection. 
+1. On the connection name page, provide a name for the connection.
 
    The Azure Resource Manager action is a single-authentication action, so the connection information pane shows a **Managed identity** list that automatically selects the managed identity that's currently enabled on the logic app resource. If you enabled a system-assigned managed identity, the **Managed identity** list selects **System-assigned managed identity**. If you had enabled a user-assigned managed identity instead, the list selects that identity instead.
 
@@ -675,13 +674,12 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
    ![Screenshot showing Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/single-system-identity-standard.png)
 
-   If the managed identity isn't enabled, the following error appears when you try to create the connection:
-
-   *You have to enable the managed identity for your logic app and then grant required access to the identity in the target resource.*
-
-   ![Screenshot showing Azure Resource Manager action with error when no managed identity is enabled.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled-standard.png)
-
    If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Managed identity** option among other authentication types.
+
+   > [!NOTE]
+   > If the managed identity isn't enabled when you try to create the connection, change the connection, 
+   > or was removed while a managed identity-enabled connection still exists, you get an error appears 
+   > that you must enable the identity and grant access to the target resource.
 
 1. When you're ready, select **Create**.
 
