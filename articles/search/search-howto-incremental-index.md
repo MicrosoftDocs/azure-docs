@@ -49,10 +49,6 @@ POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-P
     }
 ```
 
-The following error occurs if you forget to use a preview API version on the request:
-
-`"The request is invalid. Details: indexer : A resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified."`
-
 ## Enable caching on an existing indexer
 
 For existing indexers that already have a skillset, use the following steps to add caching. As a one-time operation, reset and rerun the indexer in full to load the cache.
@@ -105,8 +101,6 @@ POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAM
 
 [Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer) with a PUT request, where the body of the request includes "cache".
 
-If you get a 400, check the indexer definition to make sure all requirements are met (data source, skillset, index) and that you are using a preview API version.
-
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2021-04-30-Preview
     Content-Type: application/json
@@ -143,8 +137,6 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-After the indexer runs, you can find the cache in Azure Blob Storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
-
 > [!NOTE]
 > A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.
 >
@@ -162,6 +154,14 @@ Skillsets that include image analysis and Optical Character Recognition (OCR) of
 The [file set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) used in [cog-search-demo tutorials](cognitive-search-tutorial-blob.md) is a useful test case because it contains 14 files of various formats JPG, PNG, HTML, DOCX, PPTX, and other types.
 
 After caching is enabled, if you modify just the natural language processing skills, leaving image and OCR skills intact, subsequent indexer runs will have lower document counts due to the exclusion of JPG and PNG files. For example, if you are using text translation, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
+
+## Common errors
+
+The following error occurs if you forget to specify a preview API version on the request:
+
+`"The request is invalid. Details: indexer : A resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified."`
+
+A 400 Bad Request error will also occur if you are missing an indexer requirement. The error message will specify any missing dependencies.
 
 ## Next steps
 
