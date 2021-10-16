@@ -89,7 +89,7 @@ landingContent:
      - linkListType: how-to-guide
        links:
           - text: Deploy the Sample Labeling tool
-            url: deploy-label-tool
+            url: deploy-label-tool.md
      - linkListType: get-started
        links:
           - text: Get started
