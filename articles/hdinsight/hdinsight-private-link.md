@@ -11,7 +11,7 @@ ms.date: 10/15/2020
 ## Overview
 In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of our main article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md) where we focused on restricting public connectivity. In the case where you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md)
 
-Private Link can be leveraged in cross VNet scenarios where VNet peering is not available or enabled. For example, if you want to integrate Azure Data Factory with Azure HDInsight, where it is required to have Azure Data Factory connect to HDInsight clusters over private network (i.e., private link) for compliance and security reasons.
+Private Link can be leveraged in cross virtual network scenarios where virtual network peering is not available or enabled.
 
 > [!NOTE]
 > Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
@@ -52,7 +52,7 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) fo
 
 :::image type="content" source="media/hdinsight-private-link/private-endpoint-experience.png" alt-text="Diagram of private endpoint management experience":::
 
-There are two connection approval methods that a Private Link service consumer (e.g., Azure Data Factory) can choose from:
+There are two connection approval methods that a Private Link service consumer can choose from:
 * **Automatic**: If the service consumer has Azure RBAC permissions on the HDInsight resource the consumer can choose the automatic approval method. In this case, when the request reaches the HDInsight resource, no action is required from the HDInsight resource and the connection is automatically approved.
 * **Manual**: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the HDInsight resource, the consumer can choose the manual approval method. In this case, the connection request appears on the HDInsight resources as Pending. The request needs to be manually approved by HDInsight resource before connections can be established. 
 
