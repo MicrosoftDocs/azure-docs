@@ -37,7 +37,7 @@ landingContent:
            - text: Data privacy, compliance, and security
              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
            - text: Help and support
-             url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context  
+             url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
 #Card 2
    - title: View Form Recognizer Features
      linkLists:
@@ -86,8 +86,12 @@ landingContent:
 #Card 4
    - title: Try Sample Labeling tool
      linkLists:
-      - linkListType: get-started
-        links:
+     - linkListType: overview
+       links:
+          - text: Layout overview
+            url: concept-layout.md
+     - linkListType: get-started
+       links:
           - text: Get started
             url: quickstarts/try-sample-label-tool.md
           - text: Use the Layout model
@@ -124,7 +128,7 @@ landingContent:
           - text: Use the ID Document model
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
           - text: Use the Business Card model
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models            
+            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
 #Card 6
    - title: 🆕Try General document model
      linkLists:
@@ -515,4 +519,3 @@ landingContent:
 
   # - title: Help and feedback
   #   linkLists:
-      
