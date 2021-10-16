@@ -31,7 +31,6 @@ The OSS component versions associated with HDInsight 4.0 are listed in the follo
 | Apache Kafka           | 2.1.1, 2.4.1(Preview)        |
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
-| Mono                   | 4.2.1         |
 
 
 This table lists certain HDInsight 4.0 cluster types that have retired.

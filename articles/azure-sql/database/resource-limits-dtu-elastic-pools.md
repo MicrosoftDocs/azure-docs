@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 04/09/2021
+ms.date: 10/12/2021
 ---
 # Resources limits for elastic pools using the DTU purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -179,7 +179,9 @@ The following table describes per database properties for pooled databases.
 > Additionally, setting min DTUs per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min DTUs to 100 in a 400 DTU pool, it means that you will not be able to add more than 4 databases to the pool, because 100 DTUs are reserved for each database.
 > 
 
-While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
+While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, buffer pool memory, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
+
+Min and max per database DTU values apply to resource consumption by user workloads, but not to resource consumption by internal processes. For example, for a database with a per database max DTU set to half of the pool eDTU, user workload cannot consume more than one half of the buffer pool memory. However, this database can still take advantage of pages in the buffer pool that were loaded by internal processes. For more information, see [Resource consumption by user workloads and internal processes](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
 
 ## Next steps
 

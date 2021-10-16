@@ -6,11 +6,15 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
 # Use private endpoints for your Azure Purview account
+
+> [!IMPORTANT]
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
+
 
 This article describes how to configure private endpoints for Azure Purview.
 
@@ -60,6 +64,49 @@ For scenarios where _ingestion_ private endpoint is used in your Azure Purview a
 |SQL Server | Self-Hosted IR| SQL Authentication|
 |Azure Synapse Analytics | Self-Hosted IR| Service Principal|
 |Azure Synapse Analytics | Self-Hosted IR| SQL Authentication|
+
+## Reconfigure DNS for portal private endpoints
+
+If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, take the required actions as detailed in this section.
+
+- If you are **using custom DNS or added required DNS A records directly** to your machines' host file, **no action is required**. 
+
+- If you have **configured Azure Private DNS Zone integration** for your Purview account, follow these steps to redeploy private endpoints to reconfigure DNS settings: 
+
+    1. Deploy a new portal private endpoint:
+       
+        1. Go to the [Azure portal](https://portal.azure.com), and then click on to your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
+
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Screenshot that shows creating a portal private endpoint.":::
+
+        2. Select **+ Private endpoint** to create a new private endpoint.
+
+        3. Fill in the basic information.
+
+        4. On the **Resource** tab, for **Resource type**, select **Microsoft.Purview/account**.
+
+        5. For **Resource**, select the Azure Purview account, and for **Target sub-resource**, select **portal**.
+
+        6. On the **Configuration** tab, select the virtual network and then, select Azure Private DNS zone to create a new Azure DNS Zone.
+            
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Screenshot that shows creating a portal private endpoint and DNS settings.":::
+
+        7. Go to the summary page, and select **Create** to create the portal private endpoint.
+
+    2. Delete the previous portal private endpoint associated with the Purview account. 
+
+    3. Ensure that a new Azure Private DNS Zone (privatelink.purviewstudio.azure.com) is created during the deployment of the portal private endpoint, and that a corresponding A record (web) exists in the Private DNS Zone. 
+    
+    4. Ensure you are able to successfully load Azure Purview Studio. It might take a few minutes (about 10 minutes) for the new DNS routing to take effect after reconfiguring DNS. You can wait a few minutes and try again, if it doesn't load immediately.
+    
+    5. If navigation fails, perform nslookup web.purview.azure.com, which should resolve to a private IP address that's associated to the portal private endpoint.
+  
+    6. Repeat steps 1 through 3 above for all existing portal private endpoints that you have. 
+
+- If you have **configured on-premises or custom DNS resolution** (e.g. you are using your own DNS servers or have configured host files), take the following actions: 
+
+  - If your DNS record is `web.purview.azure.com`, **no action is required**.  
+  - If your DNS record is `web.privatelink.purview.azure.com`, update the record to `web.privatelink.purviewstudio.azure.com`. 
 
 ## Frequently Asked Questions  
 

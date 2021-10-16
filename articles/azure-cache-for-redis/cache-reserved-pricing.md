@@ -1,8 +1,8 @@
 ---
 title: Prepay for compute with reserved capacity - Azure Cache for Redis 
 description: Prepay for Azure Cache for Redis compute resources with reserved capacity
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
@@ -48,7 +48,7 @@ The following table describes required fields.
 | Field | Description |
 | :------------ | :------- |
 | Subscription   | The subscription used to pay for the Azure Cache for Redis reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Cache for Redis reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
-| Scope | The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the reservation discount is applied to Azure Cache for Redis instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the reservation discount is applied to Azure Cache for Redis instances in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Cache for Redis instances in the selected subscription and the selected resource group within that subscription.
+| Scope | The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the reservation discount is applied to Azure Cache for Redis instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the reservation discount is applied to Azure Cache for Redis instances in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Cache for Redis instances in the selected subscription and the selected resource group within that subscription.</br></br>**Management group**, the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 | Region | The Azure region that’s covered by the Azure Cache for Redis reserved capacity reservation.
 | Pricing tier | The service tier for the Azure Cache for Redis servers.
 | Term | One year or three years

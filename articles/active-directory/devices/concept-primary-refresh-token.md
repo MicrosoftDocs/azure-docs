@@ -10,7 +10,7 @@ ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ---
@@ -63,9 +63,12 @@ In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary 
 > [!NOTE]
 > 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy
 
+> [!NOTE]
+> Azure AD Conditional Access policies are not evaluated when PRTs are issued
+
 ## What is the lifetime of a PRT?
 
-Once issued, a PRT is valid for 90 days and is continuously renewed as long as the user actively uses the device.  
+Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  
 
 ## How is a PRT used?
 
@@ -87,6 +90,9 @@ In an ADFS environment, direct line of sight to the domain controller isn't requ
 /adfs/services/trust/13/usernamemixed endpoints enabled on proxy by using WS-Trust protocol.
 
 Windows transport endpoints are required for password authentication only when a password is changed, not for PRT renewal.
+
+> [!NOTE]
+> Azure AD Conditional Access policies are not evaluated when PRTs are renewed.
 
 ### Key considerations
 
@@ -115,7 +121,7 @@ When a user initiates a browser interaction, the browser (or extension) invokes 
 A PRT can get a multi-factor authentication (MFA) claim in specific scenarios. When an MFA-based PRT is used to request tokens for applications, the MFA claim is transferred to those app tokens. This functionality provides a seamless experience to users by preventing MFA challenge for every app that requires it. A PRT can get an MFA claim in the following ways:
 
 * **Sign in with Windows Hello for Business**: Windows Hello for Business replaces passwords and uses cryptographic keys to provide strong two-factor authentication. Windows Hello for Business is specific to a user on a device, and itself requires MFA to provision. When a user logs in with Windows Hello for Business, the user’s PRT gets an MFA claim. This scenario also applies to users logging in with smartcards if smartcard authentication produces an MFA claim from ADFS.
-   * As Windows Hello for Business is considered multi-factor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with WIndows Hello for Business
+   * As Windows Hello for Business is considered multi-factor authentication, the MFA claim is updated when the PRT itself is refreshed, so the MFA duration will continually extend when users sign in with Windows Hello for Business.
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
    * When a previous existing PRT and RT are used for access to an app, the PRT and RT will be regarded as the first proof of authentication. A new AT will be required with a second proof and an imprinted MFA claim. This will also issue a new PRT and RT.
@@ -200,4 +206,4 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 
 ## Next steps
 
-For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
+For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues).

@@ -21,7 +21,7 @@ In this guide, you'll see how you can use the HeadPose attribute of a detected f
 
 The face rectangle, returned with every detected face, marks the location and size of the face in the image. By default, the rectangle is always aligned with the image (its sides are vertical and horizontal); this can be inefficient for framing angled faces. In situations where you want to programmatically crop faces in an image, it's better to be able to rotate the rectangle to crop.
 
-The [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) sample app uses the HeadPose attribute to rotate its detected face rectangles.
+The [Cognitive Services Face WPF (Windows Presentation Foundation)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) sample app uses the HeadPose attribute to rotate its detected face rectangles.
 
 ### Explore the sample code
 

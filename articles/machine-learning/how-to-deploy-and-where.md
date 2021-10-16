@@ -5,8 +5,6 @@ description: 'Learn how and where to deploy machine learning models. Deploy to A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to

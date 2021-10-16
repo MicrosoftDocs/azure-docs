@@ -10,7 +10,7 @@ ms.date: 06/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jairoc
 
 #Customer intent: As a user, I want to join my corporate device during a first-run so that I can access my corporate resources 

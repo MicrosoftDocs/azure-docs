@@ -4,6 +4,7 @@ description: Data flow compute optimized option is being retired
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
 ---

@@ -102,7 +102,20 @@
         - name: Set up advanced network settings on the Azure Percept DK
           href: how-to-set-up-advanced-network-settings.md
         - name: Connect Azure Percept over 5G or LTE networks
-          href: connect-over-cellular.md
+          items:
+            - name: Connect Azure Percept over 5G or LTE networks 
+              href: connect-over-cellular.md
+              items:
+                - name: Connect using USB modem 
+                  href: connect-over-cellular-usb.md
+                - name: Connect using cellular gateway 
+                  href: connect-over-cellular-gateway.md
+                - name: Connect using Vodafone Connect 4G vs USB modem 
+                  href: connect-over-cellular-usb-vodafone.md                
+                - name: Connect using Multitech USB modem 
+                  href: connect-over-cellular-usb-multitech.md 
+                - name: Connect using Quectel 5G Developer Kit
+                  href: connect-over-cellular-usb-quectel.md
         - name: Connect to Azure Percept DK over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect to Azure Percept DK over serial
@@ -136,6 +149,8 @@
           href: software-releases-usb-cable-updates.md
         - name: Azure Percept DK software release notes
           href: azure-percept-devkit-software-release-notes.md
+        - name: Azure Percept DK Container release notes
+          href: azure-percept-devkit-container-release-notes.md
     - name: Azure Percept device datasheets
       items:
         - name: Azure Percept DK datasheet

@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 10/01/2021
 ---
 
 # String functions for Bicep
@@ -16,6 +16,8 @@ This article describes the Bicep functions for working with strings.
 `base64(inputString)`
 
 Returns the base64 representation of the input string.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -56,6 +58,8 @@ The output from the preceding example with the default values is:
 `base64tojson`
 
 Converts a base64 representation to a JSON object.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -98,6 +102,8 @@ The output from the preceding example with the default values is:
 
 Converts a base64 representation to a string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -136,7 +142,7 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-Instead of using the concat function, use string interpolation. 
+Instead of using the concat function, use string interpolation.
 
 ```bicep
 param prefix string = 'prefix'
@@ -150,11 +156,15 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ## contains
 
 `contains (container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -211,6 +221,8 @@ The output from the preceding example with the default values is:
 
 Converts a value to a data URI.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -246,6 +258,8 @@ The output from the preceding example with the default values is:
 
 Converts a data URI formatted value to a string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -280,6 +294,8 @@ The output from the preceding example with the default values is:
 `empty(itemToTest)`
 
 Determines if an array, object, or string is empty.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -318,6 +334,8 @@ The output from the preceding example with the default values is:
 `endsWith(stringToSearch, stringToFind)`
 
 Determines whether a string ends with a value. The comparison is case-insensitive.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -360,6 +378,8 @@ The output from the preceding example with the default values is:
 
 Returns the first character of the string, or first element of the array.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -398,6 +418,8 @@ The output from the preceding example with the default values is:
 
 Creates a formatted string from input values.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -433,6 +455,8 @@ The output from the preceding example with the default values is:
 `guid(baseString, ...)`
 
 Creates a value in the format of a globally unique identifier based on the values provided as parameters.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -487,6 +511,8 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 
 Returns the first position of a value within a string. The comparison is case-insensitive.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -528,11 +554,15 @@ The output from the preceding example with the default values is:
 
 Converts a valid JSON string into a JSON data type. For more information, see [json function](./bicep-functions-object.md#json).
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ## last
 
 `last (arg1)`
 
 Returns last character of the string, or the last element of the array.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -572,6 +602,8 @@ The output from the preceding example with the default values is:
 
 Returns the last position of a value within a string. The comparison is case-insensitive.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -610,6 +642,8 @@ The output from the preceding example with the default values is:
 `length(string)`
 
 Returns the number of characters in a string, elements in an array, or root-level properties in an object.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -660,6 +694,8 @@ The output from the preceding example with the default values is:
 `newGuid()`
 
 Returns a value in the format of a globally unique identifier. **This function can only be used in the default value for a parameter.**
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
@@ -729,6 +765,8 @@ The output from the preceding example varies for each deployment but will be sim
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -765,6 +803,8 @@ The output from the preceding example with the default values is:
 
 Returns a new string with all instances of one string replaced by another string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -800,6 +840,8 @@ The output from the preceding example with the default values is:
 `skip(originalValue, numberToSkip)`
 
 Returns a string with all the characters after the specified number of characters, or an array with all the elements after the specified number of elements.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -843,6 +885,8 @@ The output from the preceding example with the default values is:
 
 Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -884,6 +928,8 @@ The output from the preceding example with the default values is:
 
 Determines whether a string starts with a value. The comparison is case-insensitive.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -924,6 +970,8 @@ The output from the preceding example with the default values is:
 `string(valueToConvert)`
 
 Converts the specified value to a string.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -970,6 +1018,8 @@ The output from the preceding example with the default values is:
 
 Returns a substring that starts at the specified character position and contains the specified number of characters.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -1013,6 +1063,8 @@ The output from the preceding example with the default values is:
 
 Returns a string with the specified number of characters from the start of the string, or an array with the specified number of elements from the start of the array.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -1055,6 +1107,8 @@ The output from the preceding example with the default values is:
 
 Converts the specified string to lower case.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -1088,6 +1142,8 @@ The output from the preceding example with the default values is:
 `toUpper(stringToChange)`
 
 Converts the specified string to upper case.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -1123,6 +1179,8 @@ The output from the preceding example with the default values is:
 
 Removes all leading and trailing white-space characters from the specified string.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -1154,6 +1212,8 @@ The output from the preceding example with the default values is:
 `uniqueString (baseString, ...)`
 
 Creates a deterministic hash string based on the values provided as parameters.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -1199,7 +1259,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 }
 ```
 
-If you need to create a new unique name each time you deploy a Bicep file, and don't intend to update the resource, you can use the [utcNow](./bicep-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](./bicep-functions-date.md#utcnow).
+If you need to create a new unique name each time you deploy a Bicep file, and don't intend to update the resource, you can use the [utcNow](./bicep-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](./bicep-functions-date.md#utcnow). Note the utcNow function can only be used within an expression for the default value of a parameter.
 
 ### Return value
 
@@ -1219,6 +1279,8 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 `uri (baseUri, relativeUri)`
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -1284,6 +1346,8 @@ The output from the preceding example with the default values is:
 
 Encodes a URI.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -1322,6 +1386,8 @@ The output from the preceding example with the default values is:
 `uriComponentToString(uriEncodedString)`
 
 Returns a string of a URI encoded value.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 

@@ -155,12 +155,12 @@ sections:
     questions:
       - question: What APIs does Video Analyzer for Media offer?
         answer: |
-          Video Analyzer for Media's APIs allows for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Video Analyzer for Media API, refer to the [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai/).
+          The Video Analyzer for Media APIs allow for indexing, extracting metadata, asset management, translation, embedding, customization of models and more. To find more detailed information on using the Video Analyzer for Media API, refer to the [Video Analyzer for Media Developer Portal](https://api-portal.videoindexer.ai/).
           
       - question: What client SDKs does Video Analyzer for Media offer?
         answer: There are currently no client SDKs offered. The Video Analyzer for Media team is working on the SDKs and plans to deliver them soon.
 
-      - question: How do I get started with Video Analyzer for Media's API?
+      - question: How do I get started with the Video Analyzer for Media API?
         answer: |
           Follow [Tutorial: get started with the Video Analyzer for Media API](video-indexer-use-apis.md).
           

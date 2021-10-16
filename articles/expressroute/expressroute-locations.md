@@ -120,7 +120,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Supported |Supported |Tokyo |
 | **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |Supported |Supported |Amsterdam2, Berlin, Frankfurt, London2 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported |Osaka |
-| **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Supported |Supported |Marseille |
+| **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** |Supported |Supported |Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Supported |Supported |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Amsterdam2, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
@@ -352,7 +352,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
-| **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
+| **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

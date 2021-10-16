@@ -82,9 +82,10 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Virtual network | Select *TestVNet*. |
     | Public IP address | Select **Create new**.|
     | Public IP address name | Provide a name for the public IP address. |
+    | Public IP address SKU | Provide a SKU for the public IP address. Choose *Standard* for a dual-stack gateway. |
 
     > [!IMPORTANT]
-    > If you plan to use IPv6-based private peering over ExpressRoute, please refer to the [PowerShell documentation](./expressroute-howto-add-gateway-resource-manager.md) for creating your gateway with a Public IP address of type Standard, Static.
+    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static.
     > 
     > 
 

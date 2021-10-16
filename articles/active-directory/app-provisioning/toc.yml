@@ -60,6 +60,8 @@
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automate configuration using MS Graph
       href: application-provisioning-configuration-api.md
+    - name: Enable accidental deletions prevention
+      href: accidental-deletions.md
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -78,12 +80,6 @@
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: On-premises app provisioning
       items:
-      - name: ECMA Connector Host pre-requisites
-        href: on-premises-ecma-prerequisites.md
-      - name: ECMA Connector Host installation
-        href: on-premises-ecma-install.md
-      - name: ECMA Connector Host configuration
-        href: on-premises-ecma-configure.md
       - name: Generic SQL connector configuration
         href: on-premises-sql-connector-configure.md
       - name: On-premises application provisioning to SCIM-enabled apps

@@ -8,7 +8,8 @@
     href: overview-monitoring.md
   - name: What is the sign-in diagnostic?
     href: overview-sign-in-diagnostics.md
-   
+  - name: What are flagged sign-ins?
+    href: overview-flagged-sign-ins.md
 - name: Quickstarts
   expanded: true
   items:

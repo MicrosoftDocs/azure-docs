@@ -16,6 +16,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]

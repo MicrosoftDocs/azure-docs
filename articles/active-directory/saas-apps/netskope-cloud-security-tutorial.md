@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/settings.png)
 
-1. On the **Settings** popup window, perform the following steps;
+1. On the **Settings** pop-up window, perform the following steps;
 
    ![Screenshot shows the Settings dialog box where you can enter the values described.](./media/netskope-cloud-security-tutorial/configuration.png)
 

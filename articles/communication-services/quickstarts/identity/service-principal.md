@@ -6,6 +6,7 @@ services: azure-communication-services
 author: peiliu
 
 ms.service: azure-communication-services
+ms.subservice: identity
 ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: peiliu

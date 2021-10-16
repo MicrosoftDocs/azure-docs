@@ -15,6 +15,10 @@ ms.author: bagol
 
 This article describes how to deploy data connectors in Azure Sentinel, listing all supported, built-in data connectors, together with links to generic deployment procedures and extra steps required for specific connectors.
 
+> [!TIP]
+> Some data connectors are deployed only via solutions. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md). You can also find other, community-built data connectors in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
+>
+
 ## How to use this guide
 
 1. First, locate and select the connector for your product, service, or device in the headings menu to the right.
@@ -25,7 +29,7 @@ This article describes how to deploy data connectors in Azure Sentinel, listing 
     | --- | --- |
     | **Azure service-to-service integration** | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) |
     | **Common Event Format (CEF) over Syslog** | [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md) |
-    | **Azure Sentinel Data Collector API** | [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md) |
+    | **Azure Sentinel Data Collector API** | [Connect your data source to the Azure Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
     | **Azure Functions and the REST API** | [Use Azure Functions to connect Azure Sentinel to your data source](connect-azure-functions-template.md) |
     | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
     | **Custom logs** | [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md) |

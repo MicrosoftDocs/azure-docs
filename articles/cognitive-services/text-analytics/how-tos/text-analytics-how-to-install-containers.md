@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/21/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
@@ -119,7 +119,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
