@@ -21,7 +21,7 @@ If your application requirements call for multiple skills and projections, this 
 
 Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
 
-Sample documents aren't specifically included with the collection, but the [mixed media files](ai-enrichment-mixed-media) from [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) have both text and images to support the projections described in this example.
+Sample documents aren't specifically included with the collection, but the [mixed media files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) have both text and images to support the projections described in this example.
 
 ## Example skillset
 

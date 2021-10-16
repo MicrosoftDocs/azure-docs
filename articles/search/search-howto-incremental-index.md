@@ -1,7 +1,7 @@
 ---
-title: Configure cache and incremental enrichment (preview) 
+title: Enable caching for incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
-description: Enable caching and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
+description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline. 
 
 author: HeidiSteen
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/15/2021
 ---
 
-# Configure caching for incremental enrichment in Azure Cognitive Search
+# Enable caching for incremental enrichment in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature
 
-This article explains how to add caching to an enrichment pipeline so that you can incrementally modify enrichment steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree must be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
+This article explains how to add caching to an enrichment pipeline so that you can modify downstream enrichment steps without having to rebuild in full every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree must be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
 
 Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component managed by your search service and must not be modified.
 
@@ -23,11 +23,11 @@ If you're not familiar with setting up indexers, start with [indexer overview](s
 
 ## Prerequisites
 
-Azure Storage is required. The indexer cache requires a [general purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts) storage account.
+Azure Storage is used to store cached enrichments. The storage account must be [general purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-Preview APIs or beta Azure SDKs are required for enabling cache on an indexer. The portal does not provide an option for caching enrichment.
+Preview APIs or beta Azure SDKs are required for enabling cache on an indexer. The portal does not currently provide an option for caching enrichment.
 
-## Enable caching on new indexers
+## Enable on new indexers
 
 On new indexers, add the "cache" property in the indexer definition payload when calling [Create or Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer). You can also use the previous preview API version, 2020-06-30-Preview.
 
@@ -49,7 +49,7 @@ POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-P
     }
 ```
 
-## Enable caching on an existing indexer
+## Enable on existing indexers
 
 For existing indexers that already have a skillset, use the following steps to add caching. As a one-time operation, reset and rerun the indexer in full to load the cache.
 
@@ -138,7 +138,7 @@ api-key: [YOUR-ADMIN-KEY]
 ```
 
 > [!NOTE]
-> A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.
+> A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents. Reusing enriched content from the cache begins after the cache is loaded.
 >
 
 ## Check for cached output
@@ -147,13 +147,11 @@ Find the cache in Azure Storage, under Blob container. The container name will b
 
 A cache is created and used by an indexer. Its content is not human readable.
 
-To verify whether the cache is operational, modify a skillset and run the indexer, and compare before-and-after metrics for execution time and document counts. 
+To verify whether the cache is operational, modify a skillset and run the indexer, then compare before-and-after metrics for execution time and document counts. 
 
-Skillsets that include image analysis and Optical Character Recognition (OCR) of scanned documents make good test cases. If you modify a downstream text skill, the indexer can retrieve all of the previously processed image and OCR content from cache, updating and processing just text-related changes indicated by your edits. You can expect to see fewer documents in the document count, shorter execution times, and fewer charges on your bill. 
+Skillsets that include image analysis and Optical Character Recognition (OCR) of scanned documents make good test cases. If you modify a downstream text skill or any skill that is not image-related, the indexer can retrieve all of the previously processed image and OCR content from cache, updating and processing only the text-related changes indicated by your edits.  You can expect to see fewer documents in the indexer execution document count, shorter execution times, and fewer charges on your bill. 
 
-The [file set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) used in [cog-search-demo tutorials](cognitive-search-tutorial-blob.md) is a useful test case because it contains 14 files of various formats JPG, PNG, HTML, DOCX, PPTX, and other types.
-
-After caching is enabled, if you modify just the natural language processing skills, leaving image and OCR skills intact, subsequent indexer runs will have lower document counts due to the exclusion of JPG and PNG files. For example, if you are using text translation, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
+The [file set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) used in [cog-search-demo tutorials](cognitive-search-tutorial-blob.md) is a useful test case because it contains 14 files of various formats JPG, PNG, HTML, DOCX, PPTX, and other types. Change `en` to `es` or another language in the text translation skill for proof-of-concept testing of incremental enrichment.
 
 ## Common errors
 
