@@ -43,11 +43,11 @@ The following example illustrates the placement of projections under knowledgeSt
     "projections": [
       {
         "tables": [
-          { "tableName": "ks-museums", "generatedKeyName": "Documentid", "source": "/document/tableprojection" },
-          { "tableName": "ks-museumsEntities", "generatedKeyName": "Entitiesid","source": "/document/tableprojection/Entities/*" }
+          { "tableName": "ks-museums-main", "generatedKeyName": "ID", "source": "/document/tableprojection" },
+          { "tableName": "ks-museumEntities", "generatedKeyName": "ID","source": "/document/tableprojection/Entities/*" }
         ],
         "objects": [
-          { "storageContainer": "ks-museums", "generatedKeyName": "museumsKey", "source": "/document/objectprojection" }
+          { "storageContainer": "ks-museums", "generatedKeyName": "ID", "source": "/document/objectprojection" }
         ],
         "files": [ ]
       }
@@ -58,7 +58,7 @@ The following example illustrates the placement of projections under knowledgeSt
 
 Projections are an array of complex collections, which means that you can specify multiple sets of each type. It's common to use just one projection group, but you might use multiple if storage requirements include supporting different tools and scenarios. For example, you might use one group for design and debug of a skillset, while a second set collects output used for an online app, with a third for data science workloads.
 
-The same skillset output is used to populate all groups under projections. The following example shows two projection groups.
+The same skillset output is used to populate all groups under projections. The following example shows two.
 
 ```json
 "knowledgeStore" : {
@@ -78,20 +78,22 @@ The same skillset output is used to populate all groups under projections. The f
 }
 ```
 
-Each set of tables, objects, and files is a *project group* that isolates it from shapes in other groups. Projection groups have the following key characteristics of mutual exclusivity and relatedness. 
+Projection groups have the following key characteristics of mutual exclusivity and relatedness. 
 
 | Principle | Description |
 |-----------|-------------|
 | Mutual exclusivity | Each group is fully isolated from other groups to support different data shaping scenarios. For example, if you are testing different table structures and combinations, you would put each set in a different projection group for AB testing. Each group obtains data from the same source (enrichment tree) but is fully isolated from the table-object-file combination of any peer projection groups.|
 | Relatedness | Within a projection group, content in tables, objects, and files are related. Knowledge store uses generated keys as reference points to a common parent node. For example, consider a scenario where you have a document containing images and text. You could project the text to tables and the images to binary files, and both tables and objects will have a column/property containing the file URL.|
 
-## Shaping projections
+## Projection "source"
 
-A data shape is a structure passed to a projection as its content "source". Shaping applies to table projections and object projections, and it determines the composition of what each one contains.
+The source parameter is the third component of a projection definition. Because projections store data from an AI enrichment pipeline, the source of a projection is always the output of a skill. As such, output might be a single field (for example, a field of translated text), but often it's a reference to a data shape.
 
-Projections are easier to define when you have an object in the enrichment tree that provides a schema for the projection, be it tables or objects. The ability to structure your data based on planned usage is typically achieved by adding a [Shaper skill](cognitive-search-skill-shaper.md) to your skillset. Shapes produced from a Shaper skill are used as the `source` for a projection, but can also be used as an input to another skill. The other alternative is to add inline shaping to a skill in
+Data shapes come from your skillset. Among all of the built-in skills provided in Cognitive Search, there is a utility skill called the [**Shaper skill**](cognitive-search-skill-shaper.md) that's used to create data shapes. You can include Shaper skills (as many as you need) to support the projections in the knowledge store.
 
-Simply put, for table projections, the Shaper skill determines the columns or fields in your tables. Inputs to the Shaper skill consist of nodes in an enrichment tree. Output is a structure that you specify in the table projection. In the following example, a table projection called "mytableprojection" will consist of the inputs, as specified by the Shaper skill.
+Shapes are frequently used with table projections, where the shape not only specifies which rows go into the table, but also which columns are created (you can also pass a shape to an object projection).
+
+Shapes can be complex and it's out of scope to discuss them in depth here, but the following example briefly illustrates a basic shape. The output of the Shaper skill is specified as the source of a table projection. Within the table projection itself will be columns for "metadata-storage_path", "reviews_text", "reviews_title", and so forth, as specified in the shape.
 
 ```json
 {
@@ -127,8 +129,6 @@ Simply put, for table projections, the Shaper skill determines the columns or fi
     ]
 }
 ```
-
-The Shaper skill allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. It also allows you to define complex types with nested objects. For examples, see the [Shaper skill](cognitive-search-skill-shaper.md) documentation.
 
 ## Projection lifecycle
 
