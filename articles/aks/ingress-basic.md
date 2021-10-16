@@ -323,7 +323,7 @@ nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.3582
 Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress deployment.
 
 ```
-$ helm uninstall nginx-ingress --namespace ingress-basic
+$ helm uninstall ingress-nginx --namespace ingress-basic
 
 release "nginx-ingress" uninstalled
 ```
