@@ -875,7 +875,7 @@
         href: essentials/app-insights-metrics.md
       - name: Standard metrics
         href: app/standard-metrics.md
-    - name: Transaction Search
+    - name: Transaction search
       href: app/diagnostic-search.md
     - name: Profiler
       items:
