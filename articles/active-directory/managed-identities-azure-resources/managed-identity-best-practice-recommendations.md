@@ -87,7 +87,7 @@ When granting any identity, including a managed identity, permissions to access 
 
 It is important to note that when an Azure resource, such as an Azure Logic App, an Azure function, or a Virtual Machine, etc is assigned a managed identity, all the permissions granted to the managed identity are now available to the Azure resource. This is particularly important because if a user has access to install or execute code on this resource, then the user has access to all the identities assigned/associated to the Azure resource. The purpose of managed identity is to give code running on an Azure resource access to other resources, without developers needing to handle or put credentials directly into code to get that access.
 
-For example, if a Managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have any direct permissions over the Managed identity or the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from **StorageAccount7755** by executing the code that uses the managed identity.
+For example, if a Managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have any direct permissions over the Managed identity or the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from ***StorageAccount7755*** by executing the code that uses the managed identity.
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="security scenario":::
 
