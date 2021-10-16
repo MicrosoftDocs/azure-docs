@@ -62,6 +62,76 @@ Video Analyzer only supports RTSP with [interleaved RTP streams]( https://datatr
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
 
+## Quotas and limitations - Cloud pipeline
+
+This section enumerates the quotas and limitations of Video Analyzer cloud pipelines. 
+
+### Maximum number of Concurrent Live Pipeline Activations 
+
+At most 10 live pipelines per Video Analyzer account (created via livePipelineSet) can be in activating state. 
+
+### Maximum number of pipeline topologies 
+
+At most 5 pipeline topologies per Video Analyzer account (created via pipelineTopologySet) are supported. 
+
+### Live Pipeline Activations per time window 
+
+At most 10 pipeline topologies per Video Analyzer account can be activated within a time window of 5 minutes.  
+
+### Maximum Live Pipelines per Topology	 
+
+At most 50 live pipelines per topology are supported.  
+
+### Concurrent Playback Sessions  
+
+At most 1 concurrent playback session is supported for a single Live Pipeline.  
+
+### Limitations on designing pipeline topologies 
+
+Following are the different nodes that can be connected together in a pipeline topology and their limitations: 
+
+* RTSP source 
+
+   * Only one RTSP source is allowed per pipeline topology. 
+
+* Video Source Node 
+
+   * Used for batch video export to mp4, allows only Video Analyzer video resource to be used as a source.  
+
+* Encoder Processor 
+
+* Video sink 
+
+### Supported cameras 
+
+You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T. 
+
+You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. 
+
+Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported. 
+
+Bitrate Kbps must be between 500 and 3000 (0.5 Mbps and 3.0 Mbps). If true ingestion bitrate is above this threshold,ingestion will be disconnected and reconnected with exponential backoff.  
+
+### Support for batch video export 
+
+* Segment Selection 
+
+   * Video portion to be exported can selected through UTC time 
+   * The maximum duration of segment selection supported is 24hrs 
+
+* Media Input  
+
+   * Input is a Video Analyzer Video resource of type ‘archive’ (segmented archive format)  
+   * Supported codecs: video - H.264, audio - AAC
+
+* Media Output   
+
+   * Video is exported as a single Mp4 file 
+
+### Support for video AI 
+
+Analyzing live cloud pipelines is currently not supported. 
+
 ## Quotas and limitations - Service
 
 This section enumerates the quotas and limitations of the Video Analyzer account.
