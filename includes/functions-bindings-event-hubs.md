@@ -26,11 +26,23 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 ### Event Hubs extension 5.x and higher
 
-A new version of the Event Hubs bindings extension is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.4). This preview introduces the ability to [connect using an identity instead of a secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). For .NET applications, it also changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventHubs` with newer types from [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
+A new version of the Event Hubs bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). For .NET applications, it also changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventHubs` with newer types from [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
 
-> [!NOTE]
-> The preview package is not included in an extension bundle and must be installed manually. For .NET apps, add a reference to the package. For all other app types, see [Update your extensions].
+This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following in your `host.json` file:
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+To learn more, see [Update your extensions].
+
+[preview NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.7
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/
