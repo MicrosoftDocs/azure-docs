@@ -42,6 +42,27 @@ the same machine. There are no special steps required within the
 operating system of guest configuration extension. There's no need to configure
 [partial configurations](/powershell/scripting/dsc/pull-server/partialConfigs).
 
+## Dependencies are managed per-configuration
+
+When a configuration is
+[packaged using the available tools](../how-to/guest-configuration-create),
+the required dependencies for the configuration are included in a .zip file.
+Machines that request the configuration extract the contents into a unique
+folder for each configuration. The agent delivered by the guest configuration 
+extension creates a dedicated PowerShell session for each configuration, using a
+`$Env:PSModulePath` that limits automatic module loading to only the path where
+the package was extracted.
+
+Multiple benefits result from this change.
+
+- It is possible to use difference module versions for each configuration, on
+  the same machine.
+- When a configuration is no longer deleted on a machine, the entire folder
+  where it was extracted is safely deleted by the agent without the need to
+  manage shared dependencies across configurations.
+- It is not requird to manage multiple versions of any module in a central
+  service.
+
 ## Configuration mode is set in the package artifact
 
 When creating the configuration package, the mode is set using the following
