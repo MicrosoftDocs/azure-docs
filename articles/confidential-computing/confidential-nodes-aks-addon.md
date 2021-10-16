@@ -1,6 +1,6 @@
 ---
-title:  Confidential Computing plugin on AKS for Enclave aware Azure VM's
-description: AKS Addon fro Confidential Computing details.
+title:  Confidential computing plugin on AKS for Enclave confidential VM's
+description: Intel SGX device plugin and Intel SGX quote helper daemon sets.
 author: agowdamsft
 ms.service: virtual-machines
 ms.subservice: workloads
@@ -12,12 +12,14 @@ ms.author: amgowda
 
 # Confidential computing plugin for Intel SGX Confidential Virtual Machines 
 
-## Feature: Intel SGX Device Plugin for Azure Kubernetes Service (AKS)
+AKS confidential computing addon names as "confcom" is a daemon set that only runs for Intel SGX Confidential VM's added to the AKS cluster. This addon is registered at the AKS cluster level and provides the below functionality to help managing the confidential nodes easily. [Read more here how to enable addon to AKS cluster.](./confidential-enclave-nodes-aks-get-started.md)
+
+## Addon Feature: Intel SGX Device Plugin for Azure Kubernetes Service (AKS)
 
 The SGX Device Plugin implements the Kubernetes device plugin interface for EPC memory. Effectively, this plugin makes EPC memory an additional resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 
-## Feature: Platform Software Management with SGX quote helper daemon set
+## Addon Feature: Platform Software Management with SGX quote helper daemon set
 
 Enclave applications that perform remote attestation need to generate a QUOTE. The QUOTE provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in. QUOTE generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. It can leveraged when requesting attestation QUOTE from enclave apps. Using the AKS provided service will help better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
 
@@ -135,7 +137,7 @@ spec:
 ```
 
 ## Next Steps
-[Provision Confidential Nodes (DCsv2/DCsv3-Series) on AKS](./confidential-enclavenodes-aks-get-started.md)
+[Provision Confidential Nodes (DCsv2/DCsv3-Series) on AKS](./confidential-enclave-nodes-aks-get-started.md)
 
 [Quick starter samples confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 
