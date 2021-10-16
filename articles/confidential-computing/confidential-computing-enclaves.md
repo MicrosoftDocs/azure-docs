@@ -43,5 +43,5 @@ When developing applications, you can use [software tools](application-developme
 
 ## Next Steps
 - [Read best practices](virtual-machine-solutions-sgx.md) for deploying solutions on Azure confidential computing virtual machines.
-- [Deploy a DCsv2-Series virtual machine](quick-create-portal.md)
+- [Deploy an Intel SGX virtual machine](quick-create-portal.md)
 - [Develop an enclave-aware application](application-development.md) using the OE SDK
