@@ -86,10 +86,10 @@ landingContent:
 #Card 4
    - title: Try Sample Labeling tool
      linkLists:
-     - linkListType: overview
+     - linkListType: how-to-guide
        links:
-          - text: Layout overview
-            url: concept-layout.md
+          - text: Deploy the Sample Labeling tool
+            url: deploy-label-tool
      - linkListType: get-started
        links:
           - text: Get started
