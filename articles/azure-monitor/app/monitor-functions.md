@@ -40,9 +40,14 @@ XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
 
-#### Linux
+#### Linux Dedicated/Premium
 ```
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+#### Linux Consumption
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ```
 
 ## Distributed tracing for Python Function apps
