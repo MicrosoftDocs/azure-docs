@@ -284,7 +284,7 @@ To connect the Microchip E54 to Azure, you'll connect the Microchip E54 to your 
 
 ### Configure Termite
 
-You'll use the **Termite** app to monitor communication and confirm that your device is set up correctly. In this section, you configure **Termite** to monitor the serial port for your device.
+You'll use the **Termite** app to monitor communication and confirm that your device is set up correctly. In this section, you configure **Termite** to monitor the serial port of your device.
 
 1. Start **Termite**.
 
@@ -395,7 +395,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip) file and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -418,7 +418,7 @@ To connect the Microchip E54 to Azure, you'll connect the Microchip E54 to your 
 
 ### Configure Termite
 
-You'll use the **Termite** app to monitor communication and confirm that your device is set up correctly. In this section, you configure **Termite** to monitor the serial port for your device.
+You'll use the **Termite** app to monitor communication and confirm that your device is set up correctly. In this section, you configure **Termite** to monitor the serial port of your device.
 
 1. Start **Termite**.
 
@@ -473,9 +473,9 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Select **Debug > Debug Main Project** from the top menu to download and start the program.
 
-1. If a **Tool not Found** dialog appears, select **ATESAME**, and then select **OK**.
+1. If a **Tool not Found** dialog appears, select **connect SAM E54 board**, and then select **OK**.
 
-1. It may a few minutes for the program to download and start running. Once the program has successfully downloaded and is running, you'll see the following status in the MPLAB **Output** pane.
+1. It may take a few minutes for the program to download and start running. Once the program has successfully downloaded and is running, you'll see the following status in the MPLAB **Output** pane.
 
     ```output
     Programming complete
