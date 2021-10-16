@@ -109,6 +109,8 @@ The **Usage** tab allows users to deep dive into the performance of the cluster'
 - Identify recent changes in the number of queries, compared to the historical daily average (over the past 16 days), by workload group, user, and application.
 - Identify trends and peaks in the number of queries, memory, and CPU consumption by workload group, user, application, and command type.
 
+The **Usage** tab includes actions that are performed directly by users. Internal cluster operations are not included in this page.
+
 [![Screenshot of the operations view with donut charts related to commands and queries.](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 
 [![Screenshot of the operations view with line charts related to queries and memory.](./media/data-explorer/usage-2.png)](./media/data-explorer/usage-2.png#lightbox)
