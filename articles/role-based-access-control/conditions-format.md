@@ -226,7 +226,7 @@ The following table lists the operators that are available to construct conditio
 
 ## Grouping and precedence
 
-You use parentheses `()` to group expressions and define precedence in a condition. If you have three or more expressions for a targeted action, you must add parentheses to define the order that the expressions are evaluated. Expressions enclosed in parentheses have higher precedence. For example, if you have the following expression:
+If you have three or more expressions for a targeted action with different operators between the expressions, the evaluation order is ambiguous. You use parentheses `()` to group expressions and specify the order that the expressions are evaluated. Expressions enclosed in parentheses have higher precedence. For example, if you have the following expression:
 
 ```
 a AND b OR c
@@ -246,3 +246,4 @@ a AND (b OR c)
 
 - [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+- [Add or edit Azure role assignment conditions using the Azure portal (preview)](conditions-role-assignments-portal.md)
