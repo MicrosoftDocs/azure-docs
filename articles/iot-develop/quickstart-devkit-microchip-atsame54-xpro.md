@@ -249,7 +249,7 @@ Keep Termite open to monitor device output in the following steps.
 ## Prerequisites
 
 * A PC running Microsoft Windows 10
-* [Git](https://git-scm.com/downloads) for cloning the repository
+
 * Hardware
 
     * The [Microchip ATSAME54-XPro](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
@@ -258,6 +258,12 @@ Keep Termite open to monitor device output in the following steps.
     * Ethernet cable
     * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
     * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
+
+* [Termite](https://www.compuphase.com/software_termite.htm). On the web page, under **Downloads and license**, choose the complete setup. Termite is an RS232 terminal that you'll use to monitor serial port output for your device.
+
+* IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [30-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
+
+* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 ## Prepare the development environment
 
@@ -303,23 +309,7 @@ To install the tools:
 
 ## Prepare the device
 
-To connect the Microchip E54 to Azure, you'll modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
-
-### Add configuration
-
-1. Open the following file in a text editor:
-
-    *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
-
-1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
-
-    |Constant name|Value|
-    |-------------|-----|
-    | `IOT_DPS_ID_SCOPE` | {*Your ID scope value*} |
-    | `IOT_DPS_REGISTRATION_ID` | {*Your Device ID value*} |
-    | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
-
-1. Save and close the file.
+To connect the Microchip E54 to Azure, you'll connect the Microchip E54 to your computer, modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Connect the device
 
@@ -334,64 +324,11 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 1. Use the Ethernet cable to connect the Microchip E54 to an Ethernet port.
 
-### Optional: Install a weather sensor
+### Configure Termite
 
-If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, follow the steps in this section; otherwise, skip to [Build the image](#build-the-image). You can complete this quickstart even if you don't have a sensor. The sample code for the device returns simulated data if a real sensor is not present.
-
-1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
-
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
-
-1. Reopen the configuration file you edited previously:
-
-    *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
-
-1. Set the value of the constant `__SENSOR_BME280__` to **1** as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
-
-    `#define __SENSOR_BME280__ 1`
-
-1. Save and close the file.
-
-### Build the image
-
-1. In your console or in File Explorer, run the script ***rebuild.bat*** at the following path to build the image:
-
-    *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
-
-1. After the build completes, confirm that the binary file was created in the following path:
-
-    *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
-
-### Flash the image
-
-1. Open the **Windows Start > Microchip Studio Command Prompt** console and go to the folder of the Microchip E54 binary file that you built.
-
-    *getting-started\Microchip\ATSAME54-XPRO\build\app*
-
-1. Use the *atprogram* utility to flash the Microchip E54 with the binary image:
-
-    ```shell
-    atprogram --tool edbg --interface SWD --device ATSAME54P20A program --chiperase --file atsame54_azure_iot.bin --verify
-    ```
-
-    > [!NOTE]
-    > For more information about using the Atmel-ICE and atprogram tools with the Microchip E54, see [Using Atmel-ICE for AVR Programming In Mass Production](http://ww1.microchip.com/downloads/en/AppNotes/00002466A.pdf).
-
-    After the flashing process completes, the console confirms that programming was successful:
-
-    ```output
-    Firmware check OK
-    Programming and verification completed successfully.
-    ```
-
-### Confirm device connection details
-
-You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
+You'll use the **Termite** app to monitor communication and confirm that your device is set up correctly. In this section, you configure **Termite** to monitor the serial port for your device.
 
 1. Start **Termite**.
-
-    > [!TIP]
-    > If you have issues getting your device to initialize or connect after flashing, seeTroubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 
 1. Select **Settings**.
 
@@ -404,42 +341,79 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Select OK.
 
-1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
+Termite is now ready to receive output from the Microchip E54.
 
-1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+### Configure, build, flash, and run the image
 
-    ```output
-    Starting Azure thread
+1. Open the **IAR EW for ARM** app on your computer.
 
-    Initializing DHCP
-        IP address: 192.168.0.21
-        Mask: 255.255.255.0
-        Gateway: 192.168.0.1
-    SUCCESS: DHCP initialized
+1. Select **File > Open workspace**, navigate to the **same54Xpro\iar** folder off the working folder where you extracted the zip file, and open the ***azure_rtos.eww*** EWARM Workspace.
 
-    Initializing DNS client
-        DNS address: 75.75.75.75
-    SUCCESS: DNS client initialized
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/open-project-iar.png" alt-text="Open the IAR workspace":::
 
-    Initializing SNTP client
-        SNTP server 0.pool.ntp.org
-        SNTP IP address: 45.55.58.103
-        SNTP time update: Jun 5, 2021 20:2:46.32 UTC 
-    SUCCESS: SNTP initialized
+1. Right-click the **sample_azure_iot_embedded_sdk_pnp** project in the left **Workspace** pane and select **Set as active**.
 
-    Initializing Azure IoT DPS client
-        DPS endpoint: global.azure-devices-provisioning.net
-        DPS ID scope: ***
-        Registration ID: mydevice
-    SUCCESS: Azure IoT DPS client initialized
+1. Expand the sample, then expand the **Sample** folder and open the sample_config.h file.
 
-    Initializing Azure IoT Hub client
-        Hub hostname: ***.azure-devices.net
-        Device id: mydevice
-        Model id: dtmi:azurertos:devkit:gsg;1
-    Connected to IoT Hub
-    SUCCESS: Azure IoT Hub client initialized
+1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+
+    ```c
+    #define ENABLE_DPS_SAMPLE
     ```
+
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources. The `ENDPOINT` constant is set to the global endpoint for Azure Device Provisioning Service (DPS).
+
+    |Constant name|Value|
+    |-------------|-----|
+    | `ENDPOINT` | "global.azure-devices-provisioning.net" |
+    | `ID_SCOPE` | {*Your ID scope value*} |
+    | `REGISTRATION_ID` | {*Your Device ID value*} |
+    | `DEVICE_SYMMETRIC_KEY` | {*Your Primary key value*} |
+
+    > [!NOTE]
+    > The`ENDPOINT`, `ID_SCOPE`, and `REGISTRATION_ID` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
+
+1. Save the file.
+
+1. Select **Project > Batch Build**. Then select **build_all** and **Make** to build all projects. You will see build output in the **Build** pane. Confirm the successful compilation and linking of all sample projects.
+
+1. Select the green **Download and Debug** button in the toolbar to download the program.
+
+1. After the image has finished downloading, Select **Go** to run the sample.
+
+### Confirm device connection details
+
+In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+
+```output
+DHCP In Progress...
+IP address: 192.168.0.22
+Mask: 255.255.255.0
+Gateway: 192.168.0.1
+DNS Server address: 75.75.75.75
+SNTP Time Sync...
+SNTP Time Sync successfully.
+[INFO] Azure IoT Security Module has been enabled, status=0
+Start Provisioning Client...
+[INFO] IoTProvisioning client connect pending
+Registered Device Successfully.
+IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+Connected to IoTHub.
+Telemetry message send: {"temperature":22}.
+Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
+Failed to parse value
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+```
 
 Keep Termite open to monitor device output in the following steps.
 
@@ -451,9 +425,17 @@ To view the device status in IoT Central portal:
 
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to *Provisioned*.
+:::zone pivot="iot-toolset-cmake"
+
 1. Confirm that the **Device template** is updated to *Getting Started Guide*.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+1. Confirm that the **Device template** is updated to *Thermostat*.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status-iar.png" alt-text="Screenshot of device status in IoT Central":::
+:::zone-end
 
 ## View telemetry
 
@@ -465,7 +447,12 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
+    :::zone pivot="iot-toolset-cmake"
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
+    :::zone-end
+    :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-telemetry-iar.png" alt-text="Screenshot of device telemetry in IoT Central":::
+    :::zone-end
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -475,13 +462,33 @@ To view telemetry in IoT Central portal:
 You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a method in IoT Central portal:
+:::zone pivot="iot-toolset-cmake"
 
 1. Select the **Command** tab from the device page.
+
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+
+1. Select the **Command** tab from the device page.
+
+1. In the **Since** field, use the date picker and time selectors to set a time, then select **Run**.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method-iar.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
+
+1. You can see the command invocation in Termite:
+
+    ```output
+    Receive method call: getMaxMinReport, with payload:"2021-10-14T17:45:00.000Z"
+    ```
+
+    > [!NOTE]
+    > You can also view the command invocation and response on the **Raw data** tab on the device page in IoT Central.
+:::zone-end
 
 ## View device information
 
@@ -489,13 +496,23 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
+:::zone pivot="iot-toolset-cmake"
 :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+:::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about-iar.png" alt-text="Screenshot of device information in IoT Central":::
+:::zone-end
 
 ## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
+:::zone pivot="iot-toolset-cmake"
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+For help debugging the application, see the selections under **Help** in IAR.  
+:::zone-end
 
 ## Clean up resources
 
