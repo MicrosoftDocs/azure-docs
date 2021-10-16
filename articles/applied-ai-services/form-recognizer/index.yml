@@ -47,6 +47,8 @@ landingContent:
             url: concept-general-document.md
           - text: Layout model
             url: concept-layout.md
+          - text: Custom model
+            url: concept-custom.md
           - text: Invoice model
             url: concept-invoice.md
           - text: Receipt model
@@ -55,8 +57,6 @@ landingContent:
             url: concept-id-document.md
           - text: Business card model
             url: concept-business-card.md
-          - text: Custom model
-            url: concept-custom.md
 #Card 3
    - title: Explore Development Options
      linkLists:
@@ -171,14 +171,14 @@ landingContent:
           url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
         - text: Form Recognizer Studio
           url: "quickstarts/try-v3-form-recognizer-studio.md#layout"
-        - text: Using Sample Labeling tool
+        - text: Sample Labeling tool
           url: "concept-layout.md#try-it-sample-labeling-tool"
 # Card 8
    - title: Try Custom model
      linkLists:
       - linkListType: overview
         links:
-          - text: Custom model overview
+          - text: Model overview
             url: concept-custom.md
       - linkListType: get-started
         links:
@@ -247,7 +247,7 @@ landingContent:
      linkLists:
       - linkListType: overview
         links:
-          - text: ID document overview
+          - text: Model overview
             url: concept-id-document.md
       - linkListType: get-started
         links:
@@ -270,7 +270,7 @@ landingContent:
      linkLists:
       - linkListType: overview
         links:
-          - text: Business card overview
+          - text: Model overview
             url: concept-business-card.md
       - linkListType: get-started
         links:
