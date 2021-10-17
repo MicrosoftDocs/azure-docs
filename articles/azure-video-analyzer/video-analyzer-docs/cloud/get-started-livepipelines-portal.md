@@ -3,7 +3,7 @@ title: Get started with Azure Video Analyzer live pipelines - Azure portal
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer live pipelines by using the Azure portal. Topic get you started with Continuous video recording (CVR) scenario from a live video source exposed over internet with Azure Video Analyzer live pipelines.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 10/15/2021
+ms.date: 10/16/2021
 ---
 
 # Quickstart: Get started with Azure Video Analyzer Live Pipelines - Azure portal
@@ -13,7 +13,8 @@ You'll create an Azure Video Analyzer account and its accompanying resources by 
 
 The steps outlined in this document apply to cameras that are made accessible over the internet, and not shielded behind a firewall. The following diagram graphically represents the live [pipeline](../pipeline.md) that you will deploy to your Video Analyzer account.
 
-> :::image type="content" source="./media/live-pipeline.png" alt-text="Diagram of a live pipeline that captures live videos on the cloud.":::
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="../media/pipeline/cloud-pipeline.svg" alt-text="Representation of a live pipeline on the cloud":::
 
 ## Prerequisites
 
