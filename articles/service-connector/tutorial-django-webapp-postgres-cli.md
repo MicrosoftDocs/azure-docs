@@ -4,7 +4,7 @@ description: Create a Python web app with a PostgreSQL database and deploy it to
 ms.devlang: python
 author: shizn
 ms.author: xshi
-ms.service: service-connector
+ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
