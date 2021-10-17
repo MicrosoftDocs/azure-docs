@@ -21,14 +21,14 @@ Before you can use custom text classification, you will need to create a Text An
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
+1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.  
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -51,9 +51,9 @@ After you have created an Azure storage account and linked it to your Language S
 
 Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-1. Login to [Language Studio](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+1. Login to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
-2. In the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
+2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
@@ -127,4 +127,5 @@ After your model is deployed, you can start using it for text classification. Us
 
 ## Clean up projects
 
-When you don't need your project anymore, you can delete it from your [projects page in Language Studio](https://language.azure.com/customText/projects/classification). Select the project you want to delete and click on **Delete**.
+When you don't need your project anymore, you can delete it from your [projects page in Language Studio](https://aka.ms/custom-classification
+). Select the project you want to delete and click on **Delete**.
