@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 08/25/2021
+ms.date: 10/17/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -276,7 +276,8 @@ The list of archived logs can contain up to five items. If the number of items i
 
 ## Export audit log from the management console
 
-Audit logs can be obtained only through the management console. Audit logs contain key information that is recorded at the time of occurrence that can assist you in figuring out what changes were made, and by who. The following information is recorded in the audit logs:
+Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who.
+Audit logs can be exported in the management console, and contain the following information:
 
 | Action | Information logged |
 |--|--|
@@ -296,7 +297,7 @@ Audit logs can be obtained only through the management console. Audit logs conta
 
 1. Select **Export**.
 
-1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
+1. In the File Name field, enter the file name that you want to use for the exported log. If no name is entered, the default file name will be the current date.
 
 1. Select **Audit Logs**.
 
@@ -304,9 +305,9 @@ Audit logs can be obtained only through the management console. Audit logs conta
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Screenshot of the select Audit Logs and then select Export to create your file screen.":::
 
-The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP, and send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP. Send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="Screenshot of the file you created in the archived files section of the Export Trouleshooting Information window.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="Screenshot of the file you created in the archived files section of the Export Troubleshooting Information window.":::
 
 ## Next steps
 
