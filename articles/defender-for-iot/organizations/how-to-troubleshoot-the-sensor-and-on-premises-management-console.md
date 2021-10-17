@@ -92,7 +92,7 @@ When a new sensor is deployed or, for example, the sensor is working slowly or n
 
 1. Add a widget and make sure it shows data.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Screenshot of the the widget showing data.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Screenshot of the widget showing data.":::
 
 1. From the side menu, select **Alerts**. The **Alerts** window appears.
 
