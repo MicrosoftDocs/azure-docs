@@ -25059,6 +25059,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/azure-defender.md",
+      "redirect_url": "/azure/security-center/defender-for-cloud-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-cloud-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-os-coverage.md",
+      "redirect_url": "/azure/security-center/os-coverage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-just-in-time.md",
+      "redirect_url": "/azure/security-center/just-in-time-access-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/just-in-time-explained.md",
+      "redirect_url": "/azure/security-center/just-in-time-access-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-adaptive-application.md",
+      "redirect_url": "/azure/security-center/adaptive-application-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-file-integrity-monitoring.md",
+      "redirect_url": "/azure/security-center/file-integrity-monitoring-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-file-integrity-monitoring-baselines.md",
+      "redirect_url": "/azure/security-center/file-integrity-monitoring-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/azure-defender-dashboard.md",
+      "redirect_url": "/azure/security-center/workload-protections-dashboard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-virtual-machine-protection.md",
       "redirect_url": "/azure/security-center/asset-inventory",
       "redirect_document_id": false

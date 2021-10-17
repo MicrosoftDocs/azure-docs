@@ -1,6 +1,6 @@
 ---
-title: Tracking your secure score in Azure Security Center
-description: Learn about the multiple ways to access and track your secure score in Azure Security Center.
+title: Tracking your secure score in Microsoft Defender for Cloud
+description: Learn about the multiple ways to access and track your secure score in Microsoft Defender for Cloud.
 author: memildin
 ms.author: memildin
 manager: rkarlin
@@ -86,14 +86,14 @@ To access the secure score for multiple subscriptions with Azure Resource Graph:
 
 Security Center's workbooks page includes a ready-made report for visually tracking the scores of your subscriptions, security controls, and more. Learn more in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="A section of the secure score over time report from Azure Security Center's workbooks gallery":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="A section of the secure score over time report from Microsoft Defender for Cloud's workbooks gallery":::
 
 ### Power BI Pro dashboards
 
 If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
 
 > [!TIP]
-> You can find this dashboard, as well as other tools for working programmatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+> You can find this dashboard, as well as other tools for working programmatically with secure score, in the dedicated area of the Microsoft Defender for Cloud community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
 
 The dashboard contains the following two reports to help you analyze your security status:
 

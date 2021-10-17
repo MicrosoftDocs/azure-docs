@@ -1,25 +1,25 @@
 ---
-title: Azure Defender's dashboard and its features
-description: Learn about the features of the Azure Defender dashboard.
+title: Microsoft Defender for Cloud's workflow protection dashboard and its features
+description: Learn about the features of Microsoft Defender for Cloud's workflow protection dashboard
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/02/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 
 ---
 
-# The Azure Defender dashboard
+# The workflow protection dashboard
 
-The Azure Defender dashboard provides:
+This dashboard provides:
 
 - Visibility into your Azure Defender coverage across your different resource types
 - Links to configure advanced threat protection capabilities
 - The onboarding state and agent installation
-- Azure Defender threat detection alerts 
+- Threat detection alerts 
 
-To access the Azure Defender dashboard, select **Azure Defender** from the Cloud Security section of Security Center's menu.
+To access the workflow protection dashboard, select **Workflow protection** from the Cloud Security section of Defender for Cloud's menu.
 
 ## What's shown on the dashboard?
 
@@ -33,7 +33,7 @@ The dashboard includes the following sections:
 
 3. **Advanced protection** - Azure Defender includes many advanced threat protection capabilities for virtual machines, SQL databases, containers, web applications, your network, and more. In this advanced protection section, you can see the status of the resources in your selected subscriptions for each of these protections. Select any of them to go directly to the configuration area for that protection type.
 
-4. **Insights** - This rolling pane of news, suggested reading, and high priority alerts gives Security Center's insights into pressing security matters that are relevant to you and your subscription. Whether it's a list of high severity CVEs discovered on your VMs by a vulnerability analysis tool, or a new blog post by a member of the Security Center team, you'll find it here in the Insights pane of your **Azure Defender dashboard**.
+4. **Insights** - This rolling pane of news, suggested reading, and high priority alerts gives Defender for Cloud's insights into pressing security matters that are relevant to you and your subscription. Whether it's a list of high severity CVEs discovered on your VMs by a vulnerability analysis tool, or a new blog post by a member of the Defender for Cloud team, you'll find it here in the Insights panel.
 
 
 

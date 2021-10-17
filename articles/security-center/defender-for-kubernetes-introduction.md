@@ -20,7 +20,7 @@ We can defend clusters in:
 
 - **On-premises and multi-cloud environments** - Using an [extension for Azure Arc-enabled Kubernetes](defender-for-kubernetes-azure-arc.md)
 
-Azure Security Center and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Security Center](container-security.md).
+Microsoft Defender for Cloud and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Security Center](container-security.md).
 
 Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
 

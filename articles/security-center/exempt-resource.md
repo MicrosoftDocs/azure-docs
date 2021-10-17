@@ -1,5 +1,5 @@
 ---
-title: Exempt an Azure Security Center recommendation from a resource, subscription, management group, and secure score
+title: Exempt an Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 author: memildin
 ms.author: memildin
@@ -14,7 +14,7 @@ manager: rkarlin
 
 A core priority of every security team is to ensure analysts can focus on the tasks and incidents that matter to the organization. Security Center has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The **exempt** option is one such feature.
 
-When you investigate your security recommendations in Azure Security Center, one of the first pieces of information you review is the list of affected resources.
+When you investigate your security recommendations in Microsoft Defender for Cloud, one of the first pieces of information you review is the list of affected resources.
 
 Occasionally, a resource will be listed that you feel shouldn't be included. Or a recommendation will show in a scope where you feel it doesn't belong. The resource might have been remediated by a process not tracked by Security Center. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has simply decided to accept the risks related to the specific resource or recommendation.
 
@@ -80,7 +80,7 @@ To create an exemption rule:
     - If you've exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.
     - If you've exempted a recommendation, it will be hidden by default on Security Center's recommendations page. This is because the default options of the **Recommendation status** filter on that page are to exclude **Not applicable** recommendations. The same is true if you exempt all recommendations in a security control.
 
-        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Azure Security Center's recommendations page hide the not applicable recommendations and security controls":::
+        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Microsoft Defender for Cloud's recommendations page hide the not applicable recommendations and security controls":::
 
     - The information strip at the top of the recommendation details page updates the number of exempted resources:
         
@@ -110,13 +110,13 @@ As explained earlier on this page, exemption rules are a powerful tool providing
 
 To keep track of how your users are exercising this capability, we've created an Azure Resource Manager (ARM) template that deploys a Logic App Playbook and all necessary API connections to notify you when an exemption has been created.
 
-- To learn more about the playbook, see the tech community blog post [How to keep track of Resource Exemptions in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
-- You'll find the ARM template in the [Azure Security Center GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
+- To learn more about the playbook, see the tech community blog post [How to keep track of Resource Exemptions in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- You'll find the ARM template in the [Microsoft Defender for Cloud GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
 - To deploy all the necessary components, [use this automated process](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
 
 ## Use the inventory to find resources that have exemptions applied
 
-The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Security Center. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
 The inventory page includes many filters to let you narrow the list of resources to the ones of most interest for any given scenario. One such filter is the **Contains exemptions**. Use this filter to find all resources that have been exempted from one or more recommendation.
 
@@ -178,15 +178,15 @@ Learn more in the following pages:
 
 Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit. 
 
-For example, the recommendation **** is part of the default policy initiative assigned to all Azure subscriptions by Azure Security Center. It also in XXXXX.
+For example, the recommendation **** is part of the default policy initiative assigned to all Azure subscriptions by Microsoft Defender for Cloud. It's also in XXXXX.
 
 If you try to create an exemption for this recommendation, you'll see one of the two following messages:
 
-- If you have the necessary permissions to edit both initiatives, you'll see:
+- If you **have** the necessary permissions to edit both initiatives, you'll see:
 
     *This recommendation is included in several policy initiatives: [initiative names separated by comma]. Exemptions will be created on all of them.*  
 
-- If you don't have sufficient permissions on both initiatives, you'll see this message instead:
+- If you **don't have** sufficient permissions on both initiatives, you'll see this message instead:
 
     *You have limited permissions to apply the exemption on all the policy initiatives, the exemptions will be created only on the initiatives with sufficient permissions.*
 
@@ -213,4 +213,4 @@ These recommendations don't support exemption:
 
 In this article, you learned how to exempt a resource from a recommendation so that it doesn't impact your secure score. For more information about secure score, see:
 
-- [Secure score in Azure Security Center](secure-score-security-controls.md)
+- [Secure score in Microsoft Defender for Cloud](secure-score-security-controls.md)

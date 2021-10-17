@@ -1,17 +1,17 @@
 ---
-title: Built-in policy definitions for Azure Security Center
-description: Lists Azure Policy built-in policy definitions for Azure Security Center. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 10/11/2021
+title: Built-in policy definitions for Microsoft Defender for Cloud
+description: Lists Azure Policy built-in policy definitions for Microsoft Defender for Cloud. These built-in policy definitions provide common approaches to managing your Azure resources.
+ms.date: 09/17/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
 ---
-# Azure Policy built-in definitions for Azure Security Center
+# Azure Policy built-in definitions for Microsoft Defender for Cloud
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
-definitions related to Azure Security Center. The following groupings of policy definitions are
+definitions related to Microsoft Defender for Cloud. The following groupings of policy definitions are
 available:
 
 - The [initiatives](#azure-security-center-initiatives) group lists the Azure Policy initiative
@@ -35,7 +35,7 @@ The name of each built-in policy definition links to the policy definition in th
 the link in the **Version** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-## Azure Security Center initiatives
+## Microsoft Defender for Cloud initiatives
 
 To learn about the built-in initiatives that are monitored by Security Center, see the following table:
 
@@ -47,7 +47,7 @@ To learn about the built-in policies that are monitored by Security Center, see 
 
 [!INCLUDE [azure-policy-reference-init-asc](../../includes/policy/reference/custom/init-asc.md)]
 
-## Azure Security Center category
+## Microsoft Defender for Cloud category
 
 [!INCLUDE [azure-policy-reference-category-securitycenter](../../includes/policy/reference/bycat/policies-security-center.md)]
 

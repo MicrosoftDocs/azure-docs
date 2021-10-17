@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Troubleshooting Guide | Microsoft Docs
-description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Azure Security Center related issues.
+title: Microsoft Defender for Cloud Troubleshooting Guide | Microsoft Docs
+description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Microsoft Defender for Cloud related issues.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,11 +9,11 @@ ms.date: 08/15/2021
 ms.author: memildin
 
 ---
-# Azure Security Center Troubleshooting Guide
+# Microsoft Defender for Cloud Troubleshooting Guide
 
-This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
+This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Microsoft Defender for Cloud and need to troubleshoot Security Center related issues.
 
-Security Center uses the Log Analytics agent to collect and store data. See [Azure Security Center Platform Migration](./security-center-enable-data-collection.md) to learn more. The information in this article represents Security Center functionality after transition to the Log Analytics agent.
+Security Center uses the Log Analytics agent to collect and store data. See [Microsoft Defender for Cloud Platform Migration](./security-center-enable-data-collection.md) to learn more. The information in this article represents Security Center functionality after transition to the Log Analytics agent.
 
 > [!TIP]
 > A, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
@@ -140,16 +140,8 @@ Some issues can be identified using the guidelines provided in this article, oth
 
 ## See also
 
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
+In this page, you learned how to configure security policies in Microsoft Defender for Cloud. To learn more about Microsoft Defender for Cloud, see the following:
 
-* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-* [Understanding security alerts in Azure Security Center](./security-center-alerts-overview.md)
-* [Tutorial: Respond to security incidents](tutorial-security-incident.md)
-* [Alerts Validation in Azure Security Center](security-center-alert-validation.md)
-* [Email Notifications in Azure Security Center](security-center-provide-security-contact-details.md)
-* [Handling Security Incidents in Azure Security Center](security-center-incident.md)
-* [Azure Security Center detection capabilities](./security-center-alerts-overview.md)
-* [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](faq-general.yml — Find frequently asked questions about using the service
-* [Azure Security Blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance
+* [Managing and responding to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
+* [Alerts Validation in Microsoft Defender for Cloud](security-center-alert-validation.md)
+* [Microsoft Defender for Cloud FAQ](faq-general.yml) — Find frequently asked questions about using the service

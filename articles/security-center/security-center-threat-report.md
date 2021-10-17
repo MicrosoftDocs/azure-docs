@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center threat intelligence report | Microsoft Docs
-description: This page helps you to use Azure Security Center threat intelligence reports during an investigation to find more information about security alerts
+title: Microsoft Defender for Cloud threat intelligence report | Microsoft Docs
+description: This page helps you to use Microsoft Defender for Cloud threat intelligence reports during an investigation to find more information about security alerts
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,14 +9,14 @@ ms.date: 06/15/2020
 ms.author: memildin
 
 ---
-# Azure Security Center threat intelligence report
+# Microsoft Defender for Cloud threat intelligence report
 
-This page explains how Azure Security Center's threat intelligence reports can help you learn more about a threat that triggered a security alert.
+This page explains how Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
 
 
 ## What is a threat intelligence report?
 
-Security Center threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. For more information, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
+Security Center threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. For more information, see [How Microsoft Defender for Cloud detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 When Security Center identifies a threat, it triggers a [security alert](security-center-managing-and-responding-alerts.md), which contains detailed information regarding the event, including suggestions for remediation. To help incident response teams investigate and remediate threats, Security Center provides threat intelligence reports containing information about detected threats. The report includes information such as:
 
@@ -64,5 +64,5 @@ This type of information is useful during the incident response process, where t
 
 This page explained how to open threat intelligence reports when investigating security alerts. For related information, see the following pages:
 
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
-* [Handling security incidents in Azure Security Center](security-center-incident.md)
+* [Managing and responding to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
+* [Handling security incidents in Microsoft Defender for Cloud](security-center-incident.md)

@@ -1,6 +1,6 @@
 ---
-title: Workbooks gallery in Azure Security Center
-description: Learn how to create rich, interactive reports of your Azure Security Center data with the integrated Azure Monitor Workbooks gallery
+title: Workbooks gallery in Microsoft Defender for Cloud
+description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 author: memildin
 ms.author: memildin
 manager: rkarlin
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ---
 
-# Create rich, interactive reports of Security Center data
+# Create rich, interactive reports of Defender for Cloud data
 
 [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
 Workbooks provide a rich set of capabilities for visualizing your Azure data. For detailed examples of each visualization type, see the [visualizations examples and documentation](../azure-monitor/visualize/workbooks-text-visualizations.md). 
 
-Within Azure Security Center, you can access the built-in workbooks to track your organization’s security posture. You can also build custom workbooks to view a wide range of data from Security Center or other supported data sources.
+Within Microsoft Defender for Cloud, you can access the built-in workbooks to track your organization’s security posture. You can also build custom workbooks to view a wide range of data from Defender for Cloud or other supported data sources.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Secure score over time workbook.":::
 
@@ -29,16 +29,16 @@ Within Azure Security Center, you can access the built-in workbooks to track you
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
-## Workbooks gallery in Azure Security Center
+## Workbooks gallery in Microsoft Defender for Cloud
 
-With the integrated Azure Workbooks functionality, Azure Security Center makes it straightforward to build your own custom, interactive workbooks. Security Center also includes a gallery with the following workbooks ready for your customization:
+With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery with the following workbooks ready for your customization:
 
 - ['Secure Score Over Time' workbook](#use-the-secure-score-over-time-workbook) - Track your subscriptions' scores and changes to recommendations for your resources
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Azure Security Center.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
 Choose one of the supplied workbooks or create your own.
 
@@ -49,7 +49,7 @@ Choose one of the supplied workbooks or create your own.
 
 ### Use the 'Secure Score Over Time' workbook
 
-This workbook uses secure score data from your Log Analytics workspace. That data needs to be exported from the continuous export tool as described in [Configure continuous export from the Security Center pages in Azure portal](continuous-export.md?tabs=azure-portal).
+This workbook uses secure score data from your Log Analytics workspace. That data needs to be exported from the continuous export tool as described in [Configure continuous export from the Defender for Cloud pages in Azure portal](continuous-export.md?tabs=azure-portal).
 
 When you set up the continuous export, set the export frequency to both **streaming updates** and **snapshots**.
 
@@ -68,8 +68,9 @@ The secure score over time workbook has five graphs for the subscriptions report
 |**Score trends for the last week and month**<br>Use this section to monitor the current score and general trends of the scores for your subscriptions.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-1.png" alt-text="Trends for secure score on the built-in workbook.":::|
 |**Aggregated score for all selected subscriptions**<br>Hover your mouse over any point in the trend line to see the aggregated score at any date in the selected time range.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-2.png" alt-text="Aggregated score for all selected subscriptions.":::|
 |**Recommendations with the most unhealthy resources**<br>This table helps you triage the recommendations that have had the most resources changed to unhealthy over the selected period.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="Recommendations with the most unhealthy resources.":::|
-|**Scores for specific security controls**<br>Security Center's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="Scores for your security controls over the selected time period.":::|
+|**Scores for specific security controls**<br>Defender for Cloud's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="Scores for your security controls over the selected time period.":::|
 |**Resources changes**<br>Recommendations with the most resources that have changed state (healthy, unhealthy, or not applicable) during the selected period are listed here. Select any recommendation from the list to open a new table listing the specific resources.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="Recommendations with the most resources that have changed health state.":::|
+|||
 
 ### Use the 'System Updates' workbook
 
@@ -82,33 +83,34 @@ You can view the situation for the selected subscriptions according to:
 - The list of resources with outstanding updates
 - The list of updates missing from your resources
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="Security Center's system updates workbook based on the missing updates security recommendation":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="Defender for Cloud's system updates workbook based on the missing updates security recommendation":::
 
 ### Use the 'Vulnerability Assessment Findings' workbook
 
-Security Center includes vulnerability scanners for your machines, containers in container registries, and SQL servers.
+Defender for Cloud includes vulnerability scanners for your machines, containers in container registries, and SQL servers.
 
 Learn more about using these scanners:
 
-- [Scan your machines with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
+- [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
+- [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
 - [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
-Findings for each of these scanners are reported in separate recommendations:
+Findings for each resource type are reported in separate recommendations:
 
-- Vulnerabilities in your virtual machines should be remediated
-- Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
-- Vulnerability assessment findings on your SQL databases should be remediated
-- Vulnerability assessment findings on your SQL servers on machines should be remediated
+- [Vulnerabilities in your virtual machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) (includes findings from Microsoft threat and vulnerability management, the integrated Qualys scanner, and any configured [BYOL VA solutions](deploy-vulnerability-assessment-byol-vm.md))
+- [Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
+- [SQL databases should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/82e20e14-edc5-4373-bfc4-f13121257c37)
+- [SQL servers on machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f97aa83c-9b63-4f9a-99f6-b22c4398f936)
 
 This workbook gathers these findings and organizes them by severity, resource type, and category.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center's vulnerability assessment findings report.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Defender for Cloud's vulnerability assessment findings report.":::
 
 
 ### Use the 'Compliance Over Time' workbook
 
-Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select the specific standards relevant to your organization using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select the specific standards relevant to your organization using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 This workbook lets you track your compliance status over time with the various standards you've added to your dashboard.
 
@@ -128,7 +130,7 @@ You can keep drilling down - right down to the recommendation level - to view th
 
 ## Import workbooks from other workbook galleries
 
-If you've built workbooks in other Azure services and want to move them into your Azure Security Center workbooks gallery:
+If you've built workbooks in other Azure services and want to move them into your Microsoft Defender for Cloud workbooks gallery:
 
 1. Open the target workbook.
 
@@ -142,13 +144,13 @@ If you've built workbooks in other Azure services and want to move them into you
 
 1. Copy the workbook's Gallery Template JSON.
 
-1. Open workbooks gallery in Security Center and from the menu bar select **New**.
+1. Open the workbooks gallery in Defender for Cloud and from the menu bar select **New**.
 1. Select the **</>** to enter the Advanced Editor.
 1. Paste in the entire Gallery Template JSON.
 1. Select **Apply**.
 1. From the toolbar, select **Save As**.
 
-    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="Saving the workbook to the gallery in Security Center.":::
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="Saving the workbook to the gallery in Defender for Cloud.":::
 
 1. Enter the required details for saving the workbook:
    1. A name for the workbook
@@ -160,7 +162,7 @@ You'll find your saved workbook in the **Recently modified workbooks** category.
 
 ## Next steps
 
-This article described Security Center's integrated Azure Monitor Workbooks page with built-in reports and the option to build your own custom, interactive reports.
+This article described Defender for Cloud's integrated Azure Monitor Workbooks page with built-in reports and the option to build your own custom, interactive reports.
 
 - Learn more about [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
-- The built-in workbooks pull their data from Security Center's recommendations. Learn about the many security recommendations in [Security recommendations - a reference guide](recommendations-reference.md)
+- The built-in workbooks pull their data from Defender for Cloud's recommendations. Learn about the many security recommendations in [Security recommendations - a reference guide](recommendations-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center's security recommendations for MFA
-description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Azure Security Center
+title: Microsoft Defender for Cloud's security recommendations for MFA
+description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.author: memildin
 
 If you're only using passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 
-There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Azure Security Center.
+There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.
 
 
 ## MFA and Security Center 
@@ -119,4 +119,4 @@ There are some limitations to Security Center's identity and access protections:
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following article:
 
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [Protecting your network in Microsoft Defender for Cloud](security-center-network-recommendations.md)

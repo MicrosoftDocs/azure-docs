@@ -1,6 +1,6 @@
 ---
-title: Release notes for Azure Security Center
-description: A description of what's new and changed in Azure Security Center
+title: Release notes for Microsoft Defender for Cloud
+description: A description of what's new and changed in Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,16 +10,16 @@ ms.author: memildin
 
 ---
 
-# What's new in Azure Security Center?
+# What's new in Microsoft Defender for Cloud?
 
 Security Center is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
 This page is updated frequently, so revisit it often. 
 
-To learn about *planned* changes that are coming soon to Security Center, see [Important upcoming changes to Azure Security Center](upcoming-changes.md). 
+To learn about *planned* changes that are coming soon to Security Center, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md). 
 
 > [!TIP]
-> If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
+> If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
 
 ## October 2021

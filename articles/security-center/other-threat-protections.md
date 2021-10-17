@@ -1,6 +1,6 @@
 ---
-title: Additional threat protections from Azure Security Center
-description: Learn about the threat protection available from Azure Security Center beyond Azure Defender
+title: Additional threat protections from Microsoft Defender for Cloud
+description: Learn about the threat protection available from Microsoft Defender for Cloud beyond Azure Defender
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,8 +9,8 @@ ms.date: 10/12/2021
 ms.author: memildin
 ---
 
-# Additional threat protections in Azure Security Center
-As well as the built-in [Azure Defender protections](azure-defender.md), Azure Security Center also offers the following threat protection capabilities.
+# Additional threat protections in Microsoft Defender for Cloud
+As well as the built-in [Azure Defender protections](azure-defender.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
 
 > [!TIP]
 > To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads.

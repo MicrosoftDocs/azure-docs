@@ -62,16 +62,16 @@ You can deploy the Azure Defender extension using a range of methods. For detail
 
 ### Use the fix button from the Security Center recommendation
 
-A dedicated recommendation in Azure Security Center provides:
+A dedicated recommendation in Microsoft Defender for Cloud provides:
 
 - **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
 - **Fix** button to deploy it to those clusters without the extension
 
-1. From Azure Security Center's recommendations page, open the **Enable Azure Defender** security control.
+1. From Microsoft Defender for Cloud's recommendations page, open the **Enable Azure Defender** security control.
 
 1. Use the filter to find the recommendation named **Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
     > Notice the **Fix** icon in the actions column
@@ -189,11 +189,11 @@ To verify that your cluster has the Azure Defender extension installed on it, fo
 
 ### Use Security Center recommendation to verify the status of your extension
 
-1. From Azure Security Center's recommendations page, open the  **Enable Azure Defender** security control.
+1. From Microsoft Defender for Cloud's recommendations page, open the  **Enable Azure Defender** security control.
 
 1. Select the recommendation named **Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 1. Check that the cluster on which you deployed the extension is listed as **Healthy**.
 
@@ -260,7 +260,7 @@ To confirm a successful deployment, or to validate the status of your extension 
 
 ## Simulate security alerts from Azure Defender for Kubernetes
 
-A full list of supported alerts is available in the [reference table of all security alerts in Azure Security Center](alerts-reference.md#alerts-k8scluster).
+A full list of supported alerts is available in the [reference table of all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-k8scluster).
 
 1. To simulate an Azure Defender alert, run the following command:
 
@@ -272,7 +272,7 @@ A full list of supported alerts is available in the [reference table of all secu
 
     Within 30 minutes, Azure Defender will detect this activity and trigger a security alert.
 
-1. In the Azure portal, open Azure Security Center's security alerts page and look for the alert on the relevant resource:
+1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Azure Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
@@ -347,7 +347,7 @@ The request may take several minutes to complete.
 
 ## Next steps
 
-This page explained how to deploy the Azure Defender extension for Azure Arc-enabled Kubernetes clusters. Learn more about Azure Defender and Azure Security Center's container security features in the following pages:
+This page explained how to deploy the Azure Defender extension for Azure Arc-enabled Kubernetes clusters. Learn more about Azure Defender and Microsoft Defender for Cloud's container security features in the following pages:
 
 - [Container security in Security Center](container-security.md)
 - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)

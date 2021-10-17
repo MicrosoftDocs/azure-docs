@@ -1,6 +1,6 @@
 ---
 title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template)
-description: Learn how to create an Azure Security Center automation to trigger a logic app, which will be triggered by specific Security Center alerts by using an Azure Resource Manager template (ARM template).
+description: Learn how to create an Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Security Center alerts by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: memildin
 ms.service: azure-resource-manager
@@ -12,7 +12,7 @@ ms.date: 08/20/2020
 
 # Quickstart: Create an automatic response to a specific security alert using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation that triggers a logic app when specific security alerts are received by Azure Security Center.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation that triggers a logic app when specific security alerts are received by Microsoft Defender for Cloud.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-For a list of the roles and permissions required to work with Azure Security Center's workflow automation feature, see [workflow automation](workflow-automation.md).
+For a list of the roles and permissions required to work with Microsoft Defender for Cloud's workflow automation feature, see [workflow automation](workflow-automation.md).
 
 ## Review the template
 
@@ -34,7 +34,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 ### Relevant resources
 
-- [**Microsoft.Security/automations**](/azure/templates/microsoft.security/automations): The automation that will trigger the logic app, upon receiving an Azure Security Center alert that contains a specific string.
+- [**Microsoft.Security/automations**](/azure/templates/microsoft.security/automations): The automation that will trigger the logic app, upon receiving an Microsoft Defender for Cloud alert that contains a specific string.
 - [**Microsoft.Logic/workflows**](/azure/templates/microsoft.logic/workflows): An empty triggerable Logic App.
 
 For other Security Center quickstart templates, see these [community contributed templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security&pageNumber=1&sort=Popular).

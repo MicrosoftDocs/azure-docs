@@ -27,7 +27,7 @@ When you receive an alert from Azure Defender for DNS, we recommend you investig
 1. Run a full antimalware scan on the resource, following any resulting remediation advice.
 1. Review installed and running software on the resource, removing any unknown or unwanted packages.
 1. Revert the machine to a known good state, reinstalling the operating system if required, and restore software from a verified malware-free source.
-1. Resolve any Azure Security Center recommendations for the machine, remediating highlighted security issues to prevent future breaches.
+1. Resolve any Microsoft Defender for Cloud recommendations for the machine, remediating highlighted security issues to prevent future breaches.
 
 
 ## Next steps

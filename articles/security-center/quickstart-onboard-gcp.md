@@ -1,6 +1,6 @@
 ---
-title: Connect your GCP account to Azure Security Center
-description: Monitoring your GCP resources from Azure Security Center
+title: Connect your GCP account to Microsoft Defender for Cloud
+description: Monitoring your GCP resources from Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
 ms.date: 02/08/2021
@@ -10,13 +10,13 @@ manager: rkarlin
 
 ---
 
-#  Connect your GCP accounts to Azure Security Center
+#  Connect your GCP accounts to Microsoft Defender for Cloud
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 
-Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Onboarding your GCP accounts into Security Center, integrates GCP Security Command and Azure Security Center. Security Center thus provides visibility and protection across both of these cloud environments to provide:
+Onboarding your GCP accounts into Security Center, integrates GCP Security Command and Microsoft Defender for Cloud. Security Center thus provides visibility and protection across both of these cloud environments to provide:
 
 - Detection of security misconfigurations
 - A single view showing Security Center recommendations and GCP Security Command Center findings
@@ -66,7 +66,7 @@ When you first enable Security Health Analytics, it might take several hours for
 
 ### Step 2. Enable GCP Security Command Center API
 
-1. From Google's **Cloud Console API Library**, select each project in the organization you want to connect to Azure Security Center.
+1. From Google's **Cloud Console API Library**, select each project in the organization you want to connect to Microsoft Defender for Cloud.
 1. In the API Library, find and select **Security Command Center API**.
 1. On the API's page, select **ENABLE**.
 
@@ -124,14 +124,14 @@ When the connector is successfully created and GCP Security Command Center has b
 
 ## Monitoring your GCP resources
 
-As shown above, Azure Security Center's security recommendations page displays your GCP resources together with your Azure and AWS resources for a true multi-cloud view.
+As shown above, Microsoft Defender for Cloud's security recommendations page displays your GCP resources together with your Azure and AWS resources for a true multi-cloud view.
 
 To view all the active recommendations for your resources by resource type, use Security Center's asset inventory page and filter to the GCP resource type in which you're interested:
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
 
 
-## FAQ - Connecting GCP accounts to Azure Security Center
+## FAQ - Connecting GCP accounts to Microsoft Defender for Cloud
 
 ### Can I connect multiple GCP organizations to Security Center?
 Yes. Security Center's GCP connector connects your Google Cloud resources at the *organization* level. 
@@ -146,7 +146,7 @@ Yes. To create, edit, or delete Security Center cloud connectors with a REST API
 
 ## Next steps
 
-Connecting your GCP account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
+Connecting your GCP account is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
 
-- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 - [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)--Learn about the Google Cloud resource hierarchy in Google's online docs

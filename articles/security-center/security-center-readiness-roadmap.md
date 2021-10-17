@@ -86,8 +86,8 @@ Videos
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles    
-* [Manage virtual machine access using just-in-time](./security-center-just-in-time.md)
-* [Adaptive Application Controls in Azure Security Center](./security-center-adaptive-application.md)
+* [Manage virtual machine access using just-in-time](./just-in-time-access-usage.md)
+* [Adaptive Application Controls in Azure Security Center](./adaptive-application-controls.md)
 
 ## Hands-on activities
 

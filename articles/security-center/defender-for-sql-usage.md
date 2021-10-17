@@ -1,6 +1,6 @@
 ---
 title: How to set up Azure Defender for SQL
-description: Learn how to enable Azure Security Center's optional Azure Defender for SQL plan
+description: Learn how to enable Microsoft Defender for Cloud's optional Azure Defender for SQL plan
 services: security-center
 documentationcenter: na
 author: memildin
@@ -64,7 +64,7 @@ To enable this plan:
 
 1. From Security Center's menu, open the **Pricing & settings** page.
 
-    - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription ID]-[region]”), select the relevant **subscription**.
+    - If you're using **Microsoft Defender for Cloud's default workspace** (named “defaultworkspace-[your subscription ID]-[region]”), select the relevant **subscription**.
 
     - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 
@@ -81,7 +81,8 @@ To enable this plan:
 
 
 1. Optionally, configure email notification for security alerts. 
-    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+
+    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Microsoft Defender for Cloud with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
 
 ## Azure Defender for SQL alerts
@@ -93,7 +94,7 @@ Azure Defender for SQL alerts are available in Security Center's alerts page, th
 
 1. To view alerts, select **Security alerts** from Security Center's menu and select an alert.
 
-1. Alerts are designed to be self-contained, with detailed remediation steps and investigation information in each one. You can investigate further by using other Azure Security Center and Azure Sentinel capabilities for a broader view:
+1. Alerts are designed to be self-contained, with detailed remediation steps and investigation information in each one. You can investigate further by using other Microsoft Defender for Cloud and Azure Sentinel capabilities for a broader view:
 
     * Enable SQL Server's auditing feature for further investigations. If you're an Azure Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * To improve your security posture, use Security Center's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 

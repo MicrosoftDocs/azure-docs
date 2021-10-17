@@ -1,6 +1,6 @@
 ---
-title: SQL information protection policy in Azure Security Center
-description: Learn how to customize information protection policies in Azure Security Center.
+title: SQL information protection policy in Microsoft Defender for Cloud
+description: Learn how to customize information protection policies in Microsoft Defender for Cloud.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,7 +15,7 @@ ms.date: 08/17/2021
 ms.author: memildin
 
 ---
-# SQL information protection policy in Azure Security Center
+# SQL information protection policy in Microsoft Defender for Cloud
  
 SQL information protection's [data discovery and classification mechanism](../azure-sql/database/data-discovery-and-classification-overview.md) provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It's built into [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
@@ -52,7 +52,7 @@ From Security Center's **pricing and settings** page, select **SQL information p
 > [!NOTE]
 > This option only appears for users with tenant-level permissions. [Grant tenant-wide permissions to yourself](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
-:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Azure Security Center.":::
+:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Accessing the SQL Information Protection policy from the pricing and settings page of Microsoft Defender for Cloud.":::
 
 
 
@@ -70,7 +70,7 @@ Use Security Center's recommendation, "Sensitive data in your SQL databases shou
 
 1. The **Data Discovery & Classification** page opens. Select **Configure**.
 
-    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Opening the SQL information protection policy from the relevant recommendation in Azure Security Center's":::
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Opening the SQL information protection policy from the relevant recommendation in Microsoft Defender for Cloud's":::
 
 
 
@@ -143,9 +143,9 @@ Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions
 
 ## Next steps
  
-In this article, you learned about defining an information protection policy in Azure Security Center. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
+In this article, you learned about defining an information protection policy in Microsoft Defender for Cloud. To learn more about using SQL Information Protection to classify and protect sensitive data in your SQL databases, see [Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
 
 For more information on security policies and data security in Security Center, see the following articles:
  
-- [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups
-- [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data
+- [Setting security policies in Microsoft Defender for Cloud](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups
+- [Microsoft Defender for Cloud data security](security-center-data-security.md): Learn how Security Center manages and safeguards data

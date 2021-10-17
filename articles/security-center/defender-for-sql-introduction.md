@@ -13,7 +13,7 @@ manager: rkarlin
 
 # Introduction to Azure Defender for SQL
 
-Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. Azure Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
+Azure Defender for SQL includes two Azure Defender plans that extend Microsoft Defender for Cloud's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. Azure Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
 
 ## Availability
 
@@ -50,7 +50,7 @@ A vulnerability assessment service discovers, tracks, and helps you remediate po
 - Learn more about [vulnerability assessment for Azure SQL Database](../azure-sql/database/sql-vulnerability-assessment.md).
 - Learn more about [vulnerability assessment for Azure SQL servers on machines](defender-for-sql-on-machines-vulnerability-assessment.md).
 
-An advanced threat protection service continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. Learn more about [advanced threat protection](../azure-sql/database/threat-detection-overview.md).
+An advanced threat protection service continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Microsoft Defender for Cloud with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. Learn more about [advanced threat protection](../azure-sql/database/threat-detection-overview.md).
 
  > [!TIP]
  > View the list of security alerts for SQL servers [in the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).

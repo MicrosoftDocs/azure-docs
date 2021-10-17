@@ -1,6 +1,6 @@
 ---
-title: Using the Microsoft Defender for Endpoint license included with Azure Security Center
-description: Learn about Microsoft Defender for Endpoint and deploying it from Azure Security Center.
+title: Using the Microsoft Defender for Endpoint license included with Microsoft Defender for Cloud
+description: Learn about Microsoft Defender for Endpoint and deploying it from Microsoft Defender for Cloud.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,7 +9,7 @@ ms.date: 10/08/2021
 ms.author: memildin
 ---
 
-# Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint
+# Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
 
 Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. Its main features are:
 
@@ -33,17 +33,17 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Release state:                               | • Integration with Defender for Endpoint for Windows - General availability (GA)<br> • Integration with Defender for Endpoint for Linux - Preview                                                                                                                                     |
 | Pricing:                                     | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
 | Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 (other than EVD or WVD)           |
-| Required roles and permissions:              | • To enable/disable the integration: **Security admin** or **Owner**<br>• To view Defender for Endpoint alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
+| Required roles and permissions:              | • To enable/disable the integration: **Security admin** or **Owner**<br>• To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
 | Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet                                                         |
 |                                              |                                                                                                                                                                                                                                                                                       |
 
-## Benefits of integrating Microsoft Defender for Endpoint with Security Center
+## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
 
 Microsoft Defender for Endpoint provides:
 
 - **Advanced post-breach detection sensors**. Defenders for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
-- **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint enabled, Security Center can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+- **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint enabled, Defender for Cloud can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
     This module also brings the software inventory features described in [Access a software inventory](asset-inventory.md#access-a-software-inventory) and can be automatically enabled for supported machines with [the auto deploy settings](auto-deploy-vulnerability-assessment.md).
 
@@ -51,20 +51,20 @@ Microsoft Defender for Endpoint provides:
 
 - **Threat intelligence**. Defender for Endpoint generates alerts when it identifies attacker tools, techniques, and procedures. It uses data generated by Microsoft threat hunters and security teams, augmented by intelligence provided by partners.
 
-By integrating Defender for Endpoint with Security Center, you'll benefit from the following extra capabilities:
+By integrating Defender for Endpoint with Defender for Cloud, you'll benefit from the following extra capabilities:
 
-- **Automated onboarding**. Security Center automatically enables the Defender for Endpoint sensor on all supported machines connected to Security Center.
+- **Automated onboarding**. Defender for Cloud automatically enables the Defender for Endpoint sensor on all supported machines connected to Defender for Cloud.
 
-- **Single pane of glass**. The Security Center portal pages display Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
+- **Single pane of glass**. The Defender for Cloud portal pages display Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
 ## What are the requirements for the Microsoft Defender for Endpoint tenant?
 
-When you use Security Center to monitor your machines, a Defender for Endpoint tenant is automatically created.
+When you use Defender for Cloud to monitor your machines, a Defender for Endpoint tenant is automatically created.
 
 - **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
-- **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Security Center will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+- **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
 ## Enable the Microsoft Defender for Endpoint integration
@@ -82,7 +82,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
     > [!IMPORTANT]
-    > Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+    > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
 
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -93,15 +93,15 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### [**Windows**](#tab/windows)
 
-1. From Security Center's menu, select **Pricing & settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
+1. From Defender for Cloud's menu, select **Pricing & settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
-    Azure Security Center will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
+    Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
 
 ### [**Linux** (preview)](#tab/linux)
 
@@ -115,11 +115,11 @@ During the preview period, you'll deploy Defender for Endpoint to your Linux mac
 
 If you've already enabled the integration with **Defender for Endpoint for Windows**, you have complete control over when and whether to deploy Defender for Endpoint to your **Linux** machines.
 
-1. From Security Center's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
+1. From Defender for Cloud's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**. You'll know that the integration is enabled, if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
 
-    :::image type="content" source="./media/security-center-wdatp/integration-enabled.png" alt-text="The integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
+    :::image type="content" source="./media/security-center-wdatp/integration-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
 
     > [!NOTE]
     > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
@@ -134,13 +134,13 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     1. Select **Save**.
     1. In the confirmation prompt, verify the information and select **Enable** if you're happy to continue. 
 
-    :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirming the integration between Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
+    :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirming the integration between Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
 
-    Azure Security Center will:
+    Microsoft Defender for Cloud will:
 
     - Automatically onboard your Linux machines to Defender for Endpoint
     - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
-    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Security Center
+    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Onboarding might take up to 24 hours.
 
@@ -162,19 +162,19 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
 ### New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows
 
-If you've never enabled the integration for Windows, the **Allow Microsoft Defender for Endpoint to access my data** option will enable Security Center to deploy Defender for Endpoint to *both* your Windows and Linux machines.
+If you've never enabled the integration for Windows, the **Allow Microsoft Defender for Endpoint to access my data** option will enable Defender for Cloud to deploy Defender for Endpoint to *both* your Windows and Linux machines.
 
-1. From Security Center's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
+1. From Defender for Cloud's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
-    Azure Security Center will:
+    Microsoft Defender for Cloud will:
 
     - Automatically onboard your Windows and Linux machines to Defender for Endpoint
     - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
-    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Security Center
+    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Onboarding might take up to 24 hours.
 
@@ -222,8 +222,8 @@ For endpoints running Windows:
     ```
     :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
 
-    If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
-1. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
+    If the command is successful, you'll see a new alert on the Microsoft Defender for Cloud dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
+1. To review the alert in Defender for Cloud, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
     > [!TIP]
@@ -239,9 +239,9 @@ For endpoints running Linux:
 
     `./mde_linux_edr_diy`
 
-    If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
+    If the command is successful, you'll see a new alert on the Microsoft Defender for Cloud dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
 
-1. To review the alert in Security Center, go to **Security alerts** > **Enumeration of files with sensitive data**.
+1. To review the alert in Defender for Cloud, go to **Security alerts** > **Enumeration of files with sensitive data**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
     > [!TIP]
@@ -251,7 +251,7 @@ For endpoints running Linux:
 
 
 
-## FAQ - Security Center's integration with Microsoft Defender for Endpoint
+## FAQ - Defender for Cloud's integration with Microsoft Defender for Endpoint
 
 - [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
@@ -262,11 +262,11 @@ For endpoints running Linux:
 
 In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytics agent. When [we expanded support to include Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga) and Linux, we also added an extension to perform the automatic onboarding. 
 
-Security Center automatically deploys the extension to machines running:
+Defender for Cloud automatically deploys the extension to machines running:
 
 - Windows Server 2019.
 - Windows 10 Virtual Desktop (WVD).
-- Other versions of Windows Server if Security Center doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
+- Other versions of Windows Server if Defender for Cloud doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
 - Linux.
 
 > [!IMPORTANT]
@@ -278,7 +278,7 @@ Defender for Endpoint is included at no extra cost with **Azure Defender for ser
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To request your discount, [contact Security Center's support team](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
+To request your discount, [contact Defender for Cloud's support team](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
 
@@ -288,5 +288,5 @@ Full instructions for switching from a non-Microsoft endpoint solution are avail
 
 ## Next steps
 
-- [Platforms and features supported by Azure Security Center](security-center-os-coverage.md)
+- [Platforms and features supported by Microsoft Defender for Cloud](security-center-os-coverage.md)
 - [Learn how recommendations help you protect your Azure resources](security-center-recommendations.md)

@@ -1,6 +1,6 @@
 ---
-title: Connect your AWS account to Azure Security Center
-description: Monitoring your AWS resources from Azure Security Center
+title: Connect your AWS account to Microsoft Defender for Cloud
+description: Monitoring your AWS resources from Microsoft Defender for Cloud
 author: memildin
 ms.author: memildin
 ms.date: 01/24/2021
@@ -10,13 +10,13 @@ manager: rkarlin
 
 ---
 
-#  Connect your AWS accounts to Azure Security Center
+#  Connect your AWS accounts to Microsoft Defender for Cloud
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 
-Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Onboarding your AWS account into Security Center, integrates AWS Security Hub and Azure Security Center. Security Center thus provides visibility and protection across both of these cloud environments to provide:
+Onboarding your AWS account into Security Center, integrates AWS Security Hub and Microsoft Defender for Cloud. Security Center thus provides visibility and protection across both of these cloud environments to provide:
 
 - Automatic agent provisioning (Security Center uses [Azure Arc](../azure-arc/servers/overview.md) to deploy the Log Analytics agent to your AWS instances)
 - Policy management
@@ -172,7 +172,7 @@ When the connector is successfully created, and AWS Security Hub has been config
 
 ## Monitoring your AWS resources
 
-As shown above, Azure Security Center's security recommendations page displays your AWS resources together with your Azure and GCP resources for a true multi-cloud view.
+As shown above, Microsoft Defender for Cloud's security recommendations page displays your AWS resources together with your Azure and GCP resources for a true multi-cloud view.
 
 To view all the active recommendations for your resources by resource type, use Security Center's asset inventory page and filter to the AWS resource type in which you're interested:
 
@@ -195,6 +195,6 @@ Supported OS for automatic onboarding to Azure Arc for AWS Machines
 
 ## Next steps
 
-Connecting your AWS account is part of the multi-cloud experience available in Azure Security Center. For related information, see the following page:
+Connecting your AWS account is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
 
-- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+- [Connect your GCP accounts to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)

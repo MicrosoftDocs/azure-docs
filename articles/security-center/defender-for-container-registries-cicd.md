@@ -28,7 +28,7 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 |Aspect|Details|
 |----|:----|
 |Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|Pricing:|**Azure Defender for container registries** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Azure Defender for container registries** is billed as shown on [Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
@@ -40,13 +40,13 @@ To scan your images as they're pushed by CI/CD workflows into your registries, y
 
 To enable vulnerability scans of images in your GitHub workflows:
 
-[Step 1. Enable the CI/CD integration in Security Center](#step-1-enable-the-cicd-integration-in-security-center)
+[Step 1. Enable the CI/CD integration in Defender for Cloud](#step-1-enable-the-cicd-integration-in-security-center)
 
 [Step 2. Add the necessary lines to your GitHub workflow](#step-2-add-the-necessary-lines-to-your-github-workflow-and-perform-a-scan)
 
-### Step 1. Enable the CI/CD integration in Security Center
+### Step 1. Enable the CI/CD integration in Defender for Cloud
 
-1. From Security Center's sidebar, select **Pricing & settings**.
+1. From Defender for Cloud's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
 1. From the sidebar of the settings page for that subscription, select **Integrations**.
 1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.
@@ -89,7 +89,7 @@ To enable vulnerability scans of images in your GitHub workflows:
         subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
     ```
 
-1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Azure Security Center.
+1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Microsoft Defender for Cloud.
 
 1. [View CI/CD scan results](#view-cicd-scan-results).
 

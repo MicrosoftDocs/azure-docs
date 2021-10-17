@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Graph sample queries for Azure Security Center
-description: Sample Azure Resource Graph queries for Azure Security Center showing use of resource types and tables to access Azure Security Center related resources and properties.
+title: Azure Resource Graph sample queries for Microsoft Defender for Cloud
+description: Sample Azure Resource Graph queries for Microsoft Defender for Cloud showing use of resource types and tables to access Microsoft Defender for Cloud related resources and properties.
 ms.date: 09/03/2021
 ms.topic: sample
 author: memildin
@@ -8,10 +8,10 @@ ms.author: memildin
 ms.service: security-center
 ms.custom: subject-resourcegraph-sample
 ---
-# Azure Resource Graph sample queries for Azure Security Center
+# Azure Resource Graph sample queries for Microsoft Defender for Cloud
 
 This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample
-queries for Azure Security Center. For a complete list of Azure Resource Graph samples, see
+queries for Microsoft Defender for Cloud. For a complete list of Azure Resource Graph samples, see
 [Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md)
 and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center's features according to OS, machine type, and cloud
-description: Learn about the availability of Azure Security Center features according to OS, machine type, and cloud deployment.
+title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
+description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.author: memildin
 
 # Feature coverage for machines
 
-The two tabs below show the features of Azure Security Center that are available for Windows and Linux machines.
+The two tabs below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
@@ -24,10 +24,10 @@ The two tabs below show the features of Azure Security Center that are available
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
-|[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
+|[Just-in-time VM access](just-in-time-access-usage.md)|✔|-|-|Yes|
 |[Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
-|[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
-|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
+|[File integrity monitoring](file-integrity-monitoring-overview.md)|✔|✔|✔|Yes|
+|[Adaptive application controls](adaptive-application-controls.md)|✔|-|✔|Yes|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
@@ -48,10 +48,10 @@ The two tabs below show the features of Azure Security Center that are available
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                         | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                               |
 | [Fileless security alerts](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | Yes                               |
 | [Network-based security alerts](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
-| [Just-in-time VM access](security-center-just-in-time.md)                                                                 | ✔                                                                                                              | -                                    | -                              | Yes                               |
+| [Just-in-time VM access](just-in-time-access-usage.md)                                                                 | ✔                                                                                                              | -                                    | -                              | Yes                               |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
-| [File integrity monitoring](security-center-file-integrity-monitoring.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
-| [Adaptive application controls](security-center-adaptive-application.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
+| [File integrity monitoring](file-integrity-monitoring-overview.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| [Adaptive application controls](adaptive-application-controls.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
 | [Network map](security-center-network-recommendations.md#network-map)                                                     | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
 | [Adaptive network hardening](security-center-adaptive-network-hardening.md)                                               | ✔                                                                                                              | -                                    | -                              | Yes                               |
 | [Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)                                      | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
@@ -75,7 +75,7 @@ The two tabs below show the features of Azure Security Center that are available
 
 The following table provides a matrix of:
 
- - Whether you can use Azure Security Center to install each solution for you.
+ - Whether you can use Microsoft Defender for Cloud to install each solution for you.
  - Which endpoint protection solutions Security Center can discover. If an endpoint protection solution from this list is discovered, Security Center won't recommend installing one.
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
@@ -110,7 +110,7 @@ By default, the AV component is **disabled** to avoid clashes with other AV soft
 | - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                        | GA             | GA                             | GA            |
 | - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                              | GA             | GA                             | GA            |
 | - [Asset inventory](./asset-inventory.md)                                                                                                                 | GA             | GA                             | GA            |
-| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | GA            |
+| - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | GA            |
 | **Azure Defender plans and extensions**                                                                                                                   |                |                                |               |
 | - [Azure Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA            |
 | - [Azure Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available |
@@ -129,9 +129,9 @@ By default, the AV component is **disabled** to avoid clashes with other AV soft
 | - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                  | GA             | GA                             | GA            |
 | - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                      | Public Preview | Not Available                  | Not Available |
 | **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |               |
-| - [Just-in-time VM access](./security-center-just-in-time.md)                                                                                             | GA             | GA                             | GA            |
-| - [File integrity monitoring](./security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             | GA            |
-| - [Adaptive application controls](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
+| - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                             | GA             | GA                             | GA            |
+| - [File integrity monitoring](./file-integrity-monitoring-overview.md)                                                                             | GA             | GA                             | GA            |
+| - [Adaptive application controls](./adaptive-application-controls.md)                                                                              | GA             | GA                             | GA            |
 | - [Adaptive network hardening](./security-center-adaptive-network-hardening.md)                                                                           | GA             | Not Available                  | Not Available |
 | - [Docker host hardening](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
 | - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Not Available                  | Not Available |

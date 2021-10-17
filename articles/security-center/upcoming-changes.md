@@ -1,6 +1,6 @@
 ---
-title: Important changes coming to Azure Security Center
-description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
+title: Important changes coming to Microsoft Defender for Cloud
+description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,14 +10,14 @@ ms.author: memildin
 
 ---
 
-# Important upcoming changes to Azure Security Center
+# Important upcoming changes to Microsoft Defender for Cloud
 
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Security Center. The page describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might impact things like your secure score or workflows.
 
-If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
+If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
 
 ## Planned changes
@@ -120,7 +120,7 @@ Security Center includes multiple recommendations for improving the management o
     |---------|---------|---------|
     |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        | Unchanged|
     |Name     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions        |
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices).|
     |Related policy     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |
     |||
 
@@ -128,7 +128,7 @@ Security Center includes multiple recommendations for improving the management o
     |---------|---------|---------|
     |Assessment key     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Unchanged|
     |Name     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices).|
     |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
     |||
  
@@ -164,4 +164,4 @@ The recommendation **Sensitive data in your SQL databases should be classified**
 
 ## Next steps
 
-For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)

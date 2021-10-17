@@ -43,7 +43,7 @@ When Azure Defender is enabled on your database, it detects anomalous activities
 - In the inbox of whoever in your organization has been [designated to receive email alerts](security-center-provide-security-contact-details.md).  
 
 > [!TIP]
-> A live tile on [Azure Security Center's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Azure Defender alerts page and get an overview of active threats detected on your databases.
+> A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Azure Defender alerts page and get an overview of active threats detected on your databases.
 >
 > For detailed steps and the recommended method to respond to Azure Defender alerts, see [Respond to a security alert](tutorial-security-incident.md#respond-to-a-security-alert).
 
@@ -58,7 +58,7 @@ Azure Defender sends email notifications when it detects anomalous database acti
 
     View active threats at the subscription level from within the Security Center portal pages:
 
-    :::image type="content" source="media/defender-for-databases-usage/db-alerts-page.png" alt-text="Active threats on one or more subscriptions are shown in Azure Security Center." lightbox="media/defender-for-databases-usage/db-alerts-page.png":::
+    :::image type="content" source="media/defender-for-databases-usage/db-alerts-page.png" alt-text="Active threats on one or more subscriptions are shown in Microsoft Defender for Cloud." lightbox="media/defender-for-databases-usage/db-alerts-page.png":::
 
 1. For additional details and recommended actions for investigating the current threat and remediating future threats, select a specific alert.
     

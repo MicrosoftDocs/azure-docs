@@ -1,6 +1,6 @@
 ---
-title: Remediate recommendations in Azure Security Center | Microsoft Docs
-description: This article explains how to respond to recommendations in Azure Security Center to protect your resources and satisfy security policies.
+title: Remediate recommendations in Microsoft Defender for Cloud | Microsoft Docs
+description: This article explains how to respond to recommendations in Microsoft Defender for Cloud to protect your resources and satisfy security policies.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -9,7 +9,7 @@ ms.date: 03/04/2021
 ms.author: memildin
 
 ---
-# Remediate recommendations in Azure Security Center
+# Remediate recommendations in Microsoft Defender for Cloud
 
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
 
@@ -70,5 +70,5 @@ The remediation operation uses a template deployment or REST API `PATCH` request
 
 In this document, you were shown how to remediate recommendations in Security Center. To learn more about Security Center, see the following pages:
 
-* [Setting security policies in Azure Security Center](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups
+* [Setting security policies in Microsoft Defender for Cloud](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups
 * [What are security policies, initiatives, and recommendations?](security-policy-concept.md)

@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Azure Security Center FAQ - questions about existing Log Analytics agents'
-  description: This FAQ answers questions for customers already using the Log Analytics agent and considering Azure Security Center, a product that helps you prevent, detect, and respond to threats.
+  title: 'Microsoft Defender for Cloud FAQ - questions about existing Log Analytics agents'
+  description: This FAQ answers questions for customers already using the Log Analytics agent and considering Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats.
   services: security-center
   documentationcenter: na
   author: memildin

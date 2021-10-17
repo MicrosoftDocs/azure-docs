@@ -1,6 +1,6 @@
 ---
-title: Reference table for all security alerts in Azure Security Center
-description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard
+title: Reference table for all security alerts in Microsoft Defender for Cloud
+description: This article lists the security alerts visible in Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -11,9 +11,9 @@ ms.author: memildin
 ---
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
+This article lists the security alerts you might get from Microsoft Defender for Cloud and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
-At the bottom of this page, there's a table describing the Azure Security Center kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
+At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
 
 [Learn how to respond to these alerts](security-center-managing-and-responding-alerts.md).
 
@@ -537,11 +537,11 @@ Azure Defender alerts for container hosts aren't limited to the alerts below. Ma
 
 ## MITRE ATT&CK tactics <a name="intentions"></a>
 
-Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Azure Security Center alerts include the MITRE tactics with many alerts.
+Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Microsoft Defender for Cloud alerts include the MITRE tactics with many alerts.
 
 The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration is often referred to as a "kill chain". 
 
-Security Center's supported kill chain intents are based on [version 7 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/) and described in the table below.
+Defender for Cloud's supported kill chain intents are based on [version 7 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/) and described in the table below.
 
 | Tactic                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -566,6 +566,6 @@ Security Center's supported kill chain intents are based on [version 7 of the MI
 ## Next steps
 To learn more about Azure Defender security alerts, see the following:
 
-- [Security alerts in Azure Security Center](security-center-alerts-overview.md)
-- [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Continuously export Security Center data](continuous-export.md)
+- [Security alerts in Microsoft Defender for Cloud](security-center-alerts-overview.md)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md)
+- [Continuously export Defender for Cloud data](continuous-export.md)

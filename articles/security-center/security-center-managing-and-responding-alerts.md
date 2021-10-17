@@ -1,6 +1,6 @@
 ---
-title: Manage security alerts in Azure Security Center | Microsoft Docs
-description: This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
+title: Manage security alerts in Microsoft Defender for Cloud | Microsoft Docs
+description: This document helps you to use Microsoft Defender for Cloud capabilities to manage and respond to security alerts.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,7 +15,7 @@ ms.date: 02/17/2021
 ms.author: memildin
 
 ---
-# Manage and respond to security alerts in Azure Security Center
+# Manage and respond to security alerts in Microsoft Defender for Cloud
 
 This topic shows you how to view and process Security Center's alerts and protect your resources.
 
@@ -26,18 +26,18 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
 
-For an overview of how Security Center generates alerts, see [how Azure Security Center detects and responds to threats](security-center-alerts-overview.md).
+For an overview of how Security Center generates alerts, see [How Microsoft Defender for Cloud detects and responds to threats](security-center-alerts-overview.md).
 
 
 ## Manage your security alerts
 
 1. From Security Center's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar..
 
-    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Getting to the security alerts page from Azure Security Center's overview page":::
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Getting to the security alerts page from Microsoft Defender for Cloud's overview page":::
 
     The security alerts page opens.
 
-    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+    :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
 1. To filter the alerts list, select any of the relevant filters. You can optionally add further filters with the **Add filter** option.
 

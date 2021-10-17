@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Investigate the health of your resources - Azure Security Center'
-description: 'Tutorial: Learn how to investigate the health of your resources using Azure Security Center.'
+title: 'Tutorial: Investigate the health of your resources - Microsoft Defender for Cloud'
+description: 'Tutorial: Learn how to investigate the health of your resources using Microsoft Defender for Cloud.'
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -26,7 +26,7 @@ This single page, currently in preview, in Security Center's portal pages shows:
 1. **Counts of outstanding recommendations and alerts** - The number of outstanding security recommendations and Azure Defender alerts.
 1. **Actionable recommendations and alerts** - Two tabs list the recommendations and alerts that apply to the resource.
 
-:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Azure Security Center's resource health page showing the health information for a virtual machine":::
+:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Microsoft Defender for Cloud's resource health page showing the health information for a virtual machine":::
 
 In this tutorial you'll learn how to:
 
@@ -56,14 +56,14 @@ To open the resource health page for a resource:
 
 1. Use the left pane of the resource health page for an overview of the subscription, status, and monitoring information about the resource. You can also see whether Azure Defender is enabled for the resource:
 
-    :::image type="content" source="media/investigate-resource-health/resource-health-left-pane.png" alt-text="The left pane of Azure Security Center's resource health page shows the subscription, status, and monitoring information about the resource. It also includes the total number of outstanding security recommendations and Azure Defender alerts.":::
+    :::image type="content" source="media/investigate-resource-health/resource-health-left-pane.png" alt-text="The left pane of Microsoft Defender for Cloud's resource health page shows the subscription, status, and monitoring information about the resource. It also includes the total number of outstanding security recommendations and Azure Defender alerts.":::
 
 1. Use the two tabs on the right pane to review the lists of security recommendations and Azure Defender alerts that apply to this resource:
 
-    :::image type="content" source="media/investigate-resource-health/resource-health-right-pane.png" alt-text="The right pane of Azure Security Center's resource health page has two tabs: recommendations and alerts." lightbox="./media/investigate-resource-health/resource-health-right-pane.png":::
+    :::image type="content" source="media/investigate-resource-health/resource-health-right-pane.png" alt-text="The right pane of Microsoft Defender for Cloud's resource health page has two tabs: recommendations and alerts." lightbox="./media/investigate-resource-health/resource-health-right-pane.png":::
 
     > [!NOTE]
-    > Azure Security Center uses the terms "healthy" and "unhealthy" to describe the security status of a resource. These terms relate to whether the resource is compliant with a specific [security recommendation](security-policy-concept.md#what-is-a-security-recommendation).
+    > Microsoft Defender for Cloud uses the terms "healthy" and "unhealthy" to describe the security status of a resource. These terms relate to whether the resource is compliant with a specific [security recommendation](security-policy-concept.md#what-is-a-security-recommendation).
     >
     > In the screenshot above, you can see that recommendations are listed even when this resource is "healthy". One advantage of the resource health page is that all recommendations are listed so you can get a complete picture of your resources' health. 
 

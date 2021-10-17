@@ -1,5 +1,5 @@
 ---
-title: Endpoint protection recommendations in Azure Security Centers
+title: Endpoint protection recommendations in Microsoft Defender for Clouds
 description: How the endpoint protection solutions are discovered and identified as healthy.
 services: security-center 
 author: memildin 
@@ -10,9 +10,9 @@ ms.date: 07/21/2021
 ms.author: memildin
 ---
 
-# Endpoint protection assessment and recommendations in Azure Security Center
+# Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
 
-Azure Security Center provides health assessments of [supported](security-center-services.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
+Microsoft Defender for Cloud provides health assessments of [supported](security-center-services.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
 
 - [Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
 - [Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)

@@ -1,6 +1,6 @@
 ---
-title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Azure Security Center.
-description: This article explains how to use Azure Security Center's suppression rules to hide unwanted security alerts
+title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Microsoft Defender for Cloud.
+description: This article explains how to use Microsoft Defender for Cloud's suppression rules to hide unwanted security alerts
 author: memildin
 manager: rkarlin
 services: security-center
@@ -53,7 +53,7 @@ Suppression rules can only dismiss alerts that have already been triggered on th
 
 To create a rule directly in the Azure portal:
 
-1. From Security Center's security alerts page:
+1. From Defender for Cloud's security alerts page:
 
     - Select the specific alert you don't want to see anymore, and from the details pane, select **Take action**.
 
@@ -82,7 +82,7 @@ To create a rule directly in the Azure portal:
 
 To edit a rule you've created, use the suppression rules page.
 
-1. From Security Center's security alerts page, select the **suppression rules** link at the top of the page.
+1. From Defender for Cloud's security alerts page, select the **suppression rules** link at the top of the page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
 
     [![Suppression rules list.](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
@@ -94,7 +94,7 @@ To edit a rule you've created, use the suppression rules page.
 
 To delete one or more rules you've created, use the suppression rules page.
 
-1. From Security Center's security alerts page, select the **suppression rules** link at the top of the page.
+1. From Defender for Cloud's security alerts page, select the **suppression rules** link at the top of the page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
 1. To delete a single rule, open the ellipsis menu (...) for the rule and select **Delete**.
 1. To delete multiple rules, select the check boxes for the rules to be deleted and select **Delete**.
@@ -102,7 +102,7 @@ To delete one or more rules you've created, use the suppression rules page.
 
 ## Create and manage suppression rules with the API
 
-You can create, view, or delete alert suppression rules via the Security Center REST API. 
+You can create, view, or delete alert suppression rules via Defender for Cloud's REST API. 
 
 The relevant HTTP methods for suppression rules in the REST API are:
 
@@ -123,7 +123,7 @@ For full details and usage examples, see the [API documentation](/rest/api/secur
 
 ## Next steps
 
-This article described the suppression rules in Azure Security Center that automatically dismiss unwanted alerts.
+This article described the suppression rules in Microsoft Defender for Cloud that automatically dismiss unwanted alerts.
 
 For more information on Azure Defender security alerts, see the following pages:
 

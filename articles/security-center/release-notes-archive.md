@@ -1533,7 +1533,7 @@ The adaptive application controls feature has received two significant updates:
     * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with a known executable, automatically generated folder names, etc.).
 
 
-[Learn more about adaptive application controls](security-center-adaptive-application.md).
+[Learn more about adaptive application controls](adaptive-application-controls.md).
 
 
 
@@ -1718,7 +1718,7 @@ This update brings the following changes to this feature:
 
 - The recommendation is triggered only if there are open management ports.
 
-Learn more about [the JIT access feature](security-center-just-in-time.md).
+Learn more about [the JIT access feature](just-in-time-access-usage.md).
 
 
 ### Custom recommendations have been moved to a separate security control
@@ -1903,7 +1903,7 @@ The features, operation, and UI for Azure Security Center's just-in-time tools t
 - **Justification field** - When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log. 
 - **Automatic cleanup of redundant just-in-time (JIT) rules** - Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed anymore. The cleaner never deletes rules that you've created. 
 
-Learn more about [the JIT access feature](security-center-just-in-time.md).
+Learn more about [the JIT access feature](just-in-time-access-usage.md).
 
 
 ### Two security recommendations for web applications deprecated
@@ -2089,7 +2089,7 @@ Updates in September include:
 
 The experience of managing rules for virtual machines using adaptive application controls has improved. Azure Security Center's adaptive application controls help you control which applications can run on your virtual machines. In addition to a general improvement to rule management, a new benefit enables you to control which file types will be protected when you add a new rule.
 
-[Learn more about adaptive application controls](security-center-adaptive-application.md).
+[Learn more about adaptive application controls](adaptive-application-controls.md).
 
 
 ### Control container security recommendation using Azure Policy

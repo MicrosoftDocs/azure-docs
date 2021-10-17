@@ -34,7 +34,7 @@ Security Center identifies Azure Resource Manager based ACR registries in your s
 
 **Azure Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
 
-When issues are found – by Qualys or Security Center – you'll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-container).
+When issues are found – by Qualys or Security Center – you'll get notified in the workload protection dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-container).
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. Security Center provides details of each reported vulnerability and a severity classification. Additionally, it gives guidance for how to remediate the specific vulnerabilities found on each image.
 
@@ -44,29 +44,29 @@ By only notifying when there are problems, Security Center reduces the potential
 > [!TIP]
 > To learn more about Security Center's container security features, see:
 >
-> - [Azure Security Center and container security](container-security.md)
+> - [Microsoft Defender for Cloud and container security](container-security.md)
 > - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## When are images scanned?
 
 There are three triggers for an image scan:
 
-- **On push** - Whenever an image is pushed to your registry, Security Center automatically scans that image. To trigger the scan of an image, push it to your repository.
+- **On push** - Whenever an image is pushed to your registry, Defender for container registries automatically scans that image. To trigger the scan of an image, push it to your repository.
 
 - **Recently pulled** - Since new vulnerabilities are discovered every day, **Azure Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no additional charge for these rescans; as mentioned above, you're billed once per image.
 
 - **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Azure Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
  
-The scan completes typically within 2 minutes, but it might take up to 15 minutes. Findings are made available as Security Center recommendations such as this one:
+The scan completes typically within 2 minutes, but it might take up to 15 minutes. Findings are made available as security recommendations such as this one:
 
-[![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
 ## How does Security Center work with Azure Container Registry
 
 Below is a high-level diagram of the components and benefits of protecting your registries with Security Center.
 
-![Azure Security Center and Azure Container Registry (ACR) high-level overview.](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Microsoft Defender for Cloud and Azure Container Registry (ACR) high-level overview.](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 
 

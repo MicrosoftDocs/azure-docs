@@ -1,6 +1,6 @@
 ---
-title: Reference table for all Azure Security Center recommendations 
-description: This article lists Azure Security Center's security recommendations that help you harden and protect your resources.
+title: Reference table for all Microsoft Defender for Cloud recommendations 
+description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
 author: memildin
 ms.service: security-center
 ms.topic: reference
@@ -10,7 +10,7 @@ ms.custom: generated
 ---
 # Security recommendations - a reference guide
 
-This article lists the recommendations you might see in Azure Security Center. The recommendations
+This article lists the recommendations you might see in Microsoft Defender for Cloud. The recommendations
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
@@ -22,7 +22,7 @@ and the [National Institute of Standards and Technology (NIST)](https://www.nist
 cloud-centric security.
 
 To learn about how to respond to these recommendations, see
-[Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+[Remediate recommendations in Microsoft Defender for Cloud](security-center-remediate-recommendations.md).
 
 Your secure score is based on the number of Security Center recommendations you've completed. To
 decide which recommendations to resolve first, look at the severity of each one and its potential

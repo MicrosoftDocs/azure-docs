@@ -1,6 +1,6 @@
 ---
-title: Secure score in Azure Security Center
-description: Description of Azure Security Center's secure score and its security controls 
+title: Secure score in Microsoft Defender for Cloud
+description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,11 +10,11 @@ ms.author: memildin
 
 ---
 
-# Secure score in Azure Security Center
+# Secure score in Microsoft Defender for Cloud
 
 ## Introduction to secure score
 
-Azure Security Center has two main goals: 
+Microsoft Defender for Cloud has two main goals: 
 
 - to help you understand your current security situation
 - to help you efficiently and effectively improve your security
@@ -37,7 +37,7 @@ For more information, see [How your secure score is calculated](secure-score-sec
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
 
-:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Azure Security Center's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls.png":::
+:::image type="content" source="./media/secure-score-security-controls/security-controls.png" alt-text="Microsoft Defender for Cloud's security controls and their impact on your secure score" lightbox="./media/secure-score-security-controls/security-controls.png":::
 
 To get all the possible points for a security control, all your resources must comply with all of the security recommendations within the security control. For example, Security Center has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
@@ -86,7 +86,7 @@ Another way to improve your score and ensure your users don't create resources t
 
 ## Security controls and their recommendations
 
-The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
+The table below lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
 
 The set of security recommendations provided with Security Center is tailored to the available resources in each organization's environment. The recommendations can be further customized by [disabling policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempting specific resources from a recommendation](exempt-resource.md). 
  

@@ -1,6 +1,6 @@
 ---
-title: Understanding just-in-time virtual machine access in Azure Security Center
-description: This document explains how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines
+title: Understanding just-in-time virtual machine access in Microsoft Defender for Cloud
+description: This document explains how just-in-time VM access in Microsoft Defender for Cloud helps you control access to your Azure virtual machines
 services: security-center
 author: memildin
 manager: rkarlin
@@ -13,9 +13,9 @@ ms.author: memildin
 
 # Understanding just-in-time (JIT) VM access
 
-This page explains the principles behind Azure Security Center's just-in-time (JIT) VM access feature and the logic behind the recommendation.
+This page explains the principles behind Microsoft Defender for Cloud's just-in-time (JIT) VM access feature and the logic behind the recommendation.
 
-To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programmatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
+To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programmatically, see [How to secure your management ports with JIT](just-in-time-access-usage.md).
 
 
 ## The risk of open management ports on a virtual machine
@@ -30,7 +30,7 @@ As with all cybersecurity prevention techniques, your goal should be to reduce t
 
 Your legitimate users also use these ports, so it's not practical to keep them closed.
 
-To solve this dilemma, Azure Security Center offers JIT. With JIT, you can lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+To solve this dilemma, Microsoft Defender for Cloud offers JIT. With JIT, you can lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 
 
@@ -88,4 +88,4 @@ If you want to create custom roles that can work with JIT, you'll need the detai
 This page explained _why_ just-in-time (JIT) virtual machine (VM) access should be used. To learn about _how_ to enable JIT and request access to your JIT-enabled VMs, see the following:
 
 > [!div class="nextstepaction"]
-> [How to secure your management ports with JIT](security-center-just-in-time.md)
+> [How to secure your management ports with JIT](just-in-time-access-usage.md)

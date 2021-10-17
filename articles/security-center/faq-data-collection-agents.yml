@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Azure Security Center FAQ - data collection and agents'
-  description: Frequently asked questions about data collection, agents, and workspaces for Azure Security Center, a product that helps you prevent, detect, and respond to threats
+  title: 'Microsoft Defender for Cloud FAQ - data collection and agents'
+  description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: security-center
   documentationcenter: na
   author: memildin
@@ -45,7 +45,7 @@ sections:
       - question: |
           What is the Log Analytics agent?
         answer: |
-          To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
+          To monitor for security vulnerabilities and threats, Microsoft Defender for Cloud depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
           
           The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
           
@@ -280,7 +280,7 @@ sections:
           
           The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
           
-          The agent also enables data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This policy will cause AppLocker to generate events, which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
+          The agent also enables data collection for [Adaptive Application Controls](adaptive-application-controls.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This policy will cause AppLocker to generate events, which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
           
           When Security Center detects suspicious activity on the VM, the customer is notified by email if [security contact information](security-center-provide-security-contact-details.md) has been provided. An alert is also visible in Security Center's security alerts dashboard.
           
@@ -288,7 +288,7 @@ sections:
       - question: |
           Will Security Center work using an OMS gateway?
         answer: |
-          Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent.
+          Yes. Microsoft Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent.
           To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/agents/gateway.md).
           
           
