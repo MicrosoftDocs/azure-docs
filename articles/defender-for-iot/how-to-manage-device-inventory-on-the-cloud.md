@@ -1,7 +1,7 @@
 ---
 title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 10/14/2021
+ms.date: 10/17/2021
 ms.topic: how-to
 ---
 
