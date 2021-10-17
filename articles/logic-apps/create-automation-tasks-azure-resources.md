@@ -33,7 +33,7 @@ This article shows you how to complete the following tasks:
 
 * [Review a task's history](#review-task-history), which includes the run status, inputs, outputs, and other historical information.
 
-* [Edit the task](#edit-task) so that you can update the task, or customize the task's underlying workflow in the Logic App Designer.
+* [Edit the task](#edit-task) so that you can update the task, or customize the task's underlying workflow in the workflow designer.
 
 <a name="differences"></a>
 
@@ -187,7 +187,7 @@ To change a task, you have these options:
 
 * [Edit the task "inline"](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
 
-* [Edit the task's underlying workflow](#edit-task-workflow) in the Logic App Designer.
+* [Edit the task's underlying workflow](#edit-task-workflow) in the workflow designer.
 
 <a name="edit-task-inline"></a>
 
@@ -199,7 +199,7 @@ To change a task, you have these options:
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
 
-   ![Screenshot that shows the opened ellipses menu and the selected option, "Edit in-line".](./media/create-automation-tasks-azure-resources/view-task-inline.png)
+   ![Screenshot that shows the opened ellipses menu and the selected option, "Edit in-line".](./media/create-automation-tasks-azure-resources/edit-task-in-line.png)
 
    By default, the **Authenticate** tab appears and shows the existing connections.
 
@@ -241,7 +241,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the task in Azure Logic Apps view with Overview pane selected.](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
 
-1. To open the underlying workflow in the Logic App Designer, on the logic app's menu, select **Logic app designer**.
+1. To open the underlying workflow in the designer, on the logic app navigation menu, select **Logic app designer**.
 
    ![Screenshot that shows the "Logic app designer" menu option selected and designer surface with the underlying workflow.](./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
 
@@ -259,7 +259,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
    1. Under **Logic App Status**, select **Disabled** so that the cloned workflow doesn't run while you make your changes. You can enable the workflow when you're ready to test your changes.
 
-   1. After Azure finishes provisioning your cloned workflow, find and open that workflow in the Logic App Designer.
+   1. After Azure finishes provisioning your cloned workflow, find and open that workflow in the designer.
 
 1. To view the properties for the trigger or an action, expand that trigger or action.
 

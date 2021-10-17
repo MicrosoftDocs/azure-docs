@@ -243,19 +243,22 @@ To change a task, you have these options:
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
 
-   ![Screenshot showing the opened ellipses menu and the selected option, "Edit in-line".](./media/create-automation-tasks-azure-resources/view-task-inline.png)
+   ![Screenshot showing the opened ellipses menu and the selected option, "Edit in-line".](./media/create-replication-tasks-azure-resources/edit-task-in-line.png)
 
    By default, the **Authenticate** tab appears and shows the existing connections.
 
 1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
 
-   ![Screenshot showing the "Authentication" tab, existing connections, and the selected ellipses menu.](./media/create-automation-tasks-azure-resources/edit-connections.png)
+   > [!NOTE]
+   > You can edit only the target connection, not the source connection.
+
+   ![Screenshot showing the "Authenticate" tab, existing connections, and the selected ellipses menu.](./media/create-replication-tasks-azure-resources/edit-connections.png)
 
 1. To update other task properties, select **Next: Configure**.
 
-   For the task in this example, the only property available for edit is the email address.
+   For the task in this example, you can specify different source and target queues. However, the task name and underlying logic app and workflow remain the same.
 
-   ![Screenshot showing the "Configure" tab.](./media/create-replication-tasks-azure-resources/edit-task-configuration.png)
+   ![Screenshot showing the "Configure" tab and properties available to edit.](./media/create-replication-tasks-azure-resources/edit-task-configuration.png)
 
 1. When you're done, select **Save**.
 
@@ -271,27 +274,25 @@ If you change the underlying workflow for a replication task, your changes affec
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
 
-   ![Screenshot showing the opened ellipses menu and the selected option, "Open in Logic Apps".](./media/create-replication-tasks-azure-resources/edit-task-logic-app-designer.png)
+   ![Screenshot showing the opened ellipses menu and the selected option, "Open in Logic Apps".](./media/create-replication-tasks-azure-resources/open-task-in-designer.png)
 
-   The Azure portal changes context to the **Overview** pane for the underlying workflow in the Standard logic app resource, which is powered by Azure Logic Apps. The **Overview** pane shows the same run history that's available for the task.
+   The Azure portal changes context to designer where you can now edit the workflow.
 
-   ![Screenshot showing the workflow in Azure Logic Apps view with the "Overview" pane selected.](./media/create-replication-tasks-azure-resources/task-logic-apps-view.png)
+   ![Screenshot showing designer and underlying workflow.](./media/create-replication-tasks-azure-resources/view-task-workflow-designer.png)
 
-1. To open the underlying workflow in the designer, on the workflow navigation menu, select **Designer**.
+   You can now edit the workflow's trigger and actions as well as the properties for the trigger and actions.
 
-   ![Screenshot showing the "Designer" menu option selected and designer surface with the underlying workflow.](./media/create-replication-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
+1. To view the properties for the trigger or an action, select that trigger or action.
 
-   You can now edit the properties for the workflow's trigger and actions as well as edit the trigger and actions that define the workflow itself.
+   ![Screenshot showing the Service Bus trigger properties pane.](./media/create-replication-tasks-azure-resources/edit-service-bus-trigger.png)
 
-1. To view the properties for the trigger or an action, expand that trigger or action.
-
-   ![Screenshot showing the expanded Service Bus trigger.](./media/create-replication-tasks-azure-resources/edit-service-bus-trigger.png)
+   For this example, the trigger's **IsSessionsEnabled** property is changed to **Yes**.
 
 1. To save your changes, on the designer toolbar, select **Save**.
 
    ![Screenshot showing the designer toolbar and the selected "Save" command.](./media/create-replication-tasks-azure-resources/save-updated-workflow.png)
 
-1. To test and run the updated workflow, on the workflow navigation menu, select **Overview** > **Run Trigger**.
+1. To test and run the updated workflow, open the logic app resource that contains the updated workflow. On the workflow navigation menu, select **Overview** > **Run Trigger**.
 
    After the run finishes, the designer shows the workflow's run details.
 
