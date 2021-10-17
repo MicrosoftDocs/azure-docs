@@ -38,7 +38,7 @@ Datawiza integration includes the following components:
 
 - **Datawiza Access Broker (DAB)**: The service user sign-on and transparently passes identity to applications through HTTP headers.
 
-- **Datawiza Cloud Management Console (DCMC)** - A centralized management console that manages DAB. DCMC provides UI and Restful APIs for administrators to manage the configurations of DAB and its access control policies.
+- **Datawiza Cloud Management Console (DCMC)** - A centralized management console that manages DAB. DCMC provides UI and RESTful APIs for administrators to manage the configurations of DAB and its access control policies.
 
 The following architecture diagram shows the implementation.
 
