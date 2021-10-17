@@ -36,12 +36,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
 We are evolving our current free trial experience to include the following updates:
 
-- **New Log Analytics workspaces** can ingest up to 10GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
+- **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
 
    Both Log Analytics data ingestion and Azure Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
 
-- **Existing Log Analytics workspaces** can enable Azure Sentinel at no additional cost. Existing workspaces include any workspaces created more than three days ago. 
+- **Existing Log Analytics workspaces** can enable Azure Sentinel at no additional cost. Existing workspaces include any workspaces created more than three days ago.
 
    Only the Azure Sentinel charges are waived during the 31-day trial period.
 
@@ -50,6 +50,8 @@ Usage beyond these limits will be charged per the pricing listed on the [Azure S
 > [!TIP]
 > During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Azure Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
 >
+
+For more information, see [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
 ### Content hub and new solutions (Public preview)
 
