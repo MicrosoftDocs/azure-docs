@@ -1,5 +1,5 @@
 ---
-title: Centrally discover and deploy Azure Sentinel built-in content and solutions | Microsoft Docs
+title: Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions | Microsoft Docs
 description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors and other content.
 services: sentinel
 cloud: na
@@ -17,13 +17,13 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
 ---
-# Centrally discover and deploy Azure Sentinel built-in content and solutions (Public preview)
+# Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions (Public preview)
 
 > [!IMPORTANT]
 >
 > Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Sentinel Content hub provides access to Azure Sentinel solutions, packed with content for for end-to-end product, domain, or industry needs.
+The Azure Sentinel Content hub provides access to Azure Sentinel out-of-the-box content and solutions, which are packed with content for for end-to-end product, domain, or industry needs.
 
 This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use. 
 
@@ -40,9 +40,9 @@ This article describes how to install solutions in your Azure Sentinel workspace
 
 1. The **Content hub** page displays a searchable and filterable grid of solutions.
 
-    Filter the list displayed, either by entering any part of a solution name in the **Search** field, or by selecting specific values from the filters. Note that the search functionality only recognizes whole words.
+    Filter the list displayed, either by entering any part of a solution name or description in the **Search** field, or by selecting specific values from the filters.
 
-    For more information, see [Azure Sentinel built-in content and solution categories](sentinel-solutions.md#azure-sentinel-built---in-content-and-solution-categories).
+    For more information, see [Azure Sentinel out-of-the-box content and solution categories](sentinel-solutions.md#azure-sentinel-out-of-the-box-content-and-solution-categories).
 
     > [!TIP]
     > If a solution that you've deployed has updates since you deployed it, an orange triangle will indicate that you have updates to deploy, and it'll be indicated in the blue triangle at the top of the page.
@@ -58,7 +58,10 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 
 1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
 
-1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the wizard's **Basics** tab, enter the subscription, resource group, and workspace to which you want to deploy the solution.
+
+1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the wizard's **Basics** tab, enter the subscription, resource group, and workspace to which you want to deploy the solution. For example:
+
+    :::image type="content" source="media/sentinel-solutions-deploy/wizard-basics.png" alt-text="Screenshot of a solution installation wizard, showing the Basics tab.":::
 
 1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the content components.
 
@@ -68,12 +71,9 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
     > You may also be prompted to enter credentials to a third party service so that Azure Sentinel can authenticate to your systems. For example, with playbooks, you may want to take response actions as prescribed in your system.
     >
 
-1. Finally, in the **Review + create** tab, wait for the "Validation Passed" message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
+1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
 For more information, see [Azure Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Azure Sentinel data connector](data-connectors-reference.md).
-
-
-
 
 
 ## Next steps
@@ -81,4 +81,4 @@ For more information, see [Azure Sentinel content hub catalog](sentinel-solution
 In this document, you learned about Azure Sentinel solutions and how to find and deploy them.
 
 - Learn more about [Azure Sentinel solutions](sentinel-solutions.md).
-- See the full [Sentinel solutions catalog](sentinel-solutions-catalog.md).
+- See the full [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).

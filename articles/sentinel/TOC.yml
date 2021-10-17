@@ -111,7 +111,7 @@
     href: migration.md
   - name: Manage Azure Sentinel content
     items:
-    - name: Discover and deploy solutions
+    - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
     - name: Manage custom content in your repository
       href: ci-cd.md

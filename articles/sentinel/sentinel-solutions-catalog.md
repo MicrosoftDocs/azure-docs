@@ -25,9 +25,9 @@ ms.author: bagol
 
 [Azure Sentinel solutions](sentinel-solutions.md) provide a consolidated way to acquire Azure Sentinel content - like data connectors, workbooks, analytics, and automation - in your workspace with a single deployment step.
 
-This article lists the built-in, on-demand, Azure Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Azure Sentinel. 
+This article lists the out-of-the-box, on-demand, Azure Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Azure Sentinel. 
 
-For more information, see [Centrally discover and deploy built-in content and solutions (Public preview)](sentinel-solutions-deploy.md).
+For more information, see [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
 <!-- template for new sections>
 |Name    |Includes  |Categories |Supported by  |
