@@ -1,6 +1,6 @@
 ---
 title: Manage custom content in your own repository | Microsoft Docs
-description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content..
+description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -24,7 +24,7 @@ ms.author: bagol
 >
 > The Azure Sentinel **Repositories** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Sentinel *content* is Security Information and Event Management (SIEM) that assists customers with ingesting, monitoring, alerting, hunting and more in Azure Sentinel. For example, Azure Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [What is Azure Sentinel content?](sentinel-solutions.md#what-is-azure-sentinel-content)
+Azure Sentinel *content* is Security Information and Event Management (SIEM) that assists customers with ingesting, monitoring, alerting, hunting, and more in Azure Sentinel. For example, Azure Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [What is Azure Sentinel content?](sentinel-solutions.md#what-is-azure-sentinel-content)
 
 You can use the built-in content provided in Azure Sentinel as is, customize it for your own needs, or create your own custom content from scratch.
 
@@ -40,11 +40,11 @@ This article describes how to manage the connections between Azure Sentinel and 
 
 Before connecting your Azure Sentinel workspace to an external source control repository, make sure that you have:
 
-- Access to a GitHub or Azure DevOps repository, with any files you may need to create your content. For example, if you're managing analytics rules in your workspace, make sure that you have the [relevant Azure Sentinel ARM templates](detect-threats-custom.md), saved in a directory named **Detections**.
+- Access to a GitHub or Azure DevOps repository, with any files you may need to create your content. For example, if you're managing analytics rules in your workspace, make sure that you have the [relevant Azure Resource Manager (ARM) templates](detect-threats-custom.md), saved in a directory named **Detections**.
 
     Azure Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
-    For details about specific requirements for each content types, see the instructions in the [relevant GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
+    For details about specific requirements for each content type, see the instructions in the [relevant GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
 
 - An **Owner** role in the resource group that contains your Azure Sentinel workspace. The **Owner** role is required to create the connection between Azure Sentinel and your source control repository.
 
@@ -58,7 +58,7 @@ Before connecting your Azure Sentinel workspace to an external source control re
 
 ### Validate your content
 
-Deploying content to Azure Sentinel via a repository connection does not validate that content other than verifying that the data is in the correct ARM format.
+Deploying content to Azure Sentinel via a repository connection does not validate that content other than verifying that the data is in the correct ARM template format.
 
 We recommend that you validate your content templates using your regular validation process.
 
@@ -99,7 +99,7 @@ This procedure describes how to connect a GitHub or Azure DevOps repository to y
 
     1. From the **Content Type** dropdown, select the type of content you'll be saving. Define your content type to make your connection filterable in the **Repositories** page.
 
-        You must select a specific type of content.
+        You must select a specific type of content for each connection:
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Azure Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
 
@@ -107,7 +107,7 @@ This procedure describes how to connect a GitHub or Azure DevOps repository to y
 
     1. Select **Create** to create your connection. For example:
 
-        :::image type="content" source="media/ci-cd/create-new-connection-github.png" alt-text="Screenshot of a new GitHUb repository connection.":::
+        :::image type="content" source="media/ci-cd/create-new-connection-github.png" alt-text="Screenshot of a new GitHub repository connection.":::
 
 
     # [Azure DevOps](#tab/azure-devops)
@@ -118,7 +118,7 @@ This procedure describes how to connect a GitHub or Azure DevOps repository to y
 
     1. Select **Create** to create your connection. For example:
 
-        :::image type="content" source="media/ci-cd/create-new-connection-devops.png" alt-text="Screenshot of a new GitHUb repository connection.":::
+        :::image type="content" source="media/ci-cd/create-new-connection-devops.png" alt-text="Screenshot of a new GitHub repository connection.":::
 
     ---
 
@@ -137,7 +137,7 @@ After the deployment is complete:
 
 - The content stored in your repository is displayed in your Azure Sentinel workspace, in the relevant Azure Sentinel page.
 
-- The the connection details on the **Repositories** page is updated with the link to the connection's deployment logs. For example:
+- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs. For example:
 
     :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
 
@@ -153,15 +153,17 @@ TBD
 
 ## Edit or delete content in your repository
 
-After you've successfully created a connection to your source control repository, any time that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Azure Sentinel workspaces.
+After you've successfully created a connection to your source control repository, anytime that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Azure Sentinel workspaces.
 
-We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps. If you have edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
+We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
+
+If you have edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
 Content is displayed as disabled in Azure Sentinel while it's being redeployed. Refresh your page when the deployment is complete to update the content status.
 
 ## Remove a repository connection
 
-This procedure describe how to remove the connection to a source control repository from Azure Sentinel.
+This procedure describes how to remove the connection to a source control repository from Azure Sentinel.
 
 **To remove your connection**:
 
