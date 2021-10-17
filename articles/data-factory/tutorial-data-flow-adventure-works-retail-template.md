@@ -19,10 +19,6 @@ This document explains how to setup and use Microsoft's AdventureWorks pipeline 
 ## Overview
 AdventureWorks is a fictional sports equipment retailer that is used to demo Microsoft applications. In this case, they are being used as an example for how to use Synapse Pipelines to map retail data to the Retail database template for further analysis within Azure Synapse.
 
-Many times, when processing data for ETL jobs, you will need to change the column names before writing the results. Sometimes this is needed to align column names to a well-known target schema. Other times, you may need to set column names at runtime based on evolving schemas. In this tutorial, you'll learn how to use data flows to set column names for your destination files and database tables dynamically using external configuration files and parameters.
-
-If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
-
 ## Prerequisites
 
 1. [Create an Azure subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription#:~:text=Create%20Subscription%20Azure%201%20Sign%20in%20to%20the,for%20each%20type%20of%20billing%20account.%20See%20More.) if you don't have one already.
