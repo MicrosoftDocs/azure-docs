@@ -34,7 +34,7 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_REDIS_CONNECTIONSTRING | | `{redis-server}.redis.cache.windows.net:6380,password={redis-key},ssl=True,defaultDatabase=0"` |
+| AZURE_REDIS_CONNECTIONSTRING | | `{redis-server}.redis.cache.windows.net:6380,password={redis-key},ssl=True,defaultDatabase=0` |
 
 ### Java (Jedis)
 

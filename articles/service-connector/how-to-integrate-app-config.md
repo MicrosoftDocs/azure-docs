@@ -32,26 +32,26 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_APPCONFIGURATION_CONNECTIONSTRING | | `Endpoint=https://{your-app-config-name}.azconfig.io;Id={ID};Secret={secret}"` |
+| AZURE_APPCONFIGURATION_CONNECTIONSTRING | | `Endpoint=https://{your-app-config-name}.azconfig.io;Id={ID};Secret={secret}` |
 
 **System-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_APPCONFIGURATION_ENDPOINT | | `https://{your-app-config-name}.azconfig.io"` |
+| AZURE_APPCONFIGURATION_ENDPOINT | | `https://{your-app-config-name}.azconfig.io` |
 
 **System-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_APPCONFIGURATION_ENDPOINT | | `https://{your-app-config-name}.azconfig.io"` |
+| AZURE_APPCONFIGURATION_ENDPOINT | | `https://{your-app-config-name}.azconfig.io` |
 | AZURE_APPCONFIGURATION_CLIENTID | | `{UserAssignedMiClientId}` |
 
 **Service Principal**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_APPCONFIGURATION_ENDPOINT | | `https://{your-app-config-name}.azconfig.io"` |
+| AZURE_APPCONFIGURATION_ENDPOINT | | `https://{your-app-config-name}.azconfig.io` |
 | AZURE_APPCONFIGURATION_CLIENTID | | `{clientId}` |
 | AZURE_APPCONFIGURATION_CLIENTSECRET | | `{clientSecret}` |
 | AZURE_APPCONFIGURATION_TENANTID | | `{tenantID}` |
