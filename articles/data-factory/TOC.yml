@@ -664,6 +664,8 @@ items:
       href: data-flow-sort.md
     - name: Source
       href: data-flow-source.md
+    - name: Stringify
+      href: data-flow-stringify.md
     - name: Surrogate key
       href: data-flow-surrogate-key.md
     - name: Union
@@ -735,6 +737,8 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Monitor pipelines with email notifications
+      href: how-to-send-email.md
     - name: Monitor pipelines with Microsoft Teams notifications
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
@@ -810,7 +814,15 @@ items:
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
+      items:
+        - name: Overview      
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Virtual network configuration
+          href: azure-ssis-integration-runtime-virtual-network-configuration.md
+        - name: Using the Azure Data Factory Studio UI
+          href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+        - name: Using Azure PowerShell
+          href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
@@ -865,8 +877,10 @@ items:
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
-    items:    
-    - name: Monitor pipelines with Microsoft Teams notifications
+    items: 
+    - name: Send email from a pipeline
+      href: how-to-send-email.md
+    - name: Send Microsoft Teams notifications from a pipeline
       href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
@@ -967,6 +981,8 @@ items:
         href: connector-troubleshoot-dynamics-dataverse.md
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Hive
+        href: connector-troubleshoot-hive.md  
       - name: Oracle
         href: connector-troubleshoot-oracle.md
       - name: ORC format

@@ -57,7 +57,7 @@ Share-level permissions must be assigned to the Azure AD identity representing t
 You can use the Azure portal, Azure PowerShell module, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
 > [!IMPORTANT]
-> The share level permissions will take 3 hours to take effect once completed. Please wait for the permissions to sync before connecting to your file share using your credentials   
+> The share level permissions will take upto 3 hours to take effect once completed. Please wait for the permissions to sync before connecting to your file share using your credentials   
 
 # [Portal](#tab/azure-portal)
 

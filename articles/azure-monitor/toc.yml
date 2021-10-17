@@ -324,8 +324,6 @@
         href: logs/azure-data-explorer-query-storage.md
       - name: Send to Excel
         href: logs/log-excel.md
-      - name: Send to Power BI
-        href: logs/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -764,32 +762,6 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: Standalone - any environment
-        items:  
-          - name: Java
-            items:
-            - name: Overview
-              href: app/java-in-process-agent.md
-            - name: Configuration options
-              href: app/java-standalone-config.md
-            - name: Advanced configurations
-              items:
-              - name: JMX metrics
-                href: app/java-jmx-metrics-configuration.md
-              - name: Sampling overrides
-                href: app/java-standalone-sampling-overrides.md
-              - name: Telemetry processors
-                items:
-                - name: Overview
-                  href: app/java-standalone-telemetry-processors.md
-                - name: Examples
-                  href: app/java-standalone-telemetry-processors-examples.md
-            - name: JVM arguments setup
-              href: app/java-standalone-arguments.md
-            - name: Upgrade from 2.x SDK
-              href: app/java-standalone-upgrade-from-2x.md
-            - name: Troubleshooting
-              href: app/java-standalone-troubleshoot.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -809,6 +781,38 @@
           href: app/java-on-premises.md
     - name: OpenTelemetry
       items: 
+      - name: Overview
+        href: app/opentelemetry-overview.md 
+      - name: .NET
+        href: app/opentelemetry-enable.md?tabs=net
+      - name: Node.js
+        href: app/opentelemetry-enable.md?tabs=nodejs
+      - name: Java
+        items:
+        - name: Overview
+          href: app/java-in-process-agent.md
+        - name: Configuration options
+          href: app/java-standalone-config.md
+        - name: Advanced configurations
+          items:
+            - name: JMX metrics
+              href: app/java-jmx-metrics-configuration.md
+            - name: Sampling overrides
+              href: app/java-standalone-sampling-overrides.md
+            - name: Telemetry processors
+              items:
+              - name: Overview
+                href: app/java-standalone-telemetry-processors.md
+              - name: Examples
+                href: app/java-standalone-telemetry-processors-examples.md
+        - name: JVM arguments setup
+          href: app/java-standalone-arguments.md
+        - name: Upgrade from 2.x SDK
+          href: app/java-standalone-upgrade-from-2x.md
+        - name: Troubleshooting
+          href: app/java-standalone-troubleshoot.md
+      - name: Python
+        href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (classic)
@@ -1013,8 +1017,6 @@
           href: app/devops.md
         - name: Separate development, test, and production
           href: app/separate-resources.md
-        - name: How do I ... in Application Insights?
-          href: app/how-do-i.md
         - name: Manage Application Insights
           href: app/powershell.md
         - name: Manage Azure Cloud Services
@@ -1113,7 +1115,7 @@
         href: containers/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: containers/container-insights-enable-existing-clusters.md
-      - name: Enable for Arc enabled cluster
+      - name: Enable for Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
         href: containers/container-insights-hybrid-setup.md
@@ -1198,7 +1200,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-preview
+        href: /azure/azure-monitor/faq#sql-insights-(preview)
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
@@ -1347,7 +1349,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: visualize/powerbi.md
+        href: logs/log-powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards

@@ -3,14 +3,14 @@ title: Access on-premises APIs with Azure Active Directory Application Proxy
 description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
 ---
 # Secure access to on-premises APIs with Azure Active Directory Application Proxy

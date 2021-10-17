@@ -1,5 +1,5 @@
 ---
-title: Requirements and considerations for using Azure NetApp Files volume cross-region replication | Microsoft Docs
+title: Requirements and considerations for Azure NetApp Files cross-region replication | Microsoft Docs
 description: Describes the requirements and considerations for using the volume cross-region replication functionality of Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -13,23 +13,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ---
 
 # Requirements and considerations for using cross-region replication 
 
-Note the following requirements and considerations about [using the volume cross-region replication](cross-region-replication-create-peering.md) functionality of Azure NetApp Files:  
+This article describes requirements and considerations about [using the volume cross-region replication](cross-region-replication-create-peering.md) functionality of Azure NetApp Files.
 
 ## Requirements and considerations 
 
-* The cross-region replication feature is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 * Azure NetApp Files replication is only available in certain fixed region pairs. See [Supported region pairs](cross-region-replication-introduction.md#supported-region-pairs). 
 * SMB volumes are supported along with NFS volumes. Replication of SMB volumes requires an Active Directory connection in the source and destination NetApp accounts. The destination AD connection must have access to the DNS servers or ADDS Domain Controllers that are reachable from the delegated subnet in the destination region. For more information, see [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * The destination account must be in a different region from the source volume region. You can also select an existing NetApp account in a different region.  
 * The replication destination volume is read-only until you [fail over to the destination region](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) to enable the destination volume for read and write. 
 * Azure NetApp Files replication does not currently support multiple subscriptions; all replications must be performed under a single subscription.
-* You can set up a maximum of five volumes for replication within a single subscription per region. You can open a support ticket to request for an increase in the default quota of five replication destination volumes (per subscription in a region). 
+* See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-region replication destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region).
 * There can be a delay up to five minutes for the interface to reflect a newly added snapshot on the source volume.  
 * Cascading and fan in/out topologies are not supported.
 * Configuring volume replication for source volumes created from snapshot is not supported at this time.

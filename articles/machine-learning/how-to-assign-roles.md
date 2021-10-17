@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to access to an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: johwu
@@ -483,7 +483,6 @@ Here are a few things to be aware of while you use Azure role-based access contr
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
-- [Conditional access](../role-based-access-control/conditional-access-azure-management.md) is currently not supported with Azure Machine Learning.
 
 ## Next steps
 

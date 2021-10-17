@@ -5,7 +5,8 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.date: 09/22/2021
+ms.custom: references_regions
+ms.date: 10/11/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -89,7 +90,6 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |**Migration**|Azure Site Recovery|\*.hypervrecoverymanager.windowsazure.com|\*.hypervrecoverymanager.windowsazure.us|Site Recovery service|
 |||\*.backup.windowsazure.com/|\*.backup.windowsazure.us/|Protection service|
 |||\*.blob.core.windows.net/|\*.blob.core.usgovcloudapi.net/|Storing VM snapshots|
-|||[Public download MySQL](https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)|[Gov download MySQL](https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)|Download MySQL|
 |**Networking**|Traffic Manager|\*.trafficmanager.net|\*.usgovtrafficmanager.net||
 |**Security**|Azure Active Directory|https:\//login.microsoftonline.com|https:\//login.microsoftonline.us||
 ||Key Vault|\*.vault.azure.net|\*.vault.usgovcloudapi.net|Endpoint|
@@ -177,31 +177,15 @@ For secured virtual networks, you will want to allow network security groups (NS
 |US Gov Virginia|13.72.49.126 </br> 13.72.55.55 </br> 13.72.184.124 </br> 13.72.190.110| 443|
 |US Gov Arizona|52.127.3.176 </br> 52.127.3.178| 443|
 
-You can see a demo on how to build data-centric solutions on Azure Government using [HDInsight](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government).
+For a demo on how to build data-centric solutions on Azure Government using HDInsight, see [Cognitive Services, HDInsight, and Power BI on Azure Government](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government).
 
 ### [Power BI](/power-bi/service-govus-overview)
 
-For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). You can also see a demo on [how to build data-centric solutions on Azure Government using Power BI](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/).
+For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see [Cognitive Services, HDInsight, and Power BI on Azure Government](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government).
 
 ### [Power BI Embedded](/azure/power-bi-embedded/)
 
 To learn how to embed analytical content within your business process application, see [Tutorial: Embed a Power BI content into your application for national clouds](/power-bi/developer/embedded/embed-sample-for-customers-national-clouds).
-
-
-## Compute
-
-This section outlines variations and considerations when using Compute services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware-cloudsimple,cloud-services,batch,container-instances,app-service,service-fabric,functions,kubernetes-service,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
-
-### [Virtual Machines](../virtual-machines/sizes.md)
-
-The following Virtual Machines **features are not currently available** in Azure Government:
-
-- Settings
-    - Continuous delivery
-- Monitoring
-    - Application Insights
-- Support + troubleshooting
-    - Ubuntu Advantage support plan
 
 
 ## Containers
@@ -250,13 +234,9 @@ This section outlines variations and considerations when using Identity services
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
-    - B2B Collaboration is available in most Azure US Government tenants created after June 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
-    - B2B collaboration is supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user will be unable to redeem the invitation.
+    - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Limitations of Azure AD B2B collaboration](../active-directory/external-identities/current-limitations.md#azure-us-government-clouds).
     - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
     - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
-
-- Limitations with SQL tools:
-    - Some SQL tools such as SQL Server Management Studio (SSMS) require you to set the appropriate cloud parameter. In the tool's Azure service setup options, set the cloud parameter to Azure Government.
 
 - Limitations with multifactor authentication:
     - Hardware OATH tokens are not available in Azure Government.
@@ -311,6 +291,8 @@ The following Azure Cost Management + Billing **features are not currently avail
 The following Azure Lighthouse **features are not currently available** in Azure Government:
 
 - Managed Service offers published to Azure Marketplace
+- Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, is not supported
+- Privileged Identity Management (PIM) feature is not enabled, for example, just-in-time (JIT) / eligible authorization capability
 
 ### [Azure Monitor](../azure-monitor/overview.md)
 
@@ -391,7 +373,7 @@ The following Azure Migrate **features are not currently available** in Azure Go
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government).
+For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 
 ## Networking
@@ -447,37 +429,14 @@ The following Azure managed disks **features are not currently available** in Az
 
 - Zone-redundant storage (ZRS)
 
-### [Azure Storage](../storage/index.yml)
+### [Azure NetApp Files](../azure-netapp-files/index.yml)
 
-For a Quickstart that will help you get started with Storage in Azure Government, see [Develop with Storage API on Azure Government](./documentation-government-get-started-connect-to-storage.md).
-
-**Storage pairing in Azure Government**</br>
-Azure relies on [paired regions](../best-practices-availability-paired-regions.md) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
-
-|Geography|Regional Pair A|Regional Pair B|
-|---------|---------------|---------------|
-|US Government|US Gov Arizona|US Gov Texas|
-|US Government|US Gov Virginia|US Gov Texas|
-
-Table in [Guidance for developers](#guidance-for-developers) section shows URL endpoints for main Azure Storage services.
-
-> [!NOTE]
-> All your scripts and code need to account for the appropriate endpoints. See [**Configure Azure Storage Connection Strings**](../storage/common/storage-configure-connection-string.md).
-
-For more information on APIs, see [Cloud Storage Account Constructor](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
-
-The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
-
-> [!NOTE]
-> If error 53 ("The network path was not found") is returned while you're [**mounting the file share**](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
-
-When you're deploying the **StorSimple** Manager service, use the [https://portal.azure.us/](https://portal.azure.us/) URL for the Azure Government portal. For deployment instructions for [StorSimple Virtual Array](../storsimple/storsimple-ova-system-requirements.md), see StorSimple Virtual Array system requirements. For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-8000-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.yml).
+For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
+see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
 
 ### [Azure Import/Export](../import-export/storage-import-export-service.md)
 
-With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
-
-For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
+With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region. For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
 
 ## Web
