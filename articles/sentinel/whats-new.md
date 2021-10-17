@@ -137,7 +137,7 @@ Supported data connectors include:
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
 - [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled)
 
-For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
+For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#fusion-for-ransomware).
 
 ### Watchlist templates for UEBA data (Public preview)
 

@@ -192,8 +192,10 @@
         href: manage-analytics-rule-templates.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
-    - name: Work with SOC-ML anomaly rules
+    - name: Work with out-of-the-box anomaly rules
       href: work-with-anomaly-rules.md
+    - name: Configure multistage attack (Fusion) rules
+      href: configure-fusion-rules.md
     - name: Handle false positives
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
@@ -308,6 +310,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Multistage attack detection scenarios
+      href: fusion-scenario-reference.md
     - name: Watchlist template schemas
       href: watchlist-schemas.md
     - name: Kusto Query Language

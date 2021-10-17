@@ -17,11 +17,11 @@ ms.author: yelevin
 ---
 # Scenarios detected by the Azure Sentinel Fusion engine
 
-This document lists the types of correlation scenarios, grouped by threat classification, that Azure Sentinel looks for using Fusion technology.
+This document lists the types of scenario-based multistage attacks, grouped by threat classification, that Azure Sentinel detects using the Fusion correlation engine.
 
-Since [Fusion](fusion.md) correlates multiple security alerts from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Azure Sentinel **Incidents** page, and not as **alerts** in the **Security Alerts** table in **Logs**.
+Since [Fusion](fusion.md) correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Azure Sentinel **Incidents** page and not as **alerts**, and are stored in the *Incidents* table in **Logs** and not in the *SecurityAlerts* table.
 
-In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested using the associated Azure Sentinel data connectors.
+In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested to your Log Analytics workspace.
 
 > [!NOTE]
 > Some of these scenarios are in **PREVIEW**. They will be so indicated.
@@ -49,32 +49,6 @@ This scenario is currently in **PREVIEW**.
 - **Sign-in event from an anonymous IP address leading to multiple VM creation activities**
 
 - **Sign-in event from user with leaked credentials leading to multiple VM creation activities**
-
-### Multiple VM creation activities following suspicious Azure Active Directory sign-in
-
-**Description:** Fusion incidents of this type indicate that an anomalous number of VMs were created in a single session following a suspicious sign-in to an Azure AD account. This type of alert indicates, with a high degree of confidence, that the account noted in the Fusion incident description has been compromised and used to create new VMs for unauthorized purposes, such as running crypto mining operations.
-
-This scenario is currently in **PREVIEW**.
-
-   |  |  |
-   | ----- | ----- |
-   | **MITRE ATT&CK tactics** | Initial Access<br>Impact |
-   | **MITRE ATT&CK techniques** | Valid Account (T1078)<br>Resource Hijacking (T1496) |
-   |  |
-
-#### Correlated events
-
-| Events from<br>Azure Active Directory Identity Protection    | Correlated with | Events from<br>Microsoft Cloud App Security     |
-|---------|---------|---------|
-| <li>Impossible travel to an atypical location       | Correlated with | Multiple VM creation activities        |
-| <li>Sign-in event from an unfamiliar location       | Correlated with | Multiple VM creation activities        |
-| <li>Sign-in event from an infected device           | Correlated with | Multiple VM creation activities        |
-| <li>Sign-in event from an anonymous IP address      | Correlated with | Multiple VM creation activities        |
-| <li>Sign-in event from user with leaked credentials | Correlated with | Multiple VM creation activities        |
-|
-
-
-
 
 
 ## Credential access

@@ -18,11 +18,11 @@ ms.author: yelevin
 # Configure multistage attack detection (Fusion) rules in Azure Sentinel
 
 > [!IMPORTANT]
-> The new version of the Fusion UI is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The new version of the Fusion analytics rule is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Azure Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
+Azure Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
 
 Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
 
@@ -36,7 +36,7 @@ This detection is enabled by default in Azure Sentinel. To check or change its s
 
 1. Select the **Active rules** tab, and then locate **Advanced Multistage Attack Detection** in the **NAME** column by filtering the list for the **Fusion** rule type. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}" lightbox="./media/fusion/selecting-fusion-rule-type.png":::
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="Screenshot of Fusion analytics rule." lightbox="./media/fusion/selecting-fusion-rule-type.png":::
 
 1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** preview pane, select **Edit**.
 
@@ -45,6 +45,8 @@ This detection is enabled by default in Azure Sentinel. To check or change its s
 If you changed the status but have no further changes to make, select the **Review and update** tab and select **Save**. 
 To further configure the Fusion detection rule, select **Next: Configure Fusion**.
 
+:::image type="content" source="media/configure-fusion-rules/configure-fusion-rule.png" alt-text="Screenshot of Fusion rule configuration." lightbox="media/configure-fusion-rules/configure-fusion-rule.png":::
+
 1. **Configure source signals for Fusion detection**: we recommend you include all the listed source signals, with all severity levels, for the best result. By default they are already all included, but you have the option to make changes in the following ways:
     - **Exclude signals from Fusion detections**, including anomalies, alerts from various providers, and raw logs.
      
@@ -52,19 +54,34 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
 
     - **Configure alert severity for each provider**: by design, the Fusion ML model correlates low fidelity signals into a single high severity incident based on anomalous signals across the kill-chain from multiple data sources. Alerts included in Fusion are generally lower severity (medium, low, informational), but occasionally relevant high severity alerts are included.
      
-        *Use case:* If you have a separate process for triage and investigating high severity alerts and would prefer not to have these alerts included in Fusion, you can configure the source signals to exclude high severity alerts from Fusion detections. 
+        *Use case:* If you have a separate process for triaging and investigating high severity alerts and would prefer not to have these alerts included in Fusion, you can configure the source signals to exclude high severity alerts from Fusion detections. 
 
-1. **Exclude specific detection patterns from Fusion detection**: certain Fusion detections may not be applicable to your environment. If you’d like to exclude a specific Fusion detection pattern, follow the instructions and exclusion link in the Fusion incident. You can view the already excluded detection patterns at the bottom of the **Configure Fusion** tab in the analytics rule wizard.
+    > [!NOTE]
+    > If you exclude a particular source signal or an alert severity level, any Fusion detections that rely on signals from that source, or on alerts matching that severity level, will not be triggered. 
 
-    *Use case:* if a particular Fusion detection pattern is not applicable (or known to be prone to false positives) in your environment, you can exclude that detection pattern from Fusion detections.
-    
-    1. Select the **exclusion link** in the Fusion incident, which redirects you to the **Configure Fusion** tab in the analytics rule wizard.
+1. **Exclude specific detection patterns from Fusion detection**: certain Fusion detections may not be applicable to your environment, or may be prone to generating false positives. If you’d like to exclude a specific Fusion detection pattern, follow the instructions below:
+
+    1. Locate and open a Fusion incident of the kind you want to exclude.
+    1. In the **Description** section, select **Show more**.
+    1. Under **Exclude this specific detection pattern**, select **exclusion link**, which redirects you to the **Configure Fusion** tab in the analytics rule wizard.
         :::image type="content" source="media/configure-fusion-rules/exclude-fusion-incident.png" alt-text="Screenshot of Fusion incident. Select the exclusion link.":::
 
-    1. On the **Configure Fusion** page, you'll see the detection pattern has been added to the exclusion list. Remove an exclusion at any time by selecting the 'x' on an already listed detection pattern.
-    
-        1. ***Add note on triggering incidents***
-        1. ***Add note on links to incidents/kql***
+- On the **Configure Fusion** tab, you'll see the detection pattern has been added to the exclusion list, with the following details: 
+    - The time when the detection pattern was added
+    - A link to the incident where you initiated the exclusion
+    - A link to all the incidents matching this exclusion pattern (see **Tag** below).
+
+- You can remove an excluded detection pattern any time by selecting the trashcan icon on that detection pattern.
+    :::image type="content" source="media/configure-fusion-rules/exclusion-patterns-list.png" alt-text="Screenshot of list of excluded detection patterns.":::
+
+- Incidents that match excluded detection patterns will still be triggered, but with the following values:
+    - **Status**: "Closed"
+    - **Closing classification**: “Undetermined”
+    - **Comment**: “Auto closed, excluded Fusion detection pattern”
+    - **Tag**: “ExcludedFusionDetectionPattern” - you can query on this tag to view all incidents matching this detection pattern.
+        :::image type="content" source="media/configure-fusion-rules/auto-closed-incident.png" alt-text="Screenshot of auto closed, excluded Fusion incident.":::
+
+
 
 > [!NOTE]
 > Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
@@ -75,9 +92,15 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
 >
 > - Fusion-based detection using analytics rule alerts is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-**Fusion** can detect multi-stage attacks using alerts generated by a set of [scheduled analytics rules](detect-threats-custom.md). We recommend you take the following steps to configure and enable these rules, so that you can get the most out of Azure Sentinel's fusion capabilities.
+**Fusion** can detect scenario-based multi-stage attacks and emerging threats using alerts generated by [scheduled analytics rules](detect-threats-custom.md). We recommend you take the following steps to configure and enable these rules, so that you can get the most out of Azure Sentinel's Fusion capabilities.
 
-1. Use the following **scheduled analytics rule templates**, which can be found in the **Rule templates** tab in the **Analytics** blade, to create new rules. Select the rule name in the templates gallery, and click **Create rule** in the details pane:
+1. Fusion for emerging threats can use alerts generated by any scheduled analytics rules, both [built-in](detect-threats-built-in.md) and those [created by your security analysts](detect-threats-custom.md), that contain kill-chain (tactics) and entity mapping information. To ensure that an analytics rule's output can be used by Fusion to detect emerging threats:
+
+    - Review **entity mapping** for these scheduled rules. Use the [entity mapping configuration section](map-data-fields-to-entities.md) to map parameters from your query results to Azure Sentinel-recognized entities. Because Fusion correlates alerts based on entities (such as *user account* or *IP address*), its ML algorithms cannot perform alert matching without the entity information.
+
+    - Review the **tactics** in your analytics rule details. The Fusion ML algorithm uses [MITRE ATT&CK](https://attack.mitre.org/) tactic information for detecting multi-stage attacks, and the tactics you label the analytics rules with will show up in the resulting incidents. Fusion calculations may be affected if incoming alerts are missing tactic information.
+
+1. Fusion can also detect scenario-based threats using rules based on the following **scheduled analytics rule templates**, which can be found in the **Rule templates** tab in the **Analytics** blade. To enable these detections, select the rule name in the templates gallery, and click **Create rule** in the details pane.
 
     - [Cisco - firewall block but success logon to Azure AD](https://github.com/Azure/Azure-Sentinel/blob/60e7aa065b196a6ed113c748a6e7ae3566f8c89c/Detections/MultipleDataSources/SigninFirewallCorrelation.yaml)
     - [Fortinet - Beacon pattern detected](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/CommonSecurityLog/Fortinet-NetworkBeaconPattern.yaml)
@@ -91,13 +114,13 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
     > [!NOTE]
     > For the set of scheduled analytics rules used by Fusion, the ML algorithm does fuzzy matching for the KQL queries provided in the templates. Renaming the templates will not impact Fusion detections.
 
-1. Review **entity mapping** for these scheduled rules. Use the [entity mapping configuration section](map-data-fields-to-entities.md) to map parameters from your query results to Azure Sentinel-recognized entities. As Fusion correlates alerts based on entities (such as *user account* or *IP address*), the ML algorithms cannot perform alert matching without the entity information.
-
-1. Review the **tactics** in your analytics rule details. The Fusion ML algorithm uses [MITRE ATT&CK](https://attack.mitre.org/) tactic information for detecting multi-stage attacks, and the tactics you label the analytics rules with will show up in the resulting incidents. Fusion calculations may be affected if incoming alerts are missing tactic information.
-
-1. Adjust **alert threshold** as needed. Fusion generates incidents based on the alerts raised from your scheduled analytics rules. If you'd like to reduce the number of Fusion incidents for a specific analytics rule, adjust the alert threshold as needed. You can also disable the specific analytics rule if you do not want to receive any incidents based on that rule.
+1. ***DELETE THIS?*** Adjust **alert threshold** as needed. Fusion generates incidents based on the alerts raised from your scheduled analytics rules. If you'd like to reduce the number of Fusion incidents for a specific analytics rule, adjust the alert threshold as needed. You can also disable the specific analytics rule if you do not want to receive any incidents based on that rule.
 
 ## Next steps
+
+Learn more about [Fusion detections in Azure Sentinel](fusion.md).
+
+Learn more about the many [scenario-based Fusion detections](fusion-scenario-reference.md).
 
 Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](get-visibility.md).
 
