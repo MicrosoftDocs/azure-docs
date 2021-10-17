@@ -399,6 +399,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -5896,6 +5906,11 @@
     {
       "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
       "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
+      "redirect_url": "/azure/storage/common/storage-account-overview",
       "redirect_document_id": false
     },
     {
@@ -46486,6 +46501,16 @@
     {
       "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md",
       "redirect_url": "/azure/app-service/environment/using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
+      "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/how-do-i.md",
+      "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": false
     }
   ]
