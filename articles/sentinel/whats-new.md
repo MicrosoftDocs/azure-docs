@@ -140,11 +140,22 @@ For more information, see:
 
 ### Use notebooks with Azure Synapse Analytics in Azure Sentinel
 
-Azure Sentinel now integrates Jupyter notebooks with Azure Synapse Analytics for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
+Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-scale security analytics scenarios.
 
-While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
+Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits and libraries such as TensorFlow, as well as their own custom models, into security workflows.
 
-To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as new notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
+The new Azure Synapse integration provides additional analytic horsepower, which:
+- Leverages big-data processesing
+
+- Operationlizes machine learning modules, using Azure Sentinel data with cost-effective Data Lake access
+
+- Runs cloud-scale, distributed processing for security analytic workloads, with extract, transform, load (ETL) pipeline capabilities combined with fully-managed Apache Spark compute pools
+
+To support this integration solution, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunting on that data at scale.
+
+For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+
+### Enhanced Notebooks area in Azure Sentinel
 
 The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
 
@@ -152,7 +163,7 @@ For example:
 
 :::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
 
-For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
 ## October 2021
 
