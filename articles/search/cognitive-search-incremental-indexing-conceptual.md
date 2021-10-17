@@ -15,9 +15,9 @@ ms.date: 10/17/2021
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document.Only enriched content can be cached. If your indexer does not have an attached skillset, then caching does not apply.
+*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document. Only enriched content can be cached. If your indexer does not have an attached skillset, then caching does not apply.
 
-When you enable caching, the indexer will read the cache and reuse any enrichments that are still valid. Typically this consists of upstream skills or skills that run in parallel, with no dependency on a skill that you modified. Updated results are written to the cache and the document is updated in the search index or the knowledge store.
+When you enable caching, the indexer will read the cache and reuse any enrichments that are still valid. Typically this consists of upstream skills or skills that run in parallel, with no dependency on a skill that you might have modified. Updated results are written to the cache, and the document is updated in the search index or the knowledge store.
 
 ## Cache configuration
 
@@ -25,7 +25,7 @@ Physically, the cache is stored in a blob container in your Azure Storage accoun
 
 The cache is created when you specify the "cache" property and run the indexer. The following example illustrates an indexer with caching enabled. For more information, see [Enable enrichment caching](search-howto-incremental-index.md).
 
-Use a preview API version, 2020-06-30-Preview or later.
+Use a preview API version, 2020-06-30-Preview or later, to enable caching.
 
 ```json
 POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30-Preview
@@ -52,8 +52,8 @@ While incremental enrichment is designed to detect and respond to changes with n
 
 + [Prioritize new documents](#Prioritize-new-documents)
 + [Bypass skillset checks](#Bypass-skillset-checks)
-+ [Bypass data source checks](#Bypass-data-source-checks)
-+ [Force skillset evaluation](#BForce-skillset-evaluation)
++ [Bypass data source checks](#Bypass-data-source-check)
++ [Force skillset evaluation](#Force-skillset-evaluation)
 
 <a name="Prioritize-new-documents"></a>
 
@@ -105,7 +105,7 @@ The purpose of the cache is to avoid unnecessary processing, but suppose you mak
 
 In this case, you can use the [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, follow with a [Run Indexer](/rest/api/searchservice/run-indexer) request to invoke the pipeline processing.
 
-## Refresh specific documents
+## Re-cache specific documents
 
 [Resetting an indexer](/rest/api/searchservice/reset-indexer) will result in all documents in the search corpus being reprocessed. In scenarios where only a few documents need to be reprocessed, use [Reset Documents (preview)](/rest/api/searchservice/preview-api/reset-documents) to force reprocessing of specific documents. When a document is reset, the indexer invalidates the cache for that document, which is then reprocessed by reading it from the data source. For more information, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
