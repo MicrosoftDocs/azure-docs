@@ -34,7 +34,7 @@ For more information, see:
 * [Advanced threat protection for Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [The list of threat protection alerts for Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
 
-## Display Azure Security Center recommendations in Microsoft Cloud App Security <a name="azure-mcas"></a>
+## Display Defender for Cloud recommendations in Microsoft Cloud App Security <a name="azure-mcas"></a>
 
 Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
@@ -67,7 +67,7 @@ If you have Azure DDoS Protection enabled, your DDoS alerts are streamed to Secu
 ## Next steps
 To learn more about the security alerts from these threat protection features, see the following articles:
 
-* [Reference table for all Azure Security Center alerts](alerts-reference.md)
-* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
-* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Reference table for all Defender for Cloud alerts](alerts-reference.md)
+* [Security alerts in Defender for Cloud](security-center-alerts-overview.md)
+* [Manage and respond to security alerts in Defender for Cloud](security-center-managing-and-responding-alerts.md)
 * [Continuously export Security Center data](continuous-export.md)

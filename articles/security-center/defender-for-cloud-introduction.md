@@ -35,7 +35,7 @@ To help you protect yourself against these challenges, Security Center provides 
 -   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto provisioning and protection with Azure services.
 
 > [!NOTE]
-> This service supports [Azure Lighthouse](../lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated. For Azure Security Center scenarios, a subscription must be delegated rather than individual resource groups.
+> This service supports [Azure Lighthouse](../lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated. For Defender for Cloud scenarios, a subscription must be delegated rather than individual resource groups.
 
 ## Architecture
 
@@ -49,7 +49,7 @@ When you enable Security Center, the security policy built-in to Security Center
 
 ## Strengthen security posture
 
-Azure Security Center enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your network security estate. 
+Defender for Cloud enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your network security estate. 
 
 ### Manage organization security policy and compliance
 
@@ -57,7 +57,7 @@ It's a security basic to know and make sure your workloads are secure, and it st
 
 :::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Policy management page.":::
 
-Security Center helps you **identify Shadow IT subscriptions**. By looking at subscriptions labeled **not covered** in your dashboard, you can know immediately when there are newly created subscriptions and make sure they are covered by your policies, and protected by Azure Security Center.
+Security Center helps you **identify Shadow IT subscriptions**. By looking at subscriptions labeled **not covered** in your dashboard, you can know immediately when there are newly created subscriptions and make sure they are covered by your policies, and protected by Defender for Cloud.
 
 :::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center policy dashboard.":::
 
@@ -78,7 +78,7 @@ One of the most powerful tools Security Center provides for continuously monitor
 
 ### Optimize and improve security by configuring recommended controls
 
-The heart of Azure Security Center's value lies in its recommendations. The recommendations are tailored to the particular security concerns found on your workloads, and Security Center does the security admin work for you, by not only finding your vulnerabilities, but providing you with specific instructions for how to get rid of them.
+The heart of Defender for Cloud's value lies in its recommendations. The recommendations are tailored to the particular security concerns found on your workloads, and Security Center does the security admin work for you, by not only finding your vulnerabilities, but providing you with specific instructions for how to get rid of them.
 
 In this way, Security Center enables you not just to set security policies, but to apply secure configuration standards across your resources.
 
@@ -92,7 +92,7 @@ Security Center's threat protection enables you to detect and prevent threats at
 
 Security Center's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Defender for Cloud's security alerts list":::
 
 ### Integration with Microsoft Defender for Endpoint
 
@@ -245,9 +245,9 @@ Learn more on the following pages:
 
 - To get started with Security Center, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 
-- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must enable Azure Defender. Azure Defender can be tried for free for 30 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must enable Azure Defender. Azure Defender can be tried for free for 30 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
-- If you're ready to enable Azure Defender now, [Quickstart: Setting up Azure Security Center](security-center-get-started.md) walks you through the steps.
+- If you're ready to enable Azure Defender now, [Quickstart: Setting up Defender for Cloud](security-center-get-started.md) walks you through the steps.
 
 > [!div class="nextstepaction"]
 > [Enable Microsoft Defender plans](enable-enhanced-security.md)

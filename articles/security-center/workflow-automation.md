@@ -71,7 +71,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
     - **When an Microsoft Defender for Cloud Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, use the [release notes](release-notes.md).
 
-    - **When an Azure Security Center Alert is created or triggered** - You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
+    - **When a Defender for Cloud Alert is created or triggered** - You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
     
     - **When a Security Center regulatory compliance assessment is created or triggered** - Trigger automations based on updates to regulatory compliance assessments.
 

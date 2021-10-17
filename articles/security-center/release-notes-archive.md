@@ -1,6 +1,6 @@
 ---
-title: Archive of what's new in Azure Security Center
-description: A description of what's new and changed in Azure Security Center from six months ago and earlier.
+title: Archive of what's new in Defender for Cloud
+description: A description of what's new and changed in Defender for Cloud from six months ago and earlier.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,9 +10,9 @@ ms.author: memildin
 
 ---
 
-# Archive for what's new in Azure Security Center?
+# Archive for what's new in Defender for Cloud?
 
-The primary [What's new in Azure Security Center?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
+The primary [What's new in Defender for Cloud?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
 
 This page provides you with information about:
 
