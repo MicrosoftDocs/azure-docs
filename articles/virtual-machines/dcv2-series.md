@@ -17,7 +17,8 @@ The DCsv2-series virtual machines help protect the confidentiality and integrity
 
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 
-[!NOTE] Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
+> [!NOTE]
+> Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
 
 Example confidential use cases include: databases, blockchain, multiparty data analytics, fraud detection, anti-money laundering, usage analytics, intelligence analysis and machine learning.
 
@@ -58,7 +59,7 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- [More On Disk Types](./disks-types.md#ultra-disk)
+- [More On Disk Types](./disks-types.md#ultra-disks)
 
 Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
