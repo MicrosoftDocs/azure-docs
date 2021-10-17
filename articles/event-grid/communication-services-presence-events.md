@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Presence Events
+title: Azure Communication Services - Presence events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for user presence Events.
 ms.topic: conceptual
 ms.date: 10/15/2021

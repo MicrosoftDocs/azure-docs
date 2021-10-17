@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Chat Events
+title: Azure Communication Services - Chat events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for chat Events.
 ms.topic: conceptual
 ms.date: 10/15/2021

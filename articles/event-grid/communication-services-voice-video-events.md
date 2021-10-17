@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Voice and Video Calling Events
+title: Azure Communication Services - Voice and video calling events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for voice and video calling Events.
 ms.topic: conceptual
 ms.date: 10/15/2021
