@@ -126,7 +126,7 @@ Azure Sentinel provides the built-in **Azure Synapse - Detect potential network 
 
 1. When you get to the cell labeled **Start a Spark Session**, run the cell to start using your Azure Synapse session, to use your Apache Spark pool as the compute for your queries instead of your Azure ML workspace.
 
-1. Run the subsequent cells to configure and run your queries on the data that's now stored in your Azure Data Lake Storage. For example, [update your lookback period](#define-your-azure-synapse-lookback-period) to include data from a specific time period.
+1. Run the subsequent cells to configure and run your queries on the data that's now stored in your Azure Data Lake Storage. For example, [update your lookback period](#define-your-data-lookback-period) to include data from a specific time period.
 
 1. When you're done with your query, export the results from Azure Data Lake storage back into your Log Analytics workspace.
 
