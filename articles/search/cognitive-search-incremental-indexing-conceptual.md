@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/16/2021
+ms.date: 10/17/2021
 ---
 
 # Incremental enrichment and caching in Azure Cognitive Search
@@ -15,7 +15,7 @@ ms.date: 10/16/2021
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. Only enriched content can be cached. If your indexer does not have an attached skillset, then caching is not applicable. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document.
+*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document.Only enriched content can be cached. If your indexer does not have an attached skillset, then caching does not apply.
 
 When you enable caching, the indexer will read the cache and reuse any enrichments that are still valid. Typically this consists of upstream skills or skills that run in parallel, with no dependency on a skill that you modified. Updated results are written to the cache and the document is updated in the search index or the knowledge store.
 
@@ -25,21 +25,24 @@ Physically, the cache is stored in a blob container in your Azure Storage accoun
 
 The cache is created when you specify the "cache" property and run the indexer. The following example illustrates an indexer with caching enabled. For more information, see [Enable enrichment caching](search-howto-incremental-index.md).
 
+Use a preview API version, 2020-06-30-Preview or later.
+
 ```json
-{
-    "name": "myIndexerName",
-    "targetIndexName": "myIndex",
-    "dataSourceName": "myDatasource",
-    "skillsetName": "mySkillset",
-    "cache" : {
-        "storageConnectionString" : "<Your storage account connection string>",
-        "enableReprocessing": true
-    },
-    "fieldMappings" : [],
-    "outputFieldMappings": [],
-    "parameters": []
-}
-``` 
+POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30-Preview
+    {
+        "name": "myIndexerName",
+        "targetIndexName": "myIndex",
+        "dataSourceName": "myDatasource",
+        "skillsetName": "mySkillset",
+        "cache" : {
+            "storageConnectionString" : "<Your storage account connection string>",
+            "enableReprocessing": true
+        },
+        "fieldMappings" : [],
+        "outputFieldMappings": [],
+        "parameters": []
+    }
+```
 
 ## Cache management
 
@@ -50,13 +53,17 @@ While incremental enrichment is designed to detect and respond to changes with n
 + [Prioritize new documents](#Prioritize-new-documents)
 + [Bypass skillset checks](#Bypass-skillset-checks)
 + [Bypass data source checks](#Bypass-data-source-checks)
-+ [Bypass data source checks](#Bypass-data-source-checks)
++ [Force skillset evaluation](#BForce-skillset-evaluation)
+
+<a name="Prioritize-new-documents"></a>
 
 ### Prioritize new documents
 
 The "cache" property includes an "enableReprocessing" parameter. It's used to control processing over incoming documents already represented in the cache. When true (default), documents already in the cache are reprocessed when you rerun the indexer, assuming your skill update affects that doc. 
 
 When false, existing documents are not reprocessed, effectively prioritizing new, incoming content over existing content. You should only set "enableReprocessing" to false on a temporary basis. Having "enableReprocessing" set to true most of the time ensures that all documents, both new and existing, are valid per the current skillset definition.
+
+<a name="Bypass-skillset-checks"></a>
 
 ### Bypass skillset evaluation
 
@@ -68,19 +75,29 @@ If you know that a change to the skill is indeed superficial, you should overrid
 1. Append the "disableCacheReprocessingChangeDetection=true" parameter on the request.
 1. Submit the change.
 
-Setting this parameter ensures that only updates to the skillset definition are committed and the change isn't evaluated for effects on the existing cache.
+Setting this parameter ensures that only updates to the skillset definition are committed and the change isn't evaluated for effects on the existing cache. Use a preview API version, 2020-06-30-Preview or later.
 
 ```http
-PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview
+    {
+        "disableCacheReprocessingChangeDetection" : true
+    }
 ```
+
+<a name="Bypass-data-source-check"></a>
 
 ### Bypass data source validation checks
 
 Most changes to a data source definition will invalidate the cache. However, for scenarios where you know that a change should not invalidate the cache - such as changing a connection string or rotating the key on the storage account - append the "ignoreResetRequirement" parameter on the data source update. Setting this parameter to true allows the commit to go through, without triggering a reset condition that would result in all objects being rebuilt and populated from scratch.
 
 ```http
-PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview
+    {
+        "ignoreResetRequirement" : true
+    }
 ```
+
+<a name="Force-skillset-evaluation"></a>
 
 ### Force skillset evaluation
 
@@ -88,7 +105,7 @@ The purpose of the cache is to avoid unnecessary processing, but suppose you mak
 
 In this case, you can use the [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, follow with a [Run Indexer](/rest/api/searchservice/run-indexer) request to invoke the pipeline processing.
 
-### Reset documents
+## Refresh specific documents
 
 [Resetting an indexer](/rest/api/searchservice/reset-indexer) will result in all documents in the search corpus being reprocessed. In scenarios where only a few documents need to be reprocessed, use [Reset Documents (preview)](/rest/api/searchservice/preview-api/reset-documents) to force reprocessing of specific documents. When a document is reset, the indexer invalidates the cache for that document, which is then reprocessed by reading it from the data source. For more information, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
@@ -106,9 +123,6 @@ The following example illustrates a reset document request:
 
 ```http
 POST https://[search service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    
     {
         "documentKeys" : [
             "key1",
