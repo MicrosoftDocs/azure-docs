@@ -36,8 +36,8 @@ This will open the template overview page.
 ## Configuring the Template
 The template is designed to require minimal configuration. From the template overview page you can see a preview of the initial starting configuration of the pipeline, and click **Open pipeline** to create the resources in your own workspace. You will get a notification that all 31 resources in the template have been created, and can review these before committing or publishing them. You will find the below components of the template:
 
-- 17 pipelines: These are scheduled to ensure the data loads into the target tables correctly, and include one pipeline per source table plus the scheduling ones.
-- 14 data flows: These contain the logic to load from the source system and land the data into the target database.
+* 17 pipelines: These are scheduled to ensure the data loads into the target tables correctly, and include one pipeline per source table plus the scheduling ones.
+* 14 data flows: These contain the logic to load from the source system and land the data into the target database.
 
 If you have the AdventureWorks dataset loaded into a different database, you can update the dataflow sources to point to that dataset. Otherwise, follow the steps below to create a source and target DB to match the schema defined in the template.
 
@@ -49,9 +49,10 @@ With the databases created, ensure the dataflows are pointing to the correct tab
 
 ## Troubleshooting the pipelines
 If the pipeline fails to run successfully, there's a few main things to check for errors.
-    - Dataset schema. Make sure the data settings for the CSV files are accurate. If you included row headers, make sure the how headers option is checked on the database table.
-    - Data flow sources. If you used different column or table names than what were provided in the example schema, you will need to step through the data flows to verify that the columns are mapped correctly.
-    - Data flow sink. The schema and data format configurations on the target database will need to match the data flow template. Like above, if any changes were made you those items will need to be aligned.
+
+* Dataset schema. Make sure the data settings for the CSV files are accurate. If you included row headers, make sure the how headers option is checked on the database table.
+* Data flow sources. If you used different column or table names than what were provided in the example schema, you will need to step through the data flows to verify that the columns are mapped correctly.
+* Data flow sink. The schema and data format configurations on the target database will need to match the data flow template. Like above, if any changes were made you those items will need to be aligned.
 
 ## Next steps
 
