@@ -24,7 +24,7 @@ ms.author: bagol
 >
 > The Azure Sentinel **Repositories** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Sentinel *content* is Security Information and Event Management (SIEM) that assists customers with ingesting, monitoring, alerting, hunting, and more in Azure Sentinel. For example, Azure Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [What is Azure Sentinel content?](sentinel-solutions.md#what-is-azure-sentinel-content)
+Azure Sentinel *content* is Security Information and Event Management (SIEM) that assists customers with ingesting, monitoring, alerting, hunting, and more in Azure Sentinel. For example, Azure Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Azure Sentinel content and solutions](sentinel-solutions.md).
 
 You can use the built-in content provided in Azure Sentinel as is, customize it for your own needs, or create your own custom content from scratch.
 
@@ -67,7 +67,7 @@ We recommend that you validate your content templates using your regular validat
 This procedure describes how to connect a GitHub or Azure DevOps repository to your Azure Sentinel workspace, where you can save and manage your custom content, instead of in Azure Sentinel.
 
 > [!NOTE]
-> Each repository connection must be used for a single type of content. For more information, see [What is Azure Sentinel content?](sentinel-solutions.md#what-is-azure-sentinel-content).
+> Each repository connection must be used for a single type of content. For more information, see [About Azure Sentinel content and solutions](sentinel-solutions.md).
 >
 
 **To create your connection**:
