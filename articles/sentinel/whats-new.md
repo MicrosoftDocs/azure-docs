@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/17/2021
 ---
 
 # What's new in Azure Sentinel
@@ -34,26 +34,34 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ### Free trial updates
 
 Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
+We are evolving our current free trial experience to include the following updates:
 
-Now, in addition during the trial period:
+- **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
 
-- **For new Log Analytics workspaces**, including workspaces that are less than three days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
+   Both Log Analytics data ingestion and Azure Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
-    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
-- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply. Existing workspaces include any workspaces created more than three days ago.
+- **Existing Log Analytics workspaces** can enable Azure Sentinel at no additional cost. Existing workspaces include any workspaces created more than three days ago.
 
-For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
+   Only the Azure Sentinel charges are waived during the 31-day trial period.
+
+Usage beyond these limits will be charged per the pricing listed on the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation-in-azure-sentinel.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+
+> [!TIP]
+> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Azure Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+>
+
+For more information, see [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
 ### Content hub and new solutions (Public preview)
 
-Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel out-of-the-box solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
 
 Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
 
 :::image type="content" source="media/whats-new/solutions-list.png" alt-text="Screenshot of the new Azure Sentinel content hub." lightbox="media/whats-new/solutions-list.png":::
 
-The following list includes highlights of new solutions added to the Content hub:
+The following list includes highlights of new, out-of-the-box solutions added to the Content hub:
 
 :::row:::
    :::column span="":::
@@ -114,16 +122,21 @@ For more information, see [Manage custom content in your own repository](ci-cd.m
 
 Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
 
-In the Azure Sentinel **Threat Intelligence** page, select an indicator in the grid. Details are shown on the right, including both Geolocation and WhoIs data. For example:
+View Geolocation and WhoIs data in Azure Sentinel, on the **Threat Intelligence** page. From the grid, select the indicator for which you'd like to view GeoLocation and WhoIs information.
 
-TBD SCREENSHOT
+Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+
+<!--For example: Screenshot TBD-->
+
+> [!TIP]
+> The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
+>
 
 For more information, see:
 
 - [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
 - [Threat intelligence integrations](threat-intelligence-integration.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
-- [Enrich entities with geolocation data via API](geolocation-data-api.md)
 
 ### Use notebooks with Azure Synapse Analytics in Azure Sentinel
 
