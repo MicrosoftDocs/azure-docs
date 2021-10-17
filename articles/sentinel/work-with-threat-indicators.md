@@ -4,7 +4,7 @@ description: This article explains how to view, create, manage, visualize, and d
 services: sentinel
 cloud: na
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 
 ms.assetid:
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2021
-ms.author: yelevin
+ms.date: 10/17/2021
+ms.author: bagol
 ---
 # Work with threat indicators in Azure Sentinel
 
@@ -51,7 +51,20 @@ Your results should look similar to the sample threat indicator shown below:
 
 ### Find and view your indicators in the threat intelligence blade
 
-You can also view and manage your indicators in the new **Threat intelligence** blade, accessible from the main Azure Sentinel menu. You can sort, filter, and search your imported threat indicators without even writing a Log Analytics query. This feature also allows you to create threat indicators directly within the Azure Sentinel interface, as well as perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
+You can also view and manage your indicators in the new **Threat intelligence** blade, accessible from the main Azure Sentinel menu. You can sort, filter, and search your imported threat indicators without even writing a Log Analytics query.
+
+1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Azure Sentinel** service.
+
+1. Choose the workspace to which you imported threat indicators using the connectors/playbooks or have created threat intelligence data.
+
+1. From the **Threat Management** section on the left, select the **Threat Intelligence** page.
+
+1. From the grid, select the indicator for which you want to view more details. The indicator details appears on the right, showing information such as confidence levels, tags, threat types, GeoLocation and WhoIs data, and more.
+
+<!--for example: screenshot-->
+
+This feature also allows you to create threat indicators directly within the Azure Sentinel interface, as well as perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
+
 
 #### Create a new indicator
 
