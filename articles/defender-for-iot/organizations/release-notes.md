@@ -53,17 +53,15 @@ If the Key state is detected as Program or the Run state is detected as either R
 
 - Use the Device Inventory to view the PLC state of organizational PLCs as well as contextual device information. Use the Device Inventory Settings dialog box to add this information to the Inventory.
 
-    :::image type="content" source="media/device-inventory-plc.png" alt-text="Device inventory showing plc operating mode.":::
-
-
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing plc operating mode.":::
 
 - View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
 
-    :::image type="content" source="media/attributes-plc.png" alt-text="Attributes screen showing plc information.":::
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing plc information.":::
 
 - View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
 
-    :::image type="content" source="media/data-mining-plc.png" alt-text="Data inventory screen showing plc option.":::
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing plc option.":::
 
 - Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and addition information you can use to mitigate unsecure PLC risks.
 
@@ -82,7 +80,6 @@ Webhook extended can be used to send all of the information in the Webhook alert
 ### Unicode support for certificate passphrases 
 
 Unicode characters are now supported when working with sensor certificate passphrases. For more information see, [About certificates](how-to-deploy-certificates.md#about-certificates)
-
 
 ## April 2021
 
