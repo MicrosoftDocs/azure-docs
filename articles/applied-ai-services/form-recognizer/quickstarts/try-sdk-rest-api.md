@@ -10,9 +10,7 @@ ms.topic: quickstart
 ms.date: 10/07/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-
-ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-keywords: forms processing, automated data processing
+recommendations: false
 ---
 
 # Quickstart: get started with the client library SDKs or REST API

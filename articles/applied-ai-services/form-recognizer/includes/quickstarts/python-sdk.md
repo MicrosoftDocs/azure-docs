@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
+> * This quickstart targets API version **2.1**.
 >
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
 

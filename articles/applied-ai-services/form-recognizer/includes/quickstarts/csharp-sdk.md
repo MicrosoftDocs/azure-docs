@@ -16,7 +16,7 @@ ms.custom: " devx-track-csharp"
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
+> * This quickstart targets API  **v2.1**.
 >
 >* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 

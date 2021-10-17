@@ -114,9 +114,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Select the desired version from the dropdown menu and select **Install**.
-
-     This version of the client library defaults to the 2021-09-30-preview version of the service.
+ 1. Select version **4.0.0-beta.1** from the dropdown menu and select **Install**.
 
 <!-- --- -->
 ## Build your application
