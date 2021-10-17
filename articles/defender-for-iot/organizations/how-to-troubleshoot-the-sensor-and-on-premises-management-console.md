@@ -276,8 +276,7 @@ The list of archived logs can contain up to five items. If the number of items i
 
 ## Export audit log from the management console
 
-Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who.
-Audit logs can be exported in the management console, and contain the following information:
+Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who. Audit logs can be exported in the management console, and contain the following information:
 
 | Action | Information logged |
 |--|--|
