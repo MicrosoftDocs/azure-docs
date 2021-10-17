@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Video Analyzer using the Azure portal - Azure
-description: This quickstart walks you through the steps to get started with Azure Video Analyzer live pipelines by using the Azure portal. Topic get you started with Continuous video recording (CVR) from a live video source with Azure Video Analyzer
+title: Get started with Azure Video Analyzer live pipelines - Azure portal
+description: This quickstart walks you through the steps to get started with Azure Video Analyzer live pipelines by using the Azure portal. Topic get you started with Continuous video recording (CVR) scenario from a live video source exposed over internet with Azure Video Analyzer live pipelines.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 10/15/2021
