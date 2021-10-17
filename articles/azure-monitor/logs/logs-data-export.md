@@ -185,13 +185,9 @@ In the **Log Analytics workspace** menu in the Azure portal, select **Data Expor
 
 [![Storage sample data](media/logs-data-export/export-create-1.png)](export-create)
 
-Follow the rule create steps and click **Create**. 
+Follow the steps, then click **Create**. 
 
 <img src="media/logs-data-export/export-create-2.png" alt="Storage sample data" width="80%"/>
-
-Rule is created.
-
-[![Storage sample data](media/logs-data-export/export-create-3.png)](export-rule-created)
 
 # [PowerShell](#tab/powershell)
 
@@ -471,7 +467,7 @@ In the **Log Analytics workspace** menu in the Azure portal, select **Data Expor
 
 [![Storage sample data](media/logs-data-export/export-view-1.png)](export-rules)
 
-Click on rule name to for configuration view.
+Click a rule for configuration view.
 
 <img src="media/logs-data-export/export-view-2.png" alt="export-rule-configuration" width="65%"/>
 
