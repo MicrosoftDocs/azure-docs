@@ -194,9 +194,9 @@ lookback_days = 21 # fill in lookback days if you want to run it on historical d
 
 ### Define your data lookback period
 
-By default, the big data queries run in Azure Synapse run on data from the current day. For example if you are running your query on November 15, 2021, the query will run only on data from November 15, 2021.
+By default, the big data queries run in Azure Synapse run on data from the current day. For example, if you are interested in data from a specific date, specify November 15, 2021 as the current date, and the query will run only on data from November 15, 2021.
 
-To define a different time scope for your query, define datetime and lookback parameters.
+To define a longer time scope for your query, in addition to the current date, define a lookback parameter. For example, if the `lookback_days` parameter is set to `21` days, and the `end_date` parameter is set to `2021-11-17`, the query will look at data for the 21 days, counting back from November 17th, 2021.
 
 In the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook, you'll find this in the **Data preparation step**.
 
