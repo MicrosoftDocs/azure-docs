@@ -64,7 +64,7 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
     1. On the **Configure Fusion** page, you'll see the detection pattern has been added to the exclusion list. Remove an exclusion at any time by selecting the 'x' on an already listed detection pattern.
     
         1. ***Add note on triggering incidents***
-        1. ***Add note on links to incidets/kql***
+        1. ***Add note on links to incidents/kql***
 
 > [!NOTE]
 > Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
