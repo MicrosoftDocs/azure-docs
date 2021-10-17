@@ -85,7 +85,7 @@ For more information, see:
 - **Generic how-to articles**:
 
    - [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-   - [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md)
+   - [Connect your data source to the Azure Sentinel Data Collector API to ingest data](connect-rest-api-template.md)
    - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
    - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
    - [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)

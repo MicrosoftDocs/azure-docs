@@ -153,9 +153,9 @@ The request includes items from the application, such as the request headers, da
 
 Based on the request, Application Proxy performs one of the following actions:
 
-* If the request is a simple operation (for example, there is no data within the body as is with a RESTful *GET* request), the connector makes a connection to the target internal resource and then waits for a response.
+* If the request is a simple operation (for example, there is no data within the body as is with a RESTful API `GET` request), the connector makes a connection to the target internal resource and then waits for a response.
 
-* If the request has data associated with it in the body (for example, a RESTful *POST* operation), the connector makes an outbound connection by using the client certificate to the Application Proxy instance. It makes this connection to request the data and open a connection to the internal resource. After it receives the request from the connector, the Application Proxy service begins accepting content from the user and forwards data to the connector. The connector, in turn, forwards the data to the internal resource.
+* If the request has data associated with it in the body (for example, a RESTful API `POST` operation), the connector makes an outbound connection by using the client certificate to the Application Proxy instance. It makes this connection to request the data and open a connection to the internal resource. After it receives the request from the connector, the Application Proxy service begins accepting content from the user and forwards data to the connector. The connector, in turn, forwards the data to the internal resource.
 
 #### 4. The connector waits for a response.
 
