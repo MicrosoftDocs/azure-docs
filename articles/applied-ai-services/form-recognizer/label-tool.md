@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: document processing
@@ -62,7 +62,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 
     | Container | Minimum | Recommended|
     |:--|:--|:--|
-    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
+    |Sample Labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
 
     Install Docker on your machine by following the appropriate instructions for your operating system:
 

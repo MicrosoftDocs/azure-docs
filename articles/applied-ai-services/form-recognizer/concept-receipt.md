@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -30,9 +30,9 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-## Try it: Sample labeling tool
+## Try it: Sample Labeling tool
 
-You can see how receipt data is extracted by trying our Sample labeling tool. You'll need the following:
+You can see how receipt data is extracted by trying our Sample Labeling tool. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 

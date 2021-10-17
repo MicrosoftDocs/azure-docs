@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -30,7 +30,7 @@ recommendations: false
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-## Try it: Sample labeling tool
+## Try it: Sample Labeling tool
 
 You can see how invoice data is extracted by trying our Sample Labeling tool. You'll need the following:
 

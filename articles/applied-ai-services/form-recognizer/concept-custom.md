@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/16/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -40,7 +40,7 @@ With composed models, you can assign multiple custom models to a composed model 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-## Try Form Recognizer Sample labeling tool
+## Try it: Sample Labeling tool
 
 You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
 

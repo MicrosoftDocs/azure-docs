@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Form Recognizer
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## October 2021
 
@@ -28,7 +28,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
 
-* [**Langauge Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+* [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports seven languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 
 * **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
 
@@ -58,7 +58,7 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
     ### Charts
 
-    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
 
 *  **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
 
@@ -452,7 +452,7 @@ pip package version 3.1.0b4
 
   [**Try the Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net)
 
-  ![Screenshot: Sample labeling tool.](./media/ui-preview.jpg)
+  ![Screenshot: Sample Labeling tool.](./media/ui-preview.jpg)
 
 * **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
 * **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
@@ -543,7 +543,7 @@ pip package version 3.1.0b4
   * `time`
   * `integer`
 
-  See the [Sample labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+  See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
@@ -561,7 +561,7 @@ pip package version 3.1.0b4
 
 This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text.
 
-### Sample labeling tool is now open-source
+### Sample Labeling tool is now open-source
 
 The Form Recognizer sample labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
 

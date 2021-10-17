@@ -111,7 +111,7 @@ There are several prebuilt models to choose from, each of which has its own set 
 
 In the Prebuilt view:
 
-1. From the Studio home, select one of the prebuilt model. In this example, we are using the Invoice model.
+1. From the Studio home, select one of the prebuilt models. In this example, we are using the Invoice model.
 
 1. Select the Analyze command to run analysis on the sample document or try your invoice by using the Add command.
 
@@ -145,7 +145,7 @@ After the project creation step, in the custom model phase:
 
 1. From the labeling view, define the labels and their types that you are interested in extracting.
 
-1. Select the text in the document and click the label from the drop-down list or the labels pane.
+1. Select the text in the document and select the label from the drop-down list or the labels pane.
 
 1. Label four more documents to get at least five documents labeled.
 
@@ -183,7 +183,7 @@ Use dynamic tables to extract variable count of values (rows) for a given set of
 
 1. Add the number of columns (fields) and rows (for data) that you need.
 
-1. Select the text in your page and then click the cell to assign to the text. Repeat for all rows and columns in all pages in all documents.
+1. Select the text in your page and then choose the cell to assign to the text. Repeat for all rows and columns in all pages in all documents.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Form Recognizer labeling as dynamic table example":::
 
@@ -195,7 +195,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 
 1. Add the number of columns and rows that you need corresponding to the two sets of fields.
 
-1. Select the text in your page and then click the cell to assign it to the text. Repeat for other documents.
+1. Select the text in your page and then choose the cell to assign it to the text. Repeat for other documents.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
 
@@ -207,7 +207,7 @@ To label for signature detection:
 
 1. Use the Region command to create a rectangular region at the expected location of the signature.
 
-1. Select the drawn region and click the Signature type label to assign it to your drawn region. Repeat for other documents.
+1. Select the drawn region and choose the Signature type label to assign it to your drawn region. Repeat for other documents.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Form Recognizer labeling for signature detection example":::
 
