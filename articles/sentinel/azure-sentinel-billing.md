@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 10/03/2021
+ms.date: 10/17/2021
 
 ---
 
@@ -119,16 +119,24 @@ Removing Azure Sentinel doesn't remove the Log Analytics workspace Azure Sentine
 
 ### Free trial
 
-You can enable Microsoft Sentinel on a new or existing Log Analytics workspace at no additional cost for the first 31 days. During the trial period:
+Try Azure Sentinel free for the first 31 days. Azure Sentinel can be enabled at no additional cost on an Azure Monitor Log Analytics workspace, subject to the limits stated below.
 
-- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Microsoft Sentinel and Log Analytics. Any data consumed beyond 10 GB/day will be billed per [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+- **New Log Analytics workspaces**, including workspaces that are less than three days old, can ingest up to 10 GB/day of log data for the first 31-days at no cost.
 
-- **For existing Log Analytics workspaces**, Microsoft Sentinel is free of charge, and only Log Analytics charges apply.
+    Both Log Analytics data ingestion and Azure Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
-Other charges related to Log Analytics, Automation, and BYOML still apply during the free trial.
+    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
-Usage beyond the first 31 days is charged per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
+- **Existing Log Analytics workspaces** can enable Azure Sentinel at no additional cost. Only the Azure Sentinel charges are waived during the 31-day trial period. Existing workspaces include any workspaces created more than three days ago.
+
+Usage beyond these limits will be charged per pricing listed on the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel)] page. Charges related to additional capabilities for [automation](automation-in-azure-sentinel.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+
+> [!TIP]
+> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Azure Sentinel.
+>
+> This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+>
 ### Free data sources
 
 The following data sources are free with Azure Sentinel:
