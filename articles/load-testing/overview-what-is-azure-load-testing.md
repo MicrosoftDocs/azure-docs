@@ -14,7 +14,7 @@ adobe-target: true
 
 Azure Load Testing is a fully managed load testing service built for Microsoft Azure that enables you to generate high-scale load. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity.
 
-You can create a load test using existing Apache JMeter scripts and identify bottlenecks in your Azure-hosted endpoints. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
+You can create a load test using an existing Apache JMeter script to simulate traffic for your applications, regardless of where they're hosted. Detailed resource metrics help you to identify performance bottlenecks for Azure-based applications. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -22,13 +22,13 @@ You can create a load test using existing Apache JMeter scripts and identify bot
 
 ## How does Azure Load Testing work?
 
-Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines execute the Apache JMeter script to call your application endpoints. You can configure the number of test engines to scale out your load test.
+Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines execute the Apache JMeter script to call your application endpoints. The application can be hosted anywhere: in Azure, on-premises or in other clouds. You can configure the number of test engines to scale out your load test.
 
 During the load test execution, Azure Monitor collects the metrics of your Azure application components. The Azure Load Testing dashboard visualizes the application and test engine metrics.
 
 :::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Diagram showing the Azure Load Testing architecture overview.":::
 
-Azure Load Balancing integrates with Azure networking to avoid load tests being mistaken for a security risk, such as a denial of service (DoS) attack. When the service detects throttling, the load test is automatically aborted.
+Azure Load Testing automatically incorporates Azure networking best practices to make sure your tests run securely and reliably. Load tests are automatically aborted if the application endpoints or Azure components start throttling requests.
 
 > [!NOTE]
 > This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components, and isn't a comprehensive list of supported Azure resources.
@@ -41,11 +41,13 @@ Azure Load Testing integrates with Azure Monitor to track performance metrics fo
 
 ## How to enable continuous regression testing?
 
-You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline. With each application build, you run a load test and compare the results against a baseline. This allows you to identify performance regressions early in the development cycle and implement continuous improvement.
+You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline at meaningful points during the development lifecycle. Automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
 
-You can run an Azure Load Testing load test from Azure Pipelines or GitHub Actions workflows.
+In the CI/CD workflow, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, fail the test if the average response time exceeds a given threshold.
 
-<!-- (set pass/fail criteria for load tests) -->
+Azure Load Testing will automatically abort an automated load test in specific error conditions. Auto-aborting safeguards you against failing tests further incurring costs.
+
+You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
 
 ## Analyze test results for insights
 
@@ -53,12 +55,13 @@ Azure Load Testing provides you a single, consolidated dashboard to analyze the 
 
 The test results consist of *client-side* and *server-side* metrics:
 
-- Client-side metrics give you details about the load test engine. For example, the number of virtual users, the request response time, or the number of requests per second. The client-side metrics can help you determine the scale limits of your application.
+- Client-side metrics give you details reported by the load test engine. Examples of these are the number of virtual users, the request response time, or the number of requests per second. The client-side metrics can help you determine the scale limits of your application.
 
-- Server-side metrics provide you information about your application. Azure Load Testing integrates with Azure Monitor to capture details from your Azure application services. Depending on the type of service, you can view different metrics. For example, for a database you have the number of reads or writes and for a web site you view statistics of each type of HTTP request. The server-side metrics can give you insights about how load affects the different parts of your application.
+- Server-side metrics provide you information about your application. Azure Load Testing integrates with Azure Monitor - including metrics from Application Insights - to capture details from your Azure application services. Depending on the type of service, you can view different metrics. For example, for a database you have the number of reads or writes and for a web site you view statistics of each type of HTTP request. The server-side metrics can give you insights about how load affects the different parts of your application.
+
+In the Azure Load Testing dashboard, you can compare multiple load test results. The dashboard allows you to visually compare the client and server metrics of each run.
 
 ## Next steps
 
 Start using Azure Load Testing:
-- [Tutorial: Run a load test in the Azure portal to identify performance bottlenecks](./tutorial-identify-bottlenecks-in-azure-portal.md)
-- [Run a load test in Visual Studio Code to identify performance bottlenecks](./how-to-identify-bottlenecks-in-vs-code.md)
+- [Tutorial: Run a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-in-azure-portal.md)
