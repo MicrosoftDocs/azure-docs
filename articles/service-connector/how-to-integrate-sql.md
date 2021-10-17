@@ -3,7 +3,7 @@ title: Integrate Azure Database for SQL DB with Service Connector
 description: Integrate Azure Database for SQL DB into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: service-connector
+ms.service: serviceconnector
 ms.topic: how-to 
 ms.date: 10/29/2021
 ---

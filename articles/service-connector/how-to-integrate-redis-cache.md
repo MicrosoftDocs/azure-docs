@@ -3,7 +3,7 @@ title: Integrate Azure Cache for Redis with Service Connector
 description: Integrate  Azure Cache for Redis into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: service-connector
+ms.service: serviceconnector
 ms.topic: how-to 
 ms.date: 10/29/2021
 ---

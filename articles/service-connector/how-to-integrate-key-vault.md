@@ -3,7 +3,7 @@ title: Integrate Azure Key Vault with Service Connector
 description: Integrate Azure Key Vault into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: service-connector
+ms.service: serviceconnector
 ms.topic: how-to 
 ms.date: 10/29/2021
 ---
