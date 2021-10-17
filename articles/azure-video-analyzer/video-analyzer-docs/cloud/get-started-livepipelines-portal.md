@@ -25,7 +25,7 @@ The steps outlined in this document apply to cameras that are made accessible ov
 - Optionally, you would also need Azure Linux VM (with admin privileges) to host the RTSP camera simulator
 
 ## Sample Architecture - Recording video from a camera over the internet
-
+> [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/public-camera-to-cloud-livepipeline-sample.png" alt-text="Diagram of a sample architecture of a public camera video feed integrating with Video Analyzer's live pipeline that captures videos on the cloud.":::
 
 ## RTSP camera
@@ -113,7 +113,8 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. It’s status will indicate **Is in use** as pipeline is active and recording.
 1. After a few seconds, click on the video, and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 
-> :::image type="content" source="./media/camera1800smkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/camera1800smkv.PNG" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
 
 > [!NOTE]
 > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency.
