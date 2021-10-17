@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 10/26/2021
 ms.author: rolyon
 
 #Customer intent: 
