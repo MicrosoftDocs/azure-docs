@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/17/2021
 ms.author: bagol
 ---
 
@@ -32,7 +32,11 @@ When creating custom content, you can store and manage it in your own Azure Sent
 
 This article describes how to manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspace.
 
-## Prerequisites
+> [!TIP]
+> This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Azure Sentinel GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
+>
+
+## Prerequisites and scope
 
 Before connecting your Azure Sentinel workspace to an external source control repository, make sure that you have:
 
@@ -46,17 +50,29 @@ Before connecting your Azure Sentinel workspace to an external source control re
 
 - Permissions to register applications in Azure Active Directory. For more information, see [Delegate app registration permissions in Azure Active Directory](/azure/active-directory/roles/delegate-app-roles).
 
-> [!TIP]
-> This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Azure Sentinel GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
+### Maximum connections and deployments
+
+- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see an `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
+
+- Each Azure Sentinel workspace is currently limited to **five connections**.
+
+### Validate your content
+
+Deploying content to Azure Sentinel via a repository connection does not validate that content other than verifying that the data is in the correct ARM format.
+
+We recommend that you validate your content templates using your regular validation process.
+
+## Connect a repository
+
+This procedure describes how to connect a GitHub or Azure DevOps repository to your Azure Sentinel workspace, where you can save and manage your custom content, instead of in Azure Sentinel.
+
+> [!NOTE]
+> Each repository connection must be used for a single type of content. For more information, see [What is Azure Sentinel content?](sentinel-solutions.md#what-is-azure-sentinel-content).
 >
 
-## Connect a GitHub repository
-
-This procedure describes how to connect a GitHub repository to your Azure Sentinel workspace so that you can save and manage your custom content in GitHub instead of Azure Sentinel.
-
-Each repository connection must be used for a single type of content. For more information, see [What is Azure Sentinel content?](sentinel-solutions.md#what-is-azure-sentinel-content).
-
 **To create your connection**:
+
+1. Make sure that you're signed into your source control app with the credentials you want to use for your connection.  If you're currently signed in using different credentials, sign out first.
 
 1. In Azure Sentinel, on the left under **Content management**, select **Repositories**.
 
@@ -64,70 +80,104 @@ Each repository connection must be used for a single type of content. For more i
 
 1. From the **Source Control** dropdown, select the type of repository you want to connect to, and then select **Authorize**.
 
-    The first time you add a connection, you'll see a new browser window or tab, prompting you to authorize the connection from the **Azure-Sentinel** app. Authorize the connection to continue. This authorization is used again for every subsequent connection, and you won't need to authorize it again unless you've revoked the authorization.
+1. Select one of the following tabs, depending on your connection type:
+    # [GitHub](#tab/github)
 
-1. A **Repository** area now shows on the **Create a new connection** page, where you can select an existing repository to connect to. Select your repository from the list, and then select **Add repository**.
+    1. Enter your GitHub credentials when prompted.
 
-    The first time you connect to a specific repository, you'll see a new browser window or tab, prompting you to install **Azure-Sentinel** on your account. If you have multiple accounts, select the one where you want to install the **Azure-Sentinel** app, and install it.
+        The first time you add a connection, you'll see a new browser window or tab, prompting you to authorize the connection from the **Azure-Sentinel** app. Authorize the connection to continue. This authorization is used again for every subsequent connection, and you won't need to authorize it again unless you've revoked the authorization.
 
-    You'll be directed to GitHub or Azure DevOps to continue the app installation.
+    1. A **Repository** area now shows on the **Create a new connection** page, where you can select an existing repository to connect to. Select your repository from the list, and then select **Add repository**.
 
-1. After the **Azure-Sentinel** app is installed in your repository, the **Branch** dropdown in the **Create a new connection** page is populated with your branches. Select the branch where you want to store your Azure Sentinel content.
+        The first time you connect to a specific repository, you'll see a new browser window or tab, prompting you to install **Azure-Sentinel** on your account. If you have multiple accounts, select the one where you want to install the **Azure-Sentinel** app, and install it.
 
-1. From the **Content Type** dropdown, select the type of content you'll be saving. Define your content type to make your connection filterable in the **Repositories** page.
+        You'll be directed to GitHub to continue the app installation.
 
-1. Select **Create** to create your connection. For example:
+    1. After the **Azure-Sentinel** app is installed in your repository, the **Branch** dropdown in the **Create a new connection** page is populated with your branches. Select the branch where you want to store your Azure Sentinel content.
 
-    :::image type="content" source="media/ci-cd/create-new-connection.png" alt-text="Screenshot of a new repository connection.":::
+    1. From the dropdown lists that appear, select your **Repository**, **Branch**, and **Content Type**.
 
-After the connection is created, a new workflow is generated in GitHub, and the content stored in your repository is deployed to your Azure Sentinel workspace.
+    1. From the **Content Type** dropdown, select the type of content you'll be saving. Define your content type to make your connection filterable in the **Repositories** page.
 
-After the deployment is complete, the content stored in your repository are displayed in your Azure Sentinel workspace, in the relevant Azure Sentinel page.
+        You must select a specific type of content.
+
+        - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Azure Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
+
+        - For all other content types, selecting a content type in the **Create a new connection** pane deploys only that content to Azure Sentinel. Content of other types is not deployed.
+
+    1. Select **Create** to create your connection. For example:
+
+        :::image type="content" source="media/ci-cd/create-new-connection-github.png" alt-text="Screenshot of a new GitHUb repository connection.":::
 
 
-> [!TIP]
-> The workflow deployment typically takes a few minutes to complete. You can view the status of your Azure Sentinel content deployment in GitHub, on the **Actions** tab.
->
-> Select the workflow .yaml file shown there to access detailed deployment logs and any specific error messages, if relevant.
->
+    # [Azure DevOps](#tab/azure-devops)
 
-### Customize the GitHub deployment workflow
+    1. You're automatically signed in to Azure DevOps using your current Azure credentials.
+
+        In Azure Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Type**.
+
+    1. Select **Create** to create your connection. For example:
+
+        :::image type="content" source="media/ci-cd/create-new-connection-devops.png" alt-text="Screenshot of a new GitHUb repository connection.":::
+
+    ---
+
+    > [!NOTE]
+    > You cannot create create duplicate connections, with the same repository and branch, in a single Azure Sentinel workspace.
+    >
+
+After the connection is created, a new workflow is generated in your repository, and the content stored in your repository is deployed to your Azure Sentinel workspace.
+
+The workflow deployment typically takes a few minutes to complete. View the deployment status:
+
+- **In GitHub**: On the repository's **Actions** tab. Select the workflow **.yaml** file shown there to access detailed deployment logs and any specific error messages, if relevant.
+- **In Azure DevOps**: On the repository's **Pipelines** tab.
+
+After the deployment is complete:
+
+- The content stored in your repository is displayed in your Azure Sentinel workspace, in the relevant Azure Sentinel page.
+
+- The the connection details on the **Repositories** page is updated with the link to the connection's deployment logs. For example:
+
+    :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
+
+### Customize the deployment workflow
 
 TBD
 
-## Connect an Azure DevOps repository
+# [GitHub](#tab/github)
 
-TBD
+# [Azure DevOps](#tab/azure-devops)
 
-### Customize the Azure DevOps deployment workflow
-
-TBD
+---
 
 ## Edit or delete content in your repository
 
-After you've successfully created connections to your source control repository, we recommend that you edit any content stored there *only* in the repository or your deployment pipeline, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or a local editing tool.
+After you've successfully created a connection to your source control repository, any time that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Azure Sentinel workspaces.
 
-If you've edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
+We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps. If you have edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
-When you edit and redeploy content to your Azure Sentinel workspace, the content is marked as disabled in Azure Sentinel while it's being re-deployed. Select **Refresh** when your redeployment is complete to update the content status.
+Content is displayed as disabled in Azure Sentinel while it's being redeployed. Refresh your page when the deployment is complete to update the content status.
 
-## Remove a source control connection
+## Remove a repository connection
 
-This procedure describe how to remove the connection to a source control repository from Azure Sentinel. 
-
-After you've removed your connection, content that was previously deployed via the connection remains in your Azure Sentinel workspace. Content added to the repository after removing the connection is not deployed.
+This procedure describe how to remove the connection to a source control repository from Azure Sentinel.
 
 **To remove your connection**:
 
 1. In Azure Sentinel, on the left under **Content management**, select **Repositories**.
-1. Select the connection you want to remove, and then select **Delete**.
+1. In the grid, select the connection you want to remove, and then select **Delete**.
+1. Select **Yes** to confirm the deletion.
 
+After you've removed your connection, content that was previously deployed via the connection remains in your Azure Sentinel workspace. Content added to the repository after removing the connection is not deployed.
 
-## Known issues
+### Removing the Azure Sentinel app from your GitHub repository
 
-The Public preview of the **Repositories** tab includes the following known issues:
+You cannot delete a connection from the **Repositories** page in Azure Sentinel if you've removed the Azure Sentinel app from your GitHub repository.
+Each app installation in your repository has a unique ID, assigned when you added the connection. If that ID has been changed or removed, the connection cannot be removed from Azure Sentinel. In such cases, manually remove the workflow from your GitHub repository in order to stop any future deployments.
 
-TBD
+If you intend to remove the Azure Sentinel App from a GitHub repository, we recommend that you first remove all associated connections from the Azure Sentinel **Repositories** page.
+
 
 ## Next steps
 
