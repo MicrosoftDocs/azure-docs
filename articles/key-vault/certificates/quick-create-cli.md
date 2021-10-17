@@ -1,10 +1,8 @@
 ---
 title: Quickstart - Set & view Azure Key Vault certificates with Azure CLI
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using Azure CLI
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -42,7 +40,7 @@ Type the commands below to create a self-signed certificate with default policy 
 az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate'** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate`** to get the current version. 
 
 To view previously stored certificate:
 

@@ -10,7 +10,7 @@ ms.author: dademath
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-
+ms.subservice: chat
 ---
 
 # Get started with the group chat hero sample

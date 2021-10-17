@@ -52,7 +52,7 @@ The Azure Migrate appliance profiles on-premises servers continuously to measure
 
 ## Can I harden the appliance?
 
-When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template if you leave in place the communication and firewall rules that are required for the Azure Migrate appliance.
+When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\MicrosoftAzure* folder is excluded from antivirus scanning.
 
 ## What network connectivity is required?
 

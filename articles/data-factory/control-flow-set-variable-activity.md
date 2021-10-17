@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -32,7 +32,7 @@ A common scenario involving variables is using a variable as an iterator within 
 
 Below is an example of this pattern:
 
-![Increment variable](media/control-flow-set-variable-activity/increment-variable.png "Increment variable")
+:::image type="content" source="media/control-flow-set-variable-activity/increment-variable.png" alt-text="Increment variable":::
 
 ``` json
 {

@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
@@ -61,6 +61,20 @@ In this example, you create a [`SpeechConfig`](/python/api/azure-cognitiveservic
 
 ```python
 speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+```
+
+## Select synthesis language and voice
+
+The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
+You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Specify the language or voice of [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice.
+
+```python
+# Note: if only language is set, the default voice of that language is chosen.
+speech_config.speech_synthesis_language = "<your-synthesis-language>" # e.g. "de-DE"
+# The voice setting will overwrite language setting.
+# The voice setting will not overwrite the voice element in input SSML.
+speech_config.speech_synthesis_voice_name ="<your-wanted-voice>"
 ```
 
 ## Synthesize speech to a file

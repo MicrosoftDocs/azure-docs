@@ -23,7 +23,9 @@ This article assumes that you're familiar with developing using Python, but you'
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 * An Azure Database for MySQL Flexible Server. To create flexible server, refer to [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md) or [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md).
 
 ## Preparing your client workstation

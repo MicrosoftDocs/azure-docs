@@ -6,7 +6,7 @@ metadata:
   ms.author: micraft
   author: craftyhouse
   ms.service: service-fabric
-  ms.date: 7/14/2021
+  ms.date: 8/23/2021
   ms.custom: references_regions
     
 title: Service Fabric managed clusters frequently asked questions
@@ -44,7 +44,7 @@ sections:
       - question: |
           What is the difference between a Basic, and Standard SKU cluster?
         answer: |
-          A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+          Basic SKU clusters are intended to be used for testing and pre production environments with support for minimal configuration change. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
       
       - question: |
           Where can I see planned features or suggest one?
@@ -61,12 +61,22 @@ sections:
       - question: |
           I want to have an internal-only load balancer, is that possible?
         answer: |
-          It isn't currently possible to have an internal-only load balancer. We recommended locking down the Network Security Group (NSG) rules to block any undesired inbound/outbound traffic.
+          This is supported with the 2021-07-01-preview release. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
+      
+      - question: |
+          I want to enable IPv6, is that possible?
+        answer: |
+          This is supported with the 2021-07-01-preview release. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#ipv6)
+
+      - question: |
+          I want use an existing VNet for a Service Fabric managed cluster, can I do that?
+        answer: |
+          This is supported with the 2021-07-01-preview release. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
 
       - question: |
           Can I autoscale my cluster?
         answer: |
-          Autoscaling is not currently supported.
+          Autoscaling is not currently available. Please see our [managed clusters](https://github.com/microsoft/service-fabric/projects/17) github project for more details. 
 
       - question: |
           Can I deploy my cluster across availability zones?

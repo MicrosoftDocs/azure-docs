@@ -3,14 +3,14 @@ title: Set up a sign-up and sign-in flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a sign-up and sign-in flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.author: mimart
+ms.date: 08/24/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
@@ -30,6 +30,10 @@ Sign-up and sign-in policy lets users:
 * Password reset
 
 ![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
+
+Watch this video to learn how the user sign-up and sign-in policy works. 
+
+>[!Video https://www.youtube.com/embed/c8rN1ZaR7wk]
 
 ## Prerequisites
 

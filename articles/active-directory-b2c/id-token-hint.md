@@ -3,14 +3,14 @@ title: Define an ID token hint technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an ID token hint technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2021
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -126,7 +126,8 @@ This code creates a secret string like `VK62QTn0m1hMcn0DQ3RPYDAr6yIiSvYgdRwjZtU5
 The same key that is used by the token issuer needs to be created in your Azure AD B2C policy keys.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys** 

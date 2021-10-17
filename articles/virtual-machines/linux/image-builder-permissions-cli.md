@@ -137,7 +137,7 @@ sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g
 az role definition create --role-definition ./aibRoleImageCreation.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \
@@ -178,7 +178,7 @@ sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibR
 az role definition create --role-definition ./aibRoleNetworking.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \

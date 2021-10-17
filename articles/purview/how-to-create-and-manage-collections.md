@@ -13,11 +13,11 @@ ms.custom: template-how-to
 # Create and manage collections in Azure Purview
 
 > [!NOTE]
-> At this time, this guide only applies to Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> At this time, this guide only applies to Azure Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
 >
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. When the account is upgraded, all assigned permissions will be automatically redeployed to the root collection.
+> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
-Collections in Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
+Collections in Azure Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Collections in Purview can be used to organize assets and sources by your busine
 
 ### Check permissions
 
-In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the Open Purview Studio tile on the overview page.
+In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](https://web.purview.azure.com/resource/). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the Open Purview Studio tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -154,10 +154,37 @@ Once you restrict inheritance, you will need to add users directly to the restri
 1. Select the **Restrict inherited permissions** toggle button again to revert.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the unrestrict inherited permissions slide button highlighted." border="true":::
+    
+## Register source to a collection
+
+1. Select **Register** or register icon on collection node to register a data source. Note that only data source admin can register sources.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/register-by-collection.png" alt-text="Screenshot of the data map Purview studio window with the register button highlighted both at the top of the page and under a collection."border="true":::
+
+1. Fill in the data source name, and other source information.  It lists all the collections which you have scan permission on the bottom of the form. You can select one collection. All assets under this source will belong to the collection you select.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/register-source.png" alt-text="Screenshot of the source registration window."border="true":::
+
+1. The created data source will be put under the selected collection. Select **View details** to see the data source.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/see-registered-source.png" alt-text="Screenshot of the data map Purview studio window with the newly added source card highlighted."border="true":::
+
+1. Select **New scan** to create scan under the data source.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/new-scan.png" alt-text="Screenshot of a source Purview studio window with the new scan button highlighted."border="true":::
+
+1. Similarly, at the bottom of the form, you can select a collection, and all assets scanned will be included in the collection.
+Note that the collections listed here are restricted to subcollections of the data source collection.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/scan-under-collection.png" alt-text="Screenshot of a new scan window with the collection dropdown highlighted."border="true":::
+
+1. Back in the collection window, you will see the data sources linked to the collection on the sources card.
+
+    :::image type="content" source="./media/how-to-create-and-manage-collections/source-under-collection.png" alt-text="Screenshot of the data map Purview studio window with the newly added source card highlighted in the map."border="true":::
 
 ## Add assets to collections
 
-Assets and sources are also associated with collections. During a scan, if the scan was associated with a collection the assets will be automatically added to that collection, but can also be manually added.
+Assets and sources are also associated with collections. During a scan, if the scan was associated with a collection the assets will be automatically added to that collection, but can also be manually added to any subcollections.
 
 1. Check the collection information in asset details. You can find collection information in the **Collection path** section on right-top corner of the asset details page.
 
@@ -184,7 +211,7 @@ Assets and sources are also associated with collections. During a scan, if the s
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-asset.png" alt-text="Screenshot of Purview studio asset window with the collection path highlighted and the ellipsis button next to collection path selected." border="true":::
 
 1. Select the **Move to another collection** button.
-1. In the right side panel, choose the target collection you want move to. Note that you can only see the collections where you have write permissions.
+1. In the right side panel, choose the target collection you want move to. Note that you can only see the collections where you have write permissions. The asset can also only be added to the subcollections of the data source collection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-select-collection.png" alt-text="Screenshot of Purview studio pop-up window with the select a collection dropdown menu highlighted." border="true":::
 
@@ -231,33 +258,6 @@ Assets and sources are also associated with collections. During a scan, if the s
 1. To view the details of an asset, select the asset name in the search result. Or you can check the assets and bulk edit them.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected and asset check boxes highlighted."border="true":::
-
-## Register source to a collection
-
-1. Select **Register** or register icon on collection node to register a data source. Note that only data source admin can register sources.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/register-by-collection.png" alt-text="Screenshot of the data map Purview studio window with the register button highlighted both at the top of the page and under a collection."border="true":::
-
-1. Fill in the data source name, and other source information.  It lists all the collections which you have scan permission on the bottom of the form. You can select one collection. All assets under this source will belong to the collection you select.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/register-source.png" alt-text="Screenshot of the source registration window."border="true":::
-
-1. The created data source will be put under the selected collection. Select **View details** to see the data source.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/see-registered-source.png" alt-text="Screenshot of the data map Purview studio window with the newly added source card highlighted."border="true":::
-
-1. Select **New scan** to create scan under the data source.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/new-scan.png" alt-text="Screenshot of a source Purview studio window with the new scan button highlighted."border="true":::
-
-1. Similarly, at the bottom of the form, you can select a collection, and all assets scanned will be included in the collection.
-Note that the collections listed here are restricted to subcollections of the data source collection.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/scan-under-collection.png" alt-text="Screenshot of a new scan window with the collection dropdown highlighted."border="true":::
-
-1. Back in the collection window, you will see the data sources linked to the collection on the sources card.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/source-under-collection.png" alt-text="Screenshot of the data map Purview studio window with the newly added source card highlighted in the map."border="true":::
 
 ## Legacy collection guide
 

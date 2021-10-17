@@ -22,7 +22,7 @@ Enabling organizations in all industries to consume information hidden within do
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. 
 
-[Learn more about Azure Form Recognizer](../cognitive-services/form-recognizer/index.yml)​​
+[Learn more about Azure Form Recognizer](./form-recognizer/index.yml)​​
 
 ## Azure Metrics Advisor
 

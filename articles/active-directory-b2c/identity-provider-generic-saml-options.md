@@ -3,15 +3,15 @@ title: Set sign-in with SAML identity provider options
 titleSuffix: Azure Active Directory B2C
 description: Configure sign-in SAML identity provider (IdP) options in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/25/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -220,7 +220,7 @@ The following example demonstrates an authorization request with **AllowCreate**
 
 You can force the external SAML IDP to prompt the user for authentication by passing the `ForceAuthN` property in the SAML authentication request. Your identity provider must also support this property.
 
-The `ForceAuthN` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthN value to `false`. You can change this behavior by setting ForceAuthN to `true` so that when there is a valid session, the initiating request forces authentication (for example, by sending `prompt=login` in the OpenID Connect request).
+The `ForceAuthN` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthN value to `false`. If the session is then reset (for example by using the `prompt=login` in OIDC) then the ForceAuthN value will be set to `true`. Setting the metadata item as shown below will force the value for all requests to the external IDP.
 
 The following example shows the `ForceAuthN` property set to `true`:
 

@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/06/2021
+ms.date: 09/22/2021
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -118,10 +118,11 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
-    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
+    * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
     * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#on-behalf).
     * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#setup-script).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
+
 
 ---
 
@@ -187,12 +188,16 @@ Please note timezone labels don't account for day light savings. For instance,  
 
 ### Create a schedule with a Resource Manager template
 
-You can schedule the automatic start and stop of a compute instance by using a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  Here is how ARM template would look like
-```json
+You can schedule the automatic start and stop of a compute instance by using a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
+
+In the Resource Manager template, add:
+
+```
 "schedules": "[parameters('schedules')]"
 ```
 
-Here is how the parameter file would look like
+Then use either cron or LogicApps expressions to define the schedule that starts or stops the instance in your parameter file:
+ 
 ```json
         "schedules": {
         "value": {
@@ -256,8 +261,50 @@ Here is how the parameter file would look like
     // the ranges shown above or two numbers in the range separated by a 
     // hyphen (meaning an inclusive range). 
     ```
-
+### Azure Policy support to default a schedule
 Use Azure Policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
+Following is a sample policy to default a shutdown schedule at 10 PM PST.
+```json
+{
+    "mode": "All",
+    "policyRule": {
+     "if": {
+      "allOf": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+        "equals": "ComputeInstance"
+       },
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "exists": "false"
+       }
+      ]
+     },
+     "then": {
+      "effect": "append",
+      "details": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "value": {
+         "computeStartStop": [
+          {
+           "triggerType": "Cron",
+           "cron": {
+            "startTime": "2021-03-10T21:21:07",
+            "timeZone": "Pacific Standard Time",
+            "expression": "0 22 * * *"
+           },
+           "action": "Stop",
+           "status": "Enabled"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+}    
+```
 
 ## <a name="setup-script"></a> Customize the compute instance with a script (preview)
 
@@ -289,23 +336,11 @@ Script arguments can be referred to in the script as $1, $2, etc.
 
 If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel, you will have to put it within *sudo -u azureuser* block like this
 
-```shell
-#!/bin/bash
+:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
 
-set -e
-
-# This script installs a pip package in compute instance azureml_py38 environment
-
-sudo -u azureuser -i <<'EOF'
-# PARAMETERS
-PACKAGE=numpy
-ENVIRONMENT=azureml_py38 
-conda activate "$ENVIRONMENT"
-pip install "$PACKAGE"
-conda deactivate
-EOF
-```
 The command *sudo -u azureuser* changes the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
+
+For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup-ci).
 
 You can also use the following environment variables in your script:
 
@@ -314,7 +349,9 @@ You can also use the following environment variables in your script:
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. This points to azureuser
 
-You can use setup script in conjunction with Azure Policy to either enforce or default a setup script for every compute instance creation.
+You can use setup script in conjunction with **Azure Policy to either enforce or default a setup script for every compute instance creation**. 
+The default value for setup script timeout is 15 minutes. This can be changed through Studio UI or through ARM templates using the DURATION parameter.
+DURATION is a floating point number with an optional suffix: 's' for seconds (the default), 'm' for minutes, 'h' for hours or 'd' for days.
 
 ### Use the script in the studio
 

@@ -3,7 +3,7 @@ title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.topic: article
-ms.date: 02/23/2021 
+ms.date: 08/25/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -30,8 +30,8 @@ This guide provides key concepts and instructions for containerization of Linux 
 
 For your custom Windows image, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
 
-- To deploy .NET Framework apps, use a parent image based on the Windows Server Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
-- To deploy .NET Core apps, use a parent image based on the Windows Server Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
+- To deploy .NET Framework apps, use a parent image based on the Windows Server 2019 Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) release. 
+- To deploy .NET Core apps, use a parent image based on the Windows Server 2019 Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) release. 
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
@@ -319,6 +319,37 @@ SSH enables secure communication between a container and a client. In order for 
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
 
+- Add an ssh_setup script file to create the SSH keys [using ssh-keygen](https://man.openbsd.org/ssh-keygen.1) to your repository.
+
+    ```
+    #!/bin/sh
+
+    if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
+        # generate fresh rsa key
+        ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
+        # generate fresh dsa key
+        ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_ecdsa_key" ]; then
+        # generate fresh ecdsa key
+        ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t dsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_ed25519_key" ]; then
+        # generate fresh ecdsa key
+        ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t dsa
+    fi
+
+    #prepare run dir
+        if [ ! -d "/var/run/sshd" ]; then
+        mkdir -p /var/run/sshd
+    fi
+    ```
+
 - In your Dockerfile, add the following commands:
 
     ```Dockerfile
@@ -329,11 +360,18 @@ SSH enables secure communication between a container and a client. In order for 
     # Copy the sshd_config file to the /etc/ssh/ directory
     COPY sshd_config /etc/ssh/
 
+    # Copy and configure the ssh_setup file
+    RUN mkdir -p /tmp
+    COPY ssh_setup.sh /tmp
+    RUN chmod +x /tmp/ssh_setup.sh \
+        && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null)
+
     # Open port 2222 for SSH access
     EXPOSE 80 2222
     ```
 
-    This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network, and is not accessible to an attacker on the internet.
+    > [!NOTE] 
+    > The root password must be exactly `Docker!` as it is used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and is not accessible to an attacker on the internet.
 
 - In the start-up script for your container, start the SSH server.
 
@@ -402,7 +440,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 #### Unsupported options
 
 - build (not allowed)
-- depends_on (ignored)
+- [depends_on](faq-app-service-linux.yml#how-do-i-use-depends-on-) (ignored)
 - networks (ignored)
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)

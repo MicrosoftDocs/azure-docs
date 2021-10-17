@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate Splunk with Azure Defender
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 08/03/2021
+ms.date: 09/12/2021
 ms.custom: template-tutorial
 ---
 
@@ -28,6 +28,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Download the Defender for IoT application in Splunk
 > * Send Defender for IoT alerts to Splunk
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -117,6 +119,10 @@ To send alert information to the Splunk servers from Defender for IoT, you will 
     | **Password** | Splunk server password |
 
 1. Select **Submit**.
+
+## Clean up resources
+
+There are no resources to clean up.
 
 ## Next steps
 

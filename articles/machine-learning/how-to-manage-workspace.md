@@ -34,7 +34,7 @@ By default, creating a workspace also creates an Azure Container Registry (ACR).
 
 # [Python](#tab/python)
 
-* **Default specification.** By default, dependent resources as well as the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
+* **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
     ```python
     from azureml.core import Workspace
@@ -80,7 +80,7 @@ By default, creating a workspace also creates an Azure Container Registry (ACR).
                 )
     ```
 
-* **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
+* **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
 
    ```python
    import os
@@ -335,6 +335,8 @@ Workspace.list('<subscription-id>')
 
 When you no longer need a workspace, delete it.  
 
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
 # [Python](#tab/python)
 
 Delete the workspace `ws`:
@@ -368,6 +370,10 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 * **Azure portal**: 
   * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
   * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
+
+### Workspace diagnostics
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ### Resource provider errors
 

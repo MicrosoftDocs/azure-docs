@@ -4,7 +4,7 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/10/2021
 ---
 
 # Variables in Bicep
@@ -27,6 +27,7 @@ You can use the value from a parameter or another variable when constructing the
 param inputValue string = 'deployment Parameter'
 
 var stringVar = 'myVariable'
+
 var concatToVar =  '${stringVar}AddToVar'
 var concatToParam = '${inputValue}AddToParam'
 ```
@@ -38,6 +39,12 @@ The following example creates a string value for a storage account name. It uses
 ```bicep
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 ```
+
+The following example doesn't deploy any resources. It shows how to declare variables of different types.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
+
+You can use loops to declare an array variable that has a dynamic number of elements. For more information, see [Variable iteration in Bicep](loop-variables.md).
 
 ## Use variable
 
@@ -64,18 +71,13 @@ output stgOutput string = storageName
 
 Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
 
-## Example template
-
-The following template doesn't deploy any resources. It shows some ways of declaring variables of different types.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
-
 ## Configuration variables
 
 You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**. Pass in one of these values during deployment.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variablesconfigurations.bicep":::
 
 ## Next steps
 
 - To learn about the available properties for variables, see [Understand the structure and syntax of Bicep files](file.md).
+- To learn about using loops with the variable declaration, see [Variable iteration in Bicep](loop-variables.md).

@@ -35,7 +35,7 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max cached and temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2d_v4<sup>1</sup> | 2 | 8 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
@@ -67,7 +67,7 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4<sup>2</sup> | 2 | 8 | 75 | 4 | 19000/120(50) | 3200/48 | 4000/200 | 2|1000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 8000/200 | 2|2000 |
@@ -94,7 +94,7 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Go-To-Market Services - Microsoft resources that publishers can use
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2021
+ms.date: 09/23/2021
 author: keferna
 ms.author: keferna
 ---
@@ -14,6 +14,9 @@ ms.author: keferna
 You've published to Microsoft's commercial marketplace, now you want to see your offer be successful. We provide you the sales, technical, and marketing benefits you need to accelerate your offer's growth.
 
 Once your offer is live on Microsoft AppSource or Azure Marketplace, go to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165457) to access and activate your eligible marketing, sales, and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
+
+> [!NOTE]
+> Currencies ($) referenced in images in this article are Marketplace Reward benefit tiers, which are based on cumulative billed sales or seats sold through Microsoft AppSource and Azure Marketplace.
 
 ## Marketplace Rewards
 

@@ -67,7 +67,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md)
 
@@ -79,7 +79,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, as well as the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
@@ -157,7 +157,7 @@ For more information on consent operations, see the following resources:
 
 * [Managing consent to applications and evaluating consent requests in Azure Active Directory](../manage-apps/manage-consent-requests.md)
 
-* [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide)
+* [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
 * [Incident response playbook - App consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 

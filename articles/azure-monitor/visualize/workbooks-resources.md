@@ -2,9 +2,6 @@
 title: Azure Monitor workbooks resource parameters
 description: Learn how to use resource parameters to allow picking of resources in workbooks. Use the resource parameters to set the scope from which to get the data from.
 services: azure-monitor
-manager: carmonm
-
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
@@ -96,9 +93,9 @@ Values from resource pickers can come from the workbook context, static list or 
 ## Resource parameter options
 | Parameter | Explanation | Example |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | The selected resource ID | _/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication_ |
+| `{Applications}` | The selected resource ID | _/subscriptions/\<sub-id\>/resourceGroups/\<resource-group\>/providers/\<resource-type\>/acmeauthentication_ |
 | `{Applications:label}` | The label of the selected resource | `acmefrontend` |
-| `{Applications:value}` | The value of the selected resource | _'/subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication'_ |
+| `{Applications:value}` | The value of the selected resource | _'/subscriptions/\<sub-id\>/resourceGroups/\<resource-group\>/providers/\<resource-type\>/acmeauthentication'_ |
 | `{Applications:name}` | The name of the selected resource | `acmefrontend` |
 | `{Applications:resourceGroup}` | The resource group of the selected resource | `acmegroup` |
 | `{Applications:resourceType}` | The type of the selected resource | _microsoft.insights/components_ |

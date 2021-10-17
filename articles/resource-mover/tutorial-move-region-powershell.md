@@ -210,7 +210,7 @@ Check whether the resources you added have any dependencies on other resources, 
     - To retrieve a list of all missing dependencies:
 
         ```azurepowershell-interactive
-        Get-AzResourceMoverUnresolvedDependency -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -ResourceGroupName "RG-MoveCollection-demoRMS" -DependencyLevel Descendant"
+        Get-AzResourceMoverUnresolvedDependency -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -ResourceGroupName "RG-MoveCollection-demoRMS" -DependencyLevel Descendant
         ```
         **Output**
           ![Output text after retrieving a list of all dependencies](./media/tutorial-move-region-powershell/dependencies-list.png)  

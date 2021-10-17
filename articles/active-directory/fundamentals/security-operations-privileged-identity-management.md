@@ -52,7 +52,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -64,7 +64,7 @@ In the Azure portal you can view the Azure AD Audit logs and download them as co
 
 * [**Azure Event Hubs**](../../event-hubs/event-hubs-about.md) **integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* [**Microsoft Cloud App Security**](/cloud-app-security/what-is-cloud-app-security) (MCAS) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [**Microsoft Cloud App Security (MCAS)**](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 The rest of this article provides recommendations for setting a baseline to monitor and alert on, organized using a tier model. Links to pre-built solutions are listed following the table. You can also build alerts using the preceding tools. The content is organized into the following topic areas of PIM:
 

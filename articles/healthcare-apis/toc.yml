@@ -9,7 +9,7 @@ items:
   items:
     - name: About Healthcare APIs
       href: healthcare-apis-overview.md
-    - name: About workspace
+    - name: About Workspace
       href: workspace-overview.md
     - name: FHIR service
       href: ./fhir/index.yml
@@ -32,7 +32,7 @@ items:
     - name: Authentication & Authorization
       href: authentication-authorization.md
     - name: Access FHIR service with Postman
-      href: ./fhir/using-postman.md  
+      href: use-postman.md  
     - name: Access using cURL
       href: using-curl.md
     - name: Access using REST Client
@@ -42,6 +42,11 @@ items:
     - name: Logging
       href: logging.md
 
+- name: Concepts
+  items:
+    - name: Security controls by Azure Policy
+      href: security-controls-policy.md
+
 - name: Resources
   expanded: true
   items:
@@ -49,9 +54,3 @@ items:
       href: healthcare-apis-faqs.md
     - name: GitHub projects
       href: github-projects.md
-
-
-
-
-
-

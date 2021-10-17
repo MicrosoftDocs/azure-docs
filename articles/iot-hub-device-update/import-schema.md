@@ -36,7 +36,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | Name | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
 | Filename | string | Name of file | Must be no more than 255 characters. Must be unique within an update |
-| SizeInBytes | Int64 | Size of file in bytes. | Maximum of 800 MB per individual file, or 800 MB collectively per update |
+| SizeInBytes | Int64 | Size of file in bytes. | See [Device Update limits](./device-update-limits.md) for maximum size per individual file and collectively per update |
 | Hashes | `Hashes` object | JSON object containing hash(es) of the file |
 
 ## CompatibilityInfo Object
@@ -78,7 +78,7 @@ If you are using the sample import manifest output from the [How to add a new up
 }
 ```
 
-## OAuth authorization when calling import APIs
+## OAuth authorization when calling Device Update APIs
 
 **azure_auth**
 
@@ -92,8 +92,8 @@ Authorization URL: https://login.microsoftonline.com/common/oauth2/authorize
 
 | Name | Description |
 | --- | --- |
-| https://api.adu.microsoft.com/user_impersonation | Impersonate your user account |
-| https://api.adu.microsoft.com/.default  | Client credential flows |
+| `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
+| `https://api.adu.microsoft.com/.default`  | Client credential flows |
 
 
 **Permissions**
@@ -120,8 +120,8 @@ az account get-access-token --resource 'https://api.adu.microsoft.com/'
 _Using user credentials_ 
 
 ```powershell
-$clientId = '1e5942b3-36f1-43eb-88d9-98c12d95000b’
-$tenantId = '72f988bf-86f1-41af-91ab-2d7cd011db47’
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
 $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
 $Scope = 'https://api.adu.microsoft.com/user_impersonation'
 

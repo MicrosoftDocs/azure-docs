@@ -97,7 +97,7 @@ The inbound IP address **might** change when you:
 
 - Delete a function app and recreate it in a different resource group.
 - Delete the last function app in a resource group and region combination, and re-create it.
-- Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-an-expiring-certificate).
 
 When your function app runs in a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md), the inbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 

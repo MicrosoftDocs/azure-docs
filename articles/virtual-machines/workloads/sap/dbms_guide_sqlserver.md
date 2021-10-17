@@ -2,10 +2,8 @@
 title: SQL Server Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'Azure, SQL Server, SAP, AlwaysOn'
 ms.service: virtual-machines-sap
@@ -15,7 +13,6 @@ ms.workload: infrastructure
 ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver
@@ -316,7 +313,7 @@ This document covers several different areas to consider when deploying SQL Serv
 
 In general, you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure.
 
-It is recommended to review the article [What is SQL Server on Azure Virtual Machines (Windows)][https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview] before continuing.
+It is recommended to review the article [What is SQL Server on Azure Virtual Machines (Windows)](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) before continuing.
 
 In the following sections, pieces of parts of the documentation under the link above are aggregated and mentioned. Specifics around SAP are mentioned as well and some concepts are described in more detail. However, it is highly recommended to work through the documentation above first before reading the SQL Server-specific documentation.
 
@@ -378,7 +375,7 @@ SQL Server 2014 and later releases open the possibility to store database files 
 * Considerations listed earlier regarding the distribution of VHDs over different Azure Storage Accounts apply for this method of deployments as well. Means the I/O operations count against the limits of the Azure Storage Account.
 * Instead of accounting against the VM's storage I/O quota, the traffic against storage blobs representing the SQL Server data and log files, will be accounted into the VM's network bandwidth of the specific VM type. For network and storage bandwidth of a particular VM type, consult the article [Sizes for Windows virtual machines in Azure](../../sizes.md).
 * As a result of pushing file I/O through the network quota, you are stranding the storage quota mostly and with that use the overall bandwidth of the VM only partially.
-* The IOPS and I/O throughput Performance targets that Azure Premium Storage has for the different disk sizes do not apply anymore. Even if the blobs you created are located on Azure Premium Storage. The targets are documented the article [High-performance Premium Storage and managed disks for VMs](../../disks-types.md#premium-ssd). As a result of placing SQL Server data files and log files directly on blobs that are stored on Azure Premium Storage, the performance characteristics can be different compared to VHDs on Azure Premium Storage.
+* The IOPS and I/O throughput Performance targets that Azure Premium Storage has for the different disk sizes do not apply anymore. Even if the blobs you created are located on Azure Premium Storage. The targets are documented the article [High-performance Premium Storage and managed disks for VMs](../../disks-types.md#premium-ssds). As a result of placing SQL Server data files and log files directly on blobs that are stored on Azure Premium Storage, the performance characteristics can be different compared to VHDs on Azure Premium Storage.
 * Host based caching as available for Azure Premium Storage disks is not available when placing SQL Server data files directly on Azure blobs.
 * On M-Series VMs, Azure Write Accelerator can't be used to support sub-millisecond writes against the SQL Server transaction log file. 
 
@@ -484,9 +481,10 @@ Database Mirroring as supported by SAP (see SAP Note [965908]) relies on definin
 
 As of Cloud-Only deployments, the easiest method is to have another domain setup in Azure to have those DBMS VMs (and ideally dedicated SAP VMs) within one domain.
 
-If a domain is not possible, one can also use certificates for the database mirroring endpoints as described here: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+If a domain is not possible, one can also use certificates for the database mirroring endpoints as described here:
+[Use Certificates for a Database Mirroring Endpoint (Transact-SQL)](/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql)
 
-A tutorial to set up Database Mirroring in Azure can be found here: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+A tutorial to set up Database Mirroring in Azure can be found here: [Database Mirroring (SQL Server)](/sql/database-engine/database-mirroring/database-mirroring-sql-server)
 
 ### SQL Server Always On
 As Always On is supported for SAP on-premises (see SAP Note [1772688]), it is supported in combination with SAP in Azure. There are some special considerations around deploying the SQL Server Availability Group Listener (not to be confused with the Azure Availability Set) since Azure at this point in time does not allow creating an AD/DNS object as it is possible on-premises. Therefore, some different installation steps are necessary to overcome the specific behavior of Azure.

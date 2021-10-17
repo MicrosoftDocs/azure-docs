@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 08/26/2021
 ms.author: jeedes
 ---
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* uniFLOW Online supports **SP** initiated SSO
+* uniFLOW Online supports **SP** initiated SSO.
 
 ## Add uniFLOW Online from the gallery
 
@@ -68,30 +68,34 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using one of the following patterns:
+    a. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
 
-	- `https://<tenant_domain_name>.eu.uniflowonline.com`
-	- `https://<tenant_domain_name>.us.uniflowonline.com`
-	- `https://<tenant_domain_name>.sg.uniflowonline.com`
-	- `https://<tenant_domain_name>.jp.uniflowonline.com`
-	- `https://<tenant_domain_name>.au.uniflowonline.com`
+	| **Identifier** |
+	|---------|
+	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.us.uniflowonline.com` |
+	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
+	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
+	| `https://<tenant_domain_name>.au.uniflowonline.com` |
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
+	b. In the **Sign on URL** text box, type a URL using one of the following patterns:
 
-	- `https://<tenant_domain_name>.eu.uniflowonline.com`
-	- `https://<tenant_domain_name>.us.uniflowonline.com`
-	- `https://<tenant_domain_name>.sg.uniflowonline.com`
-	- `https://<tenant_domain_name>.jp.uniflowonline.com`
-	- `https://<tenant_domain_name>.au.uniflowonline.com`
+	| **Sign on URL** |
+	|---------|
+	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.us.uniflowonline.com` |
+	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
+	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
+	| `https://<tenant_domain_name>.au.uniflowonline.com` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.
 
-1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **nameidentifier** is mapped with **user.userprincipalname**. uniFLOW Online application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/default-attributes.png)
+	![Screenshot shows the User Attributes pane with the edit icon highlighted.](common/edit-attribute.png)
 
 1. In addition to above, uniFLOW Online application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -140,21 +144,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left navigation panel, select **User** tab.
 
-	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/configure-1.png)
+	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/user.png)
 
 1. Click **Identity providers**.
 
-	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/configure-2.png)
+	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/profile.png)
 
 1. Click on **Add identity provider**.
 
-	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/configure-3.png)
+	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/add-profile.png)
 
 1. On the **ADD IDENTITY PROVIDER** section, perform the following steps:
 
-	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configure-4.png)
+	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configuration.png)
 
-	a. Enter the Display name Ex: *AzureAD SSO*.
+	a. Enter the Display name Ex: **AzureAD SSO**.
 
 	b. For **Provider type**, select **WS-Fed** option from the dropdown.
 
@@ -164,13 +168,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **General** tab, perform the following steps:
 
-	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configure-5.png)
+	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/general-tab.png)
 
-	a. Enter the Display name Ex: *AzureAD SSO*.
+	a. Enter the Display name Ex: **AzureAD SSO**.
 
 	b. Select the **From URL** option for the **ADFS Federation Metadata**.
 
-	c. In the **Federation Metadata URl** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
+	c. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
 
 	d. Select **Identity provider** as **Enabled**.
 
@@ -194,7 +198,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to uniFLOW Online Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the uniFLOW Online tile in the My Apps, this will redirect to uniFLOW Online Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the uniFLOW Online tile in the My Apps, this will redirect to uniFLOW Online Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

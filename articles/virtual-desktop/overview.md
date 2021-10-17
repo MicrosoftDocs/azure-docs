@@ -93,7 +93,7 @@ For optimal performance, make sure your network meets the following requirements
 
 * Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms. Use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) to view your connection health and recommended Azure region.
 * Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
-* To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
+* To optimize for network performance, we recommend that the session host's VMs are located in the Azure region that is closest to the user.
 
 You can see a typical architectural setup of Azure Virtual Desktop for the enterprise in our [architecture documentation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
@@ -117,6 +117,8 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 
 Azure Virtual Desktop follows the [Microsoft Lifecycle Policy](/lifecycle/) and supports the following x64 operating system images:
 
+* Windows 11 Enterprise multi-session (Preview)
+* Windows 11 Enterprise (Preview)
 * Windows 10 Enterprise multi-session
 * Windows 10 Enterprise
 * Windows 7 Enterprise
@@ -130,6 +132,8 @@ Available automation and deployment options depend on which OS and version you c
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 11 Enterprise multi-session (Preview)|Yes|Yes|Yes|Yes|
+|Windows 11 Enterprise (Preview)|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 7 Enterprise|Yes|Yes|No|No|

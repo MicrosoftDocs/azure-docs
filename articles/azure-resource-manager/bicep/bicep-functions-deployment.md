@@ -4,23 +4,20 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/30/2021
 ---
 
 # Deployment functions for Bicep
 
-Resource Manager provides the following functions for getting values related to the current deployment of your Bicep file:
-
-* [deployment](#deployment)
-* [environment](#environment)
-
-To get values from resources, resource groups, or subscriptions, see [Resource functions](./bicep-functions-resource.md).
+This article describes the Bicep functions for getting values related to the current deployment.
 
 ## deployment
 
 `deployment()`
 
 Returns information about the current deployment operation.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
@@ -111,6 +108,8 @@ The preceding example returns the following object:
 
 Returns information about the Azure environment used for deployment.
 
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
 ### Return value
 
 This function returns properties for the current Azure environment. The following example shows the properties for global Azure. Sovereign clouds may return slightly different properties.
@@ -195,4 +194,4 @@ The preceding example returns the following object when deployed to global Azure
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* To get values from resources, resource groups, or subscriptions, see [Resource functions](./bicep-functions-resource.md).

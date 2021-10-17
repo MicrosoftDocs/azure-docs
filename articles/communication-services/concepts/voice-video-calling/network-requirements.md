@@ -3,13 +3,14 @@ title: Prepare your organization's network for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the network requirements for Azure Communication Services voice and video calling.
 author: nmurav
-manager: jken
+manager: chpalm
 services: azure-communication-services
 
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 
 # Network recommendations

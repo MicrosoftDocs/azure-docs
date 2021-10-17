@@ -2,14 +2,15 @@
 title: Voice and video concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services call types.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Voice and video concepts
 

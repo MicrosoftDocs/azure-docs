@@ -80,3 +80,22 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 
 <sup>1</sup>  Dsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> Accelerated networking can only be applied to a single NIC. 
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

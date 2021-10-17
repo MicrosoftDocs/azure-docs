@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/21/2020
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
 
@@ -37,8 +37,6 @@ landingContent:
           - text: What's new in Flexible Server?
             url: whats-new.md
 
-
-
 # Card
   - title: Manage
     linkLists:
@@ -62,8 +60,8 @@ landingContent:
             url: how-to-manage-server-portal.md
           - text: Stop/Start server
             url: how-to-stop-start-server-portal.md        
-          - text: Configure and access logs
-            url: how-to-configure-slow-query-logs-portal.md
+          - text: Query performance insights
+            url: tutorial-query-performance-insights.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
 
@@ -124,10 +122,16 @@ landingContent:
         links:
           - text: Migrate online
             url: ../howto-migrate-online.md
+          - text: Migrate RDS for MySQL using Data-in replication
+            url: ../how-to-migrate-rds-mysql-data-in-replication.md
 
 # Card
   - title: Reference
     linkLists:
+      - linkListType: sample
+        links:
+          - text: Azure CLI samples
+            url: sample-scripts-azure-cli.md
       - linkListType: reference
         links:
           - text: Azure CLI developer reference

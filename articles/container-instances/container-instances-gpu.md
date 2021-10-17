@@ -69,6 +69,9 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
 
+ > [!NOTE]
+  > The following example uses a public container image. To improve reliability, import and manage the image in a private Azure container registry, and update your YAML to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
+
 ```YAML
 additional_properties: {}
 apiVersion: '2019-12-01'

@@ -28,8 +28,6 @@ Resources:
 - [Library source code](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
 - [Samples](../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Prerequisites
 
 - [Azure subscription](https://azure.microsoft.com/free/)

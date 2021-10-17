@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Prerequisites for Cognitive Services in Azure Synapse Analytics'
+title: 'Quickstart: Prerequisites for Cognitive Services in Azure Synapse Analytics'
 description: Learn how to configure the prerequisites for using Cognitive Services in Azure Synapse.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
-ms.topic: tutorial
+ms.topic: quickstart
 ms.reviewer: jrasnick, garye
 
 ms.date: 11/20/2020
@@ -12,11 +12,11 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Prerequisites for using Cognitive Services in Azure Synapse Analytics
+# Quickstart: Configure prerequisites for using Cognitive Services in Azure Synapse Analytics
 
-In this tutorial, you'll learn how set up the prerequisites for securely using Azure Cognitive Services in Azure Synapse Analytics. Linking these Azure Cognitive Services allows you to leverage Azure Cognitive Services from various experiences in Synapse.
+In this quickstart, you'll learn how set up the prerequisites for securely using Azure Cognitive Services in Azure Synapse Analytics. Linking these Azure Cognitive Services allows you to leverage Azure Cognitive Services from various experiences in Synapse.
 
-This tutorial covers:
+This quickstart covers:
 > [!div class="checklist"]
 > - Create a Cognitive Services resource like Text Analytics or Anomaly Detector.
 > - Store an authentication key to Cognitive Services resources as secrets in Azure Key Vault, and configure access for an Azure Synapse Analytics workspace.

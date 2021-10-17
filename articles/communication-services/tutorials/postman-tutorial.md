@@ -4,10 +4,12 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to sign and makes requests for ACS with Postman to send an SMS Message.
 author: ProbablePrime
 services: azure-communication-services
+
 ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: sms
 ---
 # Tutorial: Sign and make requests with Postman
 In this tutorial, we'll be setting up and using Postman to make a request against Azure Communication Services using HTTP. By the end of this tutorial, you'll have successfully sent an SMS message using Communication Services and Postman. You'll then be able to use Postman to explore other APIs within Azure Communication Services.

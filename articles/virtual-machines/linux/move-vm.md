@@ -50,7 +50,7 @@ diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/
 storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccountname    
 
 az resource move \
-    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --ids $vm $nic $nsg $pip $vnet $storage $diag \
 	--destination-group "myDestinationResourceGroup"
 ```
 

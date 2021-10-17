@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 08/16/2021
+ms.date: 09/10/2021
 ms.author: rabhaiya
 ---
 
@@ -39,7 +39,7 @@ Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-
 Setting up a message routing consists of two steps.
 
 ### Add an endpoint
-This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
+This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to create an endpoint:
 
@@ -49,12 +49,12 @@ Here is the list of parameters to use with the command to create an endpoint:
 |Name|hub-name|Name of your IoT Hub resource.|
 |EndpointName|endpoint-name|Use a name that you would like to assign to the endpoint being created.|
 |EndpointType|endpoint-type|Type of endpoint that IoT Hub needs to connect with. Use literal value of "EventHub" for PowerShell and "eventhub" for CLI.|
-|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
-|EndpointSubscriptionId|endpoint-subscription-id|Subscription ID for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for the FHIR Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointSubscriptionId|endpoint-subscription-id|Subscription ID for your Azure IoT Connector for the FHIR Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
 |ConnectionString|connection-string|Connection string to your Azure IoT Connector for FHIR. Use the value you obtained in the previous step.|
 
 ### Add a message route
-This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route?view=azure-cli-latest#az_iot_hub_route_create) CLI command, based on your preference.
+This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to add a message route:
 
@@ -88,7 +88,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](../fhir/using-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.

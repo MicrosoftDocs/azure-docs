@@ -2,12 +2,164 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 09/07/2021
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
+
+## September, 2021
+### General
+
+**Updated articles**
+
+- [Deploy Azure Monitor at scale by using Azure Policy](deploy-scale.md)
+- [Azure Monitor partner integrations](partners.md)
+- [Resource Manager template samples for Azure Monitor](resource-manager-samples.md)
+- [Roles, permissions, and security in Azure Monitor](roles-permissions-security.md)
+- [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
+- [Visualize data from Azure Monitor](visualizations.md)
+### Agents
+
+**Updated articles**
+
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
+
+### Application Insights
+
+**New articles**
+
+- [Application Monitoring for Azure App Service and ASP.NET](app/azure-web-apps-net.md)
+- [Application Monitoring for Azure App Service and Java](app/azure-web-apps-java.md)
+- [Application Monitoring for Azure App Service and ASP.NET Core](app/azure-web-apps-net-core.md)
+- [Application Monitoring for Azure App Service and Node.js](app/azure-web-apps-nodejs.md)
+
+**Updated articles**
+
+- [Application Monitoring for Azure App Service and ASP.NET](app/azure-web-apps-net.md)
+- [Filter and preprocess telemetry in the Application Insights SDK](app/api-filtering-sampling.md)
+- [Release notes for Microsoft.ApplicationInsights.SnapshotCollector](app/snapshot-collector-release-notes.md)
+- [What is auto-instrumentation for Azure Monitor application insights?](app/codeless-overview.md)
+- [Application Monitoring for Azure App Service Overview](app/azure-web-apps.md)
+
+### Containers
+
+**Updated articles**
+
+- [Enable Container insights](containers/container-insights-onboard.md)
+
+### Essentials
+
+**Updated articles**
+
+- [Supported metrics with Azure Monitor](essentials/metrics-supported.md)
+- [Supported categories for Azure Resource Logs](essentials/resource-logs-categories.md)
+- [Azure Activity log](essentials/activity-log.md)
+- [Azure Monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)
+
+
+### Insights
+
+**New articles**
+
+- [Manage Application Insights components by using Azure CLI](insights/azure-cli-application-insights-component.md)
+
+**Updated articles**
+
+- [Azure Data Explorer Insights](insights/data-explorer.md)
+- [Agent Health solution in Azure Monitor](insights/solution-agenthealth.md)
+- [Monitoring solutions in Azure Monitor](insights/solutions.md)
+- [Monitor your SQL deployments with SQL insights (preview)](insights/sql-insights-overview.md)
+- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+
+### Logs
+
+**New articles**
+
+- [Resource Manager template samples for Log Analytics clusters in Azure Monitor](logs/resource-manager-cluster.md)
+
+**Updated articles**
+
+- [Configure your Private Link](logs/private-link-configure.md)
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
+- [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Move a Log Analytics workspace to another region by using the Azure portal](logs/move-workspace-region.md)
+
+## August, 2021
+
+### Agents
+
+**Updated articles**
+
+- [Migrate from Log Analytics agents](agents/azure-monitor-agent-migration.md)
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
+
+### Alerts
+
+**Updated articles**
+
+- [Troubleshooting problems in Azure Monitor metric alerts](alerts/alerts-troubleshoot-metric.md)
+- [Create metric alert monitors in Azure CLI](azure-cli-metrics-alert-sample.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md)
+
+
+### Application Insights
+
+**Updated articles**
+
+- [Monitoring Azure Functions with Azure Monitor Application Insights](app/monitor-functions.md)
+- [Application Monitoring for Azure App Service](app/azure-web-apps.md)
+- [Configure Application Insights for your ASP.NET website](app/asp-net.md)
+- [Application Insights availability tests](app/availability-overview.md)
+- [Application Insights logging with .NET](app/ilogger.md)
+- [Geolocation and IP address handling](app/ip-collection.md)
+- [Monitor availability with URL ping tests](app/monitor-web-app-availability.md)
+
+### Essentials
+
+**Updated articles**
+
+- [Supported metrics with Azure Monitor](essentials/metrics-supported.md)
+- [Supported categories for Azure Resource Logs](essentials/resource-logs-categories.md)
+- [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md)
+
+### Insights
+
+**Updated articles**
+
+- [Azure Monitor Network Insights](insights/network-insights-overview.md)
+
+### Logs
+
+**New articles**
+
+- [Azure AD authentication for Logs](logs/azure-ad-authentication-logs.md)
+- [Move Log Analytics workspace to another region using the Azure portal](logs/move-workspace-region.md)
+- [Availability zones in Azure Monitor](logs/availability-zones.md)
+- [Managing Azure Monitor Logs in Azure CLI](logs/azure-cli-log-analytics-workspace-sample.md)
+
+**Updated articles**
+
+- [Design your Private Link setup](logs/private-link-design.md)
+- [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
+- [Move Log Analytics workspace to another region using the Azure portal](logs/move-workspace-region.md)
+- [Configure your Private Link](logs/private-link-configure.md)
+- [Use Azure Private Link to connect networks to Azure Monitor](logs/private-link-security.md)
+- [Standard columns in Azure Monitor Logs](logs/log-standard-columns.md)
+- [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
+- [[Azure Monitor Logs data security](logs/data-security.md)
+- [Send log data to Azure Monitor by using the HTTP Data Collector API (preview)](logs/data-collector-api.md)
+- [Get started with log queries in Azure Monitor](logs/get-started-queries.md)
+- [Azure Monitor Logs overview](logs/data-platform-logs.md)
+- [Log Analytics tutorial](logs/log-analytics-tutorial.md)
+
+### Virtual Machines
+
+**Updated articles**
+
+- [Monitor virtual machines with Azure Monitor: Alerts](vm/monitor-virtual-machine-alerts.md)
 
 ## July, 2021
 
