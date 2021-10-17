@@ -18,16 +18,18 @@ ms.date: 10/06/2021
 > Azure Sentinel notebook integration with Azure Synapse Analytics is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Integrating Azure Sentinel notebooks with Azure Synapse Analytics enables you to run parallel data processing from inside Azure Sentinel, using a big data analytics platform.
+Integrating Azure Sentinel notebooks with Azure Synapse Analytics enables large-scale security analytics.
 
-While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
+While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Synapse Analytics provides extra features for big data analysis, with built-in data lake access and the Apache Spark distributed processing engine.
 
 Integrating with Azure Synapse provides:
 
-- Streaming and processing functionality for advanced batch analytics on big data.
-- Analysis support for data in Azure Data Lake storage, for lower cost, long-term retention, and more.
+- **Big data processing support** for batch-based analytics on large datasets via [Synapse Apache Spark pool](/azure/synapse-analytics/spark/apache-spark-overview)
+- 
+- **Large historical data storage** via cost-effective data lake access, [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), which is built on top of Azure Blob Storage.
 
-For example, you may want to use notebooks with Azure Synapse to hunt for anomalous behaviors from network firewall logs to detect potential network beaconing, or to build machine learning or batch learning models on top of data collected from a Log Analytics workspace.
+
+For example, you may want to use notebooks with Synapse Analytics to hunt for anomalous behaviors from network firewall logs to detect potential network beaconing, or to train and build machine learning models on top of data collected from a Log Analytics workspace.
 
 ## Prerequisites
 
@@ -44,14 +46,14 @@ To use Azure Synapse with Azure Sentinel notebooks, you must have the following 
 |Type  |Details  |
 |---------|---------|
 |**Azure Sentinel**     |- The **Azure Sentinel Contributor** role, in order to save and launch notebooks from Azure Sentinel         |
-|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Azure Sentinel notebooks.         |
-|**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace if needed.<br>- A **Contributor** role on the Azure Synapse workspace you want to use to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio        |
-|**Azure Data Lake**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake |
+|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Azure Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](/azure/machine-learning/how-to-assign-roles).     |
+|**Azure Synapse Analytics**     | - A resource group-level **Owner** role, to create a new Azure Synapse workspace if needed.<br>- A **Contributor** role on the Azure Synapse workspace you want to use to run your queries. <br>- An Azure Synapse Analytics **Contributor** role on Synapse Studio   <br><br>For more information, see [Understand the roles required to perform common tasks in Synapse](/azure/synapse-analytics/security/synapse-workspace-understand-what-role-you-need).     |
+|**Azure Data Lake**     | - An Azure Log Analytics **Contributor** role, to export data from a Log Analytics workspace<br>- An Azure Blob Storage Contributor role, to query data from a data lake  <br><br>For more information, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).|
 |     |         |
 
 ### Connect to Azure ML and Synapse workspaces
 
-To use Azure Sentinel workbooks, you must first connect to both an Azure Machine Learning Workspace and an Azure Synapse workspace.
+To use Azure Sentinel notebooks with Azure Synapse, you must first connect to both an Azure Machine Learning Workspace and an Azure Synapse workspace.
 
 **To create or connect to an Azure Machine Learning workspace**:
 
@@ -63,21 +65,20 @@ If you aren't already connected, see [Use Jupyter notebooks to hunt for security
 
 At the top of the Azure Sentinel **Notebooks** page, select **Configure Azure Synapse**, and then select **Create new Azure Synapse workspace**.
 
+> [!NOTE]
+> An Azure Data Lake Storage Gen2 is a built-in Data Lake that comes with every Azure Synapse workspace. Make sure to select or create a new Data Lake that is in the same region with your Azure Sentinel workspace. This is required for when you export your data, as described later in this article.
+>
+
 For more information, see the [Azure Synapse documentation](/azure/synapse-analytics/quickstart-create-workspace).
 
-**To connect to an existing Azure Synapse workspace**:
-
-1. At the top of the Azure Sentinel **Notebooks** page, select **Configure Azure Synapse**, and then select **Navigate to Azure Synapse workspace**.
-
-    A new tab opens in your browser, prompting you to select a workspace.
-
-1. Select your Azure Active Directory, account selection method, subscription, and workspace name as needed.
-
-Your workspace opens in the Azure Synapse Analytics studio, and you're connected.
 
 ## Configure your Azure Synapse Analytics integration
 
 Azure Sentinel provides the built-in, **Azure Synapse - Configure Azure ML and Azure Synapse Analytics** notebook to guide you through the configurations required to integrate with Azure Synapse.
+
+> [!NOTE]
+> Configuring your Azure Synapse integration is a one-time procedure, and you only need to run this notebook once for your Azure Sentinel workspace.
+>
 
 **To run the Azure Synapse - Configure Azure ML and Azure Synapse Analytics notebook**:
 
@@ -95,7 +96,7 @@ Azure Sentinel provides the built-in, **Azure Synapse - Configure Azure ML and A
 
 1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](/azure/synapse-analytics/spark/apache-spark-pool-configurations) to use when running your big data queries.
 
-1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Quickstart: Create a new Azure Machine Learning linked service in Synapse](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
+1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure ML workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](/azure/machine-learning/how-to-link-synapse-ml-workspaces).
 
 1. Run the cells in step 6, **Export Data from Azure Log Analytics to Azure Data Lake Storage Gen2**, to export your data you want to use for your queries from Azure Log Analytics to Azure Data Lake Storage.
 
@@ -103,10 +104,10 @@ After your data is in Azure Data Lake Storage, you're ready to start running big
 
 ## Run big data hunting queries
 
-Azure Sentinel provides the built-in **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook. Use this notebook as a template to get started with big data hunting with Azure Sentinel, Machine Learning, and Synapse.
+Azure Sentinel provides the built-in **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook. Use this notebook as a template to get started with big data hunting with Azure Sentinel and Azure Synapse.
 
 > [!NOTE]
-> For more information on network beaconing detections *without* Azure Synapse Analytics, see our legacy [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/detect-network-beaconing-via-intra-request-time-delta-patterns/ba-p/779586).
+> For more information on network beaconing detections, see our [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/detect-network-beaconing-via-intra-request-time-delta-patterns/ba-p/779586).
 >
 
 **To detect potential network beaconing using Azure Sentinel and Azure Synapse**:
@@ -168,13 +169,7 @@ Use the following code, which you can copy from here or the **Azure Synapse - De
 Run the following code:
 
 ```python
-from pyspark.swl import SparkSession
-
-spark = SparkSession \
-    .builder \
-    .appName("Spark_Data_Analysis") \
-    .config("spark.sql.caseSensitive", "True") \
-    .getOrCreate()
+%synapse start -w $amlworkspace -s $subscription_id -r $resource_group -c $synapse_spark_compute
 ```
 
 Start all subsequent code cells with `%%synapse` to use the Synapse session that you've started.
@@ -197,7 +192,7 @@ end_date = "<enter date in the format yyyy-MM-dd e.g.2021-09-17>"  # fill in you
 lookback_days = 21 # fill in lookback days if you want to run it on historical data. make sure you have historical data available in ADLS
 ```
 
-### Define your Azure Synapse lookback period
+### Define your data lookback period
 
 By default, the big data queries run in Azure Synapse run on data from the current day. For example if you are running your query on November 15, 2021, the query will run only on data from November 15, 2021.
 
