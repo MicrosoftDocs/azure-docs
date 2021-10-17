@@ -135,7 +135,7 @@ To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018
 
 ### Tracking pricing tier changes
 
-Changes to a workspace's pricing pier are recorded in the [Activity Log](../essentials/activity.md) with an event with the Operation named "Create Workspace". The event's **Change history** tab will show the old and new pricing tiers in the  `properties.sku.name` row.  Click the "Activity Log" option from your workspace to see events scoped to a particular workspace. To monitor changes the pricing tier, you can create an alert for the "Create Workspace" operation. 
+Changes to a workspace's pricing pier are recorded in the [Activity Log](../essentials/activity-log.md) with an event with the Operation named "Create Workspace". The event's **Change history** tab will show the old and new pricing tiers in the  `properties.sku.name` row.  Click the "Activity Log" option from your workspace to see events scoped to a particular workspace. To monitor changes the pricing tier, you can create an alert for the "Create Workspace" operation. 
 
 ## Legacy pricing tiers
 
