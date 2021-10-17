@@ -24,7 +24,7 @@ ms.author: yelevin
 
 After onboarding Azure Sentinel into your workspace, connect data sources to start ingesting your data into Azure Sentinel. Azure Sentinel comes with many connectors for Microsoft products, available out of the box and providing real-time integration. For example, service-to-service connectors include Microsoft 365 Defender connectors and Microsoft 365 sources, such as Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Cloud App Security.
 
-You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Azure Sentinel.
+You can also enable out-of-the-box connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Azure Sentinel.
 
 The **Data connectors** page, accessible from the Azure Sentinel navigation menu, shows the full list of connectors that Azure Sentinel provides, and their status in your workspace. Select the connector you want to connect, and then select **Open connector page**.
 
@@ -113,7 +113,7 @@ For more information, see [Collect data in custom log formats to Azure Sentinel 
 
 ## Service to service integration
 
-Azure Sentinel uses the Azure foundation to provide built-in, service-to-service support for  Microsoft services and Amazon Web Services.
+Azure Sentinel uses the Azure foundation to provide out-of-the-box, service-to-service support for  Microsoft services and Amazon Web Services.
 
 For more information, see [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) and the [data connectors reference](data-connectors-reference.md).
 
@@ -121,7 +121,7 @@ For more information, see [Connect to Azure, Windows, Microsoft, and Amazon serv
 
 [Azure Sentinel solutions](sentinel-solutions.md) provide packages of security content, including data connectors, workbooks, analytics rules, playbooks, and more. When you deploy a solution with a data connector, you'll get the data connector together with related content in the same deployment. 
 
-For more information, see [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+For more information, see [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 ## Data connector support
 
 Both Microsoft and other organizations author Azure Sentinel data connectors. Each data connector has one of the following support types:

@@ -108,7 +108,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### ThreatQuotient Threat Intelligence Platform
 
-- See [Azure Sentinel Connector for ThreatQ integration](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
+- See [Microsoft  Sentinel Connector for ThreatQ integration](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
 
 ## Incident enrichment sources
 
