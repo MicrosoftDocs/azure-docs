@@ -39,16 +39,6 @@ For the whole workflow, you need to:
 
 ![Diagram showing an 'Azure Spring Cloud applications' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box](media/how-to-appdynamics-java-agent-monitor/appdynamics_activation.jpg)
 
-### Prepare variables to connect the AppDynamics Agent to Controller
-
-To connect the AppDynamics Java in-process agent to the AppDynamics Controller, define the following environment variables:
-
-* `APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`
-* `APPDYNAMICS_AGENT_ACCOUNT_NAME`
-* `APPDYNAMICS_CONTROLLER_HOST_NAME`
-
-To get the values for these variables, see [Monitor Azure Spring Cloud with Java Agent](https://docs.appdynamics.com/21.9/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/monitor-azure-spring-cloud-with-java-agent).
-
 ### Activate an application with the AppDynamics agent using the Azure CLI
 
 To activate an application through the Azure CLI, use the following steps.
