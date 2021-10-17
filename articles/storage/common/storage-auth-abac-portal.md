@@ -179,7 +179,7 @@ Here is what the condition looks like in code:
 
 ## Step 5: Assign Reader role
 
-- Repeat the previous steps to assign the [Reader](built-in-roles.md#reader) role to the user you created earlier at resource group scope.
+- Repeat the previous steps to assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the user you created earlier at resource group scope.
 
     > [!NOTE]
     > You typically don't need to assign the Reader role. However, this is done so that you can test the condition using the Azure portal.
