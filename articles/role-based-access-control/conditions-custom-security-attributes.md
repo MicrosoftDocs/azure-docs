@@ -164,10 +164,10 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Step 5: Assign Reader role
 
-- Repeat the previous steps to assign the [Reader](built-in-roles.md#reader) role without a condition for the security group at resource group scope.
+- Repeat the previous steps to assign the [Reader](built-in-roles.md#reader) role for the security group at resource group scope.
 
     > [!NOTE]
-    > You typically do not need to assign the Reader role. However, this is done so that you can test the condition using the Azure portal.
+    > You typically don't need to assign the Reader role. However, this is done so that you can test the condition using the Azure portal.
 
 ## Step 6: Test the condition
 
