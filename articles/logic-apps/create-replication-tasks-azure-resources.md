@@ -205,23 +205,19 @@ This example shows how to view a task's history of workflow runs along with thei
 
    The run details pane opens and shows the underlying workflow that ran.
 
-   - A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   - A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with a Service Bus trigger that waits for messages to arrive in the source Service Bus queue.
 
    - Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
-   ![Screenshot showing each step in the run, status, and run duration.](./media/create-replication-tasks-azure-resources/run-history-details.png)
+   ![Screenshot showing each step in the run, status, and run duration in the workflow.](./media/create-replication-tasks-azure-resources/run-history-details.png)
 
-1. To review the inputs and outputs for each step, select the step, which expands.
+1. To review the inputs and outputs for each step, select the step, which opens a pane that shows the inputs, outputs, and properties details for that step.
 
    This example shows the inputs for the Service Bus trigger.
 
-   ![Screenshot showing the expanded trigger and inputs.](./media/create-replication-tasks-azure-resources/view-trigger-inputs.png)
+   ![Screenshot showing the trigger inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-trigger-inputs-outputs-properties.png)
 
-   In contrast, the Service Bus action action has inputs from earlier actions in the workflow and outputs.
-
-   ![Screenshot showing an expanded action, inputs, and outputs.](./media/create-replication-tasks-azure-resources/view-action-inputs-outputs.png)
-
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of replication tasks for Azure resources, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 <a name="edit-task"></a>
 
@@ -292,12 +288,18 @@ If you change the underlying workflow for a replication task, your changes affec
 
    ![Screenshot showing the designer toolbar and the selected "Save" command.](./media/create-replication-tasks-azure-resources/save-updated-workflow.png)
 
-1. To test and run the updated workflow, open the logic app resource that contains the updated workflow. On the workflow navigation menu, select **Overview** > **Run Trigger**.
+1. To test and run the updated workflow, open the logic app resource that contains the updated workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
 
-   After the run finishes, the designer shows the workflow's run details.
+   After the run finishes, the designer shows the workflow's run details. To review the inputs and outputs for each step, select the step, which opens a pane that shows the inputs, outputs, and properties details for that step.
 
-   ![Screenshot showing the workflow's run details.](./media/create-replication-tasks-azure-resources/view-run-details-designer.png)
+   This example shows the selected Service Bus trigger's inputs, outputs, and properties, along with the updated trigger property value.
+
+   ![Screenshot showing the workflow's run details with the trigger's inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-updated-run-details-trigger-inputs.png)
 
 1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
 
 ## Next steps
+
+- [About the workflow designer in single-tenant Azure Logic Apps](designer-overview.md)
+- [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md)
+- [Create parameters to use in workflows across environments in single-tenant Azure Logic Apps](parameterize-workflow-app.md)
