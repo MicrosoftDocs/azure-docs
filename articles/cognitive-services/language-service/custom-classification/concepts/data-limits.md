@@ -18,7 +18,7 @@ Use this article to learn about the data and rate limits when using custom text 
 
 ## File limits
 
-* You can only use `.txt`. files for custom text classification. If your data is in other format, you can use [CLUtils parse command](https://aka.ms/CognitiveServicesLanguageUtilities) to crack your document and extract the text.
+* You can only use `.txt` files for custom text classification. If your data is in other format, you can use [CLUtils parse command](https://aka.ms/CognitiveServicesLanguageUtilities) to crack your document and extract the text.
 
 * All files uploaded in your container must contain data, no empty files are allowed for training.
 
