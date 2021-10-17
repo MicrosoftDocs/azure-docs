@@ -183,12 +183,12 @@ find where TimeGenerated > ago(24h) | distinct Type
 
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section and click **New export rule** from the top of the middle pane.
 
-[![Storage sample data](media/logs-data-export/export-create-1.png)](export-create)
+[![](media/logs-data-export/export-create-1.png)](export-create)
 
 Follow the steps, then click **Create**. 
 
-<img src="media/logs-data-export/export-create-2.png" alt="Storage sample data" width="80%"/>
-
+<img src="media/logs-data-export/export-create-2.png" alt="export-rule-configuration" title="export-rule-configuration" width="80%"/>
+ 
 # [PowerShell](#tab/powershell)
 
 N/A
@@ -465,11 +465,11 @@ Use the following command to create a data export rule to a specific event hub u
 
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section.
 
-[![Storage sample data](media/logs-data-export/export-view-1.png)](export-rules)
+[![](media/logs-data-export/export-view-1.png)](export-rules)
 
 Click a rule for configuration view.
 
-<img src="media/logs-data-export/export-view-2.png" alt="export-rule-configuration" width="65%"/>
+<img src="media/logs-data-export/export-view-2.png" alt="export-rule" title= "export-rule" width="65%"/>
 
 
 # [PowerShell](#tab/powershell)
@@ -504,7 +504,7 @@ N/A
 
 Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section and click the status toggle to disable or enable export rule.
 
-[![Storage sample data](media/logs-data-export/export-disable.png)](export-rule-disable)
+[![](media/logs-data-export/export-disable.png)](export-rule-disable)
 
 # [PowerShell](#tab/powershell)
 
@@ -553,7 +553,7 @@ Export rules can be disabled to let you stop the export when you don’t need to
 
 In the **Log Analytics workspace** menu in the Azure portal, select *Data Export* from the **Settings** section, then click the ellipsis to the right of the rule and click **Delete**. 
 
-[![Storage sample data](media/logs-data-export/export-delete.png)](export-rule-delete)
+[![](media/logs-data-export/export-delete.png)](export-rule-delete)
 
 # [PowerShell](#tab/powershell)
 
@@ -587,7 +587,7 @@ N/A
 
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section to view all export rules in workspace.
 
-[![Storage sample data](media/logs-data-export/export-view.png)](export-rules-view)
+[![](media/logs-data-export/export-view.png)](export-rules-view)
 
 # [PowerShell](#tab/powershell)
 
