@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure File Storage with Service Connector
-description: Integrate Azure File Storage into your application with Service Connector
+title: Integrate Azure Table Storage with Service Connector
+description: Integrate Azure Table Storage into your application with Service Connector
 author: shizn
 ms.author: xshi
 ms.service: service-connector
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/29/2021
 ---
 
-# Integrate Azure File Storage with Service Connector
+# Integrate Azure Table Storage with Service Connector
 
 ## Supported compute service
 

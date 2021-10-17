@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Database for SQL DB with Service Connector
-description: Integrate Azure Database for SQL DB into your application with Service Connector
+title: Integrate Azure Web Pub/Sub Service with Service Connector
+description: Integrate Azure Web Pub/Sub Service into your application with Service Connector
 author: shizn
 ms.author: xshi
 ms.service: service-connector
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/29/2021
 ---
 
-# Integrate Azure SQL Database with Service Connector
+# Integrate Azure Web Pub/Sub Service with Service Connector
 
 ## Supported compute service
 
