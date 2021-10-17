@@ -112,6 +112,6 @@ If you don't plan to continue, or you want to disable either of these features:
 ## Next steps
 In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material see:
 
-- [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
+- [Respond to Microsoft Defender for Key Vault alerts](defender-for-key-vault-usage.md)
 - [Security alerts - a reference guide](alerts-reference.md)
 - [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)

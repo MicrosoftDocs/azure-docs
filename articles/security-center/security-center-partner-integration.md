@@ -30,7 +30,7 @@ To learn more about the integration of vulnerability scanning tools from Qualys,
 Security Center also offers vulnerability analysis for your:
 
 * SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
-* Azure Container Registry images - see [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+* Azure Container Registry images - see [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.

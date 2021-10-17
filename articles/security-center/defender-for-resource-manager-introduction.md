@@ -1,6 +1,6 @@
 ---
-title: Azure Defender for Resource Manager - the benefits and features
-description: Learn about the benefits and features of Azure Defender for Resource Manager
+title: Microsoft Defender for Resource Manager - the benefits and features
+description: Learn about the benefits and features of Microsoft Defender for Resource Manager
 author: memildin
 ms.author: memildin
 ms.date: 09/05/2021
@@ -10,13 +10,13 @@ manager: rkarlin
 
 ---
 
-# Introduction to Azure Defender for Resource Manager
+# Introduction to Microsoft Defender for Resource Manager
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams monitor the resource management layer closely. 
 
-Azure Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Azure Defender runs advanced security analytics to detect threats and alerts you about suspicious activity.
+Microsoft Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Azure Defender runs advanced security analytics to detect threats and alerts you about suspicious activity.
 
 >[!NOTE]
 > Some of these analytics are powered by [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security). To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
@@ -32,13 +32,13 @@ Azure Defender for Resource Manager automatically monitors the resource manageme
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Azure Defender for Resource Manager** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for Resource Manager** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet|
 |||
 
-## What are the benefits of Azure Defender for Resource Manager?
+## What are the benefits of Microsoft Defender for Resource Manager?
 
-Azure Defender for Resource Manager protects against issues including:
+Microsoft Defender for Resource Manager protects against issues including:
 
 - **Suspicious resource management operations**, such as operations from malicious IP addresses, disabling antimalware and suspicious scripts running in VM extensions
 - **Use of exploitation toolkits** like Microburst or PowerZure
@@ -46,16 +46,16 @@ Azure Defender for Resource Manager protects against issues including:
 
 :::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager overview diagram.":::
 
-A full list of the alerts provided by Azure Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-resourcemanager).
+A full list of the alerts provided by Microsoft Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-resourcemanager).
 
 
- ## How to investigate alerts from Azure Defender for Resource Manager
+ ## How to investigate alerts from Microsoft Defender for Resource Manager
 
-Security alerts from Azure Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Azure Defender uses internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
+Security alerts from Microsoft Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Azure Defender uses internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
 
 Learn more about [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
-To investigate security alerts from Azure Defender for Resource Manager:
+To investigate security alerts from Microsoft Defender for Resource Manager:
 
 1. Open Azure Activity log.
 
@@ -75,7 +75,7 @@ To investigate security alerts from Azure Defender for Resource Manager:
 
 ## Next steps
 
-In this article, you learned about Azure Defender for Resource Manager. 
+In this article, you learned about Microsoft Defender for Resource Manager. 
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)

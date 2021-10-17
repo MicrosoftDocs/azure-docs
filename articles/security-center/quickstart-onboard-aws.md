@@ -36,7 +36,7 @@ In the screenshot below you can see AWS accounts displayed in Security Center's 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
@@ -126,9 +126,9 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
 ### Step 5. Connect AWS to Security Center
 
-1. From Security Center's menu, select **Multi cloud connectors**.
+1. From Security Center's menu, select **Multi-cloud connectors**.
 1. Select **Add AWS account**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi cloud connectors page":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi-cloud connectors page":::
 1. Configure the options in the **AWS authentication** tab:
     1. Enter a **Display name** for the connector.
     1. Confirm that the subscription is correct. It is the subscription that will include the connector and AWS Security Hub recommendations.

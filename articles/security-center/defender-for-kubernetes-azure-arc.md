@@ -1,6 +1,6 @@
 ---
-title: Protect hybrid and multi-cloud Kubernetes deployments with Azure Defender for Kubernetes
-description: Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
+title: Protect hybrid and multi-cloud Kubernetes deployments with Microsoft Defender for Kubernetes
+description: Use Microsoft Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -11,7 +11,7 @@ ms.author: memildin
 
 # Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
-The **Azure Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
+The **Microsoft Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
 
 The extension can also protect Kubernetes clusters on other cloud providers, although not on their managed Kubernetes services.
 
@@ -31,13 +31,13 @@ The extension can also protect Kubernetes clusters on other cloud providers, alt
 
 ## Architecture overview
 
-For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Azure Defender for Kubernetes can be deployed on [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
+For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Microsoft Defender for Kubernetes can be deployed on [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
-The extension components collect Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Azure Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
+The extension components collect Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Microsoft Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
 
-This diagram shows the interaction between Azure Defender for Kubernetes and the Azure Arc-enabled Kubernetes cluster:
+This diagram shows the interaction between Microsoft Defender for Kubernetes and the Azure Arc-enabled Kubernetes cluster:
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="A high-level architecture diagram outlining the interaction between Azure Defender for Kubernetes and an Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="A high-level architecture diagram outlining the interaction between Microsoft Defender for Kubernetes and an Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
 ## Prerequisites
 
@@ -258,7 +258,7 @@ To confirm a successful deployment, or to validate the status of your extension 
     ```
 ---
 
-## Simulate security alerts from Azure Defender for Kubernetes
+## Simulate security alerts from Microsoft Defender for Kubernetes
 
 A full list of supported alerts is available in the [reference table of all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-k8scluster).
 
@@ -274,7 +274,7 @@ A full list of supported alerts is available in the [reference table of all secu
 
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Azure Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
 ## Removing the Azure Defender extension
 
@@ -295,7 +295,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
 
 ### Use Azure CLI to remove the Azure Defender extension
 
-1. Remove the Azure Defender for Kubernetes Arc extension with the following commands:
+1. Remove the Microsoft Defender for Kubernetes Arc extension with the following commands:
 
     ```azurecli
     az login
@@ -350,5 +350,5 @@ The request may take several minutes to complete.
 This page explained how to deploy the Azure Defender extension for Azure Arc-enabled Kubernetes clusters. Learn more about Azure Defender and Microsoft Defender for Cloud's container security features in the following pages:
 
 - [Container security in Security Center](container-security.md)
-- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Introduction to Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 - [Protect your Kubernetes workloads](kubernetes-workload-protections.md)

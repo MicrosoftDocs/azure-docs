@@ -235,7 +235,7 @@
     displayName: Azure Defender for App Service, defender for app
     href: defender-for-app-service-introduction.md
   - name: Protect your Azure Storage accounts
-    displayName: blob, adls, files, Azure Defender for Storage, Defender for Storage
+    displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
     href: defender-for-storage-introduction.md
   - name: Protect your Key Vault keys and secrets
     items:
@@ -258,7 +258,7 @@
     - name: Overview of Defender for DNS
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
-    - name: Respond to Azure Defender for DNS alerts
+    - name: Respond to Microsoft Defender for DNS alerts
       href: defender-for-dns-usage.md
   - name: Protect your Windows Admin Center servers
     href: windows-admin-center-integration.md

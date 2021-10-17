@@ -19,8 +19,8 @@ Learn more about these features in [Workload protection best-practices using Kub
 
 Security Center offers more container security features if you enable Azure Defender. Specifically:
 
-- Scan your container registries for vulnerabilities with [Azure Defender for container registries](defender-for-container-registries-introduction.md)
-- Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- Scan your container registries for vulnerabilities with [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+- Get real-time threat detection alerts for your K8s clusters [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
 > For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.

@@ -574,9 +574,9 @@ This capability means that Security Center provides visibility and protection ac
 - Incorporate all of your resources into Security Center's secure score calculations
 - Regulatory compliance assessments of your AWS and GCP resources
 
-From Security Center's menu, select **Multi cloud connectors** and you'll see the options for creating new connectors:
+From Security Center's menu, select **Multi-cloud connectors** and you'll see the options for creating new connectors:
 
-:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi cloud connectors page":::
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi-cloud connectors page":::
 
 Learn more in:
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)

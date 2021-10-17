@@ -1,6 +1,6 @@
 ---
-title: How to respond to Azure Defender for Resource Manager alerts
-description: Learn about the steps necessary for responding to alerts from Azure Defender for Resource Manager
+title: How to respond to Microsoft Defender for Resource Manager alerts
+description: Learn about the steps necessary for responding to alerts from Microsoft Defender for Resource Manager
 author: memildin
 ms.author: memildin
 ms.date: 12/07/2020
@@ -10,9 +10,9 @@ manager: rkarlin
 
 ---
 
-# Respond to Azure Defender for Resource Manager alerts
+# Respond to Microsoft Defender for Resource Manager alerts
 
-When you receive an alert from Azure Defender for Resource Manager, we recommend you investigate and respond to the alert as described below. Azure Defender for Resource Manager protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
+When you receive an alert from Microsoft Defender for Resource Manager, we recommend you investigate and respond to the alert as described below. Microsoft Defender for Resource Manager protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
 
 
 ## Step 1. Contact
@@ -43,8 +43,8 @@ When you receive an alert from Azure Defender for Resource Manager, we recommend
 
 ## Next steps
 
-This page explained the process of responding to an alert from Azure Defender for Resource Manager. For related information see the following pages:
+This page explained the process of responding to an alert from Microsoft Defender for Resource Manager. For related information see the following pages:
 
-- [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Introduction to Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
 - [Continuously export Security Center data](continuous-export.md)

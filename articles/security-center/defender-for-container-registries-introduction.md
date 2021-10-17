@@ -1,6 +1,6 @@
 ---
-title: Azure Defender for container registries - the benefits and features
-description: Learn about the benefits and features of Azure Defender for container registries.
+title: Microsoft Defender for container registries - the benefits and features
+description: Learn about the benefits and features of Microsoft Defender for container registries.
 author: memildin
 ms.author: memildin
 ms.date: 10/04/2021
@@ -10,29 +10,29 @@ manager: rkarlin
 
 ---
 
-# Introduction to Azure Defender for container registries
+# Introduction to Microsoft Defender for container registries
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
-To protect the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Azure Defender will then scan all images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. You’ll be charged for every image that gets scanned – once per image.
+To protect the Azure Resource Manager based registries in your subscription, enable **Microsoft Defender for container registries** at the subscription level. Azure Defender will then scan all images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. You’ll be charged for every image that gets scanned – once per image.
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|Generally available (GA)|
-|Pricing:|**Azure Defender for container registries** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|**Microsoft Defender for container registries** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Supported registries and images:|Linux images in ACR registries accessible from the public internet with shell access<br>[ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)|
 |Unsupported registries and images:|Windows images<br>'Private' registries (unless access is granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br>Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
 |Required roles and permissions:|**Security reader** and [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
-## What are the benefits of Azure Defender for container registries?
+## What are the benefits of Microsoft Defender for container registries?
 
 Security Center identifies Azure Resource Manager based ACR registries in your subscription and seamlessly provides Azure-native vulnerability assessment and management for your registry's images.
 
-**Azure Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
+**Microsoft Defender for container registries** includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images'  vulnerabilities. The integrated scanner is powered by Qualys, the industry-leading vulnerability scanning vendor.
 
 When issues are found – by Qualys or Security Center – you'll get notified in the workload protection dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-container).
 
@@ -45,7 +45,7 @@ By only notifying when there are problems, Security Center reduces the potential
 > To learn more about Security Center's container security features, see:
 >
 > - [Microsoft Defender for Cloud and container security](container-security.md)
-> - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+> - [Introduction to Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## When are images scanned?
 
@@ -53,9 +53,9 @@ There are three triggers for an image scan:
 
 - **On push** - Whenever an image is pushed to your registry, Defender for container registries automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-- **Recently pulled** - Since new vulnerabilities are discovered every day, **Azure Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no additional charge for these rescans; as mentioned above, you're billed once per image.
+- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no additional charge for these rescans; as mentioned above, you're billed once per image.
 
-- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Azure Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
  
 The scan completes typically within 2 minutes, but it might take up to 15 minutes. Findings are made available as security recommendations such as this one:
 
@@ -82,7 +82,7 @@ Security Center filters and classifies findings from the scanner. When an image 
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
-For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](#availability).
+For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](#availability).
 
 If you connect unsupported registries to your Azure subscription, Azure Defender won't scan them and won't bill you for them.
 

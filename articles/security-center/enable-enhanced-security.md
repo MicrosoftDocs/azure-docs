@@ -23,10 +23,10 @@ A free 30-day trial is available. For pricing details in your currency of choice
 
 ## Enable Azure Defender from the Azure portal
 
-To enable all Security Center features including threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Azure Defender plans available at the workspace level are Azure Defender for servers and Azure Defender for SQL servers on machines.
+To enable all Security Center features including threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Azure Defender plans available at the workspace level are Microsoft Defender for servers and Microsoft Defender for SQL servers on machines.
 
-- You can enable **Azure Defender for Storage accounts** at either the subscription level or resource level
-- You can enable **Azure Defender for SQL** at either the subscription level or resource level
+- You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level
+- You can enable **Microsoft Defender for SQL** at either the subscription level or resource level
 - You can enable **Azure Defender for open-source relational databases** at the resource level only
 
 ### To enable Azure Defender on your subscriptions and workspaces:

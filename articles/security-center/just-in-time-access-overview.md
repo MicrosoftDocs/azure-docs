@@ -63,7 +63,7 @@ When Security Center finds a machine that can benefit from JIT, it adds that mac
 
 ### What permissions are needed to configure and use JIT?
 
-JIT requires [Azure Defender for servers](defender-for-servers-introduction.md) to be enabled on the subscription. 
+JIT requires [Microsoft Defender for servers](defender-for-servers-introduction.md) to be enabled on the subscription. 
 
 **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
 

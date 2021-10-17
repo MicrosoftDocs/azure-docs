@@ -31,7 +31,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Aspect                                       | Details                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                               | • Integration with Defender for Endpoint for Windows - General availability (GA)<br> • Integration with Defender for Endpoint for Linux - Preview                                                                                                                                     |
-| Pricing:                                     | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
+| Pricing:                                     | Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
 | Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 (other than EVD or WVD)           |
 | Required roles and permissions:              | • To enable/disable the integration: **Security admin** or **Owner**<br>• To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
 | Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet                                                         |
@@ -79,10 +79,10 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+1. Enable **Microsoft Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
     > [!IMPORTANT]
-    > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+    > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
 
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -273,7 +273,7 @@ Defender for Cloud automatically deploys the extension to machines running:
 > If you delete the MDE.Windows extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
 
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
-Defender for Endpoint is included at no extra cost with **Azure Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
+Defender for Endpoint is included at no extra cost with **Microsoft Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.

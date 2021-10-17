@@ -1,6 +1,6 @@
 ---
-title: Azure Defender for servers - the benefits and features
-description: Learn about the benefits and features of Azure Defender for servers.
+title: Microsoft Defender for servers - the benefits and features
+description: Learn about the benefits and features of Microsoft Defender for servers.
 author: memildin
 ms.author: memildin
 ms.date: 09/05/2021
@@ -10,29 +10,29 @@ manager: rkarlin
 
 ---
 
-# Introduction to Azure Defender for servers
+# Introduction to Microsoft Defender for servers
 
-Azure Defender for servers adds threat detection and advanced defenses for your Windows and Linux machines.
+Microsoft Defender for servers adds threat detection and advanced defenses for your Windows and Linux machines.
 
 For Windows, Azure Defender integrates with Azure services to monitor and protect your Windows-based machines. Security Center presents the alerts and remediation suggestions from all of these services in an easy-to-use format.
 
 For Linux, Azure Defender collects audit records from Linux machines by using auditd, one of the most common Linux auditing frameworks.
 
 
-## What are the benefits of Azure Defender for servers?
+## What are the benefits of Microsoft Defender for servers?
 
-The threat detection and protection capabilities provided with Azure Defender for servers include:
+The threat detection and protection capabilities provided with Microsoft Defender for servers include:
 
-- **Integrated license for Microsoft Defender for Endpoint** - Azure Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
+- **Integrated license for Microsoft Defender for Endpoint** - Microsoft Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
 
     When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn more about Microsoft Defender for Endpoint.
 
     > [!IMPORTANT]
-    > Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+    > Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
     >
     > We're currently offering the sensor for Linux machines in preview. Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
-- **Vulnerability assessment tools for machines** - Azure Defender for servers includes a choice of  vulnerability discovery and management tools for your machines. From Security Center's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
+- **Vulnerability assessment tools for machines** - Microsoft Defender for servers includes a choice of  vulnerability discovery and management tools for your machines. From Security Center's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
 
     - **Microsoft threat and vulnerability management** - Discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of additional agents or periodic scans. [Threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) prioritizes vulnerabilities based on the threat landscape, detections in your organization, sensitive information on vulnerable devices, and business context. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 
@@ -40,11 +40,11 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 - **Just-in-time (JIT) virtual machine (VM) access** - Threat actors actively hunt accessible machines with open management ports, like RDP or SSH. All of your virtual machines are potential targets for an attack. When a VM is successfully compromised, it's used as the entry point to attack further resources within your environment.
 
-    When you enable Azure Defender for servers, you can use just-in-time VM access to lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. For more information, see [Understanding JIT VM access](just-in-time-access-overview.md).
+    When you enable Microsoft Defender for servers, you can use just-in-time VM access to lock down the inbound traffic to your VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. For more information, see [Understanding JIT VM access](just-in-time-access-overview.md).
 
 - **File integrity monitoring (FIM)** - File integrity monitoring (FIM), also known as change monitoring, examines files and registries of operating system, application software, and others for changes that might indicate an attack. A comparison method is used to determine if the current state of the file is different from the last scan of the file. You can use this comparison to determine if valid or suspicious modifications have been made to your files.
 
-    When you enable Azure Defender for servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
+    When you enable Microsoft Defender for servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Microsoft Defender for Cloud](file-integrity-monitoring-overview.md).
 
 - **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines.
 
@@ -91,7 +91,7 @@ You can simulate alerts by downloading one of the following playbooks:
 
 ## Next steps
 
-In this article, you learned about Azure Defender for servers. 
+In this article, you learned about Microsoft Defender for servers. 
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)

@@ -1,6 +1,6 @@
 ---
-title: How to respond to Azure Defender for Key Vault alerts
-description: Learn about the steps necessary for responding to alerts from Azure Defender for Key Vault.
+title: How to respond to Microsoft Defender for Key Vault alerts
+description: Learn about the steps necessary for responding to alerts from Microsoft Defender for Key Vault.
 author: memildin
 ms.author: memildin
 ms.date: 09/13/2021
@@ -10,10 +10,10 @@ manager: rkarlin
 
 ---
 
-# Respond to Azure Defender for Key Vault alerts
-When you receive an alert from [Azure Defender for Key Vault](defender-for-key-vault-introduction.md), we recommend you investigate and respond to the alert as described below. Azure Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
+# Respond to Microsoft Defender for Key Vault alerts
+When you receive an alert from [Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md), we recommend you investigate and respond to the alert as described below. Microsoft Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
 
-Alerts from Azure Defender for Key Vault includes these elements:
+Alerts from Microsoft Defender for Key Vault includes these elements:
 
 - Object ID
 - User Principal Name or IP address of the suspicious resource 
@@ -30,7 +30,7 @@ Depending on the *type* of access that occurred, some fields might not be availa
 1. If you can identify the source of the traffic in your tenant, contact the user or owner of the application. 
 
 > [!CAUTION]
-> Azure Defender for Key Vault is designed to help identify suspicious activity caused by stolen credentials. **Don't** dismiss the alert simply because you recognize the user or application. Contact the owner of the application or the user and verify the activity was legitimate. You can create a suppression rule to eliminate noise if necessary. Learn more in [Suppress alerts from Azure Defender](alerts-suppression-rules.md).
+> Microsoft Defender for Key Vault is designed to help identify suspicious activity caused by stolen credentials. **Don't** dismiss the alert simply because you recognize the user or application. Contact the owner of the application or the user and verify the activity was legitimate. You can create a suppression rule to eliminate noise if necessary. Learn more in [Suppress alerts from Azure Defender](alerts-suppression-rules.md).
 
 
 ## Step 2. Respond accordingly 
@@ -66,8 +66,8 @@ When you've compiled your list of the secrets, keys, and certificates that were 
 
 ## Next steps
 
-This page explained the process of responding to an alert from Azure Defender for Key Vault. For related information see the following pages:
+This page explained the process of responding to an alert from Microsoft Defender for Key Vault. For related information see the following pages:
 
-- [Introduction to Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
+- [Introduction to Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
 - [Continuously export Security Center data](continuous-export.md)

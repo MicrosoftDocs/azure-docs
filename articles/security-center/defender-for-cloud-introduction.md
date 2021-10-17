@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Defender for Cloud?
-description: This page describes Defender for Cloud's key benefits - monitoring and improving the security posture of your hybrid and multi cloud resources, and ensuring threats are detected wherever they occur
+description: This page describes Defender for Cloud's key benefits - monitoring and improving the security posture of your hybrid and multi-cloud resources, and ensuring threats are detected wherever they occur
 services: security-center
 author: memildin
 manager: rkarlin
@@ -13,7 +13,18 @@ ms.author: memildin
 ---
 # What is Microsoft Defender for Cloud?
 
-Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your cloud resources, and provides advanced threat protection across your hybrid and multi-cloud workloads.
+
+Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there is more customer responsibility than there was in PaaS (platform as a service) and SaaS (software as a service). Defender for Cloud provides the tools needed to harden your resources, secure your PaaS services, and make sure you're tracking your security posture.
+
+Defender for Cloud fills three vital needs as you manage the security of your cloud and on-premises resources:
+
+- **Continuous assessment** - Understand your current security posture
+- **Secure** - Harden all connected resources and services
+- **Defend** - Detect and resolve threats to those resources and services
+
+
+
 
 Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there is more customer responsibility than there was in PaaS (platform as a service), and SaaS (software as a service). Defender for Cloud provides the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
 
@@ -96,7 +107,7 @@ Security Center's threat protection includes fusion kill-chain analysis, which a
 
 ### Integration with Microsoft Defender for Endpoint
 
-Azure Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md)
+Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md)
 
 
 ### Protect PaaS
@@ -151,21 +162,21 @@ Azure Defender provides security alerts and advanced threat protection for virtu
 
 When you enable Azure Defender from the **Pricing and settings** area of Microsoft Defender for Cloud, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
 
-- [Azure Defender for servers](defender-for-servers-introduction.md)
-- [Azure Defender for App Service](defender-for-app-service-introduction.md)
-- [Azure Defender for Storage](defender-for-storage-introduction.md)
-- [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Azure Defender for container registries](defender-for-container-registries-introduction.md)
-- [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
-- [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
-- [Azure Defender for DNS](defender-for-dns-introduction.md)
-- [Azure Defender for open-source relational databases](defender-for-databases-introduction.md)
+- [Microsoft Defender for servers](defender-for-servers-introduction.md)
+- [Microsoft Defender for App Service](defender-for-app-service-introduction.md)
+- [Microsoft Defender for Storage](defender-for-storage-introduction.md)
+- [Microsoft Defender for SQL](defender-for-sql-introduction.md)
+- [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+- [Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md)
+- [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Microsoft Defender for DNS](defender-for-dns-introduction.md)
+- [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 
 > [!TIP]
-> Azure Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Azure Defender for IoT (Preview)](../defender-for-iot/overview.md). 
+> Microsoft Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT (Preview)](../defender-for-iot/overview.md). 
 
 ## Hybrid cloud protection
 
@@ -210,7 +221,7 @@ If you've enabled the [integration with Microsoft Defender for Endpoint](securit
 Review the findings from these vulnerability scanners and respond to them all from within Security Center. This brings Security Center closer to being the single pane of glass for all of your cloud security efforts.
 
 > [!IMPORTANT]
-> Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+> Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
 
 Learn more on the following pages:
 

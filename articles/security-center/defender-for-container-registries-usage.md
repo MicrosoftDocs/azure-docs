@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Defender for container registries
-description: Learn about using Azure Defender for container registries to scan Linux images in your Linux-hosted registries
+title: How to use Microsoft Defender for container registries
+description: Learn about using Microsoft Defender for container registries to scan Linux images in your Linux-hosted registries
 author: memildin
 ms.author: memildin
 ms.date: 10/21/2020
@@ -10,11 +10,11 @@ manager: rkarlin
 
 ---
 
-# Use Azure Defender for container registries to scan your images for vulnerabilities
+# Use Microsoft Defender for container registries to scan your images for vulnerabilities
 
 This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
 
-When **Azure Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
+When **Microsoft Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
 
 When the scanner reports vulnerabilities to Security Center, Security Center presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
@@ -26,7 +26,7 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
 
 To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
-1. Enable **Azure Defender for container registries** for your subscription. Security Center is now ready to scan images in your registries.
+1. Enable **Microsoft Defender for container registries** for your subscription. Security Center is now ready to scan images in your registries.
 
     >[!NOTE]
     > This feature is charged per image.
