@@ -11,7 +11,7 @@ ms.author: marayerm
 
 # Sign in to Storage Explorer
 
-Sign-in is the recommended way to access your Azure storage resources with Storage Explorer. By signing in you take advantage of Azure AD backed permissions, such as RBAC and Gen2 POSIX ACLs. 
+Sign-in is the recommended way to access your Azure storage resources with Storage Explorer. By signing in you take advantage of Azure AD backed permissions, such as RBAC and Gen2 POSIX ACLs.
 
 ## How to sign in
 
@@ -54,5 +54,5 @@ If you're having trouble signing in, or are having issues with an Azure account 
 
 ## Next steps
 
-* [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md)
-* [Troubleshoot sign in issues](./storage-explorer-troubleshooting.md#sign-in-issues)
+- [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md)
+- [Troubleshoot sign in issues](./storage-explorer-troubleshooting.md#sign-in-issues)

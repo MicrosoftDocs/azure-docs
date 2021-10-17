@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with AppNeta Performance Manager | Microsoft Docs"
+title: "Tutorial: Azure AD SSO integration with AppNeta Performance Manager"
 description: Learn how to configure single sign-on between Azure Active Directory and AppNeta Performance Manager.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 10/12/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with AppNeta Performance Manager
+# Tutorial: Azure AD SSO integration with AppNeta Performance Manager
 
 In this tutorial, you'll learn how to integrate AppNeta Performance Manager with Azure Active Directory (Azure AD). When you integrate AppNeta Performance Manager with Azure AD, you can:
 
@@ -32,9 +32,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-- AppNeta Performance Manager supports **SP** initiated SSO
-
-- AppNeta Performance Manager supports **Just In Time** user provisioning
+- AppNeta Performance Manager supports **SP** initiated SSO.
+- AppNeta Performance Manager supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -101,29 +100,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    | title     | user.jobtitle          |
    |           |                        |
 
-   > [!NOTE]
-   > **groups** refers to the security group in AppNeta Performance Manager that is mapped to a **Role** in Azure AD. For more information, see [App roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui), which explains how to create custom roles in Azure AD.  Rather than creating custom roles, most customers add a group claim in the AppNeta enterprise application for security groups with the source attribute group ID. To add a group claim:
+1. In order to properly pass along your ”groups” SAML assertions, you need to configure App roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager**.
 
-   1. Click **Edit** on **User Attributes & Claims**.
+   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-registrations.png)
 
-   1. Click **Add a group claim** at the top of the page.
+1. Click **App roles** in the left pane. The following screen will appear:
 
-      ![Screenshot that shows the Attributes & Claims pane with the add a group claim option selected.](./media/appneta-tutorial/add-a-group-claim.png)
+   ![Screenshot that shows the App Roles with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-roles.png)
 
-   1. Select **Security groups**.
+1. Click **Create App role**.
+1. On the **Create app role** screen, follow these steps:
+   1. In the **Display name** field, enter a name for the role.
+   1. In the **Allowed member types** field, select **Users/Groups**.
+   1. In the **Value** field, enter the value of the security group set in your AppNeta Performance Manager role mappings.
+   1. In the **Description** field, enter a description for the role.
+   1. Click **Apply**.
 
-   1. Set **Source attribute** as "Group ID".
+   ![Screenshot of the Create App Role dialog with the fields filled out as described. ](./media/appneta-tutorial/create-app-role.png)
 
-   1. Under **Advanced options**, select **Customize the name of the group claim** and enter “groups” in the **Name** field:
-
-      ![Screenshot that shows the Group Claims pane with security groups, source attribute, and advanced options selected.](./media/appneta-tutorial/specify-security-groups.png)
-
-   1. Click **Save**. This will send Group Object IDs of users when they sign into AppNeta Performance Manager via SSO. Role mappings should be configured using these object IDs and the relevant user role in AppNeta Performance Manager.
-
-      ![Screenshot that shows the details of a group claim, with the object ID selected.](./media/appneta-tutorial/object-id.png)
-
-      ![Screenshot that shows the Edit Identity Provider pane, with the security group number selected. ](./media/appneta-tutorial/edit-identity-provider.png)
-
+1. After creating the roles, you need to map them to your users/groups. Navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
+1. Select a user/group and then assign your desired App role (created in the previous step).
+1. Once you have mapped the App roles, navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/metadataxml.png)

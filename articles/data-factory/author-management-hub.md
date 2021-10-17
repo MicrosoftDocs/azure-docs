@@ -43,7 +43,7 @@ For more information, learn about [source control in Azure Data Factory](source-
 
 ### Parameterization template
 
-To override the generated Resource Manager template parameters when publishing from the collaboration branch, you can generate or edit a custom parameters file. For more information, learn how to [use custom parameters in the Resource Manager template](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). The parameterization template is only available when working in a git repository. If the *arm-template-parameters-definition.json* file doesn't exist in the working branch, editing the default template will generate it.
+To override the generated Resource Manager template parameters when publishing from the collaboration branch, you can generate or edit a custom parameters file. For more information, learn how to [use custom parameters in the Resource Manager template](continuous-integration-delivery-resource-manager-custom-parameters.md). The parameterization template is only available when working in a git repository. If the *arm-template-parameters-definition.json* file doesn't exist in the working branch, editing the default template will generate it.
 
 :::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="Manage custom params":::
 

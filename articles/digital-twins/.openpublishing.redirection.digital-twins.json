@@ -108,6 +108,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "how-to-set-up-instance-scripted.md",
+      "redirect_url": "https://github.com/Azure-Samples/digital-twins-samples/tree/master/scripts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-configure-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-postman",
       "redirect_document_id": true

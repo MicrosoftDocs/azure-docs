@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 03/23/2021
+ms.date: 09/27/2021
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -18,7 +18,7 @@ For detailed definitions of analytics terminology, see [Commercial marketplace a
 
 ## Marketplace Insights dashboard
 
-The [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) presents an overview of the Azure Marketplace and AppSource offers’ business performance. This dashboard provides a broad overview of the following:
+The [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) presents an overview of Azure Marketplace and AppSource offers’ business performance. This dashboard provides a broad overview of the following:
 
 - Page visits trend
 - Call to actions trend
@@ -31,17 +31,45 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 > [!NOTE]
 > The maximum latency between users visiting offers on Azure Marketplace or AppSource and reporting in Partner Center is 48 hours.
 
+## Access the Marketplace insights dashboard
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Marketplace insights**.
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Marketplace insights**.
+
+---
+
 ## Elements of the Marketplace Insights dashboard
 
 The Marketplace Insights dashboard displays web telemetry details for Azure Marketplace and AppSource in two separate tabs. The following sections describe how to use the Marketplace Insights dashboard and how to read the data.
 
-To access the **Marketplace Insights** dashboard in Partner Center, under Commercial Marketplace, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Marketplace Insights**.
-
 ### Month range
+
+#### [Workspaces view](#tab/workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+[ ![Illustrates the month filters on the Marketplace Insights dashboard.](./media/insights-dashboard/marketplace-insights-filters.png) ](./media/insights-dashboard/marketplace-insights-filters.png#lightbox)
+
+#### [Current view](#tab/current-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/insights-dashboard/month-filters.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
+
+---
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
@@ -90,7 +118,7 @@ By selecting a specific campaign ID, you should be able to understand the succes
 
 For the selected computation period, the heatmap displays the count of page visits, unique visitors, and calls to action (CTA). The light to dark color on the map represents the low to high value of the unique visitors. Select a record in the table to zoom in on a country/region.
 
-:::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Illustrates the geographical spread chart on the Marketplace Insights dashboard.":::
+[ ![Illustrates the geographical spread chart on the Marketplace Insights dashboard.](./media/insights-dashboard/geographical-spread.png) ](./media/insights-dashboard/geographical-spread.png#lightbox)
 
 Note the following:
 

@@ -31,7 +31,7 @@ landingContent:
             url: use-cases-scenarios.md 
       - linkListType: concept
         links:
-          - text: Virtual machines
+          - text: Build with Enclaves 
             url: confidential-computing-enclaves.md
           - text: Container computing on AKS
             url: confidential-containers.md
@@ -41,8 +41,10 @@ landingContent:
             url: attestation.md 
       - linkListType: reference
         links:
-          - text: Intel SGX virtual machines
+          - text: DCsv2-series Virtual Machines
             url: ../virtual-machines/dcv2-series.md
+          - text: DCsv3 and DCdsv3-series Virtual Machines
+            url: ../virtual-machines/dcv3-series.md
 
 
   # Card (optional)
@@ -58,9 +60,9 @@ landingContent:
             url: virtual-machine-solutions-sgx.md
       - linkListType: quickstart
         links:
-          - text: Deploy in the Azure Portal
+          - text: Create Intel SGX VM in the Azure Portal
             url: quick-create-portal.md
-          - text: Deploy in the Azure Marketplace
+          - text: Create Intel SGX VM in the Azure Marketplace
             url: quick-create-marketplace.md
       - linkListType: reference
         links:

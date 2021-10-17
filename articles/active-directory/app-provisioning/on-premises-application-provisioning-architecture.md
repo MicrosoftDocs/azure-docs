@@ -3,7 +3,7 @@ title: 'Azure AD on-premises application provisioning architecture | Microsoft D
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -154,6 +154,3 @@ You can also check whether all the required ports are open.
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)

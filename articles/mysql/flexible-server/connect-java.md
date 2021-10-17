@@ -82,7 +82,7 @@ az mysql flexible-server create \
     | jq
 ```
 
-Make sure your enter <YOUR-IP-ADDRESS> in order to access the server from your local machine. This command creates a Burstable Tier MySQL flexible server suitable for development.
+Make sure your enter \<YOUR-IP-ADDRESS\> in order to access the server from your local machine. This command creates a Burstable Tier MySQL flexible server suitable for development.
 
 The MySQL server that you created has a empty database called **flexibleserverdb**. We will use this database for this article.
 

@@ -403,4 +403,4 @@ See the following tutorials for step-by-step instructions for creating pipelines
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
 
 How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory
-- [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md)
+- [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md)

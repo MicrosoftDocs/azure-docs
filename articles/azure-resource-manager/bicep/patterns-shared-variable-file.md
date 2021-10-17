@@ -18,7 +18,7 @@ Furthermore, when you work with variables defined as arrays, you might have a se
 
 ## Solution
 
-Create a JSON file that includes the variables you need to share. Use the `json()` and `loadTextContent()` Bicep functions to load the file and access the variables. For array variables, use the `concat()` function to combine the shared values with any custom values for the specific resource.
+Create a JSON file that includes the variables you need to share. Use the [`json()` function](bicep-functions-object.md#json) and [`loadTextContent()` function](bicep-functions-files.md#loadtextcontent) to load the file and access the variables. For array variables, use the [`concat()` function](bicep-functions-array.md#concat) to combine the shared values with any custom values for the specific resource.
 
 ## Example 1: Naming prefixes
 

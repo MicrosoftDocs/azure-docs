@@ -80,7 +80,7 @@ This example will allow you to securely initiate a request to invoke a Direct Me
 To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature.
 
 ```bash
-az iot hub generate-sas-token -n <iothubName> -du <duration>
+az iot hub generate-sas-token -n <iothubName> --du <duration>
 ```
 
 Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.  

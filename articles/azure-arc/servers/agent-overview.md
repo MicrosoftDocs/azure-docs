@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/14/2021
+ms.date: 10/12/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ The Azure Arc-enabled servers Connected Machine agent enables you to manage your
 
 ## Agent component details
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc–enabled servers agent overview." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc-enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
@@ -92,9 +92,8 @@ The following versions of the Windows and Linux operating system are officially 
 
 > [!NOTE]
 > While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distro:
-> * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
+> * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
-> * VM insights
 
 ### Software requirements
 
@@ -114,56 +113,6 @@ The following versions of the Windows and Linux operating system are officially 
 Before configuring your machines with Azure Arc-enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
 Azure Arc-enabled servers supports up to 5,000 machine instances in a resource group.
-
-### Transport Layer Security 1.2 protocol
-
-To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.
-
-|Platform/Language | Support | More Information |
-| --- | --- | --- |
-|Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support. | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
-| Windows Server 2012 R2 and higher | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings).|
-
-### Networking configuration
-
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
-
-> [!NOTE]
-> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
->
-
-If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
-
-Service Tags:
-
-* AzureActiveDirectory
-* AzureTrafficManager
-* AzureResourceManager
-* AzureArcInfrastructure
-* Storage
-
-URLs:
-
-| Agent resource | Description |
-|---------|---------|
-|`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`dc.services.visualstudio.com`|Application Insights|
-|`*.guestconfiguration.azure.com` |Guest configuration|
-|`*.his.arc.azure.com`|Hybrid Identity Service|
-|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-
-Preview agents (version 0.11 and lower) also require access to the following URLs:
-
-| Agent resource | Description |
-|---------|---------|
-|`agentserviceapi.azure-automation.net`|Guest configuration|
-|`*-agentservice-prod-1.azure-automation.net`|Guest configuration|
-
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
-
-For more information, review [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ### Register Azure resource providers
 
@@ -192,6 +141,52 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+
+### Transport Layer Security 1.2 protocol
+
+To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.
+
+|Platform/Language | Support | More Information |
+| --- | --- | --- |
+|Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support. | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
+| Windows Server 2012 R2 and higher | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings).|
+
+## Networking configuration
+
+The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
+
+To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](private-link-security.md) (preview).
+
+> [!NOTE]
+> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
+>
+
+If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
+
+Service Tags:
+
+* AzureActiveDirectory
+* AzureTrafficManager
+* AzureResourceManager
+* AzureArcInfrastructure
+* Storage
+
+URLs:
+
+| Agent resource | Description |
+|---------|---------|
+|`management.azure.com`|Azure Resource Manager|
+|`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
+|`pas.windows.net`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`*.guestconfiguration.azure.com` |Guest configuration|
+|`*.his.arc.azure.com`|Hybrid Identity Service|
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
+
+For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+
+For more information, review [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ## Installation and configuration
 

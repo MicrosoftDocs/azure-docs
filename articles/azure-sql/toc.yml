@@ -104,8 +104,10 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
-        - name: Azure AD-only Authentication
+        - name: Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication.md
+        - name: Azure Policy for Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-policy.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -199,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Enforce Azure AD-only authentication using Azure Policy
+          href: database/authentication-azure-ad-only-authentication-policy-how-to.md
         - name: Create server with Azure AD-only authentication enabled
           href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
@@ -286,7 +290,7 @@
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+      href: database/doc-changes-updates-release-notes-whats-new.md
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
@@ -305,7 +309,7 @@
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
       - name: Hyperscale replicas
-        href: database/service-tier-hyperscale-replicas.md        
+        href: database/service-tier-hyperscale-replicas.md
       - name: Hyperscale replicas FAQ
         href: database/service-tier-hyperscale-named-replicas-faq.yml
       - name: vCore
@@ -791,7 +795,7 @@
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+      href: managed-instance/doc-changes-updates-release-notes-whats-new.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
@@ -1015,7 +1019,7 @@
           - name: Convert R code for SQL Server
             href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Create a stored procedure using sqlrutils 
-            href: /machine-learning-server/r-reference/sqlrutils/how-to-create-a-stored-procedure-from-r
+            href: /sql/machine-learning/r/reference/sqlrutils/how-to-create-stored-procedure-from-r
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
@@ -1153,7 +1157,7 @@
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
       - name: What's new?
-        href: virtual-machines/windows/doc-changes-updates-release-notes.md
+        href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - name: Quickstarts
       items:
       - name: Portal
@@ -1480,6 +1484,8 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
     items:
+    - name: Known issues with SQL Managed Instance 
+      href: managed-instance/doc-changes-updates-known-issues.md
     - name: Capacity errors during deployment
       href: capacity-errors-troubleshoot.md
     - name: Connectivity errors

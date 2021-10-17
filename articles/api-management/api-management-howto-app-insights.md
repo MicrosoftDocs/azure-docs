@@ -3,13 +3,13 @@ title: Integrate Azure API Management with Azure Application Insights
 titleSuffix: Azure API Management
 description: Learn how to log and view events from Azure API Management in Azure Application Insights.
 services: api-management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 
