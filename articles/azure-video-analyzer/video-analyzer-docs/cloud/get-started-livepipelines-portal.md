@@ -14,7 +14,6 @@ You'll create an Azure Video Analyzer account and its accompanying resources by 
 The steps outlined in this document apply to cameras that are made accessible over the internet, and not shielded behind a firewall. The following diagram graphically represents the live [pipeline](../pipeline.md) that you will deploy to your Video Analyzer account.
 
 > :::image type="content" source="./media/live-pipeline.png" alt-text="Diagram of a live pipeline that captures live videos on the cloud.":::
-<ToDo Diagram to be updated>
 
 ## Prerequisites
 
@@ -26,7 +25,7 @@ The steps outlined in this document apply to cameras that are made accessible ov
 
 ## Sample Architecture - Recording video from a camera over the internet
 
-> :::image type="content" source="./media/public-camera-to-cloud-livepipeline-sample.png" alt-text="Diagram of a live pipeline that captures live videos on the cloud.":::
+> :::image type="content" source="./media/public-camera-to-cloud-livepipeline-sample.png" alt-text="Diagram of a sample architecture of a public camera video feed integrating with Video Analyzer's live pipeline that captures videos on the cloud.":::
 
 ## RTSP camera
 
@@ -44,9 +43,9 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 > Please note that this RTSP camera simulator endpoint is exposed over the internet, and hence will be accessible to anyone who knows the RTSP URL.
 
 **Deployment steps:**
-1. Deploy an standard D2 series Azure Linux VM, [see here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal).
-1. Setup its networking configuration by going to VM Networking settings: 
-    - Add inbound port rule: Set Destination port as 554, Protocol as any, ‘Allow’ Action for RTSP stream with other default values [see details here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal)
+1. Deploy an standard D2 series Azure Linux VM, [see here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
+1. Setup its networking configuration by going to VM Networking settings:
+    - Add inbound port rule: Set Destination port as 554, Protocol as any, ‘Allow’ Action for RTSP stream with other default values [see details here](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)
     - Also associate/pair a default subnet with VM’s NSG
 1. Install docker on the VM using instructions [here](https://docs.docker.com/engine/install/ubuntu/)
 1. Open terminal. Create <localfolder> on host VM, this folder will be used to map your host VM local folder to RTSP mediaserver container.
