@@ -92,7 +92,7 @@ const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 ```
 
-`### Select a code sample to copy and paste into your application:
+### Select a code sample to copy and paste into your application:
 
 * [**General document**](#try-it-general-document-model)
 
