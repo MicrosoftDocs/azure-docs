@@ -112,11 +112,10 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. It’s status will indicate **Is in use** as pipeline is active and recording.
 1. After a few seconds, click on the video, and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 
->    :::image type="content" source="./media/camera1800smkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+> :::image type="content" source="./media/camera1800smkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
 
 > [!NOTE]
 > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency.
-
 6. If necessary, refer Activity log to quickly verify your deployment operations.
 7. To deactivate the pipeline recording go to Video Analyzer portal blade, select on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then click **Deactivate** in pipeline grid, this will stop the recording. 
 8. You can also proceed to delete the pipeline & topology if they are not needed.
