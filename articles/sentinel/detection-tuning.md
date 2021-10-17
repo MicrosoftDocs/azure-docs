@@ -29,19 +29,27 @@ Any rules that have recommendations will display a lightbulb icon, as shown here
 
 Edit the rule to view the recommendations along with the other insights. They will appear together on the **Set rule logic** tab of the analytics rule wizard, below the **Results simulation** display.
 
+:::image type="content" source="media/detection-tuning/tuning-insights.png" alt-text="Screenshot of tuning insights in analytics rule." lightbox="media/detection-tuning/tuning-insights.png":::
+
 ### Types of insights
 
 The **Tuning insights** display consists of several panes that you can scroll or swipe through, each showing you something different. The time frame - 14 days - for which the insights are displayed is shown at the top of the frame.
 
 1. The first insight pane displays some statistical information - the average number of alerts per incident, the number of open incidents, and the number of closed incidents, grouped by classification (true/false positive). This insight helps you figure out the load on this rule, and understand if any tuning is required - for example, if the grouping settings need to be adjusted.
 
-    This insight is the result of a Log Analytics query. Selecting any of the numbers will take you to the query in Log Analytics that produced the insight.
+    :::image type="content" source="media/detection-tuning/rule-efficiency.png" alt-text="Screenshot of rule efficiency insight.":::
+
+    This insight is the result of a Log Analytics query. Selecting **Average alerts per incident** will take you to the query in Log Analytics that produced the insight. Selecting **Open incidents** will take you to the **Incidents** blade.
 
 1. The second insight pane recommends for you a list of [entities](entities-in-azure-sentinel.md) to be excluded. These entities are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
+
+    :::image type="content" source="media/detection-tuning/entity-exclusion.png" alt-text="Screenshot of entity exclusion recommendation.":::
 
     This recommendation is produced by Microsoft's advanced data science and machine learning models. This pane's inclusion in the **Tuning insights** display is dependent on there being any recommendations to show.
 
 1. The third insight pane shows the four most frequently-appearing mapped entities across all alerts produced by this rule. Entity mapping must be configured on the rule for this insight to produce any results. This insight might help you become aware of any entities that are "hogging the spotlight" and drawing attention away from other ones. You might want to handle these entities separately in a different rule, or you might decide that they are false positives or otherwise noise, and exclude them from the rule.
+
+    :::image type="content" source="media/detection-tuning/top-entities.png" alt-text="Screenshot of top entities insight.":::
 
     This insight is the result of a Log Analytics query. Selecting any of the entities will take you to the query in Log Analytics that produced the insight.
 
