@@ -27,7 +27,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: doc-changes-updates-release-notes.md?tabs=single-database        
+            url: doc-changes-updates-release-notes-whats-new.md
       - linkListType: quickstart
         links:
           - text: Create SQL Database
