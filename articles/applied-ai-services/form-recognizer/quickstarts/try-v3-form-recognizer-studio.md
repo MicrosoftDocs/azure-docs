@@ -3,7 +3,7 @@ title: "Quickstart: Form Recognizer Studio | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Studio (preview)
 author: sanjeev3
-manager: nitinme
+manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
@@ -28,10 +28,27 @@ ms.author: sajagtap
 In addition to the Azure account and a Form Recognizer or Cognitive Services resource, you'll need:
 
 ### Azure Blob Storage container
+
 A **standard performance** [**Azure Blob Storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
   * [**Create a storage account**](/azure/storage/common/storage-account-create). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
   * [**Create a container**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
+
+### Configure CORS
+
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
+
+:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+1. Select the CORS blade for the storage account.
+2. Start by creating a new CORS entry in the Blob service.
+3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+4. Select all the available 8 options for **Allowed methods**.
+5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+6. Set the **Max Age** to 120 seconds or any acceptable value.
+7. Click the save button at the top of the page to save the changes.
+
+CORS should now be configured to use the storage account from Form Recognizer Studio.
 
 ### Sample documents set
 
@@ -64,7 +81,7 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. Review and confirm your selections.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-get-started.gif" alt-text="Form Recognizer Studio Getting Started example":::
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-get-started-v2.gif" alt-text="Form Recognizer Studio Getting Started example":::
 
 ## Layout
 
@@ -80,7 +97,7 @@ In the Layout view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-:::image border="true" type="content" source="../media/quickstarts/layout-get-started-fixed.gif" alt-text="Form Recognizer Layout example":::
+:::image border="true" type="content" source="../media/quickstarts/layout-get-started-v2.gif" alt-text="Form Recognizer Layout example":::
 
 ## Prebuilt models
 
@@ -96,9 +113,9 @@ In the Prebuilt view:
 
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
-:::image border="true" type="content" source="../media/quickstarts/prebuilt-get-started-fixed.gif" alt-text="Form Recognizer Prebuilt example":::
+:::image border="true" type="content" source="../media/quickstarts/prebuilt-get-started-v2.gif" alt-text="Form Recognizer Prebuilt example":::
 
-## Custom models
+## Custom model basics
 
 ### Getting started
 
@@ -108,29 +125,27 @@ To create custom models, you start with configuring your project:
 
 1. Use the "Create a project" command to start the new project configuration wizard.
 
-1. Enter project details, select the Azure subscription and resource, and the Azure Blob storage container with your data.
+1. Enter project details, select the Azure subscription and resource, and the Azure Blob storage container that contains your data.
 
 1. Review and submit your settings to create the project.
 
-:::image border="true" type="content" source="../media/quickstarts/1-custom-model-get-started.gif" alt-text="Form Recognizer Custom project Getting Started example":::
+:::image border="true" type="content" source="../media/quickstarts/1-custom-model-get-started-v2.gif" alt-text="Form Recognizer Custom project Getting Started example":::
 
 ### Basic flow
 
 After the project creation step, in the custom model phase:
 
-1. From the labeling view, start defining the labels and their types that you are interested in extracting.
+1. From the labeling view, define the labels and their types that you are interested in extracting.
 
-1. Assign the labels to the corresponding content by selecting it and the applicable label from the drop-down list or by clicking the same label in the labels pane.
+1. Select the text in the document and click the label from the drop-down list or the labels pane.
 
 1. Label four more documents to get at least five documents labeled.
 
 1. Select the Train command and enter model name and description to start training your custom model.
 
-1. Once the model is ready, use the Test command to validate the mode with your test documents and observe the results.
+1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
-1. Iterate on the steps to improve your model.
-
-:::image border="true" type="content" source="../media/quickstarts/2-custom-model-basic-steps.gif" alt-text="Form Recognizer Custom project basic workflow":::
+:::image border="true" type="content" source="../media/quickstarts/2-custom-model-basic-steps-v2.gif" alt-text="Form Recognizer Custom project basic workflow example":::
 
 ### Other features
 
@@ -144,7 +159,54 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 1. Select multiple models and compose them into a new model to be used in your applications.
 
+## Labeling as tables
+
+While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
+
+* Dynamic or variable count of values (rows) for a given set of fields (columns)
+
+* Specific collection of values for a given set of fields (columns and/or rows)
+
+### Label as dynamic table
+
+Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
+
+1. Add a new "Table" type label, select "Dynamic table" type, and name your label.
+
+1. Add the number of columns (fields) and rows (for data) that you need.
+
+1. Select the text in your page and then click the cell to assign to the text. Repeat for all rows and columns in all pages in all documents.
+
+:::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Form Recognizer labeling as dynamic table example":::
+
+### Label as fixed table
+
+Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
+
+1. Create a new "Table" type label, select "Fixed table" type, and name it.
+
+1. Add the number of columns and rows that you need corresponding to the two sets of fields.
+
+1. Select the text in your page and then click the cell to assign it to the text. Repeat for other documents.
+
+:::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
+
+## Labeling for signature detection
+
+To label for signature detection:
+
+1. In the labeling view, create a new "Signature" type label and name it.
+
+1. Use the Region command to create a rectangular region at the expected location of the signature.
+
+1. Select the drawn region and click the Signature type label to assign it to your drawn region. Repeat for other documents.
+
+:::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Form Recognizer labeling for signature detection example":::
 
 ## Next steps
+
+* Follow our [**Form Recognizer v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Explore our [**preview SDK quickstarts**](try-v3-python-sdk.md) to try the preview features in your applications using the new SDKs.
+* Refer to our [**preview REST API quickstarts**](try-v3-rest-api.md) to try the preview features using the new RESt API.
 
 [Get started with the Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).

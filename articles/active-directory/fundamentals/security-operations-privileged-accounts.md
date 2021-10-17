@@ -47,7 +47,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be pushed to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 * Microsoft Graph - you can export the data and user MS Graph to do more analysis. For more information on MS Graph, visit [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md). 
 
