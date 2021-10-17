@@ -143,7 +143,7 @@ To enable auto provisioning of the Log Analytics agent:
 Selecting a data collection tier in Microsoft Defender for Cloud only affects the *storage* of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Security Center’s threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
 
 ### Requirements 
-Azure Defender is required for storing Windows security event data. [Learn more about Azure Defender](azure-defender.md).
+The enhanced security protections of Defender for Cloud are required for storing Windows security event data. Learn more about [the enhanced protection plans](defender-for-cloud-introduction.md).
 
 Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 

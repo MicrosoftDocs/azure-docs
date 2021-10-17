@@ -22,7 +22,7 @@ In this tutorial you'll learn how to:
 > * Configure an application control policy
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Azure Defender enabled. A free trial is available. To upgrade, see [Enable Azure Defender](enable-azure-defender.md).
+To step through the features covered in this tutorial, you must have Azure Defender enabled. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).
 
 ## Manage VM access
 JIT VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.

@@ -40,7 +40,7 @@ To scan your images as they're pushed by CI/CD workflows into your registries, y
 
 To enable vulnerability scans of images in your GitHub workflows:
 
-[Step 1. Enable the CI/CD integration in Defender for Cloud](#step-1-enable-the-cicd-integration-in-security-center)
+[Step 1. Enable the CI/CD integration in Defender for Cloud](#step-1-enable-the-cicd-integration-in-defender-for-cloud)
 
 [Step 2. Add the necessary lines to your GitHub workflow](#step-2-add-the-necessary-lines-to-your-github-workflow-and-perform-a-scan)
 
@@ -131,5 +131,4 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure Defender](azure-defender.md)
+Learn more about [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md).

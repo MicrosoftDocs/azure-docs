@@ -20,7 +20,7 @@ This article provides a sample PowerShell script that can be modified and used i
 
 In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by enabling Azure Defender, which provides advanced threat protection and detection capabilities:
 
-1. Enable [Azure Defender](azure-defender.md). 
+1. Enable [the enhanced security in Microsoft Defender](enable-enhanced-security.md).
  
 2. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 

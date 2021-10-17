@@ -58,4 +58,4 @@ To take full advantage of Security Center, continue with the next steps of the q
 In this quickstart you enabled Azure Security Center. The next step is to enable Azure Defender for unified security management and threat protection across your hybrid cloud workloads.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Enable Azure Defender](enable-azure-defender.md)
+> [Quickstart: Enable enhanced protections](enable-enhanced-security.md)

@@ -16,11 +16,11 @@ manager: rkarlin
 
 Defender for Cloud is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.
 
-To protect your Azure App Service plan with Azure Defender for App Service, you'll need:
+To protect your Azure App Service plan with Microsoft Defender for App Service, you'll need:
 
 - A supported App Service plan associated with dedicated machines. Supported plans are listed in [Availability](#availability).
 
-- Azure Defender enabled on your subscription as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+- Defender for Cloud's enhanced protections enabled on your subscription as described in [Quickstart: Enable enhanced protections](enable-enhanced-security.md).
 
     > [!TIP]
     > You can optionally enable individual plans in Azure Defender (like Azure Defender for App Service).
@@ -30,7 +30,7 @@ To protect your Azure App Service plan with Azure Defender for App Service, you'
 | Aspect                       | Details                                                                                                                                                                                        |
 |------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:               | General availability (GA)                                                                                                                                                                      |
-| Pricing:                     | [Azure Defender for App Service](azure-defender.md) is billed as shown on [Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/security-center/)<br>Billing is according to total compute instances in all plans       |
+| Pricing:                     | Azure Defender for App Service is billed as shown on [Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/security-center/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [All App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are supported except [Azure Functions on the consumption plan](../azure-functions/functions-scale.md). |
 | Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)                                                     |
 |                              |                                                                                                                                                                                                |
@@ -90,7 +90,7 @@ For a full list of the Azure App Service alerts, see the [Reference table of ale
 In this article, you learned about Azure Defender for App Service. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
 For related material, see the following articles: 
 

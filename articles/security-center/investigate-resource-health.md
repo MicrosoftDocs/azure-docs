@@ -17,7 +17,7 @@ ms.author: memildin
 > [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|**Azure Defender for DNS** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)
 
-The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using any of [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), you can see outstanding security alerts for that specific resource too.
 
 This single page, currently in preview, in Security Center's portal pages shows:
 

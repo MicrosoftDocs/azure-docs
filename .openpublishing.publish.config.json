@@ -825,6 +825,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.data-factory.json",
+    ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",

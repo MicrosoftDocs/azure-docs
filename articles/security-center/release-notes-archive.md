@@ -41,7 +41,7 @@ Updates in April include:
 
 Security Center's resource health has been expanded, enhanced, and improved to provide a snapshot view of the overall health of a single resource. 
 
-You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
+You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), you can see outstanding security alerts for that specific resource too.
 
 To open the resource health page for a resource, select any resource from the [asset inventory page](asset-inventory.md).
 

@@ -78,7 +78,7 @@ To investigate security alerts from Azure Defender for Resource Manager:
 In this article, you learned about Azure Defender for Resource Manager. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
 For related material, see the following article: 
 

@@ -12,13 +12,13 @@ ms.author: memildin
 
 Security Center generates alerts for resources deployed on your Azure, on-premises, and hybrid cloud environments.
 
-Security alerts are triggered by advanced detections and are available only with Azure Defender. You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+Security alerts are triggered by advanced detections and are available only with Azure Defender. You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable enhanced protections](enable-enhanced-security.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## What are security alerts and security incidents? 
 
 **Alerts** are the notifications that Security Center generates when it detects threats on your resources. Security Center prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Security Center also provides detailed steps to help you remediate attacks. Alerts data is retained for 90 days.
 
-**A security incident** is a collection of related alerts, instead of listing each alert individually. Security Center uses [Cloud smart alert correlation](#cloud-smart-alert-correlation-in-azure-security-center-incidents) to correlate different alerts and low fidelity signals into security incidents.
+**A security incident** is a collection of related alerts, instead of listing each alert individually. Security Center uses [Cloud smart alert correlation (incidents)](#cloud-smart-alert-correlation-incidents) to correlate different alerts and low fidelity signals into security incidents.
 
 Using incidents, Security Center provides you with a single view of an attack campaign and all of the related alerts. This view enables you to quickly understand what actions the attacker took, and what resources were affected.
 
@@ -86,7 +86,7 @@ You have a range of options for viewing your alerts outside of Security Center, 
 
 Learn about all of the export options in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md) and [Continuously export Security Center data](continuous-export.md).
 
-## Cloud smart alert correlation in Microsoft Defender for Cloud (incidents)
+## Cloud smart alert correlation (incidents)
 
 Microsoft Defender for Cloud continuously analyzes hybrid cloud workloads by using advanced analytics and threat intelligence to alert you about malicious activity.
 

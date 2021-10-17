@@ -91,7 +91,7 @@ If your cluster is deployed on an Azure Kubernetes Service virtual machine scale
 In this article, you learned about Security Center's Kubernetes protection including Azure Defender for Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
 For related material, see the following articles: 
 

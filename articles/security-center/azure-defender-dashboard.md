@@ -40,9 +40,9 @@ The dashboard includes the following sections:
 
 ## Next steps
 
-In this article, you learned about the Azure Defender dashboard. 
+In this article, you learned about the workload protections dashboard. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
-For more on Azure Defender, see [Introduction to Azure Defender](azure-defender.md)
+For more on the advanced protections of Microsoft Defender, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)

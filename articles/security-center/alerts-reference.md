@@ -524,7 +524,7 @@ Azure Defender alerts for container hosts aren't limited to the alerts below. Ma
 
 ## <a name="alerts-fusion"></a>Security incident alerts
 
-[Further details and notes](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
+[Further details and notes](security-center-alerts-overview.md#cloud-smart-alert-correlation-incidents)
 
 | Alert                                                | Description                                                                                                                                                                         | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|

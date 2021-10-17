@@ -114,4 +114,4 @@ In this tutorial, you learned about Defender for Cloud features to be used when 
 
 - [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
 - [Security alerts - a reference guide](alerts-reference.md)
-- [Introduction to Azure Defender](azure-defender.md)
+- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)

@@ -65,4 +65,4 @@ Threat intelligence enriched security alerts are triggered when there are:
 In this article, you learned about Azure Defender for open-source relational databases.
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)

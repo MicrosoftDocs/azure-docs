@@ -10,7 +10,7 @@ ms.author: memildin
 ---
 
 # Additional threat protections in Microsoft Defender for Cloud
-As well as the built-in [Azure Defender protections](azure-defender.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
+As well as the built-in [advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
 
 > [!TIP]
 > To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads.

@@ -78,7 +78,7 @@ Select **VIEW** for additional information and options such as:
 Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
 
 > [!NOTE]
-> Enable **Azure Defender** at the subscription level for the discovered solutions feature. Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+> Enable **advanced protections** at the subscription level for the discovered solutions feature. Learn more in [Quickstart: Enable enhanced protections](enable-enhanced-security.md).
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 

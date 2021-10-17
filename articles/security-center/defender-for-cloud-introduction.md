@@ -1,33 +1,28 @@
 ---
-title: What is Azure Security Center?| Microsoft Docs
-description: This page describes Security Center's key benefits - discovering your security state, and improving it with coverage of cloud and on-premises resources.
+title: What is Microsoft Defender for Cloud?
+description: This page describes Defender for Cloud's key benefits - monitoring and improving the security posture of your hybrid and multi cloud resources, and ensuring threats are detected wherever they occur
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 10/17/2021
 ms.author: memildin
 
 ---
-# What is Azure Security Center?
+# What is Microsoft Defender for Cloud?
 
-Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
-Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there is more customer responsibility than there was in PaaS (platform as a service), and SaaS (software as a service). Azure Security Center provides you the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
+Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there is more customer responsibility than there was in PaaS (platform as a service), and SaaS (software as a service). Defender for Cloud provides the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
 
-Azure Security Center addresses the three most urgent security challenges:
+Defender for Cloud addresses the three most urgent security challenges:
 
--   **Rapidly changing workloads** – It's both a strength and a challenge of the cloud. On the one hand, end users are empowered to do more. On the other, how do you make sure that the ever-changing services people are using and creating are up to your security standards and follow security best
+-   **Workloads are Rapidly changing** – It's both a strength and a challenge of the cloud. On the one hand, end users are empowered to do more. On the other, how do you make sure that the ever-changing services people are using and creating are up to your security standards and follow security best
     practices?
 
--   **Increasingly sophisticated attacks** - Wherever you run your workloads, the attacks keep getting more sophisticated. You have to secure your public cloud workloads, which are, in effect, an Internet facing workload that can leave you even more vulnerable if you don't follow security best practices.
+-   **Attacks are increasing in their sophistication** - Wherever you run your workloads, the attacks keep getting more sophisticated. You have to secure your public cloud workloads, which are, in effect, an Internet facing workload that can leave you even more vulnerable if you don't follow security best practices.
 
 -   **Security skills are in short supply** - The number of security alerts and alerting systems far outnumbers the number of administrators with the necessary background and experience to make sure your environments are protected. Staying up-to-date with the latest attacks is a constant challenge, making it impossible to stay in place while the world of security is an ever-changing front.
 
@@ -129,6 +124,123 @@ Security Center provides seamless, native integration with Azure and Azure resou
 
 Extensive log collection - logs from Windows and Linux are all leveraged in the security analytics engine and used to create recommendations and alerts.
 
+
+
+
+
+
+
+
+
+
+## Introduction to Azure Defender
+
+Microsoft Defender for Cloud's features cover the two broad pillars of cloud security:
+
+- **Cloud security posture management (CSPM)** - Security Center is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these CSPM features to strengthen your hybrid cloud posture and track compliance with the built-in policies.
+
+- **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the [Azure Security Benchmark](/security/benchmark/azure/introduction) for a truly customized view of your compliance.
+
+The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
+
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+
+## What resource types can Azure Defender secure?
+
+Azure Defender provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more.
+
+When you enable Azure Defender from the **Pricing and settings** area of Microsoft Defender for Cloud, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
+
+- [Azure Defender for servers](defender-for-servers-introduction.md)
+- [Azure Defender for App Service](defender-for-app-service-introduction.md)
+- [Azure Defender for Storage](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Azure Defender for container registries](defender-for-container-registries-introduction.md)
+- [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender for DNS](defender-for-dns-introduction.md)
+- [Azure Defender for open-source relational databases](defender-for-databases-introduction.md)
+
+Each of these plans is explained separately in the Security Center documentation.
+
+> [!TIP]
+> Azure Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Azure Defender for IoT (Preview)](../defender-for-iot/overview.md). 
+
+## Hybrid cloud protection
+
+As well as defending your Azure environment, you can add Azure Defender capabilities to your hybrid cloud environment:
+
+- Protect your non-Azure servers
+- Protect your virtual machines in other clouds (such as AWS and GCP)
+
+You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
+
+To extend protection to virtual machines and SQL databases that are in other clouds or on-premises, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender. Azure Arc for servers is a free service, but services that are used on Azure Arc-enabled servers, for example Azure Defender, will be charged as per the pricing for that service. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
+
+> [!TIP]
+> The native connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
+
+
+
+## Azure Defender security alerts 
+
+When Azure Defender detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.
+
+Whether an alert is generated by Security Center, or received by Security Center from an integrated  security product, you can export it. To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
+
+> [!NOTE]
+> Alerts from different sources might take different amounts of time to appear. For example, alerts that require analysis of network traffic might take longer to appear than alerts related to suspicious processes running on virtual machines.
+
+
+## Azure Defender advanced protection capabilities
+
+Azure Defender uses advanced analytics for tailored recommendations related to your resources. 
+
+Protections include securing the management ports of your VMs with just-in-time access and adaptive application controls to create allow lists for what apps should and shouldn't run on your machines. 
+
+Use the advanced protection tiles in the Azure Defender dashboard to monitor and configure each of these protections. 
+
+## Vulnerability assessment and management
+
+Azure Defender includes vulnerability assessment for your virtual machines and container registries at no extra cost. Some of the scanners are powered by Qualys but you don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. 
+
+If you've enabled the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+
+Review the findings from these vulnerability scanners and respond to them all from within Security Center. This brings Security Center closer to being the single pane of glass for all of your cloud security efforts.
+
+> [!IMPORTANT]
+> Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Azure Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+
+Learn more on the following pages:
+
+- [Azure Defender's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
+- [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Next steps
 
 - To get started with Security Center, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
@@ -136,3 +248,6 @@ Extensive log collection - logs from Windows and Linux are all leveraged in the 
 - Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must enable Azure Defender. Azure Defender can be tried for free for 30 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
 - If you're ready to enable Azure Defender now, [Quickstart: Setting up Azure Security Center](security-center-get-started.md) walks you through the steps.
+
+> [!div class="nextstepaction"]
+> [Enable Microsoft Defender plans](enable-enhanced-security.md)

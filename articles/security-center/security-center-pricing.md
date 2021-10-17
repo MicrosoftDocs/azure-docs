@@ -12,7 +12,7 @@ ms.date: 09/19/2021
 # Azure Security Center free vs Azure Defender enabled
 Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
 
-You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md). For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable enhanced protections](enable-enhanced-security.md). For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## What are the benefits of enabling Azure Defender?
 
@@ -68,7 +68,7 @@ You can use any of the following ways to enable Azure Defender for your subscrip
 
 | Method                                          | Instructions                                                                                                                                       |
 |-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Security Center pages of the Azure portal | [Enable Azure Defender](enable-azure-defender.md)                                                                                                  |
+| Azure Security Center pages of the Azure portal | [Enable enhanced protections](enable-enhanced-security.md)                                                                                                  |
 | REST API                                        | [Pricings API](/rest/api/securitycenter/pricings)                                                                                                  |
 | Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
 | PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |

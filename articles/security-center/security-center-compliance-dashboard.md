@@ -13,9 +13,9 @@ ms.author: memildin
 
 Microsoft Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. 
 
-Security Center continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
+Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
 
-When you enable Security Center on an Azure subscription, the [Azure Security Benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+When you enable Defender for Cloud on an Azure subscription, the [Azure Security Benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 The regulatory compliance dashboard shows the status of all the assessments within your environment for your chosen standards and regulations. As you act on the recommendations and reduce risk factors in your environment, your compliance posture improves.
 
@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To step through the features covered in this tutorial:
 
-- [Azure Defender](azure-defender.md) must be enabled. You can try Azure Defender for free for 30 days.
+- [The Microsoft Defender plans](defender-for-cloud-introduction.md) must be enabled. You can try Azure Defender for free for 30 days.
 - You must be signed in with an account that has reader access to the policy compliance data (**Security Reader** is insufficient). The role of **Global reader** for the subscription will work. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance

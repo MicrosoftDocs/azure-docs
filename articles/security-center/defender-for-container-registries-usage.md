@@ -145,5 +145,4 @@ To create a rule:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure Defender](azure-defender.md)
+Learn more about [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md).

@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/13/2021
+ms.date: 10/20/2021
 ms.author: memildin
 
 ---
@@ -16,7 +16,7 @@ Defender for Cloud is in active development and receives improvements on an ongo
 
 This page is updated frequently, so revisit it often. 
 
-To learn about *planned* changes that are coming soon to Security Center, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md). 
+To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md). 
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).

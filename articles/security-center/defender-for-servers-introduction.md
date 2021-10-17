@@ -94,7 +94,7 @@ You can simulate alerts by downloading one of the following playbooks:
 In this article, you learned about Azure Defender for servers. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
 For related material, see the following page:
 

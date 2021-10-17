@@ -40,7 +40,7 @@ A full list of the alerts provided by Azure Defender for DNS is on the [alerts r
 
 Azure Defender for DNS doesn't use any agents. 
 
-To protect your DNS layer, enable Azure Defender for DNS for each of your subscriptions as described in [Enable Azure Defender](enable-azure-defender.md).
+To protect your DNS layer, enable Azure Defender for DNS for each of your subscriptions as described in [Enable enhanced protections](enable-enhanced-security.md).
 
 
 ## Next steps
@@ -48,7 +48,7 @@ To protect your DNS layer, enable Azure Defender for DNS for each of your subscr
 In this article, you learned about Azure Defender for DNS. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
 For related material, see the following article: 
 
