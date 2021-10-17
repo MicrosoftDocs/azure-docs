@@ -37,7 +37,7 @@ You can view your successfully imported threat indicators, regardless of the sou
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Azure Sentinel** service.
 
-1. Choose the **workspace** to which you’ve imported threat indicators using either threat intelligence data connector.
+1. Select the workspace to which you’ve imported threat indicators using either threat intelligence data connector.
 
 1. Select **Logs** from the **General** section of the Azure Sentinel menu.
 
@@ -55,7 +55,7 @@ You can also view and manage your indicators in the new **Threat intelligence** 
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Azure Sentinel** service.
 
-1. Choose the workspace to which you imported threat indicators using the connectors/playbooks or have created threat intelligence data.
+1. Select the workspace to which you imported threat indicators using the connectors/playbooks or have created threat intelligence data.
 
 1. From the **Threat Management** section on the left, select the **Threat Intelligence** page.
 
