@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/17/2021
 ---
 
 # What's new in Azure Sentinel
@@ -35,15 +35,24 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
 
-Now, in addition during the trial period:
+The Azure Sentinel trial period now supports the following updates:
 
-- **For new Log Analytics workspaces**, including workspaces that are less than three days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics.
+- **New Log Analytics workspaces**, including workspaces that are less than three days old, can ingest up to 10 GB/day of log data for the first 31-days at no cost.
+
+    Both Log Analytics data ingestion and Azure Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
     Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
-- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply. Existing workspaces include any workspaces created more than three days ago.
 
-For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
+- **Existing Log Analytics workspaces** can enable Azure Sentinel at no additional cost. Only the Azure Sentinel charges are waived during the 31-day trial period. Existing workspaces include any workspaces created more than three days ago.
+
+Usage beyond these limits will be charged per pricing listed on the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel)] page. Charges related to additional capabilities for [automation](automation-in-azure-sentinel.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+
+> [!TIP]
+> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Azure Sentinel.
+>
+> This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+>
 
 ### Content hub and new solutions (Public preview)
 
