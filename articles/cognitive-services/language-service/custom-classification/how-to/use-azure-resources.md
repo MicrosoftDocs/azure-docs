@@ -37,7 +37,7 @@ Before you start using custom classification, you will need a Text Analytics res
 
 ### Create a new resource from Language Studio
 
-If it's your first time logging in, you'll see a window appear in [Language Studio](https://language.azure.com/) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
+If it's your first time logging in, you'll see a window appear in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
 
 > [!IMPORTANT]
 > * To use Custom Text Classification, you'll need a Text Analytics resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
@@ -100,7 +100,7 @@ You should have the owner or contributor role assigned on your Azure resource.
 
 ## Enable identity management for your resource
 
-Your Language Services resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://language.azure.com/):
+Your Language Services resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://aka.ms/languageStudio):
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
 3. Select **Managed Identity** for your Azure resource.
@@ -137,7 +137,7 @@ To set proper roles on your storage account:
 
 ## Create a project
 
-Once your Azure resource and storage account are configured, you can create a project, using the [Azure portal](../quickstart.md?pivots=language-studio#create-a-custom-classification-project) or [REST API](../quickstart.md?pivots=rest-api#create-project).
+Once your Azure resource and storage account are configured, you can create a project, using the [Language studio](../quickstart.md?pivots=language-studio#create-a-custom-classification-project) or [REST API](../quickstart.md?pivots=rest-api#create-project).
 
 >[!NOTE]
 > If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
