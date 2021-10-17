@@ -129,4 +129,4 @@ In this step, you can delete the **External user package** access package.
 
 ## Next steps
 
-Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](/active-directory/governance/entitlement-management-access-package-first.md)
+Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-access-package-first)

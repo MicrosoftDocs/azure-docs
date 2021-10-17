@@ -23,12 +23,12 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 | Americas | Europe | Africa | Asia Pacific |
 |--------------------|----------------------|---------------------|----------------|
-| Brazil South | France Central | South Africa North\* | Australia East |
+| Brazil South | France Central | South Africa North | Australia East |
 | Canada Central | Germany West Central | | Central India\* |
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe | | |
+| South Central US | West Europe | | East Asia* |
 | US Gov Virginia | Sweden* | | |
 | West US 2 | | | |
 | West US 3 | | | |
@@ -67,7 +67,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | **Products**   | **Resiliency**   |
 | --- | --- |
 | [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| [Azure Backup](/architecture/backup/backup-create-rs-vault#set-storage-redundancy.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Backup](/azure/backup/backup-create-rs-vault)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)   |
 | [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -206,6 +206,6 @@ You can access Azure availability zones by using your Azure subscription. To lea
 
 ## Next steps
 
-- [Building solutions for high availability using availability zones](/architecture/high-availability/building-solutions-for-high-availability)
-- [High availability with Azure services](/architecture/framework/resiliency/overview)
-- [Design patterns for high availability](/architecture/framework/resiliency/app-design)
+- [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [High availability with Azure services](/azure/architecture/framework/resiliency/overview)
+- [Design patterns for high availability](/azure/architecture/framework/resiliency/app-design)

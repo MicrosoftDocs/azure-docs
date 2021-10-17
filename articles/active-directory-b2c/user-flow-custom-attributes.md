@@ -1,16 +1,16 @@
 ---
-title: Define custom attributes in Azure Active Directory B2C | Microsoft Docs
+title: Define custom attributes in Azure Active Directory B2C  
 description: Define custom attributes for your application in Azure Active Directory B2C to collect information about your customers.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -202,7 +202,7 @@ Use the following steps to remove extension/custom attribute from a user flow:
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User attributes**, and then select the attribute you want to delete.
-1. Select **Delete**
+1. Select **Delete**, and then select **Yes** to confirm.
 
 ::: zone-end
 
