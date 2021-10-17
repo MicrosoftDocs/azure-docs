@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: sachins
 ---
@@ -31,6 +31,12 @@ Use the following pattern as you configure your account to use Blob storage feat
 #### Understand the terms used in documentation
 
 As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term *blob* instead of *file*. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, this can cause confusion if you're use to the term *file*. You'll also see the term *container* used to refer to a *file system*. Consider these terms as synonymous.
+
+## Consider premium
+
+If your workloads require a low consistent latency and/or require a high number of input output operations per second (IOP), consider using a premium block blob storage account. This type of account makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives. The storage costs of premium performance are higher, but transaction costs are lower, so if your workloads execute a large number of transactions, a premium performance block blob account can be economical.
+
+If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. This combination of using premium block blob storage accounts along with a Data Lake Storage enabled account is referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
 
 ## Optimize for data ingest
 

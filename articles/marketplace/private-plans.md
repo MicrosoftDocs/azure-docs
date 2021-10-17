@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 08/13/2021
+ms.date: 10/14/2021
 ---
 
 # Private plans in the Microsoft commercial marketplace
@@ -47,7 +47,7 @@ For *new offers that only include private plans*, publishers can create their of
 
 ## Target customers with private plans
 
-For both new and existing private plans, publishers can target customers using subscription identifiers. For Azure Virtual Machine, Azure Application, and Managed Service offers, publishers can constrain availability of a private plan to an individual Azure subscription ID or upload a CSV of up to 10,000 Azure subscription IDs. For SaaS offers, publishers can associate an Azure Active Directory tenant ID to constrain the availability of a private plan, using either the manual or CSV upload approach.
+For both new and existing private plans, publishers can target customers using subscription identifiers. For Azure Application and Managed Service offers, publishers can constrain availability of a private plan to individual Azure subscription IDs. For SaaS offers, publishers can associate Azure Active Directory tenant IDs to constrain the availability of a private plan. For Virtual Machine offers, publishers can assign the audience that will have access to a private plan using Azure tenant IDs, subscription IDs, or both. For any of these offer types, up to 10 IDs can be added manually or a CSV spreadsheet can be imported if more than 10 IDs are required.
 
 Once an offer has been certified and published, customers can be updated or removed from the plan by using the Sync Private Subscriptions feature. This capability enables publishers to quickly and easily update the list of customers to which the private plan is presented without certifying or publishing the offer again.
 
@@ -58,14 +58,14 @@ Once signed into the Azure portal, customers can follow these steps to select yo
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Under **Azure services**, select **Create a resource**.
 1. On the **New** page, next to **Azure Marketplace**, select **See all**. The Marketplace page appears.
-1. In the left navigation, select **Private Plans**.
+1. In the left navigation, select **Private products**.
 
 > [!NOTE]
 > Private plans are only discoverable in the [Azure portal](https://azure.microsoft.com/features/azure-portal/) or [Microsoft AppSource](https://appsource.microsoft.com/). They are not visible in [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace online stores, see [Introduction to listing options](./determine-your-listing-type.md).
 
 Private plans will also appear in search results and can be deployed via command line and Azure Resource Manager templates, like any other offers.
 
-[![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
+[![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
 >[!Note]
 >Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
