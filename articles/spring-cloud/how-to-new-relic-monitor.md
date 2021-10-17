@@ -30,7 +30,7 @@ The following video describes how to activate and monitor Spring Boot applicatio
 * A [New Relic](https://newrelic.com/) account.
 * [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
-## Leverage the New Relic Java in process agent
+## Activate the New Relic Java in process agent
 
 Use the following procedure to access the agent:
 
@@ -52,11 +52,11 @@ Use the following procedure to access the agent:
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-Azure Spring Cloud pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can leverage the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+Azure Spring Cloud pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ## Portal
 
-You can also leverage this agent from portal with the following procedure.
+You can also activate this agent from portal with the following procedure.
 
 1. Find the app from **Settings**/**Apps** in the navigation pane.
 
