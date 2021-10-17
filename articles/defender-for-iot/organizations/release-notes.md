@@ -40,22 +40,23 @@ The following feature enhancements are available with version 10.5.2 of Azure De
 
 - [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases) 
 
-### PLC operating mode and risk management (Public Preview)
+### PLC operating mode detections (Public Preview)
 
-Users can now detect PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key exists on the PLC.
-PLC operating mode capabilities help improve security by detecting *unsecure* states, and as a result prevent malicious attacks such as Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
-This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs. 
+Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
+This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
 
 #### What is an unsecure mode?
+
 If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*.
 
 #### Visibility and risk assessment
 
-- Use the Device Inventory to view the PLC state of organizational PLCs as well as contextual device information. Use the Device Inventory Settings dialog box to add this information to the Inventory.
+- Use the Device Inventory to view the PLC state of organizational PLCs as well as contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
 
     :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing plc operating mode.":::
 
-- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false.For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
+- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false. For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
 
     :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing plc information.":::
 
@@ -63,7 +64,7 @@ If the Key state is detected as Program or the Run state is detected as either R
 
     :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing plc option.":::
 
-- Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and addition information you can use to mitigate unsecure PLC risks.
+- Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
 
 ### PCAP API
 
