@@ -79,7 +79,7 @@ items:
     - name: Azure Key Vault
       href: how-to-integrate-key-vault.md
     - name: Azure Event Hubs
-      href: how-to-integrate-event-hubs.md
+      href: how-to-integrate-event-hub.md
     - name: Azure Service Bus
       href: how-to-integrate-service-bus.md
     - name: Azure SignalR Service
