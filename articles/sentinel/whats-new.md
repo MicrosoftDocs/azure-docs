@@ -122,16 +122,21 @@ For more information, see [Manage custom content in your own repository](ci-cd.m
 
 Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
 
-In the Azure Sentinel **Threat Intelligence** page, select an indicator in the grid. Details are shown on the right, including both Geolocation and WhoIs data. For example:
+View Geolocation and WhoIs data in Azure Sentinel, on the **Threat Intelligence** page. From the grid, select the indicator for which you'd like to view GeoLocation and WhoIs information.
 
-TBD SCREENSHOT
+Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+
+<!--For example: Screenshot TBD-->
+
+> [!TIP]
+> The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
+>
 
 For more information, see:
 
 - [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
 - [Threat intelligence integrations](threat-intelligence-integration.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
-- [Enrich entities with geolocation data via API](geolocation-data-api.md)
 
 ### Use notebooks with Azure Synapse Analytics in Azure Sentinel
 
