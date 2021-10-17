@@ -94,6 +94,42 @@ You can also activate this agent from portal with the following procedure.
 
    [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png)
 
+
+## Automation
+
+You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+
+### Terraform
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the <...> placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+
+```terraform
+resource "azurerm_spring_cloud_java_deployment" "example" {
+  ...
+  jvm_options = "-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar"
+  ...
+    environment_variables = {
+      "NEW_RELIC_APP_NAME": "<app-name>",
+      "NEW_RELIC_LICENSE_KEY": "<new-relic-license-key>"
+  }
+}
+```
+
+### ARM template
+
+To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+
+```ARM template
+"deploymentSettings": {
+  "environmentVariables": {
+    "NEW_RELIC_APP_NAME" : "<app-name>",
+    "NEW_RELIC_LICENSE_KEY" : "<new-relic-license-key>"
+  },
+  "jvmOptions": "-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar",
+  ...
+}
+```
+
+
 ## New Relic Java Agent Logging
 
 By default, Azure Spring Cloud will print the logs of the New Relic Java agent to `STDOUT`. It will be combined with the application logs. You can get the explicit agent version from the application logs.
