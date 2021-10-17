@@ -28,7 +28,7 @@ To manage access to custom security attributes, you must have:
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 
 > [!IMPORTANT]
-> By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
+> By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
 ## Step 1: Figure out how to organize your attributes
 
@@ -46,7 +46,7 @@ Azure AD role assignments are an additive model, so your effective permissions a
 
 ## Step 3: Review the available roles
 
-You need to determine who needs access to work with custom security attributes in your organization. To help you manage access to custom security attributes, there are four Azure AD built-in roles. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes. If necessary, a Global Administrator can assign these roles to themselves.
+You need to determine who needs access to work with custom security attributes in your organization. To help you manage access to custom security attributes, there are four Azure AD built-in roles. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If necessary, a Global Administrator can assign these roles to themselves.
 
 - [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator)
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)

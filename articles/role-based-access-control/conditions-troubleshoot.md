@@ -82,7 +82,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 - Custom security attributes defined in Azure AD
 
 > [!IMPORTANT]
-> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
+> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
 **Solution**
 
