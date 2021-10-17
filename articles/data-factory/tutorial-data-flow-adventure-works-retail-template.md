@@ -47,7 +47,7 @@ If you have the AdventureWorks dataset loaded into a different database, you can
 
 
 ## Dataset and source/target models
-The AdventureWorks dataset in Excel format can be downloaded from [here.]() In addition, you can access the schema definition for both the source and target databases [here](). Using the database designer in Synapse, recreate the source and target databases using the schema in the Excel you downloaded earlier. [See here for more details on the database designer.](https://aka.ms/SynapseDatabaseDesignerDocumentation) 
+The AdventureWorks dataset in Excel format can be downloaded from [here.](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip) In addition, you can access the schema definition for both the source and target databases [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Using the database designer in Synapse, recreate the source and target databases using the schema in the Excel you downloaded earlier. [See here for more details on the database designer.](https://aka.ms/SynapseDatabaseDesignerDocumentation) 
 
 With the databases created, ensure the dataflows are pointing to the correct tables by editing the dropdowns in the Workspace DB source and sink settings. You can load the data into the source model by placing the CSV files provided in the example dataset in the correct folders specified by the tables. Once that is done, all that's required is to run the pipelines.
 
@@ -60,3 +60,4 @@ If the pipeline fails to run successfully, there's a few main things to check fo
 ## Next steps
 
 * Learn more about [mapping data flows](data-flow-overview.md).
+* Learn more about [pipeline templates](solution-templates-introduction.md)
