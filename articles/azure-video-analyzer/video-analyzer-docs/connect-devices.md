@@ -28,11 +28,11 @@ The application will need to:
 
     c. Forward the RTSP requests received from the Video Analyzer service to the RTSP server running on the device 
 
-To-do: Add image
+<To-do: Add image>
 
 ## Run as an IoT Device 
 
-The Azure Video Analyzer application needs to be configured and run as an Azure IoT device. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks). Register the IoT device with your IoT Hub using symmetric key authentication to get the Azure IoT Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.  
+The Azure Video Analyzer application needs to be configured and run as an Azure IoT device. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks). Register the IoT device with your IoT Hub using symmetric key authentication to get the Azure IoT Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
 
 **IoT Device Client Configuration**: 
 
@@ -44,9 +44,9 @@ The Azure Video Analyzer application needs to be configured and run as an Azure 
 
 * Register callback for “tunnelOpen” direct method 
 
-## PnP Interface 
+## Implement the IoT PnP Interface 
 
-This IoT PnP model defines the capability of Azure Video Analyzer to tunnel over a web socket.
+This [IoT PnP model](../../iot-develop/overview-iot-plug-and-play.md) defines the capability of Video Analyzer to tunnel over a web socket.
 
 ```json
 {
