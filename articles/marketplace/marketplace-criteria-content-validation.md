@@ -25,7 +25,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 6 | Videos | <ul><li>No video is required but, if provided, it must play back without any errors.</li><li>If provided, it may not refer to competitor companies *unless* it is demonstrating a migration solution. |<ul><li>Ideally, the length is 3 min. or more.</li><li>The solution offer is easily understood through video content.</li><li>Provides demo of solution capabilities. |
 | 7 | List status (listing options) | <ul><li>Must be labeled as one of the following types: <ul><li>*Contact Me*</li><li>*Trial*/*Get Trial Now*/*Start Trial*/*Test Drive*</li><li>*Buy Now*/*Get It Now*</li></ul></ul> | Customer can readily understand what the next steps are: <ol><li>Try the Trial.</li><li>Buy Now.</li><li>Contact via email or phone number to arrange for Proof of Concept (POC), Assessment, or Briefing.</li></ol> | 
 | 8 | Solution pricing | Must have solution pricing tab/details, and pricing must be in the local currency of the partner solution offering. | Multiple billing options should be available with tier pricing to give customer options. |
-| 9 | Learn more | Links at the bottom (under the description, not the Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
+| 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
 | 10 | Solution support and help | Link to at least one of the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed.</li><li>Paid support is offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal | Policies or terms are available via a public URL. |  |
 |||
@@ -79,7 +79,7 @@ This article explains the requirements and guidelines for listing new offers and
 | 9 | Competencies | Must have competency in at least one of the following:<ul><li>Application Development</li><li>Application Integration</li><li>Application Lifecycle Management</li><li>Cloud Platform<li>Data Analytics</li><li>Data Center</li><li>Data Platform</li><li>DevOps |
 | 10 | Products | Must be Azure products. | |
 | 11 | Country/region | Ensure that the country/region matches the selected currency. | |
-| 12 | Learn more  | <ul><li>Links at the bottom (under the description, not the Azure Marketplace links on the left) lead to more information about the solution and are publicly available and being displayed correctly.</li><li>Links must have a "friendly name" and are not displayed as the file name of any downloads. | |
+| 12 | Learn more  | <ul><li>Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and being displayed correctly.</li><li>Links must have a "friendly name" and are not displayed as the file name of any downloads. | |
 ||||
 
 ## Next steps
