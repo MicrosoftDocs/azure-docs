@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 10/18/2021
 ms.author: curtand
 ms.reviewer: jodah
 
@@ -42,7 +42,7 @@ You can search the members or owners of a specific group by name, and when you e
 
 ![new substring searches on the group members and owners lists](./media/groups-members-owners-search/members-list.png)
 
-### Filter member and owners list
+### Filter member and owners lists
 
 In addition to search, you can filter the group members and owners lists by user type. This information is found in the **User Type** column in the members or owners list. You can filter the list to see only members or guests.
 
