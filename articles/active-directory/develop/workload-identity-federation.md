@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
-ms.custom: 
+ms.custom: aaddev 
 #Customer intent: As a developer, I want to learn about workload identity federation so that I can securely access Azure resources from external apps and services without needing to manage secrets. 
 ---
 

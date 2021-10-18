@@ -13,23 +13,27 @@ ms.workload: identity
 ms.date: 10/15/2021
 ms.author: ryanwi
 ms.custom: aaddev
+ms.reviewer: keyam, udayh, vakarand
 #Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with a GitHub repo and use workload identity federation to access Azure resources without managing secrets.
 ---
 
-# Configure an app to trust a GitHub repo
+# Configure an app to trust a GitHub repo (preview)
 
-This article describes how to create a trust relationship between an application in Azure Active Directory (Azure AD) and a GitHub repo.  Configuring a federated identity credential on an app registration creates that trust relationship and allows a GitHub Actions workflow to access Azure or Microsoft Graph resources without needing to manage secrets. You can create the federated identity credential in the Azure portal or by using Microsoft Graph. To learn more, see [workload identity federation](workload-identity-federation.md).
+This article describes how to create a trust relationship between an application in Azure Active Directory (Azure AD) and a GitHub repo.  You can configure a GitHub Actions workflow to use that trust relationship to access Azure or Microsoft Graph resources without needing to manage secrets.  To learn more, read about [workload identity federation](workload-identity-federation.md).  You establish the trust relationship by configuring a federated identity credential on your app registration in the Azure portal or by using Microsoft Graph.
 
-Anyone who can create an app reg and add a secret or cert can add a federated credential.  If the "don't let anyone create apps" switch is toggled, however, a dev won't be able to create an app reg or configure the credential.  Admin would have to do it on behalf of the dev.  Anyone in the app admin role or app owner role can do this.
+Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential.  If the **Users can register applications
+** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf.  Anyone in the Application Administrator or Application Owner roles can do this.
 
-After you configure an app to trust a GitHub repo, configure a GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
+After you configure your app to trust a GitHub repo, configure your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
 
 ## Prerequisites
-[Create an app registration](quickstart-register-app.md) in Azure AD.  Grant the app the appropriate access to the Azure resources targeted by your GitHub workflow.  
+[Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your GitHub workflow.  
 
-Find the object ID of the app (not the application (client) ID), which you need in the following steps.
+Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
-## Microsoft Graph
+Get the organization, repository, and environment information for your GitHub repo, which you need in the following steps.
+
+## Configure a federated identity credential using Microsoft Graph
 
 Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
 
@@ -61,9 +65,9 @@ And you get the response:
 *issuer*: The path to the GitHub OIDC provider: `https://token.actions.githubusercontent.com/`. This issuer will become trusted by your Azure application.
 
 *subject*: Before Azure will grant an access token, the request must match the conditions defined here.
-    - For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
-    - For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-    - For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
+- For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
+- For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+- For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
 
 *audiences*: `api://AzureADTokenExchange` is the required value.
 
@@ -124,9 +128,9 @@ Navigate to the app registration in the Azure portal and set up a federated cred
 
 Grant the application contributor role on a subscription; copy Subscription ID
 
-## Get the application (client) ID and tenant ID from Azure portal
+## Get the application (client) ID and tenant ID from the Azure portal
 
-Copy the *tenant-id* and *client-id* values of the app registration.  You need to set these values in your GitHub environment to use in the workflow Azure login action.  Two options now for GitHub in Azure Login Action.  Can store client ID and tenant ID in GitHub secrets if you want or you can inline client ID, tenant ID, subscription ID directly in your workflow.
+Before configure your GitHub Actions workflow, get the *tenant-id* and *client-id* values of your app registration.  You can find these values in the Azure portal. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Application (client) ID** and **Directory (tenant) ID**. Set these values in your GitHub environment to use in the Azure login action for your workflow.  
 
 ## Next steps
 
