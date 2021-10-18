@@ -314,7 +314,7 @@ Run your application and open your Application Insights Resource tab on the Azur
 > If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](#set-cloud-role-name-and-cloud-role-instance) to represent them properly on the Application Map.
 
 > [!NOTE]
-> Statsbeat is a feature in the Application Insights SDKs that collects and sends diagnostic data to Microsoft. Microsoft uses this information to run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 ## Set Cloud Role Name and Cloud Role Instance
 
