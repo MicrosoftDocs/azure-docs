@@ -33,13 +33,12 @@ Sign in to the Azure portal at https://portal.azure.com.
     - **Location**: In the pull-down menu, choose a location.
     - Leave the other options to their defaults.
 1. Select the **Security** tab.
-1. Select **+ Add AAD-Based User**. 
-1. Search the right-hand pane for your email address, select your row, and then choose **Select** at the bottom of the pane.
+1. You must now add an AAD-based or certificate-based user to your confidental ledger, with a role of "Administrator". In this quickstart will will add an AAD-based user. Select **+ Add AAD-Based User**. 
+1. You must add an AAD-based or Certificate based user  user Search the right-hand pane for your email address, select your row, and then choose **Select** at the bottom of the pane.
 1. In the **Ledger Role** drop-down field, select **Administrator**.
 1. Select **Review + Create**. After validation has passed, select **Create**.
 
 When the deployment is complete. select **Go to resource**.
-
 
 :::image type="content" source="./media/confidential-ledger-portal-quickstart.png" alt-text="ACL portal create screen":::
 
@@ -47,7 +46,7 @@ Take note of the two properties listed below:
 - **Confidential Ledger name**: In the example, it is "test-create-ledger-demo" You will use this name for other steps.
 - **Ledger endpoint**: In the example, this is https://test-create-ledger-demo.confidential-ledger.azure.net/. 
 
-You will need these names to transact with the confidential ledger from the data plane
+You will need these names to transact with the confidential ledger from the data plane.
  
 ## Clean up resources
 
