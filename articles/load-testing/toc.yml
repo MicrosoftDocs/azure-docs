@@ -20,9 +20,6 @@
       href: tutorial-continuous-regression-testing-cicd-github-actions.md
     - name: Automate with Azure Pipelines
       href: tutorial-continuous-regression-testing-cicd-github-actions.md
-- name: How-tos
-  expanded: true
-  items: 
 - name: Resources
   items: 
     - name: Azure roadmap
