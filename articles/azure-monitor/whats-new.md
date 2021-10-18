@@ -19,7 +19,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Resource Manager template samples for Azure Monitor](resource-manager-samples.md)
 - [Roles, permissions, and security in Azure Monitor](roles-permissions-security.md)
 - [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
-- [Visualize data from Azure Monitor](visualizations.md)
+
 ### Agents
 
 **Updated articles**
