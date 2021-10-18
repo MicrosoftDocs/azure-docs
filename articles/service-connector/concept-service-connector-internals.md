@@ -8,12 +8,14 @@ ms.topic: conceptual
 ms.date: 10/29/2021
 ---
 
+# Service Connector internals
+
 Service Connector is an extension resource provider that provides an easy way to create and manage connections between services.
 - Support major databases, storage, real-time services, state and secret stores that are used together with your cloud native application (the list is actively expanding).
 - Configure network settings, authentication, and manage connection environment variables or properties by creating a service connection with just a single command or a few clicks.
 - Validate connections and find corresponding suggestions to fix a service connection. 
 
-# Service connection overview
+## Service connection overview
 
 Service connection is the key concept in the resource model of Service Connector. In Service Connector, a service connection represents an abstraction of the link between two services. The following properties are defined on service connection.
 
@@ -29,7 +31,7 @@ You can create multiple service connections from one source service instance if 
 
 The connection support cross subscription or tenant. Source and target service can belong to different subscriptions or tenants. When you create a new service connection, the connection resource is in the same region with your compute service instance by default.
 
-# Create or update a service connection
+## Create or update a service connection
 Service Connector will do multiple steps while creating or updating a connection, including:
 * Configure target resource network and firewall settings, making sure source and target services can talk to each other in network level.
 * Configure connection information on source resource
@@ -38,12 +40,12 @@ Service Connector will do multiple steps while creating or updating a connection
 
 Since creating and updating a connection contains multiple steps. If one step fail, Service Connector will rollback all previous steps to keep the initial settings in source and target instances.
 
-# Validate a service connection
+## Validate a service connection
 The following items will be checked while validating the connection:
 * Validate whether source and target resources exist
 * Validate target resource network and firewall settings
 * Validate connection information on source resource
 * Validate authentication information on source and target if needed
 
-# Delete Connection
+## Delete Connection
 The connection information on source resource will be deleted when deleting connection. 
