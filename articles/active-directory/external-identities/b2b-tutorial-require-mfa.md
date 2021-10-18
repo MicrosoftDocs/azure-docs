@@ -77,7 +77,7 @@ To complete the scenario in this tutorial, you need:
 4. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 5. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 6. In the **Assignments** section, select **Users and groups**.
-7. On the **Users and groups** page, choose **Select users and groups**, and then select **All guest users (preview)**.
+7. On the **Users and groups** page, choose **Select users and groups**, and then select **All guest and external users**.
 
     ![Screenshot showing selecting all guest users](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9. Select **Done**.
