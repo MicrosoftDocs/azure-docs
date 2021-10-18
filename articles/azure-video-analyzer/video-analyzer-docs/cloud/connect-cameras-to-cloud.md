@@ -36,7 +36,7 @@ This method allows cameras to connect to Video Analyzer behind a firewall using 
 
 ## Connect over the open internet (no firewall) or within an Azure region
 
-This method should only be used for supervised proof-of-concept exercises, where it may be permissible to connect a camera directly to the cloud without a firewall and the camera's RTSP server is accessible over the open internet. Another use case is when an Azure VM is used to simulate a camera, as described in this [quickstart](continuous-video-recording-cloud-quickstart.md).
+This method should only be used for supervised proof-of-concept exercises, where it may be permissible to connect a camera directly to the cloud without a firewall and the camera's RTSP server is accessible over the open internet. Another use case is when an Azure VM is used to simulate a camera, as described in this [quickstart](get-started-livepipelines-portal.md).
 
 
 ## Next Steps
