@@ -13,7 +13,7 @@ adobe-target: true
 
 # What is Azure Dev/Test offer?
 
-Azure Dev/Test offer is...
+This article explains the Azure Dev/Test offer.
 
 > [!Tip]
 > **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Dev/Test offer](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
@@ -24,7 +24,7 @@ Azure Dev/Test offer is for individuals and enterprises implementing MLOps withi
 
 Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager APIs, for building advanced ML tooling.
 
-Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control /(RBAC/) for infrastructure. You can set up a project to deny access to protected data and select operations.
+Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control (RBAC) for infrastructure. You can set up a project to deny access to protected data and select operations.
 
 ### Collaboration for machine learning teams
 
