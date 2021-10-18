@@ -113,21 +113,6 @@ Run the following command to [delete a federated identity credential](/graph/api
 az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials/1aa3e6a7-464c-4cd2-88d3-90db98132755' 
 ```
 
-## Portal- draft, work in progress
-### Configure the federated credentials on the application
-
-Navigate to the app registration in the Azure portal and set up a federated credential.
-
-> [!IMPORTANT]
-> The **Organization**, **Repository**, and **Entity type** values must exactly match the configuration on the GitHub workflow configuration. Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
-
-> [!NOTE]
-> If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
-
-### Give the app registration appropriate access to the Azure resources targeted by your GitHub workflow
-
-Grant the application contributor role on a subscription; copy Subscription ID
-
 ## Get the application (client) ID and tenant ID from the Azure portal
 
 Before configure your GitHub Actions workflow, get the *tenant-id* and *client-id* values of your app registration.  You can find these values in the Azure portal. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Application (client) ID** and **Directory (tenant) ID**. Set these values in your GitHub environment to use in the Azure login action for your workflow.  
