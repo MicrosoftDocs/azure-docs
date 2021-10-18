@@ -180,74 +180,81 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 
 async function main() {
 
-  const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
+  sync function main() {
 
-   const poller = await client.beginRecognizeContent(invoiceUrl);
-   const [invoice] = await poller.pollUntilDone();
+    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 
-  if (invoice === undefined) {
-    throw new Error("Failed to extract data from at least one invoice.");
-  }
+    const poller = await client.beginRecognizeContent(invoiceUrl);
+    const [invoice] = await poller.pollUntilDone();
 
-  /**
-   * This is a helper function for printing a simple field with an elemental type.
-   */
-  function fieldToString(field) {
-    const { name, valueType, value, confidence } = field;
-    return `${name} (${valueType}): '${value}' with confidence ${confidence}'`;
-  }
-
-  console.log("Invoice fields:");
-
-  /**
-   * Invoices contain a lot of optional fields, but they are all of elemental types
-   * such as strings, numbers, and dates, so we will just enumerate them all.
-   */
-  for (const [name, field] of Object.entries(invoice.fields)) {
-    if (field.valueType !== "array" && field.valueType !== "object") {
-      console.log(`- ${name} ${fieldToString(field)}`);
+    if (invoice === undefined) {
+        throw new Error("Failed to extract data from at least one invoice.");
     }
-  }
 
-  // Invoices also support nested line items, so we can iterate over them.
-  let idx = 0;
+    /**
+     * This is a helper function for printing a simple field with an elemental type.
+     */
+    function fieldToString(field) {
+        const {
+            name,
+            valueType,
+            value,
+            confidence
+        } = field;
+        return `${name} (${valueType}): '${value}' with confidence ${confidence}'`;
+    }
 
-  console.log("- Items:");
+    console.log("Invoice fields:");
 
-  const items = invoice.fields["Items"]?.value;
-  for (const item of items ?? []) {
-    const value = item.value;
+    /**
+     * Invoices contain a lot of optional fields, but they are all of elemental types
+     * such as strings, numbers, and dates, so we will just enumerate them all.
+     */
+    for (const [name, field] of Object.entries(invoice.fields)) {
+        if (field.valueType !== "array" && field.valueType !== "object") {
+            console.log(`- ${name} ${fieldToString(field)}`);
+        }
+    }
 
-    // Each item has several subfields that are nested within the item. We'll
-    // map over this list of the subfields and filter out any fields that
-    // weren't found. Not all fields will be returned every time, only those
-    // that the service identified for the particular document in question.
+    // Invoices also support nested line items, so we can iterate over them.
+    let idx = 0;
 
-    const subFields = [
-      "Description",
-      "Quantity",
-      "Unit",
-      "UnitPrice",
-      "ProductCode",
-      "Date",
-      "Tax",
-      "Amount"
-    ]
-      .map((fieldName) => value[fieldName])
-      .filter((field) => field !== undefined);
+    console.log("- Items:");
 
-    console.log(
-      [
-        `  - Item #${idx}`,
-        // Now we will convert those fields into strings to display
-        ...subFields.map((field) => `    - ${fieldToString(field)}`)
-      ].join("\n")
-    );
-  }
+    const items = invoice.fields["Items"]?.value;
+    for (const item of items ?? []) {
+        const value = item.value;
+
+        // Each item has several subfields that are nested within the item. We'll
+        // map over this list of the subfields and filter out any fields that
+        // weren't found. Not all fields will be returned every time, only those
+        // that the service identified for the particular document in question.
+
+        const subFields = [
+                "Description",
+                "Quantity",
+                "Unit",
+                "UnitPrice",
+                "ProductCode",
+                "Date",
+                "Tax",
+                "Amount"
+            ]
+            .map((fieldName) => value[fieldName])
+            .filter((field) => field !== undefined);
+
+        console.log(
+            [
+                `  - Item #${idx}`,
+                // Now we will convert those fields into strings to display
+                ...subFields.map((field) => `    - ${fieldToString(field)}`)
+            ].join("\n")
+        );
+    }
 }
 
 main().catch((err) => {
-  console.error("The sample encountered an error:", err);
+    console.error("The sample encountered an error:", err);
 });
 ```
 
