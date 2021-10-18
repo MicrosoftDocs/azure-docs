@@ -3,9 +3,9 @@ title: Log Analytics workspace data export in Azure Monitor (preview)
 description: Log Analytics data export allows you to continuously export data of selected tables from your Log Analytics workspace to an Azure storage account or Azure Event Hubs as it's collected. 
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-author: bwren
-ms.author: bwren
-ms.date: 05/07/2021
+author: yossi-y
+ms.author: yossiy
+ms.date: 10/17/2021
 
 ---
 
@@ -181,7 +181,14 @@ find where TimeGenerated > ago(24h) | distinct Type
 
 # [Azure portal](#tab/portal)
 
-N/A
+In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section and click **New export rule** from the top of the middle pane.
+
+![export create](media/logs-data-export/export-create-1.png)
+
+Follow the steps, then click **Create**. 
+
+<img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="export rule configuration" width="80%"/>
+
 
 # [PowerShell](#tab/powershell)
 
@@ -457,7 +464,14 @@ Use the following command to create a data export rule to a specific event hub u
 
 # [Azure portal](#tab/portal)
 
-N/A
+In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section.
+
+![export rules view](media/logs-data-export/export-view-1.png)
+
+Click a rule for configuration view.
+
+<img src="media/logs-data-export/export-view-2.png" alt="export rule settings" title= "export rule settings" width="65%"/>
+
 
 # [PowerShell](#tab/powershell)
 
@@ -489,7 +503,10 @@ N/A
 
 # [Azure portal](#tab/portal)
 
-N/A
+Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section and click the status toggle to disable or enable export rule.
+
+![export rule disable](media/logs-data-export/export-disable.png)
+
 
 # [PowerShell](#tab/powershell)
 
@@ -536,7 +553,10 @@ Export rules can be disabled to let you stop the export when you don’t need to
 
 # [Azure portal](#tab/portal)
 
-N/A
+In the **Log Analytics workspace** menu in the Azure portal, select *Data Export* from the **Settings** section, then click the ellipsis to the right of the rule and click **Delete**. 
+
+![export rule delete](media/logs-data-export/export-delete.png)
+
 
 # [PowerShell](#tab/powershell)
 
@@ -564,11 +584,15 @@ N/A
 
 ---
 
+
 ## View all data export rules in a workspace
 
 # [Azure portal](#tab/portal)
 
-N/A
+In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section to view all export rules in workspace.
+
+![export rules](media/logs-data-export/export-view.png)
+
 
 # [PowerShell](#tab/powershell)
 
@@ -595,6 +619,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 N/A
 
 ---
+
 
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.

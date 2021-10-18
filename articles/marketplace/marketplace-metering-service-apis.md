@@ -4,7 +4,7 @@ description: The usage event API allows you to emit usage events for SaaS offers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 author: saasguide
 ms.author: souchak
 ---
@@ -12,6 +12,9 @@ ms.author: souchak
 # Marketplace metered billing APIs
 
 The metered billing APIs should be used when the publisher creates custom metering dimensions for an offer to be published in Partner Center. Integration with the metered billing APIs is required for any purchased offer that has one or more plans with custom dimensions to emit usage events.
+
+> [!IMPORTANT]
+> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
 For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](partner-center-portal/saas-metered-billing.md).
 
