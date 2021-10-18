@@ -129,7 +129,6 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
 | Scale In Policy | No | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
-| Perform Maintenance | No (can trigger maintenance on each instance using VM API) | Yes | N/A |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) | Yes | No |
 
 ### High availability 
@@ -143,7 +142,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments | 2, 3, 5 FDs; 1, 5 for zonal deployments | 2-3 FDs (depending on regional maximum FD Count) |
 | Assign VM to a Specific Fault Domain | Yes | No | No |
 | Update Domains | Depreciated (platform maintenance performed FD by FD) | 5 update domains | Up to 20 update domains |
-| Maintenance Control | No | Yes | Yes |
+| Perform Maintenance | Trigger maintenance on each instance using VM API | Yes | N/A |
 
 ### Networking 
 

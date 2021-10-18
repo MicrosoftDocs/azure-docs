@@ -135,7 +135,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
-| Perform Maintenance | No (can trigger maintenance on each instance using VM API) |
+| Perform Maintenance | Trigger maintenance on each instance using VM API |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) |
 
 ### High availability 
@@ -149,7 +149,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments |
 | Assign VM to a Specific Fault Domain | Yes |
 | Update Domains | Depreciated (platform maintenance performed FD by FD) |
-| Maintenance Control | No |
+| Perform Maintenance | Trigger maintenance on each instance using VM API | Yes | N/A |
 
 ### Networking 
 
@@ -176,6 +176,7 @@ The following tables list the Flexible orchestration mode features and links to 
 The following virtual machine scale set parameters are not currently supported with virtual machine scale sets in Flexible orchestration mode:
 - Single placement group - you must choose `singlePlacementGroup=False`
 - Deployment using Specialty SKUs: G, H, L, M, N series VM families
+- Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
 - VMSS Overprovisioning
 - Image-based Automatic OS Upgrades
 - Application health via SLB health probe - use Application Health Extension on instances
@@ -192,10 +193,10 @@ The following virtual machine scale set parameters are not currently supported w
 Find the right solution to your troubleshooting scenario.
 
 <!-- error -->
-### InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
+### InvalidParameter. The specified fault domain count 3 must fall in the range 1 to 2.
 
 ```
-InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
+InvalidParameter. The specified fault domain count 3 must fall in the range 1 to 2.
 ```
 
 **Cause:** The `platformFaultDomainCount` parameter is invalid for the region or zone selected.
@@ -225,6 +226,16 @@ InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not al
 
 **Solution:** The `singlePlacementGroup` must be set to *False*.
 
+
+<!-- error -->
+### OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virtual machine.
+
+```
+OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virtual machine.
+```
+**Cause:** Trying to create a Virtual Machine Scale Set in Flexible Orchestration Mode with no outbound internet connectivity.
+
+**Solution:** Enable secure outbound access for your virtual machine scale set in the manner best suited for your application. Outbound access can be enabled with a NAT Gateway on your subnet, adding instances to a Load Balancer backend pool, or adding an explicit public IP per instance. For highly secure applications, you can specify custom User Defined Routes through your firewall or virtual network applications. See [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md) for more details.
 
 ## Next steps
 > [!div class="nextstepaction"]
