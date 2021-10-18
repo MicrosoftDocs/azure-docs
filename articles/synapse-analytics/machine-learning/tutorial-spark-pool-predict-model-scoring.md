@@ -34,17 +34,47 @@ If you don't have an Azure subscription, [create a free account before you begin
 - If your model is registered in Azure Machine Learning then you need a linked service. In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Machine Learning linked service. To learn more, see [Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 - The functionality requires that we already have trained model which is either registered in Azure Machine Learning OR uploaded in Azure Data Lake Storage Gen2.
 
+> [!NOTE]
+> This functionality is currently supported only for MLFLOW packaged ONNX, TensorFlow, PyTorch and Sklearn models. Mlflow Pyfunc packaging is also supported for customized python models (viz EBMClassifier etc.).
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 
-## Read/Write data using storage account name and key
+## Use PREDICT in Synapse PySpark notebook for MLFLOW packaged models
 
-FSSPEC can read/write ADLS data by specifying the storage account name and key directly.
+Please make sure all prerequisites are in place beofre following below steps for using PREDICT.
 
-1. In Synapse studio, open **Data** > **Linked** > **Azure Data Lake Storage Gen2**. Upload data to the default storage account.
+1. Import libraries: Import below libraries to use PREDICT in spark session.
+
+```PYSPARK
+   # Import libraries
+   from pyspark.sql.functions import col, pandas_udf,udf,lit
+   from azureml.core import Workspace
+   from azureml.core.authentication import ServicePrincipalAuthentication
+   import azure.synapse.ml.predict as pcontext
+```
+
+1. Set parameters using variables: Synapse ADLS data path and model URI need to be set using input variables. We also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
+
+```PYSPARK
+   # Import libraries
+   DATA_FILE = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<file path>"
+
+   # Set model URI
+       # Set AML URI, if trained model is registered in AML
+          AML_MODEL_URI = "aml://mlflow_sklearn:1" #Here ":1" signifies model version in AML. We can choose which version we want to run. If ":1" is not provided then by default latest version will be picked
+
+       # Set ADLS URI, if trained model is uploaded in ADLS
+          ADLS_MODEL_URI = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<model mlflow folder path>"
+
+   # Define model return type
+   RETURN_TYPES = "INT"
+
+   # Define model runtime. This supports only mlflow
+   RUNTIME = "mlflow"
+```
 
 1. Run the following code.
 
