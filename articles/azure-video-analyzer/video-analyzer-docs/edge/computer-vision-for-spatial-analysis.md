@@ -83,10 +83,10 @@ The following are prerequisites for connecting the spatial-analysis module to Az
     #### [Desktop machine](#tab/desktop-machine)
     [Follow these instructions if your host computer isn't an Azure Stack Edge device.](../../../cognitive-services/computer-vision/spatial-analysis-container.md#install-nvidia-cuda-toolkit-and-nvidia-graphics-drivers-on-the-host-computer)
     #### [Azure VM with GPU](#tab/virtual-machine)
-    1. [Create the VM](../../../cognitive-services/computer-vision/spatial-analysis-container.md?tabs=virtual-machine#create-the-vm)
+    1. [Create the VM](../../../cognitive-services/computer-vision/spatial-analysis-container.md?tabs=virtual-machine#create-the-vm) and install the necessary dockers on the VM
 
-    > [!Important]
-    > Please **skip the IoT Deployment manifest** step mentioned in that document. You will be using our own **[deployment manifest](#configure-deployment-template)** file to deploy the required containers.
+        > [!Important]
+        > Please **skip the IoT Deployment manifest** step mentioned in that document. You will be using our own **[deployment manifest](#configure-deployment-template)** file to deploy the required containers.
 
     1. Connect to your VM and in the terminal type in the following command:
     ```bash
