@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/14/2021
+ms.date: 10/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -138,7 +138,7 @@ Take the following steps if you're returning the device in Europe.
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 
-    **If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](data-box-deploy-picked-up.md&tabs=in-europe#self-managed-shipping).
+    **If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](data-box-deploy-picked-up.md#self-managed-shipping).
 
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
