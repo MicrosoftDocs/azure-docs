@@ -93,7 +93,7 @@ landingContent:
      - linkListType: get-started
        links:
           - text: Get started
-            url: try-sample-label-tool.md
+            url: how-to-guides/try-sample-label-tool.md
           - text: Use the Layout model
             url: concept-layout.md#try-it-sample-labeling-tool
           - text: Use the Invoice model
