@@ -15,12 +15,13 @@ Read these articles before you begin:
 
 * [Azure Video Analyzer overview](overview.md)
 * [Azure Video Analyzer terminology](terminology.md)
-* [Video Analyzer Pipeline concepts](pipeline.md) 
+* [Video Analyzer Pipeline concepts](pipeline.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
 
 ## Prerequisites
 
 Prerequisites for this tutorial are:
+
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 
 * [Video Analyzer account](create-video-analyzer-account.md).
@@ -28,7 +29,7 @@ Prerequisites for this tutorial are:
 
 ## Overview
 
-Video Analyzer can record videos from an RTSP source and in the Video Analyzer account these videos are recorded in a segmented archive.  The segmented archive format allows unbounded duration of video recording, however, in some cases it is necessary to save a portion of video as an MP4 so that it can be individually archived, downloaded, or played outside of the Video Analyzer ecosystem.   
+Video Analyzer can record videos from an RTSP source and in the Video Analyzer account these videos are recorded in a segmented archive.  The segmented archive format allows unbounded duration of video recording, however, in some cases it is necessary to save a portion of video as an MP4 so that it can be individually archived, downloaded, or played outside of the Video Analyzer ecosystem.
 
 In this tutorial, you will learn:
 
@@ -47,6 +48,7 @@ For information about Video Analyzer sources, processors, and sinks see [Sources
 
 <details>
     <summary>Click to expand: Video source and Encoder processor details.</summary>
+
 ### Source
 
 #### Video Source
@@ -68,33 +70,32 @@ Allows a Video Analyzer video recording to be used as a source. The node require
 }
 ```
 
-
 #### Encoder processor
 
 The encoder processor node allows user to specify encoding properties when converting the recorded video into the desired format for downstream processing. There are two presets, system and custom.  Below are the values for the system presets and custom presets.  
 
-- System Preset - Pre-defined encoding settings:
+* System Preset - Pre-defined encoding settings:
 
-  - maximumBitrate - same as source
-  - Scale mode - Pad
-  - width - same as source
-  - height - same as source
-  - Audio encoder
-  - same as source.
+  * maximumBitrate - same as source
+  * Scale mode - Pad
+  * width - same as source
+  * height - same as source
+  * Audio encoder
+  * same as source.
 
-- Custom Preset - Allows for configuration of:
+* Custom Preset - Allows for configuration of:
 
-  - maximumBitrate - 200 - 16000000
+  * maximumBitrate - 200 - 16000000
 
-  - Scale mode - Pad, PreserveAspectRatio, Stretch
+  * Scale mode - Pad, PreserveAspectRatio, Stretch
 
-  - width -  minimum value 1, maximum value 8192
+  * width -  minimum value 1, maximum value 8192
 
-  - height - minimum value 1, maximum value 4320
+  * height - minimum value 1, maximum value 4320
 
-  - Audio Encoder
+  * Audio Encoder
 
-    - bitrate - must be one of the following formats:
+    * bitrate - must be one of the following formats:
 
       **96000, 112000, 128000, 160000, 192000, 224000, 256000**
 
@@ -131,12 +132,9 @@ The encoder processor node allows user to specify encoding properties when conve
   } 
   ```
 
-  
-
 For example video recorded from a camera configured for [4K resolution](https://en.wikipedia.org/wiki/4K_resolution) may need to be resized to [Full HD (1920x1080)](https://en.wikipedia.org/wiki/1080p) resolution before it is exported to a file.
 
 </details>
-
 
 ## Pipeline job
 
@@ -151,27 +149,37 @@ For information about pipeline jobs see [lifecycle of a pipeline](../pipeline.md
 1. Click on **Create Job** at the top.
 
 1. In the `Create Job` fly out blade select:
-   
+
    * **Create from sample**
-      
-      - Select the `Video export` sample topology in the list.
-      
-      - Enter a name in the ` Batch topology name` to save the topology as.
-      
+
+      * Select the `Video export` sample topology in the list.
+
+      * Enter a name in the `Batch topology name` to save the topology as.
+
         >[!NOTE]The sample topology will be saved as the name entered above.  It will be available to re-use next time a video is to be exported.
 
 1. In the `Name your job` section enter a **Job name** in the Job name filed and a **Description** for the job in the description field (the description is optional)
 
 1. In the `Define parameters` section:
-    - Enter the name of the Video Analyzer recorded video in the `sourceVideoName` field.
-    - Enter a ISO 8601 date time value in the `videoSourceTimeSequenceParameter` field.  (Example: [["2021-10-12T18:37:00Z", "2021-10-12T18:39:00Z"]])
-    - Enter a name for the exported MP4 file in the `exportedVideoName` field.
+    * Enter the name of the Video Analyzer recorded video in the `sourceVideoName` field.
+    * Enter a ISO 8601 date time value in the `videoSourceTimeSequenceParameter` field.  (Example: [["2021-10-12T18:37:00Z", "2021-10-12T18:39:00Z"]])
+    * Enter a name for the exported MP4 file in the `exportedVideoName` field.
 
 1. Click **Create**.
 
-The job will enter the processing state and when the pipeline job completes successfully it will transition to a completed state and present a link to the MP4 file in the top of the fly out blade.
+To monitor the Pipeline Job, navigate to the Batch Jobs tab.
 
-# TODO:  Based on figma need to check!!!!!!!!!!!!
+1. Under the `Video Analyzer` section select **Batch**
+
+1. Click on the `Jobs` tab at the top of the Batch Blade.
+  
+The Batch Job will enter a processing state, then upon successful completion it will change state to `Completed`.  To view the associated MP4 video file:
+
+1. Click on **Videos** under the `Video Analyzer` section.
+
+1. Click on the video name that matches the Batch Jobs name used previously in step 5.  
+
+The Video Widget player should start playing the MP4 file.  To download the MP4 file click on `Download video` at the top of the blade.  This will open the MP4 file in a new browser tab.  Right click on the video and click **save as**.
 
 ## Create a batch pipeline job through Video Analyzer account blade
 
@@ -181,7 +189,7 @@ The job will enter the processing state and when the pipeline job completes succ
 
 1. Ensure that the Topologies tab is selected and then click on **Create**.
 
-1.  Click on `Try sample topologies` and select **Video export**
+1. Click on `Try sample topologies` and select **Video export**
 
 1. In the pop up box `Load sample topology` click **Proceed**
 
@@ -193,7 +201,7 @@ Once the topology is saved select the `Jobs` tab
 
 1. Click on **Create**, select the previously created topology from the `Batch pipeline topology` drop down and click **Create**
 
-1.  Enter a name for the job in the `Pipeline job name` field and (optional) enter a description for the job in the `Description` field.
+1. Enter a name for the job in the `Pipeline job name` field and (optional) enter a description for the job in the `Description` field.
 
 1. Specify the name of a Video Analyzer recorded video in the `videoSourceVideoNameParameter` field.
 
@@ -203,28 +211,29 @@ Once the topology is saved select the `Jobs` tab
 
 1. Click **Create**
 
-In the `Jobs` tab you will see the previously created job enter the processing state.  When the job finishes you will be presented with a link to download the exported video.
+The Batch Job will enter a processing state, then upon successful completion it will change state to `Completed`.  To view the associated MP4 video file:
 
-# TODO: CHECK THE JOBS STATUS PAGE
+1. Click on **Videos** under the `Video Analyzer` section.
+
+1. Click on the video name that matches the Batch Jobs name used previously in step 5.  
+
+The Video Widget player should start playing the MP4 file.  To download the MP4 file click on `Download video` at the top of the blade.  This will open the MP4 file in a new browser tab.  Right click on the video and click **save as**.
 
 ## Cancel a pipeline job
 
 Once a pipeline job has entered the processing state the job can be canceled.  To cancel a job:
 
-1.  Navigate to the Video Analyzer account and select **Batch** under **Video Analyzer** section.
+1. Navigate to the Video Analyzer account and select **Batch** under **Video Analyzer** section.
 
-1.  In the Batch blade select the **Jobs** tab at the top.
+1. In the Batch blade select the **Jobs** tab at the top.
 
-1.  Under the jobs tab you will find a list of jobs that are in different stated.  Find the job in processing state and select **Cancel** on the right hand side of the Batch pipeline Jobs tab and then click **Yes**. 
+1. Under the jobs tab you will find a list of jobs that are in different states.  Find the job you wish to cancel in processing state and select **Cancel** on the right hand side of the Batch pipeline Jobs tab and then click **Yes**.
 
 >[!NOTE]A failed pipeline job cannot be canceled.
 
-
-# TODO:  Check in portal for accuracy
-
 ## Delete a pipeline topology of batch kind
 
-In order to delete a pipeline topology of batch kind all pipeline jobs that are currently in the processing state must be canceled.  Once all pipeline jobs have been completed or canceled the pipeline topology of batch kind can be deleted.  To delete a pipeline topology of batch kind:
+In order to delete a pipeline topology of batch kind all pipeline jobs that are associated with the pipeline topology must be deleted.  Once all pipeline jobs have been deleted the pipeline topology of batch kind can be deleted.  To delete a pipeline topology of batch kind:
 
 1. Navigate to the Video Analyzer account.
 
@@ -236,12 +245,6 @@ In order to delete a pipeline topology of batch kind all pipeline jobs that are 
 
 >[!NOTE]All pipeline jobs must be deleted from a pipeline topology of batch kind before a pipeline topology of batch kind can be deleted.
 
-# TODO:  Check in portal for accuracy
-
-
-
-
-
 ## Clean up resources
 
 [!INCLUDE [clean-up-resources](./includes/common-includes/clean-up-resources.md)]
@@ -250,4 +253,3 @@ In order to delete a pipeline topology of batch kind all pipeline jobs that are 
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
 * Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
-
