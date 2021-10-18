@@ -183,7 +183,7 @@ find where TimeGenerated > ago(24h) | distinct Type
 
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section and click **New export rule** from the top of the middle pane.
 
-[![export create](media/logs-data-export/export-create-1.png)](export create)
+![export create](media/logs-data-export/export-create-1.png)](export create)
 
 Follow the steps, then click **Create**. 
 
@@ -466,7 +466,7 @@ Use the following command to create a data export rule to a specific event hub u
 
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section.
 
-[![export rules view](media/logs-data-export/export-view-1.png)](export rules view)
+![export rules view](media/logs-data-export/export-view-1.png)](export rules view)
 
 Click a rule for configuration view.
 
@@ -505,7 +505,7 @@ N/A
 
 Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section and click the status toggle to disable or enable export rule.
 
-[![export rule disable](media/logs-data-export/export-disable.png)](export rule disable)
+![export rule disable](media/logs-data-export/export-disable.png)](export rule disable)
 
 
 # [PowerShell](#tab/powershell)
@@ -555,7 +555,7 @@ Export rules can be disabled to let you stop the export when you don’t need to
 
 In the **Log Analytics workspace** menu in the Azure portal, select *Data Export* from the **Settings** section, then click the ellipsis to the right of the rule and click **Delete**. 
 
-[![export ule delete](media/logs-data-export/export-delete.png)](export ule delete)
+![export ule delete](media/logs-data-export/export-delete.png)](export ule delete)
 
 
 # [PowerShell](#tab/powershell)
@@ -591,7 +591,7 @@ N/A
 
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section to view all export rules in workspace.
 
-[![export rules](media/logs-data-export/export-view.png)](export rules)
+![export rules](media/logs-data-export/export-view.png)](export rules)
 
 
 # [PowerShell](#tab/powershell)
