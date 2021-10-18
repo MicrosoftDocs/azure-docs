@@ -99,9 +99,9 @@ For Event Hubs, the service-assigned metadata of an event obtained from the sour
 
 ## Pricing
 
-Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
+Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md) and [Standard plan pricing tiers](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you change the Standard plan tier accordingly so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
+Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you change the Standard plan pricing tier accordingly so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
 
 ## Prerequisites
 
