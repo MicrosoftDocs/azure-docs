@@ -38,6 +38,10 @@ For example:
 
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation-small.png" alt-text="Confirm the choice to extend sensitivity labels to Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation.png":::
 
+> [!TIP]
+>If you don't see the button, and you're not sure if consent has been granted to extend labeling to assets in Purview, see [this FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-purview) item on how to determine the status.
+>
+
 After you've extended labeling to assets in Azure Purview, all published sensitivity labels are available for use in Purview.
 
 ### Step 3: Create or modify existing label to automatically label content
