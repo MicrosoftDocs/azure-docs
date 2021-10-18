@@ -456,13 +456,13 @@ Now that you have built the application, you can run it locally by using the fol
 
 ## <a name="deploy-app"></a>Deploy your application to App Service
 
-After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up) command:
+After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up&preserve-view=true) command:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
 ```
 
-Replace <app_name> with a name that's unique across all of Azure (valid characters are a-z, 0-9, and -). A good pattern is to use a combination of your company name and an app identifier. To learn more about the app deployment, see [Node.js app deployment in Azure](../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli#deploy-to-azure) article.
+Replace <app_name> with a name that's unique across all of Azure (valid characters are a-z, 0-9, and -). A good pattern is to use a combination of your company name and an app identifier. To learn more about the app deployment, see [Node.js app deployment in Azure](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli#deploy-to-azure) article.
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives you a URL to launch the app at `http://<app-name>.azurewebsites.net`, which is the app's URL on Azure.
 
