@@ -38,12 +38,12 @@
     href: certificates.md
   - name: ASEv3 networking
     href: networking.md
+  - name: Migrating to ASEv3
+    href: migrate.md
 - name: How-To guides
   items:
   - name: Use an ASE
     href: using-an-ase.md
-  - name: Upgrade to ASEv3
-    href: upgrade.md
   - name: Integrate with Application Gateway
     href: integrate-with-application-gateway.md
   - name: Create ASE from a template
@@ -56,6 +56,8 @@
     href: zone-redundancy.md
   - name: Using ASEv3
     href: using.md
+  - name: Migrate to ASEv3
+    href: how-to-migrate.md
 - name: Reference
   items:
   - name: Management addresses
