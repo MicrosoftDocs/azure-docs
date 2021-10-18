@@ -106,7 +106,7 @@ az search service show --name <service-name> --resource-group <search-service-re
 
 ## Create or delete a service
 
-To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
+To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_create) command.
 
 ```azurecli-interactive
 az search service create \
