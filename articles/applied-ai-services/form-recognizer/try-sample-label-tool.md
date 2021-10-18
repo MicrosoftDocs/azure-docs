@@ -38,7 +38,7 @@ To complete this quickstart, you must have:
 
 ## Create a Form Recognizer resource
 
-[!INCLUDE [create resource](../includes/create-resource.md)]
+[!INCLUDE [create resource](includes/create-resource.md)]
 
 ## Analyze Layout
 
@@ -47,13 +47,13 @@ Extract text, tables, selection marks and structure from a document.
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use layout to get text, tables and selection marks"
 
-     :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
+     :::image type="content" source="media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
 
 3. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
 
 4. Replace {need apiKey} with the subscription key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
+    :::image type="content" source="media/label-tool/layout-2.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
 
 5. Select source url, paste the following url of the sample document `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg` click the Fetch button.
 
@@ -62,7 +62,7 @@ The Form Recognizer sample labeling tool will call the Analyze Layout API and an
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
-    :::image type="content" source="../media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
+    :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
 
 1. Download the JSON output file to view the detailed Layout Results.
      * The "readResults" node contains every line of text with its respective bounding box placement on the page.
@@ -76,7 +76,7 @@ Extract text, tables and key value pairs from invoices, sales receipts, ID docum
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use prebuilt model to get data"
 
-    :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
+    :::image type="content" source="media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
 
 3. Select source url
 
@@ -91,14 +91,14 @@ Extract text, tables and key value pairs from invoices, sales receipts, ID docum
 
 6. Replace {need apiKey} with the subscription key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="../media/label-tool/prebuilt-3.jpg" alt-text="Connection settings of Prebuilt Form Recognizer tool.":::
+    :::image type="content" source="media/label-tool/prebuilt-3.jpg" alt-text="Connection settings of Prebuilt Form Recognizer tool.":::
 
 7. Select the Form Type you would like to analyze - invoice, receipt, business cards or ID based on the type of document you want to analyze and selected.
 
 8. Click "Run analysis". The Form Recognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
 9. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
+    :::image type="content" source="media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
 
 10. Download the JSON output file to view the detailed results.
 
@@ -124,7 +124,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
   * Max age = 200
 
 > [!div class="mx-imgBorder"]
-> ![CORS setup in the Azure portal](../media/label-tool/cors-setup.png)
+> ![CORS setup in the Azure portal](media/label-tool/cors-setup.png)
 
 ### Use the sample labeling tool
 
@@ -132,7 +132,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 1. At the sample tool home page select "use custom form to train a model with labels and get key value pairs"
 
-    :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Train a custom model.":::
+    :::image type="content" source="media/label-tool/custom-1.jpg" alt-text="Train a custom model.":::
 
 2. Select "New Project"
 
@@ -148,20 +148,20 @@ Configure the project settings fill in the fields with the following values:
   * **Description** - Your project description.
   * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
 
-  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+  * [!INCLUDE [get SAS URL](includes/sas-instructions.md)]
 
-   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
+   :::image type="content" source="media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
 
 * **Folder Path** -- Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
 * **API Key** - Your Form Recognizer subscription key.
 * **Description** - Optional - Project description
 
-    :::image type="content" source="../media/label-tool/connections.png"  alt-text="Connection settings":::
+    :::image type="content" source="media/label-tool/connections.png"  alt-text="Connection settings":::
 
 #### Label your forms
 
-  :::image type="content" source="../media/label-tool/new-project.png"  alt-text="New project page":::
+  :::image type="content" source="media/label-tool/new-project.png"  alt-text="New project page":::
 
 When you create or open a project, the main tag editor window opens. The tag editor consists of three parts:
 
@@ -175,7 +175,7 @@ Select **Run OCR on all files** on the left pane to get the text and table layou
 
 The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 
-  :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+  :::image type="content" source="media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
 
 ##### Apply labels to text
 
@@ -203,7 +203,7 @@ Next, you will create tags (labels) and apply them to the text elements that you
 
 Follow the steps above to label for the five forms in the sample dataset.
 
-  :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Label the samples.":::
+  :::image type="content" source="media/label-tool/custom-1.jpg" alt-text="Label the samples.":::
 
 #### Train a custom model
 
@@ -213,7 +213,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
-    :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
+    :::image type="content" source="media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
 
     
 
@@ -221,7 +221,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
-   :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
+   :::image type="content" source="media/analyze.png" alt-text="Training view.":::
 
 ## Next steps
 

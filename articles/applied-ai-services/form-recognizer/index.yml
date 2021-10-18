@@ -65,7 +65,7 @@ landingContent:
         - text: 🆕Form Recognizer Studio (preview)
           url: concept-form-recognizer-studio.md
         - text: Form Recognizer Sample Labeling tool
-          url: quickstarts/try-sample-label-tool.md
+          url: try-sample-label-tool.md
         - text: REST API
           url: quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api
         - text: C# SDK
@@ -93,7 +93,7 @@ landingContent:
      - linkListType: get-started
        links:
           - text: Get started
-            url: quickstarts/try-sample-label-tool.md
+            url: try-sample-label-tool.md
           - text: Use the Layout model
             url: concept-layout.md#try-it-sample-labeling-tool
           - text: Use the Invoice model

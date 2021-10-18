@@ -82,7 +82,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](/azure/cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: Layout model
 
@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
 ## **Try it**: Prebuilt invoice model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../concept-invoice.md#key-value-pair-extraction)
+This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-invoice.md#key-value-pair-extraction)
 
 > [!div class="checklist"]
 >
@@ -345,4 +345,4 @@ Congratulations! In this quickstart, you used the Form Recognizer Python SDK to 
 > [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Python reference library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python)
+> [Form Recognizer Python reference library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true)

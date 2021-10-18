@@ -18,7 +18,7 @@ recommendations: false
 >
 > * This quickstart targets API  **v2.1**.
 >
->* For simplicity, the code in this article uses synchronous methods and un-secured credentials storage.
+>* For simplicity, the code in this article uses synchronous methods and unsecured credentials storage.
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
