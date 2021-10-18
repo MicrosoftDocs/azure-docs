@@ -1,12 +1,12 @@
 ---
-title: Migrate App Service Environment v2 to App Service Environment v3
-description: Learn how to migrate your App Service Environment v2 to an App Service Environment v3
+title: Migration to App Service Environment v3 Overview
+description: Overview of the migration process to an App Service Environment v3
 author: seligj95
 ms.topic: article
 ms.date: 10/31/2021
 ms.author: jordanselig
 ---
-# Migrate App Service Environment v2 to App Service Environment v3
+# Migration to App Service Environment v3 Overview
 
 > [!NOTE]
 > This article describes a feature that is currently in preview. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
@@ -46,36 +46,26 @@ The migration consists of two steps. Before starting Step 1, you'll need to prov
 
 ### Step 1 of migration
 
-During this step, which begins after confirming the above configuration details, the platform creates the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you won't be able to scale or make changes to the existing App Service Environment. When completed, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls, DNS routing, network security groups, and so on in preparation for the migration. You'll also have access to scale or modify you existing App Service Environment again if needed.
+During this step, which begins after confirming the above configuration details, the platform creates the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). This step doesn't interrupt activity with your existing App Service Environment and will take about 15 minutes to complete. During this time, you won't be able to scale or make changes to the existing App Service Environment. When completed, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls, DNS routing, network security groups, and so on, in preparation for the migration. You'll also have access to scale or modify you existing App Service Environment again if needed.
 
 ### Step 2 of migration
 
 After Step 1 completes, you should continue with Step 2 as soon as possible. It's recommended that you move on within one week. Step 2 removes the existing App Service Environment and replaces it with the new App Service Environment v3. All App Service plans in the App Service Environment are converted from Isolated to Isolated v2. During this step, **the old App Service Environment is removed and all of the apps that are on it are temporarily down**. You should expect about two hours of downtime during this step. Also, during this step, the public addresses that are used by the App Service Environment will change to the IPs identified during Step 1. As in Step 1, during this process, you won't be able to scale or modify you App Service Environment or deploy apps to it. When the migration is complete, the apps that were on the original App Service Environment will be running on the new environment.
 
 > [!NOTE]
-> Due to the conversion of App Service Plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and cores per corresponding instance size. You will have the opportunity to [scale your environment](../manage-scale-up.md) as needed once the migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
+> Due to the conversion of App Service Plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and cores per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once the migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
 > 
 
 ## Pricing
 
 There's no cost to migrate your App Service Environment. You'll stop being charged for your previous App Service Environment as soon as it shuts down during Step 2 of the migration process, and you'll begin getting charged for your new App Service Environment v3 as soon as it's deployed. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
 
-## How to migrate to App Service Environment v3
-
-### Before you migrate
-
-Ensure you understand how migrating to an App Service Environment v3 will affect your application. Review the [migration process](#overview-of-migration-process) to understand the process timeline, where and when you'll need to get involved, and prepare for potential downtime.
-
-### Migrating your App Service Environment
-
-...(TBD, pending implementation of tooling)
-
 ## Frequently asked questions
 
 - **What if migrating my App Service Environment is not currently supported?**  
   Support for other scenarios will roll out over the next few months. Check back for updates on this page and look for announcements on the [App Service Blog](https://azure.github.io/AppService/).
 - **Will I experience downtime during the migration?**  
-  Yes, you should expect about two hours of downtime during Step 2 of the migration so please plan accordingly.
+  Yes, you should expect about two hours of downtime during Step 2 of the migration so plan accordingly.
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  
