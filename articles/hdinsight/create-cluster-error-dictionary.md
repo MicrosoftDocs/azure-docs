@@ -231,6 +231,23 @@ Delete or Disable the subscription-based Azure Policy assignment while creating 
 
 ---
 
+## Error Code: FailedToValidateStorageAccountErrorCode
+
+### Error
+
+[{'code':'FailedToValidateStorageAccountErrorCode','message':'Failed to validate the storage account.'}]}
+
+### Cause
+
+* You can enable RA-GRS or RA-ZRS on the Azure Blob storage account that HDInsight uses. However, creating a cluster against the RA-GRS or RA-ZRS secondary endpoint isn't supported.
+* HDInsight does not support setting Data Lake Storage Gen2 as read-access geo-zone-redundant storage (RA-GZRS) or geo-zone-redundant storage (GZRS).
+
+### Resolution
+
+* For Azure Blob storage accounts, don't create an HDInsight cluster using the [RA-GRS or RA-ZRS secondary endpoint](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#design-your-applications-for-read-access-to-the-secondary). Only use the primary endpoint.
+* For Data Lake Storage Gen2, use [GRS or RA-GRS redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#geo-redundant-storage).
+
+---
 ## Next steps
 
 For more information about troubleshooting errors in cluster creation, see [Troubleshoot cluster creation failures with Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md).
