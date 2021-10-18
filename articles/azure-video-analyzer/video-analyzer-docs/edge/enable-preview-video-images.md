@@ -78,5 +78,5 @@ To acquire the static URLs to the available preview images, a GET request must b
 
 ## Next steps
 
-[Event-based recording](record-event-based-live-video.md)
+Try out enabling video preview images in the topology in this [quickstart](detect-motion-record-video-clips-cloud.md) or this [tutorial](use-continuous-video-recording.md). 
 
