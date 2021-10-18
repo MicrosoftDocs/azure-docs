@@ -160,20 +160,26 @@ Please make sure all prerequisites are in place before following below steps for
 7. Generate score using PREDICT: You can call PREDICT 3 ways viz. using Spark SQL API, using User define function (UDF) and using Transformer API. Below are examples.
 
    > [!NOTE]
-   > Update the model alias name and view name in this script before running it.
+   > Update the model alias name, view name and comma separated model input column name in this script before running it. Comma separated model input columns are same which ere used while training the model.
 
    ```PYSPARK
    # Call PREDICT using Spark SQL API
    predictions = spark.sql(
                   """
-                      SELECT PREDICT('<random_alias_name>', *) AS predict FROM <view_name>
+                      SELECT PREDICT('<random_alias_name>', <comma_separated_model_input_column_name>) AS predict FROM <view_name>
                   """
               ).show()
+   ```
 
+   ```PYSPARK
    # Call PREDICT using user defined function (UDF)
-   import fsspec
-   import pandas
+   df = df[<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
+   # Model Prediction using Dataframe_API
+   df.withColumn("PREDICT",model.udf(lit("<random_alias_name>"),*df.columns)).show()
+   df.show()
+   ```
 
+   ```PYSPARK
    # Call PREDICT using Transformer API
    import fsspec
    import pandas
