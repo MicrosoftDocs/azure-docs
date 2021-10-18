@@ -42,6 +42,8 @@
   items:
   - name: Use an ASE
     href: using-an-ase.md
+  - name: Upgrade to ASEv3
+    href: upgrade.md
   - name: Integrate with Application Gateway
     href: integrate-with-application-gateway.md
   - name: Create ASE from a template
