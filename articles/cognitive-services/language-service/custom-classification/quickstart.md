@@ -15,7 +15,7 @@ zone_pivot_groups: usage-custom-language-features
 
 # Quickstart: Custom text classification (preview)
 
-Use this article to get started with creating and using a text classification model. A model is a machine learning object that will learn from example data we provide, and trained to classify technical support tickets afterwards.
+Use this article to get started with creating a custom text classification project where you train custom models for text classification. A model is a machine learning object that will learn from example data we provide, and trained to classify text afterwards.
 
 ::: zone pivot="language-studio"
 

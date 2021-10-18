@@ -15,11 +15,10 @@ ms.author: aahi
 # How to train a text classification model
 
 
-Training is the process where the model learns from your [tagged data](tag-data.md), which uses deep learning technology built on top of [Microsoft Turing](https://msturing.org/about). After training is completed you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
+Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
 
 > [!NOTE]
-> * You must have a minimum of 10 documents in your project for the evaluation process to be successful. While training may run with less than 10 tagged files there will be no evaluation data for the model. 
-> * While there is no minimum of tagged instances per class, you can start with 20 files per class. Model performance depends on how distinct the entities in your documents are, and how easily they can be differentiated from each other.
+> * While there is no minimum of tagged instances per class, you can start with 50 files per class. Model performance depends on how distinct the entities in your documents are, and how easily they can be differentiated from each other.
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
@@ -46,15 +45,15 @@ Before starting the training process, files in your dataset are divided into thr
 
 ## Train model in Language Studio
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+1. Go to your project page in [Language Studio](https://aka.ms/LanguageStudio).
 
 2. Select **Train** from the left side menu.
 
-3. Select the model you want to train from the **Model name** dropdown, if you don’t have models already, type in the name of your model and select **create new model**.
+3. To train a new model, select **Train a new model** and type in the model nam ein the text box below. You can **overwrite an existing model** by selecting this option and selsct the model you want from the dropdown below.
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
-4. Select the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up window will appear to confirm overwriting the last model state.
+4. Select the **Train** button at the bottom of the page.
 
 ## Next steps
 

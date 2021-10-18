@@ -23,34 +23,38 @@ Your tags file should be in the `json` format below.
 
 ```json
 {
-  //List of intent names. Their index within this array is used as an ID.
-  "intentNames": [
-      "intent_name1",
-      "intent_name2"
-  ],
-  "documents": [
-      {
-          "location": "path to document", //Relative file path to get the text.
-          "culture": "en-US", //Standard culture strings supported by CultureInfo
-          "intents": [
-              0,
-              3
-          ]
-      }
-  ]
+    "classifiers": [
+        {
+            "name": "Class1"
+        },
+        {
+            "name": "Class2"
+        }
+    ],
+    "documents": [
+        {
+            "location": "doc1.txt",
+            "language": "en-us",
+            "classifiers": [
+                {
+                    "classifierName": "Class2"
+                },
+                {
+                    "classifierName": "Class1"
+                }
+            ]
+        }
+    ]
 }
 ```
 
 ### Data description
 
-* `intentNames`: An array of classes. Index of the class within the array is used as its ID.
+* `classifiers`: An array of classfiers for your data. Each classifier represents one of the classes you want to tag your data with.
 * `documents`: An array of tagged documents. For example:
-    * `file.txt` For documents on the same level as the tags file. 
-    * `dir1/file.txt` For documents within a directory level. 
-    *  `../file.txt` For documents one directory level above.
-* `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
-* `culture`: Culture/language of the document. Use one of the [supported culture locales](../language-support.md).
-* `intents`: Array of classes assigned to the document. If you're working on a single classification project, this value must be one item only.
+  * `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
+  * `language`: Language of the document. Use one of the [supported culture locales](../language-support.md).
+  * `classifiers`: Array of classifier objects assigned to the document. If you're working on a single classification project, there should be one classifier only.
 
 ## Next steps
 

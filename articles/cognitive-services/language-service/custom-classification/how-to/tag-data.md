@@ -77,7 +77,7 @@ To delete/rename a class,
 :::image type="content" source="../media/tag-edit-class.png" alt-text="Edit the tag class" lightbox="../media/tag-edit-class.png":::
 
 >[!NOTE]
-> The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 20 tagged files per classification.
+> The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 50 tagged files per classification and more as you go.
 
 As you tag your data, you can find a training readiness recommendation in the top-right corner of the page.
 :::image type="content" source="../media/tag-train-ready.png" alt-text="Readiness recommendation" lightbox="../media/tag-train-ready.png":::
