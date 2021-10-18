@@ -40,6 +40,9 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
     az account set --subscription <your-subscription-id>
     ```  
 
+> [!IMPORTANT]
+> Clusters running behind an outbound proxy server or firewall need additional network configurations. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+
 ## Deploy Azure Machine Learning extension
 
 Azure Arc-enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for the following scenarios:
