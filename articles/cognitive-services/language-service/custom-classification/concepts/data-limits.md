@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Custom text classification limits
 
-Use this article to learn about the data and rate limits when using custom classification
+Use this article to learn about the data and rate limits when using custom classification.
 
 ## File limits
 
