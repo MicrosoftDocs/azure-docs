@@ -1,7 +1,7 @@
 ---
-title: Data access
+title: Network data access in studio
 titleSuffix: Azure Machine Learning
-description: Learn how data access works with Azure Machine Learning
+description: Learn how data access works with Azure Machine Learning studio when your workspace or storage is in a virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -15,7 +15,10 @@ ms.date: 10/13/2021
 
 # Network data access with Azure Machine Learning studio
 
-Data access is complex and it is important to recognize that there are many pieces to it. In particular, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you are directly accessing data in the cloud. When using Studio, you aren't always directly accessing the data store from your client. Instead, studio relies on the workspace to access data on your behalf.
+Data access is complex and it is important to recognize that there are many pieces to it. In particular, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you are directly accessing data in the cloud. When using studio, you aren't always directly accessing the data store from your client. Instead, studio relies on the workspace to access data on your behalf.
+
+> [!IMPORTANT]
+> The information in this article is intended for Azure administrators who are creating the infrastructure required for an Azure Machine Learning solution.
 
 > [!TIP]
 > Studio only supports reading data from the following datastore types in a VNet:
@@ -45,9 +48,9 @@ In general, data access from studio involves the following checks:
 4. What operation is being performed?
     - Create, read, update, and delete (CRUD) calls on a data store or dataset are handled by Azure Machine Learning.
     - Data Access calls (preview, quick profile, schema, etc.) go to the underlying storage and need extra permissions
-5. Where is this operation being run? (Compute vs our machines)
-    - For all calls to dataset and datastore services except full profile, we use our own machines to run the operations
-    - Jobs, including a full profile, run on a customer compute and access the data from there, so the compute identity needs permission to the storage rather than the user
+5. Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
+    - All calls to dataset and datastore services (except full profile) use resources hosted in a __Microsoft subscription__ to run the operations.
+    - Jobs, including a full profile, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
@@ -55,11 +58,12 @@ The following diagram shows the general flow of a data access call. In this exam
 
 ## Azure Storage Account
 
+See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
 ### Existing filestore
 
-If you use an existing filestore as the default when creating a workspace, the `azureml-filestore` folder doesn't automatically get created. This folder is required when submitting AutoML experiments.
+If you use an existing storage account as the default when creating a workspace, the `azureml-filestore` folder in the filestore doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
 
-To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing filestore is __outside__ the VNet when creating the workspace.
+To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](/azure/storage/common/storage-network-security).
 
 ### Azure Storage firewall
 
