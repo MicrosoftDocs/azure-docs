@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 10/18/2021
 ---
 # Register and Scan Oracle source
 
@@ -15,6 +15,8 @@ This article outlines how to register an Oracle data base in Purview and set up 
 ## Supported capabilities
 
 The Oracle source supports **Full scan** to extract metadata from an Oracle database and fetches **Lineage** between data assets.
+
+Proxy server is not supported when scanning Oracle source.
 
 ## Prerequisites
 

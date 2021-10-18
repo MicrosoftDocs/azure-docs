@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 10/18/2021
 ---
 # Register and Scan a SAP S/4HANA source
 
@@ -19,11 +19,7 @@ The SAP S/4HANA source supports **Full scan** to extract metadata from a SAP S/4
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted
-    integration
-    runtime](../data-factory/create-self-hosted-integration-runtime.md).
+1.  Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md). Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with large memory e.g. 128 GB.
 
 2.  Make sure the [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -125,9 +121,7 @@ To create and run a new scan, do the following:
     e.  **JCo library path**: Specify the path to the folder where the
         JCo libraries are located.
 
-    f.  **Maximum memory available:** Maximum memory (in GB) available
-        on customer's VM to be used by scanning processes. This is
-        dependent on the size of SAP S/4HANA source to be scanned.
+    f.  **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP S/4HANA source to be scanned. It's recommended to provide large available memory e.g. 100.
     > [!Note] 
     > As a thumb rule, please provide 1GB memory for every 1000 tables
 
