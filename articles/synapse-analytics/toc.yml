@@ -1290,7 +1290,7 @@ items:
       items:
       - name: Read/write ADLS with filesystem spec
         displayName: data prep, data preparation
-        href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
+        href: ./spark/tutorial-spark-pool-filesystem-spec.md
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
