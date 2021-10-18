@@ -4,15 +4,12 @@ description: This tutorial provides steps for using the industry data model temp
 author: kromerm
 ms.author: aamerril
 ms.service: synapse-analytics
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 10/14/2021
 ---
 
 # AdventureWorks Template Documentation
-
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-asa-md.md)]
 
 This document explains how to setup and use Microsoft's AdventureWorks pipeline template to jump start the exploration of the AdventureWorks dataset using Azure Synapse Analytics and the Retail database template.
 
