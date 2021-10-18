@@ -2,13 +2,13 @@
 title: Related GitHub Projects for Azure Healthcare APIs IoT connector
 description: List all Open Source (GitHub) repositories for IoT connector
 services: healthcare-apis
-author: msjateppe
+author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
 ms.date: 10/18/2021
 ms.author: jasteppe
 ---
-# GitHub Projects
+# Open-Source Projects
 
 Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with IoT connector. 
 
@@ -29,6 +29,6 @@ Check out our open-source projects on GitHub that provide source code and instru
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): a Swift library that automates the export of Apple HealthKit Data to a FHIR service.
 
 >[!div class="nextstepaction"]
->[Overview of Azure Healthcare APIs](healthcare-apis-overview.md)
+>[Overview of Azure Healthcare APIs](../healthcare-apis-overview.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
