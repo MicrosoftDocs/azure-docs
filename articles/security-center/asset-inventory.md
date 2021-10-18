@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 10/07/2021
+ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
 ---
@@ -14,13 +14,13 @@ ms.topic: how-to
 
 The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud. 
 
-Defender for Cloud periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+Defender for Cloud periodically analyzes the security state of resources connected to your subscriptions to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
 Use this view and its filters to address such questions as:
 
-- Which of my subscriptions with Azure Defender enabled have outstanding recommendations?
+- Which of my subscriptions with enhanced security features enabled have outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
 - How many of my machines tagged with a specific tag have outstanding recommendations?
 - Which machines in a specific resource group have a known vulnerability (using a CVE number)?
@@ -107,16 +107,16 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
     > [!TIP]
     > The **Security findings contain** and **Tags** filters only accept a single value. To filter by more than one, use **Add filters**.
 
-1. To use the **Azure Defender** filter, select one or more options (Off, On, or Partial):
+1. To use the **Defender for Cloud** filter, select one or more options (Off, On, or Partial):
 
-    - **Off** - Resources that aren't protected by an Azure Defender plan. You can right-click on any of these and upgrade them:
+    - **Off** - Resources that aren't protected by a Microsoft Defender plan. You can right-click on any of these and upgrade them:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Microsoft Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
-    - **On** - Resources that are protected by an Azure Defender plan
-    - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 
+    - **On** - Resources that are protected by a Microsoft Defender plan
+    - **Partial** - This applies to **subscriptions** that have some but not all of the Microsoft Defender plans disabled. For example, the following subscription has seven Microsoft Defender plans disabled.
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially on Azure Defender.":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially protected by Microsoft Defender plans.":::
 
 1. To further examine the results of your query, select the resources that interest you.
 
@@ -200,17 +200,17 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
 
 The inventory view lists your Defender for Cloud connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
 
-For example, the following screenshot shows a user with access to 38 subscriptions but only 10 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 10 subscriptions with active recommendations appear in the inventory:
+For example, the following screenshot shows a user with access to 8 subscriptions but only 7 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 7 subscriptions with active recommendations appear in the inventory:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations.":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations." lightbox="./media/asset-inventory/filtered-subscriptions-some.png":::
 
-### Why do some of my resources show blank values in the Azure Defender or agent monitoring columns?
+### Why do some of my resources show blank values in the Defender for Cloud or monitoring agent columns?
 
-Not all Defender for Cloud monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub.
+Not all Defender for Cloud monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub don't need agents to be monitored by Defender for Cloud.
 
 When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the agent monitoring or Azure Defender columns.":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the monitoring agent  or Defender for Cloud columns." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
 
 ## Next steps
 

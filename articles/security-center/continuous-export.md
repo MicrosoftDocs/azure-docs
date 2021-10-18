@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 10/18/2021
 ms.author: memildin
 
 ---
@@ -168,7 +168,7 @@ If you want to analyze Microsoft Defender for Cloud data inside a Log Analytics 
 
 Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendation* tables respectively. 
 
-The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree. 
+The name of the Log Analytics solution containing these tables depends on whether you have enabled the enhanced security features: Security ('Security and Audit') or SecurityCenterFree. 
 
 > [!TIP]
 > To see the data on the destination workspace, you must enable one of these solutions **Security and Audit** or **SecurityCenterFree**.
@@ -261,6 +261,6 @@ For related material, see the following documentation:
 
 - Learn more about [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 - [Azure Event Hubs documentation](../event-hubs/index.yml)
-- [Azure Sentinel documentation](../sentinel/index.yml)
+- [Microsoft Sentinel documentation](../sentinel/index.yml)
 - [Azure Monitor documentation](../azure-monitor/index.yml)
 - [Export data types schemas](https://aka.ms/ASCAutomationSchemas)

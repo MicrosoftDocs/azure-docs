@@ -5,22 +5,19 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2021
+ms.date: 10/18/2021
 ms.author: memildin
 
 ---
 
 # Security alerts schemas
 
-If your subscription has Azure Defender enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
+If your subscription has enhanced security features enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
 
-You can view these security alerts in Microsoft Defender for Cloud's **Threat Protection** pages, or through external tools such as:
+You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](tutorial-security-incident.md), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
 
-- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Azure Sentinel.
+- [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Microsoft Sentinel.
 - Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - [The REST API](/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/securitycenter/alerts).
 
@@ -33,13 +30,13 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 ## The schemas 
 
 
-### [Azure Sentinel](#tab/schema-sentinel)
+### [Microsoft Sentinel](#tab/schema-sentinel)
 
-The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the Log Analytics Workspace for Azure Sentinel.
+The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the Log Analytics Workspace for Microsoft Sentinel.
 
-To create an Azure Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below. 
+To create an Microsoft Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below. 
 
-For more information about Azure Sentinel, see [the documentation](../sentinel/index.yml).
+For more information about Microsoft Sentinel, see [the documentation](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -172,7 +169,7 @@ This article described the schemas that Microsoft Defender for Cloud's threat pr
 
 For more information on the ways to access security alerts from outside Defender for Cloud, see the following pages:
 
-- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
+- [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
 - [Azure Event Hubs](../event-hubs/index.yml) - Microsoft's fully managed, real-time data ingestion service
 - [Continuously export Defender for Cloud data](continuous-export.md)
 - [Log Analytics workspaces](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information

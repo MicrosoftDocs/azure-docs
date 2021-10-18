@@ -5,21 +5,21 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 02/17/2021
+ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
 ---
 
-# Suppress alerts from Azure Defender
+# Suppress alerts from Microsoft Defender for Cloud
 
-This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Azure Defender.
+This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Defender for Cloud.
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Free<br>(Most security alerts are only available with Azure Defender)|
+|Pricing:|Free<br>(Most security alerts are only available with [enhanced security features](enable-enhanced-security.md))|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
@@ -27,7 +27,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 
 ## What are suppression rules?
 
-The various Azure Defender plans detect threats in any area of your environment and generate security alerts.
+The various Microsoft Defender plans detect threats in any area of your environment and generate security alerts.
 
 When a single alert isn't interesting or relevant, you can manually dismiss it. Alternatively, use the suppression rules feature to automatically dismiss similar alerts in the future. Typically, you'd use a suppression rule to:
 
@@ -38,7 +38,7 @@ When a single alert isn't interesting or relevant, you can manually dismiss it. 
 Your suppression rules define the criteria for which alerts should be automatically dismissed.
 
 > [!CAUTION]
-> Suppressing security alerts reduces the threat protection effectiveness of Azure Defender. You should carefully check the potential impact of any suppression rule, and monitor it over time.
+> Suppressing security alerts reduces the effectiveness of Defender for Cloud's threat protection. You should carefully check the potential impact of any suppression rule, and monitor it over time.
 
 :::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Create alert suppression rule.":::
 
@@ -125,6 +125,6 @@ For full details and usage examples, see the [API documentation](/rest/api/secur
 
 This article described the suppression rules in Microsoft Defender for Cloud that automatically dismiss unwanted alerts.
 
-For more information on Azure Defender security alerts, see the following pages:
+For more information on security alerts, see the following pages:
 
-- [Security alerts and the intent kill chain](alerts-reference.md) - A reference guide to the security alerts you might get from Azure Defender.
+- [Security alerts and the intent kill chain](alerts-reference.md) - A reference guide to the security alerts you might get from Defender for Cloud.

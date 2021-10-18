@@ -23,7 +23,7 @@ To protect your Azure App Service plan with Microsoft Defender for App Service, 
 - Defender for Cloud's enhanced protections enabled on your subscription as described in [Quickstart: Enable enhanced protections](enable-enhanced-security.md).
 
     > [!TIP]
-    > You can optionally enable individual plans in Azure Defender (like Microsoft Defender for App Service).
+    > You can optionally enable individual Microsoft Defender plans, like Microsoft Defender for App Service.
 
 ## Availability
 
@@ -41,7 +41,7 @@ Azure App Service is a fully managed platform for building and hosting your web 
 
 **Microsoft Defender for App Service** uses the scale of the cloud to identify attacks targeting applications running over App Service. Attackers probe web applications to find and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways, where they're inspected and logged. This data is then used to identify exploits and attackers, and to learn new patterns that will be used later.
 
-When you enable Microsoft Defender for App Service, you immediately benefit from the following services offered by this Azure Defender plan:
+When you enable Microsoft Defender for App Service, you immediately benefit from the following services offered by this Defender plan:
 
 - **Secure** - Defender for App Service assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in these recommendations to harden your App Service resources.
 
@@ -60,27 +60,27 @@ The log data and the infrastructure together can tell the story: from a new atta
 
 ### Threats by MITRE ATT&CK tactics
 
-Azure Defender monitors for many threats to your App Service resources. The alerts cover almost the complete list of MITRE ATT&CK tactics from pre-attack to command and control. Azure Defender can detect:
+Defender for Cloud monitors for many threats to your App Service resources. The alerts cover almost the complete list of MITRE ATT&CK tactics from pre-attack to command and control.
 
-- **Pre-attack threats** - Defender can detect the execution of multiple types of vulnerability scanners that attackers frequently use to probe applications for weaknesses.
+- **Pre-attack threats** - Defender for Cloud can detect the execution of multiple types of vulnerability scanners that attackers frequently use to probe applications for weaknesses.
 
 - **Initial access threats** - [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) powers these alerts that include triggering an alert when a known malicious IP address connects to your Azure App Service FTP interface.
 
-- **Execution threats** - Defender can detect attempts to run high privilege commands, Linux commands on a Windows App Service, fileless attack behavior, digital currency mining tools, and many other suspicious and malicious code execution activities.
+- **Execution threats** - Defender for Cloud can detect attempts to run high privilege commands, Linux commands on a Windows App Service, fileless attack behavior, digital currency mining tools, and many other suspicious and malicious code execution activities.
 
 ### Dangling DNS detection
 
-Microsoft Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. When you remove a website and don't remove its custom domain from your DNS registrar, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. Azure Defender doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
+Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. When you remove a website and don't remove its custom domain from your DNS registrar, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. Defender for Cloud doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
 
 Subdomain takeovers are a common, high-severity threat for organizations. When a threat actor detects a dangling DNS entry, they create their own site at the destination address. The traffic intended for the organization’s domain is then directed to the threat actor's site, and they can use that traffic for a wide range of malicious activity.
 
 Dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
 
-:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="An example of an Azure Defender alert about a discovered dangling DNS entry. Enable Microsoft Defender for App Service to receive this and other alerts for your environment." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png":::
+:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="An example of an alert about a discovered dangling DNS entry. Enable Microsoft Defender for App Service to receive this and other alerts for your environment." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png":::
 
 Learn more about dangling DNS and the threat of subdomain takeover, in [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
-For a full list of the Azure App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
+For a full list of the App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 
 > [!NOTE]
 > Defender might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender hasn't monitored traffic to your website since the dangling DNS protection was enabled (because there won't be logs to help identify the custom domain).
@@ -94,6 +94,6 @@ In this article, you learned about Microsoft Defender for App Service.
 
 For related material, see the following articles: 
 
-- To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
+- To export your alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - For a list of the Microsoft Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 - For more information on App Service plans, see [App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/).

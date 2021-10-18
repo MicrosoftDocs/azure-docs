@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Defender for Cloud?
+title: Microsoft Defender for Cloud - an introduction
 description: This page describes Defender for Cloud's key benefits - monitoring and improving the security posture of your hybrid and multi-cloud resources, and ensuring threats are detected wherever they occur
 services: security-center
 author: memildin
@@ -11,6 +11,7 @@ ms.date: 10/17/2021
 ms.author: memildin
 
 ---
+
 # What is Microsoft Defender for Cloud?
 
 Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your cloud resources, and provides advanced threat protection across your hybrid and multi-cloud workloads.
@@ -152,9 +153,9 @@ Microsoft Defender for Cloud's features cover the two broad pillars of cloud sec
 
 - **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the [Azure Security Benchmark](/security/benchmark/azure/introduction) for a truly customized view of your compliance.
 
-The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
+Defender for Cloud's **workload protections dashboard** provides visibility and control of the enhanced security features for your environment:
 
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the workload protections dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
 ## What resource types can Azure Defender secure?
 

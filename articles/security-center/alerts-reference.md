@@ -5,13 +5,13 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 10/18/2021
 ms.author: memildin
 
 ---
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Microsoft Defender for Cloud and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
+This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
 

@@ -53,7 +53,7 @@ Each of these options is explained in a separate tab below.
 
 From Security Center, you can enable and configure the JIT VM access.
 
-1. Open the Azure Defender dashboard and from the advanced protection area, select **Just-in-time VM access**.
+1. Open the **Workload protections dashboard** and from the advanced protection area, select **Just-in-time VM access**.
 
     The **Just-in-time VM access** page opens with your VMs grouped into the following tabs:
 
@@ -103,7 +103,7 @@ You can modify a VM's just-in-time configuration by adding and configuring a new
 
 To edit the existing JIT rules for a VM:
 
-1. Open the Azure Defender dashboard and from the advanced protection area, select **Just-in-time VM access**.
+1. Open the **Workload protections dashboard** and from the advanced protection area, select **Just-in-time VM access**.
 
 1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 

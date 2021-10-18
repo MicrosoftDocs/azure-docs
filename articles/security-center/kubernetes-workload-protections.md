@@ -69,6 +69,9 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
+    > [!NOTE]
+    > If you're installing the add-on for the first time, these recommendations will appear as new additions in the list of recommmendations. 
+
     > [!TIP]
     > Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.
     > 
