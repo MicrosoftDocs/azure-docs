@@ -34,7 +34,7 @@ Follow these steps to configure the Speech Resource to be usable for AAD Authent
 ### Create a custom domain name
 [!INCLUDE [Custom Domain include](includes/how-to/custom-domain.md)]
 
-### Assign Roles
+### Assign roles
 AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech Resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
 
 You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell).
