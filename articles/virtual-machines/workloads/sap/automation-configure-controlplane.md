@@ -47,7 +47,7 @@ The table below contains the parameters that define the resource group and the r
 
 ### Network Parameters
 
-The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of these
+The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
  - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
  - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
 
@@ -83,7 +83,7 @@ The table below contains the parameters related to the deployer virtual machine.
 | `deployer_image`	            | Optional	   | Defines the Virtual machine image to use, see below | 
 | `deployer_disk_type`          | Optional    | Defines the disk type, for example Premium_LRS |
 | `deployer_use_DHCP`           | Optional    | Controls if Azure subnet provided IP addresses should be used (dynamic) true |
-| `deployer_private_ip_address` | Optional    | Defines the Private IP addess to use |
+| `deployer_private_ip_address` | Optional    | Defines the Private IP address to use |
 | `deployer_enable_public_ip`   | Optional	   | Defined if the deployer has a public IP|
 
 The Virtual Machine image is defined using a json structure: 
@@ -118,18 +118,18 @@ The table below defines the parameters used for defining the Key Vault informati
 | ---------------------------------- | ----------- | ------------------------------------- | 
 | `user_keyvault_id`	             | Optional	   | Azure resource identifier for the user key vault |
 | `spn_keyvault_id`                  | Optional	   | Azure resource identifier for the user key vault containing the SPN details |
-| `deployer_private_key_secret_name` | Optional	   | If provided contains the secret name for the deployer`s private key |
-| `deployer_public_key_secret_name`  | Optional	   | If provided contains the secret name for the deployer`s public key |
-| `deployer_username_secret_name`	 | Optional	   | If provided contains the secret name for the deployer`s username |
-| `deployer_password_secret_name`	 | Optional	   | If provided contains the secret name for the deployer`s password |
+| `deployer_private_key_secret_name` | Optional	   | The Azure Key Vault secret name for the deployer private key |
+| `deployer_public_key_secret_name`  | Optional	   | The Azure Key Vault secret name for the deployer public key |
+| `deployer_username_secret_name`	 | Optional	   | The Azure Key Vault secret name for the deployer username |
+| `deployer_password_secret_name`	 | Optional	   | The Azure Key Vault secret name for the deployer password |
 
-### Additional parameters
+### Other parameters
 
 | Variable                           | Type        | Description                           | 
 | ---------------------------------- | ----------- | ------------------------------------- | 
-| `firewall_deployment`	               | Mandatory   | boolean flag controlling if an Azure firewall is to be deployed | 
-| `enable_purge_control_for_keyvaults` | Optional    | boolean flag controlling if purge control is enabled on the Key Vault. Use only for test deployments | 
-| `use_private_endpoint`               | Optional    | boolean flag controlling if private endpoints are used. | 
+| `firewall_deployment`	               | Mandatory   | Boolean flag controlling if an Azure firewall is to be deployed | 
+| `enable_purge_control_for_keyvaults` | Optional    | Boolean flag controlling if purge control is enabled on the Key Vault. Use only for test deployments | 
+| `use_private_endpoint`               | Optional    | Boolean flag controlling if private endpoints are used. | 
 
 ### Example parameters file for deployer (required parameters only)
 
@@ -150,7 +150,7 @@ deployer_enable_public_ip=true
 firewall_deployment=true
 ```
 
-For more comprehensive samples see 
+
 
 ## SAP Library
 
@@ -160,7 +160,7 @@ The configuration of the SAP Library is performed in a Terraform tfvars variable
 
 ### Terraform Parameters
 
-The table below contains the Terraform parameters, these need to be entered manually if not using the deployment scripts
+The table below contains the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
 
 | Variable                | Type       | Description                           | 
 | ----------------------- | ---------- | ------------------------------------- | 
@@ -198,7 +198,7 @@ The table below contains the parameters that define the resource group and the r
 | ------------------------------ | ---------- | ------------------------------------- | 
 | `library_terraform_state_arm_id` | Optional   | Azure resource identifier for an existing resource group |
 
-### Additional parameters
+### Extra parameters
 
 | Variable                           | Type        | Description                           | 
 | ---------------------------------- | ----------- | ------------------------------------- | 
