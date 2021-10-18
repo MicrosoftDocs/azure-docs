@@ -161,6 +161,8 @@ For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to
 
 Learn how to [deploy and use batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md).
 
+:::image type="content" source="media/concept-endpoints/batch-endpoint-concept.png" alt-text="Diagram showing a batch endpoint for multiple deployments":::
+
 ### No-code MLflow model deployments
 
 Use the no-code batch endpoint creation experience for [MLflow models](how-to-use-mlflow.md) to automatically create scoring scripts and execution environments.  
