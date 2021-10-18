@@ -59,7 +59,7 @@ Please make sure all prerequisites are in place before following below steps for
    import azure.synapse.ml.predict as pcontext
 ```
 
-2. **Set parameters using variables:** Synapse ADLS data path and model URI need to be set using input variables. We also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
+2. **Set parameters using variables:** Synapse ADLS data path and model URI need to be set using input variables. You also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
 
    > [!NOTE]
    > Update the URI for ADLS Gen2 data file along with model output return data type and ADLS/AML URI for model file in this script before running it.
@@ -70,7 +70,7 @@ Please make sure all prerequisites are in place before following below steps for
 
    # Set model URI
        # Set AML URI, if trained model is registered in AML
-          AML_MODEL_URI = "<aml model uri>" #In URI ":x" signifies model version in AML. We can choose which version we want to run. If ":x" is not provided then by default latest version will be picked.
+          AML_MODEL_URI = "<aml model uri>" #In URI ":x" signifies model version in AML. You can choose which model version you want to run. If ":x" is not provided then by default latest version will be picked.
 
        # Set ADLS URI, if trained model is uploaded in ADLS
           ADLS_MODEL_URI = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<model mlflow folder path>"
@@ -82,7 +82,7 @@ Please make sure all prerequisites are in place before following below steps for
    RUNTIME = "mlflow"
 ```
 
-3. **Ways to authenticate AML workspace:** If model is stored in default ADLS account of Synapse workspace then we do not need any further auth setup. In case model is registered in AML, then we can choose any of the 2 supported ways of authentication:
+3. **Ways to authenticate AML workspace:** If model is stored in default ADLS account of Synapse workspace then you do not need any further auth setup. In case model is registered in AML, then you can choose any of the 2 supported ways of authentication mentioned below.
 
    > [!NOTE]
    > Update tenant, client, subscription, resource group, AML workspace and linked service details in this script before running it.
