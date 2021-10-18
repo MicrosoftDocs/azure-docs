@@ -41,7 +41,7 @@ The output of the window will be single event based on the aggregate function us
 
 [**Session**](/stream-analytics-query/session-window-azure-stream-analytics) window functions group events that arrive at similar times, filtering out periods of time where there is no data. It has three main parameters: timeout, maximum duration, and partitioning key (optional).
 
-![Stream Analytics session window 5 mins timeout & 10 mins maximum](media/stream-analytics-window-functions/stream-analytics-session-window.png)
+![Stream Analytics session window](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
 
 A session window begins when the first event occurs. If another event occurs within the specified timeout from the last ingested event, then the window extends to include the new event. Otherwise if no events occur within the timeout, then the window is closed at the timeout.
 
