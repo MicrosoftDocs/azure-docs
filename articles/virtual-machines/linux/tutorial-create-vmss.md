@@ -66,7 +66,7 @@ Use the Azure portal to create a Flexible scale set.
 1. For **Orchestration mode**, select **Flexible**.
 1. Leave the default of *1* for fault domain count or choose another value from the drop-down.
    :::image type="content" source="media/tutorial-create-vmss/flex-orchestration.png" alt-text="Choose Flexible orchestration mode.":::
-1. For **Image**, select *Windows Server 2019 Datacenter - Gen 1*.
+1. For **Image**, select *Ubuntu 18.04 LTS*.
 1. For **Size**, leave the default value or select a size like *Standard_E2s_V3*.
 1. In **Username** type *azureuser*.
 1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
