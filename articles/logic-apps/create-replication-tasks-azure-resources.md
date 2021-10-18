@@ -362,7 +362,7 @@ If you want your replication task to process more events or messages per second 
 
 - For Event Hubs, go to the `host.jon` file in the Event Hubs extension, and change the trigger's default configuration. For more information, review [Azure Event Hubs trigger and bindings](../azure-functions/functions-bindings-event-hubs.md#host-json)
 
-- For Service Bus, go to the `host.json` file, and change the trigger's default configuration. For more information, review [Azure Service Bus bindings](../azure-functions/functions-bindings-service-bus.md#host.json-settings).
+- For Service Bus, go to the `host.json` file, and change the trigger's default configuration. For more information, review [Azure Service Bus bindings](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 <a name="failover"></a>
 
