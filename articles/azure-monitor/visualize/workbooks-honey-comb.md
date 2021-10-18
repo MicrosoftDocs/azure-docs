@@ -2,13 +2,10 @@
 title: Azure Monitor workbook honey comb visualizations
 description: Learn about Azure Monitor workbook honey comb visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.author: lagayhar
 ---
 
 # Honey comb visualizations
