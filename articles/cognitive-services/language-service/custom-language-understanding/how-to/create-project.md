@@ -68,5 +68,6 @@ Click on the arrow button next to **Create a new project** and select **Import**
 
 :::image type="content" source="../media/import.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import.png":::
 
-# Next Steps
-- [Build schema](./build-schema.md)
+## Next Steps
+
+[Build schema](./build-schema.md)
