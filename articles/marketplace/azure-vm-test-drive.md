@@ -19,7 +19,7 @@ To see the **Test drive** tab in left-nav menu, select the **Test drive** check 
 
 When you've done that, select **Test drive** to reveal two sub-pages:
 
-- **[Technical configuration](#technical-configuration-1)**, where you'll configure your test drive and provide your ARM template (next section below).
+- **[Technical configuration](#technical-configuration)**, where you'll configure your test drive and provide your ARM template (next section below).
 - **[Marketplace listing](#marketplace-listing)**, where you'll provide additional details of your listing and supplemental resources for your customers, such as user manuals and videos.
 
 ## Technical configuration

@@ -211,7 +211,7 @@
         href: azure-vm-plan-overview.md
       - name: Resell through CSPs
         href: azure-vm-resell-csp.md
-      - name: Set up a test drive
+      - name: Configure a test drive
         href: azure-vm-test-drive.md
     - name: Create technical assets
       items:
