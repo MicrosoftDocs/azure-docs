@@ -430,6 +430,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "terraform",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",
@@ -826,6 +832,7 @@
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.synapse-analytics.json",
+    "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/communication-services/.openpublishing.redirection.communication-services.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
