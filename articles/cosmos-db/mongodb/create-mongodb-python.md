@@ -22,7 +22,7 @@ ms.date: 10/22/2021
 > * [Golang](create-mongodb-go.md)
 >  
 
-This quickstart demonstrates how to:
+This (quickstart)[https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started] demonstrates how to:
 1. Create an [Azure Cosmos DB API for MongoDB account](mongodb-introduction.md) 
 2. Connect to your account using PyMongo
 3. Create a sample database and collection
@@ -30,7 +30,7 @@ This quickstart demonstrates how to:
 
 ## Prerequisites to run the sample app
 
-* Python 3.9+ (sample code may work on older versions of Python 3)
+* Python 3.9+ ((sample code)[https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started] may work on older versions of Python 3)
 * PyMongo installed on your machine
 
 <a id="create-account"></a>
@@ -51,9 +51,10 @@ To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource
 
 ## Get the code
 
+Download the sample Python code (from the repository)[https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started] or use git clone:
 
-```python
-def gahl()
+```shell
+git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started
 ```
 
 ## Retrieve your connection string
