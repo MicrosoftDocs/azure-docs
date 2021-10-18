@@ -88,14 +88,14 @@ To start training your model:
 
 1. Select **Train** from the left side menu.
 
-2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
+2. Select **Train a new model** and type in the model name in the text box below. 
 
     :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../../media/train-model.png":::
 
-3. Click on the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up will appear to confirm you want to overwrite the last model state.
+3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing.
+    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-splitting)
     > * Training can take up to a few hours.
 
 ## Deploy your model
