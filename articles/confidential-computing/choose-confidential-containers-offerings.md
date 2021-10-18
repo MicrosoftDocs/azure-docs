@@ -1,81 +1,45 @@
 ---
-title: Choose Confidential Container Offerings
-description: Choose Confidential Container Offerings
-author: JBCook
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.workload: infrastructure
+title: Choosing container offerings with confidential computing 
+description: Choosing the right confidential container offerings to meet your security, isolation and developer needs.
+author: agowdamsft
+ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/7/2021
-ms.author: JenCook
+ms.date: 11/1/2021
+ms.author: amgowda
 ---
 
+# Container related confidential offerings on Azure
 
-<!--- A bit more detail of above, help guide a customer through the decision making of why they should take a certain route.
-Note: this page can describe the partner solutions available (Fortanix, Anjuna, Scone).
-Tell the user to read about OSS enablers for confidential containers on the next page (and link to the next page). For enclave-aware containers, the application model is similar to SGX Virtual machines (link to the VM OSS page). 
----> 
+Confidential capability offerings in this space allows your apps to achieve:
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- data integrity 
+- data confidentiality
+- code integrity
+- container code protection through encryption
+- hardware-based assurances
+- create hardware root of trust
+- lower your attach surface area for your containers
 
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
+## Enclave Confidential Containers <a id="Enclave-Confidential-Containers"></a>
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+Containers deployed in this mode have a tightest security and compute isolation with a lower Trusted Computing Base (TCB). Intel SGX based confidential containers running in the hardware based Trusted Execution Environment (TEE) support both a lift and shift of existing container apps or allow building custom apps with enclave awareness.
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
+There are two programming and deployment models on Azure Kubernetes Service (AKS) 
 
-# Choose Confidential container offerings
+1. Unmodified containers support for higher programming languages on Intel SGX through Azure Partner ecosystem of OSS projects. [Read more on the deployment flow and samples](./confidential-containers.md).  
+1. Enclave aware containers through custom Intel SGX programming model. [Read more on the deployment flow and samples](./enclave-aware-containers.md). 
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+Below are the isolation and security boundaries of enclave confidential containers on Intel SGX.
 
-[add your introductory paragraph]
+![Enclave Confidential Container with Intel SGX](./media/confidential-containers/confidential-container-intel-sgx.png)
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
 
-## [Section 1 heading]
-<!-- add your content here -->
+## Learn more
 
-## [Section 2 heading]
-<!-- add your content here -->
+[ Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)
 
-## [Section n heading]
-<!-- add your content here -->
+<!-- LINKS - internal -->
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+[Confidential Containers on Azure](./confidential-containers.md)
 
-## Next steps
-<!-- Add a context sentence for the following links -->
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
 
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->

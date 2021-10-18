@@ -87,11 +87,11 @@ landingContent:
          -  text: Enclave-aware containers
             url: enclave-aware-containers.md
          -  text: Out of proc attestation
-            url: confidential-nodes-out-of-proc-attestation.md
+            url: confidential-nodes-aks-addon.md
       - linkListType: quickstart
         links:
           - text: CLI based provisioning with a simple enclave container app on AKS
-            url: confidential-nodes-aks-get-started.md
+            url: confidential-enclave-nodes-aks-get-started.md
       - linkListType: sample
         links:
           - text: Confidential container samples (unmodified containers on SGX)

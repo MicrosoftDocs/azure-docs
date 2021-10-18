@@ -56,4 +56,5 @@ During application design, it's important to identify and determine what part of
 
 ## Next steps 
 - [Deploy a confidential computing Intel SGX virtual machine](quick-create-portal.md)
+
 - [Start developing applications with open-source software](enclave-development-oss.md)
