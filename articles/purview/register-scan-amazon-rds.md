@@ -107,9 +107,11 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
 **To prepare your RDS database with a CloudFormation template**:
 
-1. Download the CloudFormation **RDSPrivateLink_CloudFormation.yaml** template required for this procedure from the Azure GitHub repository.
+1. Download the CloudFormation [RDSPrivateLink_CloudFormation.yaml](https://github.com/Azure/Azure-Purview-Starter-Kit/tree/main/Amazon/AWS/RDS) template required for this procedure from the Azure GitHub repository.
 
-    Download and extract the [.zip](https://github.com/Azure/Azure-Purview-Starter-Kit/blob/main/Amazon/AWS/RDS/Amazon_AWS_RDS_PrivateLink_CloudFormation.zip) file to a local directory.
+    At the right of the [linked GitHub page](https://github.com/Azure/Azure-Purview-Starter-Kit/blob/main/Amazon/AWS/RDS/Amazon_AWS_RDS_PrivateLink_CloudFormation.zip), select **Download** to download the zip file.
+
+    Extract the .zip file to a local location so that you can access the **RDSPrivateLink_CloudFormation.yaml** file.
 
 1. In the AWS portal, navigate to the **CloudFormation** service. At the top-right of the page, select **Create stack** > **With new resources (standard)**.
 
