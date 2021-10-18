@@ -30,7 +30,7 @@ This [quickstart](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-pytho
 
 ## Prerequisites to run the sample app
 
-* Python 3.9+ ([sample code](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) may work on older versions of Python 3)
+* Python 3.9+ (It's best to run the [sample code](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) described in this article with this recommended version. Although it may work on older versions of Python 3.)
 * PyMongo installed on your machine
 
 <a id="create-account"></a>
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-gettin
 
 ## Retrieve your connection string
 
-When running, the sample code will request that you enter your API for MongoDB account connection string. Here's where to find it:
+When running the sample code, you have to enter your API for MongoDB account's connection string. Use the following steps to find it:
 
 1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account.
 
@@ -68,7 +68,6 @@ When running, the sample code will request that you enter your API for MongoDB a
 > [!WARNING]
 > Never check passwords or other sensitive data into source code.
 
-You've now updated your app with all the info it needs to communicate with Cosmos DB.
 
 ## Run the code
 
@@ -80,13 +79,13 @@ python run.py
 
 ### Connecting
 
-The following prompts the user for the connection string. It's never a good idea to have your connection string in code since it enables anyone with it to read or write to your database.
+The following code prompts the user for the connection string. It's never a good idea to have your connection string in code since it enables anyone with it to read or write to your database.
 
 ```python
 CONNECTION_STRING = getpass.getpass(prompt='Enter your primary connection string: ') # Prompts user for connection string
 ```
 
-The following creates a client connection your API for MongoDB and tests to make sure it's valid.
+The following code creates a client connection your API for MongoDB and tests to make sure it's valid.
 
 ```python
 client = pymongo.MongoClient(CONNECTION_STRING)
@@ -97,7 +96,7 @@ except pymongo.errors.ServerSelectionTimeoutError:
 ```
 
 ### Resource creation
-The following creates the sample database and collection that will be used to perform CRUD operations. When creating resources programatically, it's recommended to use the API for MongoDB extension commands (as shown here) because these commands have the ability to set the resource throughput (RUs) and configure sharding. 
+The following code creates the sample database and collection that will be used to perform CRUD operations. When creating resources programmatically, it's recommended to use the API for MongoDB extension commands (as shown here) because these commands have the ability to set the resource throughput (RU/s) and configure sharding. 
 
 Implicitly creating resources will work but will default to recommended values for throughput and will not be sharded.
 
