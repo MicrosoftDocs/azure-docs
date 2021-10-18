@@ -109,7 +109,7 @@
       - name: Use the autoscale feature (preview)
         href: autoscale-scaling-plan.md
       - name: Autoscale session hosts (preview)
-        href: autoscale-new-existing.md
+        href: autoscale-new-existing-host-pool.md
       - name: Autoscale diagnostics (preview)
         href: autoscale-diagnostics.md
       - name: Autoscale feature FAQ (preview)

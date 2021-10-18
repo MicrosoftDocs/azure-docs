@@ -51,5 +51,5 @@ To assign a scaling plan to an existing host pool:
 
 ## Next steps
 
-- Review how to create a scaling plan at [Autoscale (preview) for Azure Virtual Desktop session hosts](autoscale-new-existing.md).
+- Review how to create a scaling plan at [Autoscale (preview) for Azure Virtual Desktop session hosts](autoscale-new-existing-host-pool.md).
 - Learn how to troubleshoot your scaling plan at [Enable diagnostics for your scaling plan](autoscale-diagnostics.md).

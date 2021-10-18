@@ -245,5 +245,5 @@ Once you're done, go to the **Review + create** tab and select **Create** to dep
 
 Now that you've created your scaling plan, here are some things you can do:
 
-- [Assign your scaling plan to new and existing host pools](autoscale-new-existing.md)
+- [Assign your scaling plan to new and existing host pools](autoscale-new-existing-host-pool.md)
 - [Enable diagnostics for your scaling plan](autoscale-diagnostics.md)
