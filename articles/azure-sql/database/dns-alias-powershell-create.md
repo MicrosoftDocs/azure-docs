@@ -8,8 +8,8 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.devlang: PowerShell
 ms.topic: how-to
-author: BustosMSFT
-ms.author: robustos
+author: emlisa 
+ms.author: emlisa 
 ms.reviewer: mathoma, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ---

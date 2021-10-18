@@ -3,7 +3,7 @@ title: Create an FCI with Storage Spaces Direct
 description: "Use Storage Spaces Direct to create a failover cluster instance (FCI) with SQL Server on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,7 +13,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
-ms.author: mathoma
+ms.author: rseltem
+ms.reviewer: mathoma
 ---
 
 # Create an FCI with Storage Spaces Direct (SQL Server on Azure VMs)

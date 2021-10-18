@@ -7,8 +7,8 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb-1
 ms.devlang:
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa 
+ms.author: emlisa 
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---

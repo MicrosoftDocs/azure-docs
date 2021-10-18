@@ -3,7 +3,7 @@ title: Configure load balancer for AG VNN listener
 description: Learn to configure an Azure Load Balancer to route traffic to the virtual network name (VNN) listener for your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,8 +13,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/14/2021
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: rseltem
+ms.reviewer: mathoma
 
 ---
 # Configure load balancer for AG VNN listener

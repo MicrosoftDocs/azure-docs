@@ -3,7 +3,7 @@ title: Configure an availability group (PowerShell & Az CLI)
 description: "Use either PowerShell or the Azure CLI to create the Windows failover cluster, the availability group listener, and the internal load balancer on a SQL Server VM in Azure."
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -12,8 +12,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/20/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: rseltem
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell"
 
 ---

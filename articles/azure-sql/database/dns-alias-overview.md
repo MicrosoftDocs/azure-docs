@@ -7,8 +7,8 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa 
+ms.author: emlisa 
 ms.reviewer: mathoma, jrasnick, vanto
 ms.date: 06/26/2019
 ---

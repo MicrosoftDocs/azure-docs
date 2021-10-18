@@ -9,8 +9,8 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa 
+ms.author: emlisa 
 ms.reviewer: mathoma
 ms.date: 06/25/2019
 ---
