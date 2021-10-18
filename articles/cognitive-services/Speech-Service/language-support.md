@@ -57,7 +57,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Chinese (Mandarin, Simplified)     | `zh-CN` | Audio (20200910)<br>Text                 |     Yes                      | Yes                         |
 | Chinese (Taiwanese Mandarin)       | `zh-TW` | Audio (20190701, 20201015)<br>Text                 |           Yes                |                          |
 | Croatian (Croatia)                 | `hr-HR` | Text<br>Pronunciation                  |                           |                          |
-| Czech (Czech Republic)             | `cs-CZ` | Text<br>Pronunciation                  |                           |                          |
+| Czech (Czech)             | `cs-CZ` | Text<br>Pronunciation                  |                           |                          |
 | Danish (Denmark)                   | `da-DK` | Text<br>Pronunciation                  | Yes                          |                          |
 | Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text<br>Pronunciation|    Yes                       |                          |
 | English (Australia)                | `en-AU` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |                          |
@@ -380,7 +380,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 | Language | Locale (BCP-47) | Gender | Voice name |
 |--|--|--|--|
-| Arabic (Arabic ) | `ar-EG` | Female | `ar-EG-Hoda`|
+| Arabic (Egypt) | `ar-EG` | Female | `ar-EG-Hoda`|
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-Naayf`|
 | Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-Ivan`|
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
@@ -393,7 +393,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | Chinese (Taiwanese Mandarin) |  `zh-TW` | Female | `zh-TW-Yating`|
 | Chinese (Taiwanese Mandarin) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
 | Croatian (Croatia) | `hr-HR` | Male | `hr-HR-Matej`|
-| Czech (Czech Republic) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| Czech (Czech) | `cs-CZ` | Male | `cs-CZ-Jakub`|
 | Danish (Denmark) | `da-DK` | Female | `da-DK-HelleRUS`|
 | Dutch (Netherlands) | `nl-NL` | Female | `nl-NL-HannaRUS`|
 | English (Australia) | `en-AU` | Female | `en-AU-Catherine`|
@@ -473,25 +473,36 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 
 | Language | Locale | Neural | Cross-lingual |
 |--|--|--|--|
-| Bulgarian (Bulgaria)| `bg-BG` | Yes | No |
+| Arabic (Egypt) | `ar-EG` | Yes | No |
+| Bulgarian (Bulgaria) | `bg-BG` | Yes | No |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes |
 | Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes | Yes |
-| Dutch (Netherlands)	| `nl-NL` | Yes | No |
+| Chinese (Taiwanese Mandarin) | `zh-TW` | Yes | No |
+| Czech (Czech) | `cs-CZ` | Yes | No |
+| Dutch (Netherlands) | `nl-NL` | Yes | No |
 | English (Australia) | `en-AU` | Yes | Yes |
+| English (Canada) | `en-CA` | Yes | No |
 | English (India) | `en-IN` | Yes | No |
+| English (Ireland) | `en-IE` | Yes | No |
 | English (United Kingdom) | `en-GB` | Yes | Yes |
 | English (United States) | `en-US` | Yes | Yes |
 | French (Canada) | `fr-CA` | Yes | Yes |
 | French (France) | `fr-FR` | Yes | Yes |
+| German (Austria) | `de-AT` | Yes | No |
 | German (Germany) | `de-DE` | Yes | Yes |
+| Hungarian (Hungary) | `hu-HU` | Yes | No |
 | Italian (Italy) | `it-IT` | Yes | Yes |
 | Japanese (Japan) | `ja-JP` | Yes | Yes |
 | Korean (Korea) | `ko-KR` | Yes | Yes |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Portuguese (Portugal) | `pt-PT` | Yes | No |
 | Russian (Russia) | `ru-RU` | Yes | Yes |
+| Slovak (Slovakia) | `sk-SK` | Yes | No |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
+| Turkish (Turkey) | `tr-TR` | Yes | No |
+| Vietnamese (Vietnam) | `vi-VN` | Yes | No |
 
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
