@@ -65,7 +65,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
    az provider register -n "Microsoft.AVS"
    ```
 
-2. Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS.
+1. Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS.
 
    ```azurecli
    az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
@@ -77,7 +77,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
 
-      The registration may take approximately 15 minutes to complete and you can check the current status it.
+      The registration may take approximately 15 minutes to complete, you can use the following command to check status:
       
       ```azurecli
       az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
@@ -91,7 +91,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >```
 
-3. Check if the `vmware `extension is installed. 
+1. Check if the `vmware `extension is installed. 
 
    ```azurecli
    az extension show --name vmware
@@ -109,7 +109,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension add --name vmware
       ```
 
-4. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
+1. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
 
    ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
@@ -123,13 +123,13 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
    >   ```
    
 
-5. Show the details of an iSCSI datastore in a private cloud cluster.
+1. Show the details of an iSCSI datastore in a private cloud cluster.
    
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-6. List all the datastores in a private cloud cluster.
+1. List all the datastores in a private cloud cluster.
 
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -177,7 +177,7 @@ When you delete a private cloud datastore, the disk pool resources don't get del
 
    - Snapshots
 
-2. Delete the private cloud datastore.
+1. Delete the private cloud datastore.
 
    ```azurecli
    az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
