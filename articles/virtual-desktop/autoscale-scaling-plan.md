@@ -34,7 +34,7 @@ Before you create your first scaling plan, make sure you follow these guidelines
 
 ## Create a Custom RBAC role
 
-To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It'll also let the service apply actions on both host pools and VMs when there are no active user sessions.
+To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions.
 
 To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md), using this JSON template:
 
@@ -79,7 +79,7 @@ To assign the custom role:
 
 1. Open the Azure portal and go to **Subscriptions**.
 
-2. Select the **+** button in the top left hand corner of the screen, then select **Add custom role** from the drop-down menu, as shown in the following screenshot.
+2. Select the **+** button in the top left-hand corner of the screen, then select **Add custom role** from the drop-down menu, as shown in the following screenshot.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot showing the drop-down menu that appears when you select the plus sign button in the Azure portal control panel. The option add custom role is selected and highlighted wtih a red border.](media/add-custom-role.png)
@@ -116,13 +116,24 @@ To assign the custom role to grant access:
 3. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot.
 
     > [!div class="mx-imgBorder"]
-    > ![Graphical user interface, text, application Description automatically generated](media/search-for-role.png)
+    > ![A screenshot of the add role assignment menu. The Select field is highlighted in red, with the user entering "Windows Virtual Desktop" into the search field.](media/search-for-role.png)
 
-<!--Why are we using the old product name? Has this not been updated? We need to change this ASAP--->
+When adding the custom role in the Azure portal, make sure you've also selected the following permissions:
 
-When adding the custom role in the Azure portal, make sure you've selected the correct permissions.
+   - Microsoft.Compute/virtualMachines/deallocate/action
+   - Microsoft.Compute/virtualMachines/restart/action
+   - Microsoft.Compute/virtualMachines/powerOff/action
+   - Microsoft.Compute/virtualMachines/start/action 
+   - Microsoft.Compute/virtualMachines/read
+   - Microsoft.DesktopVirtualization/hostpools/read
+   - Microsoft.DesktopVirtualization/hostpools/write
+   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
+   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/write
+   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete
+   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action
+   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read
 
-<!--We can't have this item as image-only like it was in the rough draft for accessibility reasons-->
+These are the same permissions you entered back in step 4.
 
 ## How creating a scaling plan works
 
@@ -132,7 +143,7 @@ Before you create your plan, keep the following things in mind:
 
 - You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
 
-- A scaling plan is can only operate in its configured time zone.
+- A scaling plan can only operate in its configured time zone.
 
 - A scaling plan can have one or multiple schedules. For example, different schedules during weekdays versus the weekend.
 
@@ -187,7 +198,7 @@ To create or change a schedule:
 
 2. Enter a name for your schedule into the **Name** field.
 
-3. In the <!---Where is this?---> field, select which days your schedule will repeat on.
+3. In the **Repeat on** field, select which days your schedule will repeat on.
 
 4. In the **Ramp up** tab, fill out the following fields:
 
@@ -206,12 +217,12 @@ To create or change a schedule:
 
 5. In the **Peak hours** tab, fill out the following fields:
 
-    - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available sessions in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load balancing types, see [onfigure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
+    - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available sessions in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
 
     >[!NOTE]
     >You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
 
-- For **Ramp-down**, you'll enter values into similar fields to **Ramp-up**, but this time it'll be for when your host pool usage drops off. This will include the following fields:
+- For **Ramp-down**, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
 
     - Start time
     - Load-balancing algorithm
