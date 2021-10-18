@@ -25,6 +25,8 @@ Depending on the options you select, some of the wizard screens might not be ava
 * Oracle 12c and 18c
 * MySQL 5.x
 
+Note: The generic SQL connector requires that column names are case-insensitive. MySQL is case-sensitive on Linux and Postgres is case-sensitive across platforms. As a result, they are not currently supported. 
+
 ### Cloud requirements
 
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 

@@ -70,7 +70,7 @@ DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
 
 ## Extended Operations
 
-All the operations that are supported that extend the RESTful API.
+All the operations that are supported that extend the REST API.
 
 | Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
 |------------------------|-----------|-----------|---------|

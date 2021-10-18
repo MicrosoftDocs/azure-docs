@@ -27,7 +27,7 @@ You can use any of the following resources for a training compute target for mos
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Yes | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Yes | &nbsp; |
 |[Azure Kubernetes Service](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (preview) | Yes | Yes | Yes |
-|[Azure Arc enabled Kubernetes](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (preview) | Yes | Yes | Yes |
+|[Azure Arc-enabled Kubernetes](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (preview) | Yes | Yes | Yes |
 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](../articles/machine-learning/how-to-access-terminal.md) to clear at least 1-2 GB before you [stop or restart](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) the compute instance.

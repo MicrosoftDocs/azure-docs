@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/15/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -160,7 +160,7 @@ You may receive the following error message when running a new scan:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### Cause 
-This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18th August 2021, you need to use the elf-hosted integration runtime version 5.9.7885.3.
+This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18th August 2021, you need to use the self-hosted integration runtime version 5.9.7885.3.
 
 ### Resolution 
 Upgrade self-hosted integration runtime to 5.9.7885.3.
@@ -192,6 +192,18 @@ User is trying to connect to Azure Purview from a public endpoint or using Azure
 
 ### Resolution
 In this case, to open Azure Purview Studio, either use a machine that is deployed in the same virtual network as the Azure Purview portal private endpoint or use a VM that is connected to your CorpNet in which hybrid connectivity is allowed.
+
+### Issue
+You may receive the following error message when scanning a SQL server, using a self-hosted integration runtime:
+
+  `Message=This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms`
+
+### Cause 
+Self-hosted integration runtime machine has enabled the FIPS mode.
+Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that the invoked processes depends on are blocked in some scenarios.
+
+### Resolution
+Disable FIPS mode on self-hosted integration server.
 
 ## Next steps
 

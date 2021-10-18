@@ -51,6 +51,12 @@
     href: marketplace-criteria-content-validation.md
   - name: Lead management
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
+  - name: Private offers
+    items:
+      - name: For Cloud Resellers
+        href: isv-csp-reseller.md
+      - name: FAQs
+        href: isv-csp-faq.yml
   - name: Test drives
     items:
       - name: What is a test drive?
@@ -147,6 +153,8 @@
       href: azure-app-test-publish.md
     - name: Market your offer
       href: azure-app-marketing.md
+    - name: Managed app metered billing
+      href: azure-app-metered-billing.md   
     - name: Metered billing
       href: marketplace-metering-service-apis.md
     - name: Configure prices for usage based monthly billing

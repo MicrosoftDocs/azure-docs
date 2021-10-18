@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: cgronlun
@@ -34,7 +34,7 @@ Azure Event Grid reads events from sources, such as Azure Machine Learning and o
 
 ![Azure Event Grid functional model](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
 
-For more information on event sources and event handlers, see [What is Event Grid?](../event-grid/overview.md).
+For more information on event sources and event handlers, see [What is Event Grid?](../event-grid/overview.md)
 
 ### Event types for Azure Machine Learning
 

@@ -151,7 +151,7 @@ Perform a Helm install and pass the specific values manifest
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
 > [!NOTE]
-> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
+> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action", "Microsoft.ContainerService/managedclusters/commandResults/read" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
 
 ## Virtual network peering
 

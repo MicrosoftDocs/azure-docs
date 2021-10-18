@@ -5,7 +5,7 @@ author: anastasia-ms
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/22/2021
 ms.author: v-stharr
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
@@ -117,13 +117,9 @@ If using a symmetric key-based enrollment group, you'll need to first generate a
 
 If you've set up an individual enrollment or enrollment group for X.509 certificated-based authentication, the device will need to use its issued X.509 certificate to attest to Device API. Refer to the following articles on how to set up the enrollment and generate the device certificate.
 
-* Quickstart - [Provision simulated X.509 device to Azure IoT Hub using Python](quick-create-simulated-device-x509-python.md?tabs=linux)
+* Quickstart - [Provision simulated X.509 device to Azure IoT Hub](quick-create-simulated-device-x509.md)
 
-* Quickstart -  [Provision simulated X.509 device to Azure IoT Hub using Node.js](quick-create-simulated-device-x509-node.md)
-
-* Quickstart -  [Enroll X.509 devices to Azure Device Provisioning Service using Python](quick-enroll-device-x509-python.md)
-
-* Quickstart -  [Enroll X.509 devices to Azure Device Provisioning Service using Node.js](quick-enroll-device-x509-node.md)
+* Quickstart -  [Enroll X.509 devices to Azure Device Provisioning Service](quick-enroll-device-x509.md)
 
 Once the enrollment has been set up and the device certificate issued, the following example demonstrates how to authenticate to Device API with the device’s X.509 certificate.
 
@@ -263,7 +259,7 @@ As an example, a service generated using a pre-created shared access policy call
 * policy name: `enrollmentread`,
 * any expiration time.backn
 
-![Create a shared access policy for your Device Provisioning service instance in the portal][img-add-shared-access-policy]
+![Create a shared access policy for your Device Provisioning Service instance in the portal][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";

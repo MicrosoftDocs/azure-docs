@@ -68,8 +68,8 @@ The Windows Guest Agent does not have proxy server support for you to redirect a
 Many different VM extensions are available for use with Azure VMs. To see a complete list, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). The following example lists all available extensions in the *WestUS* location:
 
 ```powershell
-Get-AzVmImagePublisher -Location "WestUS" | `
-Get-AzVMExtensionImageType | `
+Get-AzVmImagePublisher -Location "WestUS" |
+Get-AzVMExtensionImageType |
 Get-AzVMExtensionImage | Select Type, Version
 ```
 

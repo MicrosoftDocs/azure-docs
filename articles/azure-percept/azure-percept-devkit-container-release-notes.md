@@ -16,7 +16,7 @@ To download the container updates, go to [Azure Percept Studio](https://ms.porta
 
 ## August (2108) Release
 
-- Azureyemodule
+- Azureyemodule (mcr.microsoft.com/azureedgedevices/azureeyemodule:2108-1)
     - Updated to Intel latest (May) drop for MyriadX Camera firmware update. 
     - Enabled UVC (USB Video Class) camera as input source. Refer to the [Advanced Development github](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule#using-uvcusb-video-class-camera-as-input-source) on how to use UVC camera as input source. 
     - Fixed module crash when using H.264 raw RTSP stream.

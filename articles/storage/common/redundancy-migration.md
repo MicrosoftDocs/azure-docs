@@ -104,9 +104,9 @@ If you need to migrate your storage account from LRS to ZRS in the primary regio
 
 During a live migration, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process. There is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
-In the standard performance tier, ZRS supports general-purpose v2 accounts only, so make sure to upgrade your storage account if it is a general-purpose v1 account prior to submitting a request for a live migration to ZRS. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). A storage account must contain data to be migrated via live migration.
+For standard performance, ZRS supports general-purpose v2 accounts only, so make sure to upgrade your storage account if it is a general-purpose v1 account prior to submitting a request for a live migration to ZRS. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). A storage account must contain data to be migrated via live migration.
 
-In the premium performance tier, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
+For premium performance, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
 
 If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding with a live migration. This intermediary step removes the secondary read-only endpoint provided by RA-GRS.
 
@@ -147,7 +147,7 @@ Follow these steps to request a live migration:
 > [!NOTE]
 > Premium file shares are available only for LRS and ZRS.
 >
-> GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) for more details.
+> GZRS storage accounts do not currently support the archive tier. See [Hot, cool, and archive access tiers for blob data](../blobs/access-tiers-overview.md) for more details.
 >
 > Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 

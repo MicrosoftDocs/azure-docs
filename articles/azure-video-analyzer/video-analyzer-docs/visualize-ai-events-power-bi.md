@@ -25,14 +25,14 @@ In this tutorial, you will:
 
 - [Monitoring and logging](monitor-log-edge.md) in Video Analyzer
 - Reading [device-to-cloud messages from IoT Hub](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) built-in endpoints
-- Introduction to [Power BI dashboards](https://docs.microsoft.com/power-bi/create-reports/service-dashboards)
+- Introduction to [Power BI dashboards](/power-bi/create-reports/service-dashboards)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 - This tutorial is based on using [Line Crossing sample](use-line-crossing.md) to detect when objects cross a virtual line in a live video feed. You can choose to create visualization for other pipelines - **a pipeline with IoT Hub message sink is required**. Make sure to have the live pipeline created, but activate it only after creating a Stream Analytics job.
 
-  > [!NOTE]
+  > [!TIP]
   >
   > - The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset).
   > - Refer Configuration and deployment section in [FAQs](faq-edge.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.
@@ -141,7 +141,7 @@ In the Stream Analytics job, select Overview, then select **Start** > **Now** > 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/power-bi/start-asa.png" alt-text="Screenshot to Start and Run a Stream Analytics Job.":::
 
-> [!NOTE]
+> [!TIP]
 > IoT Hub allows data retention in the built-in Event Hubs by default for 1 day and for a maximum of 7 days. You can set the retention time during creation of your IoT Hub. Data retention time in IoT Hub depends on your chosen tier and unit type. Click [here](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) for more information. For longer data retention, use [Azure Storage as output](../../stream-analytics/blob-storage-azure-data-lake-gen2-output.md) and then connect Power BI to the files in storage account.
 
 ## Run a sample pipeline
@@ -156,7 +156,7 @@ In Power BI, you can visualize streaming data in 2 ways:
 2. A dashboard tile with custom streaming dataset
 
    > [!NOTE]
-   > In this article, we will use the first method to create reports and then pin to dashboard. This method retains data on the visual for longer duration and aggregates automatically based on incoming data. To learn more about the second method, see [Setup your custom streaming dataset in Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+   > In this article, we will use the first method to create reports and then pin to dashboard. This method retains data on the visual for longer duration and aggregates automatically based on incoming data. To learn more about the second method, see [Setup your custom streaming dataset in Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ### Create and publish a Power BI report
 
@@ -194,7 +194,7 @@ Optionally, you can also [embed a player widget](embed-player-in-power-bi.md) to
 > :::image type="content" source="./media/power-bi/pinned-dashboard.png" alt-text="Power BI Dashboard with report pinned and widget player added in a tile.":::
 
 > [!NOTE]
-> The video playback and report creation will not be in sync because of the method used to generate reports. For a more near real-time experience, see [Setup your custom streaming dataset in Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+> The video playback and report creation will not be in sync because of the method used to generate reports. For a more near real-time experience, see [Setup your custom streaming dataset in Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ## Interpret the dashboard
 

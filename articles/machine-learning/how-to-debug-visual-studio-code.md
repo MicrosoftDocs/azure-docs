@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Interactively debug Azure Machine Learning code, pipelines, and deployments using Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta

@@ -20,7 +20,7 @@ Load balancer provides several capabilities for both UDP and TCP applications.
 
 ## Floating IP
 
-Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include 
+Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include: 
 - clustering for high availability
 - network virtual appliances
 - exposing multiple TLS endpoints without re-encryption. 

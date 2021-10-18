@@ -15,7 +15,7 @@ ms.author: rifox
 Call transcription is an extended feature of the core `Call` API. You first need to obtain the transcription feature API object:
 
 ```swift
-let callTranscriptionFeature = call.api(TranscriptionFeature.self)
+let callTranscriptionFeature = call.api(Features.transcription)
 ```
 
 Then, to check if the call is transcribed, inspect the `isTranscriptionActive` property of `callTranscriptionFeature`. It returns `Bool`.
@@ -24,13 +24,13 @@ Then, to check if the call is transcribed, inspect the `isTranscriptionActive` p
 let isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive;
 ```
 
-You can also subscribe to transcription changes by implementing `TranscriptionFeatureDelegate` delegate on your class with the event `didChangeTranscriptionState`:
+You can also subscribe to transcription changes by implementing `TranscriptionCallFeatureDelegate` delegate on your class with the event `didChangeTranscriptionState`:
 
 ```swift
 callTranscriptionFeature.delegate = self
 
-// didChangeTranscriptionState is a member of TranscriptionFeatureDelegate
-public func transcriptionFeature(_ transcriptionFeature: TranscriptionFeature, didChangeTranscriptionState args: PropertyChangedEventArgs) {
-    let isTranscriptionActive = transcriptionFeature.isTranscriptionActive
+// didChangeTranscriptionState is a member of TranscriptionCallFeatureDelegate
+public func transcriptionCallFeature(_ transcriptionCallFeature: TranscriptionCallFeature, didChangeTranscriptionState args: PropertyChangedEventArgs) {
+    let isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive
 }
 ```

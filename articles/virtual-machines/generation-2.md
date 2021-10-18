@@ -3,7 +3,7 @@ title: Azure support for generation 2 VMs
 description: Overview of Azure support for generation 2 VMs
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: generation-2-vm
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021

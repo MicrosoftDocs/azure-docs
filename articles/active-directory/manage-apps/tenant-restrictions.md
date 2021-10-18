@@ -1,6 +1,7 @@
 ---
-title: Use tenant restrictions to manage access to SaaS apps - Azure AD
+title: Use tenant restrictions to manage access to SaaS apps
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -13,7 +14,7 @@ ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ---
 
-# Use tenant restrictions to manage access to SaaS cloud applications
+# Restrict access to a tenant in Azure Active Directory
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
@@ -219,5 +220,5 @@ The `restrict-msa` policy blocks the use of consumer applications, but allows th
 
 ## Next steps
 
-- Read about [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+- Read about [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)
 - Review the [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
