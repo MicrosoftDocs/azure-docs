@@ -13,6 +13,9 @@ zone_pivot_groups: qnamaker-quickstart
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
+> [!NOTE]
+> A newer version of question and answering capability is now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md).
+
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ::: zone pivot="rest"

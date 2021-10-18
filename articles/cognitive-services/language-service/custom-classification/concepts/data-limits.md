@@ -51,9 +51,9 @@ Use this article to learn about the data and rate limits when using custom text 
 
 ## Project limits
 
-* You can only connect 1 storage container for each project. This process is irreversible, if you connect a container to your resource you can't disconnect it later.
+* You can only connect 1 storage container for each project. This process is irreversible, if you connect a container to your project you can't disconnect it later.
 
-* You can have only 1 file of tags per project. You can't change the tags file later, you can only update the tags within your project.
+* You can have only 1 tags file per project. You can't change the tags file later, you can only update the tags within your project.
 
 * You can't rename your project after creation.
 
@@ -67,9 +67,9 @@ Use this article to learn about the data and rate limits when using custom text 
 
 * You can only train one model at a time per project.
 
-## Classes
+## Classes limits
 
-* You should have at least 2 classes in your project. The maximum is 200 classes.
+* You must have at least 2 classes in your project. <!-- The maximum is 200 classes. -->
 
 * It is recommended to have around 200 tagged instances per class, and you must have a minimum of 10 of tagged instances per class.
 

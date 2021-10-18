@@ -37,7 +37,7 @@ As you train your model, keep in mind:
 
 ## Data splits
 
-Before starting the training process, files in your dataset are divided into three groups at random: 
+Before starting the training process, files in your dataset are divided into three groups at random:
 
 * The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
 
