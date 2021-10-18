@@ -94,7 +94,7 @@ sections:
 
       - question: How does billing work?
         answer: | 
-          Customers are charged based on consumption, similar to the Cognitive Services cloud. The containers need to be configured to send metering data to Azure, and transactions will be billed accordingly. Resources used across the hosted and on-premises services will add to the single quota with tiered pricing, counting against both usages. For more details, refer to the following pricing pages:
+          Customers are charged based on consumption, similar to the Cognitive Services cloud. The containers need to be configured to send metering data to Azure, and transactions will be billed accordingly. Resources used across the hosted and on-premises services will add to the single quota with tiered pricing, counting against both usages. For more information, see the following pricing pages:
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)
           * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#billing)
@@ -105,7 +105,7 @@ sections:
           * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)
 
           > [!IMPORTANT]
-          > Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information only with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
+          > Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
 
           Here's an example of the information that a container communicates for metering:
           
