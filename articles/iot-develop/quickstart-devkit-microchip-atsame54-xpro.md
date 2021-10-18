@@ -525,15 +525,16 @@ Keep Termite open to monitor device output in the following steps.
 
 To view the device status in IoT Central portal:
 
+:::zone pivot="iot-toolset-cmake"
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to *Provisioned*.
-:::zone pivot="iot-toolset-cmake"
-
 1. Confirm that the **Device template** is updated to *Getting Started Guide*.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+1. From the application dashboard, select **Devices** on the side navigation menu.
+1. Confirm that the **Device status** is updated to *Provisioned*.
 1. Confirm that the **Device template** is updated to *Thermostat*.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status-iar.png" alt-text="Screenshot of device status in IoT Central":::
