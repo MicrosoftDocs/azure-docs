@@ -157,6 +157,12 @@ sections:
           
           
           
+      - question: Can a guest user sign in to an Azure AD joined device?
+        answer: |
+          No, currently, guest users can not sign in to an Azure AD joined device.
+          
+          
+          
       - question: Why do my users have issues on Azure AD joined devices after changing their UPN?
         answer: |
           Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
