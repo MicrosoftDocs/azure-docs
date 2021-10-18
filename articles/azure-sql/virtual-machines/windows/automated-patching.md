@@ -3,7 +3,7 @@ title: Automated Patching for SQL Server VMs (Resource Manager) | Microsoft Docs
 description: This article explains the Automated Patching feature for SQL Server virtual machines running on Azure using Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
-ms.author: mathoma
-ms.reviewer: jroth 
+ms.author: pamela
+ms.reviewer: mathoma 
 ms.custom: devx-track-azurepowershell
 ---
 # Automated Patching for SQL Server on Azure virtual machines (Resource Manager)

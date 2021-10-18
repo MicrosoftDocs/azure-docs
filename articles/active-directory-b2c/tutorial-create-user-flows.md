@@ -225,10 +225,9 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for (your tenant name)**.
-1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
-1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scopes - offline_access, openid and user_impersonation. It might take a few minutes for the permissions to propagate.
+1. Select **Grant admin consent for *<your tenant name)>***.
+1. Select **Yes**.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scope.
 
 * * *
 
