@@ -141,7 +141,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     ```
 
 > [!NOTE]
-> Statsbeat is a feature in the Application Insights SDKs that collects and sends diagnostic data to Microsoft. Microsoft uses this information to run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 #### Configure logging for Django applications
 
