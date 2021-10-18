@@ -34,5 +34,7 @@ items:
 - name: Resources
   expanded: true
   items:
+    - name: GitHub projects
+      href: iot-git-projects.md
     - name: Troubleshooting guide
       href: iot-troubleshoot-guide.md
