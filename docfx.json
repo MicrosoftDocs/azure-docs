@@ -1040,10 +1040,8 @@
         "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines",
         "articles/virtual-machine-scale-sets/*.md": "Azure Virtual Machine Scale Sets",
         "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets",
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Azure Video Analyzer for Media",
-        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.yml": "Azure Video Analyzer for Media",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer"        
+        "articles/azure-video-analyzer/**/*.md": "Azure Video Analyzer",
+        "articles/azure-video-analyzer/**/*.yml": "Azure Video Analyzer"           
       }
     },
     "template": [
