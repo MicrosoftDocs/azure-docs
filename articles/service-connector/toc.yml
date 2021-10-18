@@ -41,16 +41,6 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Develop
-    items:
-    - name: Use connection with client library
-      href: overview.md
-  - name: Manage
-    items:
-    - name: Manage a service connection
-      href: overview.md
-    - name: Environment variable naming convention 
-      href: overview.md
   - name: Integrate
     expanded: true
     items:
@@ -86,10 +76,6 @@ items:
       href: how-to-integrate-redis-cache.md
     - name: Apache Kafka on Confluent Cloud
       href: how-to-integrate-confluent-kafka.md
-  - name: Monitor
-    items:
-    - name: Check connection status
-      href: overview.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -98,8 +84,6 @@ items:
   expanded: true
   items:
   - name: Rest API reference
-    href: overview.md
-  - name: Frequently asked questions
     href: overview.md
 - name: Resources
   expanded: true
