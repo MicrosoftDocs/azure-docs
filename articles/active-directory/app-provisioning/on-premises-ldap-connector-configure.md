@@ -1,6 +1,6 @@
 ---
-title: Azure AD ECMA Connector Host generic LDAP connector configuration
-description: This document describes how to configure the Azure AD ECMA Connector Host generic LDAP connector.
+title: Azure AD Provisioning to LDAP directories
+description: This document describes how to configure Azure AD to provision users into an LDAP directory.
 services: active-directory
 author: billmath
 manager: karenh444
@@ -13,8 +13,8 @@ ms.author: billmath
 ms.reviewer: arvinh
 ---
 
-# Azure AD ECMA Connector Host generic LDAP connector configuration
-The following documentation provides configuration and tutorial information demonstrating how the generic LDAP connector and the ECMA Connector Host can be used with an LDAP directory.
+# Configuring Azure AD to provision users into LDAP directories
+The following documentation provides configuration and tutorial information demonstrating how to provision users from Azure AD into an LDAP directory.  
 
 
 [!INCLUDE [active-directory-app-provisioning-ldap.md](../../../includes/active-directory-app-provisioning-ldap.md)]
