@@ -70,7 +70,7 @@ Please make sure all prerequisites are in place before following below steps for
 
    # Set model URI
        # Set AML URI, if trained model is registered in AML
-          AML_MODEL_URI = "aml://mlflow_sklearn:1" #Here ":1" signifies model version in AML. We can choose which version we want to run. If ":1" is not provided then by default latest version will be picked
+          AML_MODEL_URI = "<aml model uri>" #In URI ":x" signifies model version in AML. We can choose which version we want to run. If ":x" is not provided then by default latest version will be picked.
 
        # Set ADLS URI, if trained model is uploaded in ADLS
           ADLS_MODEL_URI = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<model mlflow folder path>"
