@@ -297,20 +297,6 @@
         href: h-series-retirement.md
       - name: HB-series retirement
         href: hb-series-retirement.md
-    - name: States and billing
-      href: states-billing.md
-    - name: vCPU quotas
-      items:
-      - name: CLI
-        displayName: vCPU, quota, limit
-        href: ./linux/quotas.md
-      - name: PowerShell
-        displayName: vCPU, quota, limit
-        href: ./windows/quotas.md
-    - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.yml
-    - name: Azure VM sizes naming conventions
-      href: vm-naming-conventions.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -320,9 +306,6 @@
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
-    - name: Previous generations
-      displayName: older, retired, expired, deprecated
-      href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
@@ -1004,7 +987,7 @@
   - name: Overview
     displayName: managed disks, introduction to managed disks
     href: managed-disks-overview.md
-  - name: Select a disk type for IaaS VMs
+  - name: Disk types
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md

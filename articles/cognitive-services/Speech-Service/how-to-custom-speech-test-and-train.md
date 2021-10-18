@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/08/2021
 ms.author: pafarley
 ---
 
@@ -64,7 +64,10 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 ## Upload data
 
-To upload your data, navigate to <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal</a>. After creating a project, navigate to **Speech datasets** tab, and click **Upload data** to launch the wizard and create your first dataset. Select a speech data type for your dataset, and upload your data.
+To upload your data, navigate to [Speech Studio](https://aka.ms/speechstudio/customspeech). After creating a project, navigate to **Speech datasets** tab, and click **Upload data** to launch the wizard and create your first dataset. Select a speech data type for your dataset, and upload your data.
+
+> [!NOTE]
+> If your dataset file size exceeds 128 MB, you can only upload it using *Azure Blob or shared location* option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-using-speech-to-text-rest-api-v30) for details.
 
 First, you need to specify whether the dataset is to be used for **Training** or **Testing**. There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset you upload must be correctly formatted before uploading, and must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
 
@@ -73,6 +76,35 @@ After your dataset is uploaded, you have a few options:
 * You can navigate to the **Train custom models** tab to train a custom model.
 * You can navigate to the **Test models** tab to visually inspect quality with audio only data or evaluate accuracy with audio + human-labeled transcription data.
 
+### Upload data using Speech-to-text REST API v3.0
+
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use it to upload a dataset. This is particularly useful when your dataset file exceeds 128 MB, because files that large cannot be uploaded using *Local file* option in Speech Studio. (You can also use *Azure Blob or shared location* option in Speech Studio for the same purpose as described in the previous section.)
+
+Use either of the following requests to create and upload a dataset:
+* [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
+* [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
+
+**REST API created datasets and Speech Studio projects**
+
+A dataset created with the Speech-to-text REST API v3.0 will *not* be connected to any of the Speech Studio projects, unless a special parameter is specified in the request body (see below). Connection with a Speech Studio project is *not* required for any model customization operations, if they are performed via the REST API.
+
+When you log on to the Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded through the REST API without any project reference) and offer to connect such objects to an existing project. 
+
+To connect the new dataset to an existing project in the Speech Studio during its upload, use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) or [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) and fill out the request body according to the following format:
+```json
+{
+  "kind": "Acoustic",
+  "contentUrl": "https://contoso.com/mydatasetlocation",
+  "locale": "en-US",
+  "displayName": "My speech dataset name",
+  "description": "My speech dataset description",
+  "project": {
+    "self": "https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/projects/c1c643ae-7da5-4e38-9853-e56e840efcb2"
+  }
+}
+```
+
+The Project URL required for the `project` element can be obtained with the [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
 
 ## Audio + human-labeled transcript data for training/testing
 

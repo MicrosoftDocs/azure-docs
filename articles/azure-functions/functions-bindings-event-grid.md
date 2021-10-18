@@ -46,11 +46,23 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 #### Event Grid extension 3.x and higher
 
-A new version of the Event Grid bindings extension is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.2). For .NET applications, it  changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
+A new version of the Event Grid bindings extension is available in preview. For .NET applications, it changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
 
-> [!NOTE]
-> The preview package is not included in an extension bundle and must be installed manually. For .NET apps, add a reference to the package. For all other app types, see [Update your extensions].
+This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following in your `host.json` file:
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+To learn more, see [Update your extensions].
+
+[preview NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.4
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

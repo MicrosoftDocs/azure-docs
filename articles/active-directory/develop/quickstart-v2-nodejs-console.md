@@ -3,14 +3,14 @@ title: "Quickstart: Call Microsoft Graph from a Node.js console app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you download and run a code sample that shows how a Node.js console application can get an access token and call an API protected by a Microsoft identity platform endpoint, using the app's own identity
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: v-doeris
+ms.author: karenhoran
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
 

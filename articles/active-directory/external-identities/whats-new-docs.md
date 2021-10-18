@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,16 @@ manager: CelesteDG
 # Azure Active Directory external identities: What's new
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## September 2021
+
+### Updated articles
+
+- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
+- [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md)
+- [Leave an organization as a guest user](leave-the-organization.md)
+- [Invite internal users to B2B collaboration](invite-internal-users.md)
+
 
 ## August 2021
 
