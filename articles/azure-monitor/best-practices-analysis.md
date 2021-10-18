@@ -4,7 +4,7 @@ description: Guidance and recommendations for customizing visualizations beyond 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/28/2021
+ms.date: 10/18/2021
 
 ---
 
@@ -101,4 +101,4 @@ You can then build your own custom websites and applications using metric and lo
 
 
 ## Next steps
-- [Define alerts and automated actions from Azure Monitor data](best-practices-alerts.md)
+- See [Alerts and automated actions](best-practices-alerts.md) to define alerts and automated actions from Azure Monitor data. 

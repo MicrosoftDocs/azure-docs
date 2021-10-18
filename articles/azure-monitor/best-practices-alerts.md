@@ -4,7 +4,7 @@ description: Recommendations for deployment of Azure Monitor alerts and automate
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/28/2021
+ms.date: 10/18/2021
 
 ---
 

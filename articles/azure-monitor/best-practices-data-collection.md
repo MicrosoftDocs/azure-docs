@@ -4,7 +4,7 @@ description: Guidance and recommendations for configuring data collection in Azu
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/28/2021
+ms.date: 10/18/2021
 
 ---
 
@@ -124,4 +124,4 @@ See [Debug snapshots on exceptions in .NET apps](app/snapshot-debugger.md) for d
 
 ## Next steps
 
-- With data collection configured for all of your Azure resources, see [Alerts and automated actions](best-practices-alerts.md) to configure responses to take to issues identified in your monitoring data.
+- With data collection configured for all of your Azure resources, see [Analyze and visualize data](best-practices-analysis.md) to see options for analyzing this data. 
