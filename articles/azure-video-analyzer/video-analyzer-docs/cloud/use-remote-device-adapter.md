@@ -8,15 +8,11 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud using a remote device adapter
 
-Azure Video Analyzer allows users to connect cameras directly to the cloud in order to capture and record video, using cloud pipelines.
-Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets via RTSP protocol. This approach is useful in the following scenarios:
+Azure Video Analyzer cloud can directly ingest video from RTSP cameras available on the public Internet. Video from existing legacy RTSP cameras in private networks can also be ingested with the aid of Video Analyzer Edge acting as a transparent gateway. This approach is useful in the following scenarios:
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently
 * When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
-
-> [!NOTE]
-> The Video Analyzer edge module is not acting as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./cloud/media/use-remote-device-adapter/use-remote-device-adapter.svg" alt-text="Connect cameras to the cloud with a remote device adapter":::
@@ -38,13 +34,17 @@ The following are required for this how-to guide:
   * User-assigned managed identity with **Contributor** role access
 * Video Analyzer account must be paired with IoT Hub
 * [IoT Edge with Video Analyzer edge module installed and configured](../edge/deploy-iot-edge-device.md)
-* [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
-  * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
-* IP camera(s) with RTSP Stream
+* RTSP capable camera(s)
   * Ensure that camera(s) are on the same network as edge device
 
+## Overview
+The following is a overview of the instructions of this how-to guide:
 
-## Create IoT device for camera via portal
+* Provision a device entry on IoT Hub to represent the legacy camera device
+* Create a device adapter with Video Analyzer edge to proxy the legacy camera as a transparent gateway
+* Reference the IoT Camera device in the cloud live topology and pipeline to ingest data from the camera.
+
+## Provisioning IoT device entry/credentials
 
 An IoT device has to be created for each camera to connect to the cloud.
 
@@ -54,9 +54,10 @@ In the Azure portal:
 1. Select the **IoT devices** pane under **Explorers**
 1. Select **+Add device** 
 1. Enter a **Device ID** with a unique string (Ex: building404-camera1)
+1. **Authentication type** must be **Symmetric key**
 1. All other properties can be left as default
 1. Select **Save** to create the IoT device
-1. Select the IoT device, and record the **Primary key**, as it will be needed
+1. Select the IoT device, and record the **Primary key** or **Secondary key**, as it will be needed
 
 ## Create remote device adapter to enable transparent gateway
 
@@ -85,10 +86,10 @@ In the Azure portal:
        "host": "<Camera's IP address>"
       },
      "iotHubDeviceConnection": {
-      "deviceId": "<Device ID>",
+      "deviceId": "<IoT Hub Device ID>",
       "credentials": {
         "@type": "#Microsoft.VideoAnalyzer.SymmetricKeyCredentials",
-        "key": "<Primary Key>"
+        "key": "<Primary or Secondary Key>"
        }
      }
    }
@@ -98,19 +99,20 @@ In the Azure portal:
 
 If successful, you will receive a response with a status code 201.
 
-> [!NOTE]
-> IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
 
 ## Create pipeline topology in the cloud
+
+> [!NOTE]
+> IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
 
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
 See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.
 
-The following values are required to enable tunneling on the RTSP source node:
+The following values, specific to the IoT device provisioned in the previous instructions, are required to enable tunneling on the RTSP source node:
 
 * IoT Hub Name
-* IoT Device ID
+* IoT Hub Device ID
 
 ```
             {
@@ -136,7 +138,7 @@ The following values are required to enable tunneling on the RTSP source node:
 
 ## Create and activate live pipeline in the cloud
 
-When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and IoT Device ID must be defined.
+When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and IoT Hub Device ID must be defined.
 
 ```
    {
@@ -160,12 +162,13 @@ When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and
             },
             {
                 "name": "ioTHubDeviceIdParameter",
-                "value": "building1-camera1"
+                "value": "building404-camera1"
             }
           ]
        }
    }
 ```
+The RTSP URL must be **localhost** because the access to the camera is being tunneled.  
 
 After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.
 
