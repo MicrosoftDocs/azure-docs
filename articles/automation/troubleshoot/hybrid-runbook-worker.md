@@ -54,7 +54,7 @@ The Hybrid Runbook Worker jobs failed to refresh when communicating through a Lo
 
 #### Resolution
 
-Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](../azure-monitor/agents/gateway#troubleshooting.md).
+Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](../../azure-monitor/agents/gateway#troubleshooting.md).
 
 ### <a name="cannot-connect-signalr"></a>Scenario: Event 15011 in the Hybrid Runbook Worker
 
