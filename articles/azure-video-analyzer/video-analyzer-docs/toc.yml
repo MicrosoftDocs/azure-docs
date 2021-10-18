@@ -125,6 +125,14 @@
       href: edge/deploy-iot-edge-linux-on-windows.md  #??
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
+  - name: Connect devices
+    items:  
+    - name: Discover ONVIF-capable cameras
+      href: edge/camera-discovery.md
+    - name: Connect via remote device adapter
+      href: cloud/use-remote-device-adapter.md  #??
+    - name: Connect cameras behind firewall
+      href: connect-devices.md
   - name: Playback
     items:     
     - name: Use access policies for playback
@@ -155,10 +163,6 @@
       href: edge/troubleshoot.md      
   - name: Operate cloud pipeline
     items:
-    - name: Connect Axis cameras
-      href: overview.md
-    - name: Connect devices
-      href: overview.md
     - name: Use Video Analyzer edge as a transparent gateway
       href: overview.md     
     - name: Monitor  
@@ -173,10 +177,6 @@
       href: sample-player-widget.md
     - name: Embed player widget in Power BI
       href: embed-player-in-power-bi.md
-  - name: Connect cameras to cloud via remote device adapter
-    href: cloud/use-remote-device-adapter.md
-  - name: Camera discovery
-    href: edge/camera-discovery.md
 - name: Reference 
   items:
   - name: Access policies
@@ -189,7 +189,7 @@
     href: spatial-analysis-operations.md
   - name: Visual Studio Code extension
     href: visual-studio-code-extension.md  
-  - name: Transparency and responsible AI principles
+  - name: Transparency and Responsible AI principles
     href: https://go.microsoft.com/fwlink/?linkid=2163476
   - name: Edge module
     items:
@@ -213,7 +213,7 @@
     href: https://azure.microsoft.com/pricing/details/video-analyzer/
   - name: Available regions
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
-  - name: FAQs
+  - name: FAQ
     href: faq.yml 
   - name: Quotas and limitations
     href: quotas-limitations.md
