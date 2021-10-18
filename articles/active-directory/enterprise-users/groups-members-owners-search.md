@@ -30,7 +30,7 @@ Search functions for groups include:
 
 ## Group search and sorting
 
-On the **All groups** page, when you enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters. Substring search is case-sensitive.
+On the **All groups** page, when you enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and any special characters are searched for also in an ANDed search. Substring search is case-sensitive.
 
 ![new substring searches on the All Groups page](./media/groups-members-owners-search/groups-search-preview.png)
 
