@@ -64,7 +64,7 @@ To use Application Insights, [create an instance of the Application Insights ser
 1. Behind the scenes, a [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) entity named `applicationinsights` is created at the API level.
 
 > [!NOTE]
-> We consider the request to be successful once API Management sends the entire response to the client.
+> Requests are successful once API Management sends the entire response to the client.
 
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
@@ -121,7 +121,7 @@ To make Application Insights pre-aggregated metrics available in API Management,
 > [!WARNING]
 > Logging all events may have serious performance implications, depending on incoming requests rate.
 
-Based on internal load tests, enabling the logging feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Application Insights is designed to assess application performances using statistical analysis. It is not:
+Based on internal load tests, enabling the logging feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Application Insights is designed to assess application performances using statistical analysis. It's not:
 * Intended to be an audit system.
 * Suited for logging each individual request for high-volume APIs.
 
@@ -129,7 +129,9 @@ You can manipulate the number of logged requests by [adjusting the **Sampling** 
 
 **Sampling** helps to reduce telemetry volume, effectively preventing significant performance degradation while still carrying the benefits of logging.
 
-Skip request and responses headers and body logging to positively alleviate performance issues.
+To improve performance issues, skip:
+* Request and responses headers.
+* Body logging.
 
 ## Video
 
