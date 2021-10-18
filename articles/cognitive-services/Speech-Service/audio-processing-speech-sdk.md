@@ -45,23 +45,36 @@ This sample shows how to use MAS with all default enhancement options on input f
 #### [C#](#tab/csharp)
 
 ```csharp
-SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
-AudioConfig audioConfig = AudioConfig.FromDefaultMicrophoneInput(processingOptions);
+var audioProcessingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+var audioInput = AudioConfig.FromDefaultMicrophoneInput(audioProcessingOptions);
 
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
+---
 
 #### [C++](#tab/cpp)
 
 ```cpp
-std::shared_ptr<SpeechConfig> speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
-std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromDefaultMicrophoneInput(processingOptions);
+auto audioProcessingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions);
 
-std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
+```
+---
+
+#### [C++](#tab/java)
+
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+AudioProcessingOptions audioProcessingOptions = AudioProcessingOptions.create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+AudioConfig audioInput = AudioConfig.fromDefaultMicrophoneInput(audioProcessingOptions);
+
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
@@ -75,23 +88,36 @@ This sample shows how to use MAS with a predefined microphone geometry on a spec
 #### [C#](#tab/csharp)
 
 ```csharp
-SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry.Linear2);
-AudioConfig audioConfig = AudioConfig.FromMicrophoneInput("hw:0,1", processingOptions);
+var audioProcessingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry.Linear2);
+var audioInput = AudioConfig.FromMicrophoneInput("hw:0,1", audioProcessingOptions);
 
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
+---
 
 #### [C++](#tab/cpp)
 
 ```cpp
-std::shared_ptr<SpeechConfig> speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry::Linear2);
-std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromMicrophoneInput("hw:0,1", processingOptions);
+auto audioProcessingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry::Linear2);
+auto audioInput = AudioConfig::FromMicrophoneInput("hw:0,1", audioProcessingOptions);
 
-std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
+```
+---
+
+#### [Java](#tab/java)
+
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+AudioProcessingOptions audioProcessingOptions = AudioProcessingOptions.create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, PresetMicrophoneArrayGeometry.Linear2);
+AudioConfig audioInput = AudioConfig.fromMicrophoneInput("hw:0,1", audioProcessingOptions);
+
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
@@ -99,42 +125,67 @@ std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(spee
 
 This sample shows how to use MAS with a custom microphone geometry on a specified audio input device. In this example:
 * **Enhancement options** - The default enhancements will be applied on the input audio stream.
-* **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates.
-* **Audio input device** - The audio input device id is `hw:0,1`. For more information on how to select an audio input device, see [How to: Select an audio input device with the Speech SDK](how-to-select-audio-input-devices.md).
+* **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
+* **Audio input** - The audio input is from a file, where the audio within the file is expected to be captured from an audio input device corresponding to the custom geometry specified. 
 
 #### [C#](#tab/csharp)
 
 ```csharp
-SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[4]
+MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[7]
 {
-    new MicrophoneCoordinates(0, 42, 0),
-    new MicrophoneCoordinates(42, 0, 0),
-    new MicrophoneCoordinates(0, -42, 0),
-    new MicrophoneCoordinates(-42, 0, 0)
+    new MicrophoneCoordinates(0, 0, 0),
+    new MicrophoneCoordinates(40, 0, 0),
+    new MicrophoneCoordinates(20, -35, 0),
+    new MicrophoneCoordinates(-20, -35, 0),
+    new MicrophoneCoordinates(-40, 0, 0),
+    new MicrophoneCoordinates(-20, 35, 0),
+    new MicrophoneCoordinates(20, 35, 0)
 };
-MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, microphoneCoordinates);
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
-AudioConfig audioConfig = AudioConfig.FromMicrophoneInput("hw:0,1", processingOptions);
+var microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, microphoneCoordinates);
+var audioProcessingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
+var audioInput = AudioConfig.FromWavFileInput("katiesteve.wav", audioProcessingOptions);
 
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
+---
 
 #### [C++](#tab/cpp)
 
 ```cpp
-std::shared_ptr<SpeechConfig> speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
 MicrophoneArrayGeometry microphoneArrayGeometry
 {
     MicrophoneArrayType::Planar,
-    { { 0, 42, 0 }, { 42, 0, 0 }, { 0, -42, 0 }, { -42, 0, 0 } }
+    { { 0, 0, 0 }, { 40, 0, 0 }, { 20, -35, 0 }, { -20, -35, 0 }, { -40, 0, 0 }, { -20, 35, 0 }, { 20, 35, 0 } }
 };
-std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel::LastChannel);
-std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromMicrophoneInput("hw:0,1", processingOptions);
+auto audioProcessingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel::LastChannel);
+auto audioInput = AudioConfig::FromWavFileInput("katiesteve.wav", audioProcessingOptions);
 
-std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
+```
+---
+
+#### [Java](#tab/java)
+
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[7];
+microphoneCoordinates[0] = new MicrophoneCoordinates(0, 0, 0);
+microphoneCoordinates[1] = new MicrophoneCoordinates(40, 0, 0);
+microphoneCoordinates[2] = new MicrophoneCoordinates(20, -35, 0);
+microphoneCoordinates[3] = new MicrophoneCoordinates(-20, -35, 0);
+microphoneCoordinates[4] = new MicrophoneCoordinates(-40, 0, 0);
+microphoneCoordinates[5] = new MicrophoneCoordinates(-20, 35, 0);
+microphoneCoordinates[6] = new MicrophoneCoordinates(20, 35, 0);
+MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, microphoneCoordinates);
+AudioProcessingOptions audioProcessingOptions = AudioProcessingOptions.create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
+AudioConfig audioInput = AudioConfig.fromWavFileInput("katiesteve.wav", audioProcessingOptions);
+
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
@@ -149,32 +200,51 @@ In this example:
 #### [C#](#tab/csharp)
 
 ```csharp
-SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
-AudioConfig audioConfig = AudioConfig.FromDefaultMicrophoneInput(processingOptions);
+var audioProcessingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+var audioInput = AudioConfig.FromDefaultMicrophoneInput(audioProcessingOptions);
 
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
+---
 
 #### [C++](#tab/cpp)
 
 ```cpp
-std::shared_ptr<SpeechConfig> speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
-std::shared_ptr<AudioConfig> audioConfig = AudioConfig::FromDefaultMicrophoneInput(processingOptions);
+auto audioProcessingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions);
 
-std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
+```
+---
+
+#### [Java](#tab/java)
+
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+AudioProcessingOptions audioProcessingOptions = AudioProcessingOptions.create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_ECHO_CANCELLATION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_DISABLE_NOISE_SUPPRESSION | AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT);
+AudioConfig audioInput = AudioConfig.fromDefaultMicrophoneInput(audioProcessingOptions);
+
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
 
 ### Using Microsoft Audio Stack to specify beamforming angles
 
+This sample shows how to use MAS with a custom microphone geometry and beamforming angles on a specified audio input device. In this example:
+* **Enhancement options** - The default enhancements will be applied on the input audio stream.
+* **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
+* **Beamforming angles** - Beamforming angles are specified to optimize for audio originating in that range. The units for angles are degrees.
+* **Audio input** - The audio input is from a push stream, where the audio within the stream is expected to be captured from an audio input device corresponding to the custom geometry specified. 
+
 #### [C#](#tab/csharp)
 
 ```csharp
-SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
 MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[4]
 {
@@ -183,18 +253,19 @@ MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[4]
     new MicrophoneCoordinates(20, 0, 0),
     new MicrophoneCoordinates(60, 0, 0)
 };
-MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Linear, 70, 110, microphoneCoordinates);
-AudioProcessingOptions processingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
-PushAudioInputStream pushStream = AudioInputStream.CreatePushStream();
-AudioConfig audioInput = AudioConfig.FromStreamInput(pushStream, processingOptions);
+var microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Linear, 70, 110, microphoneCoordinates);
+var audioProcessingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
+var pushStream = AudioInputStream.CreatePushStream();
+var audioInput = AudioConfig.FromStreamInput(pushStream, audioProcessingOptions);
 
-SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
+var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
+---
 
 #### [C++](#tab/cpp)
 
 ```cpp
-std::shared_ptr<SpeechConfig> speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
 MicrophoneArrayGeometry microphoneArrayGeometry
 {
@@ -203,10 +274,29 @@ MicrophoneArrayGeometry microphoneArrayGeometry
     110,
     { { -60, 0, 0 }, { -20, 0, 0 }, { 20, 0, 0 }, { 60, 0, 0 } }
 };
-std::shared_ptr<AudioProcessingOptions> processingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel::LastChannel);
-std::shared_ptr<PushAudioInputStream> pushStream = AudioInputStream::CreatePushStream();
-std::shared_ptr<AudioConfig> audioInput = AudioConfig::FromStreamInput(pushStream, processingOptions);
+auto audioProcessingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel::LastChannel);
+auto pushStream = AudioInputStream::CreatePushStream();
+auto audioInput = AudioConfig::FromStreamInput(pushStream, audioProcessingOptions);
 
-std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
+```
+---
+
+#### [Java](#tab/java)
+
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[4];
+microphoneCoordinates[0] = new MicrophoneCoordinates(-60, 0, 0);
+microphoneCoordinates[1] = new MicrophoneCoordinates(-20, 0, 0);
+microphoneCoordinates[2] = new MicrophoneCoordinates(20, 0, 0);
+microphoneCoordinates[3] = new MicrophoneCoordinates(60, 0, 0);
+MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, 70, 110, microphoneCoordinates);
+AudioProcessingOptions audioProcessingOptions = AudioProcessingOptions.create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
+PushAudioInputStream pushStream = AudioInputStream.createPushStream();
+AudioConfig audioInput = AudioConfig.fromStreamInput(pushStream, audioProcessingOptions);
+
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
 ---
