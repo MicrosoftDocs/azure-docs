@@ -21,17 +21,14 @@ As a message is logged, the following information is gathered.
 
 | Property | Description |
 |---|---|
-|ClusterName| Identifies the cluster from where the log originates.|
-|AppName| Identifies the app revision emitting the log line. |
-|PodName| Identifies the specific instance of the revision emitting the log line. |
-|TimeGenerated|Date and time at which the logging agent received the log.|
-|Stream|Shows whether `stdout` or `stderr` is used for logging.|
-|Location|Location where the container app is hosted.|
-|ContainerId|The container's unique identifier. You can use this value to help identify container crashes. |
-
-
-
-
+| `RevisionName` | The revision's friendly name. |
+| `ContainerAppName` | The container app's friendly name. |
+| `ContainerGroupID` | TODO |
+| `ContainerGroupName` | TODO |
+| `ContainerImage` | The container image  |
+| `ContainerID` | The container's unique identifier. You can use this value to help identify container crashes. |
+| `Stream` | Shows whether `stdout` or `stderr` is used for logging. |
+| `EnvironmentName` | The environment's friendly name. |
 
 ### Simple text vs structured data
 
