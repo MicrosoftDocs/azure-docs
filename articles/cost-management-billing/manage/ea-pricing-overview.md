@@ -30,6 +30,9 @@ Microsoft may drop the current Enterprise Agreement price for individual Azure s
 
 Customer and channel partners can view their current pricing for an enrollment by logging into the [Azure Enterprise portal](https://ea.azure.com/) and viewing the price sheet page for that enrollment. If you purchase Azure indirectly through one of our channel partners, you'll need to obtain your pricing updates from your channel partner unless they've enabled markup pricing to be displayed for your enrollment.
 
+Direct EA customers can now view thier current pricing for an enrollment on [Azure Portal](https://portal.azure.com/). [View Price Sheet on Azure Portal](ea-pricing.md#download-pricing-for-an-enterprise-agreement)
+
+
 ### Introduction of new Azure services
 
 We're continually enhancing Azure and periodically add new services that are priced separately from existing services. Some preview services are automatically available, while others require customer action in the [Azure Account portal](https://account.windowsazure.com/PreviewFeatures).
