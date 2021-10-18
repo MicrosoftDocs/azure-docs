@@ -7,7 +7,7 @@ ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 author: AjAgr
 ms.author: ajagarw
 ---
@@ -35,10 +35,10 @@ If you don't have an Azure subscription, [create a free account before you begin
 - The functionality requires that you already have trained model which is either registered in Azure Machine Learning or uploaded in Azure Data Lake Storage Gen2.
 
 > [!NOTE]
-> - This functionality is currently supported only for **MLFLOW packaged flavors of ONNX, TensorFlow, PyTorch and Sklearn models**. 
-> - **Mlflow Pyfunc packaging** is also supported for **customized python models (viz EBMClassifier etc.)**.
-> - Only **AML or ADLS** model source is supported. So to use PREDICT either model should be registered in AML or should be uploaded in ADLS. Here ADLS account refers to **default Synapse workspace ADLS account**.
-> - PREDICT is supported on **Spark3.1 version** onwards. **Python 3.8** is recommended version for model creation and training.
+> - PREDICT feature is supported on **Spark3** pools. **Python 3.8** is recommended version for model creation and training. 
+> - PREDICT supports most machine learning models packages in **MLflow** format: **TensorFlow, ONNX, PyTorch, SkLearn and pyfunc** are supported in this preview.
+> - PREDICT supports **AML and ADLS** model source. Here ADLS account refers to **default Synapse workspace ADLS account**. 
+- Let us know if your favorite model flavor or model registry is not on the list.
 
 ## Sign in to the Azure portal
 
