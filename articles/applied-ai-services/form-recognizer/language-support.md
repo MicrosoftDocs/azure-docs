@@ -20,17 +20,17 @@ ms.author: lajanuar
 
 ## Layout and custom model
 
-The following lists cover the currently GA languages in the the 2.1 version and new previews in the 3.0 preview version of Form Recognizer. The preview model may include enhancements to the currently GA languages.
+The following lists cover the currently GA languages in the the 2.1 version and new previews in the 3.0 preview version of Form Recognizer. These languages are supported by Layout and Custom models. The preview release may include enhancements to the currently GA languages.
 
 > [!NOTE]
 > **Language code optional**
 >
 > Form Recognizer's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-To use the preview languages, refer to the [v3.0 REST API migration guide](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
+To use the preview languages in Layout and custom models, refer to the [v3.0 REST API migration guide](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
 
 ### Handwritten languages
-The following table lists the handwritten languages supported by Form Recognizer.
+The following table lists the handwritten languages supported by Form Recognizer's Layout and Custom model features.
 
 |Language| Language code (optional) | Preview?  |
 |:-----|:----:|:----:|
@@ -43,7 +43,7 @@ The following table lists the handwritten languages supported by Form Recognizer
 |Spanish |`es`| preview
 
 ### Print languages
-The following table lists the print languages supported by Form Recognizer.
+The following table lists the print languages supported by Form Recognizer's Layout and Custom model features.
 
 |Language| Language code (optional) | Preview? |
 |:-----|:----:|:----:|

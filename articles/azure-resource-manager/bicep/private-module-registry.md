@@ -9,7 +9,7 @@ ms.date: 10/14/2021
 
 To share [modules](modules.md) within your organization, you can create a private module registry. You publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files.
 
-To work with module registries, you must have Bicep CLI version **x.xx or later**.
+To work with module registries, you must have Bicep CLI version **0.4.1008 or later**.
 
 ## Configure private registry
 
@@ -46,7 +46,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
 
 ```azurecli
-az bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
 ## View files in registry

@@ -10,7 +10,7 @@ ms.date: 10/15/2020
 
 In this article, you'll learn about using Azure Private Link to connect to an HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of the article [Restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md), which focuses on restricting public connectivity. If you want public connectivity to or within your HDInsight clusters and dependent resources, consider restricting the connectivity of your cluster by following guidelines in [Control network traffic in Azure HDInsight](./control-network-traffic.md).
 
-Private Link can be used in cross-network scenarios where virtual network peering is not available or enabled. For example, you want to integrate Azure Data Factory with Azure HDInsight, and you need to have Azure Data Factory connect to HDInsight clusters over a private network (that is, Private Link) for compliance and security reasons.
+Private Link can be used in cross-network scenarios where virtual network peering is not available or enabled.
 
 > [!NOTE]
 > Restricting public connectivity is a prerequisite for enabling Private Link and shouldn't be considered the same capability.
@@ -100,7 +100,8 @@ The following JSON code snippet includes the two network properties that you mus
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound"
+    "resourceProviderConnection": "Inbound" | "Outbound",
+    "privateLink": "Enabled"
 }
 ```
 
