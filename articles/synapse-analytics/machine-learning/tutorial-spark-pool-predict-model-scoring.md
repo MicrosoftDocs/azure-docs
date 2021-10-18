@@ -181,8 +181,10 @@ Please make sure all prerequisites are in place before following below steps for
 
    ```PYSPARK
    # Call PREDICT using Transformer API
-   import fsspec
-   import pandas
+   columns = [<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
+   tranformer = model.create_transformer().setInputCols(columns).setOutputCol("PREDICT")
+   # Model Prediction using transformer API
+   tranformer.transform(df).show()
    ```
 
 ## Next steps
