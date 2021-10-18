@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
-- A Text Analytics resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
+- A Language resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
 - The [key and endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
 - Microsoft 365, with OneDrive for business.
@@ -94,24 +94,24 @@ Click on **Select an output from previous step**. In the Dynamic content box tha
 
 ## Send a request for entity recognition
 
-If you haven't already, you need to create a [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
+If you haven't already, you need to create a [Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
 
-### Create a Text Analytics connection
+### Create a Language service connection
 
-In the **Apply to each**, click **Add an action**. Go to your Text Analytics resource's **key and endpoint** page in the Azure portal, and get the key and endpoint for your Text Analytics resource.
+In the **Apply to each**, click **Add an action**. Go to your Language resource's **key and endpoint** page in the Azure portal, and get the key and endpoint for your Language resource.
 
-In your flow, enter the following information to create a new Text Analytics connection.
+In your flow, enter the following information to create a new Language connection.
 
 > [!NOTE]
-> If you already have created a Text Analytics connection and want to change your connection details, Click on the ellipsis on the top right corner, and click **+ Add new connection**.
+> If you already have created a Language connection and want to change your connection details, Click on the ellipsis on the top right corner, and click **+ Add new connection**.
 
 | Field           | Value                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Connection Name | A name for the connection to your Text Analytics resource. For example, `TAforPowerAutomate`. |
-| Account key     | The key for your Text Analytics resource.                                                                                   |
-| Site URL        | The endpoint for your Text Analytics resource.                                                       |
+| Connection Name | A name for the connection to your Language resource. For example, `TAforPowerAutomate`. |
+| Account key     | The key for your Language resource.                                                                                   |
+| Site URL        | The endpoint for your Language resource.                                                       |
 
-:::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Add Text Analytics credentials to the flow" lightbox="../media/tutorials/excel/add-credentials.png":::
+:::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Add Language resource credentials to the flow" lightbox="../media/tutorials/excel/add-credentials.png":::
 
 
 ## Extract the excel content 
@@ -132,9 +132,9 @@ Within the **Apply to each**, click **Add an action** and create another **Apply
 
 ## Extract the person name
 
-Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each 2**, click **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
+Next, we will find the person entity type in the NER output. Within the **Apply to each 2**, click **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
 
-:::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Find the person entity in the Text Analytics output" lightbox="../media/tutorials/excel/add-apply-action-2.png":::
+:::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Find the person entity in the NER output" lightbox="../media/tutorials/excel/add-apply-action-2.png":::
 
 
 Within the newly created **Apply to each 3** action, click **Add an action**, and add a **Condition** control.
@@ -164,7 +164,7 @@ Enter the Excel information, and update the **Key Column**, **Key Value** and **
 
 Minimize the **Apply to each 3** action by clicking on the name. Then add another **Apply to each** action to **Apply to each 2**, like before. it will be named **Apply to each 4**. Select the text box, and add **entities** as the output for this action. 
 
-:::image type="content" source="../media/tutorials/excel/add-apply-action-phone.png" alt-text="Add the entities from the Text Analytics output to another apply to each action." lightbox="../media/tutorials/excel/add-apply-action-phone.png":::
+:::image type="content" source="../media/tutorials/excel/add-apply-action-phone.png" alt-text="Add the entities from the NER output to another apply to each action." lightbox="../media/tutorials/excel/add-apply-action-phone.png":::
 
 Within **Apply to each 4**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **categories** from the Dynamic content window. Be sure the center box is set to **is equal to**. Then, in the right text box, enter `var_phone`. 
 

@@ -29,8 +29,8 @@ In this tutorial, you'll learn how to:
 
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
-- A Text Analytics resource. If you don't have one, you can [create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
-- The [Text Analytics resource key](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
+- A Language resource. If you don't have one, you can [create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+- The [Language resource key](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you're using our example data.
 
 ## Load customer data
@@ -104,7 +104,7 @@ A new query, initially named `Query1`, appears in the Queries list. Double-click
 Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** to open the Advanced Editor window. Delete the code that's already in that window and paste in the following code. 
 
 > [!NOTE]
-> Replace the example endpoint below (containing `<your-custom-subdomain>`) with the endpoint generated for your Text Analytics resource. You can find this endpoint by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your resource, and selecting **Key and endpoint**.
+> Replace the example endpoint below (containing `<your-custom-subdomain>`) with the endpoint generated for your Language resource. You can find this endpoint by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your resource, and selecting **Key and endpoint**.
 
 
 ```fsharp
@@ -122,7 +122,7 @@ Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** t
 in  keyphrases
 ```
 
-Replace `YOUR_API_KEY_HERE` with your Text Analytics resource key. You can also find this key by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your Text Analytics resource, and selecting the **Key and endpoint** page. Be sure to leave the quotation marks before and after the key. Then click **Done.**
+Replace `YOUR_API_KEY_HERE` with your Language resource key. You can also find this key by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your Language resource, and selecting the **Key and endpoint** page. Be sure to leave the quotation marks before and after the key. Then click **Done.**
 
 ## Use the custom function
 
@@ -156,7 +156,7 @@ Click **Edit Credentials,** make sure `Anonymous` is selected in the dialog, the
 > [!div class="mx-imgBorder"]
 > ![setting authentication to anonymous](../media/tutorials/power-bi/access-web-content.png)
 
-If you see the Edit Credentials banner even after choosing anonymous access, you may have forgotten to paste your Text Analytics resource key into the code in the `KeyPhrases` [custom function](#create-a-custom-function).
+If you see the Edit Credentials banner even after choosing anonymous access, you may have forgotten to paste your Language resource key into the code in the `KeyPhrases` [custom function](#create-a-custom-function).
 
 Next, a banner may appear asking you to provide information about your data sources' privacy. 
 
