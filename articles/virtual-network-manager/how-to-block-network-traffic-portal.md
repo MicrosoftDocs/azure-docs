@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to block network traffic with Azure Virtual Network Manager (Preview) - Azure portal
 
-This article shows you how to create a security admin rule to block inbound network traffic for RDP port 3389 you can add to a rule collection. For more information, see [Security admin rules](concept-security-admins.md).
+This article shows you how to create a security admin rule to block inbound network traffic on RDP port 3389 that you can add to a rule collection. For more information, see [Security admin rules](concept-security-admins.md).
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -20,7 +20,7 @@ This article shows you how to create a security admin rule to block inbound netw
 
 ## Prerequisites
 
-Before you start configuring security rules, confirm that you've done the following steps:
+Before you start to configure security admin rules, confirm that you've done the following steps:
 
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * You've created an [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
@@ -78,11 +78,11 @@ Before you start configuring security rules, confirm that you've done the follow
 
 1. Repeat steps 1-3 again if you want to add more rule to the rule collection.
 
-1. Once you're satisfied with the rules you've created, select **Save** to add the rule collection to the security admin configuration.
+1. Once you're satisfied with all the rules you wanted to create, select **Save** to add the rule collection to the security admin configuration.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/save-rule-collection.png" alt-text="Screenshot of a rule in a rule collection.":::
 
-1. Then select **Add** to create the security admin configuration.
+1. Then select **Add** to create the configuration.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/create-security-configuration.png" alt-text="Screenshot of add button for creating a security configuration.":::
 
@@ -109,10 +109,9 @@ If you just created a new security admin configuration, make sure to deploy this
 
 ## Verify security admin rules
 
-Go to the **Networking** settings for a virtual machine in the one of the virtual networks you applied the security admin rules to. If you don't have one, deploy a test virtual machine into one of the virtual networks. You'll now see a new section below the network security group rules about security rules applied by Network Manager.
+Go to the **Networking** settings for a virtual machine in the one of the virtual networks you applied the security admin rules to. If you don't have one, deploy a test virtual machine into one of the virtual networks. You'll now see a new section below the network security group rules about security rules applied by Azure Virtual Network Manager.
 
 :::image type="content" source="./media/how-to-block-network-traffic-portal/vm-security-rules.png" alt-text="Screenshot of security admin rules under virtual machine network settings." lightbox="./media/how-to-block-network-traffic-portal/vm-security-rules-expanded.png":::
-
 
 ## Next steps
 
