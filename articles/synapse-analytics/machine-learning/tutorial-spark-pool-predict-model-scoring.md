@@ -58,7 +58,7 @@ Please make sure all prerequisites are in place beofre following below steps for
    import azure.synapse.ml.predict as pcontext
 ```
 
-1. Set parameters using variables: Synapse ADLS data path and model URI need to be set using input variables. We also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
+2. Set parameters using variables: Synapse ADLS data path and model URI need to be set using input variables. We also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
 
 ```PYSPARK
    # Import libraries
@@ -78,9 +78,9 @@ Please make sure all prerequisites are in place beofre following below steps for
    RUNTIME = "mlflow"
 ```
 
-1. Ways to authenticate AML workspace: If model is stored in default ADLS account of Synapse workspace then we do not need any further auth setup. In case model is registered in AML, then we can choose any of the 2 supported ways of authentication:
+3. Ways to authenticate AML workspace: If model is stored in default ADLS account of Synapse workspace then we do not need any further auth setup. In case model is registered in AML, then we can choose any of the 2 supported ways of authentication:
 
-    1. Through service principle: You can use service principle client id and secret directly to authenticate to AML workspace. Service principle must have "Contributor" access at AML workspace.
+    3.1. Through service principle: You can use service principle client id and secret directly to authenticate to AML workspace. Service principle must have "Contributor" access at AML workspace.
 
     ```PYSPARK
        # AML workspace authentication using service principle
@@ -106,7 +106,7 @@ Please make sure all prerequisites are in place beofre following below steps for
        )
     ```
 
-    1. Through linked service: You can use linked service to authenticate to AML workspace. Linked service can use "Service Principle" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service Principle" or "Managed Service Identity (MSI)" must have "Contributor" access at AML workspace.
+    3.2. Through linked service: You can use linked service to authenticate to AML workspace. Linked service can use "Service Principle" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service Principle" or "Managed Service Identity (MSI)" must have "Contributor" access at AML workspace.
 
     ```PYSPARK
        # AML workspace authentication using linked service
@@ -114,14 +114,14 @@ Please make sure all prerequisites are in place beofre following below steps for
        ws = azureML.getWorkspace("<linked_service_name>") # "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked service supports MSI and service principle both
     ```
 
-1. Enable PREDICT in spark session: Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
+4. Enable PREDICT in spark session: Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
 
 ```PYSPARK
    # Enable SynapseML predict
    spark.conf.set("spark.synapse.ml.predict.enabled","true")
 ```
 
-1. Bind model in spark session: Bind model with required inputs so that model can be referred in spark session and define alias so that while PREDICT call you can use same alias..
+5. Bind model in spark session: Bind model with required inputs so that model can be referred in spark session and define alias so that while PREDICT call you can use same alias..
 
 ```PYSPARK
    # Bind model within Spark session
