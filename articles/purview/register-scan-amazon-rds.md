@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/18/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon RDS service to set up, configure, and scan my Amazon RDS databases.
 ---
@@ -107,13 +107,9 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
 **To prepare your RDS database with a CloudFormation template**:
 
-1. Copy the [CloudFormation .yaml template](https://github.com/Azure/Azure-Purview-Starter-Kit/blob/main/Amazon/AWS/RDS/RDSPrivateLink_CloudFormation.yaml) required for this procedure from the Azure GitHub repository. For example:
+1. Download the CloudFormation **RDSPrivateLink_CloudFormation.yaml** template required for this procedure from the Azure GitHub repository.
 
-    1. Open the file in [GitHub](https://github.com/Azure/Azure-Purview-Starter-Kit/blob/main/Amazon/AWS/RDS/RDSPrivateLink_CloudFormation.yaml).
-
-    1. In the toolbar at the top right, above the code, select **Copy raw contents** :::image type="icon" source="media/register-scan-amazon-rds/github-copy-raw.png" border="false"::: to copy it to the clipboard.
-
-    1. Paste the copied content to a local file named `RDSPrivateLink_CloudFormation.yaml`.
+    Download and extract the [.zip](https://github.com/Azure/Azure-Purview-Starter-Kit/blob/main/Amazon/AWS/RDS/Amazon_AWS_RDS_PrivateLink_CloudFormation.zip) file to a local directory.
 
 1. In the AWS portal, navigate to the **CloudFormation** service. At the top-right of the page, select **Create stack** > **With new resources (standard)**.
 
