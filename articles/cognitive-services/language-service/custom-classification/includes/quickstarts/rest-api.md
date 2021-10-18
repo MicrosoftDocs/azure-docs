@@ -16,11 +16,13 @@ ms.author: aahi
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language Service resource
+After you have created an Azure storage account and linked it to your Language Service resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
 
 1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
 
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
+2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
+
+The provided sample dataset contains around 200 movie summaries that belngs to the one or more of the following classes ["Mystery", "Drama", "Thriller", "Comedy", "Action"]. You can also find 
 
 ### Get your resource keys and endpoint
 

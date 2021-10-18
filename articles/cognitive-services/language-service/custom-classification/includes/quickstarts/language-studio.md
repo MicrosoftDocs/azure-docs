@@ -14,21 +14,21 @@ ms.author: aahi
 
 ## Create a new Azure resource and Azure Blob Storage account
 
-Before you can use custom text classification, you will need to create a Text Analytics resource, which will give you the subscription and credentials you will need to create a project and start training a model. You will also need an Azure blob storage account, which is the required online data storage to hold text for analysis. 
+Before you can use custom text classification, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataet that will be used to building your model. 
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Text Analytics resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
 >
-> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
+1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.  
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -47,13 +47,15 @@ After you have created an Azure storage account and linked it to your Language S
 
 2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
 
+The provided sample dataset contains around 200 movie summaries that belngs to the one or more of the following classes ["Mystery", "Drama", "Thriller", "Comedy", "Action"]. You can also find 
+
 ## Create a custom classification project
 
 Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-1. Login to [Language Studio](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+1. Login to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
-2. In the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
+2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
@@ -78,7 +80,7 @@ Once your resource and storage container are configured, create a new text class
     
 ## Train your model
 
-Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure blob storage account.
+Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
 
 A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
 
@@ -86,21 +88,22 @@ To start training your model:
 
 1. Select **Train** from the left side menu.
 
-2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
+2. Select **Train a new model** and type in the model name in the text box below. 
 
     :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../../media/train-model.png":::
 
-3. Click on the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up will appear to confirm you want to overwrite the last model state.
+3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing.
+    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-splitting)
     > * Training can take up to a few hours.
 
 ## Deploy your model
 
-After your model is trained, you can deploy it. Deploying your model lets you start using it to classify text, using the runtime API.  
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try. 
+
+After your model is trained, you can deploy it. Deploying your model lets you start using it to classify text, using [Analyze API](https://aka.ms/ct-runtime-swagger).  
 
 1. Select **Deploy model** from the left side menu.
 
@@ -127,4 +130,5 @@ After your model is deployed, you can start using it for text classification. Us
 
 ## Clean up projects
 
-When you don't need your project anymore, you can delete it from your [projects page in Language Studio](https://language.azure.com/customText/projects/classification). Select the project you want to delete and click on **Delete**.
+When you don't need your project anymore, you can delete it from your [projects page in Language Studio](https://aka.ms/custom-classification
+). Select the project you want to delete and click on **Delete**.

@@ -14,7 +14,12 @@ ms.author: aahi
 
 # Language support
 
-Custom text classification lets you have multiple files in your dataset of different languages. You can also train your model in one language and use it to query text in other languages. If you want to use this multilingual option, you have to enable it during [project creation](quickstart.md). If you notice your model performing poorly and scoring low in certain languages during the evaluation process, consider adding more data in this language to your training set.
+## Multiple language support
+
+With custom text classification, you can train a model in one language and test in another language. This feature is very powerful because it helps you save time and effort, instead of building separate projects for every language, you can handle multi-lingual dataset in one project.  Your dataset doesn't have to be entirely in the same language but you have to specify this option at project creation. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in this language to your training set.
+
+> [!NOTE]
+> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/use-azure-resources.md#create-a-project.md).
 
 ## Languages supported by custom text classification
 
@@ -29,13 +34,6 @@ Custom text classification supports `.txt` files in the following languages:
 | Spanish (Spain) |`es-ES` |
 | Portuguese (Portugal) | `pt-PT` |
 | Portuguese (Brazil) | `pt-BR` |
-
-## Multiple language support
-
-With custom entity extraction, your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages.
-
-> [!NOTE]
-> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/use-azure-resources.md#create-a-project.md).
 
 ## Next steps
 
