@@ -1,6 +1,6 @@
 ---
-title: Configure and list a VM test drive
-description: Configure and list a VM test drive in Partner Center.
+title: Configure a VM test drive
+description: Configure a VM test drive in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 10/15/2021
 ---
 
-# Configure and list a VM test drive
+# Configure a VM test drive
 
 A test drive lets customers try your offer prior to purchase by giving them access to a preconfigured environment for a fixed number of hours, resulting in highly qualified leads and an increased conversion rate.
 

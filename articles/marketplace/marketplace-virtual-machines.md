@@ -96,7 +96,7 @@ For more information, see [Plans and pricing for commercial marketplace offers](
 
 [!INCLUDE [Test drives section](includes/test-drives.md)]
 
-If you want to read more about test drives for VM offers now, see [Set up a virtual machine offer test drive](azure-vm-create-test-drive.md).
+If you want to read more about test drives for VM offers now, see [Configure a VM test drive](azure-vm-test-drive.md).
 
 ## Customer leads
 

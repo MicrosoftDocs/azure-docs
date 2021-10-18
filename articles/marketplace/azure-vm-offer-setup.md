@@ -79,9 +79,9 @@ Select **Create** to generate the offer and continue. Partner Center opens the *
 
 [!INCLUDE [Test drives section](includes/test-drives.md)]
 
-For VM offers, Azure Resource Manager (ARM) deployment is the only test drive option available. The deployment template must contain all the Azure resources that comprise your solution. The various requirements to ensure proper test drive configuration are covered later in this series of VM topics in [Set up a virtual machine offer test drive](azure-vm-create-test-drive.md).
+For VM offers, Azure Resource Manager (ARM) deployment is the only test drive option available. The deployment template must contain all the Azure resources that comprise your solution.
 
-To enable a test drive, select the **Enable a test drive** check box; this will enable a Test drive tab in the left-nav menu. You will configure and create the listing of your test drive using that tab later in [Set up a VM offer test drive](azure-vm-create-test-drive.md).
+To enable a test drive, select the **Enable a test drive** check box; this will enable a Test drive tab in the left-nav menu. You will configure and create the listing of your test drive using that tab later in [Configure a VM test drive](azure-vm-test-drive.md).
 
 With test drive, configuring a CRM for customer leads is required (see next section). To remove test drive from your offer, clear this check box.
 

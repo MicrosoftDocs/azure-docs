@@ -25,5 +25,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- Configure a [Test drive](azure-vm-create-test-drive.md). This optional feature is only available if you selected the **Test drive** check box on the [Offer setup](azure-vm-offer-setup.md#test-drive-optional) page.
+- [Configure a VM test drive](azure-vm-test-drive.md). This optional feature is only available if you selected the **Test drive** check box on the [Offer setup](azure-vm-offer-setup.md#test-drive-optional) page.
 - If you don't want to set up a test drive, it's time to [review and publish your offer](review-publish-offer.md).
