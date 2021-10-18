@@ -5,7 +5,7 @@
     - name: About App Service
       href: overview.md
     - name: About App Service Environments
-      href: environment/intro.md
+      href: environment/overview.md
     - name: Compare hosting options
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
@@ -105,7 +105,7 @@
     - name: Terraform
       href: samples-terraform.md
     - name: Bicep
-      href: samples-bicep.md      
+      href: samples-bicep.md
 - name: Concepts
   items:
     - name: App Service plans
@@ -144,7 +144,7 @@
         - name: Hybrid connections
           href: app-service-hybrid-connections.md
         - name: Virtual Network Integration
-          href: web-sites-integrate-with-vnet.md
+          href: overview-vnet-integration.md
         - name: Application Gateway integration
           href: networking/app-gateway-with-service-endpoints.md
         - name: NAT gateway integration
@@ -301,6 +301,11 @@
           href: manage-disaster-recovery.md
         - name: Enable on Azure Arc
           href: manage-create-arc-environment.md
+        - name: Enable VNet Integration
+          href: configure-vnet-integration-enable.md
+        - name: Configure VNet Integration routing
+          href: configure-vnet-integration-routing.md
+
     - name: Move app
       items:
         - name: Move between regions
@@ -326,7 +331,7 @@
       - name: Bicep
         href: provision-resource-bicep.md
       - name: Terraform
-        href: provision-resource-terraform.md          
+        href: provision-resource-terraform.md
 - name: Reference
   items:
     - name: Monitoring data
