@@ -35,7 +35,7 @@ items:
   expanded: true
   items:
   - name: Service Connection internals
-    href: overview.md
+    href: concept-service-connector-internals.md
   - name: Region Support
     href: concept-region-support.md
 - name: How-to guides
