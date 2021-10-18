@@ -116,7 +116,7 @@ To set proper roles on your storage account:
 2. Select **Access Control (IAM)** in the left navigation menu.
 3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
 
-[!INCLUDE [Storage connection note](../includes/storage-account-note.md)]
+[!INCLUDE [Storage connection note](../../custom-classification/includes/storage-account-note.md)]
 
 ## Prepare training data
 
