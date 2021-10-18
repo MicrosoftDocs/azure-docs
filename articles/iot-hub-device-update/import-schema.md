@@ -78,7 +78,7 @@ If you are using the sample import manifest output from the [How to add a new up
 }
 ```
 
-## OAuth authorization when calling import APIs
+## OAuth authorization when calling Device Update APIs
 
 **azure_auth**
 

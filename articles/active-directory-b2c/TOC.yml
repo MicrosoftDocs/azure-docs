@@ -7,6 +7,8 @@
     href: overview.md
   - name: Technical and feature overview
     href: technical-overview.md
+  - name: Supported Azure AD features
+    href: supported-azure-ad-features.md
   - name: What's new in docs?
     href: whats-new-docs.md
 - name: Quickstarts
@@ -26,7 +28,9 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
-  - name: Clean up and delete tenant
+  - name: 4 - Manage your tenant
+    href: tenant-management.md
+  - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
   items:
@@ -82,14 +86,14 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
+  - name: Roles and resource access control
+    href: roles-resource-access-control.md
   - name: Identity Protection and Conditional Access
     href: conditional-access-identity-protection-overview.md
   - name: Policy keys
     href: policy-keys-overview.md
 - name: How-to guides
   items:
-  - name: Manage your tenant
-    href: tenant-management.md
   - name: App integration
     items:
     - name: ASP.NET Core web app
@@ -201,8 +205,6 @@
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
       displayName: ROPC
-    - name: Set up a self-serve password reset policy (deprecated)
-      href: user-flow-self-service-password-reset.md
     - name: Phone sign-up and sign-in
       href: phone-authentication-user-flows.md
   - name: Identity providers
@@ -374,6 +376,8 @@
       items:
       - name: Datawiza
         href: partner-datawiza.md
+      - name: F5
+        href: partner-f5.md
       - name: Ping Identity
         href: partner-ping-identity.md
       - name: Strata
@@ -394,15 +398,13 @@
       displayName: rest claims exchange
     - name: Secure an API connector
       href: secure-rest-api.md
-  - name: Custom policy
+  - name: Troubleshooting
     items:
-    - name: Troubleshooting
-      items:
-      - name: Collect logs using Application Insights
-        href: troubleshoot-with-application-insights.md
-        displayName: troubleshooting, app insights
-      - name: Troubleshooting custom policies
-        href: troubleshoot-custom-policies.md
+    - name: Collect logs using Application Insights
+      href: troubleshoot-with-application-insights.md
+      displayName: troubleshooting, app insights
+    - name: Troubleshooting and error handling
+      href: troubleshoot.md
   - name: UserInfo endpoint
     href: userinfo-endpoint.md
   - name: Partner integration
