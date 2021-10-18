@@ -99,7 +99,7 @@ The `activeRevisionsMode` property accepts two values:
 
 - `multiple`: Configures the container app to allow more than one active revision.
 
-- `single`: Restricts the only revision to the latest version of your container app. When you create a revision-scope change, a new revision is created and any old revisions are automatically deactivated.
+- `single`: Automatically deactivates all other revisions when a revision is activated.This has the effect that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
 
 ```json
 {
@@ -116,17 +116,19 @@ The `activeRevisionsMode` property accepts two values:
 }
 ```
 
-The following configuration fragment shows how to set the `activeRevisionsMode` property. Changes made to this property require the context of the container app's full ARM.
+The following configuration fragment shows how to set the `activeRevisionsMode` property. Changes made to this property require the context of the container app's full ARM template.
 
 ## Traffic splitting
 
 Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
-The following example shows how to split traffic where:
+The following example shows how to split traffic between three revisions where:
 
-- 50% of the requests go to the first revision
-- 30% of the requests go to the section revision
+- 50% of the requests go to the revision with the name REVISION1_NAME
+- 30% of the requests go to the revision with the name REVISION2_NAME
 - 20% of the requests go to the latest revision
+
+The sum total of all revision weights must equal 100.
 
 # [ARM Template](#tab/arm-template)
 
