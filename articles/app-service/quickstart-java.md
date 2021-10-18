@@ -24,7 +24,7 @@ adobe-target-content: ./quickstart-java-uiex
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](/azure/app-service/configure-language-java?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
-+ [Eclipse]((/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
++ [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
 ![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
