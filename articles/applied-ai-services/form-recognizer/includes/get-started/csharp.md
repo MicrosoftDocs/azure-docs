@@ -24,9 +24,9 @@ recommendations: false
 
 In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
 
-* [Analyze Layout](#analyze-layout)
+* [Layout](#try-it-layout-model)
 
-* [Analyze invoice](#analyze-invoices)
+* [Invoice](#try-it-prebuilt-invoice-model)
 
 ## Prerequisites
 
