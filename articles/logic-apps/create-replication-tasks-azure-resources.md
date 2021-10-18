@@ -95,6 +95,8 @@ For information about replication and federation in Azure Service Bus, review th
 
 ## Naming conventions
 
+Consider using a naming strategy for your replication tasks or entities, if you haven't created them yet. If you're working with Event Hubs namespace, the replication task replicates from every event hub in the source namespace.
+
 For example, if you want to create a replication task between Service Bus queues, you can use the following suggested naming convention:
 
 | Source name | Example | Replication app | Example | Target name | Example |
@@ -113,13 +115,21 @@ To check the performance and health of your replication task, or underlying logi
 
 ## Pricing
 
-Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, billing, and the pricing model follow the [Standard plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/). Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app resource and workflow.
+Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you change the Standard plan tier accordingly so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - The source and target resources or entities, which should exist in different Azure regions and vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
+
+- Optionally, a **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource while you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource, especially if you want to follow the active-passive replication pattern. Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task.
+
+  Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new primary source, formerly the target or secondary entity, which is what the active-passive replication pattern tries to achieve.
+
+- Optionally, the connection string for the target namespace of the replication destination. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
 
 <a name="create-replication-task"></a>
 
@@ -151,6 +161,8 @@ This example shows how to create a replication task for Service Bus queues.
 
 1. Provide the necessary information about the target.
 
+   To use a connection string instead, the target, or source based on where you started creating the replication task, is dynamically configured so that you only have to connect the target. Just add the connection string for the target namespace. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
+
    For this example, provide a display name for the connection, and then select the Service Bus namespace where the target queue exists.
 
    ![Screenshot showing "Connect" pane with the specified connection display name and the Service Bus namespace selected.](./media/create-replication-tasks-azure-resources/connect-target-service-bus-namespace.png)
@@ -178,6 +190,13 @@ This example shows how to create a replication task for Service Bus queues.
    ![Screenshot showing "Review + create" pane with resource information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
 
    - If you chose to create a new logic app resource for the replication task, the pane shows the required resources that the replication task will create to operate. Although not listed, these resources include an Azure storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
+
+     > [!NOTE]
+     > If you create a new logic app resource during replication task creation, the logic app is created in the 
+     > *same region as the source entity*, which is problematic if the source region becomes unavailable and won't 
+     > work in a failover scenario. The best practice is to create a **Logic App (Standard)** resource in a different 
+     > region than your source. When you create the replication task, select the existing logic app instead and 
+     > add the underlying stateless workflow to the existing logic app. For more information, review the [Prerequisites](#prerequisites).
 
    - If you chose to use an existing logic app resource for the replication task, the pane shows the resources that the replication will reuse to operate.
 
@@ -337,12 +356,13 @@ If you change the underlying workflow for a replication task, your changes affec
 
 ## Increase replication speed and performance
 
+As previously stated, behind a replication task is a stateless workflow that's in a **Logic App (Standard)** resource. This resource is powered by the single-tenant Azure Logic Apps runtime, which uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
+
 If you want your replication task to process more events or messages per second for faster replication, you can edit the default configuration for the trigger and actions in the task workflow.
 
 - For Event Hubs, go to the `host.jon` file in the Event Hubs extension, and change the trigger's default configuration. For more information, review [Azure Event Hubs trigger and bindings](../azure-functions/functions-bindings-event-hubs.md#host-json)
 
-- For Service Bus, go to the `host.json` file in the  , they should go to host.json of the Logic App and change the default configurations. 
-
+- For Service Bus, go to the `host.json` file, and change the trigger's default configuration. For more information, review [Azure Service Bus bindings](../azure-functions/functions-bindings-service-bus.md#host.json-settings).
 
 <a name="failover"></a>
 
@@ -370,6 +390,22 @@ To enable failover from the primary or source entity and to make sure that the r
 1. Return to the logic app resource or workflow behind the replication task. Start the logic app or enable the workflow again.
 
 To force producers and consumers to use the secondary endpoint, you need to make information about the entity available to use and look up in a location that's easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
+
+<a name="problems-failures"></a>
+
+## Replication problems and failures
+
+The following describes possible ways that replication can fail or stop working:
+
+- Message size limits
+
+  Make sure to send messages smaller than 1 MB. Otherwise, if the message size is larger than the size of events that can be sent to an Event Hubs entity after the task adds replication properties, the replication process fails.
+
+  For example, suppose the event size is 1 MB. After the task adds replication properties, the message size is larger than 1 MB. The outbound call that attempts to send the message will fail.
+
+- Partition keys
+
+  If any replication keys exist in events, replication between Event Hubs instances fails if those instances have the same number of partitions.
 
 ## Next steps
 
