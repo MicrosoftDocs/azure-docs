@@ -53,12 +53,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [MX3 Portal](https://portal.mx3.app). Navigate to the SSO settings page by clicking on settings and then click on **Single sign-on** or click [here](https://portal.mx3.app/settings/sso).
 
-    ![Screenshot for MX3 Diagnostics Connector Single sign-on settings](media/mx3-provisioning/sso-settings.png)
+    ![Screenshot for MX3 Diagnostics Connector Single sign-on settings.](media/mx3-provisioning/sso-settings.png)
 
 
 1. Scroll down to view the token. Copy and save the token. You will need it in the **Step 5**.
 
-    ![Screenshot of MX3 Diagnostics Connector's secret token process](media/mx3-provisioning/sso-settings-token.png)
+    ![Screenshot of MX3 Diagnostics Connector's secret token for Azure AD.](media/mx3-provisioning/sso-settings-token.png)
 
 ## Step 3. Add MX3 Diagnostics Connector from the Azure AD application gallery
 
