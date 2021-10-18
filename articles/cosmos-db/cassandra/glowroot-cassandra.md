@@ -13,12 +13,12 @@ ms.custom: template-how-to
 # Running Glowroot with CosmosDB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Glowroot an APM tool that helps you get to monitor you application performance.
+This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Glowroot is an APM tool that helps you get to monitor you application performance.
 
 ## Prerequisites and Setup
 
 * [Provision an Azure Cosmos DB Cassandra API account](manage-data-java.md#create-a-database-account).
-* [Install JAVA (version 8) for Windows (may require creating an oracle account)](https://developers.redhat.com/products/openjdk/download)
+* [Install JAVA (version 8) for Windows (may require creating an oracle account)](https://www.oracle.com/java/technologies/downloads/)
 > [!NOTE]
 > Note that there are certain known incompatible build targets with newer versions. If you already have a newer version of JAVA, you can still download JDK8 from Oracle's website.
 > If you have newer JAVA installed in addition to JDK8: Set the %JAVA_HOME% variable in the local command prompt to target JDK8. This will only change java version for the current session and leave global machine settings intact. 
@@ -26,8 +26,8 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
     * Verify successful installation by running: `mvn --version`
 
 
-## Preparing CosmosDB Cassandra endpoint before running Glowroot
-Please open a support ticket if you intend to run Glowroot tests against your Cassandra API account. Providing the subscription ID and account name where your Glowroot test will be running.
+## PRunning Glowroot Test
+Open a support ticket if you intend to run Glowroot tests against your Cassandra API account. Providing the subscription ID and account name where your Glowroot test will be running.
 > [!NOTE]
 > If you run into issues while running the test, running Glowroot test please reach out to us via our support team.
 
