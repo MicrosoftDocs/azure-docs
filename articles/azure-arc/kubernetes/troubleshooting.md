@@ -140,7 +140,7 @@ To recover from this issue, follow these steps:
 
 1. Delete the Azure Arc-enabled Kubernetes resource in the Azure portal.
 2. Run the following commands on your machine:
-    
+
     ```console
     kubectl delete ns azure-arc
     kubectl delete clusterrolebinding azure-arc-operator
@@ -236,7 +236,7 @@ The above warning is observed when you have used a service principal to log into
     - If you are enabling custom locations feature as part of connecting the cluster to Arc, run the following command:
 
         ```console
-        az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
+        az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>
         ```
 
     - If you are enabling custom locations feature on an existing Azure Arc-enabled Kubernetes cluster, run the following command:
@@ -408,80 +408,65 @@ A well configured Mutating Webhook Configuration would have the following output
 }
 ```
 
-
-Check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle by using the following command:
-
-```bash
-kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
-```
-
-```bash
-kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
-```
-
-Example output:
-```bash
-1845
-```
-The number in the output indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000, it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the ValidatingWebhook would throw an error and prohibit you from making changes to the `osm-config` ConfigMap in the `arc-osm-system` namespace.
-
-Let's look at a sample error when the CA Bundle is incorrect:
-- An attempt to change the `osm-config` ConfigMap:
-  ```bash
-  kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
-  ```
-- Error output:
-  ```bash
-  Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.arc-osm-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
-  ```
-
-Use one of the following workarounds when the **Validating** Webhook Configuration has a bad certificate:
-- Option 1. Restart OSM Controller - This will restart the OSM Controller. On start, it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
-  ```bash
-  kubectl rollout restart deployment -n arc-osm-system osm-controller
-  ```
-
-- Option 2. Delete the Validating Webhook  - Removing the Validating Webhook makes mutations of the `osm-config` ConfigMap no longer validated. Any patch will go through. The OSM Controller may have to be restarted to quickly rewrite the CA Bundle.
-   ```bash
-   kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm
-   ```
-
-- Option 3. Delete and Patch: The following command will delete the validating webhook, allowing you to add any values, and will immediately try to apply a patch
-  ```bash
-  kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm; kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
-  ```
-
-
-### 10. Check the `osm-config` **ConfigMap**
+### 10. Check the `osm-mesh-config` **MeshConfig**
 
 >[!Note]
->The OSM Controller does not require `osm-config` ConfigMap to be present in the `arc-osm-system` namespace. The controller has reasonable default values for the config and can operate without it.
+>The OSM Controller does not require `osm-mesh-config` MeshConfig to be present in the `arc-osm-system` namespace. The controller has reasonable default values for the config and can operate without it.
 
 Check for the existence:
 ```bash
-kubectl get ConfigMap -n arc-osm-system osm-config
+kubectl get MeshConfig -n arc-osm-system osm-mesh-config
 ```
 
-Check the content of the `osm-config` ConfigMap:
+Check the content of the `osm-mesh-config` MeshConfig:
 ```bash
-kubectl get ConfigMap -n arc-osm-system osm-config -o json | jq '.data'     
+kubectl get MeshConfig -n arc-osm-system osm-mesh-config -o json | jq '.spec'
 ```
 You will get the following output:
 ```json
 {
-  "egress": "false",
-  "enable_debug_server": "false",
-  "enable_privileged_init_container": "false",
-  "envoy_log_level": "error",
-  "permissive_traffic_policy_mode": "true",
-  "prometheus_scraping": "true",
-  "service_cert_validity_duration": "24h",
-  "tracing_enable": "false",
-  "use_https_ingress": "false",
+  "certificate": {
+    "serviceCertValidityDuration": "24h"
+  },
+  "featureFlags": {
+    "enableEgressPolicy": true,
+    "enableMulticlusterMode": false,
+    "enableWASMStats": true
+  },
+  "observability": {
+    "enableDebugServer": true,
+    "osmLogLevel": "info",
+    "tracing": {
+      "address": "jaeger.osm-system.svc.cluster.local",
+      "enable": false,
+      "endpoint": "/api/v2/spans",
+      "port": 9411
+    }
+  },
+  "sidecar": {
+    "configResyncInterval": "2s",
+    "enablePrivilegedInitContainer": false,
+    "envoyImage": "mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3",
+    "initContainerImage": "mcr.microsoft.com/oss/openservicemesh/init:v0.9.2",
+    "logLevel": "error",
+    "maxDataPlaneConnections": 0,
+    "resources": {}
+  },
+  "traffic": {
+    "enableEgress": true,
+    "enablePermissiveTrafficPolicyMode": true,
+    "inboundExternalAuthorization": {
+      "enable": false,
+      "failureModeAllow": false,
+      "statPrefix": "inboundExtAuthz",
+      "timeout": "1s"
+    },
+    "useHTTPSIngress": false
+  }
 }
 ```
 
-Refer [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand `osm-config` ConfigMap values.
+Refer [OSM MeshConfig documentation](https://release-v0-9.docs.openservicemesh.io/docs/concepts_features/osm_mesh_config/) to understand `osm-mesh-config` MeshConfig values.
 
 ### 11. Check Namespaces
 

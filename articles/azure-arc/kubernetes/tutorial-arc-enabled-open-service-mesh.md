@@ -17,7 +17,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 ### Support limitations for Azure Arc-enabled Open Service Mesh
 
 - Only one instance of Open Service Mesh can be deployed on an Azure Arc-connected Kubernetes cluster.
-- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases). The supported release versions are appended with notes. Ignore the tags associated with intermediate releases. 
+- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases). The supported release versions are appended with notes. Ignore the tags associated with intermediate releases.
 - The following Kubernetes distributions are currently supported:
     - AKS Engine
     - AKS on HCI
@@ -104,12 +104,12 @@ You should see output similar to the output shown below. It may take 3-5 minutes
    ```azurecli-interactive
    export SETTINGS_FILE=<json-file-path>
    ```
-   
+
 2. Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
    ```azurecli-interactive
    az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
    ```
-   
+
 3. Add the privileged [security context constraint](https://docs.openshift.com/container-platform/4.7/authentication/managing-security-context-constraints.html) to each service account for the applications in the mesh.
    ```azurecli-interactive
    oc adm policy add-scc-to-user privileged -z <service account name> -n <service account namespace>
@@ -301,52 +301,81 @@ The MeshConfig "osm-mesh-config" is invalid: spec.traffic.enableEgress: Invalid 
 
 ## OSM controller configuration (version v0.8.4)
 
-Currently you can access and configure the OSM controller configuration via the ConfigMap. To view the OSM controller configuration settings, query the `osm-config` ConfigMap via `kubectl` to view its configuration settings.
+Currently you can access and configure the OSM controller configuration via the MeshConfig. To view the OSM controller configuration settings, query the `osm-mesh-config` MeshConfig via `kubectl` to view its configuration settings.
 
 ```azurecli-interactive
-kubectl get configmap osm-config -n arc-osm-system -o json
+kubectl get MeshConfig -n arc-osm-system osm-mesh-config -o json | jq '.spec'
 ```
 
 Output:
 
 ```json
 {
-  "egress": "false",
-  "enable_debug_server": "false",
-  "enable_privileged_init_container": "false",
-  "envoy_log_level": "error",
-  "permissive_traffic_policy_mode": "true",
-  "prometheus_scraping": "true",
-  "service_cert_validity_duration": "24h",
-  "tracing_enable": "false",
-  "use_https_ingress": "false"
+  "certificate": {
+    "serviceCertValidityDuration": "24h"
+  },
+  "featureFlags": {
+    "enableEgressPolicy": true,
+    "enableMulticlusterMode": false,
+    "enableWASMStats": true
+  },
+  "observability": {
+    "enableDebugServer": true,
+    "osmLogLevel": "info",
+    "tracing": {
+      "address": "jaeger.osm-system.svc.cluster.local",
+      "enable": false,
+      "endpoint": "/api/v2/spans",
+      "port": 9411
+    }
+  },
+  "sidecar": {
+    "configResyncInterval": "2s",
+    "enablePrivilegedInitContainer": false,
+    "envoyImage": "mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3",
+    "initContainerImage": "mcr.microsoft.com/oss/openservicemesh/init:v0.9.2",
+    "logLevel": "error",
+    "maxDataPlaneConnections": 0,
+    "resources": {}
+  },
+  "traffic": {
+    "enableEgress": true,
+    "enablePermissiveTrafficPolicyMode": true,
+    "inboundExternalAuthorization": {
+      "enable": false,
+      "failureModeAllow": false,
+      "statPrefix": "inboundExtAuthz",
+      "timeout": "1s"
+    },
+    "useHTTPSIngress": false
+  }
 }
 ```
 
-Read [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand each of the available configurations. 
+Read [OSM MeshConfig documentation](https://release-v0-9.docs.openservicemesh.io/docs/concepts_features/osm_mesh_config/) to understand each of the available configurations.
 
-To make changes to the OSM ConfigMap for version v0.8.4, use the following guidance:
+To make changes to the OSM MeshConfig for version v0.9.2, use the following guidance:
 
-1. Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osm-config`, you will have to provide the full list of changes (compared to the default `osm-config`) in a JSON file.
+1. Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osm-mesh-config`, you will have to provide the full list of changes (compared to the default `osm-mesh-config`) in a JSON file.
     ```json
     {
         "osm.OpenServiceMesh.enablePermissiveTrafficPolicy" : "false"
     }
     ```
-    
+
     Set the file path as an environment variable:
-    
+
     ```azurecli-interactive
     export SETTINGS_FILE=<json-file-path>
     ```
-    
-2. Run the same `az k8s-extension create` command used to create the extension, but now pass in the configuration settings file: 
+
+2. Run the same `az k8s-extension create` command used to create the extension, but now pass in the configuration settings file:
     ```azurecli-interactive
     az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
     ```
-    
+
     > [!NOTE]
-    > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
+    > To ensure that the MeshConfig changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
 
 ## Using the Azure Arc-enabled Open Service Mesh
 
@@ -366,7 +395,7 @@ More information about onboarding services can be found [here](https://docs.open
 
 You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
 
-> [!NOTE] 
+> [!NOTE]
 > Ensure that the version of the bookstore application you run matches the version of the OSM extension installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
 
 ### Configuring your own Jaeger, Prometheus and Grafana instances
@@ -385,7 +414,7 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-Azure Arc-enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
+Azure Arc-enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics.
 
 1. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
 
@@ -454,7 +483,7 @@ The OSM extension cannot be upgraded to a new version if that version contains C
 
 Make sure to back up your Custom Resources prior to deleting the CRDs so that they can be easily recreated after upgrading. Afterwards, follow the upgrade instructions captured below.
 
-> [!NOTE] 
+> [!NOTE]
 > Upgrading the CRDs will affect the data plane as the SMI policies won't exist between the time they're deleted and the time they're created again.
 
 ### Upgrade instructions
@@ -472,7 +501,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
     ```azurecli-interactive
     export VERSION=<chart version>
     ```
-    
+
 4. Run az k8s-extension create with the new chart version
     ```azurecli-interactive
     az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
@@ -498,7 +527,7 @@ This output should not include OSM. If you don't have any other extensions insta
 
 When you use the az k8s-extension command to delete the OSM extension, the arc-osm-system namespace is not removed, and the actual resources within the namespace (like mutating webhook configuration and osm-controller pod) will take around ~10 minutes to delete.
 
-> [!NOTE] 
+> [!NOTE]
 > Use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.
 
 ## Troubleshooting
@@ -507,5 +536,5 @@ Refer to the troubleshooting guide [available here](troubleshooting.md#azure-arc
 
 ## Next steps
 
-> **Just want to try things out?**  
+> **Just want to try things out?**
 > Get started quickly with an [Azure Arc Jumpstart](https://aka.ms/arc-jumpstart-osm) scenario using Cluster API.
