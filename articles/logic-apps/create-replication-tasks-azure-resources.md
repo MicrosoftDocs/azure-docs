@@ -72,7 +72,7 @@ For information about replication and federation in Azure Service Bus, review th
 
 ### Order preservation
 
-Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key.
+Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key. For simple source-to-target replication patterns, you can have duplicate events in Event Hubs and messages in Service Bus.
 
 - Event Hubs also sequentially [arranges messages with the same partition key in the same partition](../event-hubs/event-hubs-features.md#partitions). Event Hubs and Service Bus can also have duplicate events during replication.
 
