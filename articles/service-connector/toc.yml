@@ -25,15 +25,11 @@ items:
   items:
   - name: Python (Django) app with PostgreSQL
     href: tutorial-django-webapp-postgres-cli.md
-  - name: ASP.NET app with SQL Database
+  - name: ASP.NET app with Blob Storage
+    href: tutorial-csharp-webapp-storage-cli.md
+  - name: Spring Cloud app with MySQL
     href: overview.md
-  - name: PLACEHOLDER
-    href: overview.md
-  - name: PLACEHOLDER
-    href: overview.md
-  - name: PLACEHOLDER
-    href: overview.md
-  - name: Spring Cloud app with Cosmos DB
+  - name: Spring Cloud app with Kafka on Confluent Cloud
     href: overview.md
 - name: Concepts
   expanded: true
@@ -41,7 +37,7 @@ items:
   - name: Service Connection internals
     href: overview.md
   - name: Region Support
-    href: resource-region-support.md
+    href: concept-region-support.md
 - name: How-to guides
   expanded: true
   items:
