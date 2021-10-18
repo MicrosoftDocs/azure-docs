@@ -107,7 +107,9 @@ If successful, you will receive a response with a status code 201.
 
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
-See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.
+See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.  
+
+[This quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) outlines the steps for creating a pipeline topology and live pipeline in Azure portal. Use the sample topology `CVR from private camera`.
 
 The following values, specific to the IoT device provisioned in the previous instructions, are required to enable tunneling on the RTSP source node:
 
@@ -171,8 +173,7 @@ When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and
 The RTSP URL must be **localhost** because the access to the camera is being tunneled.  
 
 After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.
-
-<!-- TODO: add link to Mayank's Cloud pipeline quickstart -->
+[The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a 
 
 The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can be used to automate this process.
 
