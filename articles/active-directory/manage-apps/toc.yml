@@ -151,7 +151,7 @@
         - name: F5 Big-IP with Azure AD for passwordless VPN
           href: f5-aad-password-less-vpn.md
       - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+        href: 
     - name: Single sign-on
       items:
       - name: Linked
