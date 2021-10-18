@@ -32,21 +32,25 @@ Secret parameters can be provided while creating and running tests from Azure Po
 
 ### Granting your Load Testing resource access to Key Vault
 
-To read secrets from Key Vault, you need to have a vault created and give your app permission to access it. This is required is you are defining your secrets in Azure Portal or YAML configuration file.
+To read secrets from Key Vault, you need to have a vault created and give your app permission to access it. This is required if you are defining your secrets in Azure Portal or YAML configuration file.
 
-1. Create an Azure key vault by following the [Key Vault quick-start](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+1. Create an Azure key vault by following the [Key Vault quick-start](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli) or use an existing Key vault.
 
-1. Create a [System assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for your Azure Load Testing resource.
+1. [Add the secret to the Key Vault] (https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) , if it does not exist already.
 
-1. Create an [access policy in Key Vault](https://docs.microsoft.com/azure/key-vault/general/security-features#privileged-access) for the identity you created earlier. Enable the "Get" secret permission on this policy.
+1. Create a [system assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for your Azure Load Testing resource from Azure portal.
+
+1. Create an [access policy in Key Vault](https://docs.microsoft.com/azure/key-vault/general/rbac-guide) for the identity you created earlier. Enable the "Get" secret permission on this policy.
 
 ### Providing secrets from Azure portal
 
 1. In the test creation wizard, go to the **Parameters** tab.
 
-1. In the secrets section, enter the secret name as referenced in the test script.
+1. In the **Secrets** section, enter the secret name as referenced in the test script.
 
 1. For secret value, enter the Secret Uri only. The Secret Uri should be the full data-plane URI of a secret in Key Vault, optionally including a version, for example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.
+
+The secrets are fetched from the Key Vault for every test run.
 
 ### Providing secrets using YAML file
 
@@ -62,12 +66,11 @@ To read secrets from Key Vault, you need to have a vault created and give your a
 
 1. For secret value, enter the Secret Uri only. The Secret Uri should be the full data-plane URI of a secret in Key Vault, optionally including a version, for example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.
 
+The secrets are fetched from the Key Vault for every test run.
+
 ### Providing secrets in CI/CD workflow
 
 In a CI/CD workflow, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-yaml-file), if you are using Azure Key Vault for storing your secrets. Alternatively, you can use any other secret store by fetching the secrets in the pipeline, and passing to the Azure Load Testing Task or Azure Load Testing Action. [Azure Pipeline variables](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables) and [GitHub secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) are widely used secret stores in Azure DevOps and GitHub respectively.
-
-> [!IMPORTANT]
-> For the same parameter, if a value exists in both the Load test YAML file and the Azure DevOps task / GitHub action, the latter will be used to run the test.
 
 1. Add a step in the CI/CD workflow to fetch the relevant secrets from the secret store. For example, if you are secrets using Azure Pipelines variables or GitHub secrets, ensure to add the name and value of the secrets. Do not provide an Azure Key Vault secret Uri in this case.
 
@@ -135,5 +138,16 @@ In a CI/CD workflow, you can provide environment variable by passing to the Azur
       ]
     ```
 
-> [!IMPORTANT]
-> For a test run which is created and run from a CI/CD workflow and parameters are provided using the task/action, the value of the parameters are not available after the test run completes. If this test is run from the Azure Portal again, you will have to enter the parameter values.
+## FAQ
+
+### Are my secrets values stored by the Load Testing service?
+
+No. The value of secrets are not stored by the Load testing service. If you have provided the Key Vault secret Uri, the secret Uri is stored and the value of the secret is fetched for every test run again. If you have provided the value of secrets in a CI/CD workflow, the secret values are not available after the test run. These need to be provided again for every test run.
+
+### What happens if I have parameters in my YAML configuration file as well as in the CI/CD workflow?
+
+For the same parameter, if a value exists in both the YAML configuration file and the Azure DevOps task / GitHub action, the latter will be used for the test run.
+
+### I created and ran a test from my CI/CD workflow by passing parameters using Azure load testing task / action. Can I run this test from the Azure portal with the same parameters?
+
+Since we do not store the values of parameters when passed from the CI/CD workflow, you will have to provide the parameter values again from the Azure portal while running the test. While running the test, you will get a prompt to enter these values. For secret values please enter Key Vault secret Uri only.

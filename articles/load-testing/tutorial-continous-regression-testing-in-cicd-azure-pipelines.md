@@ -154,8 +154,8 @@ Add the test criteria to your pipeline load test as shown below
 
     ```yml
     faliureCriteria: 
-        - avg(response_time) > 300ms
-        - avg(latency) > 300ms
+        - avg(response_time) > 300
+        - avg(latency) > 300
         - rate(error) > 20
     ```
 
