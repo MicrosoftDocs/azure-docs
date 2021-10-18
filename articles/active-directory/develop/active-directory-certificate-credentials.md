@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 10/18/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: contperf-fy21q4, aaddev
@@ -20,7 +20,9 @@ ms.custom: contperf-fy21q4, aaddev
 
 The Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 
-One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns.
+One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns. This is described in [RFC 7523 section 2.2.](https://datatracker.ietf.org/doc/html/rfc7523#section-2.2) on how to use JWTs for client authentication. 
+
+If you're interested in using a JWT issued by another IDP as a credential for your application, please see [workload identity federation](workload-identity-federation.md) for how to setup a federation policy. 
 
 ## Assertion format
 
