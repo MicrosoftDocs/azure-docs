@@ -8,14 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 10/15/2021
 ---
 
 # View a knowledge store with Storage Explorer
 
 A [knowledge store](knowledge-store-concept-intro.md) is content created by an Azure Cognitive Search skillset and saved to Azure Storage. In this article, you'll learn how to view the contents of a knowledge store using Storage Explorer in the Azure portal.
-
-## Prerequisites
 
 Start with an existing knowledge store created in the [Azure portal](knowledge-store-create-portal.md) or using the [REST APIs](knowledge-store-create-rest.md). Both the portal and REST walkthroughs create a knowledge store in Azure Table Storage.
 
@@ -25,7 +23,7 @@ Start with an existing knowledge store created in the [Azure portal](knowledge-s
 
 1. In the storage account's left navigation pane, select **Storage Explorer**.
 
-## Edit and query tables
+## View, edit, and query tables
 
 1. Expand the **TABLES** list to show a list of Azure table projections that were created when you created the knowledge store. If you used the quickstart or REST article to create the knowledge store, the tables will contain content related to customer reviews of a European hotel.
 
