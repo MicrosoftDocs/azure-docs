@@ -129,18 +129,6 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 You need to create an Azure resource of type [Computer Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) for the **Standard S1 tier** either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
-There are three primary parameters for all Cognitive Services' containers that are required, including the `spatialanalysis` container. The **end-user license agreement (EULA)** must be present with a value of accept. Additionally, both an **Endpoint URI** and **API Key** are needed.
-
-### Gathering Keys and Endpoint URI
-
-A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.  
-
-> [!Note]
-> You will need this key and endpoint URI in your deployment manifest files to deploy the `spatialanalysis` container.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/keys-endpoint.png" alt-text="Endpoint URI":::
-
 ## Set up your development environment
 
 1. Clone the repo from this location: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
@@ -173,9 +161,7 @@ A key is used to start the spatial-analysis container, and is available on the A
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are `avaedge` module, `rtspsim` module, and our `spatialanalysis` module. 
 
-The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
-
-There are a few things you need to pay attention to in the deployment template file:
+In your deployment template file:
 
 1. The deployment manifest uses port 50051 to communicate between `avaedge` and `spatialanalysis` module. If the port is being used by any other application, then set the port binding in the `spatialanalysis` module to an open port.
 
@@ -227,6 +213,35 @@ Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.t
 The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 
 ---
+
+The following table shows the various Environment Variables used by the IoT Edge Module. You can also set them in the deployment manifest mentioned above, using the `env` attribute in `spatialanalysis`:
+
+| Setting Name | Value | Description|
+|---------|---------|---------|
+| DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
+| ARCHON_SHARED_BUFFER_LIMIT | 377487360 | **Do not modify**|
+| ARCHON_LOG_LEVEL | Info; Verbose | Logging level, select one of the two values|
+| QT_X11_NO_MITSHM | 1 | **Do not modify**|
+| OMP_WAIT_POLICY | PASSIVE | **Do not modify**|
+| EULA | accept | This value needs to be set to *accept* for the container to run |
+| ARCHON_TELEMETRY_IOTHUB | true | Set this value to true to send the telemetry events to IoT Hub |
+| BILLING | your Endpoint URI| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource.|
+| APIKEY | your API Key| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource. |
+| LAUNCHER_TYPE | avaBackend | **Do not modify** |
+| ARCHON_GRAPH_READY_TIMEOUT | 600 | Add this environment variable if your GPU is **not** T4 or  NVIDIA 2080 Ti|
+
+> [!IMPORTANT]
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start. 
+
+### Gathering Keys and Endpoint URI
+
+A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.  
+
+> [!Note]
+> You will need this key and endpoint URI in your deployment manifest files to deploy the `spatialanalysis` container.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/spatial-analysis/keys-endpoint.png" alt-text="Endpoint URI":::
 
 ## Generate and deploy the deployment manifest
 
