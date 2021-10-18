@@ -22,7 +22,7 @@ No. Using the proximity placement group (PPG) that you created for your HANA ser
 
 ## For a multi-host SAP HANA system, will the shared volume be resized when I add additional HANA hosts?
 
-No.  This scenario is currently one of the very few cases where you need to manually adjust the size.  SAP recommends that you size the shared volume as 1 TB for every four HANA hosts. Because you create the shared volume as part of the first SAP HANA host, it’s already sized as 1 TB. There are two options to size the share volume for SAP HANA properly.
+No.  This scenario is currently one of the very few cases where you need to manually adjust the size. SAP recommends that you size the shared volume as 1 x RAM for every four HANA hosts. Because you create the shared volume as part of the first SAP HANA host, it’s already sized as 1 TB. There are two options to size the share volume for SAP HANA properly.
 
 * If you know upfront that you need, for example, six hosts, you can modify the 1-TB proposal during the initial creation with the application volume group for SAP HANA. At that point, you can also increase the throughput (that is, the QoS) to accommodate six hosts.
 * You can always edit the shared volume and change the size and throughput individually after the volume creation. You can do so within the volume placement group or directly in the volume using the Azure resource provider or GUI.
@@ -58,14 +58,16 @@ For each host and each partition you want to create, you need to rerun applicati
 
 ## Why is 1500 MiB/s the maximum throughput value that application volume group for SAP HANA proposes for the data volume?
 
-NFSv4.1 is the supported protocol for SAP HANA.  As such, one TCP/IP session is supported when you mount a single volume. For running a single TCP session (that is, from a single host) against a single volume, 1500 MiB/s is the typical I/O limit identified. Using the `nconnect` mount option can raise the read limit up to 4500 MiB/s. (See [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)). That's why application volume group for SAP HANA avoids allocating more throughput than you can realistically achieve. If you need more throughput, especially for larger HANA databases (for example, 12 TiB), you should use multiple partitions.
+NFSv4.1 is the supported protocol for SAP HANA.  As such, one TCP/IP session is supported when you mount a single volume. For running a single TCP session (that is, from a single host) against a single volume, 1500 MiB/s is the typical I/O limit identified. That's why application volume group for SAP HANA avoids allocating more throughput than you can realistically achieve. If you need more throughput, especially for larger HANA databases (for example, 12 TiB), you should use multiple partitions.
 
 ## Can I use `nconnect` as a mount option?
 
-Azure NetApp Files currently does support `nconnect` for NFSv4.1 but requires the following Linux OS versions:
+Azure NetApp Files does support `nconnect` for NFSv4.1 but requires the following Linux OS versions:
 
 * SLES 15SP2 and higher
 * RHEL 8.3 and higher
+
+When you use the `nconnect` mount option, the read limit is up to 4500 MiB/s (see [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)), and the proposed throughput limits for the data volume might need to be adapted accordingly.
 
 ## How can I understand how to size my system or my overall system landscape?
 

@@ -29,7 +29,7 @@ Application volume group for SAP HANA provides technical improvements to simplif
 
 ## Key features
 
-Application volume group for SAP HANA provides the following key features:
+Application volume group for SAP HANA is supported for all regions. It provides the following key features:
 
 * Supporting SAP HANA configurations for both single and multiple host setups, including: 
     * Volumes for a single or primary SAP HANA database
