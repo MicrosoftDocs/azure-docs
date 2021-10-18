@@ -15,7 +15,7 @@ This how-to article will describe how to configure application routing.
 
 ## Prerequisites
 
-Your app is already be integrated using the Regional VNet Integration feature.
+Your app is already integrated using the Regional VNet Integration feature.
 
 ## Configure Application Routing in the Azure portal
 
