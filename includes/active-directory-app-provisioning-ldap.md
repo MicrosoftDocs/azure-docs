@@ -14,6 +14,7 @@ For important details on what this service does, how it works, and frequently as
  - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have an LDAP instance in your environment and use the generic LDAP connector.
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
+ - Optional:  Although it is not required, it is recommended to download [Microsoft Edge for Windows Server](https://www.microsoft.com/en-us/edge?r=1) and use it in-place of Internet Explorer.
 
 Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. For purposes of this configuration, the user object type is used. Use the following information to guide you in your configuration. 
 
@@ -37,6 +38,8 @@ If you already have AD LDS setup in a test environment you can skip the followin
 The use the PowerShell script from [Appendix A](#appendix-a---install-ad-lds-powershell-script).  The script does the following:
   - Creates a self-signed certificate that will be used by the LDAP connector
   - Creates a directory for the feature install log
+  - Exports the certificate in the personal store to the directory
+  - Imports the certificate to the truste root of the local machine
   - Installs the AD LDS role on our virtual machine 
 
 On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative priviledges.  
@@ -58,6 +61,71 @@ Now open a cmd prompt with administrative priviledges and run the following:
 C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 ```
 
+## Grant the NETWORK SERVICE read permissions to the SSL cert
+In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To do this, use the following steps.
+
+ 1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
+ 2. Right-click on the system file located here.  It will be a guid.  This is the container that is storing our certificate.
+ 3. Select properties.
+ 4. At the top, select the **Security** tab.
+ 5. Select **Edit**.
+ 6. Click **Add**.
+ 7. In the box, enter **Network Service** and select **Check Names**.
+ 8. Select **NETWORK SERVICE** from the list and click **OK**.
+ 9. Click **Ok**.
+ 10. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
+
+## Verify SSL connectivity with AD LDS
+Now that we have configured the certificate and granted the network service account permssions, test the connectivity to verify that it is working.
+ 1. Open Server Manager and select AD LDS on the left
+ 2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
+   ![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)</br>
+ 3. At the top of ldp.exe, select **Connection** and **Connect**.
+ 4. Enter the following and click **OK**.
+   - Server:  APP3
+   - Port: 636
+   - Place a check in SSL
+   ![Ldp connection](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+ 5.  You should see a response similar to the screenshot below.
+   ![Ldp connection success](media/active-directory-app-provisioning-ldap/ldp-3.png)</br>
+ 6.  At the top, under **Connection** select **Bind**.
+ 7. Leave the defaults and click **OK**.
+   ![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)</br>
+ 8. You should now, successfully bind to the instance.
+   ![ldp bind success](media/active-directory-app-provisioning-ldap/ldp-5.png)</br>
+
+
+## Download, install and configure the Azure AD Connect Provisioning Agent Package
+
+ 1. Sign in to the Azure portal.
+ 2. Go to **Enterprise applications** > **Add a new application**.
+ 3. Search for the **On-premises ECMA app** application, and add it to your tenant image.
+ 4. Select the **on-premises ECMA app** that was added.
+ 5. Under **Getting Started**, on the **3. Provision user accounts** box, select **Get started**.
+ 6. At the top, from the drop-down, change provisioning to **automatic**.  This will bring up **on-premises connectivity** below.
+ 7. Under **On-Premises Connectivity** download the agent installer.
+ 8. Run the Azure AD Connect provisioning installer **AADConnectProvisioningAgentSetup.msi**.
+ 9. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
+     ![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)</br>
+ 10. After this operation finishes, the configuration wizard starts. Select **Next**.
+     ![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)</br>
+ 11. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)**. Select **Next**.
+     ![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)</br>
+ 12. Use your global administrator account to sign in to Azure AD.
+     ![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)</br>
+ 13. On the **Agent configuration** screen, select **Confirm**.
+     ![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)</br>
+ 14. After the installation is complete, you should see a message at the bottom of the wizard. Select **Exit**.
+     ![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)</br>
+ 15. Go to back to the Azure portal under the **On-premises ECMA app** application, and back to **Edit Provisioning**.
+ 16. On the **Provisioning** page, change the mode to **Automatic**.
+     ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
+ 17. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
+     ![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-sql\configure-8.png)</br>
+     >[!NOTE]
+     >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
+     >
+     >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
 
 
 
@@ -67,40 +135,48 @@ Powershell script to automate the installation of Active Directory Lightweight D
 
 
 ```powershell
- # Filename:    1_SetupADLDS.ps1
- # Description: Creates a certificate that will be used for SSL and installs Active Directory Lighetweight Directory Services.
- #
- # DISCLAIMER:
- # Copyright (c) Microsoft Corporation. All rights reserved. This 
- # script is made available to you without any express, implied or 
- # statutory warranty, not even the implied warranty of 
- # merchantability or fitness for a particular purpose, or the 
- # warranty of title or non-infringement. The entire risk of the 
- # use or the results from the use of this script remains with you.
- #
- #
- #
- #
- #Declare variables
- $DNSName = 'www.contoso.com'
- $CertLocation = 'cert:\LocalMachine\My'
- $logpath = "c:\" 
- $dirname = "test"
- $dirtype = "directory"
- $featureLogPath = "c:\test\featurelog.txt" 
+# Filename:    1_SetupADLDS.ps1
+# Description: Creates a certificate that will be used for SSL and installs Active Directory Lighetweight Directory Services.
+#
+# DISCLAIMER:
+# Copyright (c) Microsoft Corporation. All rights reserved. This 
+# script is made available to you without any express, implied or 
+# statutory warranty, not even the implied warranty of 
+# merchantability or fitness for a particular purpose, or the 
+# warranty of title or non-infringement. The entire risk of the 
+# use or the results from the use of this script remains with you.
+#
+#
+#
+#
+#Declare variables
+$DNSName = 'APP3'
+$CertLocation = 'cert:\LocalMachine\MY'
+$logpath = "c:\" 
+$dirname = "test"
+$dirtype = "directory"
+$featureLogPath = "c:\test\featurelog.txt" 
 
- #Create a new self-signed certificate
- New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation $CertLocation
+#Create a new self-signed certificate
+New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation $CertLocation
 
- #Create directory
- New-Item -Path $logpath -Name $dirname -ItemType $dirtype
+#Create directory
+New-Item -Path $logpath -Name $dirname -ItemType $dirtype
 
- #Install AD LDS
- start-job -Name addFeature -ScriptBlock { 
- Add-WindowsFeature -Name "ADLDS" -IncludeAllSubFeature -IncludeManagementTools 
+#Export the certifcate from the local machine personal store
+Get-ChildItem -Path cert:\LocalMachine\my | Export-Certificate -FilePath c:\test\allcerts.sst -Type SST
+
+#Import the certificate in to the trusted root
+Import-Certificate -FilePath "C:\test\allcerts.sst" -CertStoreLocation cert:\LocalMachine\Root
+
+
+#Install AD LDS
+start-job -Name addFeature -ScriptBlock { 
+Add-WindowsFeature -Name "ADLDS" -IncludeAllSubFeature -IncludeManagementTools 
  } 
- Wait-Job -Name addFeature 
- Get-WindowsFeature | Where installed >>$featureLogPath
+Wait-Job -Name addFeature 
+Get-WindowsFeature | Where installed >>$featureLogPath
+
 
  ```
 
