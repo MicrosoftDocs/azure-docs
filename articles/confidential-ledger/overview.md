@@ -61,4 +61,8 @@ The Functional APIs allow direct interaction with your instantiated Confidential
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Microsoft Azure Confidential Ledger architecture](architecture.md)
+- [Quickstart: Azure Portal](quickstart-portal.md)
+- [Quickstart: Python](quickstart-python.md)
+- [Quickstart: ARM template](quickstart-portal.md)
+- 
