@@ -42,7 +42,7 @@ Replication doesn't aim to exactly create exact 1:1 clones of a source to a targ
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
-- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs/event-hubs-federation-overview.md)
+- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
 - [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
@@ -81,7 +81,7 @@ The following diagram shows the topology and replication task workflow between E
 
 For information about replication and federation in Azure Event Hubs, review the following documentation:
 
-- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs/event-hubs-federation-overview.md)
+- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
 - [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
 
 ### Replication topology for Service Bus
