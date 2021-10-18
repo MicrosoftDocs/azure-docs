@@ -39,6 +39,11 @@
         "source_path_from_root": "/articles/purview/catalog-private-link-ingestion.md",
         "redirect_url": "/azure/purview/catalog-private-link-end-to-end",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/file-extension-insights.md",
+        "redirect_url": "/articles/purview/asset-insights.md",
+        "redirect_document_id": true
       }
 ]
 }

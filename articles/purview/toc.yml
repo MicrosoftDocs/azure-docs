@@ -233,8 +233,6 @@ items:
       href: classification-insights.md
     - name: View sensitivity label insights
       href: sensitivity-insights.md
-    - name: View file extension insights
-      href: file-extension-insights.md
   - name: Networking & security
     items:
     - name: Private endpoints
