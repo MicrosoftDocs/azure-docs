@@ -35,9 +35,9 @@ If you don't have an Azure subscription, [create a free account before you begin
 - The functionality requires that we already have trained model which is either registered in Azure Machine Learning OR uploaded in Azure Data Lake Storage Gen2.
 
 > [!NOTE]
-1. This functionality is currently supported only for **MLFLOW packaged ONNX, TensorFlow, PyTorch and Sklearn models**. **Mlflow Pyfunc packaging** is also supported for **customized python models (viz EBMClassifier etc.)**.
-2. Only **AML or ADLS** model source is supported. So to use PREDICT either model should be registered in AML or should be uploaded in ADLS. Here ADLS account refers to **default Synapse workspace ADLS account**.
-3. PREDICT is supported on **Spark3.1 version** onwards. **Python 3.8** is recommended version for model creation and training.
+> - This functionality is currently supported only for **MLFLOW packaged ONNX, TensorFlow, PyTorch and Sklearn models**. **Mlflow Pyfunc packaging** is also supported for **customized python models (viz EBMClassifier etc.)**.
+> - Only **AML or ADLS** model source is supported. So to use PREDICT either model should be registered in AML or should be uploaded in ADLS. Here ADLS account refers to **default Synapse workspace ADLS account**.
+> - PREDICT is supported on **Spark3.1 version** onwards. **Python 3.8** is recommended version for model creation and training.
 
 ## Sign in to the Azure portal
 
@@ -137,7 +137,7 @@ Please make sure all prerequisites are in place before following below steps for
    model = pcontext.bind_model(
     return_types=RETURN_TYPES, 
     runtime=RUNTIME, 
-    model_alias="<give_some_random_alias>", #This alias will be used in PREDICT call to refer this model
+    model_alias="<random_alias_name>", #This alias will be used in PREDICT call to refer this model
     model_uri=ADLS_MODEL_URI, #In case of AML, it will be AML_MODEL_URI
     aml_workspace=ws #This is only for AML. In case of ADLS, this parameter can be removed
     ).register()
@@ -157,13 +157,24 @@ Please make sure all prerequisites are in place before following below steps for
         inferSchema=True)
    df.createOrReplaceTempView('<view_name>')
 ```
-7. Run the following code.
+7. Generate score using PREDICT: You can call PREDICT 3 ways viz. using Spark SQL API, using User define function (UDF) and using Transformer API. Below are examples.
 
    > [!NOTE]
-   > Update the file URL, ADLS Gen2 storage name and key in this script before running it.
+   > Update the model alias name and view name in this script before running it.
 
    ```PYSPARK
-   # To read data
+   # Call PREDICT using Spark SQL API
+   predictions = spark.sql(
+                  """
+                      SELECT PREDICT('<random_alias_name>', *) AS predict FROM <view_name>
+                  """
+              ).show()
+
+   # Call PREDICT using user defined function (UDF)
+   import fsspec
+   import pandas
+
+   # Call PREDICT using Transformer API
    import fsspec
    import pandas
    ```
