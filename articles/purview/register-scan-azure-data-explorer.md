@@ -9,43 +9,16 @@ ms.topic: how-to
 ms.date: 10/14/2021
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!-- 1. H1
-Required. Replace \<Source\> with the name of the source that is being added
--->
-
 # Connect to and manage Azure Data Explorer in Azure Purview
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, the source article, or any additional information the customer might need to understand this article. The below sentences should be included in all source pages. You can add additional relevant information.
--->
 
 This article outlines how to register Azure Data Explorer, as well as how to authenticate and interact with Azure Data Explorer in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-<!-- 3. Supported capabilities
-Required. Please include full table which should include all current features.
-If that feature is supported for this source, the "yes" answers should link to a section below describing any authentication/steps that need to be followed specific to this source to be able to use that app/feature.
-
-For any features that are not supported for this source, leave the section as "No"
-
-Beneath the table, feel free to add any supported capability information unique to the source.
-
-If a source is in preview, please add this tag below the supported capabilities table.
-
-> [!IMPORTANT]
-> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
--->
-
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Share**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | No | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | No |
 
 ## Prerequisites
 
