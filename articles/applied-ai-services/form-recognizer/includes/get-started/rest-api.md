@@ -181,9 +181,11 @@ You'll receive a `200 (Success)` response with JSON output.
 * The `"pageResults"` includes the tables and selections marks extracted from the invoice.
 * The `"documentResults"` field contains key/value information for the most relevant parts of the invoice.
 
+See the [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf) document.
+
 #### Response body
 
-See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
+See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json).
 
 ## Next steps
 

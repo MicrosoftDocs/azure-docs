@@ -35,11 +35,11 @@ items:
 - name: How-to guides
   items:
   - name: Use the client libraries and SDKs
-    href: quickstarts/try-sdk-rest-api.md  
+    href: how-to-guides/try-sdk-rest-api.md  
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
   - name: Use the Sample Labeling tool
-    href: try-sample-label-tool.md   
+    href: how-to-guides/try-sample-label-tool.md   
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
   - name: Build and train a custom model

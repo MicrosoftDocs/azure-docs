@@ -15,7 +15,7 @@ recommendations: false
 
 # How to use the client library SDKs and REST API
 
- In this how-to guide, you'll learn how to add Form Recognizer features to your applications using an SDK in a programming language of your choice or the REST API. Azure Form Recognizer is an Azure Applied AI Servicez that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data, and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+ In this how-to guide, you'll learn how to add Form Recognizer features to your applications using an SDK in a programming language of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You'll use the following APIs to extract structured data from forms and documents:
 
