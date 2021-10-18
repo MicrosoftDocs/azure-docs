@@ -137,11 +137,11 @@ SELECT * FROM sys.dm_external_data_processed
 
 ## Exceeding the limits defined in the cost control
 
-In case any limit is excedded, new query will be rejected with the error message which contains details regarding the period, defined limit for that period and data processed for that period. For example, in case new query is executed where daily limit is set to 1 TB and it was exceeded the error message will be: 
+In case any limit is exceeded during the query execution, query won't be terminated.  
 
-```Query is rejected because SQL Serverless budget limit for a period is exceeded. (Period = Daily: Limit = 1 TB, Data processed = 1 TB)```
+When limit is exceeded, new query will be rejected with the error message which contains details regarding the period, defined limit for that period and data processed for that period. For example, in case new query is executed, where weekly limit is set to 1 TB and it was exceeded, the error message will be: 
 
-
+```Query is rejected because SQL Serverless budget limit for a period is exceeded. (Period = Weekly: Limit = 1 TB, Data processed = 1 TB))```
 
 ## Next steps
 
