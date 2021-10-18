@@ -1,6 +1,6 @@
 ---
 title: Migrate Java apps to Azure App Service
-description: Discover various migration resources available to migrate to Azure App Service.
+description: Discover Java migration resources available to Azure App Service.
 author: msangapu-msft
 
 ms.topic: article
@@ -44,4 +44,4 @@ The App Containerization tool offers a point-and-containerize approach to repack
 
 Blog: [Accelerate application modernization with Azure Migrate: App Containerization](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) 
 
- How-to: [Azure App Containerization Java; Containerization and migration of Java web applications to Azure App Service](../migrate/tutorial-app-containerization-java-app-service) 
+ How-to: [Azure App Containerization Java; Containerization and migration of Java web applications to Azure App Service](../migrate/tutorial-app-containerization-java-app-service.md) 

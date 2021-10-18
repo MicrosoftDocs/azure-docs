@@ -1,6 +1,6 @@
 ---
 title: Migrate .NET apps to Azure App Service
-description: Discover various migration resources available to migrate to Azure App Service.
+description: Discover .NET migration resources available to Azure App Service.
 author: msangapu-msft
 
 ms.topic: article
@@ -37,17 +37,17 @@ Blog: [Discover and assess ASP.NET apps at-scale with Azure Migrate](https://azu
 
 Video: [At scale discovery and assessment for ASP.NET app migration with Azure Migrate](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate) 
 
-How-to: [Discover software inventory on on-premises servers with Azure Migrate](../migrate/how-to-discover-applications) 
+How-to: [Discover software inventory on on-premises servers with Azure Migrate](../migrate/how-to-discover-applications.md) 
 
-How-to: [Discover web apps and SQL Server instances](../migrate/how-to-discover-sql-existing-project)
+How-to: [Discover web apps and SQL Server instances](../migrate/how-to-discover-sql-existing-project.md)
 
-How-to: [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment)
+How-to: [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment.md)
 
 How-to: Tutorial to assess web apps for migration to Azure App Service(../migrate/tutorial-assess-webapps) 
 
-FAQ: [Azure App Service assessments in Azure Migrate Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation)
+FAQ: [Azure App Service assessments in Azure Migrate Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation.md)
  
-Best practices: [Assessment best practices in Azure Migrate Discovery and assessment tool](../migrate/best-practices-assessment)
+Best practices: [Assessment best practices in Azure Migrate Discovery and assessment tool](../migrate/best-practices-assessment.md)
 
 ## Discovery, Assessment and Migration of ASP.Net Web Apps for an IIS Web Server 
 
