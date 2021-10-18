@@ -82,7 +82,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 * To access the wizard from the Azure Data Explorer web ui:
 
     1. [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
-    1. Add a connection to the *Query endpoint*.
+    1. In the Azure Data Explorer web ui, add a connection to the *Query endpoint*.
     1. Select **Query** from the left menu, right-click on the **database** or **table**, and select **Ingest new data**.
 
 ## One-click ingestion wizard
