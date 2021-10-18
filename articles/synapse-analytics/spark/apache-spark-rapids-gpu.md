@@ -21,26 +21,39 @@ You can choose to turn on/off the RAPIDS based GPU acceleration for your jobs or
 spark.conf.set('spark.rapids.sql.enabled','true')
 ```
 
-(Q- How do we mention this is in Public preview? Any template?)
+> [NOTE]
+> Apache Spark on GPUs in Synapse Analytics is currently in Public Preview. These are all the regionns this feature is currently available in: East US, East US2, West US2, West Europe.
 
 ## RAPIDS Accelerator for Apache Spark
 
 The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job by supported GPU operators, and running those operations on the GPUs, thereby acceleration processing. This library is currently in preview and doesn't support all Spark operations (here is a list of [currently supported operators](https://nvidia.github.io/spark-rapids/docs/supported_ops.html), but more support is being added incrementally through new releases.
-(Q- How to mention NVIDIA here?
-Q- How much technical detail to go into for RAPIDS design/architecture?)
 
 ## Cluster configuration options
 
 The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs and executors. This means a Spark job would need to request executor and driver resources that can be accommodated by the pool resources (according to the number of available GPU and CPU cores). In order to meet this condition and ensure optimal utilization of all the pool resources, we require the following configuration of drivers and executors for a Spark application run on GPU pools:
 
     |Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) | Number of Executors |
-    | :------- | :------------------ | :----------- | :----------------- | :------------- | :------------------- | :------------------ |
+    | ------- | ------------------ | ----------- | ----------------- | ------------- | ------------------- | ------------------ |
     | GPU-Large | Small driver | 4 | 30 | 12 | 60 | Number of nodes in pool |
     | GPU-Large | Medium driver | 7 | 30 | 9 | 60 | Number of nodes in pool |
     | GPU-XLarge | Medium driver | 8 | 40 | 14 | 80 | 4 * Number of nodes in pool |
     | GPU-XLarge | Large driver | 12 | 40 | 13 | 80 | 4 * Number of nodes in pool |
 
 Any workload that does not meet one of the above configurations will not be accepted. This is done to make sure Spark jobs are being run with the most efficient and performant configuration utilizing all available resources on the pool.
+
+The user should set the above configuration through their workload. For notebooks, the user can use the `%%configure` magic command to set one of the above configurations like so.
+For a Large pool with 3 nodes:
+
+```
+%%configure -f
+{
+    "driverMemory": "30g",
+    "driverCores": 4,
+    "executorMemory": "60g",
+    "executorCores": 12,
+    "numExecutors": 3
+}
+```
 
 ## Run a Spark example job through a notebook on a GPU pool
 
@@ -49,7 +62,7 @@ It would be good to be familiar with the [basic concepts of how to use a noteboo
 1. Create a GPU pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md). (Q- Will we still be behind feature flag in Public preview?)
 2. Create a notebook and attach it to the GPU pool you created in the first step.
 3. Choose the `Small driver` option through the configuration panel for your notebook.
-4. Create 2 sample dataframes by copying the below code in the first cell of your notebook:
+4. Create 2 sample dataframes by copying the below code in the first cell of your notebook: (Q- do tabbed for each language same code)
 
 ```scala
 val emp = Seq((1,"Smith",10,100000),
@@ -100,3 +113,5 @@ Your Spark job requested 480 vcores.
 However, the workspace only has xxx vcores available out of quota of yyy vcores.
 Try reducing the numbers of vcores requested or increasing your vcore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
 ```
+
+Send separate email to Rahul to say we're going public preview to educate CSS about this.
