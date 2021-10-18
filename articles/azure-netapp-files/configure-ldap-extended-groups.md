@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
@@ -101,6 +101,17 @@ This article explains the considerations and steps for enabling LDAP with extend
     2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
     ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
+
+8. Optional - If you have large topologies, or if you are using the Unix security style with a dual-protocol volume or LDAP with extended groups, you can select the **LDAP Search Scope** option to allow access from Linux clients for Azure NetApp Files.  
+
+    The **LDAP Search Scope** option is configured through the **[Active Directory Connections](create-active-directory-connections.md#create-an-active-directory-connection)** page.
+
+    To resolve the users and group from an LDAP server for large topologies, set the values of the **User DN**, **Group DN**, and **Group Membership Filter** options on the Active Directory Connections page as follows:
+
+    * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. 
+    * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. 
+
+    ![Screenshot that shows options related to LDAP Search Scope](../media/azure-netapp-files/ldap-search-scope.png)  
 
 ## Next steps  
 
