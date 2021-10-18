@@ -43,12 +43,12 @@ The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs an
 
 1. Hello:
 
-    |Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) |
-    | :------ | :-------------- | :---------- | :------------- | :------------- | :------------------- |
-    | GPU-Large | Small driver | 4 | 30 | 12 | 60 |
-    | GPU-Large | Medium driver | 7 | 30 | 9 | 60 |
-    | GPU-XLarge | Medium driver | 8 | 40 | 14 | 80 |
-    | GPU-XLarge | Large driver | 12 | 40 | 13 | 80 |
+    |Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) | Number of Executors |
+    | :------ | :-------------- | :---------- | :------------- | :------------- | :------------------- | :------------------ |
+    | GPU-Large | Small driver | 4 | 30 | 12 | 60 | Number of nodes in pool |
+    | GPU-Large | Medium driver | 7 | 30 | 9 | 60 | Number of nodes in pool |
+    | GPU-XLarge | Medium driver | 8 | 40 | 14 | 80 | 4 * Number of nodes in pool |
+    | GPU-XLarge | Large driver | 12 | 40 | 13 | 80 | 4 * Number of nodes in pool |
 
 
 Any workload that does not meet one of the above configurations will not be accepted. This is done to make sure Spark jobs are being run with the most efficient and performant configuration utilizing all available resources on the pool.
