@@ -18,7 +18,7 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate VECOS Releezme Locker management system with Azure Active Directory (Azure AD). When you integrate VECOS Releezme Locker management system with Azure AD, you can:
 
-* Control in Azure AD who has access to VECOS Releezme Locker management system.
+* Control in Azure AD who has access to VECOS Releezme Locker management system. Access to the VECOS Releezme Locker Management System is only needed for users who need to manage the lockers, i.e., facility managers, service desk employees, etc.
 * Enable your users to be automatically signed-in to VECOS Releezme Locker management system with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -66,22 +66,27 @@ To configure and test Azure AD SSO with VECOS Releezme Locker management system,
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **VECOS Releezme Locker management system** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+1. First check with [VECOS Releezme Locker management system support team](mailto:servicedesk@vecos.com) what region you are connecting to. Depending on your region, the URL's below will be different:
+	a. Europe: base URL will be `https://www.releezme.net`
+	b. North America: base URL will be `https://na.releezme.net`
+	c. Asia Pacific: base URL will be `https://au.releezme.net`
+a. In the **Identifier(Entity ID)** text box, type the URL: 
+3. In the Azure portal, on the **VECOS Releezme Locker management system** application integration page, find the **Manage** section and select **single sign-on**.
+4. On the **Select a single sign-on method** page, select **SAML**.
+5. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps: 
 
 	a. In the **Identifier(Entity ID)** text box, type the URL: 
-    `https://au.releezme.net/`
+    `https://<baseURL>/`
 
     b. In the **Reply URL** textbox, type the URL:
-    `https://au.releezme.net/Saml2/Acs`
+    `https://<baseURL>/Saml2/Acs`
     
     c. In the **Sign on URL** text box, type the URL:  
-    `https://sso-na.releezme.net`
+    `https://<baseURL>/sso` (optionally add the `?companycode=` query parameter with the company code value given by VECOS.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -98,6 +103,25 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
+
+## Configure VECOS Releezme Locker management system Roles
+
+1. In the Azure portal, select **App Registrations**, and then select **All applications**.
+1. In the app registrations list, select **VECOS Releezme Locker management system**.
+2. In the app registration open **App roles**.
+3. In the app roles page, create a new app role by clicking **Create app role**
+4. In the **display name** field enter a name for the role, e.g., `VECOS Company Facility Manager`.
+5. Select `Users/Groups` as the **Allowed member types** value.
+6. Enter the VECOS Releezme Locker management system role name in the **Value** field. See table below.
+7. Click **Apply**.
+
+| Role | Role Value | Description |
+| -- | --------- | ---------- |
+| Service Desk | CompanyServiceDesk | Limited access service desk. Mostly read-only access |
+| Service Desk+ | CompanyServiceDeskPlus | Advanced version of the service desk with more read/write access |
+| Facility Manager | CompanyFacilityManager | Facility Manager with access to setup of the company |
+| Facility Manager+ | CompanyFacilityManagerPlus | Advanced Facility Manager with additional access within the company. |
+| Administrator | CompanyAdmin | Administrator with full company access |
 
 ### Assign the Azure AD test user
 
