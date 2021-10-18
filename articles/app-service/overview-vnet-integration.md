@@ -32,8 +32,6 @@ When you use regional VNet Integration, you can use the following Azure networki
 * **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use VNet Integration to provide inbound access to your app.
 * **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
 
-The feature is fully supported for both Windows and Linux apps, including [custom containers](./quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
-
 ### How regional VNet Integration works
 
 Apps in App Service are hosted on worker roles. Regional VNet Integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. Because the from address is in your VNet, it can access most things in or through your VNet like a VM in your VNet would. The networking implementation is different than running a VM in your VNet. That's why some networking features aren't yet available for this feature.
@@ -76,7 +74,6 @@ When configuring application routing, you can either route all traffic or only p
 
 > [!NOTE]
 > * When Route All is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
-> * Windows Containers do not support Route All.
 > * Windows Containers do not support routing App Service Key Vault references or pulling custom container images over VNet Integration.
 > * Regional VNet Integration isn't able to use port 25.
 
@@ -119,9 +116,6 @@ If you want to make calls to [private endpoints](./networking/private-endpoint.m
 
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with, and if no custom DNS is specified it will use Azure default DNS and any private zones linked to the VNet.
 
-> [!NOTE]
-> For Linux Apps Azure DNS private zones only works if Route All is enabled.
-
 ### Limitations
 
 There are some limitations with using regional VNet Integration:
@@ -136,7 +130,6 @@ There are some limitations with using regional VNet Integration:
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
-* Your app can't resolve addresses in Azure DNS Private Zones on Linux plans without Route All enabled.
 
 ## Gateway-required VNet Integration
 
