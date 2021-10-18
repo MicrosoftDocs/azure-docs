@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage Azure SQL Database Managed Instance'
-description: TThis guide describes how to connect to Azure SQL Database Managed Instance in Azure Purview, and use Purview's features to scan and manage your Azure SQL Database Managed Instance source.
+description: This guide describes how to connect to Azure SQL Database Managed Instance in Azure Purview, and use Purview's features to scan and manage your Azure SQL Database Managed Instance source.
 author: hophanms
 ms.author: hophan
 ms.service: purview
