@@ -44,13 +44,16 @@ Hardware generations have different characteristics, as described in the followi
 
 Support for the 16TB max instance reserve storage size (public preview) is currently available only in specific regions. Current preview availability for this feature is in these regions:
 
+
 | Region | **Premium Series** | **Premium Series - Memory Optimized** | 
+|:--- |:--- |:--- |
 | Central US | Yes | Yes | 
 | East US 2 | Yes | Yes | 
 | North Europe | Yes | Yes | 
 | West Europe | Yes | Yes | 
 | West US | Yes | Yes | 
 | West US 2 | Yes | Yes | 
+
 
 ### In-memory OLTP available space 
 
