@@ -8,7 +8,7 @@ ms.date: 11/02/2021
 ---
 # Connect devices behind a firewall to Azure Video Analyzer
 
-In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked - and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an application on the device, which listens to commands sent via IoT Hub from Video Analyzer, and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server. 
+In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an application on the device, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server. 
 
 ## Overview 
 
@@ -19,17 +19,17 @@ The application will need to:
 1. Run as an IoT device 
 1. Implement the [IoT PnP](../../iot-develop/overview-iot-plug-and-play.md) interface with a specific command (`tunnelOpen`) 
 1. Upon receiving such a command: 
-* Validate the arguments received 
-* Open a secure websocket connection to the URL provided using the token provided
-* Forward the RTSP requests received from the Video Analyzer service to the RTSP server running on the device 
+   * Validate the arguments received 
+   * Open a secure websocket connection to the URL provided using the token provided
+   * Forward the RTSP requests received from the Video Analyzer service to the RTSP server running on the device 
 
-<To-do: Add image>
+<!--- To-do: Add image --->
 
 ## Run as an IoT Device 
 
 The Video Analyzer application will be deployed as an Azure IoT device. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub using symmetric key authentication to get the Azure IoT Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
 
-###IoT Device Client Configuration
+### IoT Device Client Configuration
 
 * Set OPTION_MODEL_ID to `“dtmi:azure:videoanalyzer:WebSocketTunneling;1”` to support PnP queries  
 * Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub 
@@ -92,14 +92,14 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
 
 1.	Get the available RTSP port(s) of the device
 1.	Compare the `localPort` value specified in the direct method call with the available ports
-*	Return **BadRequest** if no match is found (see Error Responses section below)
+   *	Return **BadRequest** if no match is found (see Error Responses section below)
 1. Open a TCP connection to "localhost:`localPort`"
-*	Return **BadRequest** if the connection fails
+   *	Return **BadRequest** if the connection fails
 1.	Open a web socket connection to the `remoteEndpoint` (through a proxy if configured on the device)
-*	Set the authorization header as "Bearer `remoteAuthorizationToken`"
-*	Set the header "TunnelConnectionSource" with value "PnpDevice"
-*	Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be make or model of the device.
-*	Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
+   *	Set the authorization header as "Bearer `remoteAuthorizationToken`"
+   *	Set the header "TunnelConnectionSource" with value "PnpDevice"
+   *	Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be make or model of the device.
+   *	Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
 1.	Return response (do not block)
 1.	Asynchronously connect the web socket tunnel
 
@@ -121,12 +121,12 @@ Examples of such error responses are:
 { "code": "400", "target": "localhost:{localPort}", "message": "Local port is not available"}
 * Timeout/could not connect to RTSP endpoint
 { "code": "400", "target": "localhost:{localPort}", "message":"Could not connect to RTSP endpoint"}
-•	Timeout/error response from web socket connect attempt
+*	Timeout/error response from web socket connect attempt
 { "code": "{WebSocket response code}", "target": "{remoteEndpoint}", "message": "{Web socket response error message}"}
 
 
 ## Example implementation
-Please contact videoanalyzerhelp@microsoft.com if you would like to implement an application on your device to connect it to Video Analyzer.
+Contact videoanalyzerhelp@microsoft.com if you would like to implement an application on your device to connect it to Video Analyzer.
 
 ## See Also 
 
