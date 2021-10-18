@@ -109,9 +109,9 @@ Notice that this deployment uses the same path for both liveness and readiness, 
 
 When you deploy a model as a real-time endpoint, Azure Machine Learning _mounts_ your model to your endpoint. Model mounting enables you to deploy new versions of the model without having to create a new Docker image. By default, a model registered with the name *foo* and version *1* would be located at the following path inside of your deployed container: `/var/azureml-app/azureml-models/foo/1`
 
-For example, if you have the following directory structure on your local machine:
+For example, if you have a directory structure of `/azureml-examples/cli/endpoints/online/custom-container` on your local machine, where the model is named `half_plus_two`:
 
-:::image type="content" source="./media/how-to-deploy-custom-container/local-directory-structure.png" alt-text="Tree view screenshot of /azureml-examples/cli/endpoints/online/custom-container directory structure":::
+:::image type="content" source="./media/how-to-deploy-custom-container/local-directory-structure.png" alt-text="Diagram showing a tree view of the local directory structure.":::
 
 and `tfserving-deployment.yml` contains:
 
@@ -122,13 +122,11 @@ model:
     local_path: ./half_plus_two
 ```
 
-then your model will be located at the following location in your deployment:
+then your model will be located under `/var/azureml-app/azureml-models/tfserving-deployment/1` in your deployment:
 
-:::image type="content" source="./media/how-to-deploy-custom-container/deployment-location.png" alt-text="Tree view screenshot of /var/azureml-app/azureml-models/tfserving-deployment/1 directory structure":::
+:::image type="content" source="./media/how-to-deploy-custom-container/deployment-location.png" alt-text="Diagram showing a tree view of the deployment directory structure.":::
 
-You can optionally configure your __model_mount_path__. It enables you to change the path where the model is mounted.
-
-For example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_
+You can optionally configure your `model_mount_path`. It enables you to change the path where the model is mounted. For example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_:
 
 > [!IMPORTANT]
 > The `model_mount_path` must be a valid absolute path in Linux (the OS of the container image).
@@ -144,9 +142,9 @@ model_mount_path: /var/tfserving-model-mount
 .....
 ```
 
-then your model will be located at the following location in your deployment:
+then your model will be located at `/var/tfserving-model-mount/tfserving-deployment/1` in your deployment. Note that it is no longer under `azureml-app/azureml-models`, but under the mount path you specified:
 
-:::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Tree view screenshot of /var/tfserving-model-mount/tfserving-deployment/1 directory structure":::
+:::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Diagram showing a tree view of the deployment directory structure when using mount_model_path.":::
 
 ### Create your endpoint and deployment
 
