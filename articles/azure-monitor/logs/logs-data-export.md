@@ -188,7 +188,8 @@ In the **Log Analytics workspace** menu in the Azure portal, select **Data Expor
 Follow the steps, then click **Create**. 
 
 <img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="export rule configuration" width="80%"/>
- 
+
+
 # [PowerShell](#tab/powershell)
 
 N/A
@@ -506,6 +507,7 @@ Export rules can be disabled to let you stop the export when you don’t need to
 
 [![export rule disable](media/logs-data-export/export-disable.png)](export rule disable)
 
+
 # [PowerShell](#tab/powershell)
 
 N/A
@@ -555,6 +557,7 @@ In the **Log Analytics workspace** menu in the Azure portal, select *Data Export
 
 [![export ule delete](media/logs-data-export/export-delete.png)](export ule delete)
 
+
 # [PowerShell](#tab/powershell)
 
 N/A
@@ -581,6 +584,7 @@ N/A
 
 ---
 
+
 ## View all data export rules in a workspace
 
 # [Azure portal](#tab/portal)
@@ -588,6 +592,7 @@ N/A
 In the **Log Analytics workspace** menu in the Azure portal, select **Data Export** from the **Settings** section to view all export rules in workspace.
 
 [![export rules](media/logs-data-export/export-view.png)](export rules)
+
 
 # [PowerShell](#tab/powershell)
 
@@ -614,6 +619,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 N/A
 
 ---
+
 
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
