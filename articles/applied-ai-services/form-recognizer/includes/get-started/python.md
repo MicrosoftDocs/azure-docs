@@ -19,6 +19,12 @@ recommendations: false
 
 [Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
+In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+
+* [Analyze Layout](#analyze-layout)
+
+* [Analyze invoice](#analyze-invoices)
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)

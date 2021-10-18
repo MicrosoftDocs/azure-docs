@@ -18,6 +18,12 @@ recommendations: false
 
 [Reference documentation](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
+In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+
+* [Analyze Layout](#analyze-layout)
+
+* [Analyze invoice](#analyze-invoices)
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
@@ -33,7 +39,7 @@ recommendations: false
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -87,7 +93,7 @@ const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See our Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See our Cognitive Services [security]((/azure/cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: Layout model
 
@@ -156,7 +162,7 @@ main().catch((err) => {
 
 ## **Try it**: Prebuilt invoice model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../concept-invoice.md#key-value-pair-extraction)
+This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-invoice.md#key-value-pair-extraction)
 
 > [!div class="checklist"]
 >
@@ -266,4 +272,4 @@ Congratulations! In this quickstart, you used the Form Recognizer JavaScript SDK
 > [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer JavaScript reference library](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true)
+> [Form Recognizer JavaScript reference library](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true)

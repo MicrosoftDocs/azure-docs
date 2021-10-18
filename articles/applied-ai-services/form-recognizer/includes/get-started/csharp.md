@@ -22,6 +22,12 @@ recommendations: false
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
+In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+
+* [Analyze Layout](#analyze-layout)
+
+* [Analyze invoice](#analyze-invoices)
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
@@ -106,7 +112,7 @@ FormRecognizerClient client = new FormRecognizerClient(new Uri(endpoint), new Az
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](.(/azure/cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: Layout model
 

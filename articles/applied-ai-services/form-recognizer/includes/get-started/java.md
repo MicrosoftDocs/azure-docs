@@ -18,6 +18,12 @@ recommendations: false
 
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
+In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+
+* [Analyze Layout](#analyze-layout)
+
+* [Analyze invoice](#analyze-invoices)
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
@@ -167,7 +173,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginRecognizeInvoicesFromUrl` . 
 > * We've added the file URI value to the `invoiceUrl` variable in the main method.
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#key-value-pair-extraction) concept page.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#key-value-pair-extraction) concept page.
 
 ### Choose a prebuilt model
 
@@ -270,4 +276,4 @@ Congratulations! In this quickstart, you used the Form Recognizer Java SDK to an
 > [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Java library reference](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true)
+> [Form Recognizer Java library reference](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true)

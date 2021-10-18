@@ -20,6 +20,12 @@ ms.author: lajanuar
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
 
+In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+
+* [Analyze Layout](#analyze-layout)
+
+* [Analyze invoice](#analyze-invoices)
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -35,7 +41,7 @@ ms.author: lajanuar
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ### Select a code sample to copy and paste into your application:
 
@@ -45,7 +51,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](/azure/cognitive-services/cognitive-services-security.md) article for more information.
 
 ## **Try it**: Layout model
 
@@ -182,8 +188,6 @@ See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitiv
 ## Next steps
 
 Congratulations! In this quickstart, you used the Form Recognizer REST API to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
-
-## Next steps
 
 > [!div class="nextstepaction"]
 > [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
