@@ -137,7 +137,7 @@ To use **ML-assisted labeling**:
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
-The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in teh project.
+The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in the project.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
