@@ -27,7 +27,7 @@ The configuration of the deployer is performed in a Terraform tfvars variable fi
 
 ### Terraform Parameters
 
-The table below contains the Terraform parameters, these need to be entered manually if not using the deployment scripts
+The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
 
 | Variable                | Type       | Description                           | 
 | ----------------------- | ---------- | ------------------------------------- | 
@@ -48,8 +48,8 @@ The table below contains the parameters that define the resource group and the r
 ### Network Parameters
 
 The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of these
- - For the green field scenario the virtual network address space and the subnet address prefixes must be specified 
- - For the brown field scenario the Azure resource identifier for the virtual network and the subnets must be specified
+ - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
+ - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
 
 The recommended CIDR of the virtual network address space is /27, which allows space for 32 IP addresses. A CIDR value of /28 only allows 16 IP addresses. If you want to include Azure Firewall, use a CIDR value of /25, because Azure Firewall requires a range of /26. 
 
@@ -102,26 +102,26 @@ version="latest"
 
 The table below defines the parameters used for defining the Virtual Machine authentication
 
-| Variable                                    | Type        | Description                           | 
-| ------------------------------------------- | ----------- | ------------------------------------- | 
-| `deployer_vm_authentication_type`             | Optional	| Defines the default authentication for the Deployer |
-| `deployer_authentication_username`            | Optional	| Administrator account name |
-| `deployer_authentication_password`            |	Optional	| Administrator password |
-| `deployer_authentication_path_to_public_key`  | Optional    | Path to the public key used for authentication |
-| `deployer_authentication_path_to_private_key` |	Optional	| Path to the private key used for authentication |
+| Variable                                    | Type         | Description                           | 
+| ------------------------------------------- | ------------ | ------------------------------------- | 
+| `deployer_vm_authentication_type`             | Optional	 | Defines the default authentication for the Deployer |
+| `deployer_authentication_username`            | Optional	 | Administrator account name |
+| `deployer_authentication_password`            |	Optional | Administrator password |
+| `deployer_authentication_path_to_public_key`  | Optional   | Path to the public key used for authentication |
+| `deployer_authentication_path_to_private_key` |	Optional | Path to the private key used for authentication |
 
 ### Key Vault Parameters
 
 The table below defines the parameters used for defining the Key Vault information
 
-| Variable                         | Type        | Description                           | 
-| -------------------------------- | ----------- | ------------------------------------- | 
-| `user_keyvault_id`	                | Optional	 | Azure resource identifier for the user key vault 
-| `spn_keyvault_id`                  | Optional	 | Azure resource identifier for the user key vault containing the SPN details
-| `deployer_private_key_secret_name` | Optional	 | If provided contains the secret name for the deployer`s private key
-| `deployer_public_key_secret_name`  | Optional	 | If provided contains the secret name for the deployer`s public key
-| `deployer_username_secret_name`	   | Optional	 | If provided contains the secret name for the deployer`s username
-| `deployer_password_secret_name`	   | Optional	 | If provided contains the secret name for the deployer`s password
+| Variable                           | Type        | Description                           | 
+| ---------------------------------- | ----------- | ------------------------------------- | 
+| `user_keyvault_id`	             | Optional	   | Azure resource identifier for the user key vault |
+| `spn_keyvault_id`                  | Optional	   | Azure resource identifier for the user key vault containing the SPN details |
+| `deployer_private_key_secret_name` | Optional	   | If provided contains the secret name for the deployer`s private key |
+| `deployer_public_key_secret_name`  | Optional	   | If provided contains the secret name for the deployer`s public key |
+| `deployer_username_secret_name`	 | Optional	   | If provided contains the secret name for the deployer`s username |
+| `deployer_password_secret_name`	 | Optional	   | If provided contains the secret name for the deployer`s password |
 
 ### Additional parameters
 
@@ -164,7 +164,7 @@ The table below contains the Terraform parameters, these need to be entered man
 
 | Variable                | Type       | Description                           | 
 | ----------------------- | ---------- | ------------------------------------- | 
-| `deployer_tfstate_key`  | Required * | deployer_tfstate_key is the state file name for the deployer | 
+| `deployer_tfstate_key`  | Required * | The state file name for the deployer | 
 
 ### Generic Parameters
 
@@ -202,7 +202,7 @@ The table below contains the parameters that define the resource group and the r
 
 | Variable                           | Type        | Description                           | 
 | ---------------------------------- | ----------- | ------------------------------------- | 
-| `dns_label`	                     | Optional    | `dns_label` if specified is the DNS name of the private DNS zone | 
+| `dns_label`	                     | Optional    | If specified, is the DNS name of the private DNS zone | 
 | `use_private_endpoint`             | Optional    | Boolean flag controlling if private endpoints are used. | 
 
 ### Example parameters file for sap library (required parameters only)
