@@ -12,7 +12,7 @@ ms.author: nidutta
 
 # Quickstart: Create a new serverless Apache Spark GPU pool using the Azure portal
 
-An Apache Spark pool provides open-source big data compute capabilities where data can be loaded, modeled, processed, and distributed for faster analytic insight. Synapse now offers the ability to create Apache Spark pools that use GPUs on the backend, using open-source [RAPIDS libraries](spark/apache-spark-rapids-gpu.md) to run your Spark workloads on GPUs for accelerated processing.
+An Apache Spark pool provides open-source big data compute capabilities where data can be loaded, modeled, processed, and distributed for faster analytic insight. Synapse now offers the ability to create Apache Spark pools that use GPUs on the backend to run your Spark workloads on GPUs for accelerated processing.
 
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU pool in a Synapse workspace.
 
@@ -89,9 +89,11 @@ If you want to delete the Apache Spark pool, do the following:
 3. Press **delete**.
 
  ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
+
 4. Confirm the deletion, and press **Delete** button.
 
  ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
+
 5. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources.
 
 ## Next steps

@@ -14,7 +14,7 @@ ms.author: nidutta
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
-Azure Synapse now offers the ability to create Apache Spark pools using GPUs to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications with no code change by just enabling a configuration setting, which comes pre-configured for a GPU pool.
+Azure Synapse now offers the ability to create Apache Spark pools using GPUs to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU pool.
 You can choose to turn on/off the RAPIDS based GPU acceleration for your workload or parts of your workload by setting this configuration:
 
 ```
@@ -26,11 +26,12 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 
 ## RAPIDS Accelerator for Apache Spark
 
-The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job by supported GPU operations, and running those operations on the GPUs, thereby accelerating processing. This library is currently in preview and doesn't support all Spark operations (here is a list of [currently supported operators](https://nvidia.github.io/spark-rapids/docs/supported_ops.html), and more support is being added incrementally through new releases.
+The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job by supported GPU operations, and running those operations on the GPUs, thereby accelerating processing. This library is currently in preview and doesn't support all Spark operations (here is a list of [currently supported operators](https://nvidia.github.io/spark-rapids/docs/supported_ops.html), and more support is being added incrementally through new releases).
 
 ## Cluster configuration options
 
 The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs and executors. This means a Spark job would need to request executor and driver resources that can be accommodated by the pool resources (according to the number of available GPU and CPU cores). In order to meet this condition and ensure optimal utilization of all the pool resources, we require the following configuration of drivers and executors for a Spark application running on GPU pools:
+
 
 |Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) | Number of Executors |
 | :------ | :-------------- | :---------- | :------------- | :------------- | :------------------- | :------------------ |
@@ -56,7 +57,7 @@ For example, using a Large pool with 3 nodes:
 }
 ```
 
-## Run a Spark example job through a notebook on a GPU pool
+## Run a sample Spark job through notebook on a GPU pool
 
 It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Synapse Analytics before proceeding with this section. Let's walk through the steps to run a simple Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL and .NET for Spark (C#).
 
@@ -65,7 +66,9 @@ It would be good to be familiar with the [basic concepts of how to use a noteboo
 3. Set the configurations as explained in the previous section.
 4. Create a sample dataframe by copying the below code in the first cell of your notebook:
 
-```scala Scala
+### [Scala](#tab/scala)
+
+```scala
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.apache.spark.sql.Row
 import scala.collection.JavaConversions._
@@ -87,7 +90,10 @@ val emp = Seq(Row(1, "Smith", 10, 100000),
 
 val empDF = spark.createDataFrame(emp, schema)
 ```
-```python Python
+
+### [Python](#tab/python)
+
+```python
 emp = [(1, "Smith", 10, 100000),
 	(2, "Rose", 20, 97600),
 	(3, "Williams", 20, 110000),
@@ -99,7 +105,10 @@ empColumns = ["emp_id", "name", "emp_dept_id", "salary"]
 
 empDF = spark.createDataFrame(data=emp, schema=empColumns)
 ```
-```csharp C#
+
+### [C#](#tab/csharp)
+
+```csharp
 using Microsoft.Spark.Sql.Types;
 
 var emp = new List<GenericRow>
@@ -139,7 +148,7 @@ resultDF.Show();
 ```
 
 6. You can see the operations in your query that ran on GPUs by looking into the SQL plan through the Spark History Server:
-![Screenshot showing SQL plan of query through History Server](../quickstart/spark-gpu-sql-plan.png)
+![Screenshot showing SQL plan of query through History Server](../media/quickstart-create-sql-pool/spark-gpu-sql-plan.png)
 
 ## How to tune your application for GPUs
 
