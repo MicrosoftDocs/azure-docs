@@ -113,6 +113,10 @@ Now, register the model:
 ### Create environment
 The deployment needs to run in an environment that has the required dependencies. Create the environment with a PUT request. Use a docker image from Microsoft Container Registry. You can configure the docker image with `image` and add conda dependencies with `condaFile`.
 
+Run the following code to read the `condaFile` defined in json. The source file is at `/cli/endpoints/batch/mnist/environment/conda.json` in the example repository:
+
+:::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="read_condafile":::
+
 Now, run the following snippet to create an environment:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="create_environment":::
