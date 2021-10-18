@@ -16,7 +16,9 @@ ms.date: 10/22/2021
 
 While maximum availability and reliability are top operational priorities for Azure services, many ways still exist for communication to stop due to networking or name resolution problems, errors, or temporary unresponsiveness. Such conditions aren't "disastrous" such that you'll want to abandon the regional deployment altogether as you might do in disaster recovery situation. However, the business scenario for some apps might become impacted by availability events that last no more than a few minutes or even seconds.
 
-To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource where you can add multiple workflows. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over.
+
+Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource where you can add multiple workflows. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 > [!NOTE]
 > Currently, [replication task templates](#replication-task-templates) are available for 
@@ -24,11 +26,51 @@ To reduce the effect that unpredictable events can have on your Azure resources 
 
 This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues.
 
+<a name="replication-task-templates"></a>
+
+## Replication task templates
+
+The following table lists the replication task templates currently available in this preview:
+
+| Resource type | Replication source and target |
+|---------------|-------------------------------|
+| Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
+| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Event Hub instance <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
+|||
+
 <a name="replication-task"></a>
 
 ## What is a replication task?
 
 A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Most replication tasks move the content unchanged. At most, if the source and target protocols differ, these tasks perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
+
+### Replication topology and workflow
+
+To help you visualize how a replication task powered by Azure Logic Apps (Standard) works, the following diagrams show the replication task structure and workflow for Event Hubs instances and for Service Bus queues.
+
+#### Replication topology for Event Hubs
+
+The following diagram shows the topology and replication task workflow between Event Hubs instances:
+
+![Conceptual diagram showing topology for replication task powered by a "Logic App (Standard)" workflow between Event Hubs instances.](media/create-replication-tasks-azure-resources/replication-topology-event-hubs.png)
+
+For information about replication and federation in Azure Event Hubs, review the following documentation:
+
+- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
+- [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
+
+#### Replication topology for Service Bus
+
+The following diagram shows the topology and replication task workflow between Service Bus queues:
+
+![Conceptual diagram showing topology for replication task powered by "Logic App (Standard)" workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
+
+For information about replication and federation in Azure Service Bus, review the following documentation:
+
+- [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
+- [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
+
+### Order preservation
 
 Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key.
 
@@ -47,69 +89,11 @@ To learn more about multi-site and multi-region federation for Azure services wh
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
-## Service-assigned metadata
+### Service-assigned metadata
 
 For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic.
 
 For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
-
-<a name="replication-task-templates"></a>
-
-## Replication task templates
-
-The following table lists the replication task templates currently available in this preview:
-
-| Resource type | Replication source and target |
-|---------------|-------------------------------|
-| Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
-| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Event Hub instance <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
-|||
-
-## Replication topology and workflow
-
-To help you visualize how a replication task powered by Azure Logic Apps (Standard) works, the following diagrams show the replication task structure and workflow for Event Hubs instances and for Service Bus queues.
-
-### Replication topology for Event Hubs
-
-The following diagram shows the topology and replication task workflow between Event Hubs instances:
-
-![Conceptual diagram showing topology for replication task powered by a "Logic App (Standard)" workflow between Event Hubs instances.](media/create-replication-tasks-azure-resources/replication-topology-event-hubs.png)
-
-For information about replication and federation in Azure Event Hubs, review the following documentation:
-
-- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
-- [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
-
-### Replication topology for Service Bus
-
-The following diagram shows the topology and replication task workflow between Service Bus queues:
-
-![Conceptual diagram showing topology for replication task powered by "Logic App (Standard)" workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
-
-For information about replication and federation in Azure Service Bus, review the following documentation:
-
-- [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
-- [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
-
-<a name="naming"></a>
-
-## Naming conventions
-
-Consider using a naming strategy for your replication tasks or entities, if you haven't created them yet. If you're working with Event Hubs namespace, the replication task replicates from every event hub in the source namespace.
-
-For example, if you want to create a replication task between Service Bus queues, you can use the following suggested naming convention:
-
-| Source name | Example | Replication app | Example | Target name | Example |
-|-------------|---------|-----------------|---------|-------------|---------|
-| Namespace: `<name>-sb-<region>` | `fabrikam-sb-weu` | Logic app: `<name-source-region-target-region>` | `fabrikam-rep-weu-wus` | Namespace: `<name>-sb-<region>` | `fabrikam-sb-wus` |
-| Queue: `<name>` | `jobs-transfer` | Workflow: `<name>` | `jobs-transfer-workflow` | Queue: `<name>` | `jobs` |
-|||||||
-
-<a name="monitor"></a>
-
-## Monitor replication tasks
-
-To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
 
 <a name="pricing"></a>
 
@@ -130,6 +114,18 @@ Based on the number of events that Event Hubs receives or messages that Service 
   Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new primary source, formerly the target or secondary entity, which is what the active-passive replication pattern tries to achieve.
 
 - Optionally, the connection string for the target namespace of the replication destination. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
+
+<a name="naming"></a>
+
+## Naming conventions
+
+Give careful consideration to the naming strategy you use for your replication tasks or entities, if you haven't created them yet. Make sure that the names are easily identifiable and differentiated. For example, if you're working with Event Hubs namespace, the replication task replicates from every event hub in the source namespace. If you're working with Service Bus queues, the following table provides an example for naming the entities and replication task:
+
+| Source name | Example | Replication app | Example | Target name | Example |
+|-------------|---------|-----------------|---------|-------------|---------|
+| Namespace: `<name>-sb-<region>` | `fabrikam-sb-weu` | Logic app: `<name-source-region-target-region>` | `fabrikam-rep-weu-wus` | Namespace: `<name>-sb-<region>` | `fabrikam-sb-wus` |
+| Queue: `<name>` | `jobs-transfer` | Workflow: `<name>` | `jobs-transfer-workflow` | Queue: `<name>` | `jobs` |
+|||||||
 
 <a name="create-replication-task"></a>
 
@@ -272,6 +268,12 @@ This example shows how to view a task's history of workflow runs along with thei
    ![Screenshot showing the trigger inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-trigger-inputs-outputs-properties.png)
 
 To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of replication tasks for Azure resources, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+
+<a name="monitor"></a>
+
+## Monitor replication tasks
+
+To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
 
 <a name="edit-task"></a>
 
