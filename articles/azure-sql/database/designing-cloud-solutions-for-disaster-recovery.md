@@ -8,8 +8,8 @@ ms.subservice: development
 ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: conceptual
-author: emlisa 
-ms.author: emlisa 
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 07/28/2020
 ---

@@ -7,8 +7,8 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.topic: conceptual
-author: emlisa 
-ms.author: emlisa 
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 10/06/2021
 ---

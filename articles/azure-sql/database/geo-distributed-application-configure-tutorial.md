@@ -7,8 +7,8 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
-author: emlisa 
-ms.author: emlisa 
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
