@@ -1237,6 +1237,8 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Automated Patching
           href: virtual-machines/windows/automated-patching.md
+        - name: SQL Assessment
+          href: virtual-machines/windows/sql-assessment-for-sql-vm.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD

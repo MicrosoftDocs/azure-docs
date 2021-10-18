@@ -18,6 +18,8 @@ Assessment results are uploaded to your [Log Analytics workspace](https://docs.m
 
 Assessment run time depends on your environment (number of databases, objects). It might last from a few minutes up to an hour. Similarly, assessment result size also depends on your environment. 
 
+This feature is currently in preview.
+
 ## Prerequisites
 
 - SQL Assessment depends on  [SQL Server infrastructure as a service (IaaS) Agent Extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell). SQL VM needs to be registered in full mode.
