@@ -250,7 +250,9 @@ We recommend keeping this flag disabled because it reduces the number of times t
 
 The Microsoft Enterprise SSO plug-in provides SSO by appending shared credentials to network requests that come from allowed applications. However, some OAuth 2 applications might incorrectly enforce end-user prompts at the protocol layer. If you see this problem, you'll also see that shared credentials are ignored for those apps. Your user is prompted to sign in even though the Microsoft Enterprise SSO plug-in works for other applications.  
 
-SSO extension can restrict the ability of both native applications and web applications to force an end-user prompt on the protocol layer and bypass SSO. To enable the capability, use one of these parameters:
+These parameters specify whether the SSO extension should prevent native and web applications from bypassing SSO at the protocol layer and forcing the display of a sign-in prompt to the user.
+
+For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings, which are disabled by default.
   
 Disable app prompt and show an account picker UX instead:
 - **Key**: `disable_explicit_app_prompt`
