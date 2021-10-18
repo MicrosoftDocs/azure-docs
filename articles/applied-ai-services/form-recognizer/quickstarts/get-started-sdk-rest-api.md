@@ -19,38 +19,32 @@ Get started with Azure Form Recognizer using the programming language of your ch
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
-In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
-
-* [Analyze Layout](#analyze-layout)
-
-* [Analyze invoice](#analyze-invoices)
-
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK quickstart](../includes/get-started/csharp.md)]
+[!INCLUDE [C# SDK](../includes/get-started/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java SDK quickstart](../includes/get-started/java.md)]
+[!INCLUDE [Java SDK](../includes/get-started/java.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS SDK quickstart](../includes/get-started/javascript.md)]
+[!INCLUDE [NodeJS SDK](../includes/get-started/javascript.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK quickstart](../includes/get-started/python.md)]
+[!INCLUDE [Python SDK](../includes/get-started/python.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API quickstart](../includes/get-started/rest-api.md)]
+[!INCLUDE [REST API](../includes/get-started/rest-api.md)]
 
 ::: zone-end

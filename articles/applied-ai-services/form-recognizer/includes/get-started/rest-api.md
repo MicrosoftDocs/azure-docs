@@ -24,7 +24,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * [Layout](#try-it-layout-model)
 
-* [Invoice](#analyze-invoices)
+* [Invoice](#try-it-prebuilt-invoice-model)
 
 ## Prerequisites
 
