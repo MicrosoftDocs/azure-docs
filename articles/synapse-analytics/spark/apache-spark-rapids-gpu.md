@@ -43,12 +43,12 @@ The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs an
 
 1. Hello:
 
-    |Pool size | Driver size options | Driver cores |
-    | :------ | :-------------- | :---------- |
-    | GPU-Large | A valid pool name | This is the name that the Apache Spark pool will have. |
-    | GPU-Large | Hardware Accelerated | Choose Hardware Accelerated from the drop down menu |
-    | GPU-XLarge | Large (16 vCPU / 110 GB / 1 GPU) | Set this to the smallest size to reduce costs for this quickstart |
-    | GPU-XLarge | Disabled | We don't need autoscale for this quickstart |
+    |Pool size | Driver size options | Driver cores | Driver Memory (GB) |
+    | :------ | :-------------- | :---------- | :------------- |
+    | GPU-Large | Small driver | 4 | 30 |
+    | GPU-Large | Medium driver | 7 | 30 |
+    | GPU-XLarge | Medium driver | 8 | 40 |
+    | GPU-XLarge | Large driver | 12 | 40 |
 
 
 Any workload that does not meet one of the above configurations will not be accepted. This is done to make sure Spark jobs are being run with the most efficient and performant configuration utilizing all available resources on the pool.
