@@ -493,6 +493,8 @@
       href: speech-services-private-link.md
     - name: Enable VNet service endpoint
       href: speech-service-vnet-service-endpoint.md
+    - name: Use AAD Authentication
+      href: how-to-configure-aad-auth.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md
