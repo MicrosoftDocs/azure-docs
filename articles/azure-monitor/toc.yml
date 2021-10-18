@@ -403,9 +403,6 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Deploy at scale
-        displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent 
       - name: Migrate from legacy agents
         displayname: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
