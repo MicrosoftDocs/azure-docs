@@ -15,7 +15,7 @@ ms.reviewer: sajiang
 
 ms.collection: M365-identity-device-management
 ---
-# How to enable Operator Assistance
+# How to enable and disable Operator Assistance
 
 The Operator Assistance is one of the features within Azure AD and can be enabled if you do not allow automatic transfers and instead require an operator to manually transfer phone calls. When this setting is enabled, the office phone number is dialed and when answered, the system asks the operator to transfer the call to a given extension.
 
@@ -35,7 +35,10 @@ You can improve the reliability, security and create a frictionless experience i
 - Your admins have registered a direct phone number (contains no extension) on behalf of the user to be used for [Multi-Factor Authentication](https://www.microsoft.com/security/business/identity-access-management/mfa-multi-factor-authentication) or [self-service password reset](tutorial-enable-sspr.md) if enabled. 
 - Phone system supports automated attendant functionality. 
  
+## Next steps
 
+- [How it works: Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md)
+- [Multifactor authentication for Microsoft 365](/microsoft-365/admin/security-and-compliance/multi-factor-authentication-microsoft-365.md)
 
 
 
