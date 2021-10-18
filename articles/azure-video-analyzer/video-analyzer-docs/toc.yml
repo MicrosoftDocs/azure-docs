@@ -140,7 +140,7 @@
     - name: Playback a recording
       href: playback-recordings-how-to.md
     - name: Enable video preview images
-      href: edge/video-preview-images.md
+      href: edge/enable-video-preview-images.md
   - name: Record
     items:
     - name: Manage retention policy
