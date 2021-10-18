@@ -42,7 +42,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/file-extension-insights.md",
-        "redirect_url": "/articles/purview/asset-insights",
+        "redirect_url": "/azure/purview/asset-insights",
         "redirect_document_id": true
       }
 ]
