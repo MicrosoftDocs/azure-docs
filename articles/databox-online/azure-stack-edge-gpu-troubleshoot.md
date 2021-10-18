@@ -26,7 +26,7 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
 
     ![Select tests ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
 
-    Here is a table that describes what each of the diagnostics test does and what are the expected outcomes.
+    Here is a table that describes each of the diagnostics test that is run on your Azure Stack Edge device.
 
     | Test Name                        | Description        |
     |----------------------------------|---------------------------------------------------------------------------------------------------------|
