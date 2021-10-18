@@ -17,6 +17,16 @@ ms.date: 10/13/2021
 
 Data access is complex and it is important to recognize that there are many pieces to it. In particular, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you are directly accessing data in the cloud. When using Studio, you aren't always directly accessing the data store from your client. Instead, studio relies on the workspace to access data on your behalf.
 
+> [!TIP]
+> Studio only supports reading data from the following datastore types in a VNet:
+>
+> * Azure Storage Account (blob & file)
+> * Azure Data Lake Storage Gen1
+> * Azure Data Lake Storage Gen2
+> * Azure SQL Database
+
+## Data access
+
 In general, data access from studio involves the following checks:
 
 1. Who is accessing?
@@ -42,25 +52,6 @@ In general, data access from studio involves the following checks:
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
 :::image type="content" source="./media/concept-data-access/data-access-flow.png" alt-text="Diagram of the logic flow when accessing data":::
-
-## Azure Virtual Network
-
-By default, the following operations are disabled when the workspace and storage are behind a VNet:
-
-* Preview data in studio.
-* Visualize data in the designer.
-* Deploy a model in the designer.
-* Submit an AutoML experiment.
-* Start a labeling project.
-
-For information on enabling this functionality, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
-
-Additionally, studio only supports reading data from the following datastore types in a VNet:
-
-* Azure Storage Account (blob & file)
-* Azure Data Lake Storage Gen1
-* Azure Data Lake Storage Gen2
-* Azure SQL Database
 
 ## Azure Storage Account
 
@@ -96,5 +87,7 @@ After you create a SQL contained user, grant permissions to it by using the [GRA
 
 In Azure SQL Database, the __Deny public network access__ allows you to block public access to the database. We __do not support__ accessing SQL Database if this option is enabled. When using a SQL Database with Azure Machine Learning studio, the data access is always made through the public endpoint for the SQL Database.
 
+## Next steps
 
+For information on enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
 
