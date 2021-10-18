@@ -4,7 +4,7 @@ description: Service Connector region availability and region support list
 author: shizn
 ms.author: xshi
 ms.service: serviceconnector
-ms.topic: resource 
+ms.topic: concept 
 ms.date: 10/29/2021
 ---
 

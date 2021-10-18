@@ -40,8 +40,8 @@ items:
   items:
   - name: Service Connection internals
     href: overview.md
-  - name: Supported Services in Service Connector
-    href: overview.md
+  - name: Region Support
+    href: resource-region-support.md
 - name: How-to guides
   expanded: true
   items:
@@ -112,7 +112,5 @@ items:
 - name: Resources
   expanded: true
   items:
-  - name: Region Support
-    href: resource-region-support.md
   - name: Samples
     href: overview.md
