@@ -56,7 +56,6 @@ If you set a schedule in the configuration blade, an assessment run will automat
 
 A list of most recent assessment runs will be shown in Assessment results section on this page. Each row in the list will show the start time of a run and its status: scheduled, running, uploading results, completed, or failed. There are two parts to each run: evaluating your instance and uploading the results to Log Analytics workspace. Status field will cover both parts.
 
-IMAGE
 
 ## How to view results
 Assessment results are shown in an Azure workbook. You can reach the workbook in three different ways:
@@ -67,7 +66,6 @@ Assessment results are shown in an Azure workbook. You can reach the workbook in
 Once you are in the workbook, you can use the dropdown to select any of the previously completed runs. You can view the results of a single run using the Results tab or look at historical trends using the Trends tab.
 
 ### Results tab
-Image of Results tab
 
 Assessment results are grouped in different categories in the graphs. You can see the list of recommendations for each category by clicking on the graphs or searching for key phrases in the search box. 
 
@@ -80,7 +78,6 @@ You can get detailed information on each recommendation by clicking on the Messa
 Using the tabs (All, New, Resolved), you can look at all the recommendations from this run, new recommendations in this run (delta from the previous run), and resolved recommendations since the previous run. These tabs will help you track progress between runs. Insights tab shows the most recurring issues in this run and also the databases with the most number of issues. These can help you decide where to concentrate your efforts.
 
 ### Trends tab
-Image of Trends tab
 
 There are three charts here that show the trends over time: all issues, new issues, and resolved issues. These should help you see your progress. The ideal is to have the number of recommendations go down and the number of resolved issues go up. The legend shows the average number of issues for each severity level. If you hover over the bars, you can see individual values for each run. Please note that if there are multiple runs in a single day, only the latest run is included in these graphs.
 

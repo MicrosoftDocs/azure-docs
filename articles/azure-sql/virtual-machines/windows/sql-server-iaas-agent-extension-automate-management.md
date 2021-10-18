@@ -76,7 +76,7 @@ The following table details these benefits:
 | **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. <br/> Management mode: Lightweight & full| 
 | **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  <br/> Management mode: Lightweight & full| 
 | **Security Center Portal integration** | If you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md), then you can view Security Center recommendations directly in the [SQL virtual machines](manage-sql-vm-portal.md) resource of the Azure portal. See [Security best practices](security-considerations-best-practices.md) to learn more.  <br/> Management mode: Lightweight & full|
-| **SQL Assessment (Preview)** | Enables you to assess the health of your SQL VM using configuration best practices. For more information, see [SQL Assessment](sql-assessment-for-sql-vm.md).  <br/> Management mode: Full| 
+| **SQL Assessment (Preview)** | Enables you to assess the health of your SQL Server VMs using configuration best practices. For more information, see [SQL Assessment](sql-assessment-for-sql-vm.md).  <br/> Management mode: Full| 
 
 
 ## Management modes
