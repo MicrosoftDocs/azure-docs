@@ -74,10 +74,12 @@ items:
     href: custom-named-entity-recognition/quickstart.md
   - name: Language support
     href: custom-named-entity-recognition/language-support.md
+  - name: FAQ
+    href: custom-named-entity-recognition/faq.md
   - name: How-to guides
     items:
-    - name: Use Azure resources
-      href: custom-classification/how-to/use-azure-resources.md
+    - name: Project requirements
+      href: custom-named-entity-recognition/how-to/project-requirements.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Train a model
@@ -86,7 +88,7 @@ items:
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Submit a Custom NER task
+    - name: Deploy a model and call the runtime API to extract entities
       href: custom-named-entity-recognition/how-to/submit-task.md
   - name: Tutorials
     items:
@@ -96,15 +98,15 @@ items:
     items:
       - name: Recommended practices
         href: custom-named-entity-recognition/concepts/recommended-practices.md
-      - name: Definitions
-        href: custom-named-entity-recognition/concepts/definitions.md
       - name: Evaluation metrics
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
-      - name: Data limits
-        href: custom-named-entity-recognition/concepts/limits.md
   - name: Reference
     items:
-    - name: Prediction
+    - name: Glossary
+      href: custom-named-entity-recognition/concepts/definitions.md
+    - name: Service limits
+      href: custom-named-entity-recognition/concepts/limits.md
+    - name: Prediction API
       items:
       - name: REST API
         items:

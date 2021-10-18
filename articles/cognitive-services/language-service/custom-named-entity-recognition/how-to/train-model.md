@@ -23,10 +23,8 @@ The time to train a model varies on the dataset, and may take up to several hour
 Before starting the training process, files in your dataset are divided into three groups at random: 
 
 * The training set contains 80% of the files in your dataset. It is the main set that is used to train the model.
-
-* The validation set contains 10% and is introduced to the model during training. Later you can view the incorrect predictions made by the model on this set so you examine your data and tags and make necessary adjustments.
-
-* The Test set contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
+    
+* The test set contains 20% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
 
 You must also have a [custom NER project](../quickstart.md) with at least 10 [tagged data](tag-data.md) files for evaluation to be successful.
 
