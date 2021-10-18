@@ -225,6 +225,8 @@
           href: sql/cli-samples.md
         - name: Azure Resource Manager
           href: sql/templates-samples-sql.md
+        - name: Bicep
+          href: sql/bicep-samples.md
     - name: Concepts
       items:
         - name: Modeling and partitioning
@@ -721,6 +723,8 @@
                   href: index-policy.md
                 - name: Manage indexing policies
                   href: sql/how-to-manage-indexing-policy.md
+                - name: Index metrics
+                  href: sql/index-metrics.md
             - name: .NET
               items:
                 - name: Performance tips for .NET SDK v3
@@ -788,7 +792,7 @@
                 - name: Troubleshoot slow requests
                   href: sql/troubleshoot-dot-net-sdk-slow-request.md
                 - name: Troubleshoot service unavailable
-                  href: troubleshoot-service-unavailable.md
+                  href: sql/troubleshoot-service-unavailable.md
             - name: .Java
               items:
                 - name: Troubleshoot Java SDK v4
@@ -1032,6 +1036,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: cassandra/find-request-unit-charge-cassandra.md
+        - name: Preventing rate-limiting errors
+          href: cassandra/prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
           href: cassandra/access-data-spring-data-app.md
         - name: Troubleshoot common issues
@@ -1065,6 +1071,8 @@
         - name: Manage using Resource Manager templates
           href: cassandra/templates-samples.md
           displayName: ARM
+        - name: Manage using Bicep
+          href: cassandra/manage-with-bicep.md
         - name: Manage using PowerShell
           href: cassandra/powershell-samples.md
         - name: Manage using Azure CLI
@@ -1205,6 +1213,8 @@
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
+        - name: Manage using Bicep
+          href: mongodb/manage-with-bicep.md
         - name: Manage using PowerShell
           href: mongodb/powershell-samples.md
         - name: Manage using Azure CLI
@@ -1289,10 +1299,14 @@
         - name: Manage using Resource Manager templates
           href: graph/resource-manager-template-samples.md
           displayName: ARM
+        - name: Manage using Bicep
+          href: graph/manage-with-bicep.md
         - name: Manage using PowerShell
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
           href: graph/cli-samples.md
+        - name: Supply chain traceability solution
+          href: graph/supply-chain-traceability-solution.md
     - name: Reference
       items:
         - name: Response Headers
@@ -1364,6 +1378,8 @@
           href: table/find-request-unit-charge.md
         - name: Manage using Resource Manager templates
           href: table/resource-manager-templates.md
+        - name: Manage using Bicep
+          href: table/manage-with-bicep.md
           displayName: ARM
         - name: Manage using PowerShell
           href: table/powershell-samples.md
@@ -1402,6 +1418,9 @@
           href: sql/manage-with-powershell.md
         - name: Using Azure CLI
           href: sql/manage-with-cli.md
+        - name: Using Bicep
+          href: sql/manage-with-bicep.md
+          displayName: ARM
         - name: Using Resource Manager templates
           href: sql/manage-with-templates.md
           displayName: ARM
@@ -1504,6 +1523,8 @@
               href: monitor-server-side-latency.md
             - name: Monitor request unit usage
               href: monitor-request-unit-usage.md
+            - name: Monitor key updates
+              href: monitor-account-key-updates.md
             - name: Monitor normalized request unit usage
               href: monitor-normalized-request-units.md
         - name: Use Azure monitor logs

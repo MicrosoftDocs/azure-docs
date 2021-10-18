@@ -36,7 +36,7 @@
       href: quickstart-arc.md
 - name: Tutorials
   items:
-    - name: Secure app accesses, storage, and Microsoft Graph
+    - name: Secure app accesses storage, and Microsoft Graph
       items:
         - name: Overview
           href: scenario-secure-app-overview.md
@@ -74,7 +74,7 @@
           href: tutorial-multi-container-app.md
     - name: Access SQL DB securely
       href: app-service-web-tutorial-connect-msi.md
-    - name: Host RESTful API
+    - name: Host a RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: Map custom domain
       href: app-service-web-tutorial-custom-domain.md
@@ -92,6 +92,8 @@
       items:
         - name: ASP.NET Core with a container
           href: app-service-sql-github-actions.md
+        - name: ASP.NET
+          href: app-service-sql-asp-github-actions.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -102,6 +104,8 @@
       href: samples-resource-manager-templates.md
     - name: Terraform
       href: samples-terraform.md
+    - name: Bicep
+      href: samples-bicep.md      
 - name: Concepts
   items:
     - name: App Service plans
@@ -173,8 +177,6 @@
           href: configure-language-ruby.md
         - name: Configure custom container
           href: configure-custom-container.md
-        - name: Connect to on-prem resources
-          href: web-sites-integrate-with-vnet.md
         - name: Configure Azure Storage (container)
           href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
@@ -319,6 +321,12 @@
       items:
         - name: Configuring high availability
           href: how-to-zone-redundancy.md
+    - name: Automate provisioning
+      items:
+      - name: Bicep
+        href: provision-resource-bicep.md
+      - name: Terraform
+        href: provision-resource-terraform.md          
 - name: Reference
   items:
     - name: Monitoring data

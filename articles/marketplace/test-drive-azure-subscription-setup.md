@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 03/16/2020
+ms.date: 10/01/2020
 ---
 
 # Set up an Azure Marketplace subscription for hosted test drives
@@ -52,12 +52,40 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     13. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
-        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
+
+             :::image type="content" source="./media/test-drive/new-client-secret.png" alt-text="Adding a new client secret.":::
+
+        3. Enter a description, such as *Test Drive*, and select an appropriate duration. Because the test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key, we recommend using the maximum duration of 24 months.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Adding a client secret.":::
 
-5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
+5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant. There are two options for completing this step.
+
+    **Option 1**
+
+    1. Search for **Azure AD roles and administrators** and select the service.
+
+        :::image type="content" source="./media/test-drive/active-ad-roles.png" alt-text="Shows how to search for Azure AD roles and administrators.":::
+
+    2. On the **All roles** page, search for the **User Administrator** role and double-click **User administrator**.
+
+        :::image type="content" source="./media/test-drive/user-administrator.png" alt-text="Shows how to search for and select User administrator.":::
+
+    3. Select **Add Assignments**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-1.png" alt-text="Shows the Add assignments button.":::
+
+    4. Search for and select the above-created app, then **Add**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-2.png" alt-text="Shows a successful app assignment.":::
+
+    5. Note the Service Principal role successfully assigned to the application:
+
+        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="Shows the Service Principal role successfully assigned to the application.":::
+
+    **Option 2**
+
     1. Open an Administrative-level PowerShell command prompt.
     2. Install-Module MSOnline (run this command if MSOnline is not installed).
     3. Connect-MsolService (this will display a popup window; sign in with the newly created org tenant).
@@ -65,7 +93,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     5. $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId.
     6. Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal.
 
-        :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
+         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
 
 6. Create a new Security Group and add it to Canvas App (Power Apps). This step is applicable only to Canvas App (Power Apps) offers.
     1. Create a new Security Group.
@@ -149,7 +177,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="Shows addition of a client secret.":::
 
 4. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.

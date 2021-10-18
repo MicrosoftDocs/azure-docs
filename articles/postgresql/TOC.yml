@@ -30,6 +30,8 @@
     displayName: version, postgresql
   - name: Major version upgrades
     href: how-to-upgrade-using-dump-and-restore.md
+  - name: Prepay for reserved capacity
+    href: concept-reserved-pricing.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -133,8 +135,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
     - name: Security
       items:
       - name: Security overview
@@ -466,6 +466,8 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
@@ -609,8 +611,8 @@
     items:
     - name: What is Hyperscale (Citus)?
       href: hyperscale-overview.md
-    - name: Features in preview
-      href: hyperscale-preview-features.md
+    - name: Product updates
+      href: hyperscale-product-updates.md
   - name: Quickstart
     items:
     - name: Create server group
@@ -628,12 +630,17 @@
         items:
         - name: Shard data on worker nodes
           href: tutorial-hyperscale-shard.md
-      - name: Design a multi-tenant database
-        href: tutorial-design-database-hyperscale-multi-tenant.md
-        displayName: hyperscale, tutorial, multi-tenant
-      - name: Design a real-time dashboard
-        href: tutorial-design-database-hyperscale-realtime.md
-        displayName: hyperscale, tutorial, real-time
+        - name: Design a multi-tenant database
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: hyperscale, tutorial, multi-tenant
+        - name: Design a real-time dashboard
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: hyperscale, tutorial, real-time
+      - name: Administer
+        items:
+        - name: Private access
+          href: tutorial-hyperscale-private-access.md
+          displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
     - name: Basic tier
@@ -649,11 +656,16 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-    - name: Security
+    - name: Data access and security
       items:
-      - name: Firewall rules
+      - name: Overview
+        href: concepts-hyperscale-security-overview.md
+      - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
+      - name: Private access
+        href: concepts-hyperscale-private-access.md
+        displayName: private, link, hyperscale
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
@@ -700,11 +712,18 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
-    - name: Firewall rules
+    - name: Data access and security
       items:
-      - name: Azure portal
-        href: howto-hyperscale-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
+      - name: Public access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-manage-firewall-using-portal.md
+          displayName: firewall rule, hyperscale
+      - name: Private access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-private-access.md
+          displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
     - name: Distributed data
@@ -728,6 +747,8 @@
       href: howto-hyperscale-restart.md
     - name: Monitor
       items:
+      - name: View metrics
+        href: howto-hyperscale-monitoring.md
       - name: Create alerts on metrics
         href: howto-hyperscale-alert-on-metric.md
         dispalyName: alerts on hyperscale

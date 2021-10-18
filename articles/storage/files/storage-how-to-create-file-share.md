@@ -206,9 +206,9 @@ Standard file shares may be deployed into one of the standard tiers: transaction
 
 The **quota** property means something slightly different between premium and standard file shares:
 
-- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB or 5 TiB if the large file shares property is not set for a storage account. If you did not create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-files-shares-on-an-existing-account) for how to enable 100 TiB file shares. The performance (IOPs/Mbps) you receive depends on the quota you set.
+- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB or 5 TiB if the large file shares property is not set for a storage account. If you did not create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-files-shares-on-an-existing-account) for how to enable 100 TiB file shares. 
 
-- For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
+- For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. The IOPS and throughput available on a premium file share is based on the provisioned size. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
 
 # [Portal](#tab/azure-portal)
 If you just created your storage account, you can navigate to it from the deployment screen by selecting **Go to resource**. Once in the storage account, select the **File shares** in the table of contents for the storage account.

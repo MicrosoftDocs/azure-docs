@@ -1,9 +1,7 @@
 ---
 title: 'Azure cross-network connectivity'
 description: This page describes an application scenario for cross network connectivity and solution based on Azure networking features.
-services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
@@ -124,4 +122,4 @@ Global Reach is rolled out on a country/region by country/region basis. To see i
 [Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits
 [Connect-ER-VNet]: ./expressroute-howto-linkvnet-portal-resource-manager.md
 [ER-FAQ]: ./expressroute-faqs.md
-[VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq
+[VNet-FAQ]: ../virtual-network/virtual-networks-faq.md

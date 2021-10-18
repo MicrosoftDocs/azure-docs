@@ -3,6 +3,7 @@ title: Security considerations for data movement in Azure Data Factory
 description: 'Learn about securing data movement in Azure Data Factory.'
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain

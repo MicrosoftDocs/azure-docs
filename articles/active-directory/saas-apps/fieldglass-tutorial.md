@@ -75,8 +75,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
    | Reply URL |
    |-----------|
-   | https://www.fieldglass.net/<company name> |
-   | https://<company name>.fgvms.com/<company name> |
+   | `https://www.fieldglass.net/<company name>` |
+   | `https://<company name>.fgvms.com/<company name>` |
    | 
 
 	> [!NOTE]

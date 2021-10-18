@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 Network policies like NSGs (Network security groups) previously weren't supported for private endpoints. To deploy a private endpoint on a given subnet, an explicit disable setting was required on that subnet. This setting is only applicable for the private endpoint. For other resources in the subnet, access is controlled based on security rules in the network security group.
 
 > [!IMPORTANT]
-> NSG and UDR support for private endpoints is in public preview.
+> NSG and UDR support for private endpoints are in public preview on select regions. For more information, see [Public preview of Private Link UDR Support](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) and [Public preview of Private Link Network Security Group Support](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -71,11 +71,11 @@ $vnet | Set-AzVirtualNetwork
 This section describes how to disable subnet private endpoint policies using Azure CLI. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to disable the policy.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies true \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 
@@ -84,11 +84,11 @@ az network vnet subnet update \
 This section describes how to enable subnet private endpoint policies using Azure CLI. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to enable the policy.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies false \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 ## Resource Manager template

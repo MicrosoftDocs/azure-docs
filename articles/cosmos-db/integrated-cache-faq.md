@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: tisande
 ---
 
@@ -50,6 +50,10 @@ We will have an availability SLA/SLO on the dedicated gateway (and therefore the
 ### The integrated cache is only available for SQL (Core) API right now. Are you planning on releasing it for other APIs as well?
 
 Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but beyond the initial public preview of the integrated cache.
+
+### What consistency does the integrated cache support?
+
+The integrated cache supports both session and eventual consistency. You can also configure the optional [MaxIntegratedCacheStaleness](integrated-cache.md#maxintegratedcachestaleness), which places an upper bound on cached data.
 
 ## Next steps
 

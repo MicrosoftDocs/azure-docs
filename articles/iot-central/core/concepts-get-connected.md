@@ -70,7 +70,7 @@ For testing only, you can use the following utilities to generate root, intermed
 
 To connect a device with device SAS key to your application:
 
-1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type.
+1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type. 
 1. Copy the group primary or secondary key from the enrollment group.
 1. Use the Azure CLI to generate a device key from the group key:
 
@@ -79,6 +79,9 @@ To connect a device with device SAS key to your application:
     ```
 
 1. Use the generated device key when the device connects to your IoT Central application.
+
+> [!NOTE]
+> To use existing SAS keys in your enrollment groups, disable the **Auto generate keys** toggle and type-in the SAS keys.
 
 ## Individual enrollment
 
@@ -184,6 +187,16 @@ You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-mod
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+Use the following DPS payload to associate the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ## Device status values
 

@@ -5,7 +5,7 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/30/2021
 ---
 
 # Module iteration in Bicep
@@ -145,6 +145,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, 4): {
 ```
 
 For purely sequential deployment, set the batch size to 1.
+
+The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
 ## Next steps
 

@@ -113,6 +113,8 @@
           href: playback-recordings-how-to.md
         - name: Using the Azure Video Analyzer player widget
           href: player-widget.md
+        - name: Player widget sample app 
+          href: sample-player-widget.md           
         - name: Use access policies for playback
           href: access-policies.md
     - name: Record
@@ -135,6 +137,8 @@
       items:
         - name: Monitor and logging
           href: monitor-log-edge.md
+        - name: Public endpoints
+          href: access-public-endpoints-networking.md
     - name: Visualize
       items:
         - name: Embed player widget in Power BI
@@ -173,3 +177,5 @@
       href: faq-edge.yml
     - name: Quotas and limitations
       href: quotas-limitations.md
+    - name: Azure Video Analytics Terraform resource
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer

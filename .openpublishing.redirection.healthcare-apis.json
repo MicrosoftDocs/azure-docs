@@ -178,11 +178,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/security-controls-policy.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/security-controls-policy",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/tutorial-web-app-fhir-server.md",
         "redirect_url": "/azure/healthcare-apis/fhir/tutorial-web-app-fhir-server",
         "redirect_document_id": true
@@ -334,7 +329,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/partner-ecosystem.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/partner-ecosystem",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-features-supported",
         "redirect_document_id": true
     },
     {
@@ -456,6 +451,11 @@
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/access-fhir-postman-tutorial.md",
         "redirect_url": "/azure/healthcare-apis/use-postman",
         "redirect_document_id": true
-    }
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/security-controls-policy.md",
+        "redirect_url": "/azure/healthcare-apis/security-controls-policy",
+        "redirect_document_id": true
+    },
   ]
 }

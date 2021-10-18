@@ -20,6 +20,10 @@ The toolkit contains four sets of tests:
 - [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md)
 - [Test cases for all files](all-files-test-cases.md)
 
+### Microsoft Learn
+
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test) on **Microsoft Learn**.
+
 ## Install on Windows
 
 1. If you don't already have PowerShell, [install PowerShell on Windows](/powershell/scripting/install/installing-powershell-core-on-windows).

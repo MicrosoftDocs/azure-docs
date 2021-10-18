@@ -81,7 +81,7 @@ Run the dotnet add package command in the Terminal window to install the extensi
 ```bash
 dotnet add package Azure.Storage.Blobs
 dotnet add package Microsoft.Azure.Management.Media
-dotnet add package Microsoft.Identity.Client
+dotnet add package Azure.Identity
 ```
 
 ## Generated project files

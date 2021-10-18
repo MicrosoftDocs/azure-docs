@@ -1,7 +1,7 @@
 ---
-title: Configure a shared image gallery in Azure DevTest Labs | Microsoft Docs
+title: Configure a shared image gallery
 description: Learn how to configure a shared image gallery in Azure DevTest Labs, which enables users to access images from a shared location while creating lab resources.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

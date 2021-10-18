@@ -85,12 +85,7 @@ You can verify the twins that were created by running the following command, whi
 Query
 ```
 
->[!TIP]
-> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
->
-> Here is the full query body to get all digital twins in your instance:
-> 
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 You can now stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 

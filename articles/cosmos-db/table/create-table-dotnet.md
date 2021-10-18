@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 08/25/2021
+ms.date: 09/26/2021
 ms.author: daberry
 ms.custom: devx-track-csharp
 ---
@@ -328,9 +328,9 @@ public class WeatherDataModel
         set => _properties[name] = value; 
     }
     
-    public ICollection<string> PropertyNames => _properties.Keys
+    public ICollection<string> PropertyNames => _properties.Keys;
 
-    public int PropertyCount => _properties.Count
+    public int PropertyCount => _properties.Count;
 
     public bool ContainsProperty(string name) => _properties.ContainsKey(name);       
 }

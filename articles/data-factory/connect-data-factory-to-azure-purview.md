@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/09/2021
+ms.date: 09/27/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)
@@ -38,7 +38,7 @@ To establish the connection on Data Factory authoring UI:
 
 If your Purview account is protected by firewall, create the managed private endpoints for Purview. Learn more about how to let Data Factory [access a secured Purview account](how-to-access-secured-purview-account.md). You can either do it during the initial connection or edit an existing connection later.
 
-The Purview connection information is stored in the data factory resource like the following. To establish the connection programmatically, you can update the data factory and add the `purviewConfiguration` settings.
+The Purview connection information is stored in the data factory resource like the following. To establish the connection programmatically, you can update the data factory and add the `purviewConfiguration` settings. When you want to push lineage from SSIS activities, also add `catalogUri` tag additionally.
 
 ```json
 {
@@ -51,8 +51,11 @@ The Purview connection information is stored in the data factory resource like t
             "purviewResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupname>/providers/Microsoft.Purview/accounts/<PurviewAccountName>"
         }
     },
-    "identity": {...},
     ...
+    "identity": {...},
+    "tags": {
+        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+    }
 }
 ```
 
@@ -68,13 +71,24 @@ Data factory's managed identity is used to authenticate lineage push operations 
 
     When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
-- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
+- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator (Legacy)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
 
     When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
 
-You may see below warning if you have the privilege to read Purview role assignment information and the needed role is not granted. To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the data factory's managed identity. If not, manually add the role assignment.
+## Monitor Purview connection
 
-:::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
+Once you connect the data factory to a Purview account, you see the following page with details on the enabled integration capabilities.
+
+:::image type="content" source="./media/data-factory-purview/monitor-purview-connection-status.png" alt-text="Screenshot for monitoring the integration status between Azure Data Factory and Purview.":::
+
+For **Data Lineage - Pipeline**, you may see one of below status:
+
+- **Connected**: The data factory is successfully connected to the Purview account. Note this indicates data factory is associated with a Purview account and has permission to push lineage to it. If your Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Purview account. Learn more from [Access a secured Azure Purview account from Azure Data Factory](how-to-access-secured-purview-account.md).
+- **Disconnected**: The data factory cannot push lineage to Purview because Purview Data Curator role is not granted to data factory's managed identity. To fix this issue, go to your Purview account to check the role assignments, and manually grant the role as needed. Learn more from [Set up authentication](#set-up-authentication) section.
+- **Unknown**: Data Factory cannot check the status. Possible reasons are:
+
+    - Cannot reach the Purview account from your current network because the account is protected by firewall. You can launch the ADF UI from a private network that has connectivity to your Purview account instead.
+    - You don't have permission to check role assignments on the Purview account. You can contact the Purview account admin to check the role assignments for you. Learn about the needed Purview role from [Set up authentication](#set-up-authentication) section.
 
 ## Report lineage data to Azure Purview
 

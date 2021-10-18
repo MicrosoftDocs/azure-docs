@@ -1,7 +1,6 @@
 ---
 title: Azure Arc-enabled Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
-services: azure-arc
 ms.service: azure-arc
 ms.date: 07/23/2021
 ms.topic: article
@@ -48,7 +47,7 @@ Ensure that your KUBECONFIG environment variable points to the kubeconfig of the
 Set the environment variables:
 
 ```azurecli-interactive
-export VERSION=0.8.4
+export VERSION=<osm-arc-version>
 export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
@@ -88,7 +87,7 @@ You should see output similar to the output shown below. It may take 3-5 minutes
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 
@@ -122,7 +121,7 @@ To ensure that the privileged init container setting is not reverted to the defa
 
 ### Install Azure Arc-enabled OSM using ARM template
 
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
+After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> and \<osm-arc-version\> values:
 
 ```json
 {
@@ -144,7 +143,7 @@ After connecting your cluster to Azure Arc, create a json file with the followin
             }
         },
         "ExtensionVersion": {
-            "defaultValue": "0.8.4",
+            "defaultValue": "<osm-arc-version>",
             "type": "String",
             "metadata": {
                 "description": "The extension type version."
@@ -234,7 +233,7 @@ You should see a JSON output similar to the output below:
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 ## OSM controller configuration
@@ -460,7 +459,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 ### Upgrade instructions
 
-1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/charts/osm/crds) corresponds to the new version of the chart.
+1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/cmd/osm-bootstrap/crds) corresponds to the new version of the chart.
     ```azurecli-interactive
     kubectl delete --ignore-not-found --recursive -f ./charts/osm/crds/
 

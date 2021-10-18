@@ -48,7 +48,7 @@ For tools that require a redirect URL, select **Add a platform** to configure th
 
 [ ![Screenshot of add a platform.](media/register-application-five-alpha.png) ](media/register-application-five-alpha.png#lightbox)
 
-For Postman, select **Mobile and desktop applications**. Enter “https://www.getpostman.com/oauth2/callback” in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
+For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
 
 [ ![Screenshot of configure other services.](media/register-application-five-bravo.png) ](media/register-application-five-bravo.png#lightbox)
 
@@ -70,13 +70,10 @@ Optionally, you can upload a certificate (public key) and use the Certificate ID
 
 ## API permissions
 
-Select the **API permissions** option, and select **Add a permission**. From the Request API permissions screen, select the **APIs my organization uses** tab. Type “Azure Healthcare APIs” in the search box.
+Permissions for the Healthcare APIs are managed through RBAC. For more details, visit [Configure Azure RBAC for the FHIR service](./fhir/configure-azure-rbac-for-fhir.md).
 
-[ ![Screenshot of request API permissions.](media/register-application-seven.png) ](media/register-application-seven.png#lightbox)
-
-The search result for Azure Healthcare APIs will return if you've already deployed the Azure Healthcare APIs in the tenant. Select **Azure Healthcare APIs**. Select **user impersonation**, and then select **Add permissions**.
-
-[ ![Screenshot of add permissions.](media/register-application-eight.png) ](media/register-application-eight.png#lightbox)
+>[!NOTE]
+>Use  grant_type of client_credentials when trying to otain an access token for the FHIR service using tools such as Postman or Rest Client. For more details, visit [Access using Postman](use-postman.md) and [Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code](using-rest-client.md).
 
 Your application registration is now complete.
 

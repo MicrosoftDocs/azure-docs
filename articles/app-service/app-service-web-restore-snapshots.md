@@ -24,7 +24,6 @@ up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 ## Limitations
 
-- Currently available as public preview for Windows apps only. Linux apps and custom container apps are not supported.
 - Maximum supported size for snapshot restore is 30GB. Snapshot restore fails if your storage size is greater than 30GB. To reduce your storage size, consider moving files like logs, images, audios, and videos to [Azure Storage](../storage/index.yml), for example.
 - Any connected database that [standard backup](manage-backup.md#what-gets-backed-up) supports or [mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows) is *not* included in the snapshot. Consider using the native backup capabilities of the connected Azure service (for example, [SQL Database](../azure-sql/database/automated-backups-overview.md) and [Azure Files](../storage/files/storage-snapshots-files.md)).
 - App Service stops the target app or target slot while restoring a snapshot. To minimize downtime for the production app, restore the snapshot to a [staging slot](deploy-staging-slots.md) first, then swap into production.
@@ -46,8 +45,7 @@ up your app, see [Scale up an app in Azure](manage-scale-up.md).
     ![Screenshot that shows how to specify the restoration destination.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > If you choose **Overwrite**, all existing data in your app's current file system is erased and overwritten. Before you click **OK**,
-   > make sure that it is what you want to do.
+   > As a best practice we recommend restoring to a new slot then performing a swap. If you choose **Overwrite**, all existing data in your app's current file system is erased and overwritten. Before you click **OK**, make sure that it is what you want to do.
    > 
    > 
       

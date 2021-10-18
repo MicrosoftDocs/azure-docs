@@ -1,5 +1,6 @@
 ---
-title: Azure AD secure hybrid access with F5 | Microsoft Docs
+title: Secure hybrid access with F5
+titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
 services: active-directory
 author: davidmu1
@@ -14,7 +15,7 @@ ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
 ---
 
-# F5 BIG-IP Access Policy Manager and Azure Active Directory integration for secure hybrid access
+# Integrate F5 BIG-IP with Azure Active Directory
 
 The proliferation of mobility and evolving threat landscape is placing extra scrutiny on resource access and governance, putting [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) front and center of all modernization programs.
 At Microsoft and F5, we realize this digital transformation is typically a multi-year journey for any business, potentially leaving critical resources exposed until modernized. The genesis behind F5 BIG-IP and Azure Active Directory Secure Hybrid Access (SHA) aims not only at improving remote access to on-premises applications, but also at strengthening the overall security posture of these vulnerable services.
@@ -141,6 +142,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 - [F5 BIG-IP APM and Azure AD SSO to Header-based applications](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
+
+- [Configure Azure AD B2C with F5 BIG-IP](https://docs.microsoft.com/azure/active-directory-b2c/partner-f5)
 
 ## Additional resources
 

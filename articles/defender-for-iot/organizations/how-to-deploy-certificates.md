@@ -189,9 +189,9 @@ This section describes how to convert existing certificates files to supported f
 
 |**Description** | **CLI command** |
 |--|--|
-| Convert .crt file to .pem file   | openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt  | 
-| Convert .pem file to .crt file   | openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt |  
-| Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to .pem   | openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes. You can add -nocerts to only output the private key, or add -nokeys to only output the certificates.  |  
+| Convert .crt file to .pem file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt`  | 
+| Convert .pem file to .crt file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt` |  
+| Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to .pem   | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes`. You can add -nocerts to only output the private key, or add -nokeys to only output the certificates.  |  
 
 ## Troubleshooting  
 

@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
+ROBOTS: NOINDEX
 
 ms.collection: M365-identity-device-management
 ---
