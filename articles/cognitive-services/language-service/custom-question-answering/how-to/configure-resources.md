@@ -9,22 +9,21 @@ ms.date: 11/02/2021
 
 # Configure custom question answering enabled resources
 
-The user can configure QnA Maker to use a different Cognitive search resource. They can also configure App service settings if they are using QnA Maker GA.
+You can configure question answering to use a different Cognitive Search resource.
 
 ## Change Cognitive Search resource
 
-> [!NOTE]
-> If you change the Azure Search service associated with your language resource, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+> [!WARNING]
+> If you change the Azure Search service associated with your language resource, you will lose access to all the projects/knowledge bases already present in it. Make sure you export the existing projects before you change the Azure Search service.
 
-
-If you create a language resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the language resource. After these resources are created, you can update the Search resource in the **Features** tab.
+If you create a language resource and its dependencies (such as Search) through the Azure portal, a Search service is created for you and linked to the language resource. After these resources are created, you can update the Search resource in the **Features** tab.
 
 1.  Go to your language resource in the Azure portal.
 
 2.  Select **Features** and select the Azure Cognitive Search service you want to link with your language resource.
 
 > [!div class="mx-imgBorder"]
-> ![Add QnA to TA](../media/configure-resources/update-custom-qna-feature.png)
+> ![Add QnA to TA](../media/configure-resources/update-custom-feature.png)
 
 3.  Select **Save**.
 
