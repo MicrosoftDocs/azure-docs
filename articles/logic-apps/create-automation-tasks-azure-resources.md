@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 11/02/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)

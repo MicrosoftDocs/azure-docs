@@ -34,7 +34,7 @@ Replication doesn't aim to exactly create exact 1:1 clones of a source to a targ
 
 - Event Hubs also sequentially [arranges messages with the same partition key in the same partition](../event-hubs/event-hubs-features.md#partitions).
 
-  If the partition count in the source and target Event Hubs entities are identical, all streams in the target map to the same partitions as in the source. However, if the partition count differs, which matters in some of the patterns described in [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md), the mapping differs, but streams are always kept together and in order. The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
+  If the partition count in the source and target Event Hubs entities is identical, all streams in the target map to the same partitions as in the source. However, if the partition count differs, which matters in some of the patterns described in [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md), the mapping differs, but streams are always kept together and in order. The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
 
   For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
@@ -109,7 +109,7 @@ For example, if you want to create a replication task between Service Bus queues
 
 ## Pricing
 
-Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, billing, and the pricing model follows the [Standard plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/). Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app resource and workflow.
+Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, billing, and the pricing model follow the [Standard plan](logic-apps-pricing.md) and [Standard plan rates](https://azure.microsoft.com/pricing/details/logic-apps/). Metering and billing are based on the hosting plan and pricing tier that's used for the underlying logic app resource and workflow.
 
 ## Prerequisites
 
@@ -169,11 +169,11 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
 
-1. On **Review + create** pane, review and confirm the Azure resources that the replication task requires for operation. These resources include an Azure storage account that 
+1. On **Review + create** pane, confirm the Azure resources that the replication task requires for operation.
 
    ![Screenshot showing "Review + create" pane with resource information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
 
-   - If you chose to create a new logic app resource for the replication task, the pane shows the required resources that the replication task will create to operate.
+   - If you chose to create a new logic app resource for the replication task, the pane shows the required resources that the replication task will create to operate. Although not listed, these resources include an Azure storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
 
    - If you chose to use an existing logic app resource for the replication task, the pane shows the resources that the replication will reuse to operate.
 
@@ -333,24 +333,21 @@ If you change the underlying workflow for a replication task, your changes affec
 
 You can use replication tasks for disaster recovery and to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity.
 
-> [!NOTE]
-> When the region for the primary or source becomes unavailable, failover is not immediate, so 
+When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't automatic or immediate. The position or *offset* in the stream or sequence where the primary or source entity stopped reading is read by the Azure storage account that was created by the replication task.
 
-To enable failover from the primary or source entity and to make sure that the underlying logic app workflow reads from the secondary or target entity, follow these steps:
+To enable failover from the primary or source entity and to make sure that the replication task starts reading from the secondary or target entity at the correct position, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app resource and the underlying workflow behind the replication task.
 
 1. On the workflow's navigation menu, select **Overview**. On the **Overview** toolbar, select **Disable**.
 
-1. Go to the Azure resource group that contains the replication task resources, including the logic app resource and an Azure storage account that contains the offset from the primary or source when runtime configuration details for the logic app resource and workflow along with the offset that'
+1. Go to the Azure resource group that contains the replication task resources, including the logic app resource and the Azure storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped reading when the primary's region became unavailable.
+
+1. Delete the storage account.
 
 1. Return to the workflow behind the replication task and enable the workflow again.
 
-To force producers and consumers to switch endpoints, you need to make the information about which entity to use and is available for lookup in a location that is easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
-
-<!------
-For all failover scenarios, the assumption is that the required elements of the entities, such as Service Bus namespaces, Event Hubs instances, and consumer groups, are structurally identical, meaning that they're identically named and that all shared access signature rules or role-based access control rules are set up in the same way. You can create and update a secondary element by following the guidance for moving the entity across regions and omitting the cleanup step.
-------->
+To force producers and consumers to use the secondary endpoint, you need to make information about the entity available to use and look up in a location that's easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
 
 ## Next steps
 
