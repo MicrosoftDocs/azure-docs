@@ -26,6 +26,13 @@ The download location of the application package and the configuration files are
  
 The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.
 
+There is a file that tracks attempted and successful installs of VM applications. The local application registry on the VM is located:
+
+- Windows - `C:\\Packages\\Plugins\\Microsoft.CPlat.Core.VMApplicationManagerWindows\\1.0.3\\RuntimeSettings\\applicationRegistry.active`
+
+- Linux - `/var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux-1.0.3/config/applicationRegistry.active`
+
+
 ## Command interpreter  
 
 The default command interpreters are:

@@ -52,24 +52,20 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - SUSE 15 SP2
 - Ubuntu 20.04 LTS
 - Ubuntu 18.04 LTS
+- Debian 11
+- CentOS 8.4
+- Oracle Linux 8.3
 - Windows Server 2019
 - Windows Server 2016
+- Windows 11 Pro
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
 - Windows 10 Pro
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
 
 **Regions**: 
-- Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- West US
-- West US 2
-- North Europe
-- West Europe
-- Japan East
-- South East Asia
+- All public regions
 
 **Pricing**:
 No additional cost to existing VM pricing.

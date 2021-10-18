@@ -508,6 +508,9 @@ What's the difference between telemetry processors and telemetry initializers?
 * All registered telemetry initializers are guaranteed to be called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
 * Use telemetry initializers to enrich telemetry with additional properties or override an existing one. Use a telemetry processor to filter out telemetry.
 
+> [!NOTE]
+> JavaScript only has telemetry initializers which can [filter out events by using ITelemetryInitializer](#javascript-web-applications)
+
 ## Troubleshoot ApplicationInsights.config
 
 * Confirm that the fully qualified type name and assembly name are correct.

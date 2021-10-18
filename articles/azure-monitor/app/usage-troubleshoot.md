@@ -2,8 +2,6 @@
 title: Troubleshoot user analytics tools - Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/30/2021
 
 ---

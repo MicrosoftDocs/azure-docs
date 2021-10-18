@@ -3,15 +3,15 @@ title: Set up sign-up and sign-in with a Facebook account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Facebook accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -38,7 +38,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/apps) with your Facebook developer account credentials.
 1. Select **Create App**.
-1. For the **Select an app type**, select **Consumer**, then select **Continue**.
+1. For the **Select an app type**, select **Consumer**, then select **Next**.
 1. Enter an **App Display Name** and a valid **App Contact Email**.
 1. Select **Create App**. This step may require you to accept Facebook platform policies and complete an online security check.
 1. Select **Settings** > **Basic**.
@@ -51,7 +51,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 1. At the bottom of the page, select **Add Platform**, and then select **Website**.
 1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
 1. Select **Save Changes**.
-1. From the menu, select the **plus** sign next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
+1. From the menu, select the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
 1. From the menu, select **Facebook Login**, select **Settings**.
 1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. 
 1. Select **Save Changes** at the bottom of the page.

@@ -20,7 +20,7 @@ To configure a client application in Visual Studio using the Azure Cache for Red
 
 Run the following command from the `Package Manager Console` window.
 
-```
+```powershell
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 

@@ -69,7 +69,7 @@ To create a cache, follow these steps:
 
 ### Why can't I enable zone redundancy when creating a Premium cache?
 
-Zone redundancy is available only in Azure regions that have Availability Zones. See [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-services-supporting-availability-zones) for the latest list.
+Zone redundancy is available only in Azure regions that have Availability Zones. See [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) for the latest list.
 
 ### Why can't I select all three zones during cache create?
 

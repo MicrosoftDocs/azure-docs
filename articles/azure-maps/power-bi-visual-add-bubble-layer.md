@@ -71,6 +71,9 @@ Change how your data is displayed on the map:
 > [!div class="nextstepaction"]
 > [Add a bar chart layer](power-bi-visual-add-bar-chart-layer.md)
 
+> [!div class="nextstepaction"]
+> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
+
 Add more context to the map:
 
 > [!div class="nextstepaction"]

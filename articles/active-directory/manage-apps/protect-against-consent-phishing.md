@@ -1,10 +1,10 @@
 ---
-title: Protecting against consent phishing | Azure AD app management
+title: Protecting against consent phishing
+titleSuffix: Azure AD
 description: Learn ways of mitigating against app-based consent phishing attacks using Azure AD.
 services: active-directory
 author: Chrispine-Chiedo
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -17,7 +17,7 @@ ms.reviewer: tilarso
 #Customer intent: As a developer, I want to learn how to protect against app-based consent phishing attacks so I can protect my users from malicious threat actors.
 ---
 
-# Protecting against consent phishing
+# Protecting against consent phishing in Azure Active Directory
 
 Productivity is no longer confined to private networks, and work has shifted dramatically toward cloud services. While cloud applications enable employees to be productive remotely, attackers can also use application-based attacks to gain access to valuable organization data. You may be familiar with attacks focused on users, such as email phishing or credential compromise. ***Consent phishing*** is another threat vector to be aware of.
 This article explores what consent phishing is, what Microsoft does to protect you, and what steps organizations can take to stay safe.
