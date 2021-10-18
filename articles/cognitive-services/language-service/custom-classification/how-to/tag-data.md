@@ -21,8 +21,6 @@ You will then need to [upload training data](use-azure-resources.md#prepare-trai
 
 As you tag your data, keep in mind:
 
-* 
-
 * In general, more tagged data leads to better results, provided the data is tagged accurately.
 
 * Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
