@@ -99,7 +99,7 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
 *	Set the authorization header as "Bearer `remoteAuthorizationToken`"
 *	Set the header "TunnelConnectionSource" with value "PnpDevice"
 *	Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be make or model of the device.
-*	Return 200 OK if the web socket conenction was successful, otherwise return the appropriate error code
+*	Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
 1.	Return response (do not block)
 1.	Asynchronously connect the web socket tunnel
 
