@@ -28,9 +28,17 @@ This article provides an overview about replication tasks powered by Azure Logic
 
 ## What is a replication task?
 
-A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Most replication tasks move the content unchanged. At most, if the source and target protocols differ, these tasks perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side-effects across parallel or sequential executions of a task.
+A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Most replication tasks move the content unchanged. At most, if the source and target protocols differ, these tasks perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
 
-Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, replication focuses on preserving the relative order of events where required by grouping related events with the same partition key and arranges messages with the same partition key sequentially in the same partition.
+Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key.
+
+- Event Hubs also sequentially [arranges messages with the same partition key in the same partition](../event-hubs/event-hubs-features.md#partitions).
+
+  If the partition count in the source and target Event Hubs entities are identical, all streams in the target map to the same partitions as in the source. However, if the partition count differs, which matters in some of the patterns described in [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md), the mapping differs, but streams are always kept together and in order. The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
+
+  For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
+
+- For Service Bus, the replication task enables session support for the source entity so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
@@ -38,6 +46,16 @@ To learn more about multi-site and multi-region federation for Azure services wh
 - [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
+
+## Service-assigned metadata
+
+For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic.
+
+For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
+
+<a name="replication-task-differences"></a>
+
+## Replication tasks with Azure Logic Apps versus Azure Functions
 
 <a name="replication-task-templates"></a>
 
@@ -51,11 +69,13 @@ The following table lists the replication task templates currently available in 
 | Azure Service Bus | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** |
 |||
 
-## Replication tasks with Azure Logic Apps versus Azure Functions
+## Replication topology and workflow
 
-
+To help you visualize how a replication task powered by Azure Logic Apps (Standard) works, the following diagrams show the replication task structure and workflow for Event Hubs instances and for Service Bus queues.
 
 ### Replication topology for Event Hubs
+
+The following diagram shows the topology and replication task workflow between Event Hubs instances:
 
 ![Conceptual diagram showing topology for replication task powered by a "Logic App (Standard)" workflow between Event Hubs instances.](media/create-replication-tasks-azure-resources/replication-topology-event-hubs.png)
 
@@ -65,6 +85,8 @@ For information about replication and federation in Azure Event Hubs, review the
 - [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
 
 ### Replication topology for Service Bus
+
+The following diagram shows the topology and replication task workflow between Service Bus queues:
 
 ![Conceptual diagram showing topology for replication task powered by "Logic App (Standard)" workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
 
@@ -147,14 +169,18 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
 
-1. On **Review + create** pane, review and confirm the logic app resource information.
+1. On **Review + create** pane, review and confirm the Azure resources that the replication task requires for operation. These resources include an Azure storage account that 
 
-   ![Screenshot showing "Review + create" pane with logic app information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
+   ![Screenshot showing "Review + create" pane with resource information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
+
+   - If you chose to create a new logic app resource for the replication task, the pane shows the required resources that the replication task will create to operate.
+
+   - If you chose to use an existing logic app resource for the replication task, the pane shows the resources that the replication will reuse to operate.
 
    > [!NOTE]
    > If your source, target, or both are behind a virtual network, you have to set up permissions and access 
-   > after you create the task. In this scenario, this step is required so that the logic app workflow can 
-   > access those resources or entities and perform the replication task.
+   > after you create the task. In this scenario, permissions and access are required so that the logic app 
+   > workflow can perform the replication task.
 
 1. When you're ready, select **Create**.
 
@@ -169,11 +195,7 @@ This example shows how to create a replication task for Service Bus queues.
 
 ## Set up retry policy
 
-To avoid data loss during an availability event on either side of a replication relationship, you need to configure the retry policy for robustness. Refer to the Azure Functions documentation on retries to configure the retry policy.
-
-The policy settings chosen for the example projects in the sample repository configure an exponential backoff strategy with retry intervals from 5 seconds to 15 minutes with infinite retries to avoid data loss.
-
-For Service Bus, review the "using retry support on top of trigger resilience" section to understand the interaction of triggers and the maximum delivery count defined for the queue.
+To avoid data loss during an availability event on either side of a replication relationship, you need to configure the retry policy for robustness. To configure the retry policy for a replication task, review the [documentation about retry policies in Azure Logic Apps](logic-apps-exception-handling.md#retry-policies) and the steps to [edit the underlying workflow](#edit-task-workflow).
 
 <a name="review-task-history"></a>
 
@@ -307,14 +329,28 @@ If you change the underlying workflow for a replication task, your changes affec
 
 1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
 
-## Failover using replication tasks
+## Set up failover for replication tasks
 
-You can use replication tasks for disaster recovery and to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the source to the target and communicating with . and  or topic to the next, telling producers and/or consumers to use the secondary endpoint.
+You can use replication tasks for disaster recovery and to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity.
 
-For all failover scenarios, it is assumed that the required elements of the namespaces are structurally identical, meaning that queues and topics are identically named and that shared access signature rules and/or role-based access control rules are set up in the same way. You can create (and update) a secondary namespace by following the guidance for moving namespaces and omitting the cleanup step.
+> [!NOTE]
+> When the region for the primary or source becomes unavailable, failover is not immediate, so 
 
-To force producers and consumers to switch, you need to make the information about which namespace to use available for lookup in a location that is easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but we point out two in the following: DNS and file shares.
+To enable failover from the primary or source entity and to make sure that the underlying logic app workflow reads from the secondary or target entity, follow these steps:
 
+1. In the [Azure portal](https://portal.azure.com), open the logic app resource and the underlying workflow behind the replication task.
+
+1. On the workflow's navigation menu, select **Overview**. On the **Overview** toolbar, select **Disable**.
+
+1. Go to the Azure resource group that contains the replication task resources, including the logic app resource and an Azure storage account that contains the offset from the primary or source when runtime configuration details for the logic app resource and workflow along with the offset that'
+
+1. Return to the workflow behind the replication task and enable the workflow again.
+
+To force producers and consumers to switch endpoints, you need to make the information about which entity to use and is available for lookup in a location that is easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
+
+<!------
+For all failover scenarios, the assumption is that the required elements of the entities, such as Service Bus namespaces, Event Hubs instances, and consumer groups, are structurally identical, meaning that they're identically named and that all shared access signature rules or role-based access control rules are set up in the same way. You can create and update a secondary element by following the guidance for moving the entity across regions and omitting the cleanup step.
+------->
 
 ## Next steps
 
