@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Dapr extension for Azure Kubernetes Service (AKS) (preview)
 
-<!-- TODO: Add Nick's blurb about Dapr -->
+Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks. Leveraging the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps with solving problems around services calling other services reliably and securely, building event-driven apps with pub-sub, and building applications that are portable across multiple cloud services and hosts (e.g., Kubernetes vs. a VM).
 
 By using the AKS Dapr extension to provision Dapr on your AKS cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all native Dapr configuration capabilities through simple command-line arguments.
 
@@ -33,11 +33,10 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 > If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
 ## Prerequisites 
+
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 - You will also need an [AKS cluster][deploy-cluster].
-
-<!-- TODO: Is there a minimum required K8s version? If so add it to prerequisites -->
 
 ## Register the `Extensions` and `AKS-Dapr` preview features
 
@@ -151,13 +150,8 @@ az k8s-extension show --cluster-type managedClusters \
 
 ## Troubleshooting extension errors
 
-If the extension fails to create or update, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings for `global.ha=false`: 
+If the extension fails to create or update, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings, such as `global.ha=false` instead of `global.ha.enabled=false`: 
 
-<!-- TODO: Needs a little clarity. Is "global.ha=false" the incorrect key? Is it meant to read "global.ha.enabled=false"? 
-           Perhaps something like "For example, assume an incorrect key has been provided in the configuration-settings for 'global.ha.enabled' is more 
-           straightforward
-
--->
 <!-- TODO: add az k8s-extension list CLI reference -->
 
 ```azure-cli-interactive
@@ -187,8 +181,8 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 ```
 
 ## Next Steps
-- Once you have successfully provisioned Dapr in your AKS cluster, you can try one of the [sample applications][sample-applications]
 
+- Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application]
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
@@ -197,7 +191,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [az-provider-register]: /cli/azure/provider#az_provider_register
 
 <!-- LINKS EXTERNAL -->
-[kubernetes-production]: https://docs.dapr.io <!-- TODO: fill in with real link -->
+[kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
 [building-blocks-concepts]: https://docs.dapr.io/concepts/building-blocks-concept
 [dapr-configuration-options]: https://github.com/dapr/dapr/blob/master/charts/dapr/README.md#configuration
-[sample-applications]: https://docs.dapr.io <!-- TODO: fill in with real link -->
+[sample-application]: https://github.com/dapr/quickstarts/tree/master/hello-kubernetes#step-2---create-and-configure-a-state-store
