@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The Operator Assistance is one of the features within Azure AD and can be enabled if you do not allow automatic transfers and instead require an operator to manually transfer phone calls. When this setting is enabled, the office phone number is dialed and when answered, the system asks the operator to transfer the call to a given extension.
 
-Operator Assistance can be enabled for an entire tenant or for an individual user. If the setting is **On**, the entire tenant is enabled for Operator Assistance. If you have chosen **phone call** as the default method, and have an extension specified as part of your office phone number (delineated by **x**), the phone call will enter Operator Assistance mode.
+Operator Assistance can be enabled for an entire tenant or for an individual user. If the setting is **On**, the entire tenant is enabled for Operator Assistance. If you have chosen **Phone call** as the default method, and have an extension specified as part of your office phone number (delineated by **x**), the phone call will enter Operator Assistance mode.
 
 Here’s an example for a customer in U.S. The customer has an office phone number 425-555-1234x5678. When Operator Assistance is enabled, the system will dial 425-555-1234. Once answered, the customer (also known as the operator) is asked to transfer the call to extension 5678. Once transferred and answered, the system recites the normal MFA prompt and awaits approval.
 
