@@ -46,16 +46,18 @@ If you have already configured Bastion for your VNet, modify the following setti
 * Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU is **Standard**. If it isn't, change it to **Standard** from the dropdown.
 * Check the box for **Native Client Support** and apply your changes.
 
-   :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for a updating an existing host with Native Client Support boxes selected.":::
+   :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for a updating an existing host with Native Client Support boxes selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
 
 ### Configure a new bastion host
 
 If you don't already have a bastion host configured, see [Create a bastion host](tutorial-create-host-portal.md#createhost). When configuring the bastion host, specify the following settings:
 
-* Under **Instance Details -> Tier** select **Standard**.
+* On the **Basics** tab, for **Instance Details -> Tier** select **Standard** to create a bastion host using the Standard SKU.
+
+   :::image type="content" source="./media/connect-native-client-windows/standard.png" alt-text="Settings for a new bastion host with Standard SKU selected." lightbox="./media/connect-native-client-windows/standard.png":::
 * On the **Advanced** tab, check the box for **Native Client Support**.
 
-   :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Standard SKU and Native Client Support boxes selected.":::
+   :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Standard SKU and Native Client Support boxes selected." lightbox="./media/connect-native-client-windows/new-host-expand.png":::
 
 ## Verify roles and ports
 
