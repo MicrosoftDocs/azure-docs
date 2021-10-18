@@ -95,7 +95,7 @@ If you created a _portal_ private endpoint for your Purview account **prior to 2
 
     2. Delete the previous portal private endpoint associated with the Purview account. 
 
-    3. Ensure that a new Azure Private DNS Zone (privatelink.purviewstudio.azure.com) is created during the deployment of the portal private endpoint, and that a corresponding A record (web) exists in the the Private DNS Zone. 
+    3. Ensure that a new Azure Private DNS Zone (privatelink.purviewstudio.azure.com) is created during the deployment of the portal private endpoint, and that a corresponding A record (web) exists in the Private DNS Zone. 
     
     4. Ensure you are able to successfully load Azure Purview Studio. It might take a few minutes (about 10 minutes) for the new DNS routing to take effect after reconfiguring DNS. You can wait a few minutes and try again, if it doesn't load immediately.
     

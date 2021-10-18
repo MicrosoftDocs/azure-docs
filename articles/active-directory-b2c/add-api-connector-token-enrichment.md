@@ -2,14 +2,14 @@
 title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external sources using APIs.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -252,7 +252,7 @@ After you deploy your REST API, set the metadata of the `REST-GetProfile` techni
 	
 See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure your RESTful API](secure-rest-api.md).
 
 ## Add an orchestration step
 

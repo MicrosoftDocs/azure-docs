@@ -39,7 +39,7 @@ For this article you need,
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision).
 
 The following code uses the `task` parameter in the `AutoMLConfig` constructor to specify the experiment type as `classification`.
 
@@ -196,6 +196,7 @@ Classification | Regression | Time Series Forecasting
 ||| Average
 ||| SeasonalAverage
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
+||| Arimax
 
 ### Primary metric
 

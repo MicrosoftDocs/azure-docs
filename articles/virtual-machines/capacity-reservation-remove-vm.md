@@ -70,6 +70,27 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 1. Set the **Capacity Reservation Group** value to *None*
     - The VM is no longer associated with the Capacity Reservation Group 
 
+### [CLI](#tab/cli1)
+
+1. Deallocate the Virtual Machine
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+    Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
+
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `capacity-reservation-group` property to None:
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
+
 ### [PowerShell](#tab/powershell1)
 
 1. Deallocate the Virtual Machine
@@ -164,6 +185,28 @@ This option works well when the virtual machine can’t be deallocated and when 
 1. Go to your Virtual Machine and select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
     - Note that the VM is no longer associated with the Capacity Reservation Group
+
+### [CLI](#tab/cli2)
+
+1. Update reserved quantity to zero
+
+   ```azurecli-interactive
+   az capacity reservation update 
+   -g myResourceGroup
+   -c myCapacityReservationGroup 
+   -n myCapacityReservation 
+   --capacity 0
+   ```
+
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `capacity-reservation-group` property to None:
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
+
 
 ### [PowerShell](#tab/powershell2)
 

@@ -20,36 +20,45 @@ ms.author: lajanuar
 
 ## Layout and custom model
 
-The preview model includes any enhancements to the currently GA languages.
+The following lists cover the currently GA languages in the the 2.1 version and new previews in the 3.0 preview version of Form Recognizer. These languages are supported by Layout and Custom models. The preview release may include enhancements to the currently GA languages.
 
-### Handwritten text
+> [!NOTE]
+> **Language code optional**
+>
+> Form Recognizer's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-|Language| Language code (optional) | version |
+To use the preview languages in Layout and custom models, refer to the [v3.0 REST API migration guide](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
+
+### Handwritten languages
+The following table lists the handwritten languages supported by Form Recognizer's Layout and Custom model features.
+
+|Language| Language code (optional) | Preview?  |
 |:-----|:----:|:----:|
 |English|`en`||
-|Chinese Simplified |`zh-Hans`| (preview)
-|French |`fr`| (preview)
-|German |`de`| (preview)
-|Italian|`it`| (preview)
-|Portuguese |`pt`| (preview)
-|Spanish |`es`| (preview)
+|Chinese Simplified |`zh-Hans`| preview
+|French |`fr`| preview
+|German |`de`| preview
+|Italian|`it`| preview
+|Portuguese |`pt`| preview
+|Spanish |`es`| preview
 
-### Print text
+### Print languages
+The following table lists the print languages supported by Form Recognizer's Layout and Custom model features.
 
-|Language| Language code (optional) | version |
+|Language| Language code (optional) | Preview? |
 |:-----|:----:|:----:|
 |Afrikaans|`af`||
 |Albanian |`sq`||
 |Asturian |`ast`| |
-|Azerbaijani (Latin) | `az` | (preview) |
+|Azerbaijani (Latin) | `az` | preview |
 |Basque  |`eu`| |
-|Belarusian (Cyrillic) | `be` | (preview) |
-|Belarusian (Latin) | `be` | (preview) |
+|Belarusian (Cyrillic) | `be` | preview |
+|Belarusian (Latin) | `be` | preview |
 |Bislama   |`bi`| |
-|Bosnian (Latin)   |`bs`|preview) |
+|Bosnian (Latin)   |`bs`| preview |
 |Breton    |`br`| |
-|Bulgarian |`bg`|(preview) |
-|Buryat (Cyrillic)|`bua`| (preview) |
+|Bulgarian |`bg`| preview |
+|Buryat (Cyrillic)|`bua`| preview |
 |Catalan    |`ca`| |
 |Cebuano    |`ceb`| |
 |Chamorro  |`ch`| |
@@ -58,31 +67,31 @@ The preview model includes any enhancements to the currently GA languages.
 |Cornish     |`kw`| |
 |Corsican      |`co`| |
 |Crimean Tatar (Latin)|`crh`| |
-|Croatian |`hr`|(preview) |
+|Croatian |`hr`| preview |
 |Czech | `cs` | |
 |Danish | `da` | |
 |Dutch | `nl` | |
 |English | `en` | |
-|Erzya (Cyrillic) |`myv`| (preview) |
+|Erzya (Cyrillic) |`myv`| preview |
 |Estonian  |`et`|  |
-|Faroese |`fo`| (preview) |
+|Faroese |`fo`| preview |
 |Fijian |`fj`| |
 |Filipino  |`fil`| |
 |Finnish | `fi` | |
 |French | `fr` | |
 |Friulian  | `fur` | |
-|Gagauz (Latin) |`gag`|(preview) |
+|Gagauz (Latin) |`gag`| preview |
 |Galician   | `gl` | |
 |German | `de` | |
 |Gilbertese    | `gil` | |
 |Greenlandic   | `kl` | |
 |Haitian Creole  | `ht` | |
 |Hani  | `hni` | |
-|Hawaiian |`haw`|(preview) |
+|Hawaiian |`haw`| preview |
 |Hmong Daw (Latin)| `mww` | |
 |Hungarian | `hu` | |
-|Icelandic |`is`| (preview) |
-|Inari Sami |`smn`|(preview) |
+|Icelandic |`is`| preview |
+|Inari Sami |`smn`| preview |
 |Indonesian   | `id` | |
 |Interlingua  | `ia` | |
 |Inuktitut (Latin) | `iu` | |
@@ -93,69 +102,69 @@ The preview model includes any enhancements to the currently GA languages.
 |K'iche'  | `quc` | |
 |Kabuverdianu | `kea` | |
 |Kachin (Latin) | `kac` | |
-|Karachay-Balkar |`krc`|(preview) |
+|Karachay-Balkar |`krc`| preview |
 |Kara-Kalpak (Latin) | `kaa` | |
-|Kara-Kalpak (Cyrillic) | `kaa-cyrl` | (preview) |
+|Kara-Kalpak (Cyrillic) | `kaa-cyrl` | preview |
 |Kashubian | `csb` | |
-|Kazakh (Cyrillic) |`kk-cyrl`| (preview) |
-|Kazakh (Latin) |`kk-latn`| (preview) |
+|Kazakh (Cyrillic) |`kk-cyrl`| preview |
+|Kazakh (Latin) |`kk-latn`| preview |
 |Khasi  | `kha` |  |
 |Korean | `ko` | |
-|Koryak |`kpy`| (preview) |
-|Kosraean |`kos`| (preview) |
-|Kumyk (Cyrillic) |`kum`| (preview) |
+|Koryak |`kpy`| preview |
+|Kosraean |`kos`| preview |
+|Kumyk (Cyrillic) |`kum`| preview |
 |Kurdish (Latin)| `kur` | |
-|Kyrgyz (Cyrillic) |`ky`| (preview) |
-|Lakota |`lkt`| (preview) |
-|Latin|`la`| (preview) |
-|Lithuanian|`lt`| (preview) |
-|Lower Sorbian|`dsb`| (preview) |
-|Lule Sami|`smj`| (preview) |
+|Kyrgyz (Cyrillic) |`ky`| preview |
+|Lakota |`lkt`| preview |
+|Latin|`la`| preview |
+|Lithuanian|`lt`| preview |
+|Lower Sorbian|`dsb`| preview |
+|Lule Sami|`smj`| preview |
 |Luxembourgish  | `lb` |  |
 |Malay (Latin) | `ms` |  |
-|Maltese|`mt`| (preview) |
+|Maltese|`mt`| preview |
 |Manx  | `gv` |  |
-|Maori|`mi`| (preview) |
-|Mongolian (Cyrillic)|`mn`|(preview) |
-|Montenegrin (Cyrillic)|`cnr-cyrl`|(preview) |
-|Montenegrin (Latin)|`cnr-latn`| (preview) |
+|Maori|`mi`| preview |
+|Mongolian (Cyrillic)|`mn`| preview |
+|Montenegrin (Cyrillic)|`cnr-cyrl`| preview |
+|Montenegrin (Latin)|`cnr-latn`| preview |
 |Neapolitan   | `nap` | |
-|Niuean|`niu`|(preview) |
-|Nogay|`nog`| (preview) |
-|Northern Sami (Latin)|`sme`|(preview) |
+|Niuean|`niu`| preview |
+|Nogay|`nog`| preview |
+|Northern Sami (Latin)|`sme`| preview |
 |Norwegian | `no` |  |
 |Occitan | `oc` | |
-|Ossetic|`os`| (preview) |
+|Ossetic|`os`| preview |
 |Polish | `pl` | |
 |Portuguese | `pt` | |
-|Ripuarian|`ksh`| (preview) |
-|Romanian | `ro` | (preview)|
+|Ripuarian|`ksh`| preview |
+|Romanian | `ro` | preview |
 |Romansh  | `rm` | |
-|Russian | `ru` | (preview) |
-|Samoan (Latin)|`sm`| (preview) |
+|Russian | `ru` | preview |
+|Samoan (Latin)|`sm`| preview |
 |Scots  | `sco` | |
 |Scottish Gaelic  | `gd` | |
-|Serbian (Latin) | `sr-latn` | (preview) |
-|Skolt Sami|`sms`| (preview) |
-|Slovak | `sk` | (preview) |
+|Serbian (Latin) | `sr-latn` | preview |
+|Skolt Sami|`sms`| preview |
+|Slovak | `sk` | preview |
 |Slovenian  | `slv` | |
-|Southern Sami|`sma`|(preview) |
+|Southern Sami|`sma`| preview |
 |Spanish | `es` | |
 |Swahili (Latin)  | `sw` | |
 |Swedish | `sv` | |
-|Tajik (Cyrillic)|`tg`|(preview) |
+|Tajik (Cyrillic)|`tg`| preview |
 |Tatar (Latin)  | `tat` | |
 |Tetum    | `tet` |  |
 |Tongan|`to`|(preview) |
 |Turkish | `tr` | |
-|Turkmen (Latin)|`tk`| (preview) |
-|Tuvan|`tyv`| (preview) |
+|Turkmen (Latin)|`tk`| preview |
+|Tuvan|`tyv`| preview |
 |Upper Sorbian  | `hsb` | |
 |Uzbek (Cyrillic)  | `uz-cyrl` |  |
 |Uzbek (Latin)     | `uz` |  |
 |Volapük   | `vo` | |
 |Walser    | `wae` |  |
-|Welsh     | `cy` | (preview) |
+|Welsh     | `cy` | preview |
 |Western Frisian | `fy` |  |
 |Yucatec Maya | `yua` |  |
 |Zhuang | `za` | |
