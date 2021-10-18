@@ -25,9 +25,27 @@ Defender for Cloud fills three vital needs as you manage the security of your cl
 - **Defend** - Detect and resolve threats to those resources and services
 
 
+## Cloud security posture management and cloud workload protection
+
+Microsoft Defender for Cloud's features cover the two broad pillars of cloud security:
+
+- **Cloud security posture management (CSPM)** - Defender for Cloud is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. Use these CSPM features to strengthen the security posture of your organization's resources and track compliance with the built-in policies.
+
+- **Cloud workload protection (CWP)** - Defender for Cloud's enhanced security features bring advanced, intelligent, protection of your Azure, hybrid, and multi-cloud resources and workloads as described below. The enhanced security features are provided through Microsoft Defender plans specific to types of resources. For example, you can enable Microsoft Defender for Storage to protect your Azure Storage accounts. In addition to the built-in policies provided for free with Defender for Cloud, when you've enabled any of the integrated Microsoft Defender plans, you can add custom policies and initiatives. You can also add standards - such as NIST and Azure CIS for a truly customized view of your regulatory compliance.
+
+Defender for Cloud's **workload protections dashboard** provides visibility and control of the enhanced security features for your environment:
+
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the workload protections dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
 
-Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there is more customer responsibility than there was in PaaS (platform as a service), and SaaS (software as a service). Defender for Cloud provides the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
+
+
+
+
+
+
+
+
 
 Defender for Cloud addresses the three most urgent security challenges:
 
@@ -59,9 +77,6 @@ The events collected from the agents and from Azure are correlated in the securi
 
 When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built in initiative under the Security Center category. The built-in initiative is automatically assigned to all Security Center registered subscriptions (regardless of whether or not they have Azure Defender enabled). The built-in initiative contains only Audit policies. For more information about Security Center policies in Azure Policy, see [Working with security policies](tutorial-security-policy.md).
 
-## Strengthen security posture
-
-Defender for Cloud enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your network security estate. 
 
 ### Manage organization security policy and compliance
 
