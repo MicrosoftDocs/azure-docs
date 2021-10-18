@@ -1,16 +1,16 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Virtual Desktop autoscale FAQ - Azure
+  title: Azure Virtual Desktop autoscale FAQ preview - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: conceptual
-  ms.date: 09/20/2021
+  ms.date: 10/18/2021
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
     
-title: Azure Virtual Desktop autoscale FAQ
-summary: This article answers frequently asked questions about how to use the autoscale feature for Azure Virtual Desktop.
+title: Azure Virtual Desktop autoscale (preview) FAQ
+summary: This article answers frequently asked questions about how to use the autoscale feature (preview) for Azure Virtual Desktop.
 
 
 sections:

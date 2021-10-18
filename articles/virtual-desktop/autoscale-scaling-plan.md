@@ -1,13 +1,13 @@
 ---
-title: Azure Virtual Desktop session host autoscale
+title: Azure Virtual Desktop session host autoscale preview
 description: How to use the autoscale feature to allocate resources in your deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 10/18/2021
 ms.author: helohr
 manager: femila
 ---
-# Autoscale for Azure Virtual Desktop host pools
+# Autoscale (preview) for Azure Virtual Desktop host pools
 
 > [!IMPORTANT]
 > The autoscale feature is currently in preview.
