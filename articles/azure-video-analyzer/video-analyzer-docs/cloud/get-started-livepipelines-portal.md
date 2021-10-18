@@ -121,7 +121,7 @@ If you want to try other quickstarts or tutorials, keep the resources that you c
 
 ## Next steps
 
-- See supported cameras [here](../quotas-limitations.md#quotas-and-limitations---cloud-pipeline)
-- Learn more about managing video's [retention policy](./manage-retention-policy.md)
+- See supported cameras [here](ToDO Update link Quota & Limitations)
+- Learn more about managing video's [retention policy](../manage-retention-policy.md)
 - Try out different MKV sample files for media simulator from [here](https://github.com/Azure/video-analyzer/tree/main/media), bitrate of sample file should match with pipeline setup.
 - Learn more about [Monitoring & logging for cloud pipelines](./monitor-log-cloud.md).
