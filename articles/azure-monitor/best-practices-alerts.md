@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor best practices - alerts and automated actions
+title: Azure Monitor best practices - Alerts and automated actions
 description: Recommendations for deployment of Azure Monitor alerts and automated actions.
 ms.topic: conceptual
 author: bwren

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor best practices - analysis and visualizations
+title: Azure Monitor best practices - Analysis and visualizations
 description: Guidance and recommendations for customizing visualizations beyond standard analysis features in Azure Monitor.
 ms.topic: conceptual
 author: bwren
@@ -75,7 +75,7 @@ Common scenarios for Power BI include the following:
 
 
 ## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents, combining visualizations of Azure and non-Azure data sources including on-premises, third party tools, and data stores in other clouds. Grafana has popular plugins and dashboard templates for APM tools such as Dynatrace, New Relic, and App Dynamics which enables users to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS Cloudwatch and GCP BigQuery plugins for multi-cloud monitoring in a single pane of glass.
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents, combining visualizations of Azure and non-Azure data sources including on-premises, third party tools, and data stores in other clouds. Grafana has popular plugins and dashboard templates for APM tools such as Dynatrace, New Relic, and App Dynamics which enables users to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plugins for multi-cloud monitoring in a single pane of glass.
 
 
 
