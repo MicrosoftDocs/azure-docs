@@ -32,8 +32,35 @@ Find the object ID of the app (not the application (client) ID), which you need 
 
 Get the organization, repository, and environment information for your GitHub repo, which you need in the following steps.
 
-## Configure a federated identity credential using Microsoft Graph
+## Configure a federated identity credential
 
+# [Azure portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com/).  Go to **App registrations** and open the app you want to configure.
+
+Go to **Certificates and secrets**.  In the **Federated credentials** tab, select **Add credential**.  The **Add a credential** blade opens.
+
+In the **Federated credential scenario** drop-down box select **GitHub actions deploying Azure resources**.
+
+Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
+
+For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value.
+
+Add a **Name** for the federated credential.
+
+The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate based on the values you entered.
+
+Click **Add** to configure the federated credential.
+
+:::image type="content" source="media/workload-identity-federation-create-trust-github/add-credential.png" alt-text="Screenshot of the Add a credential window, showing sample values." :::
+
+> [!NOTE]
+> If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
+
+> [!IMPORTANT]
+> The **Organization**, **Repository**, and **Entity type** values must exactly match the configuration on the GitHub workflow configuration. Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
+
+# [Microsoft Graph](#tab/microsoft-graph)
 Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
 
 ### Create a federated identity credential
@@ -111,6 +138,7 @@ Run the following command to [delete a federated identity credential](/graph/api
 ```azurecli
 az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials/1aa3e6a7-464c-4cd2-88d3-90db98132755' 
 ```
+---
 
 ## Get the application (client) ID and tenant ID from the Azure portal
 
