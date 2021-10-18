@@ -283,7 +283,7 @@ Before proceeding to the next step, you will need to:
 This section walks you through the installation of Astra Trident using the operator. You can also choose to install using one of its other methods:
 
 * [Helm chart](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html).
-* [tridentctl](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
+* [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
 
 See to [Deploying Trident](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) to understand how each option works and identify the one that works best for you.
 
