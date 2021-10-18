@@ -166,7 +166,9 @@ Please make sure all prerequisites are in place before following below steps for
    # Call PREDICT using Spark SQL API
    predictions = spark.sql(
                   """
-                      SELECT PREDICT('<random_alias_name>', <comma_separated_model_input_column_name>) AS predict FROM <view_name>
+                      SELECT PREDICT('<random_alias_name>',
+                                <comma_separated_model_input_column_name>) AS predict 
+                      FROM <view_name>
                   """
               ).show()
    ```
