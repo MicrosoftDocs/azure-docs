@@ -452,9 +452,6 @@ Step8) Call PREDICT to generate score
 ```
 
 
-## Sklearn linear regression end to end example for using PREDICT (ADLS uploaded model)
-
-
 ## Next steps
 
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
