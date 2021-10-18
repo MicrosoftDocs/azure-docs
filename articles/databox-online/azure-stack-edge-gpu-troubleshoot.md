@@ -42,7 +42,7 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
     | Network settings                 |  This test validates the network configuration of the device.    |
     | Internet connectivity            |  This test validates the internet connectivity of the device.   |
     | System software                  |  This test validates that the system storage and software stack is functioning as expected.   |
-    | Time sync                        |  This test validates that the time server configured on the device is valid and accessible.     |
+    | Time sync                        |  This test validates the device time settings and checks that the time server configured on the device is valid and accessible.     |
     | Software Update readiness        |  This test validates that the update server configured is valid and accessible.   |
  
 2. After the tests have completed, the results are displayed. 
