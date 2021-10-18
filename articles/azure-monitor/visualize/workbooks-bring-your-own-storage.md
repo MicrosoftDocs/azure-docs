@@ -7,8 +7,6 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.author: lagayhar
-author: lgayhardt
 ---
 
 # Bring your own storage to save workbooks
