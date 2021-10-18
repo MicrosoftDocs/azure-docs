@@ -106,6 +106,24 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 | ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | number | Explicit previously unpaid balance | integer |
 
+### Line items
+
+Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg))
+
+|Name| Type | Description | Text (line item #1) | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| Items | string | Full string text line of the line item | 3/4/2021 A123 Consulting Services 2 hours $30.00 10% $60.00 | |
+| Amount | number | The amount of the line item | $60.00 | 100 |
+| Description | string | The text description for the invoice line item | Consulting service | Consulting service |
+| Quantity | number | The quantity for this invoice line item | 2 | 2 |
+| UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
+| ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123 | |
+| Unit | string| The unit of the line item, e.g,  kg, lb etc. | hours | |
+| Date | date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
+| Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
+
+The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
+
 ## Form Recognizer preview v3.0
 
  The Form Recognizer preview introduces several new features and capabilities.

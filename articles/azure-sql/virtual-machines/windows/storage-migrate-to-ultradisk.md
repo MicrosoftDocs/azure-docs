@@ -3,7 +3,7 @@ title: Migrate log disk to Ultra disk
 description: Learn how to migrate your SQL Server on Azure Virtual Machine (VM) log disk to an Azure Ultradisk to take advantage of high performance and low latency. 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: 
@@ -14,8 +14,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 
 ---
 # Migrate log disk to Ultra disk
