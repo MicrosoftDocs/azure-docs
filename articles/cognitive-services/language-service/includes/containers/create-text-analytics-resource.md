@@ -1,7 +1,7 @@
 ---
-title: Create a Cognitive Services Text Analytics resource
+title: Create a Cognitive Services Language resource
 titleSuffix: Azure Cognitive Services
-description: Learn how to create a Cognitive Services Text Analytics resource.
+description: Learn how to create a Cognitive Services Language resource.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,11 +12,11 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-## Create a Cognitive Services Text Analytics resource
+## Create a Cognitive Services Language resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Text Analytics**.
-   Or, go to [Create a Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
+1. Select **Create a resource**, and then go to **AI + Machine Learning** > **Language**.
+   Or, go to [Create a Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 1. Enter all the required settings:
 
     |Setting|Value|
