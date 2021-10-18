@@ -172,8 +172,8 @@ When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and
 ```
 The RTSP URL must be **localhost** because the access to the camera is being tunneled.  
 
-After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.
-[The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a 
+After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.  
+[The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a live pipeline in Azure portal.
 
 The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can be used to automate this process.
 
