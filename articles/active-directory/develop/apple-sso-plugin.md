@@ -260,7 +260,7 @@ Disable the app prompt and display the account picker:
 - **Type**: `Integer`
 - **Value**: 1 or 0
   
-Disable app prompt and automatically select an account from the list of matching SSO accounts:
+Disable app prompt and select an account from the list of matching SSO accounts automatically:
 - **Key**: `disable_explicit_app_prompt_and_autologin`
 - **Type**: `Integer`
 - **Value**: 1 or 0
