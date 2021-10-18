@@ -32,17 +32,6 @@ The Spark RAPIDS accelerator is a plugin that works by overriding the physical p
 
 The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs and executors. This means a Spark job would need to request executor and driver resources that can be accommodated by the pool resources (according to the number of available GPU and CPU cores). In order to meet this condition and ensure optimal utilization of all the pool resources, we require the following configuration of drivers and executors for a Spark application run on GPU pools:
 
-
-    | Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) | Number of Executors |
-    | :------- | :------------------ | :----------- | :----------------- | :------------- | :------------------- | :------------------ |
-    | GPU-Large | Small driver | 4 | 30 | 12 | 60 | Number of nodes in pool |
-    | GPU-Large | Medium driver | 7 | 30 | 9 | 60 | Number of nodes in pool |
-    | GPU-XLarge | Medium driver | 8 | 40 | 14 | 80 | 4 * Number of nodes in pool |
-    | GPU-XLarge | Large driver | 12 | 40 | 13 | 80 | 4 * Number of nodes in pool |
-
-
-1. Hello:
-
     |Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) | Number of Executors |
     | :------ | :-------------- | :---------- | :------------- | :------------- | :------------------- | :------------------ |
     | GPU-Large | Small driver | 4 | 30 | 12 | 60 | Number of nodes in pool |
