@@ -57,4 +57,4 @@ Before starting the training process, files in your dataset are divided into thr
 
 ## Next steps
 
-After training is completed you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to optionally [improve your model](../how-to/improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).
+After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to optionally [improve your model](../how-to/improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).
