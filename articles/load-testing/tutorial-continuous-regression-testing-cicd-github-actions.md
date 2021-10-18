@@ -49,7 +49,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file using [this syntax](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). If you've already run a load test, download the file from the input files section on the dashboard as shown below.  
 
-    :::image type="content" source="./media/tutorial-continuous-regression-testing-cicd-azure-pipeline/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
+    :::image type="content" source="./media/tutorial-continuous-regression-testing-cicd-azure-pipeline/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run.":::
 
 > [!IMPORTANT]
 > The path of the testPlan and configurationFiles should be relative to the Load test YAML file.  
@@ -87,7 +87,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Now edit the workflow file in your branch: .github/workflows/workflow.yml. Replace the following values of the variables.  
 
-    ```yml
+    ```yaml
     webAppName: 'Name of the web App' #This should be same as the App name in the SampleApp.jmx
     loadTestResource: 'Name of the Load test resource'
     loadTestResourceGroup: 'Name of the Load test resource group'
@@ -140,8 +140,8 @@ Add the test criteria to your pipeline load test as shown below:
   
 1. Add the following snippet to the file.  
 
-    ```yml
-    faliureCriteria: 
+    ```yaml
+    failureCriteria: 
         - avg(response_time) > 100ms
         - avg(latency) > 300ms
         - rate(error) > 20
@@ -155,8 +155,8 @@ Add the test criteria to your pipeline load test as shown below:
 
 1. Edit the SampleApp.yml file and change the above test criteria to the following:  
 
-    ```yml
-    faliureCriteria: 
+    ```yaml
+    failureCriteria: 
         - avg(response_time) > 300ms
         - avg(latency) > 300ms
         - rate(error) > 20
@@ -184,7 +184,7 @@ To add parameters to your load test from the workflow:
 
 1. In the workflow.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition.  
 
-    ```yml
+    ```yaml
     secrets: |
       [
           {

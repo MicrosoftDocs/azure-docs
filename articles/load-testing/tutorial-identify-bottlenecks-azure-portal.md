@@ -18,7 +18,6 @@ In this tutorial, you'll load test a sample web app learn how to identify perfor
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-
 > * Deploy the sample app.  
 > * Create and run a load test.  
 > * Identify performance bottlenecks in the app.  
