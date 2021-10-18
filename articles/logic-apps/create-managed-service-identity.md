@@ -697,7 +697,7 @@ A connection that enables and uses a managed identity are a special connection t
 
 ### [Consumption](#tab/consumption)
 
-In a **Logic App (Consummption)** resource, the connection configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
+In a **Logic App (Consumption)** resource, the connection configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
 
 This example shows what the configuration looks like when the logic app enables the system-assigned managed identity:
 
