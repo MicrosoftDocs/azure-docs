@@ -1,35 +1,73 @@
 ---
-title: 'How to register and scan Azure Data Explorer'
-description: This how to guide describes details of how to scan Azure Data Explorer in Azure Purview. 
+title: 'Connect to and manage Azure Data Explorer'
+description: This guide describes how to connect to Azure Data Explorer in Azure Purview, and use Purview's features to scan and manage your Azure Data Explorer source.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/14/2021
 ---
-# Register and scan Azure Data Explorer
 
-This article outlines how to register an Azure Data Explorer account in Azure Purview and set up a scan.
+<!--
+Remove all the comments in this template before you sign-off or merge to the 
+main branch.
+-->
+
+<!-- 1. H1
+Required. Replace \<Source\> with the name of the source that is being added
+-->
+
+# Connect to and manage Azure Data Explorer in Azure Purview
+
+<!-- 2. Introductory paragraph 
+Required. Lead with a light intro that describes, the source article, or any additional information the customer might need to understand this article. The below sentences should be included in all source pages. You can add additional relevant information.
+-->
+
+This article outlines how to register Azure Data Explorer, as well as how to authenticate and interact with Azure Data Explorer in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+
+<!-- 3. Supported capabilities
+Required. Please include full table which should include all current features.
+If that feature is supported for this source, the "yes" answers should link to a section below describing any authentication/steps that need to be followed specific to this source to be able to use that app/feature.
+
+For any features that are not supported for this source, leave the section as "No"
+
+Beneath the table, feel free to add any supported capability information unique to the source.
+
+If a source is in preview, please add this tag below the supported capabilities table.
+
+> [!IMPORTANT]
+> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+-->
 
 ## Supported capabilities
 
-Azure Data Explorer supports full and incremental scans to capture the metadata and schema. Scans also classify the data automatically based on system and custom classification rules.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Share**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | No | No |
 
 ## Prerequisites
 
-- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You need to be an Azure Purview Data Source Admin
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Setting up authentication for a scan
+* An active [Purview resource](create-catalog-portal.md).
+
+* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+
+## Register
+
+This section describes how to register Azure Data Explorer in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+
+### Authentication for registration
 
 There is only one way to set up authentication for Azure data explorer:
 
 - Service Principal
 
-### Service principal
+#### Service Principal to register
 
-To use service principal authentication for scans, you can use an existing one or create a new one. 
+To use service principal authentication for scans, you can use an existing one or create a new one.
 
 > [!Note]
 > If you have to create a new Service Principal, please follow these steps:
@@ -59,7 +97,7 @@ It is required to get the Service Principal's application ID and secret:
 
 1. Add the service principal to the **AllDatabasesViewer** role in the **Permissions** tab.
 
-## Register an Azure Data Explorer account
+### Steps to register
 
 To register a new Azure Data Explorer (Kusto) account in your data catalog, do the following:
 
@@ -81,7 +119,11 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="register sources options" border="true":::
 
-## Creating and running a scan
+## Scan
+
+Follow the steps below to scan Azure Data Explorer to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+
+### Create and run scan
 
 To create and run a new scan, do the following:
 
@@ -113,5 +155,8 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

@@ -3,7 +3,7 @@ title: Quarantine status in Azure Active Directory Application Provisioning
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -66,7 +66,7 @@ A job can go into quarantine regardless of failure counts for issues such as adm
 - If more than 40% of provisioning events fail, or there are more than 40,000 failures, the provisioning job will go into quarantine. Reference failures won't be counted as part of the 40% threshold or 40,000 threshold. For example, failure to update a manager or a group member is a reference failure.
 - A job where 45,000 users were unsuccessfully provisioned would lead to quarantine as it exceeds the 40,000 threshold.
 - A job where 30,000 users failed provisioning and 5,000 were successful would lead to quarantine as it exceeds the 40% threshold and 5,000 minimum.
-- A job with 20,000 failures and 100,000 success wouldn't go into quarantine because it doe not exceed the 40% failure threshold or the 40,000 failure max.  
+- A job with 20,000 failures and 100,000 success wouldn't go into quarantine because it does not exceed the 40% failure threshold or the 40,000 failure max.  
 - There's an absolute threshold of 60,000 failures that accounts for both reference and non-reference failures. For example, 40,000 users failed to be provisioned and 21,000 manager updates failed. The total is 61,000 failures and exceeds the 60,000 limit.
 
 

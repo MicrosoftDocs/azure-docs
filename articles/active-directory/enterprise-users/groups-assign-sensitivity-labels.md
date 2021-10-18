@@ -4,7 +4,7 @@ description: Learn how to assign sensitivity labels to groups. See troubleshooti
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
