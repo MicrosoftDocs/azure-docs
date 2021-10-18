@@ -15,9 +15,9 @@ items:
 - name: Quickstarts
   items:
    - name: Form Recognizer v2.1
-     items:
+     items: 
      - name: Client libraries and REST API
-       href: quickstarts/try-sdk-rest-api.md
+       href: quickstarts/get-started-sdk-rest-api.md
    - name: "Form Recognizer v3.0 | Preview"
      items:
        - name: Form Recognizer Studio (preview)
@@ -56,6 +56,8 @@ items:
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name: Use the client libraries and SDKs
+    href: quickstarts/try-sdk-rest-api.md  
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
   - name: Use the Sample Labeling tool
