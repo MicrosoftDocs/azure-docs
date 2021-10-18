@@ -416,9 +416,6 @@ To change the primary color of composite, create a new theme style in `src/main/
 ```kotlin
 val communicationCallComposite: CallComposite =
         CallCompositeBuilder()
-            .onException { 
-                //...
-            }
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
             .build()
 ```
@@ -428,9 +425,6 @@ val communicationCallComposite: CallComposite =
 ```java
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .onException(eventArgs -> {
-            //...
-        })
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
         .build();
 ```
