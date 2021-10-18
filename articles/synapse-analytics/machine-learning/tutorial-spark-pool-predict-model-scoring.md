@@ -209,7 +209,7 @@ Step1) Import libraries and read train dataset from ADLS
    adls_account_name = 'xyz' #Provide exact ADLS account name
    adls_account_key = 'xyz' #Provide exact ADLS account key
    
-   fsspec_handle = fsspec.open('abfs://<file_system_name>/<data_file_path>',    account_name=adls_account_name, account_key=adls_account_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
    
    with fsspec_handle.open() as f:
        train_df = pandas.read_csv(f)
@@ -311,7 +311,7 @@ Step3) Store model MLFLOW artifacts in ADLS or register in AML
 ```PYSPARK
    # Store model MLFLOW artifacts in ADLS
    
-   STORAGE_PATH = 'abfs://ajagarwfs/predict/models/mlflow/sklearn/e2e_linear_regression/'
+   STORAGE_PATH = 'abfs[s]://<container>/<path-to-store-folder>'
    
    protocol, _ = split_protocol(STORAGE_PATH)
    print (protocol)
