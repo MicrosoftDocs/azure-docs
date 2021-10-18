@@ -14,12 +14,12 @@ ms.author: aahi
 
 ## Create a new Azure resource and Azure Blob Storage account
 
-Before you can use custom text classification, you will need to create a Text Analytics resource, which will give you the subscription and credentials you will need to create a project and start training a model. You will also need an Azure blob storage account, which is the required online data storage to hold text for analysis. 
+Before you can use custom text classification, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataet that will be used to building your model. 
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Text Analytics resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
 >
-> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**project requirements**](../../how-to/use-azure-resources.md#optional-using-a-pre-existing-azure-resource)  for information.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.  
 
@@ -46,6 +46,8 @@ After you have created an Azure storage account and linked it to your Language S
 1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
 
 2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
+
+The provided sample dataset contains around 200 movie summaries that belngs to the one or more of the following classes ["Mystery", "Drama", "Thriller", "Comedy", "Action"]. You can also find 
 
 ## Create a custom classification project
 
@@ -78,7 +80,7 @@ Once your resource and storage container are configured, create a new text class
     
 ## Train your model
 
-Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure blob storage account.
+Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
 
 A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
 
@@ -98,9 +100,10 @@ To start training your model:
 
 ## Deploy your model
 
-After your model is trained, you can deploy it. Deploying your model lets you start using it to classify text, using the runtime API.  
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try. 
+
+After your model is trained, you can deploy it. Deploying your model lets you start using it to classify text, using [Analyze API](https://aka.ms/ct-runtime-swagger).  
 
 1. Select **Deploy model** from the left side menu.
 
