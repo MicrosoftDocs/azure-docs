@@ -49,7 +49,7 @@ Before starting the training process, files in your dataset are divided into thr
 
 2. Select **Train** from the left side menu.
 
-3. To train a new model, select **Train a new model** and type in the model nam ein the text box below. You can **overwrite an existing model** by selecting this option and selsct the model you want fromt he dropdown below/
+3. To train a new model, select **Train a new model** and type in the model nam ein the text box below. You can **overwrite an existing model** by selecting this option and selsct the model you want from the dropdown below.
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
