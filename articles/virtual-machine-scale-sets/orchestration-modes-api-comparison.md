@@ -85,6 +85,8 @@ Virtual machine scale sets Operations:
 ### Flexible alternative
 Invoke operations on individual VMs.
 
+Virtual machines Operations:
+- [Reimage](/rest/api/compute/virtual-machines/reimage): invoke single VM API - Reimage on Ephemeral OS VMs only
 
 ## VM extension
 

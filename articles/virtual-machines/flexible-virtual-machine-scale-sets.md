@@ -101,7 +101,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines)  |
-| Maximum Instance Count  | 1000  |
+| Maximum Instance Count (with FD guarantees)  | 1000  |
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported |
 | Full control over VM, NICs, Disks  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network |
@@ -142,20 +142,20 @@ The following tables list the Flexible orchestration mode features and links to 
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
-| Availability SLA | 99.95% |
+| Availability SLA | 99.95% for instances spread across fault domains; 99.99% for instances spread across multiple zones |
 | Availability Zones | Specify instances land across 1, 2 or 3 availability zones |
 | Assign VM to a Specific Availability Zone | Yes |
 | Fault Domain – Max Spreading (Azure will maximally spread instances) | Yes |
 | Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments |
 | Assign VM to a Specific Fault Domain | Yes |
-| Update Domains | None (platform maintenance performed FD by FD) |
+| Update Domains | Depreciated (platform maintenance performed FD by FD) |
 | Maintenance Control | No |
 
 ### Networking 
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
-| Default outbound connectivity | No, must have explicit outbound connectivity |
+| Default outbound connectivity | No, must have [explicit outbound connectivity](../virtual-network/ip-services/default-outbound-access.md) |
 | Azure Load Balancer Standard SKU | Yes |
 | Application Gateway | Yes |
 | Infiniband Networking | No |
@@ -169,7 +169,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Azure Backup  | Yes |
 | Azure Site Recovery | Yes (via PowerShell) |
 | Azure Alerts  | Yes |
-| VM Insights  | No |
+| VM Insights  | Can be installed into individual VMs |
 
 ### Unsupported parameters
 
