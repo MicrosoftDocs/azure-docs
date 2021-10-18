@@ -43,6 +43,6 @@ This method should only be used for supervised proof-of-concept exercises, where
 
 - Follow [this how-to guide](use-remote-device-adapter.md) to connect cameras via a remote device adapter.
 - Follow [this how-to guide](connect-devices.md) for information on connecting devices from other manufactures.
-- Follow [this quickstart] to connect cameras over the open internet.
+- Follow [this quickstart](get-started-livepipelines-portal.md) to connect cameras over the open internet.
 
 
