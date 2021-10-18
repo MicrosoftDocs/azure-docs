@@ -21,7 +21,7 @@ In this quickstart, you deploy a WordPress application on Azure Kubernetes Servi
 > - Azure Database for MySQL Flexible Server is currently in public preview
 > - This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -101,7 +101,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## Create an Azure Database for MySQL - Flexible Server
 
-Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server) command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>

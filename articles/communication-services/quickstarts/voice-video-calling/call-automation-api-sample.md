@@ -2,17 +2,23 @@
 title: Azure Communication Services Call Automation API quickstart
 titleSuffix: An Azure Communication Services quickstart document
 description: Provides a quickstart sample for the Call Automation APIs.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
-ms.author: joseys
-ms.date: 06/08/2021
-ms.topic: overview
+ms.author: jken
+ms.date: 06/30/2021
+ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
 ---
-# Call Automation API Quickstart
+
+# Quickstart: Use the call automation APIs
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+
 Get started with Azure Communication Services by using the Communication Services Calling server SDKs to build an automated call routing solution.
 
 ::: zone pivot="programming-language-csharp"

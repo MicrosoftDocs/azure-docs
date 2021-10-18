@@ -11,6 +11,8 @@ ms.author: jushiman
 
 # M-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The M-series offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It's also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory. M-series sizes are supported both on the Intel&reg; Xeon&reg; CPU E7-8890 v3 @ 2.50GHz and on the Intel&reg; Xeon&reg; Platinum 8280M (Cascade Lake).
 
 M-series VM's feature Intel&reg; Hyper-Threading Technology.
@@ -62,7 +64,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps

@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
+ms.custom: has-adal-ref
 ---
 
 # Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth

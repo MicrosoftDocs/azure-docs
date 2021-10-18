@@ -3,17 +3,21 @@ title: Azure Communication Services Call Recording API quickstart
 titleSuffix: An Azure Communication Services quickstart document
 description: Provides a quickstart sample for the Call Recording APIs.
 author: ravithanneeru
-manager: joseys
+manager: GrantMeStrength
 services: azure-communication-services
 
-ms.author: joseys
-ms.date: 06/21/2021
-ms.topic: overview
+ms.author: jken
+ms.date: 06/30/2021
+ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
 ---
 # Call Recording API Quickstart
-Get started with Azure Communication Services by using the Communication Services Calling server SDKs to develop call recording features.
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+This quickstart gets you started recording voice and video calls. This quickstart assumes you've already used the [Calling client SDK](get-started-with-video-calling.md) to build the end-user calling experience. Using the **Calling Server APIs and SDKs** you can enable and manage recordings. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Build Call Recording server sample with C#](./includes/call-recording-samples/recording-server-csharp.md)]

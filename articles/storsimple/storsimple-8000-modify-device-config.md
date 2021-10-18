@@ -67,7 +67,7 @@ Your device must synchronize time in order to authenticate with your cloud stora
 
 When configuring the NTP server, ensure that your network allows the NTP traffic to pass from your datacenter to the Internet. When specifying a public NTP server, you must make sure that your network firewalls and other security devices are configured to allow NTP traffic to travel to and from the outside network. If bidirectional NTP traffic is not permitted, you must use an internal NTP server (a Windows domain controller provides this function). If your device cannot synchronize time, it may not be able to communicate with your cloud storage provider.
 
-To see a list of public NTP servers, go to the [NTP Servers Web](https://support.ntp.org/bin/view/Servers/WebHome).
+To see a list of public NTP servers, go to the [NTP Servers Web](https://www.pool.ntp.org/zone/us).
 
 ### What happens if the device is deployed in a different time zone?
 

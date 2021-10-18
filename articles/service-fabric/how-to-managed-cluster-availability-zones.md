@@ -56,10 +56,9 @@ To enable a zone resilient Azure Service Fabric managed cluster, you must includ
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "ZonalResiliency": "true"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "zonalResiliency": "true"
 }
 ```
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png

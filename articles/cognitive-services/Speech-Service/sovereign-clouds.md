@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/07/2021
+ms.date: 08/24/2021
 ms.author: alexeyo
 ---
 
@@ -94,6 +94,7 @@ Available to organizations with a business presence in China. See more informati
   - [https://portal.azure.cn/](https://portal.azure.cn/)
 - **Regions:**
   - China East 2
+  - China North 2
 - **Available pricing tiers:**
   - Free (F0) and Standard (S0). See more details [here](https://www.azure.cn/pricing/details/cognitive-services/index.html)
 - **Supported features:**
@@ -129,6 +130,7 @@ Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your su
 |                     | Region identifier |
 |--|--|
 | **China East 2**  | `chinaeast2` |
+| **China North 2**  | `chinanorth2` |
 
 #### Speech SDK
 
@@ -149,3 +151,6 @@ Replace `subscriptionKey` with your Speech resource key. Replace `azCnHost` with
 | **China East 2** | |
 | Speech-to-text | `wss://chinaeast2.stt.speech.azure.cn` |
 | Text-to-Speech | `https://chinaeast2.tts.speech.azure.cn` |
+| **China North 2** | |
+| Speech-to-text | `wss://chinanorth2.stt.speech.azure.cn` |
+| Text-to-Speech | `https://chinanorth2.tts.speech.azure.cn` |

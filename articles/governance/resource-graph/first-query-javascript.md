@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Your first JavaScript query'
 description: In this quickstart, you follow the steps to enable the Resource Graph library for JavaScript and run your first query.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
   - devx-track-js
@@ -65,16 +65,13 @@ works wherever JavaScript can be used, including [bash on Windows 10](/windows/w
    const authenticator = require("@azure/ms-rest-nodeauth");
    const resourceGraph = require("@azure/arm-resourcegraph");
 
-   if (argv.query && argv.subs) {
-       const subscriptionList = argv.subs.split(",");
-
+   if (argv.query) {
        const query = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new resourceGraph.ResourceGraphClient(credentials);
           const result = await client.resources(
              {
-                 query: argv.query,
-                 subscriptions: subscriptionList,
+                 query: argv.query
              },
              { resultFormat: "table" }
           );
@@ -86,24 +83,27 @@ works wherever JavaScript can be used, including [bash on Windows 10](/windows/w
    }
    ```
 
+   > [!NOTE]
+   > This code creates a tenant-based query. To limit the query to a
+   > [management group](../management-groups/overview.md) or subscription, define and add a
+   > [queryrequest](/javascript/api/@azure/arm-resourcegraph/queryrequest) to the `client.resources`
+   > call and specify either `managementGroups` or `subscriptions`.
+
 1. Enter the following command in the terminal:
 
    ```bash
-   node index.js --query "Resources | project name, type | limit 5" --subs <YOUR_SUBSCRIPTION_ID_LIST>
+   node index.js --query "Resources | project name, type | limit 5"
    ```
-
-   Make sure to replace the `<YOUR_SUBSCRIPTION_ID_LIST>` placeholder with your comma-separated list
-   of Azure subscription IDs.
 
    > [!NOTE]
    > As this query example doesn't provide a sort modifier such as `order by`, running this query
    > multiple times is likely to yield a different set of resources per request.
 
 1. Change the first parameter to `index.js` and change the query to `order by` the **Name**
-   property. Replace `<YOUR_SUBSCRIPTION_ID_LIST>` with your subscription ID:
+   property.
 
    ```bash
-   node index.js --query "Resources | project name, type | limit 5 | order by name asc" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
+   node index.js --query "Resources | project name, type | limit 5 | order by name asc"
    ```
 
    As the script attempts to authenticate, a message similar to the following message is displayed
@@ -120,11 +120,10 @@ works wherever JavaScript can be used, including [bash on Windows 10](/windows/w
    > then orders them.
 
 1. Change the first parameter to `index.js` and change the query to first `order by` the **Name**
-   property and then `limit` to the top five results. Replace `<YOUR_SUBSCRIPTION_ID_LIST>` with
-   your subscription ID:
+   property and then `limit` to the top five results.
 
    ```bash
-   node index.js --query "Resources | project name, type | order by name asc | limit 5" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
+   node index.js --query "Resources | project name, type | order by name asc | limit 5"
    ```
 
 When the final query is run several times, assuming that nothing in your environment is changing,

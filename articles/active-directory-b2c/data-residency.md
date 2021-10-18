@@ -3,14 +3,14 @@ title: Region availability and data residency
 titleSuffix: Azure AD B2C
 description: Region availability, data residency, and information about Azure Active Directory B2C preview tenants.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2021
-ms.author: mimart
+ms.date: 08/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
 ---
@@ -21,7 +21,7 @@ Azure AD B2C identity data is stored in a geographical location based on the cou
 
 Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C.
 
-Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, or Asia Pacific**. Azure AD B2C is in **public preview** in Australia.
+Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**.
 
 [Region availability](#region-availability) refers to where a service is available for use.
 
@@ -33,7 +33,7 @@ Azure AD B2C is available worldwide via the Azure public cloud. You can see exam
 
 ## Data residency
 
-Azure AD B2C stores user data in either United States, Europe, or the Asia Pacific region.
+Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region, or Australia.
 
 Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](tutorial-create-tenant.md):
 
@@ -51,7 +51,7 @@ Data resides in **Asia Pacific** for the following countries/regions:
 
 > Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Japan (JP), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH)
 
-Data resides in **Australia** (Preview) for the following countries/regions:
+Data resides in **Australia** for the following countries/regions:
 
 > Australia and New Zealand
 

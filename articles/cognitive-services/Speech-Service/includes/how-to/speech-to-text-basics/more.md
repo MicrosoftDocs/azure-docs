@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 ## Additional language and platform support

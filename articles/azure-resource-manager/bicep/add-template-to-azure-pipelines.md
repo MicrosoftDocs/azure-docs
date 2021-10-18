@@ -18,7 +18,7 @@ This article assumes your Bicep file and Azure DevOps organization are ready for
 
 * You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](../templates/deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* You have a [Bicep file](../templates/quickstart-create-bicep-use-visual-studio-code.md) that defines the infrastructure for your project.
+* You have a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) that defines the infrastructure for your project.
 
 ## Create pipeline
 
@@ -81,5 +81,6 @@ An Azure CLI task takes the following inputs:
 
 ## Next steps
 
+* To learn more about using Bicep with Azure Pipelines, and for hands-on guidance, see [Build your first Bicep deployment pipeline by using Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) on **Microsoft Learn**.
 * To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 * To learn about using Bicep file with GitHub Actions, see [Deploy Bicep files by using GitHub Actions](./deploy-github-actions.md).

@@ -2,7 +2,7 @@
 title: Install Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Azure IoT Edge installation instructions on Windows devices
 author: kgremban
-manager: philmea
+
 ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
@@ -41,6 +41,9 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
     * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
     * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](nested-virtualization.md).
     * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](nested-virtualization.md).
+  * Networking support
+      * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch.  For more information, see [Create virtual switch for Linux on Windows](how-to-create-virtual-switch.md).
+      * Windows Desktop versions come with a default switch that can be used for EFLOW installation. If needed, you can create your own custom virtual switch.     
 
 * If you want to install and manage IoT Edge device using Windows Admin Center, make sure you have access to Windows Admin Center and have the Azure IoT Edge extension installed:
 
@@ -74,9 +77,9 @@ Azure IoT Edge for Linux on Windows supports the following provisioning methods:
 
   * Choose the authentication method you want to use, and then follow the steps in the appropriate article to set up an instance of DPS and create an enrollment to provision your device or devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](../iot-dps/concepts-service.md#enrollment).
 
-    * [Provision an IoT Edge device with DPS and symmetric keys.](how-to-auto-provision-symmetric-keys.md)
-    * [Provision an IoT Edge device with DPS and X.509 certificates.](how-to-auto-provision-x509-certs.md)
-    * [Provision an IoT Edge device with DPS and TPM attestation.](how-to-auto-provision-tpm-linux-on-windows.md)
+    * [Provision an IoT Edge device with DPS and symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md).
+    * [Provision an IoT Edge device with DPS and X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md).
+    * [Provision an IoT Edge device with DPS and TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 ## Create a new deployment
 
@@ -94,7 +97,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. Install IoT Edge for Linux on Windows on your device.
@@ -123,7 +126,18 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Deploy-Eflow
    ```
 
-   The `Deploy-Eflow` command takes optional parameters that help you customize your deployment.
+   >[!TIP]
+   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 16 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
+   >
+   >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters.
+   >
+   >For example, the command below creates a virtual machine with 4 vCPU cores, 4 GB of RAM, and 20 GB of disk space:
+   >
+   >   ```powershell
+   >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 20
+   >   ```
+   >
+   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md).
 
@@ -131,8 +145,6 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
-
-
 
 1. Enter 'Y' to accept the license terms.
 
@@ -224,9 +236,9 @@ You can use the Windows Admin Center or an elevated PowerShell session to provis
 
 * Automatic provisioning:
 
-  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [Automatic provisioning using DPS and TPM attestation](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md#configure-the-device-with-provisioning-information)
 
 ### Manual provisioning using the connection string
 
@@ -305,6 +317,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 # [PowerShell](#tab/powershell)
 
+> [!IMPORTANT]
+> If you're using IoT Edge for Linux on Windows PowerShell public functions, be sure to set the execution policy on the target device to `AllSigned`. Ensure that all prerequisites for [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md) are met.
+
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
    ```powershell
@@ -345,6 +360,8 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
 
 ---
+
+When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 ## Next steps
 

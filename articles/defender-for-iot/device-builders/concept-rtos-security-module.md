@@ -2,10 +2,10 @@
 title: Conceptual explanation of the basics of the Defender-IoT-micro-agent for Azure RTOS 
 description: Learn the basics about the Defender-IoT-micro-agent for Azure RTOS concepts and workflow.
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 07/01/2021
 ---
 
-# Defender-IoT-micro-agent for Azure RTOS (preview)
+# Defender-IoT-micro-agent for Azure RTOS
 
 Use this article to get a better understanding of the Defender-IoT-micro-agent for Azure RTOS, including features and benefits as well as links to relevant configuration and reference resources. 
 

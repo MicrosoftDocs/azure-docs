@@ -15,6 +15,8 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 # Azure Disk Encryption sample scripts
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
 > [!NOTE]

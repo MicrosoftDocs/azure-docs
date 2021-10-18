@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/07/2021
 ---
 
-# Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)
+# Configure and customize Defender-IoT-micro-agent for Azure RTOS
 
 This article describes how to configure the Defender-IoT-micro-agent for your Azure RTOS device, to meet your network, bandwidth, and memory requirements.
 

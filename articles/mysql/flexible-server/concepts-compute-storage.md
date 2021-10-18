@@ -35,7 +35,7 @@ To choose a compute tier, use the following table as a starting point.
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
-After you create a server, the compute tier, compute size, and storage size changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling does not require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
+After you create a server, the compute tier, compute size, and storage size can be changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling does not require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
 ## Compute tiers, size, and server types
 
@@ -43,28 +43,28 @@ Compute resources can be selected based on the tier and size. This determines th
 
 The detailed specifications of the available server types are as follows:
 
-| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Supported I/O bandwidth (MBps)|
-|----------------------|--------|-------------------| ------------------ |-----------------------------------|
+| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Supported I/O bandwidth (MBps)| Max Connections
+|----------------------|--------|-------------------| ------------------ |-----------------------------------|------------------
 | **Burstable**        |        |                   | 
-| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
-| Standard_B1ms        | 1      | 2                 | 640                | 10                                |
-| Standard_B2s         | 2      | 4                 | 1280               | 15                                |
-| **General Purpose**  |        |                   |                    |                                   |
-| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                |
-| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                |
-| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               |
-| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               |
-| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               |
-| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              |
-| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                | 171
+| Standard_B1ms        | 1      | 2                 | 640                | 10                                | 341
+| Standard_B2s         | 2      | 4                 | 1280               | 15                                | 683
+| **General Purpose**  |        |                   |                    |                                   | 
+| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                | 1365
+| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                | 2731
+| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               | 5461
+| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               | 10923
+| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               | 21845
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              | 32768
+| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              | 43691
 | **Memory Optimized** |        |                   |                    |                                   |
-| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                |
-| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                |
-| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               |
-| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               |
-| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               |
-| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              |
-| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              |
+| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                | 2731
+| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                | 5461
+| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               | 10923
+| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               | 21845
+| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               | 43691
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              | 65536
+| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              | 86016
 
 To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -96,11 +96,11 @@ We recommend that you <!--turn on storage auto-grow or to--> set up an alert to 
 
 ### Storage auto-grow
 
-Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. Storage auto-grow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply.
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. Storage auto-grow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply. Refresh the server instance to see the updated storage provisioned in the Compute + Storage blade. 
 
 For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
 
-Remember that storage can only be scaled up, not down
+Remember that storage once auto-scaled up, cannot be scaled down.
 
 ## IOPS
 

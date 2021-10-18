@@ -353,9 +353,11 @@ The following table explains the binding configuration properties that you set i
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a |The name of the variable that contains the queue item payload in the function code.  |
 |**queueName** | **QueueName**| The name of the queue to poll. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here.<br><br>For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
+|**connection** | **Connection** |The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
 ## Usage
 
@@ -435,9 +437,21 @@ The queue trigger provides several [metadata properties](./functions-bindings-ex
 
 ## Poison messages
 
-When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
+When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename&gt;-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
 
 To handle poison messages manually, check the [dequeueCount](#message-metadata) of the queue message.
+
+
+## Peek lock
+The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a timeout managed by the Storage service.
+
+When the function starts, it starts processing a message under the following conditions.
+
+- If the function is successful, then the function execution completes and the message is deleted.
+- If the function fails, then the message visibility is reset. After being reset, the message is reprocessed the next time the function requests a new message.
+- If the function never completes due to a crash, the message visibility expires and the message re-appears in the queue.
+
+All of the visibility mechanics are handled by the Storage service, not the Functions runtime.
 
 ## Polling algorithm
 
@@ -445,14 +459,15 @@ The queue trigger implements a random exponential back-off algorithm to reduce t
 
 The algorithm uses the following logic:
 
-- When a message is found, the runtime waits two seconds and then checks for another message
-- When no message is found, it waits about four seconds before trying again.
+- When a message is found, the runtime waits 100 milliseconds and then checks for another message
+- When no message is found, it waits about 200 milliseconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
 - The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 
 For local development the maximum polling interval defaults to two seconds.
 
-In regard to billing, time spent polling by the runtime is "free" and not counted against your account.
+> [!NOTE]
+> In regards to billing when hosting function apps in the Consumption plan, you are not charged for time spent polling by the runtime.
 
 ## Concurrency
 

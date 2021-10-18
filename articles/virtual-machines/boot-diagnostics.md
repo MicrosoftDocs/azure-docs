@@ -11,6 +11,8 @@ ms.date: 11/06/2020
 
 # Azure boot diagnostics
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Boot diagnostics is a debugging feature for Azure virtual machines (VM) that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots.
 
 ## Boot diagnostics storage account
@@ -99,7 +101,7 @@ Everything after API version 2020-06-01 supports managed boot diagnostics. For m
 ## Limitations
 - Managed boot diagnostics is only available for Azure Resource Manager VMs. 
 - Managed boot diagnostics does not support VMs using unmanaged OS disks.
-- Boot diagnostics does not support premium storage accounts, if a premium storage account is used for boot diagnostics users will receive an `StorageAccountTypeNotSupported` error when starting the VM. 
+- Boot diagnostics does not support premium storage accounts or zone redundent storage accounts. If either of these are used for boot diagnostics users will receive an `StorageAccountTypeNotSupported` error when starting the VM. 
 - Managed storage accounts are supported in Resource Manager API version "2020-06-01" and later.
 - Azure Serial Console is currently incompatible with a managed storage account for boot diagnostics. Learn more about [Azure Serial Console](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - Portal only supports the use of boot diagnostics with a managed storage account for single instance VMs.

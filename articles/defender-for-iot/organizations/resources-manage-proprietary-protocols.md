@@ -20,7 +20,7 @@ Use the Horizon SDK to design dissector plugins that decode network traffic so i
 
 Protocol dissectors are developed as external plugins and are integrated with an extensive range of Defender for IoT services, for example services that provide monitoring, alerting, and reporting capabilities.
 
-For information on working with the SDK, contact support.microsoft.com. 
+Contact <ms-horizon-support@microsoft.com> for details about working with the Open Development Environment (ODE) SDK and creating protocol plugins.
 
 Once the plugin is developed, you can use Horizon web console to:
 
@@ -58,7 +58,7 @@ To upload:
 
 2. Drag or browse to your plugin. If the upload fails, an error message will be presented.
 
-Contact your support at [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099) for details about working with the Open Development Environment (ODE) SDK.
+Contact <ms-horizon-support@microsoft.com> for details about working with the Open Development Environment (ODE) SDK and creating protocol plugins.
 
 ## Enable and disable plugins
 

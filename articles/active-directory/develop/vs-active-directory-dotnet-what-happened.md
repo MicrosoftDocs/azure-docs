@@ -6,7 +6,7 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: how-to
+ms.topic: reference
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: "devx-track-csharp, aaddev, vs-azure"

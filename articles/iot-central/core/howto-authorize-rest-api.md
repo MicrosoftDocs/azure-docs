@@ -3,7 +3,7 @@ title: Authorize REST API in Azure IoT Central
 description: How to authenticate and authorize IoT Central REST API calls
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -20,9 +20,11 @@ This article describes the types of token you can use in the authorization heade
 
 ## Token types
 
+You'll want to use the user bearer token when you're doing some automation/testing/API calls yourself; you'll want to use the SPN bearer token when you're automating/scripting your development environment (i.e. devops). The API token can be used for both cases, but has the risk of expiry and leaks, so we recommend using bearer whenever possible. Does that make sense? 
+
 To access an IoT Central application using the REST API, you can use an:
 
-- _Azure Active Directory bearer token_. A bearer token is associated with an Azure Active Directory user account. The token grants the caller the same permissions the user has in the IoT Central application.
+- _Azure Active Directory bearer token_. A bearer token is associated with an Azure Active Directory user account or service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
 - IoT Central API token. An API token is associated with a role in your IoT Central application.
 
 To learn more about users and roles in IoT Central, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
@@ -53,15 +55,17 @@ The JSON output from the previous command looks like the following example:
 
 The bearer token is valid for approximately one hour, after which you need to create a new one.
 
+To get a bearer token for a service principal, see [Service principal authentication](/rest/api/iotcentral/authentication#service-principal-authentication).
+
 ## Get an API token
 
-To get an API token, you can use the IoT Central UI or a REST API call.
+To get an API token, you can use the IoT Central UI or a REST API call. Administrators associated with the root organization and users assigned to the correct role can create API tokens.
 
 In the IoT Central UI:
 
 1. Navigate to **Administration > API tokens**.
-1. Select **+ Generate token**.
-1. Enter a name for the token and select a role.
+1. Select **+ Create token**.
+1. Enter a name for the token and select a role and [organization](howto-create-organizations.md).
 1. Select **Generate**.
 1. IoT Central displays the token that looks like the following example:
 
@@ -69,7 +73,7 @@ In the IoT Central UI:
 
     This screen is the only time you can see the API token, if you lose it you need to generate a new one.
 
-An API token is valid for approximately one year. You can generate tokens for both built-in and custom roles in your IoT Central application.
+An API token is valid for approximately one year. You can generate tokens for both built-in and custom roles in your IoT Central application. The organization you choose when you create the API token determines which devices the API has access to. Any API tokens created before you add any organizations to your application are associated with the root organization.
 
 You can delete API tokens in the IoT Central UI if you need to revoke access.
 
@@ -138,6 +142,9 @@ Using the REST API:
     This response is the only time you have access to the API token, if you lose it you need to generate a new one.
 
 You can use the REST API to list and delete API tokens in an application.
+
+> [!TIP]
+> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
 
 ## Use a bearer token
 

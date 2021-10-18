@@ -15,7 +15,7 @@ ms.date: 06/03/2020
 
 ## Prerequisites
 
-* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support)  (Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-support-on-azure)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
 
 ## Create Pizza app

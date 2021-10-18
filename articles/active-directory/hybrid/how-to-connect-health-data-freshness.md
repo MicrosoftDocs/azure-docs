@@ -66,4 +66,4 @@ The steps required to diagnose the issue is given below. The first is a set of b
 If any of the above steps identified an issue, fix it and wait for the alert to resolve. The alert background process runs every 2 hours, so it will take up to 2 hours to resolve the alert. 
 
 * [Azure AD Connect Health data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)

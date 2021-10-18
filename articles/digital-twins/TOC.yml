@@ -73,14 +73,8 @@
         href: how-to-set-up-instance-cli.md
       - name: PowerShell
         href: how-to-set-up-instance-powershell.md
-      - name: Setup script sample
-        href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
-      items:
-      - name: Portal
-        href: how-to-enable-private-link-portal.md
-      - name: CLI
-        href: how-to-enable-private-link-cli.md
+      href: how-to-enable-private-link.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -105,10 +99,10 @@
       href: how-to-use-azure-digital-twins-explorer.md  
     - name: Manage digital twins
       href: how-to-manage-twin.md
-    - name: Manage the twin graph with relationships
+    - name: Manage the twin graph and relationships
       href: how-to-manage-graph.md
-    - name: Set up an Azure function for processing data
-      href: how-to-create-azure-function.md
+    - name: Set up twin-to-twin event handling
+      href: how-to-send-twin-to-twin-events.md
     - name: Query the twin graph
       href: how-to-query-graph.md
   - name: Develop client apps
@@ -130,11 +124,7 @@
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      items:
-      - name: Portal
-        href: how-to-manage-routes-portal.md
-      - name: APIs and CLI
-        href: how-to-manage-routes-apis-cli.md
+      href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps
@@ -143,25 +133,25 @@
       href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
-    - name: View metrics in Azure Monitor
+    - name: Metrics
       href: troubleshoot-metrics.md
-    - name: Enable and query diagnostics logs
+    - name: Diagnostics logs
       href: troubleshoot-diagnostics.md
-    - name: Enable alerts
+    - name: Alerts
       href: troubleshoot-alerts.md
-    - name: Troubleshoot performance
+    - name: Performance
       href: troubleshoot-performance.md
-    - name: Understand your resource health
+    - name: Resource health
       href: troubleshoot-resource-health.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
       items:
-      - name: 403 (Forbidden)
+      - name: Error 403 (Forbidden)
         href: troubleshoot-error-403.md
-      - name: 404 Sub-Domain not found
+      - name: Error 404 (Sub-Domain not found)
         href: troubleshoot-error-404.md
-      - name: Azure Digital Twins Explorer authentication
+      - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
 - name: Reference
   items:
@@ -205,6 +195,8 @@
         href: reference-query-functions.md
       - name: Operators
         href: reference-query-operators.md
+      - name: Reserved keywords
+        href: reference-query-reserved.md
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -327,8 +319,6 @@
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: 'Learn: Develop with Azure Digital Twins'
     href: /learn/paths/develop-azure-digital-twins/
-  - name: Channel 9 videos
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

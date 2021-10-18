@@ -4,8 +4,8 @@ description: Learn how to export the Azure Cosmos DB Emulator certificate for us
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2020
-author: deborahc
-ms.author: dech
+ms.author: esarroyo
+author: StefArroyo 
 ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
 ---
 

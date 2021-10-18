@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Hootsuite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Hootsuite.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Hootsuite for automatic user provisioning
@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Hootsuite to support provisioning with Azure AD
 
-Reach out to dev.support@hootsuite.com to obtain a long lasting secret token that will be required in later steps. 
+Reach out to your Hootsuite CSM for long lasting token required in later steps.
 
 ## Step 3. Add Hootsuite from the Azure AD application gallery
 

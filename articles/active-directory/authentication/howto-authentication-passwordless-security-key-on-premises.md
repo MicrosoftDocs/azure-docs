@@ -44,8 +44,8 @@ Organizations must also meet the following software requirements.
 - You must have version 1.4.32.0 or later of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Your Windows Server domain controllers must have the following patches installed:
-    - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - For [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+    - For [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
 ### Supported scenarios
 
@@ -91,6 +91,29 @@ $domainCred = Get-Credential
 # Create the new Azure AD Kerberos Server object in Active Directory
 # and then publish it to Azure Active Directory.
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+```
+
+> [!NOTE]
+> If your organization protects password-based sign-in and enforces modern authentication methods such as MFA, FIDO2, or Smart Card, you must use the "-UserPrincipalName" parameter with the User Principal Name of a Global administrator.
+>    - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
+>    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the User Principal Name of a Global administrator.
+
+```powerShell
+Import-Module ".\AzureAdKerberos.psd1"
+
+# Specify the on-premises Active Directory domain. A new Azure AD
+# Kerberos Server object will be created in this Active Directory domain.
+$domain = "contoso.corp.com"
+
+# Enter a User Principal Name of Azure Active Directory global administrator
+$userPrincipalName = "administrator@contoso.onmicrosoft.com"
+
+# Enter a domain administrator username and password.
+$domainCred = Get-Credential
+
+# Create the new Azure AD Kerberos Server object in Active Directory
+# and then publish it to Azure Active Directory.
+Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
 ```
 
 ### Viewing and verifying the Azure AD Kerberos Server
@@ -197,7 +220,13 @@ If clean installing a hybrid Azure AD joined machine, after the domain join and 
 
 Make sure enough domain controllers are patched to respond in time to service your resource request. To check if you can see a domain controller that is running the feature, review the output of `nltest /dsgetdc:contoso /keylist /kdc`.
 
-Note: This /Keylist switch in nltest command can be found from client windows 10 v2004 and above
+> [!NOTE]
+> The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and above.
+
+
+### Is FIDO2 security keys works on windows login with RODC present in the hybrid enviornment?
+
+FIOD2 windows login, looks for writable DC to exchange the user TGT. As long as you have atleast one writable DC per site. it works fine. 
 
 ## Next steps
 

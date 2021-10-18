@@ -210,6 +210,8 @@
         href: ./hdinsight-log-management.md
       - name: Add storage accounts
         href: ./hdinsight-hadoop-add-storage.md
+      - name: Update storage account access key
+        href: ./hdinsight-rotate-storage-keys.md
       - name: Upload data for Apache Hadoop jobs
         href: ./hdinsight-upload-data.md
       - name: Multiple HDInsight clusters with Data Lake Storage
@@ -693,6 +695,8 @@
       items:
       - name: Insufficient fault domains
         href: ./kafka/kafka-troubleshoot-insufficient-domains.md
+      - name: Full data disk
+        href: ./kafka/kafka-troubleshoot-full-disk.md
 - name: Apache HBase
   items:
   - name: Overview
@@ -815,6 +819,8 @@
         href: ./interactive-query/apache-hive-warehouse-connector-operations.md
       - name: HWC integration with Apache Zeppelin
         href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
+      - name: HWC Supported APIs
+        href: ./interactive-query/hive-warehouse-connector-apis.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View
@@ -1000,6 +1006,8 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Restrict public connectivity
+      href: ./hdinsight-restrict-public-connectivity.md
     - name: Private link
       href: ./hdinsight-private-link.md
     - name: Transport layer security
@@ -1016,6 +1024,8 @@
       href: ./domain-joined/ldap-sync.md
     - name: Double encryption in transit 
       href: ./domain-joined/encryption-in-transit.md
+    - name: Use availability zones 
+      href: ./hdinsight-use-availability-zones.md
   - name: How-to guides
     items:
     - name: Use ID Broker for credential management
@@ -1050,3 +1060,7 @@
         href: ./domain-joined/domain-joined-authentication-issues.md
       - name: Cluster creation fails with DomainNotFound
         href: ./domain-joined/troubleshoot-domainnotfound.md
+- name: Azure Synapse integration
+  items:
+  - name: Share Hive metastore with Synapse Spark
+    href: share-hive-metastore-with-synapse.md

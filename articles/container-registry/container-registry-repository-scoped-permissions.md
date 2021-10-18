@@ -23,7 +23,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
-* You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
+* You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.yml#how-do-i-enable-anonymous-pull-access-).
 
 ## Concepts
 

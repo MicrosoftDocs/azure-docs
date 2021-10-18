@@ -36,7 +36,7 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | Name | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
 | Filename | string | Name of file | Must be no more than 255 characters. Must be unique within an update |
-| SizeInBytes | Int64 | Size of file in bytes. | Maximum of 800 MB per individual file, or 800 MB collectively per update |
+| SizeInBytes | Int64 | Size of file in bytes. | See [Device Update limits](./device-update-limits.md) for maximum size per individual file and collectively per update |
 | Hashes | `Hashes` object | JSON object containing hash(es) of the file |
 
 ## CompatibilityInfo Object
@@ -76,6 +76,79 @@ If you are using the sample import manifest output from the [How to add a new up
     },
   ]
 }
+```
+
+## OAuth authorization when calling Device Update APIs
+
+**azure_auth**
+
+Azure Active Directory OAuth2 Flow
+Type: oauth2
+Flow: any 
+
+Authorization URL: https://login.microsoftonline.com/common/oauth2/authorize
+
+**Scopes**
+
+| Name | Description |
+| --- | --- |
+| `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
+| `https://api.adu.microsoft.com/.default`  | Client credential flows |
+
+
+**Permissions**
+
+If an Azure AD application is used to sign the user in, the scope needs to have /user_impersonation. 
+
+You will need to add permissions to your Azure AD app (in the API permissions tab in Azure AD Application view) to use Azure Device Update API. Request API permission to Azure Device Update (located in "APIs my organization uses") and grant the delegated user_impersonation permission.
+
+ADU accepts tokens acquiring tokens using any of the Azure AD supported flows for users, applications, or managed identities. However, some of the flows require additional Azure AD application setup: 
+
+* For public client flows make sure to enable mobile and desktop flows.
+* For implicit flows make sure to add a Web platform and select "Access tokens" for the authorization endpoint.
+
+**Example using Azure CLI:**
+
+```azurecli
+az login
+
+az account get-access-token --resource 'https://api.adu.microsoft.com/'
+```
+
+**Examples to acquire a token using PowerShell MSAL library:**
+
+_Using user credentials_ 
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
+```
+
+_Using user credentials with device code_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
+```
+
+_Using app credentials_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$cert = '<client_certificate>'
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/.default'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
 ```
 
 ## Next steps

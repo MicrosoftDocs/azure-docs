@@ -1,15 +1,15 @@
 ---
-title: Authentication protocols in Azure Active Directory B2C | Microsoft Docs
+title: Authentication protocols in Azure Active Directory B2C  
 description: How to build apps directly by using the protocols that are supported by Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -36,7 +36,10 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
 
-![Diagram showing the four OAuth 2.0 Roles](./media/protocols-overview/protocols_roles.png)
+
+
+
+:::image type="content" source="./media/protocols-overview/protocols_roles.png" alt-text="Diagram showing the four OAuth 2.0 Roles.":::
 
 * The **authorization server** is the Azure AD endpoint. It securely handles anything related to user information and access. It also handles the trust relationships between the parties in a flow. It is responsible for verifying the user's identity, granting and revoking access to resources, and issuing tokens. It is also known as the identity provider.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Triggered pipelines allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: laobri
 author: lobrien
 ms.date: 01/29/2021

@@ -12,8 +12,6 @@
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
-  - name: Best practices
-    href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Capacity limits
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
@@ -38,6 +36,8 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
+    - name: Partner solutions 
+      href: ../partner/browse-partners.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
   - name: Load data
     items: 
     - name: COPY statement
@@ -135,7 +135,7 @@
     - name: Overview
       href: design-elt-data-loading.md
     - name: Best practices
-      href: guidance-for-loading-data.md
+      href: ../sql/data-loading-best-practices.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Development
@@ -143,7 +143,7 @@
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
-      href: sql-data-warehouse-best-practices-development.md
+      href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: JSON
       items:
       - name: JSON
@@ -344,6 +344,8 @@
       href: sql-data-warehouse-how-to-configure-workload-importance.md 
     - name: Convert resource classes to workload groups
       href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
+    - name: Troubleshooting a missed classification
+      href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
@@ -434,14 +436,14 @@
   - name: Partners
     items:
     - name: Business intelligence
-      href: sql-data-warehouse-partner-business-intelligence.md
+      href: ../partner/business-intelligence.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Data integration
-      href: sql-data-warehouse-partner-data-integration.md
+      href: ../partner/data-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Data management
-      href: sql-data-warehouse-partner-data-management.md
+      href: ../partner/data-management.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Machine learning and AI
-      href: sql-data-warehouse-partner-machine-learning-ai.md
+      href: ../partner/machine-learning-ai.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: System integration
-      href: sql-data-warehouse-partner-system-integration.md
+      href: ../partner/system-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Compatibility issues with third-party applications
-      href: sql-data-warehouse-partner-compatibility-issues.md
+      href: ../partner/compatibility-issues.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json

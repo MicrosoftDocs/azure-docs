@@ -36,7 +36,8 @@ The Azure virtual network gateway can provide VPN connections using several VPN 
 > Verified with Ubuntu 18.10.
 
 ```bash
-sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils
+sudo apt update
+sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils unzip
 
 installDir="/etc/"
 ```

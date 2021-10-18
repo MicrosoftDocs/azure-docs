@@ -180,6 +180,9 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Select the device ID of the target device from the list of devices.
 
+   When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
+
 1. On the upper bar, select **Set Modules**.
 
    ![Screenshot that shows selecting Set Modules.](./media/quickstart/select-set-modules.png)
@@ -286,7 +289,7 @@ Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge 
 
 In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now you have a test device generating raw data about its environment.
 
-Next, set up your local development environment so that you can start creating IoT Edge modules that run your business logic.
+In the next tutorial, you'll learn how to monitor the activity and health of your device from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Start developing IoT Edge modules](tutorial-develop-for-linux.md)
+> [Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md)

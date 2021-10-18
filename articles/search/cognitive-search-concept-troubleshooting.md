@@ -3,17 +3,17 @@ title: Tips for AI enrichment design
 titleSuffix: Azure Cognitive Search
 description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
 
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 09/16/2021
 ---
 # Tips for AI enrichment in Azure Cognitive Search
 
 This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
 
-If you have not done so already, step through the [Tutorial: Learn how to call AI enrichment APIs](cognitive-search-quickstart-blob.md) for practice in applying AI enrichments to a blob data source.
+If you haven't already, step through either the [Create a text translation and entity skillset](cognitive-search-quickstart-blob.md) or [Create an OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts for an introduction to enrichment of blob data.
 
 ## Tip 1: Start with a small dataset
 The best way to find issues quickly is to increase the speed at which you can fix issues. The best way to reduce the indexing time is by reducing the number of documents to be indexed. 

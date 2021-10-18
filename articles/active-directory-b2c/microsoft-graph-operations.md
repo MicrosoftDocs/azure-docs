@@ -3,15 +3,15 @@ title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Manage Azure AD B2C with Microsoft Graph
@@ -20,6 +20,10 @@ Microsoft Graph allows you to manage resources in your Azure AD B2C directory. T
 
 > [!NOTE]
 > You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2ctenants/create).
+
+Watch this video to learn about Azure AD B2C user migration using Microsoft Graph API.
+
+>[!Video https://www.youtube.com/embed/9BRXBtkBzL4]
 
 ## Prerequisites
 
@@ -130,6 +134,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 ## Application extension properties
 
 - [List extension properties](/graph/api/application-list-extensionproperty)
+- [Delete extension property](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
@@ -182,6 +187,9 @@ After you've obtained the code sample, configure it for your environment and the
 
 The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
 
+> [!NOTE]
+> For the application to update user account passwords, you'll need to [grant the user administrator role](microsoft-graph-get-started.md#optional-grant-user-administrator-role) to the application.
+ 
 ### Code discussion
 
 The sample code uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph.

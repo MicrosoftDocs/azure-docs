@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Video Analyzer - Azure
 description: This article covers troubleshooting steps for Azure Video Analyzer.
-ms.topic: how-to
-ms.date: 05/04/2021
+ms.topic: troubleshooting
+ms.date: 07/15/2021
 ---
 
 # Troubleshoot Azure Video Analyzer
@@ -35,7 +35,7 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id avasample-iot-edge
 ```
 
 If the JSON code isn't well formed, you might receive the following error:
-&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
+&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '\<deployment manifest.json\>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
 
 If you encounter this error, we recommend that you check the JSON for missing brackets or other issues with the structure of the file. To validate the file structure, you can use a client such as the [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) or an online tool such as the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
@@ -103,14 +103,14 @@ If there are any additional issues that you may need help with, please **[collec
 
 ### Video Analyzer working with external modules
 
-Video Analyzer via the pipeline extension processors can extend the pipeline to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](), this live pipeline can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
+Video Analyzer via the pipeline extension processors can extend the pipeline to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension), this live pipeline can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
 
 - Check to see whether the hub that live pipeline is publishing to and the hub you're examining are the same. As you create multiple deployments, you might end up with multiple hubs and mistakenly check the wrong hub for events.
 - In Azure portal, check to see whether the external module is deployed and running. In the example image here, rtspsim, yolov3, tinyyolov3 and logAnalyticsAgent are IoT Edge modules running external to the avaedge module.
 
   [ ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot/iot-hub-azure.png) ](./media/troubleshoot/iot-hub-azure.png#lightbox)
 
-- Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).
+- Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).
 
   As an example, here is a Yolo v3 container that's running on local machine with an IP address of 172.17.0.3.
 
@@ -148,9 +148,20 @@ When self-guided troubleshooting steps don't resolve your problem, go the Azure 
 
 To gather the relevant logs that should be added to the ticket, follow the instructions below in order and upload the log files in the **Details** pane of the support request.
 
-1. [Configure the Video Analyzer module to collect Verbose Logs]()
-1. [Turn on Debug Logs]()
+1. [Configure the Video Analyzer module to collect Verbose Logs](#configure-video-analyzer-module-to-collect-verbose-logs)
+1. [Turn on Debug Logs](#video-analyzer-debug-logs)
 1. Reproduce the issue
+1. Restart the Video Analyzer edge module. 
+	> [!NOTE]
+	> This step is required to gracefully terminate the edge module and get all log files in a usable format without dropping any events. 	
+	
+	On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module :
+	
+	```cmd
+	sudo iotedge restart <avaedge>
+	```
+
+   You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../iot-edge/troubleshoot-in-portal.md).
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
    1. Zip all the files in the _debugLogs_ folder.
@@ -215,23 +226,8 @@ To configure the Video Analyzer module to generate debug logs, do the following:
    ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot/set-modules.png)
 
 1. In the **IoT Edge Modules** section, look for and select **avaedge**.
-1. Select **Container Create Options**.
-1. In the **Binds** section, add the following command:
-
-   `/var/local/videoanalyzer/logs:/var/lib/videoanalyzer/logs`
-
-   > [!NOTE]
-   > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:
-   > `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/videoanalyzer/logs`
-
-1. Select **Update**.
-1. Select **Review + Create**. A successful validation message is posted under a green banner.
-1. Select **Create**.
-1. Update **Module Identity Twin** to point to the DebugLogsDirectory parameter, which points to the directory in which the logs are collected:
-
-   a. Under the **Modules** table, select **avaedge**.
-   b. At the top of the pane, select **Module Identity Twin**. An editable pane opens.
-   c. Under **desired key**, add the following key/value pair:
+1. Select **Module Identity Twin**. An editable pane opens.
+1. Under **desired key**, add the following key/value pair:
 
    `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
@@ -243,7 +239,7 @@ To configure the Video Analyzer module to generate debug logs, do the following:
    > 2. Use the following command, replacing **$DEBUG_LOG_LOCATION** with the location used in the previous step:
    >    `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-   d. Select **Save**.
+1. Select **Save**.
 
 1. You can stop log collection by setting the value in **Module Identity Twin** to _null_. Go back to the **Module Identity Twin** page and update the following parameter as:
 
@@ -303,11 +299,11 @@ gRPC in .NET core documents also share some valuable information on [Performance
 
 There are several things you can do to get more information about the problem.
 
-- Include the “**mediaPipeline** log category in the desired properties of the Video Analyzer module and ensure the log level is set to `Information`.
+- Include the "**mediaPipeline** log category in the desired properties of the Video Analyzer module and ensure the log level is set to `Information`.
 - To test network connectivity, you can run the following command from the edge device.
 
   ```
-  sudo docker exec avaedge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>”
+  sudo docker exec avaedge /bin/bash -c "apt update; apt install -y telnet; telnet <inference-host> <inference-port>"
   ```
 
   If the command outputs a short string of jumbled text, then telnet was successfully able to open a connection to your inference server and open a binary gRPC channel. If you do not see this, then telnet will report a network error.

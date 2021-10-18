@@ -14,7 +14,7 @@ keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
 
-# What is the Anomaly Detector API?
+# What is the Anomaly Detector univariate API?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -22,7 +22,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
-Using the Anomaly Detector doesn't require any prior experience in machine learning, and the RESTful API enables you to easily integrate the service into your applications and processes.
+Using the Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -94,7 +94,6 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Join the Anomaly Detector community
 
 * Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
-* See selected [user generated content](user-generated-content.md)
 
 ## Next steps
 

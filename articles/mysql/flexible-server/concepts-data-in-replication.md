@@ -39,9 +39,7 @@ Configuring Data-in replication for zone redundant high availability servers is 
 
 ### Filtering
 
-To skip replicating tables from your source server (hosted on-premises, in virtual machines, or a database service hosted by other cloud providers), the `replicate_wild_ignore_table` parameter is supported. Optionally, update this parameter on the replica server hosted in Azure using the [Azure portal](how-to-configure-server-parameters-portal.md) or [Azure CLI](how-to-configure-server-parameters-cli.md).
-
-To learn more about this parameter, review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
+Modifying the parameter `replicate_wild_ignore_table` which was used to create replication filter for tables, is currently not supported for Azure Database for MySQL -Flexible server. 
 
 ### Requirements
 
@@ -53,7 +51,8 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 - If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - Ensure that the source server has a **public IP address**, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
-
+- In case of public access, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
+- In case of private access ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL instance is running.For more details see , [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Next steps
 
