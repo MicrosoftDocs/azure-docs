@@ -64,9 +64,11 @@ Some legacy terms in Application Insights are confusing given the industry conve
 
 Application Insights | OpenTelemetry
 ------ | ------
-Traces   | Logs
-Channel   | Exporter  
-Codeless / Agent-based   | Auto-Instrumentation
+Auto-Collectors | Instrumentation Libraries
+Channel | Exporter  
+Codeless / Agent-based |  Auto-Instrumentation
+Traces | Logs
+
 
 ## Next step
 
