@@ -34,7 +34,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Quickstart - Deploy your first Azure Spring Cloud application
+          - text: Quickstart - Deploy your first Spring Boot app in Azure Spring Cloud
             url: quickstart.md
           - text: Introduction to PiggyMetrics sample app
             url: quickstart-sample-app-introduction.md

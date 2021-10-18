@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Deploy your first Azure Spring Cloud application"
+title: "Quickstart - Deploy your first Spring Boot app in Azure Spring Cloud"
 description: In this quickstart, we deploy a Spring Cloud application to the Azure Spring Cloud.
 author: karlerickson
 ms.service: spring-cloud
@@ -10,10 +10,10 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Deploy your first Azure Spring Cloud application
+# Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
-This quickstart explains how to deploy a simple Azure Spring Cloud microservice application to run on Azure.
+This quickstart explains how to deploy a simple microservice application to run on Azure Spring Cloud.
 
 >[!NOTE]
 > Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
@@ -310,7 +310,7 @@ For advanced log analytics features, visit **Logs** tab in the menu on [Azure po
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-This quickstart explains how to deploy a simple Azure Spring Cloud microservice application to run on Azure.
+This quickstart explains how to deploy a simple microservice application to run on Azure Spring Cloud.
 
 The application code used in this tutorial is a simple app built with Spring Initializr. When you've completed this example, the application will be accessible online and can be managed via the Azure portal.
 

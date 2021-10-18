@@ -100,7 +100,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
 
 ## Add dependencies
 
