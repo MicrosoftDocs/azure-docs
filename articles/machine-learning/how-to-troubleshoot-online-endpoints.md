@@ -88,25 +88,25 @@ Add `--help` and/or `--debug` to commands to see more information. Include the `
 
 Below is a list of common deployment errors that are reported as part of the deployment operation status.
 
-### ERR_1100: Not enough quota
+### NotEnoughQuota: Not enough quota
 
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
 A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](./how-to-manage-quotas.md).
 
-### ERR_1101: Out of capacity
+### InsufficientCapacity: Out of capacity
 
 The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
-### ERR_1102: No more role assignments
+### MaxRoleAssignments: No more role assignments
 
 Delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
 
-### ERR_1103: Endpoint quota reached
+### EndpointQuotaReached: Endpoint quota reached
 
 Delete some unused endpoints in this subscription.
 
-### ERR_1200: Unable to download user container image
+### CannotDownloadImage: Unable to download user container image
 
 During deployment creation after the compute provisioning, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR). There could be two possible issues.
 
@@ -129,7 +129,7 @@ To get more details about this error, run:
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail 100
 ```
 
-### ERR_1300: Unable to download user model\code artifacts
+### CannotDownloadArtifacts: Unable to download user model\code artifacts
 
 After provisioning the compute resource, during deployment creation, Azure tries to mount the user model and code artifacts into the user container from the workspace storage account.
 
@@ -160,11 +160,11 @@ To get more details about this error, run:
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
 
-### ERR_1350: Unable to download user model, not enough space on the disk
+### DiskFull: Unable to download user model, not enough space on the disk
 
 This issue happens when the size of the model is bigger than the available disk space. Try an SKU with more disk space.
 
-### ERR_2100: Unable to start user container
+### CannotStartContainer: Unable to start user container
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.
 
@@ -176,15 +176,15 @@ To get the exact reason for an error, run:
 az ml endpoint get-logs
 ```
 
-### ERR_2101: Kubernetes unschedulable
+### KubernetesUnschedulable: Kubernetes unschedulable
 
 The requested CPU or memory can't be satisfied. Please adjust your request or the cluster.
 
-### ERR_2102: Resources requests invalid
+### RequestAboveLimits: Resources requests invalid
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
-### ERR_2200: User container has crashed\terminated
+### ContainerTerminated: User container has crashed\terminated
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
 
@@ -196,7 +196,11 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 
-### ERR_5000: Internal error
+### OperationCancelled: Operation has been cancelled
+
+Azure operations have a certain priority level and are executed from highest to lowest. This error happens when your operation happened to be overridden by another operation which has a higher priority. Retrying the operation may allow it to be performed without cancellation.
+
+### InternalError: Internal error
 
 While we do our best to provide a stable and reliable service, sometimes things don't go according to plan. If you get this error, it means something isn't right on our side and we need to fix it. Submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) with all related information and we'll address the issue.  
 
