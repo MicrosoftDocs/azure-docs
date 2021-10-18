@@ -35,20 +35,11 @@ In the following example, we specify a virtual machine profile (VM type, network
 
 ```azurecli-interactive
 az vmss create
---resource-group $rg
 --name $vmssName
---single-placement-group false
---orchestration-mode flexible
---platform-fault-domain-count 1
+--resource-group $rg
 --image UbuntuLTS
---admin-username azureuser
 --instance-count 2
---vm-sku 'Standard_D2s_v3'
---network-api-version '2020-11-01'
---computer-name-prefix $computerNamePrefix
---vnet-name $vnetName
---subnet $subnetName
---public-ip-per-vm
+--orchestration-mode flexible
 ```
 
 ### Add a single VM to a scale set

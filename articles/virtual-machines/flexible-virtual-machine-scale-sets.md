@@ -15,15 +15,11 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
-> [!IMPORTANT]
-> This article is about virtual machine scale sets in Flexible orchestration mode, which we recommend using for all new scale set deployments. To access information about Uniform scale sets, go to [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) documentation. 
-
-
 Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](availability-set-overview.md).
 
 Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
 - Easy to create and manage multiple VMs
-- Provides high availability and application resiliency by distributing VMs across fault domains
+- Provides high availability and application resiliency by distributing VMs across availability zones or fault domains
 - Allows your application to automatically scale as resource demand changes
 - Works at large-scale
 
@@ -34,6 +30,9 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 - Services that require high availability and large scale
 - Services that want to mix virtual machine types or leverage Spot and on-demand VMs together
 - Existing Availability Set applications
+
+> [!IMPORTANT]
+> This article is about virtual machine scale sets in Flexible orchestration mode, which we recommend using for all new scale set deployments. To access information about Uniform scale sets, go to [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) documentation.
 
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
@@ -102,7 +101,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute/virtualmachines)  |
-| Maximum Instance Count  | 1000  |
+| Maximum Instance Count (with FD guarantees)  | 1000  |
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported |
 | Full control over VM, NICs, Disks  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network |
@@ -133,7 +132,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Terminate Notifications (VM scale sets) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
 | Monitor Application Health | Application health extension |
 | Instance Repair (VM scale sets) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
-| Instance Protection | No |
+| Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
 | Perform Maintenance | No (can trigger maintenance on each instance using VM API) |
@@ -143,20 +142,20 @@ The following tables list the Flexible orchestration mode features and links to 
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
-| Availability SLA | 99.95% |
+| Availability SLA | 99.95% for instances spread across fault domains; 99.99% for instances spread across multiple zones |
 | Availability Zones | Specify instances land across 1, 2 or 3 availability zones |
 | Assign VM to a Specific Availability Zone | Yes |
 | Fault Domain – Max Spreading (Azure will maximally spread instances) | Yes |
 | Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments |
 | Assign VM to a Specific Fault Domain | Yes |
-| Update Domains | None (platform maintenance performed FD by FD) |
+| Update Domains | Depreciated (platform maintenance performed FD by FD) |
 | Maintenance Control | No |
 
 ### Networking 
 
 | Feature | Supported by Flexible orchestration for scale sets |
 |---|---|
-| Default outbound connectivity | No, must have explicit outbound connectivity |
+| Default outbound connectivity | No, must have [explicit outbound connectivity](../virtual-network/ip-services/default-outbound-access.md) |
 | Azure Load Balancer Standard SKU | Yes |
 | Application Gateway | Yes |
 | Infiniband Networking | No |
@@ -170,7 +169,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Azure Backup  | Yes |
 | Azure Site Recovery | Yes (via PowerShell) |
 | Azure Alerts  | Yes |
-| VM Insights  | No |
+| VM Insights  | Can be installed into individual VMs |
 
 ### Unsupported parameters
 

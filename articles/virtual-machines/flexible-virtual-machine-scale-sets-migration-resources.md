@@ -15,13 +15,13 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
-You can update from using [availability sets](availability-set-overview.md) and [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) to using virtual machine scale sets in Flexible orchestration. This article goes over migration considerations for both scenarios and other things to think about when switching to Flexible orchestration mode for virtual machine scale sets. 
+Like availability sets, virtual machine scale sets allows you to spread virtual machines across multiple fault domains. Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](availability-set-overview.md). This article goes over migration considerations when switching to Flexible orchestration mode for virtual machine scale sets. 
 
 ## Update availability set deployments templates and scripts
 
 First, you need to create a virtual machine scale set with no auto scaling profile via [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md). Azure portal only allows creating a virtual machine scale set with an autoscaling profile. If you do not want or need an autoscaling profile and you want to create a scale set using [Azure portal](flexible-virtual-machine-scale-sets-portal.md), you can set the initial capacity to 0. 
  
-You must specify the fault domain count for the virtual machine scale set. For regional (non-zonal) deployments, virtual machine scale sets offers the same fault domain guarantees as availability sets. However, you can scale up to 1000 instances. 
+You must specify the fault domain count for the virtual machine scale set. For regional (non-zonal) deployments, virtual machine scale sets offers the same fault domain guarantees as availability sets. However, you can scale up to 1000 instances. For zonal deployments where you are spreading instances across multiple availability zones, the fault domain count must be set to 1.
 
 Update domains have been deprecated in Flexible Orchestration mode. Most platform updates with general purpose SKUs are performed with Live Migration and do not require instance reboot. On the occasion that a platform maintenance requires instances to be rebooted, updates are applied fault domain by fault domain.  
     

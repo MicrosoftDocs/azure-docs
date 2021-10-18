@@ -35,7 +35,7 @@ This article steps through using Azure portal to create a virtual machine scale 
 1. Finish creating your scale set. See [create a scale set in the Azure portal](../virtual-machine-scale-sets/quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
 
 
-### Next, add a virtual machine to the scale set in Flexible orchestration mode.
+### (Optional) Add a virtual machine to the scale set in Flexible orchestration mode.
 
 1. In the search bar, search for and select **Virtual machines**.
 1. Select **Add** on the **Virtual machines** page.
