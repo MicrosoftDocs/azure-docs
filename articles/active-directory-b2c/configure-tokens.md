@@ -1,16 +1,16 @@
 ---
-title: Configure tokens - Azure Active Directory B2C | Microsoft Docs
+title: Configure tokens - Azure Active Directory B2C  
 description: Learn how to configure the token lifetime and compatibility settings in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -154,10 +154,10 @@ To change the settings on your token compatibility, you set the [Token Issuer](j
     </ClaimType>
     ```
 
-    In your **OutputClaims** element, add this element:
+    In your [relying party policy](relyingparty.md), under the **OutputClaims** element, add the following output claim:
 
     ```xml
-    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
     ```
 
     For ACR, remove the **AuthenticationContextReferenceClaimPattern** item.
