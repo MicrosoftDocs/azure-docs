@@ -225,8 +225,8 @@ The following table shows the various Environment Variables used by the IoT Edge
 | OMP_WAIT_POLICY | PASSIVE | **Do not modify**|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
 | ARCHON_TELEMETRY_IOTHUB | true | Set this value to true to send the telemetry events to IoT Hub |
-| BILLING | your Endpoint URI| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource.|
-| APIKEY | your API Key| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource. |
+| BILLING | your Endpoint URI| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Keys and Endpoint** blade for your resource.|
+| APIKEY | your API Key| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Keys and Endpoint** blade for your resource. |
 | LAUNCHER_TYPE | avaBackend | **Do not modify** |
 | ARCHON_GRAPH_READY_TIMEOUT | 600 | Add this environment variable if your GPU is **not** T4 or  NVIDIA 2080 Ti|
 
@@ -235,10 +235,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 
 ### Gathering Keys and Endpoint URI
 
-A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.  
-
-> [!Note]
-> You will need this key and endpoint URI in your deployment manifest files to deploy the `spatialanalysis` container.
+An API key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the key and the endpoint URI that is needed by the `spatialAnalysis` container.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/keys-endpoint.png" alt-text="Endpoint URI":::
