@@ -188,3 +188,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Go to Quatrix Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Quatrix tile in the My Apps, this will redirect to Quatrix Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access).
+
+## Next steps
+
+Once you configure Quatrix, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
