@@ -82,4 +82,4 @@ You may provide your own terms and conditions instead of using the standard cont
 
 ## Next steps
 
-- [Configure VM offer listing](azure-vm-create-listing.md)
+- [Configure VM offer listing](azure-vm-offer-listing.md)

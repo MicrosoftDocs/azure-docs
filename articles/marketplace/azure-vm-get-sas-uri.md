@@ -13,7 +13,7 @@ ms.date: 06/23/2021
 # Generate a SAS URI for a VM image
 
 > [!NOTE]
-> You don't need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) instructions.
+> You don't need a SAS URI to publish your VM. You can simply share an image in Parter Center. Refer to [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [Create a virtual machine using your own image](azure-vm-use-own-image.md) instructions.
 
 Generating SAS URIs for your VHDs has these requirements:
 
@@ -171,4 +171,4 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 
 - If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md)
 - [Sign in to Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935)
-- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)
+- [Create a virtual machine offer on Azure Marketplace](azure-vm-offer-setup.md)

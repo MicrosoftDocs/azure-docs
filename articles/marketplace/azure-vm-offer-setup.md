@@ -77,12 +77,11 @@ Select **Create** to generate the offer and continue. Partner Center opens the *
 
 ## Test drive (optional)
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads.
+[!INCLUDE [Test drives section](includes/test-drives.md)]
 
-> [!TIP]
-> A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
+For VM offers, Azure Resource Manager (ARM) deployment is the only test drive option available. The deployment template must contain all the Azure resources that comprise your solution. The various requirements to ensure proper test drive configuration are covered later in this series of VM topics in [Set up a virtual machine offer test drive](azure-vm-create-test-drive.md).
 
-To enable a test drive, select the **Enable a test drive** check box; this will enable test drive options in the left-nav menu. You will configure the test drive on those pages later.
+To enable a test drive, select the **Enable a test drive** check box; this will enable a Test drive tab in the left-nav menu. You will configure and create the listing of your test drive using that tab later in [Set up a VM offer test drive](azure-vm-create-test-drive.md).
 
 With test drive, configuring a CRM for customer leads is required (see next section). To remove test drive from your offer, clear this check box.
 
@@ -94,5 +93,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure virtual machine offer properties](azure-vm-create-properties.md)
+- [Configure virtual machine offer properties](azure-vm-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

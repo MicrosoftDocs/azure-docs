@@ -27,4 +27,4 @@ If you made changes, select **Save draft** before continuing to the next tab in 
 
 ## Next steps
 
-- [Create plans](azure-vm-create-plans.md)
+- [Create plans](azure-vm-plan-overview.md)

@@ -200,25 +200,25 @@
     - name: Create the offer
       items:
       - name: Create the offer
-        href: azure-vm-create.md
+        href: azure-vm-offer-setup.md
       - name: Properties
-        href: azure-vm-create-properties.md
+        href: azure-vm-properties.md
       - name: Offer listing
-        href: azure-vm-create-listing.md
+        href: azure-vm-offer-listing.md
       - name: Preview audience
-        href: azure-vm-create-preview.md
+        href: azure-vm-preview-audience.md
       - name: Plans
-        href: azure-vm-create-plans.md
+        href: azure-vm-plan-overview.md
       - name: Resell through CSPs
-        href: azure-vm-create-resell-csp.md
+        href: azure-vm-resell-csp.md
       - name: Set up a test drive
-        href: azure-vm-create-test-drive.md
+        href: azure-vm-test-drive.md
     - name: Create technical assets
       items:
       - name: Create VM from an approved base
-        href: azure-vm-create-using-approved-base.md
+        href: azure-vm-use-approved-base.md
       - name: Create VM using your own image
-        href: azure-vm-create-using-own-image.md
+        href: azure-vm-use-own-image.md
       - name: Test a VM image
         href: azure-vm-image-test.md
       - name: Get SAS URI
@@ -226,9 +226,9 @@
       - name: SAS failure messages
         href: azure-vm-sas-failure-messages.md
       - name: VM creation FAQ
-        href: azure-vm-create-faq.yml
+        href: azure-vm-faq.yml
       - name: VM certification troubleshooting
-        href: azure-vm-create-certification-faq.yml
+        href: azure-vm-certification-faq.yml
   - name: Consulting services offer
     items: 
     - name: Plan the offer
