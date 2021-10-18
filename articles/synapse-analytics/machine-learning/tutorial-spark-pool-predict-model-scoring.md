@@ -424,14 +424,31 @@ Step6) Bind model in spark session
     ).register()
 ```
 
-```PYSPARK
-   # Read data from ADLS
-   
-```
+Step7) Load test data from ADLS
 
 ```PYSPARK
-   # Read data from ADLS
+   # Load data from ADLS
+
+   df = spark.read \
+       .format("csv") \
+       .option("header", "true") \
+       .csv(DATA_FILE,
+           inferSchema=True)
+   df = df.select(df.columns[:9])
+   df.createOrReplaceTempView('data')
+   df.show(10)
+```
+
+Step8) Call PREDICT to generate score
+
+```PYSPARK
+   # Call PREDICT
    
+   predictions = spark.sql(
+                     """
+                         SELECT PREDICT('sklearn_linear_regression', *) AS predict FROM data
+                     """
+                 ).show()
 ```
 
 
