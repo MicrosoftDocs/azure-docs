@@ -46,8 +46,8 @@ To learn how to add permissions on each resource type within a subscription or r
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
+- [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md#set-up-authentication-for-a-scan)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#set-up-authentication-for-a-scan)
  
 ## Register multiple sources
 
