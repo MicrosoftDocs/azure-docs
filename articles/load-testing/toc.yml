@@ -19,14 +19,7 @@
     - name: Automate with GitHub Actions
       href: tutorial-continuous-regression-testing-cicd-github-actions.md
     - name: Automate with Azure Pipelines
-- name: Reference
-  items: 
-    - name: CLI 
-      items: 
-        - name: Train models with CLI (v2)
-          href: ../machine-learning/how-to-train-cli.md
-        - name: Access resources with managed endpoints
-          href: ../machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md
+      href: tutorial-continuous-regression-testing-cicd-github-actions.md
 - name: How-tos
   expanded: true
   items: 
