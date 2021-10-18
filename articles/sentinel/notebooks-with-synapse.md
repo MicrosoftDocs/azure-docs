@@ -147,11 +147,11 @@ Azure Sentinel provides the built-in **Azure Synapse - Detect potential network 
     %synapse stop
     ```
 
-1. Export your JSON file with your query results from Azure Data Lake Storage to a local file system. For example, you can use this data for additional analysis, visualizations, and so on.
+1. Export your JSON file with your query results from Azure Data Lake Storage to a local file system. For example, you can use this data for more analysis, visualizations, and so on.
 
     Use the code in the **Export results from ADLS to local filesystem**, **Download the files from ADLS**, and **Display results** steps to save your JSON file locally and view them.
 
-1. After you've saved your results locally, you can enrich them with extra data and run visualizations. For example, the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook provides additional steps:
+1. After you've saved your results locally, you can enrich them with extra data and run visualizations. For example, the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook provides extra steps, to take the following actions:
 
     - Enrich results with IP address geolocation, WhoIs, and other threat intelligence data, in order to detect any potential network beaconing.
     - Run MSTICPy visualizations to map locations while looking at the distribution of remote network connections or other events.
@@ -196,9 +196,9 @@ lookback_days = 21 # fill in lookback days if you want to run it on historical d
 
 By default, the big data queries run in Azure Synapse run on data from the current day. For example, if you are interested in data from a specific date, specify November 15, 2021 as the current date, and the query will run only on data from November 15, 2021.
 
-To define a longer time scope for your query, in addition to the current date, define a lookback parameter. For example, if the `lookback_days` parameter is set to `21` days, and the `end_date` parameter is set to `2021-11-17`, the query will look at data for the 21 days, counting back from November 17th, 2021.
+To define a longer time scope for your query, in addition to the current date, define a lookback parameter. For example, if the `lookback_days` parameter is set to `21` days, and the `end_date` parameter is set to `2021-11-17`, the query will look at data for the 21 days, counting back from November 17, 2021.
 
-In the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook, you'll find this in the **Data preparation step**.
+In the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook, you'll find this code in the **Data preparation step**.
 
 For example:
 
@@ -208,7 +208,7 @@ end_date = "2021-11-17>"  # fill in your input date
 lookback_days = "21" # fill in lookback days if you want to run it on historical data. Make sure you have historical data available in ADLS
 ```
 
-In the example above, the queries will run on data between October 28th - November 17, 2021.
+In the example above, the queries will run on data between October 28 - November 17, 2021.
 
 ### Stop an Azure Synapse session from within Azure Sentinel
 
