@@ -65,6 +65,9 @@ Include the SDK in your app, so it can gather data.
 
 5. Start automatically collecting and sending data by calling `appInsights.start();`.
 
+> [!NOTE]
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
+
 ### <a name="monitor"></a> Monitor your app
 
 The SDK automatically gathers telemetry about the Node.js runtime and some common third-party modules. Use your application to generate some of this data.

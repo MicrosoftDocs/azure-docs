@@ -258,7 +258,7 @@ def analyze_layout():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-document", formUrl)
+            "prebuilt-layout", formUrl)
     result = poller.result()
 
     for idx, style in enumerate(result.styles):
@@ -305,7 +305,7 @@ def format_bounding_box(bounding_box):
 
 def analyze_invoice():
 
-    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
     document_analysis_client = DocumentAnalysisClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
