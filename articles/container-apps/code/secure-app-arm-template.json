@@ -3,15 +3,12 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "North Central US (Stage)",
             "type": "String"
         },
         "environment_id": {
-            "defaultValue": "",
             "type": "String"
         },
         "queue-connection-string": {
-            "defaultValue": "",
             "type": "String"
         }
     },
@@ -20,7 +17,7 @@
     {
         "name": "queuereader",
         "type": "Microsoft.Web/containerApps",
-        "apiVersion": "2021-02-01",
+        "apiVersion": "2021-03-01",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {
@@ -36,16 +33,16 @@
             "template": {
                 "containers": [
                     {
-                        "image": "demos/queuereader:v1",
-                        "name": "queuereader",
+                        "image": "myregistry/myQueueApp:v1",
+                        "name": "myQueueApp",
                         "env": [
                             {
                                 "name": "QueueName",
-                                "value": "demoqueue"
+                                "value": "myqueue"
                             },
                             {
-                                "secretref": "queue-connection-string",
-                                "name": "connection-string"
+                                "name": "ConnectionString",
+                                "secretref": "queue-connection-string"
                             }
                         ]
                     }

@@ -109,6 +109,8 @@ In this example, the application connection string is declared as `queue-connect
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authorization configuration uses the `queue-connection-string` as a connection is established.
 
+We recommend passing the secret value as an ARM parameter as shown in this example so that your secrets aren't committed to source control with your ARM template.
+
 # [Azure CLI](#tab/azure-cli)
 
 In this example, you create an application with a secret that's referenced in an environment variable using the Azure CLI.
@@ -116,11 +118,11 @@ In this example, you create an application with a secret that's referenced in an
 ```bash
 az containerapp create \
   --resource-group "my-resource-group" \
-  --name queuereader \
+  --name myQueueApp \
   --environment "my-environment-name" \
-  --image demos/queuereader:v1 \
+  --image demos/myQueueApp:v1 \
   --secrets "queue-connection-string=$CONNECTIONSTRING" \
-  --environment-variables "QueueName=demoqueue,connection-string=secretref:queue-connection-string"
+  --environment-variables "QueueName=myqueue,ConnectionString=secretref:queue-connection-string"
 ```
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
