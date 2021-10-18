@@ -2,7 +2,7 @@
 title: Attach disk pools to Azure VMware Solution hosts (Preview)
 description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud. Once the datastore is configured, you can create volumes on it and attach them to your VMware instance.
 ms.topic: how-to 
-ms.date: 08/20/2021
+ms.date: 11/01/2021
 
 #Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.  
 
@@ -10,7 +10,7 @@ ms.date: 08/20/2021
 
 # Attach disk pools to Azure VMware Solution hosts (Preview)
 
-[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environments to disk storage for the secondary site. To scale storage independent of the Azure VMware Solution hosts, we support surfacing [ultra disks](../virtual-machines/disks-types.md#ultra-disk) and [premium SSD](../virtual-machines/disks-types.md#premium-ssd) as the datastores.  
+[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environments to disk storage for the secondary site. To scale storage independent of the Azure VMware Solution hosts, we support surfacing [ultra disks](../virtual-machines/disks-types.md#ultra-disks) and [premium SSD](../virtual-machines/disks-types.md#premium-ssds) as the datastores.  
 
 >[!IMPORTANT]
 >Azure disk pools on Azure VMware Solution (Preview) is currently in public preview.
@@ -50,6 +50,8 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 >[!IMPORTANT]
 >While in **Public Preview**, only attach a disk pool to a test or non-production cluster.
+
+# [Azure CLI](#tab/azure-cli)
 
 1. Check if the subscription is registered to `Microsoft.AVS`.
 
@@ -107,7 +109,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension add --name vmware
       ```
 
-4. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a vNet through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
+4. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
 
    ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
@@ -132,6 +134,36 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
    ```
+
+# [Portal](#tab/azure-portal)
+
+### Preview registration
+
+First, register your subscription to the Microsoft.AVS and CloudSanExperience.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select **Subscriptions**.
+1. Select the subscription you want to use and select **Resource providers** under **Settings**.
+1. Search for **Microsoft.AVS**, select it, and select **Register**.
+1. Select **Preview features** under **Settings**.
+1. Search for and register **CloudSanExperience**.
+
+### Connect your disk pool
+
+Now that your subscription has been properly registered, you can connect your disk pool to your Azure VMware Solution private cloud cluster.
+
+> [!IMPORTANT]
+> Your disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool resource provider. If the subnet isn't delegated, the deployment fails. See blank for details.
+
+1. Navigate to your Azure VMware Solution.
+1. Select **Storage (preview)** under **Manage**.
+1. Select **Connect a disk pool**.
+1. Select your disk pool, as well as your client cluster.
+1. Enable your LUNs (if any) and select **Connect**.
+
+:::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool.png" alt-text="Screenshot of the connect a disk pool experience." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool.png":::
+
+---
 
 ## Delete an iSCSI datastore from your private cloud
 
