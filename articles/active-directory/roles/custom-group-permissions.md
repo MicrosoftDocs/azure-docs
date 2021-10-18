@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/06/2021
+ms.date: 10/18/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
