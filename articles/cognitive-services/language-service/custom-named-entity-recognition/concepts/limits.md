@@ -40,7 +40,7 @@ Use this article to learn about the data and service limits when using Custom NE
 > [!NOTE]
 > If you need to send larger files than the limit allows, you can break the text into smaller chunks of text before sending them to the API. You can use the [Chunk command from CLUtils](https://github.com/microsoft/CogSLanguageUtilities/tree/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ChunkCommand) for this process.
 
-## Text analytics resource
+## Azure resource limits
 
 * You can only connect 1 storage account per resource. This process is irreversible. If you connect a storage account to your resource, you cannot unlink it later.
 
@@ -48,7 +48,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Project names have to be unique within the same resource across both custom NER and [custom classification](../../custom-classification/overview.md).
 
-## Project
+## Project limits
 
 * You can only connect 1 storage container for each project. This process is irreversible. If you connect a container to your project, you cannot disconnect it later.
 
@@ -56,7 +56,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You cannot rename your project after creation.
 
-* You must have minimum of 10 files in your project for the [model evaluation](../how-to/view-model-evaluation.md) process to be successful.
+* You must have minimum of 10 tagged files in your project and a maximum of 100,000 files.
 
 * You can have up to 10 trained models per project.
 
@@ -66,11 +66,11 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can only train one model at a time per project.
 
-## Entity
+## Entity limits
 
-* Your tagged entity is recommended to be 10 words but the maximum allowed is 100 characters.
+* Your tagged entity is recommended not to exceed 10 words but the maximum allowed is 100 characters.
 
-* You should have at least 1 entity in your project and the maximum is 200 entities.
+* You must have at least 1 entity type in your project and the maximum is 200 entity types.
 
 * It is recommended to have around 200 tagged instances per entity and you must have a minimum of 10 of tagged instances per entity.
 

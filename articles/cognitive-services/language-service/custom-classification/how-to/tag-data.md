@@ -84,7 +84,7 @@ Your tags file should be in the `json` format below.
 ```json
 {
   //List of intent names. Their index within this array is used as an ID.
-  "intentNames": [
+  "classNames": [
       "intent_name1",
       "intent_name2"
   ],
@@ -92,7 +92,7 @@ Your tags file should be in the `json` format below.
       {
           "location": "path to document", //Relative file path to get the text.
           "culture": "en-US", //Standard culture strings supported by CultureInfo
-          "intents": [
+          "classes": [
               0,
               3
           ]
@@ -103,14 +103,14 @@ Your tags file should be in the `json` format below.
 
 ### Data description
 
-* `intentNames`: An array of classes. Index of the class within the array is used as its ID.
+* `classNames`: An array of classes. Index of the class within the array is used as its ID.
 * `documents`: An array of tagged documents. For example:
     * `file.txt` For documents on the same level as the tags file. 
     * `dir1/file.txt` For documents within a directory level. 
     *  `../file.txt` For documents one directory level above.
 * `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
 * `culture`: Culture/language of the document. Use one of the [supported culture locales](../language-support.md).
-* `intents`: Array of classes assigned to the document. If you're working on a single classification project, this value must be one item only.
+* `classes`: Array of classes assigned to the document. If you're working on a single classification project, array should only contain one value only.
 
 ## Next Steps
 
