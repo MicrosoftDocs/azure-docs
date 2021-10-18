@@ -163,7 +163,7 @@ The **Application Dashboard** shows the overall information for each of your app
 
    :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg" alt-text="AppDynamics screenshot showing the Application Dashboard for the example customers-service app" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service.jpg":::
 
-The following screenshot shows the how you can get basic information from the **Database Calls** dashboard.
+The following screenshot shows how you can get basic information from the **Database Calls** dashboard.
 
 :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg" alt-text="AppDynamics screenshot showing the Database Calls dashboard" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customer-service-db-calls.jpg":::
 
@@ -208,7 +208,7 @@ The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upg
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
-For VNet injection instances of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
+For VNet injection instances of Azure Spring Cloud, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
 
 ## Limitations
 
