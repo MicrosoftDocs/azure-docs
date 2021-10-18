@@ -35,21 +35,19 @@ A resource's `properties` object has the following properties:
 | Property | Description | Data type | Read only |
 |---|---|---|---|
 | `provisioningState` | The state of a long running operation, for example when new container revision is created. Possible values include: provisioning, provisioned, failed. Check if app is up and running. | string | Yes |
-| `kubeEnvironmentId` | The environment ID for your container app. **This is a required property.** | string | No |
+| `environmentId` | The environment ID for your container app. **This is a required property.** | string | No |
 | `latestRevisionName` | The name of the latest revision. | string | Yes |
 | `latestRevisionFqdn` | The latest revision's URL. | string | Yes |
 
-The `kubeEnvironmentId` value takes the following form:
+The `environmentId` value takes the following form:
 
 ```console
-/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/kubeEnvironments/<ENVIRONMENT_NAME>
+/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/environmentId/<ENVIRONMENT_NAME>
 ```
 
 In this example, you put your values in place of the placeholder tokens surrounded by `<>` brackets.
 
 ## properties.configuration
-
-Changes made to the configuration are an application-scope change. Does not create new revisions.
 
 A resource's `properties.configuration` object has the following properties:
 
@@ -60,9 +58,9 @@ A resource's `properties.configuration` object has the following properties:
 | `ingress` | Object that defines public accessibility configuration of a container app. | object |
 | `registries` | Configuration object that references credentials for private container registries. Entries defined with `secretref` reference the secrets configuration object. | object |
 
-## properties.template
+Changes made to the `configuration` section are [application-scope changes](overview.md), which doesn't trigger a new revision.
 
-Changes made to the configuration are an revision-scope change. Does create new revisions.
+## properties.template
 
 A resource's `properties.template` object has the following properties:
 
@@ -72,6 +70,8 @@ A resource's `properties.template` object has the following properties:
 | `containers` | Configuration object that defines what container images are included in the container app. | object |
 | `scale` | Configuration object that defines scale rules for the container app. | object |
 | `dapr` | Configuration object that defines the Dapr settings for the container app. | object  |
+
+Changes made to the `template` section are [revision-scope changes](overview.md), which triggers a new revision.
 
 ## Example
 
