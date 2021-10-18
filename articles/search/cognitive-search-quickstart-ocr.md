@@ -47,11 +47,13 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 1. Upload the sample data to a blob container.
 
    1. Sign in to the [Azure portal](https://portal.azure.com/) and find your storage account.
-   1. In the left nave pane, select **Containers**.
+   1. In the left navigation pane, select **Containers**.
    1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) named "signs". Use the default public access level.
    1. In the "signs" container, select **Upload** to upload the files from your local **unsplash-images\jpg-signs** folder.
 
-You should have 10 files containing photographs of signs. There is a second subfolder that includes landmark buildings. If your search service is Basic or above, include the second set of files if you want to evaluate image analysis on files that do not include pictures of text.
+You should have 10 files containing photographs of signs.
+
+There is a second subfolder that includes landmark buildings. If you want to [attach a Cognitive Services key](cognitive-search-attach-cognitive-services.md), you can include these files as well to see how image analysis works over image files that do not include embedded text. The key is necessary for jobs that exceed the free allotment.
 
 You are now ready to move on the Import data wizard.
 

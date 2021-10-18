@@ -3,7 +3,7 @@ title: Azure Defender for DNS - the benefits and features
 description: Learn about the benefits and features of Azure Defender for DNS
 author: memildin
 ms.author: memildin
-ms.date: 08/18/2021
+ms.date: 10/11/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -12,12 +12,9 @@ manager: rkarlin
 
 # Introduction to Azure Defender for DNS
 
-[Azure DNS](../dns/dns-overview.md) is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
+Azure Defender for DNS provides an additional layer of protection for resources that use Azure DNS's [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) capability. 
 
-Azure Defender for DNS provides an additional layer of protection for your resources that are connected to Azure DNS by:
-
-- continuously monitoring all DNS queries from your Azure resources
-- running advanced security analytics to alert you about suspicious activity
+From within Azure DNS, Defender for DNS monitors the queries from these resources and detects suspicious activities without the need for any additional agents on your resources.
 
 ## Availability
 
@@ -30,12 +27,12 @@ Azure Defender for DNS provides an additional layer of protection for your resou
 
 ## What are the benefits of Azure Defender for DNS?
 
-Azure Defender for DNS protects resources that are connected to Azure DNS against issues including:
+Azure Defender for DNS detects suspicious and anomalous activities such as:
 
-- Data exfiltration from your Azure resources using DNS tunneling
-- Malware communicating with C&C server
-- Communication with malicious domains as phishing and crypto mining
-- DNS attacks - communication with malicious DNS resolvers 
+- **Data exfiltration** from your Azure resources using DNS tunneling
+- **Malware** communicating with command and control servers
+- **DNS attacks** - communication with malicious DNS resolvers 
+- **Communication with domains used for malicious activities** such as phishing and crypto mining
 
 A full list of the alerts provided by Azure Defender for DNS is on the [alerts reference page](alerts-reference.md#alerts-dns).
 

@@ -25,7 +25,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
 |[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
-|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
+|[Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
 |[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
@@ -49,7 +49,7 @@ The two tabs below show the features of Azure Security Center that are available
 | [Fileless security alerts](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | Yes                               |
 | [Network-based security alerts](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
 | [Just-in-time VM access](security-center-just-in-time.md)                                                                 | ✔                                                                                                              | -                                    | -                              | Yes                               |
-| [Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
+| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
 | [File integrity monitoring](security-center-file-integrity-monitoring.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
 | [Adaptive application controls](security-center-adaptive-application.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
 | [Network map](security-center-network-recommendations.md#network-map)                                                     | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
@@ -88,8 +88,13 @@ For information about when recommendations are generated for each of these prote
 | Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
 | McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
 | McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
+| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup>  | Linux (preview)                                        | Via extension                | No                        |  
 | Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
 |                                                           |                                                        |                              |                           |
+
+<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the AV component is active.
+By default, the AV component is **disabled** to avoid clashes with other AV software.
+
 
 
 
@@ -129,7 +134,7 @@ For information about when recommendations are generated for each of these prote
 | - [Adaptive application controls](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
 | - [Adaptive network hardening](./security-center-adaptive-network-hardening.md)                                                                           | GA             | Not Available                  | Not Available |
 | - [Docker host hardening](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
-| - [Integrated vulnerability assessment for machines](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Not Available                  | Not Available |
+| - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Not Available                  | Not Available |
 | - [Regulatory compliance dashboard & reports](./security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
 | - [Microsoft Defender for Endpoint deployment and integrated license](./security-center-wdatp.md)                                                         | GA             | GA                             | Not Available |
 | - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                      | GA             | Not Available                  | Not Available |

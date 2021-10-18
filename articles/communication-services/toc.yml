@@ -150,10 +150,28 @@ items:
   - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
-    href: concepts/teams-interop.md
+    items:
+      - name: Overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Service Events (EventGrid)
-    href: ../event-grid/event-schema-communication-services.md
-    maintainContext: true
+    items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: Chat Events
+        href: ../event-grid/communication-services-chat-events.md
+        maintainContext: true
+      - name: Telephony and SMS Events
+        href: ../event-grid/communication-services-telephony-sms-events.md
+        maintainContext: true
+      - name: Voice and video calling Events
+        href: ../event-grid/communication-services-voice-video-events.md
+        maintainContext: true
+      - name: Presence Events
+        href: ../event-grid/communication-services-presence-events.md
+        maintainContext: true
   - name: Logging and diagnostics
     href: concepts/logging-and-diagnostics.md
   - name: Metrics

@@ -2,14 +2,14 @@
 title: Tutorial - Create user flows and custom policies - Azure Active Directory B2C
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/18/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -222,8 +222,11 @@ Next, expose the API by adding a scope:
 Next, specify that the application should be treated as a public client:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. Ensure that **"allowPublicClient": true** is set in the application manifest. 
+1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
+1. Ensure that **"allowPublicClient": true** is set in the application manifest:
+    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+    1. Find **allowPublicClient** key and ensure its value is set to **true**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
@@ -251,6 +254,7 @@ Custom policies are a set of XML files you upload to your Azure AD B2C tenant to
 Each starter pack contains:
 
 - **Base file** - Few modifications are required to the base. Example: *TrustFrameworkBase.xml*
+- **Localization file** - This file is where localization changes are made. Example: *TrustFrameworkLocalization.xml*
 - **Extension file** - This file is where most configuration changes are made. Example: *TrustFrameworkExtensions.xml*
 - **Relying party files** - Task-specific files called by your application. Examples: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
@@ -285,10 +289,11 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 1. Select **Upload custom policy**.
 1. In this order, upload the policy files:
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 
