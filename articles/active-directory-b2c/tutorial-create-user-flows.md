@@ -2,14 +2,14 @@
 title: Tutorial - Create user flows and custom policies - Azure Active Directory B2C
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/12/2021
-ms.author: mimart
+ms.date: 10/18/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -49,7 +49,7 @@ A user flow lets you determine how users interact with your application when the
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 - [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
-- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the rest of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
+
 
 ::: zone-end
 
@@ -167,16 +167,6 @@ If you want to enable users to edit their profile in your application, you use a
 1. For **Key usage**, select **Encryption**.
 1. Select **Create**.
 
-### Create the Facebook key
-
-Add your Facebook application's [App Secret](identity-provider-facebook.md) as a policy key. You can use the App Secret of the application you created as part of this article's prerequisites.
-
-1. Select **Policy Keys** and then select **Add**.
-1. For **Options**, choose `Manual`.
-1. For **Name**, enter `FacebookSecret`. The prefix `B2C_1A_` might be added automatically.
-1. In **Secret**, enter your Facebook application's *App Secret* from developers.facebook.com. This value is the secret, not the application ID.
-1. For **Key usage**, select **Signature**.
-1. Select **Create**.
 
 ## Register Identity Experience Framework applications
 
@@ -222,8 +212,11 @@ Next, expose the API by adding a scope:
 Next, specify that the application should be treated as a public client:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. Ensure that **"allowPublicClient": true** is set in the application manifest. 
+1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
+1. Ensure that **"allowPublicClient": true** is set in the application manifest:
+    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+    1. Find **allowPublicClient** key and ensure its value is set to **true**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
@@ -232,10 +225,9 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for (your tenant name)**.
-1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
-1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scopes - offline_access, openid and user_impersonation. It might take a few minutes for the permissions to propagate.
+1. Select **Grant admin consent for *<your tenant name)>***.
+1. Select **Yes**.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scope.
 
 * * *
 
@@ -303,14 +295,35 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 1. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered.
 1. Make sure that the **Reply URL** is `https://jwt.ms`.
 1. Select **Run now**.
-1. Sign up using an email address.
+1. Sign up using an email address. Don't use **Facebook** option yet. 
 1. Select **Run now** again.
 1. Sign in with the same account to confirm that you have the correct configuration.
 
 ## Add Facebook as an identity provider
 
-As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for using custom policies, but is used here to demonstrate how you can enable federated social login in a custom policy.
+The **SocialAndLocalAccounts** starter pack includes Facebook social sign in. Facebook is *not* required for using custom policies, but we use it here to demonstrate how you can enable federated social login in a custom policy.
 
+### Create Facebook application
+
+Use the steps outlined in [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application) to obtain Facebook *App ID* and *App Secret*. Skip the prerequisites and the rest of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. 
+
+### Create the Facebook key
+
+Add your Facebook application's [App Secret](identity-provider-facebook.md) as a policy key. You can use the App Secret of the application you created as part of this article's prerequisites.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. On the overview page, under **Policies**, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. For **Name**, enter `FacebookSecret`. The prefix `B2C_1A_` might be added automatically.
+1. In **Secret**, enter your Facebook application's *App Secret* from developers.facebook.com. This value is the secret, not the application ID.
+1. For **Key usage**, select **Signature**.
+1. Select **Create**.
+
+### Update TrustFrameworkExtensions.xml in custom policy starter pack
 1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
 
    ```xml

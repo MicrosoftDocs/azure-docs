@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/05/2021
+ms.date: 10/15/2021
 ---
 
 # Maintenance window (Preview)
@@ -61,7 +61,6 @@ Maintenance notifications can be configured to alert you on upcoming planned mai
 ### Supported service level objectives
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
-* Hyperscale 
 * Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 
