@@ -37,6 +37,7 @@ The following table describes the table columns in the device inventory.
 | **Groups** | Groups in which this device participates. |
 | **Last Activity** | The last activity that the device performed. |
 | **Discovered** | When this device was first seen in the network. |
+| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
 
 ## Integrate data into the enterprise device inventory
 

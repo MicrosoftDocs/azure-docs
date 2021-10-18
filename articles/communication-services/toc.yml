@@ -150,14 +150,34 @@ items:
   - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
-    href: concepts/teams-interop.md
+    items:
+      - name: Overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Service Events (EventGrid)
-    href: ../event-grid/event-schema-communication-services.md
-    maintainContext: true
+    items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: Chat Events
+        href: ../event-grid/communication-services-chat-events.md
+        maintainContext: true
+      - name: Telephony and SMS Events
+        href: ../event-grid/communication-services-telephony-sms-events.md
+        maintainContext: true
+      - name: Voice and video calling Events
+        href: ../event-grid/communication-services-voice-video-events.md
+        maintainContext: true
+      - name: Presence Events
+        href: ../event-grid/communication-services-presence-events.md
+        maintainContext: true
   - name: Logging and diagnostics
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Azure Advisor
+    href: concepts/advisor-overview.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: How-to guides
@@ -172,7 +192,7 @@ items:
         href: how-tos/calling-sdk/record-calls.md
       - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
-      - name: Transcribe calls
+      - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Show active speakers
         href: how-tos/calling-sdk/dominant-speaker.md

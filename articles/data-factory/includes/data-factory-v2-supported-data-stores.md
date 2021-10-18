@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/22/2021
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ms.custom: include file
 ---
 

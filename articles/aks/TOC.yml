@@ -190,6 +190,8 @@
               href: spot-node-pool.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use WebAssembly System Interface (WASI) node pools
+              href: use-wasi-node-pools.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -213,7 +215,7 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
-        - name: Use Azure Ultra Disks (preview)
+        - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
         - name: CSI Storage Drivers
           items:
@@ -237,6 +239,8 @@
           href: load-balancer-standard.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
+        - name: Use an HTTP proxy (preview)
+          href: http-proxy.md
         - name: Ingress
           items:
             - name: Create a basic controller
@@ -388,6 +392,10 @@
                   href: open-service-mesh-nginx-ingress.md
                 - name: Configure observability using Prometheus, Grafana, and Jaeger
                   href: open-service-mesh-open-source-observability.md
+                - name: Customize OSM CLI experience
+                  href: open-service-mesh-customize-add-on-experience.md
+                - name: IP and port range exclusion
+                  href: open-service-mesh-ip-port-exclusion.md
             - name: Configure Azure Monitor
               href: open-service-mesh-azure-monitor.md
             - name: Troubleshoot OSM
