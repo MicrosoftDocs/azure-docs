@@ -25,7 +25,7 @@ Training is the process where the model learns from your [tagged data](tag-data.
 
 Before starting the training process, files in your dataset are divided into two sets at random: 
 
-* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model alongside with the tags file.
+* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model alongside the tags file.
 
 * The **test set** contains 20% of the files available in your dataset. This set is a blind set which means that it is not introduced to the model during training. Test set is later used to provide [evaluation](../how-to/view-model-evaluation.md) of the model. You can also view the correct and incorrect predictions for this set so that you can readjust the training data to [improve model](improve-model.md).
 
