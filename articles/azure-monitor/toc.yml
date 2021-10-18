@@ -1409,7 +1409,9 @@
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md 
+      href: app/azure-functions-supported-features.md
+    - name: Statsbeat
+      href: app/statsbeat.md
     - name: Release notes
       items:
       - name: Code-based monitoring SDKs
