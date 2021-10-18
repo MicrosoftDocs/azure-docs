@@ -706,7 +706,7 @@ This example shows what the configuration looks like when the logic app enables 
    "$connections": {
       "value": {
          "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/{connection-name}",
             "connectionName": "{connection-name}",
             "connectionProperties": {
                "authentication": {
@@ -727,7 +727,7 @@ This example shows what the configuration looks like when the logic app enables 
    "$connections": {
       "value": {
          "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/{connection-name}",
             "connectionName": "{connection-name}",
             "connectionProperties": {
                "authentication": {
@@ -756,7 +756,7 @@ This example shows what the configuration looks like when the logic app enables 
                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/<connector-name>"
             },
             "connection": {
-                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/<connection-name>"
+                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
             },
             "connectionRuntimeUrl": <connection-URL>,
             "authentication": { // Authentication with APIHub
