@@ -34,7 +34,7 @@ Content in Azure Sentinel includes any of the following types:
 - [Hunting queries](hunting.md) are used by SOC teams to proactively hunt for threats in Azure Sentinel
 - [Notebooks](notebooks.md) help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
 - [Watchlists](watchlists.md) support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue
-- [Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md) provide the ability to run automated investigations, remediations, and response scenarios in Azure Sentinel
+- [Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md) provide features for automated investigations, remediations, and response scenarios in Azure Sentinel
 
 Azure Sentinel *solutions* are packages of Azure Sentinel content or Azure Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Azure Sentinel.
 
@@ -65,7 +65,7 @@ Azure Sentinel solutions provide in-product discoverability, single-step deploym
 
 - **Integrations** include services or tools built using Azure Sentinel or Azure Log Analytics APIs that support integrations between Azure and existing customer applications, or migrate data, queries, and more, from those applications into Azure Sentinel.
 
-Solutions also provide the ability to install packages of content / multiple pieces of out-of-the-box content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
+You can also use solutions to install packages of out-of-the-box content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
 
 Use the Content hub to centrally discover and deploy solutions and out-of-the-box content in a scenario-driven manner.
 
@@ -91,16 +91,16 @@ Azure Sentinel out-of-the-box content can be applied with one or more of the fol
 | **IT Operations**| Products and services managing IT   |
 | **Migration**    | Migration enablement products, services, and               |
 | **Networking**   | Network products, services, and tools    |
-| **Platform**     | Azure Sentinel generic or framework components, Cloud infrastructure and platform|
+| **Platform**     | Azure Sentinel generic or framework components, Cloud infrastructure, and platform|
 | **Security - Others**   | Other security products and services with no other clear category           |
-| **Security - Threat Intelligence**  | Threat intelligence platforms, feeds, products and services        |
+| **Security - Threat Intelligence**  | Threat intelligence platforms, feeds, products, and services        |
 | **Security - Threat Protection**   | Threat protection, email protection, and XDR and endpoint protection products and services     |
-| **Security – 0-day Vulnerability**   | Specialized solutions for 0-day vulnerability attacks like [Nobelium](/azure/security/fundamentals/recover-from-identity-compromise) |
+| **Security – 0-day Vulnerability**   | Specialized solutions for zero-day vulnerability attacks like [Nobelium](/azure/security/fundamentals/recover-from-identity-compromise) |
 | **Security – Automation (SOAR)**   | Security automations, SOAR (Security Operations and Automated Responses), security operations, and incident response products and services.   |
 | **Security – Cloud Security** | CASB (Cloud Access Service Broker), CWPP (Cloud workload protection platforms), CSPM (Cloud security posture management and other Cloud Security products and services |
 | **Security – Information Protection**   | Information protection and document protection products and services|
 | **Security – Insider Threat**  | Insider threat and user and entity behavioral analytics (UEBA) for security products and services                |
-| **Security – Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention) and network packet capture   |
+| **Security – Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention), and network packet capture   |
 | **Security – Vulnerability Management** | Vulnerability management products and  services                    |
 | **Storage**      | File stores and file sharing products and services                 |
 | **Training and Tutorials**  | Training, tutorials, and onboarding assets |
@@ -130,7 +130,7 @@ Both Microsoft and other organizations author Azure Sentinel out-of-the-box cont
 
 - **Partner-supported**: Applies to content/solutions authored by parties other than Microsoft.
 
-    The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that content/solutions.
+    The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for the selected content/solutions.
 
     For any issues with a partner-supported solution, contact the specified support contact.
 
