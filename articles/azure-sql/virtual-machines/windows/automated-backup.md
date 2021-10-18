@@ -108,8 +108,9 @@ This means that the next available backup window is Monday at 10 PM for 6 hours.
 
 Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 
+
 > [!IMPORTANT]
-> When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
+> Backups happen sequentially during each interval. For instances with a large number of databases, schedule your backup interval with enough time to accommodate all backups. If backups cannot complete within the given interval, some backups may be skipped, and your time between backups for a single database may be higher than the configured backup interval time, which could negatively impact your restore point objective (RPO). 
 
 ## Configure new VMs
 
@@ -311,7 +312,7 @@ First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_dia
 Another option is to take advantage of the built-in Database Mail feature for notifications.
 
 1. Call the [msdb.managed_backup.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) stored procedure to assign an email address to the **SSMBackup2WANotificationEmailIds** parameter. 
-1. Enable [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) to send the emails from the Azure VM.
+1. Enable [SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) to send the emails from the Azure VM.
 1. Use the SMTP server and user name to configure Database Mail. You can configure Database Mail in SQL Server Management Studio or with Transact-SQL commands. For more information, see [Database Mail](/sql/relational-databases/database-mail/database-mail).
 1. [Configure SQL Server Agent to use Database Mail](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verify that the SMTP port is allowed both through the local VM firewall and the network security group for the VM.

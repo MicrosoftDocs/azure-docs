@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -137,7 +137,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           </ClaimType> 
 
-    <ClaimsSchema> 
+    </ClaimsSchema> 
     ```
 
 5. Configure self-asserted claims provider for the client session ID field.
@@ -171,7 +171,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
               <OutputClaims> 
 
-                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
+                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
 
               </OutputClaims> 
 
@@ -191,11 +191,11 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
 
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
           <Metadata> 
 
-            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item> 
+            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item>
 
             <Item Key="SendClaimsIn">Url</Item> 
 
@@ -244,48 +244,47 @@ document.getElementById("clientSessionId").style.display = 'none';
    1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
     ```XML
-    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
+    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
+            <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
 
-              </ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-            </OrchestrationStep> 
+        </OrchestrationStep> 
 
-            <OrchestrationStep Order="9" Type="ClaimsExchange"> 
+        <OrchestrationStep Order="9" Type="ClaimsExchange"> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
+            <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
 
-              </ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-            </OrchestrationStep> 
+        </OrchestrationStep> 
 
-            <OrchestrationStep Order="10" Type="ClaimsExchange"> 
+        <OrchestrationStep Order="10" Type="ClaimsExchange"> 
 
-              <Preconditions> 
+          <Preconditions> 
 
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
 
-                  <Value>riskLevel</Value> 
+              <Value>riskLevel</Value> 
 
-                  <Value>LOW</Value> 
+              <Value>LOW</Value> 
 
-                  <Action>SkipThisOrchestrationStep</Action> 
+              <Action>SkipThisOrchestrationStep</Action> 
 
-                </Precondition> 
+            </Precondition> 
 
-              </Preconditions> 
+          </Preconditions> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
+            <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
 
-              </ClaimsExchanges>  
-
+          </ClaimsExchanges>
     ```
 
 8. Configure on relying party configuration (optional)
@@ -295,54 +294,53 @@ document.getElementById("clientSessionId").style.display = 'none';
     ```XML
     <RelyingParty> 
 
-        <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
+    <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
 
-        <UserJourneyBehaviors> 
+    <UserJourneyBehaviors> 
 
-          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
 
-          <SessionExpiryType>Absolute</SessionExpiryType> 
+      <SessionExpiryType>Absolute</SessionExpiryType> 
 
-          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
 
-          <ScriptExecution>Allow</ScriptExecution> 
+      <ScriptExecution>Allow</ScriptExecution> 
 
-        </UserJourneyBehaviors> 
+    </UserJourneyBehaviors> 
 
-        <TechnicalProfile Id="PolicyProfile"> 
+    <TechnicalProfile Id="PolicyProfile"> 
 
-          <DisplayName>PolicyProfile</DisplayName> 
+      <DisplayName>PolicyProfile</DisplayName> 
 
-          <Protocol Name="OpenIdConnect" /> 
+      <Protocol Name="OpenIdConnect" /> 
 
-          <OutputClaims> 
+      <OutputClaims> 
 
-            <OutputClaim ClaimTypeReferenceId="displayName" /> 
+        <OutputClaim ClaimTypeReferenceId="displayName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="givenName" /> 
+        <OutputClaim ClaimTypeReferenceId="givenName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="surname" /> 
+        <OutputClaim ClaimTypeReferenceId="surname" /> 
 
-            <OutputClaim ClaimTypeReferenceId="email" /> 
+        <OutputClaim ClaimTypeReferenceId="email" /> 
 
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
 
-            <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
 
-            <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
+        <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
 
-            <OutputClaim ClaimTypeReferenceId="score" /> 
+        <OutputClaim ClaimTypeReferenceId="score" /> 
 
-            <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
 
-          </OutputClaims> 
+      </OutputClaims> 
 
-          <SubjectNamingInfo ClaimType="sub" /> 
+      <SubjectNamingInfo ClaimType="sub" /> 
 
-        </TechnicalProfile> 
+    </TechnicalProfile> 
 
-      </RelyingParty> 
-
+  </RelyingParty>
     ```
 
 ## Integrate with Azure AD B2C
@@ -350,24 +348,18 @@ document.getElementById("clientSessionId").style.display = 'none';
 Follow these steps to add the policy files to Azure AD B2C
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
-
-4. Navigate to **Azure AD B2C** > **Identity Experience Framework**
-
-3. Upload all the policy files to your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
+1. Navigate to **Azure AD B2C** > **Identity Experience Framework**
+1. Upload all the policy files to your tenant.
 
 ## Test the solution
 
 1. [Register a dummy application, which redirects to JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
-
-2. Under the **Identity Experience Framework**, select the policy you created
-
-3. In the policy window, select the dummy JWT.MS application, and select **run now**
-
-4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
+1. Under the **Identity Experience Framework**, select the policy you created
+1. In the policy window, select the dummy JWT.MS application, and select **run now**
+1. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
     ```JavaScript
     { 

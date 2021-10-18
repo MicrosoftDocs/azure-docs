@@ -1,19 +1,19 @@
 ---
 title: Share gallery images across tenants in Azure 
 description: Learn how to share VM images across Azure tenants using Shared Image Galleries and PowerShell.
-author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: akjosh
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 # Share gallery VM images across Azure tenants using PowerShell
 
-Shared Image Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](./shared-images-portal.md#share-the-gallery).
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+Shared Image Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](../share-gallery.md).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -80,4 +80,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Next steps
 
-You can also create shared image gallery resources using the [Azure portal](shared-images-portal.md).
+Create [shared image gallery resources](../image-version.md).

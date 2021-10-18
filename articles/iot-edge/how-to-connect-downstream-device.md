@@ -2,7 +2,7 @@
 title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
 description: How to configure downstream or leaf devices to connect to Azure IoT Edge gateway devices. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -190,7 +190,7 @@ On Windows hosts, if you're not using OpenSSL or another TLS library, the SDK de
 
 This section introduces a sample application to connect an Azure IoT Java device client to an IoT Edge gateway.
 
-1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
+1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples).
 2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 3. Refer to the SDK documentation for instructions on how to run the sample on your device.
 

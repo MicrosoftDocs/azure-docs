@@ -31,12 +31,14 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
-1. Select **Groups** > **All groups** > **New group**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Groups** > **All groups** > **New group**.
 
     [![Open Azure Active Directory and create a new group.](./media/groups-create-eligible/new-group.png "Open Azure Active Directory and create a new group.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
 1. On the **New Group** tab, provide group type, name and description.
+
 1. Turn on **Azure AD roles can be assigned to the group**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
 
     [![Make the new group eligible for role assignment](./media/groups-create-eligible/eligible-switch.png "Make the new group eligible for role assignment")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)

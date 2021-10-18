@@ -12,6 +12,8 @@ ms.author: kegorman
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This guide details information on deploying a highly available Oracle database on Azure. In addition, this guide dives into disaster recovery considerations. These architectures have been created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
 
 If you're interested in learning more about maximizing the performance of your Oracle database, see [Architect an Oracle DB](oracle-design.md).

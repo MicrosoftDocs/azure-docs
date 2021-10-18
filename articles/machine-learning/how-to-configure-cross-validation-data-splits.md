@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to configure dataset splits and cross-validation for automated machine learning experiments
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl
 ms.author: cesardl
@@ -40,6 +40,8 @@ For this article you need,
     * [About training, validation and test data in machine learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## Default data splits and cross-validation in machine learning
 

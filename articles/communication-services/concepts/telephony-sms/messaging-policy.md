@@ -8,15 +8,12 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-
 # Azure Communication Services Messaging Policy
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that take advantage of the same enterprise-grade services that back Microsoft Teams and Skype. Integrate SMS messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support. You just need to keep in mind a few messaging requirements to get started.
+Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that take advantage of the same enterprise-grade services that back Microsoft Teams and Skype. Integrate SMS messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support. You just need to keep in mind a few messaging requirements and industry standards to get started.
 
 We know that messaging requirements can seem daunting to learn, but they're as easy as remembering “COMS”:
 
@@ -99,7 +96,6 @@ While prior express consent is normally required before sending a message, there
  
 None of these messages may include solicitations or advertisements.
 
-
 ## Opt-out
 
 Message recipients may revoke consent and opt-out of receiving future messages through any reasonable means. You may not designate an exclusive means for message recipients to revoke consent. 
@@ -114,7 +110,6 @@ One of the most common opt-out mechanisms is to include a “STOP” keyword in 
 
 In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe on your webpage. 
 
-
 ### How we handle opt-out requests:
 
 If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/Prakulka/azure-docs-pr/blob/master/articles/communication-services/concepts/telephony-sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
@@ -127,9 +122,11 @@ Message content that includes elements of sex, hate, alcohol, firearms, tobacco,
 
 Even where such content is not unlawful, you should include an age verification mechanism at opt-in to age-gate the intended message recipient from adult content. In the United States, additional legal requirements apply to marketing communications directed at children under the age of 13. 
 
-### Prohibited content:
+### Prohibited practices:
 
-Azure Communication Services prohibits certain message content regardless of consent. Prohibited content includes:
+Both you and your customers are prohibited from using Azure Communication Services to evade reasonable opt-out requests. Additionally, you and your customers may not evade any measures implemented by Azure Communication Services or a communications service provider to ensure your compliance with messaging requirements and industry standards.
+
+Azure Communication Services also prohibits certain message content regardless of consent. Prohibited content includes:
 - Content that promotes unlawful activities (e.g., tax evasion or animal cruelty in the United States)
 - Hate speech, defamatory speech, harassment, or other speech determined to be patently offensive
 - Pornographic content
@@ -152,7 +149,7 @@ Spoofing is the act of causing a misleading or inaccurate originating number to 
 
 This Messaging Policy does not constitute legal advice, and we reserve the right to modify the policy at any time. Azure Communication Services is not responsible for ensuring that the content, timing, or recipients of our customers’ messages meet all applicable legal requirements. 
 
-Our customers are responsible for all messaging requirements. If you are a platform or software provider that uses Azure Communication Services for messaging purposes, then you should require that your customers also abide by all of the requirements discussed in this Messaging Policy. For further guidance, the CTIA provides helpful [Messaging Principles and Best Practices](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf).
+Our customers are responsible for all messaging requirements. If you are a platform or software provider that uses Azure Communication Services for messaging purposes, then you should require that your customers also abide by all of the requirements discussed in this Messaging Policy. For further guidance, the CTIA's [Messaging Principles and Best Practices](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf) provides a helpful overview of the relevant industry standards.
 
 ### Penalties:
 

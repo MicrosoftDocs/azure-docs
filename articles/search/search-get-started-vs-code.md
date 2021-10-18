@@ -4,7 +4,6 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search. 
 
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart

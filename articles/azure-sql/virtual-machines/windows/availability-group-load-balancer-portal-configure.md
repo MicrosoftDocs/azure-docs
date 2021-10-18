@@ -94,7 +94,7 @@ Azure calls the back-end address pool *backend pool*. In this case, the back-end
 
 4. On **Add backend pool**, under **Name**, type a name for the back-end pool.
 
-5. Under **Virtual machines**, select **Add a virtual machine**. 
+5. Under **Virtual machines**, select **Add a virtual machine**. Only add the primary IP address of the VM, do not add any secondary IP addresses. 
 
 6. Under **Choose virtual machines**, select **Choose an availability set**, and then specify the availability set that the SQL Server virtual machines belong to.
 
@@ -211,7 +211,7 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 ## Create an IP address for an additional availability group
 
-Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. After you create an availability group, add the IP address to the load balancer, and then configure the listener.
+Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. Add only the primary IP address of the VM to the back-end pool of the load balancer as the [secondary VM IP address does not support floating IP](/azure/load-balancer/load-balancer-floating-ip).
 
 To add an IP address to a load balancer with the Azure portal, do the following steps:
 

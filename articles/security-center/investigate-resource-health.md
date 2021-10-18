@@ -74,7 +74,7 @@ The resource health page lists the recommendations for which your resource is "u
 
 - To ensure your resource is hardened according to the policies applied to your subscriptions, fix the issues described in the recommendations:
     1. From the right pane, select a recommendation.
-    1. Proceed as instructed on screen.
+    1. Continue as instructed on screen.
 
         > [!TIP]
         > The instructions for fixing issues raised by security recommendations differ for each of Security Center's recommendations.

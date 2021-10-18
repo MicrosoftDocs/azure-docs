@@ -3,12 +3,9 @@ title: Pricing scenarios for Calling (Voice/Video) and Chat
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Pricing Model.
 author: nmurav
-manager: nmurav
-services: azure-communication-services
-
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Pricing Scenarios
@@ -73,10 +70,6 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
-> [!Note]
-> Azure Communication Services direct routing leg is not charged until 08/01/2021.
-
-
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
 Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
@@ -118,6 +111,35 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 - User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
 - User joining on Teams Desktop Application: $0 (covered by Teams license)
 
+
+## Call Recording
+
+Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](../quickstarts/voice-video-calling/call-recording-sample.md).
+
+### Price
+
+You're charged $0.01/min for mixed audio+video format and $0.002/min for mixed audio-only.
+
+### Pricing example: Record a call in a mixed audio+video format
+
+Alice made a group call with her colleagues, Bob and Charlie. 
+
+- The call lasts a total of 60 minutes. And recording was active during 60 minutes.
+- Bob stayed in a call for 30 minutes and Alice and Charlie for 60 minutes.
+
+**Cost calculations**
+- You will be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there is no one left in a meeting).
+- 60 minutes x $0.01 per recording per minute = $0.6
+
+### Pricing example: Record a call in a mixed audio+only format
+
+Alice starts a call with Jane. 
+
+- The call lasts a total of 60 minutes. The recording lasted for 45 minutes.
+
+**Cost calculations**
+- You will be charged the length of the recording. 
+- 45 minutes x $0.002 per recording per minute = $0.09
 
 ## Chat
 
@@ -189,10 +211,10 @@ The following prices include required communications taxes and fees:
 
 ### SMS
 
-SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
 
 The following prices include required communications taxes and fees:
 
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|
-|USA (Toll-free)    |$0.0075/msg   | $0.0075/msg |
+|USA (Toll-free)    |$0.0075/message segment  | $0.0075/message segment |

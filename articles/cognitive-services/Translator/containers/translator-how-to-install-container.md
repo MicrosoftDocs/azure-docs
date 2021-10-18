@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 10/14/2021
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -31,7 +31,7 @@ Translator container enables you to build a translator application architecture 
 
 To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-You'll also need the following to use Translator containers:
+You'll also need the following:
 
 | Required | Purpose |
 |--|--|
@@ -154,6 +154,8 @@ There are several ways to validate that the container is running:
 | `http://localhost:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
 :::image type="content" source="../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Container home page":::
+
+[!INCLUDE [Diagnostic container](../../containers/includes/diagnostics-container.md)]
 
 ## Text translation code samples
 

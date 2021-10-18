@@ -3,13 +3,11 @@ title: Release notes - Speech Service
 titleSuffix: Azure Cognitive Services
 description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
 services: cognitive-services
-author: oliversc
 manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
-ms.author: oliversc
 ms.custom: seodec18
 ---
 
@@ -33,11 +31,11 @@ ms.custom: seodec18
 
 #### New features
 
-- **C++**: Simple Language Pattern matching with the Intent Recognizer now makes it easier to [implement simple intent recognition scenarios](/azure/cognitive-services/speech-service/get-started-intent-recognition?pivots=programming-language-cpp).
+- **C++**: Simple Language Pattern matching with the Intent Recognizer now makes it easier to [implement simple intent recognition scenarios](./get-started-intent-recognition.md?pivots=programming-language-cpp).
 - **C++/C#/Java**: We added a new API, `GetActivationPhrasesAsync()` to the `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
     - **Important**: The Speaker Recognition feature is in Preview. All voice profiles created in Preview will be discontinued 90 days after the Speaker Recognition feature is moved out of Preview into General Availability. At that point the Preview voice profiles will stop functioning.
-- **Python**: Added [support for continuous Language Identification (LID)](/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-python) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. 
-- **Python**: Added a [new Python object](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python) named `SourceLanguageRecognizer` to do one-time or continuous LID (without recognition or translation). 
+- **Python**: Added [support for continuous Language Identification (LID)](./how-to-automatic-language-detection.md?pivots=programming-language-python) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. 
+- **Python**: Added a [new Python object](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer) named `SourceLanguageRecognizer` to do one-time or continuous LID (without recognition or translation). 
 - **JavaScript**: `getActivationPhrasesAsync` API added to `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
 - **JavaScript** `VoiceProfileClient`'s `enrollProfileAsync` API is now async awaitable. See [this independent identification code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js) for example usage.
 
@@ -107,10 +105,10 @@ ms.custom: seodec18
 
 - Linux and Android Speech SDK binaries have been updated to use the latest version of OpenSSL (1.1.1k)
 - Code Size improvements:
-	- Language Understanding is now split into a separate "lu" library.
-	- Windows x64 core binary size decreased by 14.4%.
-	- Android ARM64 core binary size decreased by 13.7%.
-	- other components also decreased in size.
+    - Language Understanding is now split into a separate "lu" library.
+    - Windows x64 core binary size decreased by 14.4%.
+    - Android ARM64 core binary size decreased by 13.7%.
+    - other components also decreased in size.
 
 #### Bug fixes
 
@@ -243,7 +241,7 @@ Stay healthy!
 **Custom Neural Voice GA**
 
 Custom Neural Voice is GA in February in 13 languages: Chinese (Mandarin, Simplified), English (Australia), English (India), English (United Kingdom), English (United States), French (Canada), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Mexico), and Spanish (Spain). Learn more about [what is Custom Neural Voice](custom-neural-voice.md) and [how to use it responsibly](concepts-guidelines-responsible-deployment-synthetic.md).
-Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft’s eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
+Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
 
 ## Speech SDK 1.15.0: 2021-January release
 
@@ -430,9 +428,9 @@ Download the latest version [here](./spx-basics.md). <br>
 ### New features
 
 * **Neural TTS**
-	* **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
-	* **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](language-support.md#neural-voices).
-	* **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+    * **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
+    * **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](language-support.md#neural-voices).
+    * **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
 
 * **Containers: Neural TTS Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural TTS](speech-container-howto.md)
 
@@ -602,7 +600,7 @@ Stay healthy!
     | `es-MX` | $1.58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
 
-    * Support for negative currency (like “-325 €” ) in following locales: `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA`.
+    * Support for negative currency (like "-325 &euro;" ) in following locales: `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA`.
 
 * Improved address reading in `pt-PT`.
 * Fixed Natasha (`en-AU`) and Libby (`en-UK`) pronunciation issues on the word "for" and "four".

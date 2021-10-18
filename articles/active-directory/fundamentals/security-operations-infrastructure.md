@@ -30,7 +30,7 @@ Monitoring and alerting the components of your authentication infrastructure is 
 
 We recommend all the components be considered Control Plane / Tier 0 assets, as well as the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for an Azure AD tenant.
 
-A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](https://docs.microsoft.com/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
+A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
 
 ## Where to look
 
@@ -40,7 +40,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -52,7 +52,7 @@ From the Azure portal you can view the Azure AD Audit logs and download as comma
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 The remainder of this article describes what you should monitor and alert on and is organized by the type of threat. Where there are specific pre-built solutions, you will find links to them following the table. Otherwise, you can build alerts using the preceding tools.
 
@@ -169,18 +169,18 @@ Azure AD uses Microsoft SQL Server Data Engine or SQL to store Azure AD Connect 
 
 | What to monitor| Where| Notes |
 | - | - | - |
-| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
+| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
 
 
 For information on what and how to monitor configuration information refer to:
 
-* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15).
+* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15). 
+* For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
 
@@ -210,7 +210,7 @@ For information on what and how to monitor configuration information refer to:
 
 
 
-* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1), which is part of the PowerShell reference documentation.
+* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 
 * For more information on configuring PowerShell logging for analysis by Splunk, refer to [Get Data into Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell).
 
@@ -282,4 +282,4 @@ See these additional security operations guide articles:
  
 
   
-‎ 
+‎

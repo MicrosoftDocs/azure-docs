@@ -3,12 +3,12 @@ title: Synchronize attributes to Azure Active Directory for mapping
 description: When configuring user provisioning with Azure Active Directory and SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/31/2021
+ms.date: 08/24/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

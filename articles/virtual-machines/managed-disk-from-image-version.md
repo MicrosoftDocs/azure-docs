@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell
 
 # Export an image version to a managed disk
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 You can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
 
 
@@ -114,6 +116,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## Next steps
 
-You can also create an image version from a managed disk using the [Azure CLI](image-version-managed-image-cli.md) or [PowerShell](image-version-managed-image-powershell.md).
+You can also create an [image version](image-version.md) from a managed disk.
 
 

@@ -13,7 +13,7 @@ ms.author: v-erkel
 You can modify storage targets with the Azure portal or by using the Azure CLI. For example, you can change access policies, usage models, and namespace paths for an existing storage target.
 
 > [!TIP]
-> Read [Manage storage targets](manage-storage-targets.md) to learn how to delete or suspend storage targets, or make them write cached data to back-end storage.
+> Read [View and manage storage targets](manage-storage-targets.md) to learn how to delete or suspend storage targets, or make them write cached data to back-end storage.
 
 Depending on the type of storage, you can modify these storage target values:
 
@@ -68,7 +68,7 @@ To change a blob storage target's namespace with the Azure CLI, use the command 
 
 For NFS storage targets, you can change or add virtual namespace paths, change the NFS export or subdirectory values that a namespace path points to, and change the usage model.
 
-Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [Manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [View and manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 Details are below:
 
@@ -174,6 +174,6 @@ The configuration for ADLS-NFS usage models is identical to the NFS usage model 
 
 ## Next steps
 
-* Read [Manage storage targets](manage-storage-targets.md) for information about stopping, deleting, and flushing individual storage targets.
+* Read [View and manage storage targets](manage-storage-targets.md) for information about stopping, deleting, and flushing individual storage targets.
 * Read [Add storage targets](hpc-cache-add-storage.md) to learn more about storage target options.
 * Read [Plan the aggregated namespace](hpc-cache-namespace.md) for more tips about using virtual paths.

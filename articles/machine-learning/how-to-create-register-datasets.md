@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning datasets to access your data for machine learning experiment runs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
@@ -49,7 +49,10 @@ To create and work with datasets, you need:
     * Work on your own Jupyter notebook and [install the SDK yourself](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7). If you are using unsupported distros, please follow [this guide](/dotnet/core/install/linux) to install .NET Core 2.1 to proceed. 
+> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. If you are developing on __Linux__, these classes rely on .NET Core 2.1, and are only supported on specific distributions. For more information on the supported distros, see the .NET Core 2.1 column in the [Install .NET on Linux](/dotnet/core/install/linux) article.
+
+> [!IMPORTANT]
+> While the package may work on older versions of Linux distros, we do not recommend using a distro that is out of mainstream support. Distros that are out of mainstream support may have security vulnerabilities, as they do not receive the latest updates. We recommend using the latest supported version of your distro that is compatible with .
 
 ## Compute size guidance
 
@@ -114,6 +117,8 @@ Use the [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.f
 If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to [use datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
+from azureml.core import Workspace, Datastore, Dataset
+
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
 datastore_paths = [(datastore, 'animals')]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
@@ -123,12 +128,22 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
              'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
-To reuse and share datasets across experiment in your workspace, [register your dataset](#register-datasets). 
 
-> [!TIP] 
-> Upload files from a local directory and create a FileDataset in a single method with the public preview method, [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). This method is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
-> 
->  This method uploads data to your underlying storage, and as a result incur storage costs. 
+If you want to upload all the files from a local directory, create a FileDataset in a single method with [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). This method uploads data to your underlying storage, and as a result incur storage costs. 
+
+```Python
+from azureml.core import Workspace, Datastore, Dataset
+from azureml.data.datapath import DataPath
+
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+ds = Dataset.File.upload_directory(src_dir='<path to you data>',
+           target=DataPath(datastore,  '<path on the datastore>'),
+           show_progress=True)
+
+```
+
+To reuse and share datasets across experiment in your workspace, [register your dataset](#register-datasets). 
 
 ### Create a TabularDataset
 
@@ -220,7 +235,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-**Labeled datasets** created from [data labeling projects](how-to-create-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
+**Labeled datasets** created from [image labeling projects](how-to-create-image-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
 
 ```python
 # Dataset that only contains records where the label column value is dog
@@ -315,36 +330,21 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 ## Create a dataset from pandas dataframe
 
-To create a TabularDataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. The following code demonstrates this workflow.
+To create a TabularDataset from an in memory pandas dataframe
+use the [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
 
 ```python
-# azureml-core of version 1.0.72 or higher is required
-# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Datastore, Dataset
+import pandas as pd
 
-from azureml.core import Workspace, Dataset
-local_path = 'data/prepared.csv'
-dataframe.to_csv(local_path)
+pandas_df = pd.read_csv('<path to your csv file>')
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+dataset = Dataset.Tabular.register_pandas_dataframe(pandas_df, datastore, "dataset_from_pandas_df", show_progress=True)
 
-# upload the local file to a datastore on the cloud
-
-subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
-resource_group = 'xxxxxx'
-workspace_name = 'xxxxxxxxxxxxxxxx'
-
-workspace = Workspace(subscription_id, resource_group, workspace_name)
-
-# get the datastore to upload prepared data
-datastore = workspace.get_default_datastore()
-
-# upload the local file from src_dir to the target_path in datastore
-datastore.upload(src_dir='data', target_path='data')
-
-# create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv'))])
 ```
-
 > [!TIP]
-> Create and register a TabularDataset from an in memory spark or pandas dataframe with a single method with public preview methods, [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods) and [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods). These register methods are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time. 
+> Create and register a TabularDataset from an in memory spark dataframe or a dask dataframe with the public preview methods, [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory##register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) and [`register_dask_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-dask-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-). These methods are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time. 
 > 
 >  These methods upload data to your underlying storage, and as a result incur storage costs. 
 
@@ -363,13 +363,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 There are many templates at [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) that can be used to create datasets.
 
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
-
-
-## Create datasets from Azure Open Datasets
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the studio.
-
-Learn how to create [Azure Machine Learning Datasets from Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md). 
+ 
 
 ## Train with datasets
 

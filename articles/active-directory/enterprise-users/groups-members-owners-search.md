@@ -4,13 +4,13 @@ description: Search and filter groups members and owners in the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 09/02/2021
 ms.author: curtand
 ms.reviewer: krbain
 

@@ -1,13 +1,11 @@
 ---
 title: Onboard a machine to Azure Automanage with an ARM template
 description: Learn how to onboard a machine to Azure Automanage with an Azure Resource Manager template.
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/09/2021
-ms.author: alsin
 ---
 
 # Onboard a machine to Automanage with an Azure Resource Manager (ARM) template
@@ -17,8 +15,9 @@ ms.author: alsin
 Follow the steps below to onboard a machine to Automanage Best Practices. The ARM template below will create a `configurationProfileAssignment` object, which is the Azure resource that represents a machine that has been onboarded to Automanage.
 
 ## Prerequisites
-* You must have created an existing Automanage Account. See [this document](./automanage-account.md) for more information on the Automanage Account and how to create one.
-* You must have the **Contributor** role on the resource group containing the machines you want to onboard to Automanage
+* You must have created an existing Automanage Account and assigned it the correct permissions. See [this document](./automanage-account.md) for more information on the Automanage Account and how to create one and assign permissions.
+* If you have an existing Automanage Account with permissions assigned, you must also have the **Contributor** role on the resource group containing the machines you want to onboard to Automanage.
+
 
 ## ARM template overview
 The following ARM template will onboard your specified machine onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the ARM template deployment section [below](#arm-template-deployment).

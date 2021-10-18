@@ -27,7 +27,9 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## Administration
 
-* If you get an access denied message when configuring entitlement management, and you are a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).
+* If you get an access denied message when configuring entitlement management, and you are a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Azure AD Premium P2 subscription, then it may take 8 hours for this license renewal to be visible.
+
+* If your tenant's Azure AD Premium P2 license has expired, then you will not be able to process new access requests or perform access reviews.  
 
 * If you get an access denied message when creating or viewing access packages, and you are a member of a Catalog creator group, you must [create a catalog](entitlement-management-catalog-create.md) prior to creating your first access package.
 
@@ -36,6 +38,8 @@ This article describes some items you should check to help you troubleshoot Azur
 * Roles for applications are defined by the application itself and are managed in Azure AD. If an application does not have any resource roles, entitlement management assigns users to a **Default Access** role.
 
     Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
+
+* Applications which only support Personal Microsoft Account users for authentication, and do not support organizational accounts in your directory, do not have application roles and cannot be added to access package catalogs.
 
 * For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups cannot be modified in Azure AD either. 
 

@@ -6,7 +6,7 @@ author: midesa
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 05/26/2021
+ms.date: 09/22/2021
 ms.author: midesa 
 ---
 
@@ -29,7 +29,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 |  Runtime name  | Release date |  Release stage |
 | ----- | ----- | ----- |
 | [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | GA|
-| [Azure Synapse Runtime for Apache Spark 3.0](./apache-spark-3-runtime.md) | May 26, 2021 | Preview |
+| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | GA |
 
 ## Runtime release stages
 

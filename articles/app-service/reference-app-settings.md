@@ -41,8 +41,6 @@ The following environment variables are related to the app environment in genera
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. ||
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring). | `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name you want. If a file share with the specified name doesn't exist, App Service creates it for you. | `myapp123` |
-| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. ||
-| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. ||
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). ||
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). ||
 
@@ -71,8 +69,14 @@ The following table shows environment variables prefixes that App Service uses f
 | `POSTGRESQLCONNSTR_` | Signifies a PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Signifies a custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `MYSQLCONNSTR_` | Signifies an Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `AZUREFILESSTORAGE_` | A connection string to a custom Azure File storage for a container app. |
-| `AZUREBLOBSTORAGE_` | A connection string to a custom Azure Blobs storage for a container app. |
+| `AZUREFILESSTORAGE_` | A connection string to a custom share for a container app in Azure Files. |
+| `AZUREBLOBSTORAGE_` | A connection string to a custom storage account for a container app in Azure Blob Storage. |
+| `NOTIFICATIONHUBCONNSTR_` | Signifies a connection string to a notification hub in Azure Notification Hubs. |
+| `SERVICEBUSCONNSTR_` | Signifies a connection string to an instance of Azure Service Bus. |
+| `EVENTHUBCONNSTR_` | Signifies a connection string to an event hub in Azure Event Hubs. |
+| `DOCDBCONNSTR_` | Signifies a connection string to a database in Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Signifies a connection string to a cache in Azure Cache for Redis. |
+| `FILESHARESTORAGE_` | Signifies a connection string to a custom file share. |
 
 ## Deployment
 
@@ -86,7 +90,7 @@ The following environment variables are related to app deployment. For variables
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Set to `false` for WebDeploy to stop using the Kudu deployment engine. The default is `true`. To deploy to Linux apps using Visual Studio (WebDeploy/MSDeploy), set it to `false`. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting is not applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
-| `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `false`) is a legacy mode that's no longer fully supported. |
+| `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `true`) is a legacy mode that's no longer fully supported. |
 | `WEBSITE_ENABLE_SYNC_UPDATE_SITE` | Set to `1` ensure that REST API calls to update `site` and `siteconfig` are completely applied to all instances before returning. The default is `1` if deploying with an ARM template, to avoid race conditions with subsequent ARM calls. |
 | `WEBSITE_START_SCM_ON_SITE_CREATION` | In an ARM template deployment, set to `1` in the ARM template to pre-start the Kudu app as part of app creation. |
 | `WEBSITE_START_SCM_WITH_PRELOAD` | For Linux apps, set to `true` to force preloading the Kudu app when Always On is enabled by pinging its URL. The default is `false`. For Windows apps, the Kudu app is always preloaded. |
@@ -141,6 +145,10 @@ This section shows the configurable runtime settings for each supported language
 | `HOME` | Read-only. Directory that points to shared storage (`/home`). |
 | `DUMP_DIR` | Read-only. Directory for the crash dumps (`/home/logs/dumps`). |
 | `APP_SVC_RUN_FROM_COPY` | Linux apps only. By default, the app is run from `/home/site/wwwroot`, a shared directory for all scaled-out instances. Set this variable to `true` to copy the app to a local directory in your container and run it from there. When using this option, be sure not to hard-code any reference to `/home/site/wwwroot`. Instead, use a path relative to `/home/site/wwwroot`. |
+| `MACHINEKEY_Decryption` | For Windows native apps or Windows container apps, this variable is injected into app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `decryption` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file. |
+| `MACHINEKEY_DecryptionKey` | For Windows native apps or Windows container apps, this variable is injected into the app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `decryptionKey` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file.|
+| `MACHINEKEY_Validation` | For Windows native apps or Windows container apps, this variable is injected into the app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `validation` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file.|
+| `MACHINEKEY_ValidationKey` | For Windows native apps or Windows container apps, this variable is injected into the app environment or container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `validationKey` value, configure it as an App Service app setting, or set it directly in the `machineKey` element of the *Web.config* file.|
 <!-- | `USE_DOTNET_MONITOR` | if =true then /opt/dotnetcore-tools/dotnet-monitor collect --urls "http://0.0.0.0:50051" --metrics true --metricUrls "http://0.0.0.0:50050" > /dev/null 2>&1 & -->
 
 # [Java](#tab/java)
@@ -264,7 +272,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
  -->
 
-## TSL/SSL
+## TLS/SSL
 
 For more information, see [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md).
 
@@ -307,13 +315,9 @@ For more information on custom containers, see [Run a custom container in Azure]
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
 | `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
 | `WEBSITES_WEB_CONTAINER_NAME` | In a Docker Compose app, only one of the containers can be internet accessible. Set to the name of the container defined in the configuration file to override the default container selection. By default, the internet accessible container is the first container to define port 80 or 8080, or, when no such container is found, the first container defined in the configuration file. |  |
-| `WEBSITES_PORT` | For a custom container, the custom port number on the container to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. ||
+| `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting is *not* injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
 | `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `MACHINEKEY_Decryption` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `decryption` value, set it as an app setting. ||
-| `MACHINEKEY_DecryptionKey` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `decryptionKey` value, set it as an app setting. ||
-| `MACHINEKEY_Validation` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the default `validation` value, set it as an app setting. ||
-| `MACHINEKEY_ValidationKey` | For Windows containers, this variable is injected into the container to enable ASP.NET cryptographic routines (see [machineKey Element](/previous-versions/dotnet/netframework-4.0/w8h3skw9(v=vs.100)). To override the automatically generated `validationKey` value, set it as an app setting. ||
 | `CONTAINER_WINRM_ENABLED` | For a Windows container app, set to `1` to enable Windows Remote Management (WIN-RM). ||
 
 <!-- 
@@ -483,6 +487,8 @@ The following environment variables are related to [App Service authentication](
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`. The default value is `true`. This value should never be set to `false` except when temporarily debugging [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) validation failures that occur during interactive logins. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.validateNonce` configuration value. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | This environment variable is populated automatically by the Azure App Service platform and is used to configure the integrated authentication module. The value of this environment variable corresponds to the V2 (non-classic) authentication configuration for the current app in Azure Resource Manager. It's not intended to be configured explicitly. |
 | `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_DecryptionKey` setting. |
+| `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. This is recommended if you want to share tokens or sessions across multiple apps. If specified, it supercedes the `MACHINEKEY_ValidationKey` setting. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION
@@ -566,6 +572,9 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAG_WHITELIST` | Read-only. Contains the tags in the notification registration. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in  the notification registration that requires user authentication. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
+
+>[!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings

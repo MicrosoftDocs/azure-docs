@@ -219,9 +219,10 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 ### .NET Framework
 
-1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
+> [!NOTE]
+> Starting in version 2.14, the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package is no longer necessary, SDK logs are now collected with the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) package. No additional package is required.
 
-2. Modify your applicationinsights.config file to include the following:
+1. Modify your applicationinsights.config file to include the following:
 
     ```xml
     <TelemetryModules>
@@ -234,9 +235,9 @@ Follow these instructions to capture troubleshooting logs for your framework.
     ```
     Your application must have Write permissions to the configured location
 
-3. Restart process so that these new settings are picked up by SDK
+2. Restart process so that these new settings are picked up by SDK
 
-4. Revert these changes when you are finished.
+3. Revert these changes when you are finished.
 
 ### .NET Core
 
@@ -293,7 +294,7 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 
 ## How to remove Application Insights
 
-Learn how to remove Application Insights in Visual Studio by following the steps provide in the removal [article](./remove-application-insights.md).
+Learn how to remove Application Insights in Visual Studio by following the steps provide in the [remove Application Insights article](./remove-application-insights.md).
 
 ## Still not working...
 * [Microsoft Q&A question page for Application Insights](/answers/topics/azure-monitor.html)

@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -82,9 +82,9 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended<sup>2</sup> | 
 | DBMS Data volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
 | DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | Only for specific Oracle releases on Oracle Linux |
-| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | Only for specific Oracle releases on Oracle Linux |
-| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | Only for specific Oracle releases on Oracle Linux |
+| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
+| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
+| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -128,7 +128,7 @@ Azure premium SSD storage got introduced with the goal to provide:
 * Less variability in I/O latency
 
 This type of storage is targeting DBMS workloads, storage traffic that requires low single digit millisecond latency, and SLAs on IOPS and throughput
-Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssd). Conclusions out of this article are:
+Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssds). Conclusions out of this article are:
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
 - The IOPS per GiB are not tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
@@ -188,8 +188,8 @@ Azure ultra disks deliver high throughput, high IOPS, and consistent low latency
 As you create an ultra disk, you have three dimensions you can define:
 
 - The capacity of the disk. Ranges are from 4 GiB to 65,536 GiB
-- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
-- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
+- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disks) for more details
+- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disks) for more details
 
 The cost of a single disk is determined by the three dimensions you can define for the particular disks separately. 
 
@@ -239,6 +239,7 @@ ANF storage is currently supported for several SAP workload scenarios:
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md)
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 - SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- IBM Db2 in Suse or Red Hat Linux guest OS
 - Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 
 > [!NOTE]

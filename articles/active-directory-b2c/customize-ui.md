@@ -3,15 +3,15 @@ title: Customize the user interface
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/15/2021
 ms.custom: "project-no-code, b2c-support"
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -68,7 +68,8 @@ The following example shows a *Sign up and sign in* page with a custom logo, bac
 ::: zone pivot="b2c-user-flow"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select a user flow you want to customize.
@@ -194,7 +195,8 @@ To customize your user flow pages, you first configure company branding in Azure
 Start by setting the banner logo, background image, and background color within **Company branding**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Company branding**.
 1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/customize-branding.md).
@@ -206,10 +208,9 @@ Keep these things in mind when you configure company branding in Azure AD B2C:
 * The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
 
 
+::: zone pivot="b2c-user-flow"
 
 ## Enable company branding in user flow pages
-
-::: zone pivot="b2c-user-flow"
 
 Once you've configured company branding, enable it in your user flows.
 
@@ -227,6 +228,8 @@ If you'd like to brand all pages in the user flow, set the page layout version f
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## Enable company branding in custom policy pages
 
 Once you've configured company branding, enable it in your custom policy. Configure the [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value. For more information, learn how to [migrate to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 

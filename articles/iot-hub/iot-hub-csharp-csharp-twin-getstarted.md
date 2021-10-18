@@ -2,7 +2,7 @@
 title: Get started with Azure IoT Hub device twins (.NET/.NET) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for .NET to implement the simulated device app and the Azure IoT service SDK for .NET to implement a service app that adds the tags and runs the IoT Hub query.
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -249,4 +249,4 @@ You can learn more from the following resources:
 
 * To learn how to configure devices using device twin's desired properties, see the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial.
 
-* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-csharp) quickstart.
+* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-csharp) quickstart.

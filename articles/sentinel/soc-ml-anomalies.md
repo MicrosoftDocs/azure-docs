@@ -40,4 +40,4 @@ Anomalies can be powerful tools, but they are notoriously very noisy. They typic
 In this document, you learned how SOC-ML helps you detect anomalies in Azure Sentinel.
 
 - Learn how to [view, create, manage, and fine-tune anomaly rules](work-with-anomaly-rules.md).
-- Learn about [other types of analytics rules](tutorial-detect-threats-built-in.md).
+- Learn about [other types of analytics rules](detect-threats-built-in.md).

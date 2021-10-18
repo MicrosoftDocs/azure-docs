@@ -2,21 +2,21 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 05/03/2021
+ms.date: 08/17/2021
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
-You can run App Service, Functions, and Logic Apps on an Azure Arc enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
+You can run App Service, Functions, and Logic Apps on an Azure Arc-enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
 
 > [!NOTE]
 > To learn how to set up your Kubernetes cluster for App Service, Functions, and Logic Apps, see [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md).
 
 In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you need to be aware of the following Azure resources:
 
-- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
-- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
-- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
+- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
 - An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations
@@ -37,7 +37,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 
 ## Pods created by the App Service extension
 
-When the App Service extension is installed on the Arc-enabled Kubernetes cluster, you see several pods created in the release namespace that was specified. These pods enable your Kubernetes cluster to be an extension of the `Microsoft.Web` resource provider in Azure and support the management and operation of your apps. Optionally, you can choose to have the extension install [KEDA](https://keda.sh/) for event-driven scaling.
+When the App Service extension is installed on the Azure Arc-enabled Kubernetes cluster, you see several pods created in the release namespace that was specified. These pods enable your Kubernetes cluster to be an extension of the `Microsoft.Web` resource provider in Azure and support the management and operation of your apps. Optionally, you can choose to have the extension install [KEDA](https://keda.sh/) for event-driven scaling.
  <!-- You can only have one installation of KEDA on the cluster. If you have one already, you must disable this behavior during installation of the cluster extension `TODO`. -->
 
 The following table describes the role of each pod that is created by default:
@@ -68,8 +68,10 @@ Only one Kubernetes environment resource may be created in a custom location. In
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
 - [Are networking features supported?](#are-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
+- [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 
 ### How much does it cost?
 
@@ -98,6 +100,10 @@ No. Networking features such as hybrid connections, Virtual Network integration,
 ### Are managed identities supported?
 
 No. Apps cannot be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
+
+### Are there any scaling limits?
+
+All applications deployed with Azure App Service on Kubernetes with Azure Arc are able to scale within the limits of the underlying Kubernetes cluster.  If the underlying Kubernetes Cluster runs out of available compute resources (CPU and memory primarily), then applications will only be able to scale to the number of instances of the application that Kubernetes can schedule with available resource.
 
 ### What logs are collected?
 

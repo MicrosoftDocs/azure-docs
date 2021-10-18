@@ -40,6 +40,9 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
+> [!NOTE]
+> Windows container currently does not support Key Vault references over VNet Integration.
+
 ### Access vaults with a user-assigned identity
 
 Some apps need to reference secrets at creation time, when a system-assigned identity would not yet be available. In these cases, a user-assigned identity can be created and given access to the vault in advance.
@@ -212,7 +215,7 @@ An example pseudo-template for a function app might look like the following:
 ```
 
 > [!NOTE] 
-> In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated.
+> In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated. For more app settings, see [Environment variables and app settings in Azure App Service](reference-app-settings.md).
 
 ## Troubleshooting Key Vault References
 

@@ -3,15 +3,15 @@ title: Add user attributes and customize user input
 titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -156,7 +156,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
         <Enumeration Text="Berlin" Value="berlin" />
-        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="London" Value="london" />
         <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
@@ -170,7 +170,7 @@ Include the [SelectByDefault](claimsschema.md#enumeration) attribute on an `Enum
 ```xml
 <Restriction>
   <Enumeration Text="Berlin" Value="berlin" />
-  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="London" Value="london" SelectByDefault="true" />
   <Enumeration Text="Seattle" Value="seattle" />
 </Restriction>
 ```
@@ -317,7 +317,8 @@ To return the city claim back to the relying party application, add an output cl
 
 ## Upload and test your updated custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.

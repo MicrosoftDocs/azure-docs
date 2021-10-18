@@ -5,8 +5,9 @@ author: shirleywangmsft
 ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/07/2021
 ---
 
 # Understanding Data Factory pricing through examples
@@ -30,7 +31,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 3. A schedule trigger to execute the pipeline every hour.
 
-   ![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, which flows to an A W S S3 linked service and copy activity also flows to an output dataset, which flows to an Azure Storage linked service.](media/pricing-concepts/scenario1.png)
+   :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, which flows to an A W S S3 linked service and copy activity also flows to an output dataset, which flows to an Azure Storage linked service.":::
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -61,7 +62,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 2. One Azure Databricks activity for the data transformation.
 3. One schedule trigger to execute the pipeline every hour.
 
-![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.](media/pricing-concepts/scenario2.png)
+:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.":::
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -95,7 +96,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 3. One Azure Databricks activity for the data transformation.
 4. One schedule trigger to execute the pipeline every hour.
 
-![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and lookup activity that flows to a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.](media/pricing-concepts/scenario3.png)
+:::image type="content" source="media/pricing-concepts/scenario3.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and lookup activity that flows to a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.":::
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -119,6 +120,16 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
+
+## Run SSIS packages on Azure-SSIS integration runtime
+
+Azure-SSIS integration runtime (IR) is a specialized cluster of Azure virtual machines (VMs) for SSIS package executions in Azure Data Factory (ADF). When you provision it, it will be dedicated to you, hence it will be charged just like any other dedicated Azure VMs as long as you keep it running, regardless whether you use it to execute SSIS packages or not. With respect to its running cost, you’ll see the hourly estimate on its setup pane in ADF portal, for example:  
+
+:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="SSIS pricing example":::
+
+In the above example, if you keep your Azure-SSIS IR running for 2 hours, you'll be charged: **2 (hours) x US$1.158/hour = US$2.316**.
+
+To manage your Azure-SSIS IR running cost, you can scale down your VM size, scale in your cluster size, bring your own SQL Server license via Azure Hybrid Benefit (AHB) option that offers significant savings, see [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/), and or start & stop your Azure-SSIS IR whenever convenient/on demand/just in time to process your SSIS workloads, see [Reconfigure Azure-SSIS IR](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) and [Schedule Azure-SSIS IR](how-to-schedule-azure-ssis-integration-runtime.md).
 
 ## Using mapping data flow debug for a normal workday
 
@@ -165,7 +176,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 ## Data integration in Azure Data Factory Managed VNET
 In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage. You will do this execution twice on different pipelines. The execution time of these two pipelines is overlapping.
-![Scenario4](media/pricing-concepts/scenario-4.png)
+:::image type="content" source="media/pricing-concepts/scenario-4.png" alt-text="Scenario4":::
 To accomplish the scenario, you need to create two pipelines with the following items:
   - A pipeline activity – Delete Activity.
   - A copy activity with an input dataset for the data to be copied from Azure Blob storage.

@@ -2,14 +2,15 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Calling SDK overview
 
@@ -82,8 +83,10 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **# of outgoing streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
-| **# of incoming streams that can be rendered simultaneously** | 1 video or 1 screen sharing | 6 video + 1 screen sharing |
+| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
+
+While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
 
 ## Calling SDK timeouts
 
@@ -101,18 +104,18 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ## JavaScript Calling SDK support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
+The following table represents the set of supported browsers which are currently available. **We support the most recent three versions of the browser** unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
-| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android      | ✔️      | ❌      | ❌               | Outgoing Screen Sharing is not supported.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [An iOS app on Safari can't enumerate/select mic and speaker devices](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection. Outgoing screen sharing is not supported. |
-| macOS        | ✔️      | ✔️      | ❌               | Safari 14+/macOS 11+ needed for outgoing video support.                                                                                                                                                     |
-| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
-| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
+| Platform     | Chrome | Safari | Edge (Chromium)  |
+| ------------ | ------ | ------ | --------------   |
+| Android      | ✔️      | ❌      | ❌           | 
+| iOS          | ❌      | ✔️      | ❌           |
+| macOS        | ✔️      | ✔️      | ❌           | 
+| Windows      | ✔️      | ❌      | ✔️           |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* For Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari.
-* Unless otherwise specified, the past 3 versions of each browser are supported.
+* Outgoing Screen Sharing is not supported on iOS or Android.
+* [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
 

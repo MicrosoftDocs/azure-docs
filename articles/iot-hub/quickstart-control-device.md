@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Control a device from Azure IoT Hub | Microsoft Docs
 description: In this quickstart, you run two sample applications. One application is a service application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
-author: philmea
-ms.author: philmea
+author: robinsh
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart

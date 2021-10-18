@@ -4,7 +4,7 @@ description: Describe the Azure AD sign in log schema for use in Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/30/2021
+ms.date: 08/26/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -27,113 +27,168 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 
 
 ```json
-{ 
-    "time": "2019-03-12T16:02:15.5522137Z", 
-    "resourceId": "/tenants/<TENANT ID>/providers/Microsoft.aadiam",
-    "operationName": "Sign-in activity", 
-    "operationVersion": "1.0", 
-    "category": "SignInLogs", 
-    "tenantId": "<TENANT ID>", 
-    "resultType": "50140", 
-    "resultSignature": "None", 
-    "resultDescription": "This error occurred due to 'Keep me signed in' interrupt when the user was signing-in.", 
-    "durationMs": 0, 
-    "callerIpAddress": "<CALLER IP ADDRESS>", 
-    "correlationId": "a75a10bd-c126-486b-9742-c03110d36262", 
-    "identity": "Timothy Perkins", 
-    "Level": 4, 
-    "location": "US", 
-    "properties": 
-        {
-            "id":"0231f922-93fa-4005-bb11-b344eca03c01",
-            "createdDateTime":"2019-03-12T16:02:15.5522137+00:00",
-            "userDisplayName":"Timothy Perkins",
-            "userPrincipalName":"<USER PRINCIPAL NAME>",
-            "userId":"<USER ID>",
-            "appId":"<APPLICATION ID>",
-            "appDisplayName":"Azure Portal",
-            "ipAddress":"<IP ADDRESS>",
-            "status":
-            {
-                "errorCode":50140,
-                "failureReason":"This error occurred due to 'Keep me signed in' interrupt when the user was signing-in."
-            },
-            "clientAppUsed":"Browser",
-            "deviceDetail":
-            {
-                "operatingSystem":"Windows 10",
-                "browser":"Chrome 72.0.3626"
-            },
-            "location":
-                {
-                    "city":"Bellevue",
-                    "state":"Washington",
-                    "countryOrRegion":"US",
-                    "geoCoordinates":
-                    {
-                        "latitude":45,
-                        "longitude":122
-                    }
-                },
-            "correlationId":"a75a10bd-c126-486b-9742-c03110d36262",
-            "conditionalAccessStatus":"notApplied",
-            "appliedConditionalAccessPolicies":
-            [
-                {
-                    "id":"ae11ffaa-9879-44e0-972c-7538fd5c4d1a",
-                    "displayName":"Hr app access policy",
-                    "enforcedGrantControls":
-                    [
-                        "Mfa"
-                    ],
-                    "enforcedSessionControls":
-                    [
-                    ],
-                    "result":"notApplied"
-                },
-                {
-                    "id":"b915a70b-2eee-47b6-85b6-ff4f4a66256d",
-                    "displayName":"MFA for all but global support access",
-                    "enforcedGrantControls":[],
-                    "enforcedSessionControls":[],
-                    "result":"notEnabled"
-                },
-                {
-                    "id":"830f27fa-67a8-461f-8791-635b7225caf1",
-                    "displayName":"Header Based Application Control",
-                    "enforcedGrantControls":["Mfa"],
-                    "enforcedSessionControls":[],
-                    "result":"notApplied"
-                },
-                {
-                    "id":"8ed8d7f7-0a2e-437b-b512-9e47bed562e6",
-                    "displayName":"MFA for everyones",
-                    "enforcedGrantControls":[],
-                    "enforcedSessionControls":[],
-                    "result":"notEnabled"
-                },
-                {
-                    "id":"52924e0f-798b-4afd-8c42-49055c7d6395",
-                    "displayName":"Device compliant",
-                    "enforcedGrantControls":[],
-                    "enforcedSessionControls":[],
-                    "result":"notEnabled"
-                },
-             ],
-            "isInteractive":true,
-            "tokenIssuerType":"AzureAD",
-            "authenticationProcessingDetails":[],
-            "networkLocationDetails":[],
-            "processingTimeInMilliseconds":0,
-            "riskDetail":"hidden",
-            "riskLevelAggregated":"hidden",
-            "riskLevelDuringSignIn":"hidden",
-            "riskState":"none",
-            "riskEventTypes":[],
-            "resourceDisplayName":"windows azure service management api",
-            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013"
-         }
+{
+  "time": "2019-03-12T16:02:15.5522137Z",
+  "resourceId": "/tenants/<TENANT ID>/providers/Microsoft.aadiam",
+  "operationName": "Sign-in activity",
+  "operationVersion": "1.0",
+  "category": "SignInLogs",
+  "tenantId": "<TENANT ID>",
+  "resultType": "50140",
+  "resultSignature": "None",
+  "resultDescription": "This error occurred due to 'Keep me signed in' interrupt when the user was signing-in.",
+  "durationMs": 0,
+  "callerIpAddress": "<CALLER IP ADDRESS>",
+  "correlationId": "a75a10bd-c126-486b-9742-c03110d36262",
+  "identity": "Timothy Perkins",
+  "Level": 4,
+  "location": "US",
+  "properties": 
+       {
+    "id": "0231f922-93fa-4005-bb11-b344eca03c01",
+    "createdDateTime": "2019-03-12T16:02:15.5522137+00:00",
+    "userDisplayName": "Timothy Perkins",
+    "userPrincipalName": "<USER PRINCIPAL NAME>",
+    "userId": "<USER ID>",
+    "appId": "<APPLICATION ID>",
+    "appDisplayName": "Azure Portal",
+    "ipAddress": "<IP ADDRESS>",
+    "status": {
+      "errorCode": 50140,
+      "failureReason": "This error occurred due to 'Keep me signed in' interrupt when the user was signing-in."
+    },
+    "clientAppUsed": "Browser",
+    "userAgent": "<USER AGENT>",
+    "deviceDetail":
+   {
+     "deviceId": "8bfcb982-6856-4402-924c-ada2486321cc",
+     "operatingSystem": "Windows 10",
+     "browser": "Chrome 72.0.3626"
+     },
+    "location":
+    {
+      "city": "Bellevue",
+      "state": "Washington",
+      "countryOrRegion": "US",
+      "geoCoordinates": 
+     {
+        "latitude": 45,
+        "longitude": 122
+      }
+    },
+    "correlationId": "a75a10bd-c126-486b-9742-c03110d36262",
+    "conditionalAccessStatus": "notApplied",
+    "appliedConditionalAccessPolicies": [
+      {
+        "id": "ae11ffaa-9879-44e0-972c-7538fd5c4d1a",
+        "displayName": "HR app access policy",
+        "enforcedGrantControls": [
+          "Mfa"
+        ],
+        "enforcedSessionControls": [],
+        "result": "notApplied",
+        "conditionsSatisfied": 0,
+        "conditionsNotSatisfied": 0
+      },
+      {
+        "id": "b915a70b-2eee-47b6-85b6-ff4f4a66256d",
+        "displayName": "MFA for all but global support access",
+        "enforcedGrantControls": [],
+        "enforcedSessionControls": [],
+        "result": "notEnabled",
+        "conditionsSatisfied": 0,
+        "conditionsNotSatisfied": 0
+      },
+      {
+        "id": "830f27fa-67a8-461f-8791-635b7225caf1",
+        "displayName": "Header Based Application Control",
+        "enforcedGrantControls": [
+          "Mfa"
+        ],
+        "enforcedSessionControls": [],
+        "result": "notApplied",
+        "conditionsSatisfied": 0,
+        "conditionsNotSatisfied": 0
+      },
+      {
+        "id": "8ed8d7f7-0a2e-437b-b512-9e47bed562e6",
+        "displayName": "MFA for everyones",
+        "enforcedGrantControls": [],
+        "enforcedSessionControls": [],
+        "result": "notEnabled",
+        "conditionsSatisfied": 0,
+        "conditionsNotSatisfied": 0
+      },
+      {
+        "id": "52924e0f-798b-4afd-8c42-49055c7d6395",
+        "displayName": "Device compliant",
+        "enforcedGrantControls": [],
+        "enforcedSessionControls": [],
+        "result": "notEnabled",
+        "conditionsSatisfied": 0,
+        "conditionsNotSatisfied": 0
+      }
+    ],
+    "originalRequestId": "f2f0a254-f831-43b9-bcb0-2646fb645c00",
+    "isInteractive": true,
+    "authenticationProcessingDetails": [
+      {
+        "key": "Login Hint Present",
+        "value": "True"
+      }
+    ],
+    "networkLocationDetails": [],
+    "processingTimeInMilliseconds": 238,
+    "riskDetail": "none",
+    "riskLevelAggregated": "none",
+    "riskLevelDuringSignIn": "none",
+    "riskState": "none",
+    "riskEventTypes": [],
+    "riskEventTypes_v2": [],
+    "resourceDisplayName": "Office 365 SharePoint Online",
+    "resourceId": "00000003-0000-0ff1-ce00-000000000000",
+    "resourceTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "homeTenantId": "<USER HOME TENANT ID>",
+    "tokenIssuerName": "",
+    "tokenIssuerType": "AzureAD",
+    "authenticationDetails": [
+      {
+        "authenticationStepDateTime": "2019-03-12T16:02:15.5522137+00:00",
+        "authenticationMethod": "Previously satisfied",
+        "succeeded": true,
+        "authenticationStepResultDetail": "First factor requirement satisfied by claim in the token",
+        "authenticationStepRequirement": "Primary authentication",
+        "StatusSequence": 0,
+        "RequestSequence": 0
+      },
+      {
+        "authenticationStepDateTime": "2021-08-12T15:48:12.8677211+00:00",
+        "authenticationMethod": "Previously satisfied",
+        "succeeded": true,
+        "authenticationStepResultDetail": "MFA requirement satisfied by claim in the token",
+        "authenticationStepRequirement": "Multi-factor authentication"
+      }
+    ],
+    "authenticationRequirementPolicies": [
+      {
+        "requirementProvider": "multiConditionalAccess",
+        "detail": "Conditional Access"
+      }
+    ],
+    "authenticationRequirement": "multiFactorAuthentication",
+    "alternateSignInName": "<ALTERNATE SIGN IN>",
+    "signInIdentifier": "<SIGN IN IDENTIFIER>",
+    "servicePrincipalId": "",
+    "userType": "Member",
+    "flaggedForReview": false,
+    "isTenantRestricted": false,
+    "autonomousSystemNumber": 8000,
+    "crossTenantAccessType": "none",
+    "privateLinkDetails": {},
+    "ssoExtensionVersion": ""
+    }
 }
+
 ```
 
 

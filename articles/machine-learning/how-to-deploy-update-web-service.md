@@ -4,11 +4,9 @@ title: Update web services
 titleSuffix: Azure Machine Learning
 description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
 ---
@@ -33,6 +31,14 @@ See [ACI Service Update Method.](/python/api/azureml-core/azureml.core.webservic
 > When you create a new version of a model, you must manually update each service that you want to use it.
 >
 > You can not use the SDK to update a web service published from the Azure Machine Learning designer.
+
+> [!IMPORTANT]
+> Azure Kubernetes Service uses [Blobfuse FlexVolume driver](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) for the versions <=1.16 and [Blob CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) for the versions >=1.17. 
+>
+> Therefore, it is important to re-deploy or update the web service after cluster upgrade in order to deploy to correct blobfuse method for the cluster version.
+
+> [!NOTE]
+> When an operation is already in progress, any new operation on that same web service will respond with 409 conflict error. For example, If create or update web service operation is in progress and if you trigger a new Delete operation it will throw an error.
 
 **Using the SDK**
 
@@ -82,7 +88,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
-For more information, see the [az ml service update](/cli/azure/ml(v1)/computetarget/create#az_ml_service_update) documentation.
+For more information, see the [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update&preserve-view=true) documentation.
 
 ## Next steps
 

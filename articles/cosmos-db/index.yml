@@ -87,31 +87,31 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB API for MongoDB?
-            url: mongodb-introduction.md
+            url: mongodb/mongodb-introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET app
-            url: create-mongodb-dotnet.md
+            url: mongodb/create-mongodb-dotnet.md
           - text: Manage your data using a GoLang app
-            url: create-mongodb-go.md  
+            url: mongodb/create-mongodb-go.md  
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with MongoDB
-            url: mongodb-feature-support-40.md    
+            url: mongodb/feature-support-40.md    
           - text: MongoDB extension commands
-            url: mongodb-custom-commands.md
+            url: mongodb/custom-commands.md
           - text: Change streams
-            url: mongodb-change-streams.md                       
+            url: mongodb/change-streams.md                       
       - linkListType: tutorial
         links:
           - text: Query data with MongoDB shell
-            url: tutorial-query-mongodb.md
+            url: mongodb/tutorial-query-mongodb.md
       - linkListType: how-to-guide
         links:
           - text: Manage data indexing
-            url: mongodb-indexing.md
+            url: mongodb/mongodb-indexing.md
           - text: Connect with Robo 3T
-            url: mongodb-robomongo.md
+            url: mongodb/connect-using-robomongo.md
 
   # Card
   - title: Use Azure Cosmos DB Gremlin API 
@@ -119,27 +119,27 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos Gremlin API?
-            url: graph-introduction.md
+            url: graph/graph-introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using using Gremlin Console
-            url: create-graph-gremlin-console.md
+            url: graph/create-graph-console.md
           - text: Manage your data using a .NET app
-            url: create-graph-dotnet.md   
+            url: graph/create-graph-dotnet.md   
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
-            url: gremlin-support.md      
+            url: graph/gremlin-support.md      
           - text: Gremlin API service limits
-            url: gremlin-limits.md                                     
+            url: graph/gremlin-limits.md                                     
       - linkListType: how-to-guide
         links:
           - text: Graph data modeling
-            url: graph-modeling.md
+            url: graph/graph-modeling.md
           - text: Graph data partitioning best practices 
-            url: graph-partitioning.md
+            url: graph/graph-partitioning.md
           - text: Optimize Gremlin queries
-            url: graph-execution-profile.md
+            url: graph/graph-execution-profile.md
 
   # Card
   - title: Use Azure Cosmos DB Cassandra API
@@ -147,29 +147,29 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB Cassandra API?
-            url: cassandra-introduction.md
+            url: cassandra/cassandra-introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET Core app
-            url: create-cassandra-dotnet-core.md            
+            url: cassandra/manage-data-dotnet-core.md            
           - text: Manage your data using a Java app
-            url: create-cassandra-java-v4.md   
+            url: cassandra/manage-data-java-v4-sdk.md   
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with Apache Cassandra
-            url: cassandra-support.md 
+            url: cassandra/cassandra-support.md 
           - text: Elastic scaling
-            url: manage-scale-cassandra.md 
+            url: cassandra/scale-account-throughput.md 
           - text: Secondary indexes
-            url: cassandra-secondary-index.md   
+            url: cassandra/secondary-indexing.md   
           - text: Partitioning 
-            url: cassandra-partitioning.md                  
+            url: cassandra/cassandra-partitioning.md                  
       - linkListType: how-to-guide
         links:
           - text: Connect to Cassandra API from Spark
-            url: cassandra-spark-generic.md 
+            url: cassandra/connect-spark-configuration.md 
           - text: Change feed support with query predicates
-            url: cassandra-change-feed.md?tabs=java 
+            url: cassandra/cassandra-change-feed.md?tabs=java 
 
   # Card
   - title: Migrate your data to Cosmos DB
@@ -179,7 +179,7 @@ landingContent:
           - text: Data migration tool – SQL API
             url: import-data.md
           - text: CQL shell, Spark – Cassandra API
-            url: cassandra-import-data.md
+            url: cassandra/migrate-data.md
           - text: Azure Database Migration Service – MongoDB API
             url: ../dms/tutorial-mongodb-cosmos-db.md
           - text: AzCopy, Data migration tool – Table API
@@ -189,11 +189,11 @@ landingContent:
           - text: Oracle DB to Cosmos DB SQL API using Striim
             url: cosmosdb-sql-api-migrate-data-striim.md
           - text: Oracle DB to Cosmos DB Cassandra API using Striim
-            url: cosmosdb-cassandra-api-migrate-data-striim.md                                        
+            url: cassandra/migrate-data-striim.md                                        
           - text: Oracle DB to Cosmos DB Cassandra API using Blitzz
-            url: oracle-migrate-cosmos-db-blitzz.md 
+            url: cassandra/oracle-migrate-cosmos-db-blitzz.md 
           - text: Apache Cassandra to Cosmos DB using Blitzz
-            url: cassandra-migrate-cosmos-db-blitzz.md 
+            url: cassandra/migrate-data-blitzz.md 
           - text: Migrate 100’s TBs of data
             url: migrate-cosmosdb-data.md 
 

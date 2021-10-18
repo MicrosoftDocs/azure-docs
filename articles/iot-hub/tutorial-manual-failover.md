@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 08/10/2021
 ms.author: robinsh
 ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
@@ -35,35 +35,14 @@ For more information about manual failover and Microsoft-initiated failover with
 
 ## Create an IoT hub
 
-1. Log into the [Azure portal](https://portal.azure.com). 
-
-2. Click **+ Create a resource** and select **Internet of Things**, then **IoT Hub**.
-
-   ![Screenshot showing creating an IoT hub](./media/tutorial-manual-failover/create-hub-01.png)
-
-3. Select the **Basics** tab. Fill in the following fields.
-
-    **Subscription**: select the Azure subscription you want to use.
-
-    **Resource Group**: click **Create new** and specify **ManlFailRG** for the resource group name.
-
-    **Region**: select a region close to you. This tutorial uses `West US 2`. A failover can only be performed between Azure geo-paired regions. The region geo-paired with West US 2 is WestCentralUS.
-    
-   **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
-
-   ![Screenshot showing Basics pane for creating an IoT hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
-
-   Click **Review + create**. (It uses the defaults for size and scale.) 
-
-4. Review the information, then click **Create** to create the IoT hub. 
-
-   ![Screenshot showing final step for creating an IoT hub](./media/tutorial-manual-failover/create-hub-03-create.png)
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Perform a manual failover
 
-Note that there is a limit of two failovers and two failbacks per day for an IoT hub.
+> [!NOTE]
+> There is a limit of two failovers and two failbacks per day for an IoT hub.
 
-1. Click **Resource groups** and then select the resource group **ManlFailRG**. Click on your hub in the list of resources. 
+1. Click **Resource groups** and then select your resource group. This tutorial uses **ManlFailRG**. Click on your hub in the list of resources. 
 
 1. Under **Settings** on the IoT Hub pane, click **Failover**.
 
@@ -93,7 +72,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    ![Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   The overview page also shows a banner indicating that the failover complete and the IoT Hub is running in `West Central US`.
+   The overview page also shows a banner indicating that the failover is complete and the IoT Hub is running in `West Central US`.
 
    ![Screenshot showing failover is complete in overview page](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -110,7 +89,7 @@ A failback is performed just like a manual failover. These are the steps:
 
 3. At the top of the Manual failover pane, click **Start failover**. 
 
-4. In the confirmation pane, fill in the name of your IoT hub to confirm it's the one you want to failback. To then initiate the failback, click OK. 
+4. In the confirmation pane, fill in the name of your IoT hub to confirm it's the one you want to failback. To then initiate the failback, click **OK**. 
 
    ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
@@ -137,7 +116,7 @@ In this tutorial, you learned how to configure and perform a manual failover, an
 > * Perform a failback to return the IoT hub's operations to the primary location. 
 > * Confirm the hub is running correctly in the right location.
 
-Advance to the next tutorial to learn how to manage the state of an IoT device. 
+Advance to the next tutorial to learn how to configure your device from a back-end service. 
 
 > [!div class="nextstepaction"]
-> [Manage the state of an IoT device](tutorial-device-twins.md)
+> [Configure your devices](tutorial-device-twins.md)

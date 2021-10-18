@@ -12,6 +12,8 @@ ms.date: 10/02/2019
 
 # Quickstart: Create and encrypt a Windows virtual machine with the Azure portal
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. In this quickstart you will use the Azure portal to deploy a Windows virtual machine, create a key vault for the storage of encryption keys, and encrypt the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

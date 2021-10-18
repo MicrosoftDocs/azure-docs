@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a Linux virtual machine (VM).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -60,7 +62,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace <your-unique-keyvault-name> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
 
 ```azurecli-interactive
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "eastus" --enabled-for-disk-encryption

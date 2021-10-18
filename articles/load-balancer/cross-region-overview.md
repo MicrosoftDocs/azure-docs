@@ -17,9 +17,7 @@ ms.custom: references_regions
 ---
 # Cross-region load balancer (Preview)
 
-Azure Load Balancer distributes inbound traffic that arrives at the load balancer frontend to backend pool instances.
-
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant HA scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
@@ -33,8 +31,6 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 > Cross-region load balancer is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cross-region load balancing offers the same benefits of high performance and low latency as regional standard load balancer. 
 
 The frontend IP configuration of your cross-region load balancer is static and advertised across [most Azure regions](#participating-regions).
 
@@ -105,7 +101,7 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
 
-A **participating region** is where the Global public IP of the load balancer is available. 
+A **participating region** is where the Global public IP of the load balancer is being advertised.
 
 Traffic started by the user will travel to the closest participating region through the Microsoft core network. 
 
@@ -137,6 +133,8 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * Private or internal load balancer can't be added to the backend pool of a cross-region load balancer 
 
 * Cross-region IPv6 frontend IP configurations aren't supported. 
+
+* UDP traffic is not supported on Cross-region Load Balancer. 
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 

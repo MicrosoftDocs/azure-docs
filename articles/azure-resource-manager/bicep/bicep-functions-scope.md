@@ -2,17 +2,12 @@
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/30/2021
 ---
 
 # Scope functions for Bicep
 
-Resource Manager provides the following functions for getting scope values in your Bicep file:
-
-* [managementGroup](#managementgroup)
-* [resourceGroup](#resourcegroup)
-* [subscription](#subscription)
-* [tenant](#tenant)
+This article describes the Bicep functions for getting scope values.
 
 ## managementGroup
 
@@ -21,6 +16,8 @@ Resource Manager provides the following functions for getting scope values in yo
 `managementGroup(name)`
 
 Returns an object used for setting the scope to a management group.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
@@ -36,7 +33,7 @@ Returns an object used for setting the scope to a management group.
 
 ### Return value
 
-An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
+An object used for setting the `scope` property on a [module](modules.md#set-module-scope) or [extension resource type](scope-extension-resources.md).
 
 ### Management group example
 
@@ -65,9 +62,11 @@ Or
 
 Returns an object that represents the current resource group.
 
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
 ### Remarks
 
-The resourceGroup function has two distinct uses. One usage is for setting the scope on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current resource group. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
+The resourceGroup function has two distinct uses. One usage is for setting the scope on a [module](modules.md#set-module-scope) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current resource group. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
 
 `resourceGroup()` can be used for either setting scope or getting details about the resource group.
 
@@ -156,9 +155,11 @@ Or
 
 Returns details about the subscription for the current deployment.
 
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
 ### Remarks
 
-The subscription function has two distinct uses. One usage is for setting the scope on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current subscription. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
+The subscription function has two distinct uses. One usage is for setting the scope on a [module](modules.md#set-module-scope) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current subscription. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
 
 `subscription(subscriptionId)` can only be used for setting scope.
 
@@ -208,13 +209,15 @@ output subscriptionOutput object = subscription()
 
 Returns an object used for setting the scope to the tenant.
 
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
 ### Remarks
 
 `tenant()` can be used with any deployment scope. It always returns the current tenant.
 
 ### Return value
 
-An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
+An object used for setting the `scope` property on a [module](modules.md#set-module-scope) or [extension resource type](scope-extension-resources.md).
 
 ### Tenant example
 

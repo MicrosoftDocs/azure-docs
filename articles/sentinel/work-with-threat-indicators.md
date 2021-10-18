@@ -29,10 +29,6 @@ You can integrate threat intelligence (TI) into Azure Sentinel through the follo
 
 - **Visualize key information** about your imported threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
 
-> [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## View your threat indicators in Azure Sentinel
 
 ### Find and view your indicators in Logs
@@ -121,7 +117,7 @@ Below is an example of how to enable and configure a rule to generate security a
 
     - Generate a security alert if the query results are greater than zero, meaning if any matches are found.
 
-    You can leave the default settings or change any of these to meet your requirements, and you can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md). When you are finished, select the **Automated response** tab.
+    You can leave the default settings or change any of these to meet your requirements, and you can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md). When you are finished, select the **Automated response** tab.
 
 1. Configure any automation you’d like to trigger when a security alert is generated from this analytics rule. Automation in Azure Sentinel is done using combinations of **automation rules** and **playbooks** powered by Azure Logic Apps. To learn more, see this [Tutorial: Use playbooks with automation rules in Azure Sentinel](./tutorial-respond-threats-playbook.md). When finished, select the **Next: Review >** button to continue.
 
@@ -131,11 +127,15 @@ You can find your enabled rules in the **Active rules** tab of the **Analytics**
 
 According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Azure Sentinel can be viewed in the **Logs** section of Azure Sentinel, in the **SecurityAlert** table under the **Azure Sentinel** group.
 
-In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./tutorial-investigate-cases.md).
+In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./investigate-cases.md).
 
 ## Detect threats using matching analytics (Public preview)
 
-[Create a rule](tutorial-detect-threats-built-in.md#use-built-in-analytics-rules) using the built-in **Microsoft Threat Intelligence Matching Analytics** analytics rule template to have Azure Sentinel match Microsoft-generated threat intelligence data with the logs you've ingested in to Azure Sentinel.
+> [!IMPORTANT]
+> Matching analytics is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+[Create a rule](detect-threats-built-in.md#use-built-in-analytics-rules) using the built-in **Microsoft Threat Intelligence Matching Analytics** analytics rule template to have Azure Sentinel match Microsoft-generated threat intelligence data with the logs you've ingested in to Azure Sentinel.
 
 Matching threat intelligence data with your logs helps to generate high-fidelity alerts and incidents, with appropriate severities applied. When a match is found, any alerts generated are grouped into incidents.
 
@@ -174,7 +174,7 @@ The **Microsoft Threat Intelligence Matching Analytics** rule is currently suppo
 |Log source  |Description  |
 |---------|---------|
 |[CEF](connect-common-event-format.md)     |  Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except for any where the `DeviceVendor` is listed as `Cisco`. <br><br>To match Microsoft-generated threat intelligence with CEF logs, make sure to map the domain in the `RequestURL` field of the CEF log.      |
-|[DNS](connect-dns.md)     | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default.   |
+|[DNS](./data-connectors-reference.md#domain-name-server)     | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default.   |
 |[Syslog](connect-syslog.md)     |  Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft-generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default, and the rule will parse the domain directly from the SyslogMessage.     |
 |     |         |
 
@@ -225,4 +225,3 @@ In this article you learned all the ways you can work with threat intelligence i
 - Connect Azure Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Azure Sentinel.
 - See which [TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Azure Sentinel.
-

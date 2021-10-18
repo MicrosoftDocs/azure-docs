@@ -5,8 +5,9 @@ ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 07/05/2021
 ---
 
@@ -54,7 +55,7 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -815,11 +816,11 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 5. On the Azure Data Factory home page, select **Monitor** on the left side. 
 
-    ![Screenshot shows the home page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+    :::image type="content" source="media/doc-common-process/get-started-page-monitor-button.png" alt-text="Screenshot shows the home page for Azure Data Factory.":::    
 
 6. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 
-    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png" alt-text="Screenshot shows pipeline runs for a data factory including your pipeline.":::    
 7. When you select the link in the **Actions** column, you see all the activity runs for the pipeline. 
 
 8. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**. 

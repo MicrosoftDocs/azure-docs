@@ -11,6 +11,10 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # How to connect and sign on to an Azure virtual machine running Windows
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
+
 You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you sign on.
 
 To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).

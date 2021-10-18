@@ -3,7 +3,7 @@ title: Use managed identities in Azure API Management | Microsoft Docs
 description: Learn how to create system-assigned and user-assigned identities in API Management by using the Azure portal, PowerShell, and a Resource Manager template.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: anneta
 editor: ''
 
@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 03/09/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -83,7 +83,7 @@ For example, a complete Azure Resource Manager template might look like the foll
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0",
     "resources": [{
-        "apiVersion": "2019-01-01",
+        "apiVersion": "2020-01-01",
         "name": "contoso",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
@@ -196,7 +196,7 @@ The following example shows an Azure Resource Manager template that contains the
         "apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
     },
     "resources": [{
-        "apiVersion": "2019-01-01",
+        "apiVersion": "2020-01-01",
         "name": "[variables('apiManagementServiceName')]",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
@@ -349,7 +349,7 @@ For example, a complete Azure Resource Manager template might look like the foll
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "0.9.0.0",
     "resources": [{
-        "apiVersion": "2019-12-01",
+        "apiVersion": "2020-12-01",
         "name": "contoso",
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",

@@ -5,8 +5,6 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
@@ -195,6 +193,7 @@ az ml service delete -n triton-densenet-onnx
 [!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
+
 ## Troubleshoot
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md), learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model.

@@ -15,6 +15,8 @@ ms.reviewer: cynthn
 
 # Creating generalized images without a provisioning agent
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
 - Your Linux distro/version does not support cloud-init/Linux Agent.
@@ -104,13 +106,15 @@ xml_el = ElementTree.fromstring(wireserver_goalstate)
 
 container_id = xml_el.findtext('Container/ContainerId')
 instance_id = xml_el.findtext('Container/RoleInstanceList/RoleInstance/InstanceId')
+incarnation = xml_el.findtext('Incarnation')
 print(f'ContainerId: {container_id}')
 print(f'InstanceId: {instance_id}')
+print(f'Incarnation: {incarnation}')
 
 # Construct the XML response we need to send to Wireserver to report ready.
 health = ElementTree.Element('Health')
 goalstate_incarnation = ElementTree.SubElement(health, 'GoalStateIncarnation')
-goalstate_incarnation.text = '1'
+goalstate_incarnation.text = incarnation
 container = ElementTree.SubElement(health, 'Container')
 container_id_el = ElementTree.SubElement(container, 'ContainerId')
 container_id_el.text = container_id
@@ -151,12 +155,12 @@ wireserver_conn.close()
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
 
-1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
+1. Retrieve the `ContainerId`, `InstanceId`, and `Incarnation` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
 
-2. Construct the following XML data, injecting the parsed `ContainerId` and `InstanceId` from the above step:
+2. Construct the following XML data, injecting the parsed `ContainerId`, `InstanceId`, and `Incarnation` from the above step:
    ```xml
    <Health>
-     <GoalStateIncarnation>1</GoalStateIncarnation>
+     <GoalStateIncarnation>INCARNATION</GoalStateIncarnation>
      <Container>
        <ContainerId>CONTAINER_ID</ContainerId>
        <RoleInstanceList>

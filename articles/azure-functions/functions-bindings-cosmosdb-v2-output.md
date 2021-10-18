@@ -3,7 +3,7 @@ title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
@@ -21,6 +21,7 @@ For information on setup and configuration details, see the [overview](./functio
 This section contains the following examples:
 
 * [Queue trigger, write one doc](#queue-trigger-write-one-doc-c)
+* [Queue trigger, write one doc (v4 extension)](#queue-trigger-write-one-doc-v4-c)
 * [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
 
 The examples refer to a simple `ToDoItem` type:
@@ -59,6 +60,40 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
+            ILogger log)
+        {
+            document = new { Description = queueMessage, id = Guid.NewGuid() };
+
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
+        }
+    }
+}
+```
+
+<a id="queue-trigger-write-one-doc-v4-c"></a>
+
+### Queue trigger, write one doc (v4 extension)
+
+Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using System;
+
+namespace CosmosDBSamplesV2
+{
+    public static class WriteOneDoc
+    {
+        [FunctionName("WriteOneDoc")]
+        public static void Run(
+            [QueueTrigger("todoqueueforwrite")] string queueMessage,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                containerName: "Items",
+                Connection = "CosmosDBConnection")]out dynamic document,
             ILogger log)
         {
             document = new { Description = queueMessage, id = Guid.NewGuid() };
@@ -589,6 +624,18 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
+In [extension version 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) some settings and properties have been removed or renamed. For detailed information about the changes, see [Output - configuration](#configuration). Here's a `CosmosDB` attribute example in a method signature:
+
+```csharp
+    [FunctionName("QueueToCosmosDB")]
+    public static void Run(
+      [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+      [CosmosDB("database", "container", Connection = "CosmosDBConnectionSetting")] out dynamic document)
+    {
+        ...
+    }
+```
+
 # [C# Script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
@@ -621,15 +668,17 @@ The following table explains the binding configuration properties that you set i
 |**direction**     | n/a | Must be set to `out`.         |
 |**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** | **DatabaseName**|The database containing the collection where the document is created.     |
-|**collectionName** |**CollectionName**  | The name of the collection where the document is created. |
+|**collectionName** <br> or <br> **containerName** |**CollectionName** <br> or <br> **ContainerName** | The name of the collection where the document is created. <br><br> In [version 4.x of the extension] this property is called `ContainerName`. |
 |**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
 |**partitionKey**|**PartitionKey** |When `CreateIfNotExists` is true, it defines the partition key path for the created collection.|
-|**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection.|
-|**connectionStringSetting**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.        |
+|**collectionThroughput** <br> or <br> **containerThroughput**|**CollectionThroughput** <br> or <br> **ContainerThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection. <br><br> In [version 4.x of the extension] this property is called `ContainerThroughput`. |
+|**connectionStringSetting** <br> or <br> **connection**   |**ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. See [Connections](#connections) <br><br> In [version 4.x of the extension] this property is called `connection`. |
 |**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. <br><br> This property is not available in [version 4.x of the extension]. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
 
 ## Usage
 
@@ -648,7 +697,7 @@ By default, when you write to the output parameter in your function, a document 
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in version 2.x. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {
@@ -665,13 +714,15 @@ This section describes the global configuration settings available for this bind
 }
 ```
 
-|Property  |Default | Description |
-|---------|---------|---------|
+|Property  |Default |Description |
+|----------|--------|------------|
 |GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/a|Lease prefix to use across all functions in an app.|
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). <br><br> This setting is not available in [version 4.x of the extension]. |
+|leasePrefix|n/a|Lease prefix to use across all functions in an app. <br><br> This setting is not available in [version 4.x of the extension].|
 
 ## Next steps
 
 - [Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
+
+[version 4.x of the extension]: ./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher

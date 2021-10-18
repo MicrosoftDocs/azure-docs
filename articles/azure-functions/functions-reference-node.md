@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 10/07/2021
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
@@ -259,17 +259,15 @@ Returns a named object that contains trigger metadata and function invocation da
 
 ### context.done method
 
-```js
-context.done([err],[propertyBag])
-```
+The **context.done** method is used by synchronous methods.
 
-Lets the runtime know that your code has completed. When your function uses the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration, you do not need to use `context.done()`. The `context.done` callback is implicitly called. Async functions are available in Node 8 or a later version, which requires version 2.x of the Functions runtime.
+|Synchronous execution|[Asynchronous](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) execution<br>(Node 8+, Functions runtime 2+)|
+|--|--|
+|Required: `context.done([err],[propertyBag])` to inform the runtime that your function is complete. The execution times out if it is missing.<br>The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` overwrite anything set on the `context.bindings` object.|Not required: `context.done` - it is implicitly called.| 
 
-If your function is not an async function, **you must call** `context.done` to inform the runtime that your function is complete. The execution times out if it is missing.
-
-The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` overwrite anything set on the `context.bindings` object.
 
 ```javascript
+// Synchronous code only
 // Even though we set myOutput to have:
 //  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
@@ -583,7 +581,7 @@ When running locally, your functions project includes a [`local.settings.json` f
 
 ### In Azure cloud environment
 
-When running in Azure, the function app lets you set uses [Application settings](functions-app-settings.md), such as service connection strings, and exposes these settings as environment variables during execution. 
+When running in Azure, the function app lets you set and use [Application settings](functions-app-settings.md), such as service connection strings, and exposes these settings as environment variables during execution. 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -688,7 +686,7 @@ In this example, it is important to note that although an object is being export
 
 When started with the `--inspect` parameter, a Node.js process listens for a debugging client on the specified port. In Azure Functions 2.x, you can specify arguments to pass into the Node.js process that runs your code by adding the environment variable or App Setting `languageWorkers:node:arguments = <args>`. 
 
-To debug locally, add `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` in your [local.settings.json](./functions-run-local.md#local-settings-file) file and attach a debugger to port 5858.
+To debug locally, add `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file) file and attach a debugger to port 5858.
 
 When debugging using VS Code, the `--inspect` parameter is automatically added using the `port` value in the project's launch.json file.
 

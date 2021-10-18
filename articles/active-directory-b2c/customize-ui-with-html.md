@@ -3,15 +3,15 @@ title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 10/14/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -71,7 +71,8 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
 - Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
-  ```HTML
+
+  ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - We recommend that you start with the default page content and build on top of it.
@@ -86,11 +87,41 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to set the HTML page language attribute and pass the OpenID Connect parameter `ui_locales` to your endpoint.
+
+#### Single-template approach
+
+During page load, Azure AD B2C sets the HTML page language attribute with the current language. For example, `<html lang="en">`. To render different styles per the current language, use the CSS `:lang` selector along with your CSS definition.
+
+The following example defines the following classes:
+
+* `imprint-en` - Used when the current language is English.
+* `imprint-de` - Used when the current language is German.
+* `imprint` - Default class that is used when the current language is neither English nor German.
+
+```css
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+.imprint {
+    display: none;
+}
+```
+
+The following HTML elements will be shown or hidden according to the page language:
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+#### Multi-template approach
+
+The language customization feature allows Azure AD B2C to pass the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 > [!NOTE]
-> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales` to the [Exception pages](page-layout.md#exception-page-globalexception).
-
+> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales`, to the [exception pages](page-layout.md#exception-page-globalexception).
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
@@ -173,30 +204,34 @@ Create a custom page content with your product's brand name in the title.
 
 In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable CORS on your web server](https://enable-cors.org/server.html).
 
+> [!NOTE]
+> In an Azure AD B2C tenant, you can't provision Blob storage. You must create this resource in your Azure AD tenant.
+
 To host your HTML content in Blob storage, perform the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the **Hub** menu, select **New** > **Storage** > **Storage account**.
+1. Make sure you're using the directory that contains your Azure AD tenant, and which has a subscription: 
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the Directory name list, and then select **Switch**.
+1. In the Azure portal, search for and select **Storage accounts**
+1. Select **+ Create**.
 1. Select a **Subscription** for your storage account.
 1. Create a **Resource group** or select an existing one.
-1. Enter a unique **Name** for your storage account.
-1. Select the **Geographic location** for your storage account.
-1. **Deployment model** can remain **Resource Manager**.
+1. Enter a unique **Storage account name** for your storage account.
+1. Select the geographical **Region** for your storage account.
 1. **Performance** can remain **Standard**.
-1. Change **Account Kind** to **Blob storage**.
-1. **Replication** can remain **RA-GRS**.
-1. **Access tier** can remain **Hot**.
-1. Select **Review + create** to create the storage account.
-    After the deployment is completed, the **Storage account** page opens automatically.
-
+1. **Redundancy** can remain **Geo-redundant storage (GRS)**
+1. Select **Review + create** and wait a few seconds for Azure AD to run a validation. 
+1. Select **Create** to create the storage account. After the deployment is completed, the storage account page opens automatically or select **Go to resource**.
 #### 2.1 Create a container
 
 To create a public container in Blob storage, perform the following steps:
 
-1. Under **Blob service** in the left-hand menu, select **Blobs**.
-1. Select **+Container**.
+1. Under **Data storage** in the left-hand menu, select **Containers**.
+1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
-1. For **Public access level**, select **Blob**, then **OK**.
+1. For **Public access level**, select **Blob**.
+1. Select **Create** to create the container.
 1. Select **root** to open the new container.
 
 #### 2.2 Upload your custom page content files
@@ -214,13 +249,14 @@ To create a public container in Blob storage, perform the following steps:
 
 Configure Blob storage for Cross-Origin Resource Sharing by performing the following steps:
 
-1. In the menu, select **CORS**.
+1. Navigate to your storage account. 
+1. In the left-hand menu, under **Settings**, select **Resource sharing (CORS)**.
 1. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. Use all lowercase letters when entering your tenant name.
 1. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 1. For **Allowed Headers**, enter an asterisk (*).
 1. For **Exposed Headers**, enter an asterisk (*).
 1. For **Max age**, enter 200.
-1. Select **Save**.
+1. At the top of the page, select **Save**.
 
 #### 3.1 Test CORS
 
@@ -233,21 +269,26 @@ Validate that you're ready by performing the following steps:
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
+Learn more about [how to create and manage Azure storage accounts](/azure/storage/common/storage-account-create).
+
 ::: zone pivot="b2c-user-flow"
 
 ### 4. Update the user flow
 
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
-1. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, click **Yes** for **Use custom page content**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the directory name list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the left-hand menu, select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
+1. Select **Page layouts**, and then under **Unified sign-up or sign-in page**, select **Yes** for **Use custom page content**.
 1. In **Custom page URI**, enter the URI for the *custom-ui.html* file that you recorded earlier.
 1. At the top of the page, select **Save**.
 
 ### 5. Test the user flow
 
 1. In your Azure AD B2C tenant, select **User flows** and select the *B2C_1_signupsignin1* user flow.
-1. At the top of the page, click **Run user flow**.
-1. Click the **Run user flow** button.
+1. At the top of the page, select **Run user flow**.
+1. At the pane on right side, select the **Run user flow** button.
 
 You should see a page similar to the following example with the elements centered based on the CSS file that you created:
 
@@ -291,7 +332,8 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 #### 5.1 Upload the custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.

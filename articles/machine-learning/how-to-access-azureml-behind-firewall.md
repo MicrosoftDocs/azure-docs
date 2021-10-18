@@ -1,24 +1,24 @@
 ---
-title: Use a firewall
+title: Configure inbound and outbound network traffic
 titleSuffix: Azure Machine Learning
-description: 'Control access to Azure Machine Learning workspaces with Azure Firewalls. Learn about the hosts that you must allow through the firewall.'
+description: 'How to configure the required inbound and outbound network traffic when using a secure Azure Machine Learning workspace.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/29/2021
+ms.date: 09/14/2021
 ms.custom: devx-track-python
 ---
 
-# Use workspace behind a Firewall for Azure Machine Learning
+# Configure inbound and outbound network traffic
 
-In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
+In this article, learn about the network communication requirements when securing Azure Machine Learning workspace in a virtual network (VNet). This includes how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace whether it uses a private endpoint or a service endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
@@ -49,59 +49,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 ### Inbound configuration
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. When creating the user-defined routes for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
-
-> [!IMPORTANT]
-> Using service tags with user-defined routes is currently in preview and may not be fully supported. For more information, see [Virtual Network routing](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
-
-# [IP Address routes](#tab/ipaddress)
-
-For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
-
-To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
-
-* Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
-
-* Use the [Azure CLI](/cli/azure/install-azure-cli) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region (primary) and Central US region (secondary):
-
-    ```azurecli-interactive
-    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
-    # Get primary region IPs
-    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
-    # Get secondary region IPs
-    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
-    ```
-
-    > [!TIP]
-    > If you are using the US-Virginia, US-Arizona regions, or China-East-2 regions, these commands return no IP addresses. Instead, use one of the following links to download a list of IP addresses:
-    >
-    > * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
-    > * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
-
-> [!IMPORTANT]
-> The IP addresses may change over time.
-
-When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example IP address based UDR in the Azure portal:
-
-:::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
-
-# [Service tag routes](#tab/servicetag)
-
-Create user-defined routes for the following service tags:
-
-* `AzureMachineLearning`
-* `BatchNodeManagement.<region>`, where `<region>` is your Azure region.
-
-The following commands demonstrate adding routes for these service tags:
-
-```azurecli
-az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n AzureMLRoute --address-prefix AzureMachineLearning --next-hop-type Internet
-az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n BatchRoute --address-prefix BatchNodeManagement.westus2 --next-hop-type Internet
-```
-
----
-
-For information on configuring UDR, see [Route network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
+[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 
 ### Outbound configuration
 
@@ -116,10 +64,12 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
+    | Keyvault.region | TCP | 443 |
 
     > [!TIP]
     > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    > * Keyvault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
     > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
@@ -136,8 +86,11 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
-    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
-    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
+    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+    | **dc.applicationinsights.azure.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
+    | **dc.applicationinsights.microsoft.com** | Used to collect metrics and diagnostics information when working with Microsoft support. |
+    | **dc.services.visualstudio.com** | Used to collect metrics and diagnostics information when working with Microsoft support. | 
     
 
     For __Protocol:Port__, select use __http, https__.
@@ -146,18 +99,14 @@ For information on configuring UDR, see [Route network traffic with a routing ta
 
 1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
 
-### Diagnostics for support
+### Azure Kubernetes Services
 
-If you need to gather diagnostics information when working with Microsoft support, use the following steps:
+When using Azure Kubernetes Service with Azure Machine Learning, the following traffic must be allowed:
 
-1. Add a __Network rule__ to allow traffic to and from the `AzureMonitor` tag.
-1. Add __Application rules__ for the following hosts. Select __http, https__ for the __Protocol:Port__ for these hosts:
+* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
+* __Outbound__ to mcr.microsoft.com.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
 
-    + **dc.applicationinsights.azure.com**
-    + **dc.applicationinsights.microsoft.com**
-    + **dc.services.visualstudio.com**
-
-    For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## Other firewalls
 
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions, check the documentation for the firewall you are using.
@@ -196,20 +145,22 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Compute cluster/instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
 | Compute cluster/instance | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
+| Azure Storage Account | \*.blob.core.windows.net</br>\*.table.core.windows.net</br>\*.queue.core.windows.net | \*.blob.core.usgovcloudapi.net</br>\*.table.core.usgovcloudapi.net</br>\*.queue.core.usgovcloudapi.net | \*blob.core.chinacloudapi.cn</br>\*.table.core.chinacloudapi.cn</br>\*.queue.core.chinacloudapi.cn |
+| Azure Key Vault | \*.vault.azure.net | \*.vault.usgovcloudapi.net | \*.vault.azure.cn |
 
 > [!IMPORTANT]
 > Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ ports __18881, 443, and 8787__.
 
-**Associated resources used by Azure Machine Learning**
+> [!TIP]
+> The FQDN for Azure Key Vault is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+
+**Docker images maintained by by Azure Machine Learning**
 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-| Azure Storage Account | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Azure Machine Learning pre-built images | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
@@ -222,8 +173,15 @@ Also, use the information in the [inbound configuration](#inbound-configuration)
 
 For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-> [!TIP]
-> If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
+**Support diagnostics**
+
+For Microsoft Support to be able to diagnose any problems you run into with your workspace, you must allow outbound traffic to the following hosts:
+
+* **dc.applicationinsights.azure.com**
+* **dc.applicationinsights.microsoft.com**
+* **dc.services.visualstudio.com**
+
+For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ### Python hosts
 
@@ -251,9 +209,13 @@ The hosts in this section are used to install R packages, and are required durin
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
-### Azure Kubernetes Services hosts
+### Azure Kubernetes Services
 
-For information on the hosts that AKS needs to communicate with, see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
+When using Azure Kubernetes Service with Azure Machine Learning, the following traffic must be allowed:
+
+* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
+* __Outbound__ to mcr.microsoft.com.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
 
 ### Visual Studio Code hosts
 
@@ -264,8 +226,8 @@ The hosts in this section are used to install Visual Studio Code packages to est
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
-| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
+|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
 ## Next steps
 

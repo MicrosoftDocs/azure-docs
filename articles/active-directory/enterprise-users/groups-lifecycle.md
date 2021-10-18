@@ -4,14 +4,14 @@ description: How to set up expiration for Microsoft 365 groups in Azure Active D
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 09/02/2021
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro

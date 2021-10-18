@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 7/15/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -61,11 +61,11 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
 - A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) a web application, [and enable ID token implicit grant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications#enable-id-token-implicit-grant).
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -75,13 +75,13 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
 - A BlokSec [trial account](https://bloksec.com/).
 
-- If you haven't already done so, [register](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) a web application, [and enable ID token implicit grant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications#enable-id-token-implicit-grant).
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
 
-- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy).
+- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 ::: zone-end
 
 ### Part 1 - Create an application registration in BlokSec
@@ -96,9 +96,9 @@ To get started, you'll need:
    |---------|---------|
    |  Name         |Azure AD B2C or your desired application name|
    |SSO type         | OIDC|
-   |Logo URI     |[https://bloksec.io/assets/AzureB2C.png/](https://bloksec.io/assets/AzureB2C.png/) a link to the image of your choice|
+   |Logo URI     |[https://bloksec.io/assets/AzureB2C.png](https://bloksec.io/assets/AzureB2C.png) a link to the image of your choice|
    |Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**:      'https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp' <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
-   |Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect#send-a-sign-out-request). |
+   |Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](./openid-connect.md#send-a-sign-out-request). |
 
 4. Once saved, select the newly created Azure AD B2C application to open the application configuration, select **Generate App Secret**.
 
@@ -110,22 +110,18 @@ To get started, you'll need:
 ### Part 2 - Add a new Identity provider in Azure AD B2C
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C** 
-
-4. Navigate to **Dashboard > Azure Active Directory B2C > Identity providers**
-
-5. Select New **OpenID Connect Provider**
-
-6. Select **Add**
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C** 
+1. Navigate to **Dashboard > Azure Active Directory B2C > Identity providers**
+1. Select New **OpenID Connect Provider**
+1. Select **Add**
 
 ### Part 3 - Configure an Identity provider
 
 1. Select **Identity provider type > OpenID Connect**
 
-2. Fill out the form to set up the Identity provider:
+1. Fill out the form to set up the Identity provider:
 
 |Property  |Value  |
 |:---------|:---------|
@@ -137,11 +133,11 @@ To get started, you'll need:
 |Response type|Code|
 |Domain hint|yuID|
 
-3. Select **OK**
+1. Select **OK**
 
-4. Select **Map this identity provider’s claims**.
+1. Select **Map this identity provider’s claims**.
 
-5. Fill out the form to map the Identity provider:
+1. Fill out the form to map the Identity provider:
 
 |Property  |Value  |
 |:---------|:---------|
@@ -151,15 +147,15 @@ To get started, you'll need:
 |Surname|family_name|
 |Email|email|
 
-6. Select **Save** to complete the setup for your new OIDC Identity provider.  
+1. Select **Save** to complete the setup for your new OIDC Identity provider.  
 
 ### Part 4 - User registration
 
 1. Sign-in to BlokSec admin console with the credential provided earlier.
 
-2. Navigate to Azure AD B2C application that was created earlier. Select the gear icon at the top-right, and then select **Create Account**.  
+1. Navigate to Azure AD B2C application that was created earlier. Select the gear icon at the top-right, and then select **Create Account**.  
 
-3. Enter the user’s information in the Create Account form, making note of the Account Name, and select **Submit**.  
+1. Enter the user’s information in the Create Account form, making note of the Account Name, and select **Submit**.  
 
 The user will receive an **account registration email** at the provided email address. Have the user follow the registration link on the mobile device where the BlokSec yuID app is installed,
 
@@ -169,62 +165,54 @@ You should now see BlokSec as a new OIDC Identity provider listed within your B2
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
 
-2. Select **New user flow**
+1. Select **New user flow**
 
-3. Select **Sign up and sign in** > **Version** > **Create**.
+1. Select **Sign up and sign in** > **Version** > **Create**.
 
-4. Enter a **Name** for your policy.
+1. Enter a **Name** for your policy.
 
-5. In the Identity providers section, select your newly created BlokSec Identity provider.  
+1. In the Identity providers section, select your newly created BlokSec Identity provider.  
 
-6. Select **None** for Local Accounts to disable email and password-based authentication.
+1. Select **None** for Local Accounts to disable email and password-based authentication.
 
-7. Select **Run user flow**
+1. Select **Run user flow**
 
-8. In the form, enter the Replying URL, for example, https://jwt.ms
+1. In the form, enter the Replying URL, for example, https://jwt.ms
 
-9. The browser will be redirected to the BlokSec login page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the BlokSec yuID application is installed; upon opening the notification, the user will be presented with an authentication challenge
+1. The browser will be redirected to the BlokSec login page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the BlokSec yuID application is installed; upon opening the notification, the user will be presented with an authentication challenge
 
-10. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.  
+1. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.  
 
 ## Next steps 
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 >[!NOTE]
->In Azure Active Directory B2C, [**custom policies**](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview).
+>In Azure Active Directory B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
 
 ### Part 2 - Create a policy key
 
 Store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-
-4. On the Overview page, select **Identity Experience Framework**.
-
-5. Select **Policy Keys** and then select **Add**.
-
-6. For **Options**, choose `Manual`.
-
-7. Enter a **Name** for the policy key. For example, `BlokSecAppSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-
-8. In **Secret**, enter your client secret that you previously recorded.
-
-9. For **Key usage**, select `Signature`.
-
-10. Select **Create**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. Enter a **Name** for the policy key. For example, `BlokSecAppSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
+1. In **Secret**, enter your client secret that you previously recorded.
+1. For **Key usage**, select `Signature`.
+1. Select **Create**.
 
 ### Part 3 - Configure BlokSec as an Identity provider
 
@@ -343,23 +331,18 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the Refer
 ### Part 7 - Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
-
-2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-
-3. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
-
-4. Under Policies, select **Identity Experience Framework**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+1. Under Policies, select **Identity Experience Framework**.
 Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
 
 ### Part 8 - Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-
-2. For **Application**, select a web application that you [previously registered](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications). The **Reply URL** should show `https://jwt.ms`.
-
-3. Select the **Run now** button.
-
-4. From the sign-up or sign-in page, select **Google** to sign in with Google account.
+1. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Google** to sign in with Google account.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
@@ -367,8 +350,8 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 ::: zone-end

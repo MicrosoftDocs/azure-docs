@@ -13,7 +13,7 @@ ms.date: 7/15/2021
 
 ## What is the Microsoft preferred solution badge?
 
-The preferred solution badge is awarded as a [commercial marketplace benefit](/azure/marketplace/co-sell-overview) to:
+The preferred solution badge is awarded as a [commercial marketplace benefit](./co-sell-overview.md) to:
 
 - Offers published to the commercial marketplace with an Azure IP co-sell incentive
 - Offers enrolled in the Microsoft Business Applications ISV Connect program with co-sell ready status
@@ -34,5 +34,5 @@ Until July 2021, publishers with at least one co-sell ready offer were eligible 
 
 ## Next steps
 
-- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure)
-- For information about co-sell incentive status, see [Requirements for Azure IP Co-sell incentive status](/azure/marketplace/co-sell-requirements) or [Business Applications Co-sell incentive status](/azure/marketplace/co-sell-requirements)
+- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md)
+- For information about co-sell incentive status, see [Requirements for Azure IP Co-sell incentive status](./co-sell-requirements.md) or [Business Applications Co-sell incentive status](./co-sell-requirements.md)

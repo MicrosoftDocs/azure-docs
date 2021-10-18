@@ -112,8 +112,8 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
           "systemId" => "%{[records][systemId]}"
           "category" => "%{[records][category]}"
           "resourceId" => "%{[records][resourceId]}"
-          "operationName" => "%{[records][operationName}}"
-          "Version" => "%{[records][properties][Version}}"
+          "operationName" => "%{[records][operationName]}"
+          "Version" => "%{[records][properties][Version]}"
           "rule" => "%{[records][properties][flows][rule]}"
           "mac" => "%{[records][properties][flows][flows][mac]}"
         }

@@ -26,7 +26,7 @@ The replication lag on the secondary read replicas depends several factors. Thes
 In this article, you'll learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also understand some common causes of increased replication latency on replica servers.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## Replication concepts

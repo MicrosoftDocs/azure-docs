@@ -125,7 +125,7 @@ You can send requests to [User Voice](https://feedback.azure.com/forums/246290-a
 
 ## Next steps
 
-* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * For more info on PowerShell scripting, see [PowerShell Docs](/powershell/scripting/overview).
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
