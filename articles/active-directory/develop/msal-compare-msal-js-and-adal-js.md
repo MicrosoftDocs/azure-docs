@@ -3,7 +3,7 @@ title: "Migrate your JavaScript application from ADAL.js to MSAL.js | Azure"
 titleSuffix: Microsoft identity platform
 description: How to update your existing JavaScript application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: karenhoran
+author: KarenH444
 manager: CelesteDG
 
 ms.service: active-directory
