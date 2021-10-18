@@ -144,7 +144,7 @@ Please make sure all prerequisites are in place before following below steps for
     ).register()
 ```
 
-6. **Read data from ADLS:** Read data from ADLS. Create spark dataframe and view on top of data frame.
+6. **Read data from ADLS:** Read data from ADLS. Create spark dataframe and a view on top of data frame.
 
    > [!NOTE]
    > Update view name in this script before running it.
