@@ -58,6 +58,7 @@ Please make sure all prerequisites are in place before following below steps for
    from azureml.core import Workspace
    from azureml.core.authentication import ServicePrincipalAuthentication
    import azure.synapse.ml.predict as pcontext
+   import azure.synapse.ml.predict.utils._logger as synapse_predict_logger
 ```
 
 2. **Set parameters using variables:** Synapse ADLS data path and model URI need to be set using input variables. You also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
@@ -360,26 +361,67 @@ Step3) Store model MLFLOW artifacts in ADLS or register in AML
    )
 ```
 
-Step4) 
+Step4) Set required parameters using variables
 
 ```PYSPARK
-   # Read data from ADLS
-   
+   # If using ADLS uploaded model
+
+   import pandas as pd
+   from pyspark.sql import SparkSession
+   from pyspark.sql.functions import col, pandas_udf,udf,lit
+   import azure.synapse.ml.predict as pcontext
+   import azure.synapse.ml.predict.utils._logger as synapse_predict_logger
+
+   DATA_FILE = "abfss://xyz@xyz.dfs.core.windows.net/xyz.csv"
+   ADLS_MODEL_URI_SKLEARN = "abfss://xyz@xyz.dfs.core.windows.net/mlflow/sklearn/e2e_linear_regression/"
+   RETURN_TYPES = "INT"
+   RUNTIME = "mlflow"
 ```
 
 ```PYSPARK
-   # Read data from ADLS
-   
+   # If using AML registered model
+
+   from pyspark.sql.functions import col, pandas_udf,udf,lit
+   from azureml.core import Workspace
+   from azureml.core.authentication import ServicePrincipalAuthentication
+   import azure.synapse.ml.predict as pcontext
+   import azure.synapse.ml.predict.utils._logger as synapse_predict_logger
+
+   DATA_FILE = "abfss://xyz@xyz.dfs.core.windows.net/xyz.csv"
+   AML_MODEL_URI_SKLEARN = "aml://xyz"
+   RETURN_TYPES = "INT"
+   RUNTIME = "mlflow"
+```
+
+Step5) Enable SynapseML PREDICT functionality in spark session
+
+```PYSPARK
+   spark.conf.set("spark.synapse.ml.predict.enabled","true")
+```
+
+Step6) Bind model in spark session
+
+```PYSPARK
+   # If using ADLS uploaded model
+
+   model = pcontext.bind_model(
+    return_types=RETURN_TYPES, 
+    runtime=RUNTIME, 
+    model_alias="sklearn_linear_regression",
+    model_uri=ADLS_MODEL_URI_SKLEARN,
+    ).register()
 ```
 
 ```PYSPARK
-   # Read data from ADLS
-   
-```
+   # If using AML registered model
 
-```PYSPARK
-   # Read data from ADLS
-   
+   model = pcontext.bind_model(
+    return_types=RETURN_TYPES, 
+    runtime=RUNTIME, 
+    model_alias="sklearn_linear_regression",
+    model_uri=AML_MODEL_URI_SKLEARN,
+    aml_workspace=ws
+    ).register()
 ```
 
 ```PYSPARK
