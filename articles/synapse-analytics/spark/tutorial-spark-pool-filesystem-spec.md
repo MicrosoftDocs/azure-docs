@@ -64,7 +64,7 @@ FSSPEC can read/write ADLS data by specifying the storage account name and key d
    adls_account_name = '' #Provide exact ADLS account name
    adls_account_key = '' #Provide exact ADLS account key
 
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
 
    with fsspec_handle.open() as f:
        df = pandas.read_csv(f)
@@ -78,7 +78,7 @@ FSSPEC can read/write ADLS data by specifying the storage account name and key d
    
    data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
    
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name=adls_account_name,    account_key=adls_account_key, mode="wt")
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name,    account_key=adls_account_key, mode="wt")
    
    with fsspec_handle.open() as f:
    	data.to_csv(f)
@@ -104,7 +104,7 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
    adls_account_name = '' #Provide exact ADLS account name
    sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>)
    
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
    
    with fsspec_handle.open() as f:
        df = pandas.read_csv(f)
@@ -118,10 +118,40 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
    data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
    sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>) 
    
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
    
    with fsspec_handle.open() as f:
        data.to_csv(f) 
+   ```
+
+## Upload file from local file system to Synapse workspace default ADLS storage account 
+
+FSSPEC can upload file from local file system to Synapse workspace default ADLS storage account.
+
+
+1. Run the following code.
+
+   > [!NOTE]
+   > Update the file URL, Linked Service Name and ADLS Gen2 storage name in this script before running it.
+
+   ```PYSPARK
+   # Import libraries
+   import fsspec
+   import os
+   
+   # Set variables
+   local_file_name = "<local_file_name>"
+   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.cor.net/"+local_file_name
+   
+   # Generate local file for testing 
+   with open(local_file_name, mode='w') as f:
+       for i in range(1000):
+           f.write("Testing local file functionality\n")
+   print("Created: " + local_file_name)
+
+   # Generate local file for testing 
+   fs = fsspec.filesystem('abfs[s]')
+   fs.upload(local_file_name, ADLS_Store_Path)
    ```
 
 ## Next steps
