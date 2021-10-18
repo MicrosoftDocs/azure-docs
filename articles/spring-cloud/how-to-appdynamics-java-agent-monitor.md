@@ -1,5 +1,5 @@
 ---
-title:  "How to monitor Spring Boot apps with the AppDynamics Java agent (Preview)"
+title:  "How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)"
 description: How to use the AppDynamics Java agent to monitor Spring Boot applications running in Azure Spring Cloud.
 author:  KarlErickson
 ms.author: jiec
@@ -9,14 +9,14 @@ ms.date: 10/19/2021
 ms.custom: devx-track-java
 ---
 
-# How to monitor Spring Boot apps with the AppDynamics Java agent (Preview)
+# How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
 
-This article explains how to use the AppDynamics Java agent to monitor Spring Boot applications running in Azure Spring Cloud.
+This article explains how to use the AppDynamics Java Agent to monitor Spring Boot applications running in Azure Spring Cloud.
 
-With the AppDynamics Java agent, you can:
+With the AppDynamics Java Agent, you can:
 
 - Monitor applications
-- Configure the AppDynamics Java agent using environment variables
+- Configure the AppDynamics Java Agent using environment variables
 - Check all monitoring data from the AppDynamics dashboard
 
 The following video introduces the AppDynamics Java in-process agent.
@@ -30,16 +30,16 @@ The following video introduces the AppDynamics Java in-process agent.
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [An AppDynamics account](https://www.appdynamics.com/)
 
-## Activate AppDynamics Java in-process agent
+## Activate the AppDynamics Java in-process agent
 
 For the whole workflow, you need to:
 
 * Activate the AppDynamics Java in-process agent in Azure Spring Cloud to generate application metrics data.
-* Connect the AppDynamics agent to the AppDynamics Controller to collect and visualize the data in the controller.
+* Connect the AppDynamics Agent to the AppDynamics Controller to collect and visualize the data in the controller.
 
 ![Diagram showing a Spring Boot application in 'Azure Spring Cloud' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box](media/how-to-appdynamics-java-agent-monitor/appdynamics_activation.jpg)
 
-### Activate an application with the AppDynamics agent using the Azure CLI
+### Activate an application with the AppDynamics Agent using the Azure CLI
 
 To activate an application through the Azure CLI, use the following steps.
 
@@ -55,7 +55,7 @@ To activate an application through the Azure CLI, use the following steps.
         --is-public true
     ```
 
-1. Create a deployment with the AppDynamics agent using environment variables.
+1. Create a deployment with the AppDynamics Agent using environment variables.
 
     ```azurecli
     az spring-cloud app deploy \
@@ -76,7 +76,7 @@ To activate an application through the Azure CLI, use the following steps.
 
 Azure Spring Cloud pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Cloud with Java Agent](https://docs.appdynamics.com/21.9/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/21.9/en/application-monitoring/tiers-and-nodes).
 
-### Activate application with AppDynamics Agent by Azure portal
+### Activate an application with the AppDynamics Agent using the Azure portal
 
 To activate an application through the Azure portal, use the following steps.
 
@@ -98,11 +98,11 @@ To activate an application through the Azure portal, use the following steps.
 
    :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png" alt-text="Azure portal screenshot showing the 'General settings' section of the app's Configuration page, with 'JVM options' highlighted" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png":::
 
-## Automation
+## Automate provisioning
 
 You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
-### Terraform
+### Automate provisioning using Terraform
 
 To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
@@ -124,7 +124,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 }
 ```
 
-### ARM template
+### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
@@ -147,7 +147,7 @@ To configure the environment variables in an ARM template, add the following cod
 
 ## Review reports in the AppDynamics dashboard
 
-This section shows various 
+This section shows various reports in AppDynamics.
 
 The following screenshot shows an overview of your apps in the AppDynamics dashboard:
 
@@ -189,30 +189,30 @@ You can define more metrics for the JVM, as shown in this screenshot of the **Me
 
 :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg" alt-text="AppDynamics screenshot showing the Metric Browser" lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-jvm-metric-browser.jpg":::
 
-## AppDynamics Agent Logging
+## View AppDynamics Agent logs
 
-By default, Azure Spring Cloud will print the *info* level logs of the AppDynamics agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Cloud will print the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
-There are several ways to get the logs of AppDynamics Agent:
+You can also get the logs of the AppDynamics Agent from the following locations:
 
-* Azure Spring Cloud Logs.
-* Azure Spring Cloud Application Insights.
-* Azure Spring Cloud LogStream.
+* Azure Spring Cloud logs
+* Azure Spring Cloud Application Insights
+* Azure Spring Cloud LogStream
 
-## AppDynamics Agent upgrade
+## Learn about AppDynamics Agent upgrade
 
 The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upgrade may affect the following scenarios:
 
 * Existing applications using AppDynamics Agent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of AppDynamics Agent.
 * Applications created after upgrade will use the new version of AppDynamics Agent.
 
-## Vnet Injection Instance Outbound Traffic Configuration
+## Configure VNet injection instance outbound traffic
 
 For VNet injection instances of Azure Spring Cloud, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
 
-## Limitations
+## Understand the limitations
 
-For more information, see [Limitations when Monitor Azure Spring Cloud with AppDynamics Java in-process agent (**not ready yet**)]()
+For more information, see [Limitations when monitoring Azure Spring Cloud with AppDynamics Java in-process agent (**not ready yet**)]()
 
 ## Next steps
 
