@@ -53,7 +53,7 @@ sections:
         answer: |
           There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
 
-          This limit should be sufficient for a single setting in most applications. Find your setting is larger than this limit. You may consider storing your data elsewhere and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
+          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
