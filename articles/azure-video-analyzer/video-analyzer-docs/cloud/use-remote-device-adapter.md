@@ -176,7 +176,7 @@ After creating the live pipeline, the pipeline can be activated to start recordi
 
 The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can be used to automate this process.
 
-## Playback recorded video in the Azure portal
+### Playback recorded video in the Azure portal
 
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 <!-- TODO: add link to Mayank's Cloud pipeline quickstart to playback section-->
