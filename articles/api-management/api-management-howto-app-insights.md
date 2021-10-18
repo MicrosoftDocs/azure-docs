@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2021
+ms.date: 10/18/2021
 ms.author: danlep
 
 ---
@@ -56,13 +56,16 @@ To use Application Insights, [create an instance of the Application Insights ser
 1. Select your attached logger in the **Destination** dropdown.
 1. Input **100** as **Sampling (%)** and select the **Always log errors** checkbox.
 1. Leave the rest of the settings as is.
-1. Select **Save**.
 
-> [!WARNING]
-> Overriding the default **Number of payload bytes to log** value **0** may significantly decrease the performance of your APIs.
+    > [!WARNING]
+    > Overriding the default **Number of payload bytes to log** value **0** may significantly decrease the performance of your APIs.
+
+1. Select **Save**.
+1. Behind the scenes, a [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) entity named `applicationinsights` is created at the API level.
 
 > [!NOTE]
-> Behind the scenes, a [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) entity named 'applicationinsights' is created at the API level.
+> We consider the request to be successful once API Management sends the entire response to the client.
+
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
