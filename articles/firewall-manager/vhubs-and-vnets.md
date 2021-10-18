@@ -31,7 +31,7 @@ The following table compares these two architecture options and can help you dec
 |**Hub & Spoke**     |Uses Virtual network peering|Automated using hub virtual network connection|
 |**On-prem connectivity**     |VPN Gateway up to 10 Gbps and 30 S2S connections; ExpressRoute|More scalable VPN Gateway up 20 Gbps and 1000 S2S connections; Express Route|
 |**Automated branch connectivity using SDWAN**      |Not supported|Supported|
-|**Hubs per region**     |Multiple Virtual Networks per region|Single Virtual Hub per region. Multiple hubs possible with multiple Virtual WANs|
+|**Hubs per region**     |Multiple Virtual Networks per region|Multiple Virtual Hubs per region|
 |**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated|
 |**Azure Firewall Availability Zones**     |Supported|Not yet available|
 |**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via security partner provider flow and partner management experience|
