@@ -17,7 +17,7 @@ The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your 
 
 This article describes how to use Azure Purview to scan your structured data currently stored in Amazon RDS, including both Microsoft SQL and PostgreSQL databases, and discover what types of sensitive information exists in your data. You'll also learn how to identify the Amazon RDS databases where the data is currently stored for easy information protection and data compliance.
 
-For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview uses this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
+For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview use this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
 
 > [!IMPORTANT]
 > The Multi-Cloud Scanning Connectors for Azure Purview are separate add-ons to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connectors for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
@@ -33,7 +33,7 @@ For this service, use Purview to provide a Microsoft account with secure access 
 
 - **Maximum columns supported**: Scanning RDS tables with more than 300 columns is not supported.
 
-- **Public access support**: Purview supports scanning only with VPC Private Link in AWS, and is does not include public access scanning.
+- **Public access support**: Purview supports scanning only with VPC Private Link in AWS, and does not include public access scanning.
 
 - **Supported regions**: Purview only supports Amazon RDS databases that are located in the following AWS regions:
 
@@ -77,9 +77,9 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 Azure Purview supports scanning only when your database is hosted in a virtual private cloud (VPC), where your RDS database can only be accessed from within the same VPC.
 
-The Azure Multi-Cloud Scanning Connectors for Azure Purview service runs in a separate, Microsoft account in AWS. To scan your RDS databases, the Microsoft AWS account needs to be able to access your RDS databases in your VPC. To allow this access, you’ll need to configure [AWS PrivateLink](https://aws.amazon.com/privatelink/) between the RDS VPC (in the customer account) to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview runs (in the Microsoft account).
+The Azure Multi-Cloud Scanning Connectors for Azure Purview service run in a separate, Microsoft account in AWS. To scan your RDS databases, the Microsoft AWS account needs to be able to access your RDS databases in your VPC. To allow this access, you’ll need to configure [AWS PrivateLink](https://aws.amazon.com/privatelink/) between the RDS VPC (in the customer account) to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview run (in the Microsoft account).
 
-The following diagram shows the components in both your customer account and Microsoft account. Highlighted in yellow are the components you’ll need to create to enable connectivity RDS VPC in your account to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview runs in the Microsoft account.
+The following diagram shows the components in both your customer account and Microsoft account. Highlighted in yellow are the components you’ll need to create to enable connectivity RDS VPC in your account to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview run in the Microsoft account.
 
 :::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Multi-Cloud Scanning Connectors for Azure Purview service in a VPC architecture." border="false":::
 
@@ -249,7 +249,7 @@ Use the other areas of Purview to find out details about the content in your dat
 
 - **View Insight reports** to view statistics for the classification, sensitivity labels, file types, and more details about your content.
 
-    All Purview Insight reports include the Amazon RDS scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon RDS** asset type was added to the report filtering options.
+    All Purview Insight reports include the Amazon RDS scanning results, along with the rest of the results from your Azure data sources. When relevant, an **Amazon RDS** asset type is added to the report filtering options.
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
 
@@ -478,7 +478,7 @@ Locate the **Service name** on the **Details** tab for your selected endpoint se
 
 ## Troubleshoot your VPC connection
 
-This sections describes common errors that may occur when configuring your VPC connection with Azure Purview, and how to troubleshoot and resolve them.
+This section describes common errors that may occur when configuring your VPC connection with Azure Purview, and how to troubleshoot and resolve them.
 
 ### Invalid VPC service name
 
