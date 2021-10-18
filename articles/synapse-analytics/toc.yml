@@ -1272,6 +1272,8 @@ items:
     items:
     - name: Use a sample notebook from the gallery
       href: machine-learning/quickstart-gallery-sample-notebook.md
+    - name: Use the Retail AI solution
+      href: machine-learning/quickstart-industry-ai-solutions.md
     - name: Create a linked service
       items:
       - name: Azure Machine Learning
