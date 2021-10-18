@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "06/01/2021"
-ms.author: rseltem
+ms.author: rsetlem
 ms.custom: "seo-lt-2019"
 ms.reviewer: mathoma
 ---

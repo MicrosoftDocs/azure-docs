@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: rseltem
+ms.author: rsetlem
 ms.custom: "seo-lt-2019"
 ms.reviewer: mathoma
 ---

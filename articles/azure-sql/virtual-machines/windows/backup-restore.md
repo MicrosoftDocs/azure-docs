@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
-ms.author: rseltem
+ms.author: rsetlem
 ms.reviewer: mathoma
 ---
 # Backup and restore for SQL Server on Azure VMs
