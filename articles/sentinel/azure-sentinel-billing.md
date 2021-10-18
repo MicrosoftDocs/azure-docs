@@ -48,7 +48,7 @@ For example, you can enter the GB of daily data you expect to ingest in Azure Se
 
 Azure Sentinel offers a flexible and predictable pricing model. For more information, see the [Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/). For the related Log Analytics charges, see [Azure Monitor Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Azure Sentinel runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+Azure Sentinel runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other, extra infrastructure costs that might accrue.
 ### How you're charged for Azure Sentinel
 
 There are two ways to pay for the Azure Sentinel service: **Pay-As-You-Go** and **Commitment Tiers**.
@@ -58,7 +58,7 @@ There are two ways to pay for the Azure Sentinel service: **Pay-As-You-Go** and 
 
 - Log Analytics and Azure Sentinel also have **Commitment Tier** pricing, formerly called Capacity Reservations, which is more predictable and saves as much as 65% compared to Pay-As-You-Go pricing.
 
-    With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
+    With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100 GB bills you for the committed 100 GB data volume, plus any extra GB/day at the discounted rate for that tier.
 
     You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
@@ -90,7 +90,7 @@ For more information on viewing and downloading your Azure bill, see [Azure cost
 
 ### Costs for other services
 
-Azure Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have additional charges. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
+Azure Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have extra charges. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
 
 For pricing details for these services, see:
 
@@ -109,9 +109,9 @@ You can specify different retention settings for individual data types. For more
 
 ### Other CEF ingestion costs
 
-CEF is a supported Syslog events format in Azure Sentinel. You can use CEF to bring in valuable security information from a variety of sources to your Azure Sentinel workspace. CEF logs land in the CommonSecurityLog table in Azure Sentinel, which includes all the standard up-to-date CEF fields.
+CEF is a supported Syslog events format in Azure Sentinel. You can use CEF to bring in valuable security information from various sources to your Azure Sentinel workspace. CEF logs land in the CommonSecurityLog table in Azure Sentinel, which includes all the standard up-to-date CEF fields.
 
-Many devices and data sources allow for logging fields beyond the standard CEF schema. These additional fields land in the AdditionalExtensions table. These fields could have higher ingestion volumes than the standard CEF fields, because the event content within these fields can be variable.
+Many devices and data sources allow for logging fields beyond the standard CEF schema. These extra fields land in the AdditionalExtensions table. These fields could have higher ingestion volumes than the standard CEF fields, because the event content within these fields can be variable.
 
 ### Costs that might accrue after resource deletion
 
@@ -119,17 +119,17 @@ Removing Azure Sentinel doesn't remove the Log Analytics workspace Azure Sentine
 
 ### Free trial
 
-Try Azure Sentinel free for the first 31 days. Azure Sentinel can be enabled at no additional cost on an Azure Monitor Log Analytics workspace, subject to the limits stated below:
+Try Azure Sentinel free for the first 31 days. Azure Sentinel can be enabled at no extra cost on an Azure Monitor Log Analytics workspace, subject to the limits stated below:
 
 - **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
 
    Both Log Analytics data ingestion and Azure Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
-- **Existing Log Analytics workspaces** can enable Azure Sentinel at no additional cost. Existing workspaces include any workspaces created more than three days ago.
+- **Existing Log Analytics workspaces** can enable Azure Sentinel at no extra cost. Existing workspaces include any workspaces created more than three days ago.
 
    Only the Azure Sentinel charges are waived during the 31-day trial period.
 
-Usage beyond these limits will be charged per the pricing listed on the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation-in-azure-sentinel.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+Usage beyond these limits will be charged per the pricing listed on the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation-in-azure-sentinel.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
 > [!TIP]
 > During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Azure Sentinel.
@@ -201,7 +201,7 @@ When you use cost analysis, you view Azure Sentinel costs in graphs and tables f
 
 The [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](..//cost-management-billing/costs/understand-work-scopes.md) or set of resources to investigate, such as an Azure subscription or resource group.
 
-The **Cost Analysis** screen shows detailed views of your Azure usage and costs, with the option to apply a variety of controls and filters.
+The **Cost Analysis** screen shows detailed views of your Azure usage and costs, with the option to apply various controls and filters.
 
 For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down caret in the **View** field and select **Accumulated costs** or **Daily costs**.
@@ -217,7 +217,7 @@ For more information, see [Create budgets](#create-budgets) and [Other ways to m
 
 ### Using Azure Prepayment with Azure Sentinel
 
-You can pay for Azure Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay bills to third party organizations for their products and services, or for products from the Azure Marketplace.
+You can pay for Azure Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay bills to third-party organizations for their products and services, or for products from the Azure Marketplace.
 
 ### Run queries to understand your data ingestion
 
@@ -270,13 +270,13 @@ To enable the Workspace Usage Report workbook:
 
 ## Export cost data
 
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you need or others to do more data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Create budgets
 
 You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
 
-You can create budgets with filters for specific resources or services in Azure if you want more granularity in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+You can create budgets with filters for specific resources or services in Azure if you want more granularity in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ### Use a playbook for cost management alerts
 
@@ -332,7 +332,7 @@ When hunting or investigating threats in Azure Sentinel, you might need to acces
 
 ### Optimize Log Analytics costs with dedicated clusters
 
-If you ingest at least 500GB/day into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500GB/day or more.
+If you ingest at least 500 GB into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500 GB or more.
 
 Log Analytics dedicated clusters don't apply to Azure Sentinel Commitment Tiers. Azure Sentinel costs still apply per workspace in the dedicated cluster.
 
@@ -340,7 +340,7 @@ You can add multiple Azure Sentinel workspaces to a Log Analytics dedicated clus
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](../azure-monitor/logs/cross-workspace-query.md) for inclusion in a single cross-workspace query.
 
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500GB ingestion per day.
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500 GB ingestion per day.
 
 Here are some other considerations for moving to a dedicated cluster for cost optimization:
 
@@ -348,7 +348,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 - All workspaces linked to a cluster must be in the same region.
 - The maximum of workspaces linked to a cluster is 1000.
 - You can unlink a linked workspace from your cluster. The number of link operations on a particular workspace is limited to two in a period of 30 days.
-- You can't move an existing workspace to a customer managed key (CMK) cluster. You need to create the workspace in the cluster.
+- You can't move an existing workspace to a customer managed key (CMK) cluster. You must create the workspace in the cluster.
 - Moving a cluster to another resource group or subscription isn't currently supported.
 - A workspace link to a cluster fails if the workspace is linked to another cluster.
 
