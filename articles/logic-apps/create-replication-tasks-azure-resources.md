@@ -396,7 +396,7 @@ For more information about geo-disaster recovery, review the following documenta
 
 ## Replication problems and failures
 
-The following describes possible ways that replication can fail or stop working:
+This section describes possible ways that replication can fail or stop working:
 
 - Message size limits
 
