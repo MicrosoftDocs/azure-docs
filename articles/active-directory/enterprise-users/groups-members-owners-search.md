@@ -20,23 +20,21 @@ ms.collection: M365-identity-device-management
 
 # Search groups and members in Azure Active Directory
 
-This article tells you how to search for members and owners of a group and how to use search filters the Azure Active Directory (Azure AD) portal. There are lots of improvements in the groups experiences to help you manage your groups, including members and owners, quickly and easily.
-
-Search functions for groups include:
+This article tells you how to search for members and owners of a group and how to use search filters the Azure Active Directory (Azure AD) portal. Search functions for groups include:
 
 - Groups search capabilities, such as substring search in group names
 - Filtering and sorting options on member and owner lists
 - Search capabilities for member and owner lists
 
-## Group search and sorting
+## Group search and sort
 
-On the **All groups** page, when you enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and any special characters are searched for also in an ANDed search. Substring search is case-sensitive.
+On the **All groups** page, when you enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
 
 ![new substring searches on the All Groups page](./media/groups-members-owners-search/groups-search-preview.png)
 
 For example, a search for “policy” returns both "MDM policy – West" and "Policy group." A group named "New_policy" wouldn't be returned. You can sort the **All groups** list by name in ascending or descending order.
 
-## Group member search and filtering
+## Group member search and filter
 
 ### Search group member and owner lists
 
@@ -46,17 +44,19 @@ You can search the members or owners of a specific group by name, and when you e
 
 ### Filter member and owners list
 
-In addition to search, you can filter the members and owners lists by user type. This information is found in the **User Type** column in the members or owners list. You can filter the list to see only tenant members or guests.
+In addition to search, you can filter the group members and owners lists by user type. This information is found in the **User Type** column in the members or owners list. You can filter the list to see only members or guests.
 
-### View and manage membership
+The **Members** page includes all the unique members of group including anyone who inherits their group membership from another group.
 
-In addition to viewing the direct members of a specific group, you can view the list of all members of the group within the **Members** page. The members list includes all the unique members of group including any transitive members.
+You can also search and filter the direct members list and the all members list individually. Filtering the all members list does not affect the filters that are applied to the direct members list.
 
-You can also search and filter the direct members list and the all members list individually. Filtering the all members list does not affect the filters that are applied on the direct members list.
+## Group memberships
+
+You can also view group memberships for a group on the **Group memberships** page. The **Group memberships** page supports search, sort and filter operations that are similar to the other Groups pages.
 
 ## Improved group member counts
 
-The group **Overview** page provides group member counts for groups of all sizes. You can see the member counts even for groups with more than 1,000 members. You can see the total number of direct members for a group and the total membership count (all the unique members of group including transitive members) on the **Overview** page.
+The group **Overview** page provides group member counts for groups. You can see the total number of direct members for a group and the total membership count (all the unique members of group including inherited memberships) on the **Overview** page.
 
 ![Higher accuracy in group membership counts](./media/groups-members-owners-search/member-numbers.png)
 
