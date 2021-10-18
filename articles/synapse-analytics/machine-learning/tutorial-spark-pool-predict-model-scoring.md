@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Score machine learning models with PREDICT in Synapse Analytics spark pool'
-description: Tutorial for how to use PREDICT functionality for predicting scores through machine learning models in dedicated Synapse spark pools.
+title: 'Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pool'
+description: Tutorial for how to use PREDICT functionality for predicting scores through machine learning models in serverless Apache Spark pools.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 11/02/2021
+ms.date: 10/18/2021
 author: AjAgr
 ms.author: ajagarw
 ---
 
-# Tutorial: Score machine learning models with PREDICT in Synapse Analytics spark pool
+# Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pools
 
-Learn how to use PREDICT functionality in dedicated spark pools in Azure Synapse Analytics, for score prediction if trained model is registered in Azure Machine Learning (AML) Or Synapse workspace default Azure Data Lake Storage (ADLS).
+Learn how to use PREDICT functionality in serverless Apache Spark pool in Azure Synapse Analytics, for score prediction if trained model is registered in Azure Machine Learning (AML) Or Synapse workspace default Azure Data Lake Storage (ADLS).
 
 PREDICT in Synapse PySpark notebook provides you the capability to score machine learning models using the  SQL language, user defined functions (UDF) or Transformers. With PREDICT, you can bring your existing machine learning models trained outside Synapse with historical data and registered in Azure Data Lake Storage Gen2 or Azure Machine Learning to further score them within the secure boundaries of Azure Synapse Analytics. PREDICT function takes a model and data as inputs. This feature eliminates the step of moving valuable data outside Synapse for scoring. It aims to empower model consumers to easily infer machine learning models in Synapse as well as collaborate seamlessly with model producer working with the right framework for their task.
 
@@ -22,23 +22,24 @@ PREDICT in Synapse PySpark notebook provides you the capability to score machine
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> - predict scores for data in Synapse spark pool using machine learning models which are trained outside Synapse and registered in Azure Machine Learning or Azure Data Lake Storage Gen2.
+> - predict scores for data in serverless Apache Spark pool using machine learning models which are trained outside Synapse and registered in Azure Machine Learning or Azure Data Lake Storage Gen2.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
-- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
+- Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
 - Azure Machine Learning workspace is needed if you want to train or register model in Azure Machine Learning. For details, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](articles/machine-learning/how-to-manage-workspace.md).
 - If your model is registered in Azure Machine Learning then you need a linked service. In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Machine Learning linked service. To learn more, see [Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 - The functionality requires that you already have trained model which is either registered in Azure Machine Learning or uploaded in Azure Data Lake Storage Gen2.
 
 > [!NOTE]
-> - PREDICT feature is supported on **Spark3** pools. **Python 3.8** is recommended version for model creation and training. 
+> - PREDICT feature is supported on **Spark3** serverless Apache Spark pool in Azure Synapse Analytics. **Python 3.8** is recommended version for model creation and training. 
 > - PREDICT supports most machine learning models packages in **MLflow** format: **TensorFlow, ONNX, PyTorch, SkLearn and pyfunc** are supported in this preview.
 > - PREDICT supports **AML and ADLS** model source. Here ADLS account refers to **default Synapse workspace ADLS account**. 
 - Let us know if your favorite model flavor or model registry is not on the list.
+
 
 ## Sign in to the Azure portal
 
@@ -192,6 +193,208 @@ Please make sure all prerequisites are in place before following below steps for
 
    tranformer.transform(df).show()
    ```
+
+## Sklearn linear regression end to end example for using PREDICT
+
+Step1) Import libraries and read train dataset from ADLS
+
+```PYSPARK
+   # Import libraries and read train dataset from ADLS
+   
+   import fsspec
+   import pandas
+   from fsspec.core import split_protocol
+   
+   adls_account_name = 'xyz' #Provide exact ADLS account name
+   adls_account_key = 'xyz' #Provide exact ADLS account key
+   
+   fsspec_handle = fsspec.open('abfs://<file_system_name>/<data_file_path>',    account_name=adls_account_name, account_key=adls_account_key)
+   
+   with fsspec_handle.open() as f:
+       train_df = pandas.read_csv(f)
+```
+Step2) Train model and generate mlflow artifacts
+
+```PYSPARK
+   # Train model and generate mlflow artifacts
+
+   import os
+   import shutil
+   import mlflow
+   import json
+   from mlflow.utils import model_utils
+   import numpy as np
+   import pandas as pd
+   from sklearn.linear_model import LinearRegression
+   
+   
+   class LinearRegressionModel():
+     _ARGS_FILENAME = 'args.json'
+     FEATURES_KEY = 'features'
+     TARGETS_KEY = 'targets'
+     TARGETS_PRED_KEY = 'targets_pred'
+   
+     def __init__(self, fit_intercept, nb_input_features=9, nb_output_features=1):
+       self.fit_intercept = fit_intercept
+       self.nb_input_features = nb_input_features
+       self.nb_output_features = nb_output_features
+   
+     def get_args(self):
+       args = {
+           'nb_input_features': self.nb_input_features,
+           'nb_output_features': self.nb_output_features,
+           'fit_intercept': self.fit_intercept
+       }
+       return args
+   
+     def create_model(self):
+       self.model = LinearRegression(fit_intercept=self.fit_intercept)
+   
+     def train(self, dataset):
+   
+       features = np.stack([sample for sample in iter(
+           dataset[LinearRegressionModel.FEATURES_KEY])], axis=0)
+   
+       targets = np.stack([sample for sample in iter(
+           dataset[LinearRegressionModel.TARGETS_KEY])], axis=0)
+   
+   
+       self.model.fit(features, targets)
+   
+     def predict(self, dataset):
+       features = np.stack([sample for sample in iter(
+           dataset[LinearRegressionModel.FEATURES_KEY])], axis=0)
+       targets_pred = self.model.predict(features)
+       return targets_pred
+   
+     def save(self, path):
+       if os.path.exists(path):
+         shutil.rmtree(path)
+   
+       # save the sklearn model with mlflow
+       mlflow.sklearn.save_model(self.model, path)
+   
+       # save args
+       self._save_args(path)
+   
+     def _save_args(self, path):
+       args_filename = os.path.join(path, LinearRegressionModel._ARGS_FILENAME)
+       with open(args_filename, 'w') as f:
+         args = self.get_args()
+         json.dump(args, f)
+   
+   
+   def train(train_df, output_model_path):
+     print(f"Start to train LinearRegressionModel.")
+   
+     # Initialize input dataset
+     dataset = train_df.to_numpy()
+     datasets = {}
+     datasets['targets'] = dataset[:, -1]
+     datasets['features'] = dataset[:, :9]
+   
+     # Initialize model class obj
+     model_class = LinearRegressionModel(fit_intercept=10)
+     with mlflow.start_run(nested=True) as run:
+       model_class.create_model()
+       model_class.train(datasets)
+       model_class.save(output_model_path)
+       print(model_class.predict(datasets))
+   
+   
+   train(train_df, './artifacts/output')
+```
+
+Step3) Store model MLFLOW artifacts in ADLS or register in AML
+
+```PYSPARK
+   # Store model MLFLOW artifacts in ADLS
+   
+   STORAGE_PATH = 'abfs://ajagarwfs/predict/models/mlflow/sklearn/e2e_linear_regression/'
+   
+   protocol, _ = split_protocol(STORAGE_PATH)
+   print (protocol)
+
+   storage_options = {
+       'account_name': adls_account_name,
+       'account_key': adls_account_key
+   }
+   fs = fsspec.filesystem(protocol, **storage_options)
+   fs.put(
+       './artifacts/output',
+       STORAGE_PATH, 
+       recursive=True, overwrite=True)
+```
+
+```PYSPARK
+   # Register model MLFLOW artifacts in AML
+   
+   from azureml.core import Workspace, Model
+   from azureml.core.authentication import ServicePrincipalAuthentication
+   
+   AZURE_TENANT_ID = "xyz"
+   AZURE_CLIENT_ID = "xyz"
+   AZURE_CLIENT_SECRET = "xyz"
+   
+   AML_SUBSCRIPTION_ID = "xyz"
+   AML_RESOURCE_GROUP = "xyz"
+   AML_WORKSPACE_NAME = "xyz"
+   
+   svc_pr = ServicePrincipalAuthentication( 
+       tenant_id=AZURE_TENANT_ID,
+       service_principal_id=AZURE_CLIENT_ID,
+       service_principal_password=AZURE_CLIENT_SECRET
+   )
+   
+   ws = Workspace(
+       workspace_name = AML_WORKSPACE_NAME,
+       subscription_id = AML_SUBSCRIPTION_ID,
+       resource_group = AML_RESOURCE_GROUP,
+       auth=svc_pr
+   )
+   
+   model = Model.register(
+       model_path="./artifacts/output",
+       model_name="xyz",
+       workspace=ws,
+   )
+```
+
+Step4) 
+
+```PYSPARK
+   # Read data from ADLS
+   
+```
+
+```PYSPARK
+   # Read data from ADLS
+   
+```
+
+```PYSPARK
+   # Read data from ADLS
+   
+```
+
+```PYSPARK
+   # Read data from ADLS
+   
+```
+
+```PYSPARK
+   # Read data from ADLS
+   
+```
+
+```PYSPARK
+   # Read data from ADLS
+   
+```
+
+
+## Sklearn linear regression end to end example for using PREDICT (ADLS uploaded model)
+
 
 ## Next steps
 
