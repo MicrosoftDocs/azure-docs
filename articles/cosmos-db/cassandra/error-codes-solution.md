@@ -17,15 +17,15 @@ Log Analytics is a tool in the Azure portal that helps you run server diagnostic
 
 ## Prerequisites
 
-- Create a [Log Analytics Workspace] (https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspacee).
-- Create [Diagnostic Settings] (https://docs.microsoft.com/en-us/azure/cosmos-db/cosmosdb-monitor-resource-logs).
-- Start [log analytics] (https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) on your Cassandra API account.
+- Create a [Log Analytics Workspace] (https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspacee).
+- Create [Diagnostic Settings] (https://docs.microsoft.com/azure/cosmos-db/cosmosdb-monitor-resource-logs).
+- Start [log analytics] (https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) on your Cassandra API account.
 
 ## Using Log Analytics
 Once you have log analytics setup complete. You can begin to explore your logs to gain more insights.
 
 ## Explore Data Plane Operations
-Use the [CDBCassandraRequests] (https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/cdbcassandrarequests) table to see data plane operations specifically for your Cassandra API account. A sample query to see the topN(10) consuming request and get detailed information on each request made.
+Use the [CDBCassandraRequests] (https://docs.microsoft.com/azure/azure-monitor/reference/tables/cdbcassandrarequests) table to see data plane operations specifically for your Cassandra API account. A sample query to see the topN(10) consuming request and get detailed information on each request made.
 
 CDBCassandraRequests
 | where RequestCharge  > 0
@@ -59,14 +59,14 @@ CDBCassandraRequests
 | 	| 10 | This is a client message triggered protocol violation. An example is query message sent before a startup one has been sent. |
 
 ## Troubleshoot Query Consumption
-[CDBPartitionKeyRUConsumption] (https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/cdbpartitionkeyruconsumption) to get details on request unit(RU) consumption for logical keys in each region within each of their physical partitions.
+[CDBPartitionKeyRUConsumption] (https://docs.microsoft.com/azure/azure-monitor/reference/tables/cdbpartitionkeyruconsumption) to get details on request unit(RU) consumption for logical keys in each region within each of their physical partitions.
 
 CDBPartitionKeyRUConsumption 
 | summarize sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
 | render columnchart
 
 ## Explore Control Plane Operations
-The [CBDControlPlaneRequests] (https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/cdbcontrolplanerequests) table contains details on control plane operations, specifically  for Cassandra API accounts. 
+The [CBDControlPlaneRequests] (https://docs.microsoft.com/azure/azure-monitor/reference/tables/cdbcontrolplanerequests) table contains details on control plane operations, specifically  for Cassandra API accounts. 
 
 CDBControlPlaneRequests
 | where TimeGenerated > now(-6h)
@@ -78,5 +78,5 @@ CDBControlPlaneRequests
 
 ## Next steps
 
-- Learn more about [Log Analytics] (https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial).
+- Learn more about [Log Analytics] (https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial).
 - Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](migrate-data-databricks.md).
