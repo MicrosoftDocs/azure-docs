@@ -7,7 +7,7 @@ ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 author: AjAgr
 ms.author: ajagarw
 ---
