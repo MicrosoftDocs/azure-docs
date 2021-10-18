@@ -132,7 +132,7 @@ FSSPEC can upload file from local file system to Synapse workspace default ADLS 
 Run the below code.
 
    > [!NOTE]
-   > Update the file URL, Linked Service Name and ADLS Gen2 storage name in this script before running it.
+   > Update the file URL in this script before running it.
 
    ```PYSPARK
    # Import libraries
@@ -156,4 +156,5 @@ Run the below code.
 
 ## Next steps
 
-- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
+- [Azure Synapse Analytics](../index.yml)
+- [FSSPEC official documentation](https://filesystem-spec.readthedocs.io/en/latest/)

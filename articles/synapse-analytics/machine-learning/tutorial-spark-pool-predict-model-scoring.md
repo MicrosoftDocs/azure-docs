@@ -16,7 +16,7 @@ ms.author: ajagarw
 
 Learn how to use PREDICT functionality in serverless Apache Spark pool in Azure Synapse Analytics, for score prediction if trained model is registered in Azure Machine Learning (AML) Or Synapse workspace default Azure Data Lake Storage (ADLS).
 
-PREDICT in Synapse PySpark notebook provides you the capability to score machine learning models using the  SQL language, user defined functions (UDF) or Transformers. With PREDICT, you can bring your existing machine learning models trained outside Synapse with historical data and registered in Azure Data Lake Storage Gen2 or Azure Machine Learning to further score them within the secure boundaries of Azure Synapse Analytics. PREDICT function takes a model and data as inputs. This feature eliminates the step of moving valuable data outside Synapse for scoring. It aims to empower model consumers to easily infer machine learning models in Synapse as well as collaborate seamlessly with model producer working with the right framework for their task.
+PREDICT in Synapse PySpark notebook provides you the capability to score machine learning models using the  SQL language, user defined functions (UDF) or Transformers. With PREDICT, you can bring your existing machine learning models trained outside Synapse on top of historical data and registered in Azure Data Lake Storage Gen2 or Azure Machine Learning to further score them within the secure boundaries of Azure Synapse Analytics. PREDICT function takes a model and data as inputs. This feature eliminates the step of moving valuable data outside Synapse for scoring. It aims to empower model consumers to easily infer machine learning models in Synapse as well as collaborate seamlessly with model producer working with the right framework for their task.
 
 
 In this tutorial, you'll learn how to:
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
-- Azure Machine Learning workspace is needed if you want to train or register model in Azure Machine Learning. For details, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](articles/machine-learning/how-to-manage-workspace.md).
+- Azure Machine Learning workspace is needed if you want to train or register model in Azure Machine Learning. For details, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](../../machine-learning/how-to-manage-workspace.md).
 - If your model is registered in Azure Machine Learning then you need a linked service. In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Machine Learning linked service. To learn more, see [Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 - The functionality requires that you already have trained model which is either registered in Azure Machine Learning or uploaded in Azure Data Lake Storage Gen2.
 
