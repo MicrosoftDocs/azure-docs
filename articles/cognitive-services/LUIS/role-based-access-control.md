@@ -112,7 +112,7 @@ A user that is responsible for building and modifying LUIS application, as a col
 
 ### Cognitive Services LUIS owner
 
-These users are the gatekeepers for LUIS applications in a production environment environments. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments.
+These users are the gatekeepers for LUIS applications in a production environment. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments.
 
 :::row:::
     :::column span="":::
