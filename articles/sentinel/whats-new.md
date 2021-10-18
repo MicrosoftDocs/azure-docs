@@ -122,32 +122,48 @@ For more information, see [Manage custom content in your own repository](ci-cd.m
 
 Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
 
-In the Azure Sentinel **Threat Intelligence** page, select an indicator in the grid. Details are shown on the right, including both Geolocation and WhoIs data. For example:
+View Geolocation and WhoIs data in Azure Sentinel, on the **Threat Intelligence** page. From the grid, select the indicator for which you'd like to view GeoLocation and WhoIs information.
 
-TBD SCREENSHOT
+Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+
+<!--For example: Screenshot TBD-->
+
+> [!TIP]
+> The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
+>
 
 For more information, see:
 
 - [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
 - [Threat intelligence integrations](threat-intelligence-integration.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
-- [Enrich entities with geolocation data via API](geolocation-data-api.md)
 
 ### Use notebooks with Azure Synapse Analytics in Azure Sentinel
 
-Azure Sentinel now integrates Jupyter notebooks with Azure Synapse Analytics for advanced data science scenarios. Use Azure Synapse functionality, now built-in to the Azure Sentinel notebooks experience, to run data parallel data processing from inside Azure Sentinel using a big data analytics platform.
+Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-scale security analytics scenarios.
 
-While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with a built-in data lake and the Apache Spark distributed computing processing engine.
+Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits, and libraries such as TensorFlow, as well as their own custom models, into security workflows.
 
-To support this functionality, we've added the ability to create and launch and Azure Synapse workspace directly from Azure Sentinel, as well as new notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunt on that data at scale.
+The new Azure Synapse integration provides extra analytic horsepower, which:
+- Leverages big-data processing
 
-The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+- Operationalizes machine learning modules, using Azure Sentinel data with cost-effective Data Lake access
+
+- Runs cloud-scale, distributed processing for security analytic workloads, with extract, transform, load (ETL) pipeline capabilities combined with fully managed Apache Spark compute pools
+
+To support this integration solution, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunting on that data at scale.
+
+For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+
+### Enhanced Notebooks area in Azure Sentinel
+
+The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where you can find basic information about notebooks, and a new **Notebook types** column in the **Templates** tab to indicate the type of each notebook displayed. For example, notebooks might have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
 
 For example:
 
 :::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
 
-For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
 ## October 2021
 
@@ -161,7 +177,7 @@ A playbook template is a pre-built, tested, and ready-to-use workflow that can b
 
 Playbook templates have been developed by the Azure Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [**Azure Sentinel Solution**](sentinel-solutions.md), or in the [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
 
-See [Create and customize playbooks from built-in templates](use-playbook-templates.md) for more information about deploying a playbook template from the **Playbook templates** tab under **Automation**.
+For more information, see [Create and customize playbooks from built-in templates](use-playbook-templates.md).
 
 ### Manage template versions for your scheduled analytics rules (Public preview)
 
