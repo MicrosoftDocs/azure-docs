@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 656.163 263.656">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 656.163 289.656">
   <defs>
-    <linearGradient id="linear-gradient" x1="39.022" y1="257.801" x2="39.022" y2="23.512" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="39.022" y1="283.801" x2="39.022" y2="23.512" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#007ed8"/>
       <stop offset="1" stop-color="#00abde"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="182.826" y1="257.801" x2="182.826" y2="23.512" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-3" x1="475.699" y1="257.801" x2="475.699" y2="23.512" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-4" x1="329.031" y1="257.801" x2="329.031" y2="23.512" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-5" x1="618.217" y1="257.801" x2="618.217" y2="23.512" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-2" x1="182.826" y1="283.801" x2="182.826" y2="23.512" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="475.699" y1="283.801" x2="475.699" y2="23.512" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="329.031" y1="283.801" x2="329.031" y2="23.512" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="618.217" y1="283.801" x2="618.217" y2="23.512" xlink:href="#linear-gradient"/>
     <linearGradient id="linear-gradient-6" x1="187.27" y1="1798.038" x2="187.27" y2="1819.686" gradientTransform="matrix(1, 0, 0, -1, 0, 1826.625)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2e76bc"/>
       <stop offset="0.82" stop-color="#699cd3"/>
@@ -86,28 +86,32 @@
       <circle cx="10.5" cy="10" r="10" fill="#505150"/>
       <path d="M8.077,14.235V12.928a2.97,2.97,0,0,0,1.675.557,2.072,2.072,0,0,0,1.377-.437,1.439,1.439,0,0,0,.522-1.163,1.315,1.315,0,0,0-.53-1.113,2.5,2.5,0,0,0-1.521-.4q-.339,0-1.377.07l.3-4.418h4.137v1.16H9.653l-.141,2.1q.4-.024.733-.024a2.9,2.9,0,0,1,2.065.686,2.45,2.45,0,0,1,.73,1.875,2.566,2.566,0,0,1-.835,2,3.3,3.3,0,0,1-2.294.753A3.8,3.8,0,0,1,8.077,14.235Z" fill="#fff"/>
     </symbol>
+    <symbol id="New_Symbol_46" data-name="New Symbol 46" viewBox="0 0 21 20">
+      <circle cx="10.5" cy="10" r="10" fill="#505150"/>
+      <path d="M13.391,11.727a3.079,3.079,0,0,1-.208,1.154,2.711,2.711,0,0,1-.577.9,2.579,2.579,0,0,1-.876.586,2.879,2.879,0,0,1-1.1.208,2.731,2.731,0,0,1-1.163-.246,2.5,2.5,0,0,1-.914-.733,3.519,3.519,0,0,1-.6-1.21,6.04,6.04,0,0,1-.21-1.678,7.01,7.01,0,0,1,.278-2.069,4.533,4.533,0,0,1,.765-1.512A3.274,3.274,0,0,1,9.934,6.2a3.223,3.223,0,0,1,1.418-.317,5.3,5.3,0,0,1,.864.065,2.4,2.4,0,0,1,.624.175V7.35a4.168,4.168,0,0,0-.638-.258,2.648,2.648,0,0,0-.78-.1,2.074,2.074,0,0,0-.908.2,2.024,2.024,0,0,0-.718.583,2.881,2.881,0,0,0-.474.949,4.607,4.607,0,0,0-.179,1.3h.035a1.9,1.9,0,0,1,.73-.656,2.3,2.3,0,0,1,1.081-.241,2.634,2.634,0,0,1,.993.179,2.078,2.078,0,0,1,.756.516,2.3,2.3,0,0,1,.483.82A3.271,3.271,0,0,1,13.391,11.727Zm-1.371.111a2.4,2.4,0,0,0-.085-.662,1.428,1.428,0,0,0-.258-.512,1.156,1.156,0,0,0-.433-.331,1.47,1.47,0,0,0-.613-.118,1.433,1.433,0,0,0-.618.126,1.359,1.359,0,0,0-.721.8,1.661,1.661,0,0,0-.09.539,2.32,2.32,0,0,0,.085.612,1.871,1.871,0,0,0,.26.572,1.471,1.471,0,0,0,.449.425,1.214,1.214,0,0,0,.647.167,1.359,1.359,0,0,0,.592-.123,1.232,1.232,0,0,0,.431-.34,1.537,1.537,0,0,0,.263-.513A2.161,2.161,0,0,0,12.02,11.838Z" fill="#fff"/>
+    </symbol>
   </defs>
   <g id="Shapes">
-    <rect width="656.163" height="263.656" fill="#fff"/>
+    <rect width="656.163" height="289.656" fill="#fff"/>
     <g>
-      <rect x="34.291" y="23.512" width="9.463" height="234.289" fill="#fff"/>
-      <rect x="34.291" y="23.512" width="9.463" height="234.289" opacity="0.25" fill="url(#linear-gradient)"/>
+      <rect x="34.291" y="23.512" width="9.463" height="260.289" fill="#fff"/>
+      <rect x="34.291" y="23.512" width="9.463" height="260.289" opacity="0.25" fill="url(#linear-gradient)"/>
     </g>
     <g>
-      <rect x="178.342" y="23.512" width="8.968" height="234.289" fill="#fff"/>
-      <rect x="178.342" y="23.512" width="8.968" height="234.289" opacity="0.25" fill="url(#linear-gradient-2)"/>
+      <rect x="178.342" y="23.512" width="8.968" height="260.289" fill="#fff"/>
+      <rect x="178.342" y="23.512" width="8.968" height="260.289" opacity="0.25" fill="url(#linear-gradient-2)"/>
     </g>
     <g>
-      <rect x="471.215" y="23.512" width="8.968" height="234.289" fill="#fff"/>
-      <rect x="471.215" y="23.512" width="8.968" height="234.289" opacity="0.25" fill="url(#linear-gradient-3)"/>
+      <rect x="471.215" y="23.512" width="8.968" height="260.289" fill="#fff"/>
+      <rect x="471.215" y="23.512" width="8.968" height="260.289" opacity="0.25" fill="url(#linear-gradient-3)"/>
     </g>
     <g>
-      <rect x="324.547" y="23.512" width="8.968" height="234.289" fill="#fff"/>
-      <rect x="324.547" y="23.512" width="8.968" height="234.289" opacity="0.25" fill="url(#linear-gradient-4)"/>
+      <rect x="324.547" y="23.512" width="8.968" height="260.289" fill="#fff"/>
+      <rect x="324.547" y="23.512" width="8.968" height="260.289" opacity="0.25" fill="url(#linear-gradient-4)"/>
     </g>
     <g>
-      <rect x="613.817" y="23.512" width="8.8" height="234.289" fill="#fff"/>
-      <rect x="613.817" y="23.512" width="8.8" height="234.289" opacity="0.25" fill="url(#linear-gradient-5)"/>
+      <rect x="613.817" y="23.512" width="8.8" height="260.289" fill="#fff"/>
+      <rect x="613.817" y="23.512" width="8.8" height="260.289" opacity="0.25" fill="url(#linear-gradient-5)"/>
     </g>
     <g>
       <g>
@@ -121,24 +125,28 @@
       </g>
     </g>
     <g>
-      <line x1="49.136" y1="111.512" x2="177.614" y2="111.512" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
-      <polygon points="50.23 115.252 43.754 111.512 50.23 107.773 50.23 115.252" fill="#3c3c41"/>
+      <line x1="43.754" y1="111.512" x2="172.231" y2="111.512" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="171.137 115.252 177.614 111.512 171.137 107.773 171.137 115.252" fill="#3c3c41"/>
     </g>
     <g>
-      <line x1="43.754" y1="141.822" x2="318.858" y2="141.822" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
-      <polygon points="317.764 145.561 324.24 141.822 317.764 138.082 317.764 145.561" fill="#3c3c41"/>
+      <line x1="43.754" y1="171.925" x2="319.165" y2="171.925" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="318.07 175.664 324.547 171.925 318.07 168.185 318.07 175.664" fill="#3c3c41"/>
     </g>
     <g>
-      <line x1="43.915" y1="232.749" x2="608.435" y2="232.749" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
-      <polygon points="607.341 236.489 613.817 232.749 607.341 229.009 607.341 236.489" fill="#3c3c41"/>
+      <line x1="49.136" y1="141.719" x2="177.614" y2="141.719" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="50.23 145.458 43.754 141.719 50.23 137.979 50.23 145.458" fill="#3c3c41"/>
     </g>
     <g>
-      <line x1="49.298" y1="202.44" x2="324.24" y2="202.44" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
-      <polygon points="50.392 206.179 43.915 202.44 50.392 198.7 50.392 206.179" fill="#3c3c41"/>
+      <line x1="43.915" y1="262.177" x2="638.007" y2="262.177" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="636.913 265.917 643.389 262.177 636.913 258.437 636.913 265.917" fill="#3c3c41"/>
     </g>
     <g>
-      <line x1="333.427" y1="172.131" x2="465.833" y2="172.131" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
-      <polygon points="464.739 175.87 471.215 172.131 464.739 168.391 464.739 175.87" fill="#3c3c41"/>
+      <line x1="49.298" y1="232.131" x2="324.24" y2="232.131" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="50.392 235.87 43.915 232.131 50.392 228.391 50.392 235.87" fill="#3c3c41"/>
+    </g>
+    <g>
+      <line x1="333.427" y1="202.131" x2="465.833" y2="202.131" fill="none" stroke="#3c3c41" stroke-miterlimit="10"/>
+      <polygon points="464.739 205.87 471.215 202.131 464.739 198.391 464.739 205.87" fill="#3c3c41"/>
     </g>
     <g id="bb1c4aae-a407-4f6f-98e2-81891d0404e1">
       <g>
@@ -166,11 +174,11 @@
       <path d="M622.636,6.939h-10.5l-10.125,30h10.5l2.156-6.388,6.844,6.388h9l-3.655-10.5h-10.8Z" fill="url(#linear-gradient-14)"/>
       <path d="M625.231,7.96a1.5,1.5,0,0,0-1.422-1.021h-10.5a1.5,1.5,0,0,1,1.422,1.021l9.112,27a1.5,1.5,0,0,1-1.421,1.98h10.5a1.5,1.5,0,0,0,1.421-1.98Z" fill="url(#linear-gradient-15)"/>
     </g>
-    <use width="21" height="20" transform="translate(238.14 131.293)" xlink:href="#New_Symbol_42"/>
-    <use width="21" height="20" transform="translate(392.064 162.912)" xlink:href="#New_Symbol_43"/>
-    <use width="21" height="20" transform="translate(96.351 192.513)" xlink:href="#New_Symbol_44"/>
+    <use width="21" height="20" transform="translate(96.351 131.293)" xlink:href="#New_Symbol_42"/>
+    <use width="21" height="20" transform="translate(241.707 161.512)" xlink:href="#New_Symbol_43"/>
+    <use width="21" height="20" transform="translate(391.865 191.822)" xlink:href="#New_Symbol_44"/>
     <use width="21" height="20" transform="translate(96.351 101.512)" xlink:href="#New_Symbol_41"/>
-    <use width="21" height="20" transform="translate(533.114 221.923)" xlink:href="#New_Symbol_45"/>
+    <use width="21" height="20" transform="translate(241.707 222.131)" xlink:href="#New_Symbol_45"/>
     <g>
       <polygon points="314.397 24.119 328.903 33.533 343.665 24.082 345.514 26.243 328.903 36.939 312.547 26.243 314.397 24.119" fill="#50e6ff"/>
       <polygon points="315.496 22.91 328.903 6.939 342.584 22.928 328.903 31.573 315.496 22.91" fill="#fff"/>
@@ -180,6 +188,7 @@
       <polygon points="328.903 31.573 315.496 22.91 328.903 19.668 328.903 31.573" fill="#9cebff"/>
       <polygon points="328.903 36.939 345.514 26.243 343.665 24.082 328.903 33.533 328.903 36.939" fill="url(#linear-gradient-17)"/>
     </g>
+    <use width="21" height="20" transform="translate(539.552 252.177)" xlink:href="#New_Symbol_46"/>
   </g>
   <g id="Text">
     <g>
