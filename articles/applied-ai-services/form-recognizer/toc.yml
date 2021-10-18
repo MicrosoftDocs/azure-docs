@@ -32,28 +32,6 @@ items:
          href: quickstarts/try-v3-javascript-sdk.md
        - name:  Python SDK (preview)
          href: quickstarts/try-v3-python-sdk.md
-- name: Samples
-  items:
-  - name: "C#/.NET"
-    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-  - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
-  - name: "Python"
-    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
-  - name: "JavaScript"
-    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
-- name: Responsible use of AI
-  items:
-  - name: Transparency notes
-    items:
-    - name: Azure Form Recognizer scenarios
-      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
-  - name: Integration and responsible use
-    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
-  - name: Data, privacy, and security
-    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
   - name: Use the client libraries and SDKs
@@ -99,7 +77,29 @@ items:
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
-      href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
+      href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context         
+- name: Samples
+  items:
+  - name: "C#/.NET"
+    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+  - name: "Java"
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
+  - name: "Python"
+    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+  - name: "JavaScript"
+    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Azure Form Recognizer scenarios
+      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
   items:
   - name: Model overview
