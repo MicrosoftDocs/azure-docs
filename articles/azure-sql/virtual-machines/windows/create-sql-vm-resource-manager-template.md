@@ -1,10 +1,10 @@
 ---
 title: Create SQL Server VM using an ARM template
 description: Learn how to create a SQL Server on Azure Virtual Machine (VM) by using an Azure Resource Manager template (ARM template).
-author: pamela
+author: bluefooted
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.author: bluefooted
+ms.author: pamela
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.subservice: deployment
