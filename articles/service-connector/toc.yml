@@ -42,8 +42,6 @@ items:
     href: overview.md
   - name: Supported Services in Service Connector
     href: overview.md
-  - name: Region Support
-    href: overview.md
 - name: How-to guides
   expanded: true
   items:
@@ -107,10 +105,6 @@ items:
 - name: Reference
   expanded: true
   items:
-  - name: Azure Connection CLI for App Service
-    href: overview.md
-  - name: Azure Connection CLI for Spring Cloud
-    href: overview.md
   - name: Rest API reference
     href: overview.md
   - name: Frequently asked questions
@@ -118,7 +112,7 @@ items:
 - name: Resources
   expanded: true
   items:
+  - name: Region Support
+    href: resource-region-support.md
   - name: Samples
-    href: overview.md
-  - name: Region availability
     href: overview.md

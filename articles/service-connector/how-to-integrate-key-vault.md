@@ -21,7 +21,7 @@ ms.date: 10/29/2021
 | --- | --- | --- | --- | --- |
 | .Net | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | | | | ![yes icon](./media/green-check.png) |
 | Node.js | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
@@ -56,6 +56,11 @@ ms.date: 10/29/2021
 
 ### Java - Spring Boot
 
-**User-assigned Managed Identity**
-
 **Service Principal**
+| Default environment variable name | Description | Example value |
+| --- | --- | --- |
+| azure.keyvault.uri | | `"https://{yourKeyVaultName}.vault.azure.net/"` |
+| azure.keyvault.client-id | | `{yourClientID}` |
+| azure.keyvault.client-key | | `{yourClientSecret}` |
+| azure.keyvault.tenant-id | | `{yourTenantID}` |
+| azure.keyvault.scope | | `https://management.azure.com/.default` |
