@@ -1,5 +1,5 @@
 ---
-title: Overivew of Azure Synapse database templates
+title: Overview of Azure Synapse database templates
 description: Learn about database templates 
 author: gesaur
 ms.author: gesaur
@@ -24,7 +24,7 @@ For example, if you are building a product recommendation solution for your reta
  - CustomerLoyalty 
  - Store 
 
-You can accomplish this use case by simply selecting the 6 tables in the retail database template. 
+You can accomplish this use case by selecting the six tables in the retail database template. 
 
 [[retail-database-template-example.png|alt=Retail database template example]]
 
@@ -37,16 +37,16 @@ A typical database template addresses the core requirements of a specific indust
 
 ## Available database templates 
 
-Currently there are 6 database templates available within the Azrue Synapse Stuido that customers can leverage to start creating their lake database. 
+Currently there are six database templates available within the Azure Synapse Studio that customers can use to start creating their lake database. 
 
- - **Banking** - For companies who are analyzing banking data.
+ - **Banking** - for companies who are analyzing banking data.
  - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
  - **Fund Management** - for companies managing investment funds on behalf of investors.
- - **Life Insurance & Annuities** - For companies who provide life insurance, sell annuities, or both.
- - **Property & Casualty Insurance** - For companies who provide insurance against risks to property and various forms of liability coverage.
+ - **Life Insurance & Annuities** - for companies who provide life insurance, sell annuities, or both.
+ - **Property & Casualty Insurance** - for companies who provide insurance against risks to property and various forms of liability coverage.
  - **Retail** - for sellers of consumer goods or services to customers through multiple channels.
 
-As emission and carbon management has become a very important topic in all industires we have included those components in all the available database templates to make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
+As emission and carbon management has become an important topic in all industries, we have included those components in all the available database templates to make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
 ## Next steps
 Continue to explore the capabilities of the database designer using the links below.
