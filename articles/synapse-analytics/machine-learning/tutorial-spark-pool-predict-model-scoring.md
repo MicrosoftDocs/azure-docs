@@ -35,7 +35,8 @@ If you don't have an Azure subscription, [create a free account before you begin
 - The functionality requires that we already have trained model which is either registered in Azure Machine Learning OR uploaded in Azure Data Lake Storage Gen2.
 
 > [!NOTE]
-> - This functionality is currently supported only for **MLFLOW packaged ONNX, TensorFlow, PyTorch and Sklearn models**. **Mlflow Pyfunc packaging** is also supported for **customized python models (viz EBMClassifier etc.)**.
+> - This functionality is currently supported only for **MLFLOW packaged ONNX, TensorFlow, PyTorch and Sklearn models**. 
+> - **Mlflow Pyfunc packaging** is also supported for **customized python models (viz EBMClassifier etc.)**.
 > - Only **AML or ADLS** model source is supported. So to use PREDICT either model should be registered in AML or should be uploaded in ADLS. Here ADLS account refers to **default Synapse workspace ADLS account**.
 > - PREDICT is supported on **Spark3.1 version** onwards. **Python 3.8** is recommended version for model creation and training.
 
@@ -164,6 +165,7 @@ Please make sure all prerequisites are in place before following below steps for
 
    ```PYSPARK
    # Call PREDICT using Spark SQL API
+
    predictions = spark.sql(
                   """
                       SELECT PREDICT('<random_alias_name>',
@@ -175,17 +177,19 @@ Please make sure all prerequisites are in place before following below steps for
 
    ```PYSPARK
    # Call PREDICT using user defined function (UDF)
+
    df = df[<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
-   # Model Prediction using Dataframe_API
+
    df.withColumn("PREDICT",model.udf(lit("<random_alias_name>"),*df.columns)).show()
-   df.show()
    ```
 
    ```PYSPARK
    # Call PREDICT using Transformer API
+   
    columns = [<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
+   
    tranformer = model.create_transformer().setInputCols(columns).setOutputCol("PREDICT")
-   # Model Prediction using transformer API
+
    tranformer.transform(df).show()
    ```
 
