@@ -1,61 +1,53 @@
 ---
-title: ACC Overview for Products
-description: ACC Overview for Products
+title: Azure confidential computing products
+description: Learn about all the confidential computing services that Azure provides
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
-ms.date: 10/7/2021
+ms.date: 11/1/2021
 ms.author: JenCook
 ---
 
+# Confidential computing on Azure
 
-<!--- Overview of all confidential cloud products. (Similar to the “get started” section on the above page, but include *all* services). This page mostly exists to “link out” users to where they need to go.  ---> 
+Today customers encrypt their data at rest and in transit, but not while it is in use in memory. The [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), co-founded by Microsoft, defines confidential computing as the protection of data in use using hardware-based [Trusted Execution Environments](https://en.wikipedia.org/wiki/Trusted_execution_environment) (TEEs). These TEEs prevent unauthorized access or modification of applications and data while they are in use, thereby increasing the security level of organizations that manage sensitive and regulated data. The TEEs are a trusted environment that provides a level of assurance of data integrity, data confidentiality, and code integrity. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator and other actors in the tenant&#39;s domain to access code and data while being executed.
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Technologies like [Intel Software Guard Extensions](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation, for building the confidential computing threat model.
 
-# What is Azure confidential computing? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+![Screenshot of three states of data protection.](media/overview-azure-products/three-states.jpg)
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+_The three states of data protection._
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+When used in conjunction with data encryption at rest and in transit, confidential computing eliminates the single largest barrier of encryption - encryption while in use - by protecting sensitive or highly regulated data sets and application workloads in a secure public cloud platform. Confidential computing extends beyond just generic data protection. TEEs are also being used to protect proprietary business logic, analytics functions, machine learning algorithms, or entire applications.
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
+**Navigating Azure confidential computing offerings**
 
-## Topic 1
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+[Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
 
-## Topic 2
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+![Screenshot of the Azure confidential computing stack.](media/overview-azure-products/acc-stack.jpg)
 
-## Next steps
+_The Azure Confidential Computing technology stack._
 
-<!---Some context for the following links goes here--->
+Azure offers different virtual machines for confidential computing IaaS workloads and customers can choose what's best for them depending on their desired security posture. The "trust ladder" figure shows what customers can expect from a security posture perspective on these IaaS offerings.
 
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+![Screenshot of the Azure trust ladder.](media/overview-azure-products/trust-ladder.jpg)
+
+_The "trust ladder" of Azure confidential computing IaaS._
+
+Our services currently generally available to the public include:
+
+- [Confidential VMs with Intel SGX application enclaves](confidential-computing-enclaves.md). Azure offers the [DCsv2](../virtual-machines/dcv2-series.md), [DCsv3, and DCdsv3](../virtual-machines/dcv3-series.md) series built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in these series of VMs to protect your application data and code in use.
+- [Enclave aware containers](enclave-aware-containers.md) running on Azure Kubernetes Service (AKS). Confidential computing nodes on AKS use Intel SGX to create isolated enclave environments in the nodes between each container application.
+- [Always Encrypted with secure enclaves in Azure SQL](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves). The confidentiality of sensitive data is protected from malware and high-privileged unauthorized users by running SQL queries directly inside a TEE when the SQL statement contains any operations on encrypted data that require the use of the secure enclave where the database engine runs.
+- [Microsoft Azure Attestation](../attestation/overview.md), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
+- [Azure Key Vault Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/), a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated Hardware Security Modules (HSM).
+- [Azure IoT Edge](../iot-edge/deploy-confidential-applications.md) supports confidential applications that run within secure enclaves on an Internet of Things (IoT) device. IoT devices are often exposed to tampering and forgery because they are physically accessible by bad actors. Confidential IoT Edge devices add trust and integrity at the edge by protecting the access to data captured by and stored inside the device itself before streaming it to the cloud.
+
+Other services are currently in preview, including:
+
+- Confidential VMs based on [AMD SEV-SNP technology](https://azure.microsoft.com/blog/azure-and-amd-enable-lift-and-shift-confidential-computing/) are currently in preview and available to selected customers.
+- [Trusted Launch](../virtual-machines/trusted-launch.md) is available across all Generation 2 VMs bringing hardened security features – secure boot, virtual trusted platform module, and boot integrity monitoring – that protect against boot kits, rootkits, and kernel-level malware.
+- [Azure Confidential Ledger](../confidential-ledger/overview.md). ACL is a tamper-proof register for storing sensitive data for record keeping and auditing or for data transparency in multi-party scenarios. It offers Write-Once-Read-Many guarantees, which make data non-erasable and non-modifiable. The service is built on Microsoft Research&#39;s [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/).
+- [Confidential Inference ONNX Runtime](https://github.com/microsoft/onnx-server-openenclave), a Machine Learning (ML) inference server that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
