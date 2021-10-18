@@ -56,7 +56,7 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
 Azure Arc-enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for the following scenarios:
 
 * Training
-* Real-time inferecing only
+* Real-time inferencing only
 * Training and inferencing
 
 > [!NOTE]
@@ -67,7 +67,7 @@ Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?
 You can use ```--config``` or ```--config-protected``` to specify list of key=value pairs for AuzreML deployment configurations. Following is the list of configuration settings available to be used for different AzureML extension deployment scenarios.
 
 |Configuration Setting Key Name  |Description  |Training |Inference |Training and Inference
-|--|--|--|--|--|
+|---|---|---|---|---|
 |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
 |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to leverage this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
 |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```True```. Nvidia Device Plugin is required for ML inference on Nvidia GPU hardware. By default, AzureML extension deployment will install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this configuration setting to False if Nvidia Device Plugin installation is not required (either it is installed already or there is no plan to use GPU for workload).``` | Optional |Optional |Optional |
@@ -117,7 +117,7 @@ You can use ```--config``` or ```--config-protected``` to specify list of key=va
 Once the Azure Machine Learning extension is deployed, the following resources are created in Azure as well as your Kubernetes cluster, depending on the workloads you run on your cluster.
 
 |Resource name  |Resource type |Training |Inference |Training and Inference|
-|--|--|--|--|--|
+|---|---|---|---|---|
 |Azure ServiceBus|Azure resource|**&check;**|**&check;**|**&check;**|
 |Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|
 |{EXTENSION-NAME}|Azure resource|**&check;**|**&check;**|**&check;**|
@@ -143,19 +143,21 @@ Once the Azure Machine Learning extension is deployed, the following resources a
 
 ## Verify your AzureML extension deployment
 
-    ```azurecli
-    az k8s-extension show --name amlarc-compute --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group>
-    ```
+```azurecli
+az k8s-extension show --name amlarc-compute --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group>
+```
 
-    In the response, look for `"extensionType": "amlarc-compute"` and `"installState": "Installed"`. Note it might show `"installState": "Pending"` for the first few minutes.
+In the response, look for `"extensionType": "amlarc-compute"` and `"installState": "Installed"`. Note it might show `"installState": "Pending"` for the first few minutes.
 
-    When the `installState` shows **Installed**, run the following command on your machine with the kubeconfig file pointed to your cluster to check that all pods under *azureml* namespace are in *Running* state:
+When the `installState` shows **Installed**, run the following command on your machine with the kubeconfig file pointed to your cluster to check that all pods under *azureml* namespace are in *Running* state:
 
-   ```bash
-    kubectl get pods -n azureml
-   ```
+```bash
+kubectl get pods -n azureml
+```
 
-## Attach Arc cluster (studio)
+## Attach Arc Cluster
+
+### [Studio](#tab/studio)
 
 Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your workspace for training.
 
@@ -180,7 +182,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
     ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
 
-### Advanced attach scenario
+#### Advanced attach scenario
 
 Use a JSON configuration file to configure advanced compute target capabilities on Azure Arc-enabled Kubernetes clusters.
 
@@ -271,7 +273,7 @@ The following custom compute target properties can be configured using a configu
     > }
     > ```
 
-## Attach Arc cluster (Python SDK)
+### [Python SDK](#tab/sdk)
 
 The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target for training:
 
@@ -305,7 +307,7 @@ else:
     print(amlarc_compute.get_status().serialize())
 ```
 
-### Advanced attach scenario
+#### Advanced attach scenario
 
 The following code shows how to configure advanced compute target properties like namespace, nodeSelector, or resources requests/limits:
 
@@ -365,6 +367,12 @@ else:
    # For a more detailed view of current KubernetesCompute status, use get_status()
    print(amlarc_compute.get_status().serialize())
 ```
+
+### [CLI](#tab/cli)
+
+Enter information about CLI here
+
+---
 
 ## Next steps
 
