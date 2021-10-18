@@ -54,7 +54,7 @@ This step is only needed to connect using RDP.  If instead you plan to use X2Go,
 
 After the lab is created, the instructor needs to ensure that a graphical desktop environment and remote desktop server are installed on the template VM.  The instructor must first connect to the template VM using SSH to install the packages for:
 - Either the RDP or X2Go remote desktop server.
-- A graphical desktop environment, such as [GNOME](https://www.gnome.org/), [MATE](https://mate-desktop.org/), [XFCE](https://www.xfce.org/), [Xubuntu](https://xubuntu.org/), etc
+- A graphical desktop environment, such as [GNOME](https://www.gnome.org/), [MATE](https://mate-desktop.org/), [XFCE](https://www.xfce.org/), [Xubuntu](https://xubuntu.org/), etc.
 
 After this is set up, the instructor can connect to the template VM using either the **Microsoft Remote Desktop (RDP)** client or **X2Go** client.
 
