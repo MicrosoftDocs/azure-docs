@@ -109,11 +109,11 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 - The source and target resources or entities, which should exist in different Azure regions and vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
-- Optionally, a **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource while you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource, especially if you want to follow the active-passive replication pattern. Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task.
+- Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource, especially if you want to follow the active-passive replication pattern. Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
   Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new primary source, formerly the target or secondary entity, which is what the active-passive replication pattern tries to achieve.
 
-- Optionally, the connection string for the target namespace of the replication destination. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
+- Optional: The connection string for the target namespace of the replication destination. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
 
 <a name="naming"></a>
 
