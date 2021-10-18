@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 10/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -74,11 +74,15 @@ The next steps are determined by where you're returning the device.
 
 Make sure the data copy to the device completed and the **Prepare to ship** run was successful. Based on the region where you're shipping the device, the procedure is different.
 
+### Microsoft managed shipping
+
+Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
+
 ::: zone-end
 
-## [US, Canada, Europe](#tab/in-us-canada-europe)
+## [US & Canada](#tab/in-us-canada)
 
-Take the following steps if returning the device in US, Canada, or Europe.
+Take the following steps if returning the device in US or Canada.
 
 1. Make sure that the device is powered off and cables are removed.
 2. Spool and securely place the power cord that was provided with device in the back of the device.
@@ -91,6 +95,53 @@ Take the following steps if returning the device in US, Canada, or Europe.
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+## [Europe](#tab/in-europe)
+
+Take the following steps if you're returning the device in Europe.
+
+1. Make sure that the device is powered off and cables are removed.
+2. Spool and securely place the power cord that was provided with device in the back of the device.
+3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
+1. **If you're shipping from Germany or Switzerland,** the Azure datacenter requires advance notice of all device returns:
+    1. Email Azure Data Box Operations, using the following template, to receive an Inbound ID. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
+
+       ```
+       To: adbops@microsoft.com
+       Subject: Request for Azure Data Box Inbound ID: <orderName> 
+       Body: 
+        
+       I am ready to return an Azure Data Box and would like to request an Inbound ID for the following order:
+       
+       Order Name: <orderName>
+       Return Tracking Number: <returnTracking#>
+       ```
+
+    1. Write down the Inbound ID number provided by Azure Data Box Operations, and paste it onto the unit, where it is clearly visible, near the return label.
+1. Schedule a pickup with UPS if returning the device. To schedule a pickup:
+
+    * Call the local UPS (country/region-specific toll free number).
+    * In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label. If you don't quote the tracking number, UPS will require an additional charge during pickup.
+    * If any issues come up while you're scheduling a pickup, or you're asked to pay additional fees, contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
+
+    Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
+
+    **If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](data-box-deploy-picked-up.md#self-managed-shipping).
+
+4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+
 
 ::: zone target="chromeless"
 
@@ -277,7 +328,7 @@ If you come across any issues, email Data Box Operations Asia [adbo@microsoft.co
 
 ::: zone-end
 
-## [United Arab Emirates](#tab/in-uae)
+## [UAE](#tab/in-uae)
 
 1. Keep the original box used to ship the device for return shipment.
 2. Make sure the data copy to device is complete, and the **Prepare to ship** step completed successfully.
@@ -347,9 +398,13 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## [Self-Managed](#tab/in-selfmanaged)
+---
 
-If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions.
+### Self-managed shipping
+
+Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
+
+If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, United Kingdom, Germany, Switzerland, West Europe, Australia, or Brazil, and you selected self-managed shipping when you created your order, follow these instructions.
 
 1. Write down the Authorization code that's shown on the **Prepare to Ship** page of the local web UI for the Data Box after the step completes successfully.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.

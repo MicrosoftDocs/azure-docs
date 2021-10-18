@@ -32,19 +32,20 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | D48s_v3 / D48ds_v4   | 48     | 192 GiB     | 5000            | 4997                 |
 | D64s_v3 / D64ds_v4   | 64     | 256 GiB     | 5000            | 4997                 |
 | **Memory Optimized** |        |             |                 |                      |
-| E2s_v3               | 2      | 16 GiB      | 1719            | 1716                 |
-| E4s_v3               | 4      | 32 GiB      | 3438            | 3433                 |
-| E8s_v3               | 8      | 64 GiB      | 5000            | 4997                 |
-| E16s_v3              | 16     | 128 GiB     | 5000            | 4997                 |
-| E32s_v3              | 32     | 256 GiB     | 5000            | 4997                 |
-| E48s_v3              | 48     | 384 GiB     | 5000            | 4997                 |
-| E64s_v3              | 64     | 432 GiB     | 5000            | 4997                 |
+| E2s_v3  / E2ds_v4    | 2      | 16 GiB      | 1719            | 1716                 |
+| E4s_v3  / E4ds_v4    | 4      | 32 GiB      | 3438            | 3433                 |
+| E8s_v3  / E8ds_v4    | 8      | 64 GiB      | 5000            | 4997                 |
+| E16s_v3 / E16ds_v4   | 16     | 128 GiB     | 5000            | 4997                 |
+| E20ds_v4             | 20     | 160 GiB     | 5000            | 4997                 |
+| E32s_v3 / E32ds_v4   | 32     | 256 GiB     | 5000            | 4997                 |
+| E48s_v3 / E48ds_v4   | 48     | 384 GiB     | 5000            | 4997                 |
+| E64s_v3 / E64ds_v4   | 64     | 432 GiB     | 5000            | 4997                 |
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already.
 
 > [!IMPORTANT]
-> For best experience, we recommend that you use a connection pooler like PgBouncer to efficiently manage connections.
+> For best experience, we recommend that you use a connection pool manager like PgBouncer to efficiently manage connections. Azure Database for PostgreSQL - Flexible Server offers pgBouncer as [built-in connection pool management solution](concepts-pgbouncer.md). 
 
 A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, creating new connections takes time. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. Connection pooling can be used to decrease idle connections and reuse existing connections. To learn more, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
