@@ -20,11 +20,11 @@ ms.custom: aaddev
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully.
 
-Similarly, in case of a [multi-tenant](howto-convert-app-to-be-multi-tenant.md) app, all users in the Azure AD tenant where this app is provisioned will be able to access this application once they successfully authenticate in their respective tenant.
+Similarly, in a [multi-tenant](howto-convert-app-to-be-multi-tenant.md) app, all users in the Azure AD tenant where the app is provisioned will be able to access the application once they successfully authenticate in their respective tenant.
 
 Tenant administrators and developers often have requirements where an app must be restricted to a certain set of users. Developers can accomplish the same by using popular authorization patterns like Azure role-based access control (Azure RBAC), but this approach requires a significant amount of work on part of the developer.
 
-Tenant administrators and developers can restrict an app to a specific set of users or security groups in the tenant by using this built-in feature of Azure AD as well.
+Tenant administrators and developers can restrict an app to a specific set of users or security groups in the tenant by using built-in feature of Azure AD as well.
 
 ## Supported app configurations
 
@@ -47,7 +47,7 @@ To update an application to require user assignment, you must be owner of the ap
 1. Locate the setting **User assignment required?** and set it to **Yes**. When this option is set to **Yes**, users and services attempting to access the application or services must first be assigned for this application, or they won't be able to sign-in or obtain an access token.
 1. Select **Save**.
 
-When an application requires assignment, user consent for that application is not allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment.
+When an application requires assignment, user consent for that application isn't allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment.
 
 ## Assign the app to users and groups
 
