@@ -46492,7 +46492,7 @@
     "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sample-label-tool.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/try-sample-label-tool",
       "redirect_document_id": false
-    }
+    },
     {
     "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
