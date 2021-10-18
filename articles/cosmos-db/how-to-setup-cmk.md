@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 10/15/2021
 ms.author: thweiss 
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
+Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys** or CMK).
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Layers of encryption around customer data":::
 
@@ -233,37 +233,80 @@ This access policy ensures that your encryption keys can be accessed by your Azu
 - Azure Cosmos DB's first-party identity can be used to grant access to the Azure Cosmos DB service.
 - Your Azure Cosmos DB account's [managed identity](how-to-setup-managed-identity.md) can be used to grant access to your account specifically.
 
+### To use a system-assigned managed identity
+
 Because a system-assigned managed identity can only be retrieved after the creation of your account, you still need to initially create your account using the first-party identity, as described [above](#add-access-policy). Then:
 
-1. If this wasn't done during account creation, [enable a system-assigned managed identity](how-to-setup-managed-identity.md) on your account and copy the `principalId` that got assigned.
+1.	If this wasn't done during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-a-system-assigned-identity) on your account and copy the `principalId` that got assigned.
 
-1. Add a new access policy to your Azure Key Vault account, just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
+1.	Add a new access policy to your Azure Key Vault account just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
 
-1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this:
+1.	Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this:
 
-   - by specifying this property in your account's Azure Resource Manager template:
+    - by specifying this property in your account's Azure Resource Manager template:
 
-     ```json
-     {
-         "type": " Microsoft.DocumentDB/databaseAccounts",
-         "properties": {
-             "defaultIdentity": "SystemAssignedIdentity",
-             // ...
-         },
-         // ...
-     }
-     ```
+    ```json
+    {
+        "type": " Microsoft.DocumentDB/databaseAccounts",
+        "properties": {
+            "defaultIdentity": "SystemAssignedIdentity",
+            // ...
+        },
+        // ...
+    }
+    ```
 
-   - by updating your account with the Azure CLI:
+    - by updating your account with the Azure CLI:
 
-     ```azurecli
-     resourceGroupName='myResourceGroup'
-     accountName='mycosmosaccount'
-     
-     az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
-     ```
+    ```azurecli
+        resourceGroupName='myResourceGroup'
+        accountName='mycosmosaccount'
 
-1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
+        az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+    ```
+  
+1.	Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
+
+### To use a user-assigned managed identity
+
+1.	When creating the new access policy in your Azure Key Vault account as described [above](#add-access-policy), use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
+
+1.	When creating your Azure Cosmos DB account, you must enable the user-assigned managed identity and specify that you want to use this identity when accessing your encryption keys in Azure Key Vault. You can do this:
+
+    - in an Azure Resource Manager template:
+
+    ```json
+    {
+        "type": "Microsoft.DocumentDB/databaseAccounts",
+        "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+                "<identity-resource-id>": {}
+            }
+        },
+        // ...
+        "properties": {
+            "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
+            "keyVaultKeyUri": "<key-vault-key-uri>"
+            // ...
+        }
+    }
+    ```
+
+    - with the Azure CLI:
+
+    ```azurecli
+    resourceGroupName='myResourceGroup'
+    accountName='mycosmosaccount'
+    keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+    az cosmosdb create \
+        -n $accountName \
+        -g $resourceGroupName \
+        --key-uri $keyVaultKeyUri
+        --assign-identity <identity-resource-id>
+        --default-identity "UserAssignedIdentity=<identity-resource-id>"  
+    ```
 
 ## Key rotation
 
@@ -300,7 +343,7 @@ The previous key or key version can be disabled after the [Azure Key Vault audit
     
 ## Error handling
 
-When using Customer-Managed Keys (CMK) in Azure Cosmos DB, if there are any errors, Azure Cosmos DB returns the error details along with a HTTP sub-status code in the response. You can use this sub-status code to debug the root cause of the issue. See the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article to get the list of supported HTTP sub-status codes.
+When using customer-managed keys in Azure Cosmos DB, if there are any errors, Azure Cosmos DB returns the error details along with a HTTP sub-status code in the response. You can use this sub-status code to debug the root cause of the issue. See the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article to get the list of supported HTTP sub-status codes.
 
 ## Frequently asked questions
 
@@ -352,7 +395,9 @@ You can also programmatically fetch the details of your Azure Cosmos account and
 
 ### How do customer-managed keys affect a backup?
 
-Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. To use the restored backup, the encryption key that you used at the time of the backup is required. This means that no revocation was made and the version of the key that was used at the time of the backup will still be enabled.
+Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. The following conditions are necessary to successfully restore a backup:
+- The encryption key that you used at the time of the backup is required and must be available in Azure Key Vault. This means that no revocation was made and the version of the key that was used at the time of the backup is still enabled.
+- If you [used managed identities in the Azure Key Vault access policy](#using-managed-identity), the identity configured on the source account must not have been deleted and must still be declared in the access policy of the Azure Key Vault instance.
 
 ### How do I revoke an encryption key?
 
