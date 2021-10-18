@@ -92,16 +92,13 @@ In Microsoft 365 Defender, all alerts from one incident can be transferred to an
 
 ## Advanced hunting event collection
 
-The Microsoft 365 Defender connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft 365 Defender and its component services into Azure Sentinel. You can currently collect [Microsoft Defender for Endpoint (MDATP)](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview) events, and stream them straight into purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
+The Microsoft 365 Defender connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft 365 Defender and its component services into Azure Sentinel. You can currently collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from Microsoft Defender for Endpoint and *(from October 2021)* from Microsoft Defender for Office 365, and stream them straight into purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
 
-- Easily copy your existing Microsoft Defender for Endpoint advanced hunting queries into Azure Sentinel.
+- Easily copy your existing Microsoft Defender for Endpoint/Office 365 advanced hunting queries into Azure Sentinel.
 
 - Use the raw event logs to provide further insights for your alerts, hunting, and investigation, and correlate these events with events from other data sources in Azure Sentinel.
 
-- Store the logs with increased retention, beyond Microsoft Defender for Endpoint or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
-
-> [!NOTE]
-> [**Advanced hunting event collection**](/microsoft-365/security/defender/advanced-hunting-overview) is now available for [**Microsoft Defender for Office 365**](/microsoft-365/security/office-365-security/overview) as well. All of the above points in this section apply.
+- Store the logs with increased retention, beyond Microsoft Defender for Endpoint's/Office 365's or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
 
 ## Next steps
 
