@@ -148,7 +148,7 @@ resultDF.Show();
 ```
 
 6. You can see the operations in your query that ran on GPUs by looking into the SQL plan through the Spark History Server:
-![Screenshot showing SQL plan of query through History Server](../media/quickstart-create-sql-pool/spark-gpu-sql-plan.png)
+![Screenshot showing SQL plan of query through History Server](../media/quickstart-create-apache-spark-pool/spark-gpu-sql-plan.png)
 
 ## How to tune your application for GPUs
 
