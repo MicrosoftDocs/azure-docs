@@ -304,12 +304,8 @@
     href: automation-run-from-linux.md
   - name: Run automation framework on Windows
     href: automation-run-from-windows.md
-  - name: Configure deployer
-    href: automation-configure-deployer.md
   - name: Configure SAP system
     href: automation-configure-system.md
-  - name: Configure SAP Library
-    href: automation-configure-library.md
   - name: About naming conventions
     href: automation-naming.md
   - name: Configure custom naming

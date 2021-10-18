@@ -73,8 +73,8 @@ The following sample folder hierarchy shows how to structure your configuration 
 | ----------- | -------- | ----------- |
 | None (root level) | Configuration files, template files | The root folder for all systems that you're managing from this deployment environment. |
 | CONFIGURATION | Shared configuration files | A shared folder for referring to custom configuration files from multiple places. For example, custom disk sizing configuration files. |
-| DEPLOYER | Configuration files for the deployer | A folder with [deployer configuration files](automation-configure-deployer.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**. |
-| LIBRARY | Configuration files for SAP Library | A folder with [SAP Library configuration files](automation-configure-library.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**. |
+| DEPLOYER | Configuration files for the deployer | A folder with [deployer configuration files](automation-configure-controlplane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**. |
+| LIBRARY | Configuration files for SAP Library | A folder with [SAP Library configuration files](automation-configure-controlplane.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**. |
 | LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](automation-workload-zone-deployment.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
 | SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](automation-configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. for example, **PROD-WEEU-SAPO00-ABC**. |
 
@@ -133,11 +133,11 @@ The deployment configuration file defines the region, environment name, and virt
 }
 ```
 
-For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-deployer.md).
+For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-controlplane.md).
 
 ## SAP Library configuration
 
-The SAP library provides storage for SAP installation media, Bill of Material (BoM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-library.md).
+The SAP library provides storage for SAP installation media, Bill of Material (BoM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-controlplane.md).
 
 ## Workload zone structure
 

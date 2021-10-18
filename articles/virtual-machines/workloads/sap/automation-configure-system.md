@@ -308,5 +308,5 @@ The following example parameters file shows all possible parameters. Replace all
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure SAP Library](automation-configure-library.md)
+> [Configure SAP Library](automation-configure-controlplane.md)
 
