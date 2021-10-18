@@ -13,7 +13,7 @@ This article is part of the scenario [Recommendations for configuring Azure Moni
 ## Alerting strategy
 An alerting strategy defines your organizations standards for the types of alert rules that you'll create for different scenarios, how you'll categorize and manage alerts after they're created, and automated actions and notifications that you'll take in response to alerts. Defining an alert strategy assists you defining the configuration of alert rules including alert severity and action groups.
 
-See [Successful alerting strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/alerting#successful-alerting-strategy) for factors that you should consider in developing an alerting strategy.
+See [Successful alerting strategy](/azure/cloud-adoption-framework/manage/monitor/alerting#successful-alerting-strategy) for factors that you should consider in developing an alerting strategy.
 
 
 ## Alert rule types
@@ -73,7 +73,7 @@ Use the following actions to attempt automated remediation of the issue identifi
 ## Minimizing alert activity
 While you want to create alerts for any important information in your environment, you should ensure that you aren't creating excessive alerts and notifications for issues that don't warrant them. Use the following guidelines to minimize your alert activity to ensure that critical issues are surfaced while you don't generate excess information and notifications for administrators. 
 
-- See [Successful alerting strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/alerting#successful-alerting-strategy) for principles on determining whether a symptom is an appropriate candidate for alerting.
+- See [Successful alerting strategy](/azure/cloud-adoption-framework/manage/monitor/alerting#successful-alerting-strategy) for principles on determining whether a symptom is an appropriate candidate for alerting.
 - Use the **Automatically resolve alerts** option in metric alert rules to resolve alerts when the condition has been corrected.
 - Use **Suppress alerts** option in log query alert rules which prevents creating multiple alerts for the same issue.
 - Ensure that you use appropriate severity levels for alert rules so that high priority issues can be analyzed together.
