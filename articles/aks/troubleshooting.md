@@ -97,12 +97,12 @@ standard_init_linux.go:228: exec user process caused: argument list too long
 ```
 
 There are two potential causes:
-- the argument list provided to the executable is too long
-- the set of environment variables provided to the executable is too big
+- The argument list provided to the executable is too long
+- The set of environment variables provided to the executable is too big
 
 If you have many services deployed in one namespace, it can cause the environment variable list to become too large, and will produce the above error message when Kubelet tries to run the executable. The error is caused by Kubelet injecting environment variables recording the host and port for each active service, so that services can use this information to locate one another (read more about this [in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)). 
 
-As a work around, you can disable this Kubelet behaviour by setting `enableServiceLinks: false` inside your [Pod spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core). **However**, if your service relies on these environment variables to locate other services, then this will cause it to fail. One fix is to use DNS for service resolution rather than environment varialbles (using [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)). Another option is to reduce the number of services that are active.
+As a workaround, you can disable this Kubelet behaviour by setting `enableServiceLinks: false` inside your [Pod spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core). **However**, if your service relies on these environment variables to locate other services, then this will cause it to fail. One fix is to use DNS for service resolution rather than environment variables (using [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)). Another option is to reduce the number of services that are active.
 
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
