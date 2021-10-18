@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Understand your resource health
+title: "Troubleshooting: Resource health"
 titleSuffix: Azure Digital Twins
-description: See how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
+description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/27/2021
+ms.date: 10/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
@@ -57,6 +57,6 @@ For more information on using the Azure status page, see [Azure status overview]
 ## Next steps
 
 Read about other ways to monitor your Azure Digital Twins instance in the following articles:
-* [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md)
-* [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md).
-* [Troubleshooting: Set up alerts](troubleshoot-alerts.md)
+* [Troubleshooting: Metrics](troubleshoot-metrics.md)
+* [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).
+* [Troubleshooting: Alerts](troubleshoot-alerts.md)
