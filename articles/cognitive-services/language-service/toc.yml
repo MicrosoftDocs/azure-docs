@@ -120,6 +120,8 @@ items:
     href: custom-language-understanding/language-support.md
   - name: How-to guides
     items:
+      - name: Create projects
+        href: custom-language-understanding/how-to/create-project.md
       - name: Build a schema
         href: custom-language-understanding/how-to/build-schema.md
       - name: Tag utterances
