@@ -16,7 +16,7 @@ Today customers encrypt their data at rest and in transit, but not while it is i
 
 Technologies like [Intel Software Guard Extensions](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation, for building the confidential computing threat model.
 
-![The three states of data protection](media/overview-azure-products/three_states.jpg)
+![Screenshot of three states of data protection.](media/overview-azure-products/three-states.jpg)
 
 _The three states of data protection._
 
@@ -24,17 +24,17 @@ When used in conjunction with data encryption at rest and in transit, confidenti
 
 **Navigating Azure confidential computing offerings**
 
-[Microsoft&#39;s offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
+[Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
 
-![Azure confidential computing stack](media/overview-azure-products/acc_stack.jpg)
+![Screenshot of the Azure confidential computing stack.](media/overview-azure-products/acc-stack.jpg)
 
 _The Azure Confidential Computing technology stack._
 
-Azure offers different virtual machines for confidential computing IaaS workloads and customers can choose what&#39;s best for them depending on their desired security posture. The &quot;trust ladder&quot; figure shows what customers can expect from a security posture perspective on these IaaS offerings.
+Azure offers different virtual machines for confidential computing IaaS workloads and customers can choose what's best for them depending on their desired security posture. The "trust ladder" figure shows what customers can expect from a security posture perspective on these IaaS offerings.
 
-![The Azure trust ladder](media/overview-azure-products/trust_ladder.jpg)
+![Screenshot of the Azure trust ladder.](media/overview-azure-products/trust-ladder.jpg)
 
-_The &quot;trust ladder&quot; of Azure confidential computing IaaS._
+_The "trust ladder" of Azure confidential computing IaaS._
 
 Our services currently generally available to the public include:
 

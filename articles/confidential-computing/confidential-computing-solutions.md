@@ -20,7 +20,7 @@ Technologies such as secure enclaves or confidential virtual machines allow for 
 - Sophisticated workloads that include proprietary code to protect from any trust vector, may benefit of secure application enclave technology. Azure current offers application enclaves in VMs based on Intel SGX. Intel SGX provides protection of data and code running in a hardware-encrypted memory space. These applications typically require communication with an attested secure enclave, which is obtained by using open-source frameworks.
 - Containerized solutions running on [confidential containers](confidential-containers.md) enabled in Azure Kubernetes Service may fit customers looking for a balanced approach to confidentiality. In these scenarios, existing apps can be packaged and deployed in containers with limited changes, but still offering full security isolation from the cloud service provider and administrators.
 
-![confidential computing spectrum](media/confidential-computing-solutions/spectrum.png)
+![Screenshot of the confidential computing spectrum.](media/confidential-computing-solutions/spectrum.png)
 
 _The Azure confidential computing spectrum._
 
@@ -37,14 +37,14 @@ To leverage the power of enclaves and isolated environments, you&#39;ll need to 
 
 An application built with enclaves is partitioned in two ways:
 
-1. An &quot;untrusted&quot; component (the host)
-2. A &quot;trusted&quot; component (the enclave)
+- An "untrusted" component (the host)
+- A "trusted" component (the enclave)
 
-The host is where your enclave application is running on top of and is an untrusted environment. The enclave code deployed on the host can&#39;t be accessed by the host.
+The host is where your enclave application is running on top of and is an untrusted environment. The enclave code deployed on the host can't be accessed by the host.
 
 The enclave is where the application code and its cached data/memory runs. Secure computations should occur in the enclaves to ensure secrets and sensitive data, stay protected.
 
-During application design, it&#39;s important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can&#39;t be read or changed from the untrusted components.
+During application design, it's important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from the untrusted components.
 
 ## Open Enclave Software Development Kit (OE SDK)
 
@@ -85,5 +85,3 @@ Marblerun supports confidential containers created with Graphene, Occlum, and EG
 The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework leverages the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure virtual machines ([DCsv2-Series](confidential-computing-enclaves.md) and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
 
 In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach consensus.
-
-## Next Steps

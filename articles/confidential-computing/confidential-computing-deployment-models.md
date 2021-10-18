@@ -18,13 +18,13 @@ Azure confidential computing (ACC) supports multiple deployment models to meet t
 
 Our IaaS offering for ACC includes:
 
-- [Confidential virtual machines](../confidential-computing-vm-overview.md). This offering includes virtual machines based on Intel SGX or AMD SEV-SNP technology.
+- [Confidential virtual machines](confidential-computing-vm-overview.md). This offering includes virtual machines based on Intel SGX or AMD SEV-SNP technology.
 
 ## Platform as a Service (PaaS)
 
 Our PaaS offering for ACC includes:
 
-- [Confidential containers](../confidential-containers.md). This offering includes enclave-aware containers in Azure Kubernetes Service.
+- [Confidential containers](confidential-containers.md). This offering includes enclave-aware containers in Azure Kubernetes Service.
 
 Choosing the right deployment model depends on many factors. These factors may include: existence of legacy applications, operating system capabilities, and migration from on-premises networks.
 
@@ -55,10 +55,10 @@ However, VM admins or any other app or service running inside the VM itself, wil
 
 AMD SEV-SNP technology introduces VM isolation from the hypervisor and hardware-based memory integrity protection to help prevent malicious hypervisor-based attacks. Under the SEV-SNP model, the AMD Secure Processor and the VM itself are treated as trusted resources, whereas any other hardware and software components are considered untrusted. The untrusted components include the BIOS and the hypervisor on the host system.
 
-![AMD SEV-SNP virtual machines](media/confidential-computing-deployment-models/amdsevsnp_vm.jpg)
+![Screenshot of AMD SEV-SNP virtual machine architecture.](media/confidential-computing-deployment-models/amd-sev-snp-vm.jpg)
 
 - **Secure enclaves on Intel SGX** protect memory spaces inside a virtual machine with hardware-based encryption. The security boundary of application enclaves are more restricted than confidential VMs on AMD SEV-SNP. For Intel SGX, the security boundary applies to portions of memory within a VM itself. As a result, users, apps, and services running inside the Intel SGX-powered VM will not be able to access any data and code in execution inside the enclave.
 
 Intel SGX helps protect data in use via application isolation. By protecting selected code and data from modification, developers can partition their application into hardened enclaves or trusted execution modules to help increase application security. The enclave memory cannot be read or written from outside the enclave, regardless of the permissions levels of the entity requesting access. Such access cannot be obtained by the hypervisor or the operating system via normal OS-level calls. The only way to call an enclave function is via a new set of instructions in the Intel SGX CPUs, which perform several protection checks.
 
-![Intel SGX enclaves](media/confidential-computing-deployment-models/intelsgx_enclave.jpg)
+![Screenshot of Intel SGX enclaves architecture.](media/confidential-computing-deployment-models/intel-sgx-enclave.jpg)
