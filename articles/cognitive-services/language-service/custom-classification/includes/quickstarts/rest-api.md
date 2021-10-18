@@ -47,7 +47,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
 
-The provided sample dataset contains around 200 movie summaries that belngs to the one or more of the following classes ["Mystery", "Drama", "Thriller", "Comedy", "Action"]. You can also find 
+The provided sample dataset contains around 200 movie summaries that belongs to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action". You can also find 
 
 ### Get your resource keys and endpoint
 
@@ -62,7 +62,7 @@ The provided sample dataset contains around 200 movie summaries that belngs to t
 To start creating a custom classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
 > [!NOTE]
-> The project name is case sensitive for all operations.
+> The project name is case-sensitive for all operations.
 
 Create a **POST** request using the following URL, headers, and JSON body to create your project.
 
@@ -127,7 +127,7 @@ Use the following URL when creating your API request. Replace the placeholder va
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Headers
 
@@ -139,7 +139,7 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. the model will be named `MyModel` once training is complete.  
+Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
 {
@@ -171,7 +171,7 @@ Use the following **GET** request to query the status of your model's training p
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
@@ -239,7 +239,7 @@ Create a **POST** request using the following URL, headers, and JSON body to sta
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Headers
 
@@ -282,7 +282,7 @@ Use the following **GET** request to query the status of your model's publishing
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
@@ -497,7 +497,7 @@ When you no longer need your project, you can delete it with the following **DEL
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Headers
 

@@ -50,7 +50,7 @@ Your tags file should be in the `json` format below.
 
 ### Data description
 
-* `classifiers`: An array of classfiers for your data. Each classifier represents one of the classes you want to tag your data with.
+* `classifiers`: An array of classifiers for your data. Each classifier represents one of the classes you want to tag your data with.
 * `documents`: An array of tagged documents. For example:
   * `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
   * `language`: Language of the document. Use one of the [supported culture locales](../language-support.md).

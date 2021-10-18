@@ -64,7 +64,7 @@ You will get the `model id` from the get train results request you submitted ear
 
 2. Select **Deploy model** from the left side menu.
 
-3. If your model is deployed you will find the `model id` under the **Model id** column.
+3. If your model is deployed, you will find the `model id` under the **Model id** column.
 
     :::image type="content" source="../media/get-model-id.png" alt-text="get the model ID" lightbox="../media/get-model-id.png":::
 
@@ -81,7 +81,7 @@ You will get the `model id` from the get train results request you submitted ear
 > [!NOTE]
 > Project names is case sensitive.
 
-Use this **POST** request to start an entity extraction task. replace `{projectName}` with the project name where you have the model you want to use.
+Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
 `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze`
 

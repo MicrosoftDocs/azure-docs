@@ -14,7 +14,7 @@ ms.author: aahi
 
 ## Create a new Azure resource and Azure Blob Storage account
 
-Before you can use custom text classification, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataet that will be used to building your model.
+Before you can use custom text classification, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataset that will be used to building your model.
 
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
@@ -47,13 +47,13 @@ After you have created an Azure storage account and linked it to your Language S
 
 2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
 
-The provided sample dataset contains around 200 movie summaries that belngs to the one or more of the following classes ["Mystery", "Drama", "Thriller", "Comedy", "Action"].
+The provided sample dataset contains around 200 movie summaries that belong to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
 
 ## Create a custom classification project
 
 Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-1. Login to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step.
+1. Log in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step.
 
 2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
 
