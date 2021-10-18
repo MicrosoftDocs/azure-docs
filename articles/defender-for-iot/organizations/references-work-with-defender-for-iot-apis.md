@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 12/14/2020
+ms.date: 10/17/2021
 ms.topic: reference
 ---
 
@@ -21,27 +21,27 @@ To generate a token:
   
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="Screenshot of System Settings windows highlighting the Access Tokens button.":::
 
-2. Select **Generate new token**.
-   
+1. Select **Generate new token**.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="Select the button to generate a new token.":::
 
-3. Describe the purpose of the new token and select **Next**.
-   
+1. Describe the purpose of the new token and select **Next**.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="Generate a new token and enter the name of the integration associated with it.":::
 
-4. The access token appears. Copy it, because it won't be displayed again.
-   
+1. The access token appears. Copy it, because it won't be displayed again.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="Copy your access token for your integration.":::
 
-5. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
-   
+1. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Device Tokens dialog box with filled-out tokens":::
 
    **Used** indicates the last time an external call with this token was received.
 
    If **N/A** is displayed in the **Used** field for this token, the connection between the sensor and the connected server is not working.
 
-6. Add an HTTP header titled **Authorization** to your request, and set its value to the token that you generated.
+1. Add an HTTP header titled **Authorization** to your request, and set its value to the token that you generated.
 
 ## Sensor API specifications
 
@@ -69,13 +69,15 @@ This section describes the following sensor APIs:
 
 - [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
+- [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
+
 ### Retrieve device information - /api/v1/devices
 
 Use this API to request a list of all devices that a Defender for IoT sensor has detected.
 
 #### Method
 
-**GET**
+- **GET**
 
 Requests a list of all the devices that the Defender for IoT sensor has detected.
 
@@ -91,7 +93,7 @@ Requests a list of all the devices that the Defender for IoT sensor has detected
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -272,7 +274,7 @@ Array of JSON objects that represent devices.
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
 
 ### Retrieve device connection information - /api/v1/devices/connections
 
@@ -280,7 +282,7 @@ Use this API to request a list of all the connections per device.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -316,7 +318,7 @@ If you don't set the query parameters, all the device connections are returned.
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -445,8 +447,8 @@ Array of JSON objects that represent device connections.
 > [!div class="mx-tdBreakAll"]
 > | Type | APIs | Example |
 > |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections` |
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/connections` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
 
 ### Retrieve information on CVEs - /api/v1/devices/cves
 
@@ -454,7 +456,7 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -480,7 +482,7 @@ By default, this API provides the list of all the device IPs with CVEs, up to 10
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -560,8 +562,8 @@ Array of JSON objects that represent CVEs identified on IP addresses.
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves` |
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/cves` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
 
 ### Retrieve alert information - /api/v1/alerts
 
@@ -569,7 +571,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -599,7 +601,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -703,7 +705,7 @@ Note that /api/v2/ is needed for the following information:
 > [!div class="mx-tdBreakAll"]
 > | Type | APIs | Example |
 > |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
 
 ### Retrieve timeline events - /api/v1/events
 
@@ -711,7 +713,7 @@ Use this API to request a list of events reported to the event timeline.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -731,7 +733,7 @@ Use this API to request a list of events reported to the event timeline.
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -824,7 +826,7 @@ Array of JSON objects that represent alerts.
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED' |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'` |
 
 ### Retrieve vulnerability information - /api/v1/reports/vulnerabilities/devices
 
@@ -832,11 +834,11 @@ Use this API to request vulnerability assessment results for each device.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1071,14 +1073,13 @@ The device object contains:
     }
 
 ]
-
 ```
 
 #### Curl command
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/devices |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/devices` |
 
 ### Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security
 
@@ -1088,79 +1089,79 @@ This assessment is based on general network and system information and not on a 
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
 JSON object that represents assessed results. Each key can be nullable. Otherwise, it will contain a JSON object with non-nullable keys.
 
-### Result fields
+#### Result fields
 
-**Keys**
+- **Keys**
 
-**unauthorizedDevices**
+    **unauthorizedDevices**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **address** | String | IP address |
-| **name** | String | - |
-| **firstDetectionTime** | Numeric | Epoch (UTC) |
-| lastSeen | Numeric | Epoch (UTC) |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **address** | String | IP address |
+    | **name** | String | - |
+    | **firstDetectionTime** | Numeric | Epoch (UTC) |
+    | lastSeen | Numeric | Epoch (UTC) |
 
-**illegalTrafficByFirewallRules**
+    **illegalTrafficByFirewallRules**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **server** | String | IP address |
-| **client** | String | IP address |
-| **port** | Numeric | - |
-| **transport** | String | TCP, UDP, or ICMP |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **server** | String | IP address |
+    | **client** | String | IP address |
+    | **port** | Numeric | - |
+    | **transport** | String | TCP, UDP, or ICMP |
 
-**weakFirewallRules**
+    **weakFirewallRules**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **sources** | JSON array of sources. Each source can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-| **destinations** | JSON array of destinations. Each destination can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-| **ports** | JSON array of ports in any of three formats | "Any", "port (protocol, if detected)", "from port-to port (protocol, if detected)" |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **sources** | JSON array of sources. Each source can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+    | **destinations** | JSON array of destinations. Each destination can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+    | **ports** | JSON array of ports in any of three formats | "Any", "port (protocol, if detected)", "from port-to port (protocol, if detected)" |
 
-**accessPoints**
+    **accessPoints**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **macAddress** | String | MAC address |
-| **vendor** | String | Vendor name |
-| **ipAddress** | String | IP address, or N/A |
-| **name** | String | Device name, or N/A |
-| **wireless** | String | No, Suspected, or Yes |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **macAddress** | String | MAC address |
+    | **vendor** | String | Vendor name |
+    | **ipAddress** | String | IP address, or N/A |
+    | **name** | String | Device name, or N/A |
+    | **wireless** | String | No, Suspected, or Yes |
 
-**connectionsBetweenSubnets**
+    **connectionsBetweenSubnets**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **server** | String | IP address |
-| **client** | String | IP address |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **server** | String | IP address |
+    | **client** | String | IP address |
 
-**industrialMalwareIndicators**
+    **industrialMalwareIndicators**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **detectionTime** | Numeric | Epoch (UTC) |
-| **alertMessage** | String | - |
-| **description** | String | - |
-| **devices** | JSON array | Device names | 
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **detectionTime** | Numeric | Epoch (UTC) |
+    | **alertMessage** | String | - |
+    | **description** | String | - |
+    | **devices** | JSON array | Device names |
 
-**internetConnections**
+    **internetConnections**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **internalAddress** | String | IP address |
-| **authorized** | Boolean | Yes or No | 
-| **externalAddresses** | JSON array | IP address |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **internalAddress** | String | IP address |
+    | **authorized** | Boolean | Yes or No |
+    | **externalAddresses** | JSON array | IP address |
 
 #### Response example
 
@@ -1318,14 +1319,13 @@ JSON object that represents assessed results. Each key can be nullable. Otherwis
     ]
 
 }
-
 ```
 
 #### Curl command
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/security |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/security` |
 
 ### Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational
 
@@ -1333,11 +1333,11 @@ Use this API to request results of a general vulnerability assessment. This asse
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1345,51 +1345,51 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 
 #### Result fields
 
-**Keys**
+- **Keys**
 
-**backupServer**
+    **backupServer**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **source** | String | IP address |
-| **destination** | String | IP address |
-| **port** | Numeric | - |
-| **transport** | String | TCP or UDP |
-| **backupMaximalInterval** | String | - |
-| **lastSeenBackup** | Numeric | Epoch (UTC) |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **source** | String | IP address |
+    | **destination** | String | IP address |
+    | **port** | Numeric | - |
+    | **transport** | String | TCP or UDP |
+    | **backupMaximalInterval** | String | - |
+    | **lastSeenBackup** | Numeric | Epoch (UTC) |
 
-**ipNetworks**
+    **ipNetworks**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **addresse**s | Numeric | - |
-| **network** | String | IP address |
-| **mask** | String | Subnet mask |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **addresse**s | Numeric | - |
+    | **network** | String | IP address |
+    | **mask** | String | Subnet mask |
 
-**protocolProblems**
+    **protocolProblems**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **protocol** | String | - |
-| **addresses** | JSON array | IP addresses |
-| **alert** | String | - |
-| **reportTime** | Numeric | Epoch (UTC) |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **protocol** | String | - |
+    | **addresses** | JSON array | IP addresses |
+    | **alert** | String | - |
+    | **reportTime** | Numeric | Epoch (UTC) |
 
-**protocolDataVolumes**
+    **protocolDataVolumes**
 
-| Field name | Type | List of values |
-|--|--|--|
-| protocol | String | - |
-| volume | String | "volume number MB" |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | protocol | String | - |
+    | volume | String | "volume number MB" |
 
-**disconnections**
+    **disconnections**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **assetAddress** | String | IP address |
-| **assetName** | String | - |
-| **lastDetectionTime** | Numeric | Epoch (UTC) |
-| **backToNormalTime** | Numeric | Epoch (UTC) |     
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **assetAddress** | String | IP address |
+    | **assetName** | String | - |
+    | **lastDetectionTime** | Numeric | Epoch (UTC) |
+    | **backToNormalTime** | Numeric | Epoch (UTC) |
 
 #### Response example
 
@@ -1515,14 +1515,13 @@ JSON object that represents assessed results. Each key contains a JSON array of 
     ]
 
 }
-
 ```
 
 #### Curl command
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/operational |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
 ### Validate user credentials - /api/external/authentication/validation
 
@@ -1532,11 +1531,11 @@ You don't need a Defender for IoT access token to use this API.
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Query parameters
 
@@ -1562,7 +1561,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1582,14 +1581,13 @@ response:
     "msg": "Authentication succeeded."
 
 }
-
 ```
 
 #### Curl command
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/external/authentication/validation |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation` |
 
 ### Change password - /external/authentication/set_password
 
@@ -1597,11 +1595,11 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -1617,12 +1615,11 @@ request:
     "new_password": "Test54321\!"
 
 }
-
 ```
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1648,7 +1645,6 @@ response:
     }
 
 }
-
 ```
 
 #### Device fields
@@ -1663,7 +1659,7 @@ response:
 
 | Type | APIs | Example |
 |--|--|--|
-| POST | curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password` |
 
 ### User password update by system admin - /external/authentication/set_password_by_admin
 
@@ -1671,11 +1667,11 @@ Use this API to let system administrators change passwords for specified users. 
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -1695,7 +1691,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1744,18 +1740,72 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | Type | APIs | Example |
 > |--|--|--|
-> | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
 
-## On-premises management console API specifications ##
+### Retrieve alert PCAP - /api/v2/alerts/pcap
+
+Use this API to retrieve a PCAP file related to an alert
+
+This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
+
+#### Method
+
+- **GET**
+
+#### Query Parameters
+
+- id: Xsense Alert ID  
+Example:  
+`/api/v2/alerts/pcap/<id>`
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+- **Success**: Binary file containing PCAP data
+- **Failure**: JSON object that contains error message
+
+#### Response example
+
+#### Error
+
+```json
+{
+  "error": "PCAP file is not available"
+}
+```
+
+#### Curl command
+
+|Type|APIs|Example|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
+
+## On-premises management console API specifications
 
 This section describes on-premises management console APIs for:
-- Alert exclusions
-- Device information
-- Alert information
 
-### Alert Exclusions ###
+- [Alert Exclusions](#alert-exclusions)
 
-Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's **Alert Exclusions** window as  read-only exclusion rules.
+- [Retrieve device information - /external/v1/devices](#retrieve-device-information---externalv1devices)
+
+- [Retrieve alert information - /external/v1/alerts](#retrieve-alert-information---externalv1alerts)
+
+- [QRadar alerts](#qradar-alerts)
+
+- [Alert exclusions (maintenance window) - /external/v1/maintenanceWindow](#alert-exclusions-maintenance-window---externalv1maintenancewindow)
+
+- [Change password - /external/authentication/set_password (1)](#change-password---externalauthenticationset_password-1)
+
+- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+- [Request alert PCAP - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
+
+### Alert Exclusions
+
+Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's Alert Exclusions window as read-only exclusion rules.
 
 #### /external/v1/maintenanceWindow
 
@@ -1769,28 +1819,19 @@ Define conditions under which alerts won't be sent. For example, define and upda
 {
     "msg": "Authentication succeeded."
 }
-
 ```
 
-#### Change password - /external/authentication/set_password 
-
-Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### User password update by system admin - /external/authentication/set_password_by_admin 
-
-Use this API to let system administrators change passwords for specific users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-### Retrieve device information - /external/v1/devices ###
+### Retrieve device information - /external/v1/devices
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2003,7 +2044,7 @@ Array of JSON objects that represent devices.
 
 | Type | APIs | Example |
 |--|--|--|
-| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true' |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true'` |
 
 ### Retrieve alert information - /external/v1/alerts
 
@@ -2011,7 +2052,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -2132,7 +2173,7 @@ Note that /api/v2/ is needed for the following information:
 > [!div class="mx-tdBreakAll"]
 > | Type | APIs | Example |
 > |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
 
 ### QRadar alerts
 
@@ -2164,7 +2205,7 @@ Example of the payload sent to QRadar:
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request content
 
@@ -2187,14 +2228,13 @@ JSON object that represents the action to perform on the alert that contains the
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
 Array of JSON objects that represent devices.
 
 #### Response fields
-
 
 | Name | Type | Nullable | Description |
 |--|--|--|--|
@@ -2235,7 +2275,7 @@ Array of JSON objects that represent devices.
 
 | Type | APIs | Example |
 |--|--|--|
-| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000` |
+| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/alerts/1-1594550943000` |
 
 ### Alert exclusions (maintenance window) - /external/v1/maintenanceWindow
 
@@ -2255,11 +2295,15 @@ The APIs that you define here appear in the on-premises management console's **A
 
 - **engines**: Defines from which security engine to suppress alerts during the maintenance process:
 
-   - ANOMALY
-   - MALWARE
-   - OPERATIONAL
-   - POLICY_VIOLATION
-   - PROTOCOL_VIOLATION
+    - ANOMALY
+
+    - MALWARE
+
+    - OPERATIONAL
+
+    - POLICY_VIOLATION
+
+    - PROTOCOL_VIOLATION
 
 - **sensorIds**: Defines from which Defender for IoT sensor to suppress alerts during the maintenance process. It's the same ID retrieved from /api/v1/appliances (GET).
 
@@ -2361,7 +2405,7 @@ Retrieve a log of all the open, close, and update actions that were performed in
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2384,10 +2428,10 @@ Array of JSON objects that represent maintenance window operations.
 
 | Type | APIs | Example |
 |--|--|--|
-| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
-| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
-| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
+| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
 
 ### Authenticate user credentials - /external/authentication/validation
 
@@ -2399,7 +2443,7 @@ Use this API to validate user credentials. All Defender for IoT user roles can w
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -2417,7 +2461,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2450,7 +2494,7 @@ response:
 
 | Type | APIs | Example |
 |--|--|--|
-| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation'` |
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
 
 ### Change password - /external/authentication/set_password
 
@@ -2462,7 +2506,7 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -2483,7 +2527,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2524,7 +2568,7 @@ response:
 
 | Type | APIs | Example |
 |--|--|--|
-| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password` |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password` |
 
 ### User password update by system admin - /external/authentication/set_password_by_admin
 
@@ -2532,11 +2576,11 @@ Use this API to let system administrators change passwords for specified users. 
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -2556,7 +2600,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2605,7 +2649,68 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | Type | APIs | Example |
 > |--|--|--|
-> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin` |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
+
+### Request alert PCAP - /external/v2/alerts/pcap
+
+Use this API to request a PCAP file related to an alert.
+
+#### Method
+
+- **GET**
+
+#### Query Parameters
+
+- id: CM Alert ID  
+Example:  
+`/external/v2/alerts/pcap/<id>`
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+- **Success**: JSON object that contains data regarding the requested PCAP file
+- **Failure**: JSON object that contains error message
+
+#### Data fields
+
+|Name|Type|Nullable|
+|-|-|-|
+|id|Numeric|No|
+|xsenseId|Numeric|No|
+|xsenseAlertId|Numeric|No|
+|downloadUrl|String|No|
+|token|String|No|
+
+#### Response example
+
+#### Success
+
+```json
+{
+  "downloadUrl": "https://10.1.0.2/api/v2/alerts/pcap/1",
+  "xsenseId": 1,
+  "token": "d2791f58-2a88-34fd-ae5c-2651fe30a63c",
+  "id": 1,
+  "xsenseAlertId": 1
+}
+```
+
+#### Error
+
+```json
+{
+  "error": "alert not found"
+}
+```
+
+### Curl command
+
+|Type|APIs|Example|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
 ## Next steps
 
