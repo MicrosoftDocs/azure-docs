@@ -33,7 +33,7 @@ $resourceGroupName ="<yourResourceGroupName>"
 $diskPoolName = "<yourDiskPoolName>"
 $iscsiTargetName = "<youriSCSITargetName>"
 $diskName ="<yourDiskName>" #Provide the name of the disk you want to add
-$lunName ='LunName>' #Provide the Lun name of the added disk
+$lunName ='<LunName>' #Provide the Lun name of the added disk
 $diskIds = @()
 
 #Add the disk to disk pool
@@ -75,7 +75,7 @@ $resourceGroupName ="<yourResourceGroupName>"
 $diskPoolName = "<yourDiskPoolName>"
 $iscsiTargetName = "<youriSCSITargetName>"
 $diskName ="<NameOfDiskYouWantToRemove>" #Provide the name of the disk you want to remove
-$lunName ='<LUNForDiskYouWantToRemove>' #Provide the Lun name of the disk you want to remove
+$lunName ='<LunForDiskYouWantToRemove>' #Provide the Lun name of the disk you want to remove
 $diskIds = @()
 
 #Get the existing iSCSI LUNs and remove it from iSCS target

@@ -23,13 +23,13 @@ Not currently supported in the Azure portal.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Stop-AzDiskPool -Name 'myDiskPool' -ResourceGroupName 'myResourceGroupt'
+Stop-AzDiskPool -Name '<yourDiskPool>' -ResourceGroupName '<yourResourceGroup>'
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk-pool stop --name "myDiskPool" --resource-group "myResourceGroup"
+az disk-pool stop --name "<yourDiskPool>" --resource-group "<yourResourceGroup>"
 ```
 ---
 
@@ -46,13 +46,13 @@ When you delete a disk pool, all the resources in the managed resource group are
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzDiskPool -Name "myDiskpoolName" -ResourceGroupName "myRGName"
+Remove-AzDiskPool -Name "<yourDiskpoolName>" -ResourceGroupName "<yourResourceGroup>"
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk-pool delete --name "myDiskPool" --resource-group "myResourceGroup"
+az disk-pool delete --name "<yourDiskPool>" --resource-group "<yourResourceGroup>"
 ```
 
 ---
@@ -74,13 +74,13 @@ You can re-enable iSCSI support on an existing disk pool. iSCSI support cannot b
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzDiskPoolIscsiTarget -DiskPoolName "myDiskpoolName" -Name "myiSCSITargetName" -ResourceGroupName "myRGName"
+Remove-AzDiskPoolIscsiTarget -DiskPoolName "<yourDiskpoolName>" -Name "<youriSCSITargetName>" -ResourceGroupName "yourResourceGroup>"
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk-pool iscsi-target delete --disk-pool-name "myDiskPool" --name "myIscsiTarget" --resource-group "myResourceGroup"
+az disk-pool iscsi-target delete --disk-pool-name "<yourDiskPool>" --name "<yourIscsiTarget>" --resource-group "<yourResourceGroup>"
 ```
 
 ---
