@@ -229,7 +229,7 @@ items:
     - name: Create an empty lake database
       href: database-designer/create-empty-lake-database.md
     - name: Create lake database from database templates
-      href: database-designer/database-from-lake-database-templates.md
+      href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
 - name: Migration guides

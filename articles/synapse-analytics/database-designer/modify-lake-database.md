@@ -4,9 +4,10 @@ description: Learn how to view, customize, and publish a lake database using the
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.subservice: 
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 
@@ -37,7 +38,7 @@ In this article, you will learn how to modify an existing [lake database](./conc
     - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
 5. To add a table to the database, select the **+ Table** button. 
     - **Custom** will add a new table to the canvas.
-    - **From template** will open the gallery and let you select a database template to use when adding a new table. See [Create lake database from database template](./create-lake-database-from-lake-database-template.md) for more information
+    - **From template** will open the gallery and let you select a database template to use when adding a new table. See [Create lake database from database template](./create-lake-database-from-lake-database-templates.md) for more information
     - **From data lake** lets you import a table schema using data already in your lake.
 6. Select **Custom**. A new table will appear on the canvas called Table_1.
 7. You can then customize Table_1, including the table name, description, storage settings, columns, and relationships. See the Customize tables within a database section below.

@@ -1,11 +1,11 @@
 ---
 title: Azure Synapse lake database concepts
 description: Learn about the lake database concept and how it helps structure data. 
-author: gesaur
+author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 13/10/2021
+ms.date: 11/02/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 

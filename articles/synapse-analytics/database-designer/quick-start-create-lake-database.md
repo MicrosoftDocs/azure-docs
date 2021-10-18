@@ -1,12 +1,13 @@
 ---
 title: QuickStart on Azure Synapse lake database and database templates
 description: Quickstart how to use the synapse lake database and the database templates
-author: gesaur
+author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 13/10/2021
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.subservice: 
+ms.topic: conceptual 
+ms.date: 11/022021
+ms.custom: template-concept 
 ---
 
 # Quickstart: Create a new Lake database leveraging database templates
@@ -75,7 +76,7 @@ df.show(10)
 
 ## Train machine learning models
 
-You can use lake database to train your machine learning models and score the data. For more details [Train machine learning models](./synapse-analytics/machine-learning/tutorial-automl.md) 
+You can use lake database to train your machine learning models and score the data. For more details [Train machine learning models](../machine-learning/tutorial-automl.md) 
 
 ## Next steps
 Continue to explore the capabilities of the database designer using the links below.
