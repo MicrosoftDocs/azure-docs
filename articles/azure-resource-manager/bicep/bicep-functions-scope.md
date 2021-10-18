@@ -25,7 +25,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
-`managementGroup()` can only be used on a [management group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation. Use when either getting a scope object or getting the object with properties.
+`managementGroup()` can only be used on a [management group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation. Use when either getting a scope object or getting properties for the current management group.
 
 `managementGroup(identifier)` can be used for any deployment scope, but only when getting the scope object. To retrieve the properties for a management group, you can't pass in the management group identifier.
 
@@ -37,18 +37,18 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-An object used for setting the `scope` property on a [module](modules.md#set-module-scope) or [extension resource type](scope-extension-resources.md). Or, the properties for the management group in the current deployment.
+An object used for setting the `scope` property on a [module](modules.md#set-module-scope) or [extension resource type](scope-extension-resources.md). Or, an object with the properties for the current management group.
 
 ### Management group example
 
 The following example sets the scope for a module to a management group.
 
 ```bicep
-param managementGroupName string
+param managementGroupIdentifier string
 
 module  'module.bicep' = {
   name: 'deployToMG'
-  scope: managementGroup(managementGroupName)
+  scope: managementGroup(managementGroupIdentifier)
 }
 ```
 

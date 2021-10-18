@@ -196,7 +196,7 @@ Or, you can set the scope to `/` for some resource types, like management groups
 
 ## Management group
 
-To create a management group in a management group deployment, you must set the scope to `/` for the management group.
+To create a management group in a management group deployment, you must set the scope to the tenant.
 
 The following example creates a new management group in the root management group.
 
@@ -214,7 +214,7 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
 output newManagementGroup string = mgName
 ```
 
-The next example creates a new management group in the management group targeted for the deployment. It uses the [management group function](bicep-function-scope.md#managementgroup).
+The next example creates a new management group in the management group targeted for the deployment. It uses the [management group function](bicep-functions-scope.md#managementgroup).
 
 ```bicep
 targetScope = 'managementGroup'
