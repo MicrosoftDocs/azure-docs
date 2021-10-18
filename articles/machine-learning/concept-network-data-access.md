@@ -15,16 +15,18 @@ ms.date: 10/13/2021
 
 # Network data access with Azure Machine Learning studio
 
-Data access is complex and it is important to recognize that there are many pieces to it. In particular, accessing data from Azure Machine Learning studio is more complex than using the SDK or CLI, as studio runs partially in your web browser. In general, data access from studio involves the following checks:
+Data access is complex and it is important to recognize that there are many pieces to it. In particular, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you are directly accessing data in the cloud. When using Studio, you aren't always directly accessing the data store from your client. Instead, studio relies on the workspace to access data on your behalf.
+
+In general, data access from studio involves the following checks:
 
 1. Who is accessing?
-    - There are multiple different types of authentication, including account key, token, service principal, managed identity, and user identity.
+    - There are multiple different types of authentication depending on the storage type, including account key, token, service principal, managed identity, and user identity.
     - If user identity, then it is important to know *which* user is trying to access storage.
 2. Do they have permission?
     - Are the credentials correct? And if so, does the service principal, managed identity, etc., have the necessary permission on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](/azure/role-based-access-control/built-in-roles#reader) of the storage account reads metadata of the storage.
     - [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) reads data within a blob container.
-    - Contributor allows write access to a storage account.
+    - [Contributor](/azure/role-based-access-control/built-in-roles#contributor) allows write access to a storage account.
     - More roles may be required depending on the type of storage.
 3. Where is access from?
     - User: Is the client IP address in the VNet/subnet range?
@@ -41,13 +43,56 @@ The following diagram shows the general flow of a data access call. In this exam
 
 :::image type="content" source="./media/concept-data-access/data-access-flow.png" alt-text="Diagram of the logic flow when accessing data":::
 
-## Current Limitations
+## Azure Virtual Network
+
+By default, the following operations are disabled when the workspace and storage are behind a VNet:
+
+* Preview data in studio.
+* Visualize data in the designer.
+* Deploy a model in the designer.
+* Submit an AutoML experiment.
+* Start a labeling project.
+
+For information on enabling this functionality, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
+
+Additionally, studio only supports reading data from the following datastore types in a VNet:
+
+* Azure Storage Account (blob & file)
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
+* Azure SQL Database
+
+## Azure Storage Account
+
+### Existing filestore
+
+If you use an existing filestore as the default when creating a workspace, the `azureml-filestore` folder doesn't automatically get created. This folder is required when submitting AutoML experiments.
+
+To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing filestore is __outside__ the VNet when creating the workspace.
 
 ### Azure Storage firewall
 
-When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it is not your client that is connecting to the storage account, it is the Azure Machine Learning service that makes the request. The IP address of the service is not documented and changes frequently. For this reason, __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it is not your client that connects to the storage account, it is the Azure Machine Learning service that makes the request. The IP address of the service is not documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
 
-### Azure SQL Database
+## Azure Data Lake Storage Gen1
+
+When using Azure Data Lake Storage Gen1 as a datastore, you can only use POSIX-style access control lists. You can assign the workspace-managed identity access to resources just like any other security principal. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+## Azure Data Lake Storage Gen2
+
+When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
+
+**To use Azure RBAC**, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+
+**To use ACLs**, the workspace-managed identity can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+
+## Azure SQL Database
+
+To access data stored in an Azure SQL Database with a managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+
+After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
+
+### Deny public network access
 
 In Azure SQL Database, the __Deny public network access__ allows you to block public access to the database. We __do not support__ accessing SQL Database if this option is enabled. When using a SQL Database with Azure Machine Learning studio, the data access is always made through the public endpoint for the SQL Database.
 
