@@ -54,7 +54,8 @@ Data (live video) starts flowing through the pipeline when it reaches the “Act
 Live pipelines are designed to remain active, once activated, and keep processing the live video from the source (camera). An explicit deactivate command is required in order to stop the processing.
 
 > [!NOTE]
-> A pipeline can be active without data flowing through it (for example, the input video source goes offline). Your Azure subscription will be billed when the pipeline is in the active state.
+> A pipeline can be active without data flowing through it (for example, the input video source goes offline).
+> Your Azure subscription will be billed when the pipeline is in the active state.
 
 ### Batch pipeline
 
