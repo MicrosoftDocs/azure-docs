@@ -26,7 +26,7 @@ Key features made available via Speech SDK APIs include:
 Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
 
 > [!NOTE]
-> The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available here, with corresponding docs available here. All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer. For migration information, see [Migrating from Speech Devices SDK](#migrating-from-speech-devices-sdk).
+> The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available here, with corresponding docs available here. All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer.
 
 ## Reference channel for echo cancellation
 
