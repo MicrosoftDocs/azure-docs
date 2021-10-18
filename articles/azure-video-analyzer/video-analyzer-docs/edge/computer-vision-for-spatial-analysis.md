@@ -86,13 +86,13 @@ The following are prerequisites for connecting the spatial-analysis module to Az
     1. [Create the VM](../../../cognitive-services/computer-vision/spatial-analysis-container.md?tabs=virtual-machine#create-the-vm)
 
     > [!Important]
-    > Please **skip the IoT Deployment manifest** step mentioned in that document. We will be using our own **[deployment manifest](#configure-deployment-template)** file to deploy the required containers.
+    > Please **skip the IoT Deployment manifest** step mentioned in that document. You will be using our own **[deployment manifest](#configure-deployment-template)** file to deploy the required containers.
 
     1. Connect to your VM and in the terminal type in the following command:
     ```bash
     bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"
     ```
-    Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are using a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide you are using a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
     
     The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
     
@@ -171,7 +171,7 @@ A key is used to start the spatial-analysis container, and is available on the A
 
 ## Configure deployment template
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are avaedge module, rtspsim module, and our spatialanalysis module. 
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are `avaedge` module, `rtspsim` module, and our `spatialanalysis` module. 
 
 The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 
@@ -218,11 +218,11 @@ There are a few things you need to pay attention to in the deployment template f
                         }
       ```
 #### [Desktop machine](#tab/desktop-machine)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module. 
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are `avaedge` module, `rtspsim` module and our `spatialanalysis` module. 
 
 The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 #### [Azure VM with GPU](#tab/virtual-machine)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are avaedge module, rtspsim module and our spatialanalysis module.
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are `avaedge` module, `rtspsim` module and our `spatialanalysis` module.
 
 The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 
@@ -290,11 +290,11 @@ To see these events, follow these steps:
 
 ## Run the program
 
-There is a program.cs which will invoke the direct methods in `src/cloud-to-device-console-app/operations.json`. We need to setup operations.json and provide a pipelineTopology for pipeline use.
+There is a program.cs which will invoke the direct methods in `src/cloud-to-device-console-app/operations.json`. You will need to edit the `operations.json` file and update the pipeline topology URL, the name of the topology, as well as the RTSP URL.
 
 In operations.json:
 
-- Set the pipelineTopology like this:
+- Set the pipeline topology like this:
 
   ```json
   {
@@ -305,7 +305,10 @@ In operations.json:
   },
   ```
 
-- Create a livePipeline like this, set the parameters in pipelineTopology here:
+> [!Important]
+> The topology used above has a hard-coded name for the VideoSink resource `videoSink`. If you decide to choose a different video source, remember to change this value.
+
+- Create a live pipeline like this, set the parameters in pipeline topology here:
 
   ```json
   {
@@ -334,7 +337,10 @@ In operations.json:
   },
   ```
 
-Run a debug session by selecting F5 and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
+Run a debug session by selecting F5 and follow **TERMINAL** instructions, it will set pipelineTopology, set live pipeline, activate live pipeline, and finally delete the resources.
+
+> [!Note]
+> The program will pause at the activate live pipeline step. Open the Terminal tab and press **Enter** to continue and start the deactivating and deleting on resources steps.
 
 ## Interpret results
 
@@ -370,9 +376,9 @@ The `spatialanalysis` is a large container and its startup time can take up to 3
 > [!NOTE]
 > You will see the **"initializing"** messages. These messages show up while the spatialAnalysis module is starting up and can take up to 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
 
-When a pipelineTopology is instantiated, you should see "MediaSessionEstablished" event, here is a [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
+When a pipeline topology is instantiated, you should see "MediaSessionEstablished" event, here is a [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-The spatialanalysis module will also send out AI Insight events to Azure Video Analyzer and then to IoTHub, it will also show in **OUTPUT** window. The ENTITY is detection objects, and EVENT is spaceanalytics events. This output will be passed into Azure Video Analyzer.
+The spatialanalysis module will also send out AI Insight events to Azure Video Analyzer and then to IoTHub, it will also show in **OUTPUT** window. These AI insights are recorded along with video via the video sink node. You can use Video Analyzer to view these, as discussed below.
 
 ## Supported Spatial Analysis Operations
 
