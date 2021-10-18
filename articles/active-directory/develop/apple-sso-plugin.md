@@ -254,7 +254,8 @@ These parameters specify whether the SSO extension should prevent native and web
 
 For a consistent SSO experience across all apps on the device, we recommend you enable one of these settings, which are disabled by default.
   
-Disable app prompt and show an account picker UX instead:
+Disable the app prompt and display the account picker:
+
 - **Key**: `disable_explicit_app_prompt`
 - **Type**: `Integer`
 - **Value**: 1 or 0
