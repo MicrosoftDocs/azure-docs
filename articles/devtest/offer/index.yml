@@ -23,46 +23,130 @@ highlightedContent:
     # Card
     - title: What is Azure Dev/Test offer?
       itemType: overview
-      url: overview-what-is-devtest-offer-visual-studio.md
- 
+      url: ../../machine-learning/overview-what-is-azure-machine-learning.md
+    # Card
+    - title: Set up resources
+      itemType: get-started
+      url: ../../machine-learning/quickstart-create-resources.md
+    # Card
+    - title: 'Preview: Train models with v2 CLI'
+      itemType: tutorial
+      url: ../../machine-learning/how-to-train-cli.md      
+    # Card
+    - title: Architecture & terms
+      itemType: overview
+      url: ../../machine-learning/concept-azure-machine-learning-architecture.md 
+    # Card
+    - title: 'Day 1: Get started with Python'
+      itemType: get-started
+      url: ../../machine-learning/tutorial-1st-experiment-hello-world.md 
+    # Card
+    - title: "Migrate from ML Studio (classic)"
+      itemType: how-to-guide
+      url: ../../machine-learning/migrate-overview.md      
 
 conceptualContent:
 # Supports up to 3 sections
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
+    - title: Train models
+      links:
+        - url: ../../machine-learning/how-to-train-cli.md
+          itemType: how-to-guide
+          text: Run training code in the cloud (v2 CLI preview)
+        - url: ../../machine-learning/how-to-tune-hyperparameters.md
+          itemType: how-to-guide
+          text: Tune hyperparameters for model training
+        - url: ../../machine-learning/how-to-create-machine-learning-pipelines.md
+          itemType: how-to-guide
+          text: Build pipelines from reuseable components
+        - url: ../../machine-learning/tutorial-first-experiment-automated-ml.md
+          itemType: tutorial
+          text: 'AutoML: Train a classification model'
+
+    # Card
+    - title: Deploy models
+      links:
+        - url: ../../machine-learning/how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: How to deploy a model
+        - url: ../../machine-learning/how-to-deploy-managed-online-endpoints.md
+          itemType: how-to-guide
+          text: Real-time scoring with a managed endpoint (preview)
+        - url: ../../machine-learning/how-to-use-batch-endpoint.md
+          itemType: how-to-guide
+          text: Batch scoring with managed endpoints (preview)
+    # Card
+    - title: Manage the ML lifecycle (MLOps)
+      links:
+        - url: ../../machine-learning/how-to-track-monitor-analyze-runs.md
+          itemType: how-to-guide
+          text: Track, monitor, analyze training runs
+        - url: ../../machine-learning/concept-model-management-and-deployment.md
+          itemType: concept
+          text: Model management, deployment, lineage & monitoring
+        - url: ../../machine-learning/how-to-cicd-data-ingestion.md
+          itemType: how-to-guide
+          text: DevOps for a data ingestion pipeline
+    # Card
+    - title: Security for ML projects
+      links:
+        - url: ../../machine-learning/tutorial-create-secure-workspace.md
+          itemType: tutorial
+          text: Create a secure workspace
+        - url: ../../machine-learning/how-to-access-data.md
+          itemType: how-to-guide
+          text: Connect to data sources 
+        - url: ../../machine-learning/concept-enterprise-security.md
+          itemType: concept
+          text: Enterprise security & governance
+    # Card
+    - title: Reference 
+      links:
+        - url: /python/api/overview/azure/ml/
+          itemType: reference
+          text: Python SDK
+    # Card
+    - title: Resources
+      links:
+        - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          itemType: sample
+          text: Python SDK code examples
+
+    # Card
     - title: Azure Dev/Test Offer for Individuals
       links:
         - url: ../../devtest/offer/how-to-individual-credit.md
           itemType: how-to-guide
           text: Get started using Azure Credits
-        - url: ../../devtest/offer/add-users-directory.md
+        - url: ../../devtest/offer/how-to-add-users-directory.md
           itemType: how-to-guide
           text: Add users to your directory
-        - url: ../../devtest/offer/remove-credit-limits.md
+        - url: ../../devtest/offer/how-to-remove-credit-limits.md
           itemType: how-to-guide
           text: Remove credit limits   
-        - url: ../../devtest/offer/sign-into-azure-with-github.md
+        - url: ../../devtest/offer/how-to-sign-into-azure-with-github.md
           itemType: how-to-guide
           text: Sign into Azure with GitHub credentials
-        - url: ../../devtest/offer/change-directory-tenants-vss-azure.md
+        - url: ../../devtest/offer/how-to-change-directory-tenants-vss-azure.md
           itemType: how-to-guide
           text: Change directory tenants with your VSS Azure subscription
     # Card
     - title: Azure Dev/Test Offer for Enterprise
       links:
-        - url: ../../devtest/offer/create-enterprise-devtest-subscriptions.md
+        - url: ../../devtest/offer/how-to-create-enterprise-devtest-subscriptions.md
           itemType: how-to-guide
           text: Create Enterprise and Organizational Azure Dev/Test subscriptions
-        - url: ../../devtest/offer/gitops-azure-devtest.md
+        - url: ../../devtest/offer/how-to-gitops-azure-devtest.md
           itemType: how-to-guide
           text: Use GitOps in association with Azure Dev/Test
-        - url: ../../devtest/offer/manage-monitor-devtest.md
+        - url: ../../devtest/offer/how-to-manage-monitor-devtest.md
           itemType: how-to-guide
           text: Manage your Azure Dev/Test subscriptions with Azure's cloud environment
-        - url: ../../devtest/offer/manage-reliability-performance.md
+        - url: ../../devtest/offer/how-to-manage-reliability-performance.md
           itemType: how-to-guide
           text: Build reliability into your applications with Dev/Test subscriptions
-        - url: ../../devtest/offer/security-governance-devtest.md
+        - url: ../../devtest/offer/how-to-security-governance-devtest.md
           itemType: how-to-guide
           text: Manage security and governance within your organization's Dev/Test subscriptions

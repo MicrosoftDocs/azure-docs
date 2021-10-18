@@ -1,38 +1,40 @@
 - name: Azure Dev/Test offer Docs
   href: index.yml
 - name: Overview
+  items: 
+    - name: What is Azure Machine Learning?
+      displayName: AML, services, overview, introduction
+      href: overview-what-is-azure-machine-learning.md
+- name: Tutorials
   expanded: true
   items: 
-    - name: What is the Dev/Test offer?
-      href: overview-what-is-devtest-offer-visual-studio.md
-- name: Quickstart
-  expanded: true
-  items: 
-  - name: Get started with an individual Azure Dev/Test credit
-    href: how-to-individual-credit.md
-  - name: Create an enterprise Dev/Test subscription
-    href: create-enterprise-devtest-subscriptions.md    
-- name: Concepts
-  expanded: true
-  items:
-  - name: GitOps & Azure Dev/Test offer
-    href: gitops-azure-devtest.md  
-  - name: Security & governance
-    href: security-governance-devtest.md    
+    - name: "Python get started (day 1)"
+      expanded: true
+      items:
+        - name: Use your own data
+          href: tutorial-experiment-bring-data.md
 - name: How-to guides
   items:
+  - name: Get started with an individual Azure Dev/Test credit
+    href: how-to-individual-credit.md
   - name: Change directory tenants
-    href: change-directory-tenants-vss-azure.md
+    href: how-to-change-directory-tenants-vss-azure.md
   - name: Remove credit limits 
-    href: remove-credit-limits.md
+    href: how-to-remove-credit-limits.md
   - name: Add users to your directory
-    href: add-users-directory.md
+    href: how-to-add-users-directory.md
   - name: Sign into Azure with GitHub
-    href: sign-into-azure-with-github.md
+    href: how-to-sign-into-azure-with-github.md
+  - name: Create an enterprise Dev/Test subscription
+    href: how-to-create-enterprise-devtest-subscriptions.md
+  - name: GitOps and Azure Dev/Test
+    href: how-to-gitops-azure-devtest.md
   - name: Manage and Monitor Dev/Test
-    href: manage-monitor-devtest.md
+    href: how-to-manage-monitor-devtest.md
   - name: Manage reliability and performance with Azure Dev/Test
-    href: manage-reliability-performance.md
+    href: how-to-manage-reliability-performance.md
+  - name: Security and governance in Dev/Test
+    href: how-to-security-governance-devtest.md
 - name: Resources
   items: 
     - name: Azure roadmap
