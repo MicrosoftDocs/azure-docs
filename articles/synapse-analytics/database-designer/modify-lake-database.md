@@ -69,7 +69,7 @@ The **General** tab contains information specific to the table itself.
    - **Display folder** provides the name of the business area folder this table was grouped under as part of the database template. For custom tables, this value will be "Other".
 
 ![Screenshot of the General tab](./media/modify-lake-database/general-tab.png)
-In addition, there is a collapsible section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
+   - In addition, there is a collapsible section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
    - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
       - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. Change this to pick a different ADLS account.     
       - **Input folder** the folder in ADLS where the data loaded to this table will live. This can be edited via the file browser.
