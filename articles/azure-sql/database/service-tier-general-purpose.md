@@ -58,7 +58,7 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | **Storage size** | 1 GB - 4 TB | 32 GB - 8 TB| 
 | **TempDB size** | 32 GB per vCore | 23 GB per vCore |
 | **Log write throughput** | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md) | [3 MB/s per vCore (max 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics)|
-| **Availability** | 99.99% | 
+| **Availability** | 99.99% | |
 
 
 
