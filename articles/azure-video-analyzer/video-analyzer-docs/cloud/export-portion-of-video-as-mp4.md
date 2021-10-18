@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/06/2021
 
 ---
-# Tutorial: Event-based video recording and playback
+# Tutorial: Export protion of recorded video as an MP4 file.
 
 In this tutorial, you'll learn how to export a portion of video that has been recorded in Azure Video Analyzer account.  This exported portion of video is saved as a MP4 file which can be downloaded and consumed outside of the Video Analyzer account.
 
