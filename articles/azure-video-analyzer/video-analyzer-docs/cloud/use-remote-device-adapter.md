@@ -175,16 +175,20 @@ The RTSP URL must be **localhost** because the access to the camera is being tun
 After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.  
 [The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a live pipeline in Azure portal.
 
-The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can be used to automate this process.
+The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can also be used to automate this process.
 
 ### Playback recorded video in the Azure portal
 
-You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
-<!-- TODO: add link to Mayank's Cloud pipeline quickstart to playback section-->
+1. After activating the live pipeline, the video resource will be available under the Video Analyzer account **Videos** pane in the portal. The status will indicate **Is in use** as pipeline is active and recording.
+1. Select the video name that was defined in the topology and view the video.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/camera1800smkv.PNG" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next steps
 
-Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial]().<!-- TODO: add link to Keith's export to MP4 tutorial -->
+Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial](export-portion-of-video-as-mp4.md).
 
