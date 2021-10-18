@@ -20,7 +20,6 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 | Severity | Name | Data Source | Description | RecommendationType |
 |--|--|--|--|--|
-| High | Identical authentication credentials used by multiple devices | IoT Hub | IoT Hub authentication credentials are used by multiple devices. This process may indicate an illegitimate device impersonating a legitimate device. Duplicate credential use increases the risk of device impersonation by a malicious actor. | - |
 | High | Same authentication credentials used by multiple devices | IoT Hub | IoT Hub authentication credentials are used by multiple devices. This could indicate an illegitimate device is impersonating a legitimate device and also exposes the risk of device impersonation by a malicious actor. | IoT_SharedCredentials |
 | High | High level permissions configured in IoT Edge model twin for IoT Edge module | IoT Hub | IoT Edge module is configured to run in privileged mode, with extensive Linux capabilities or with host-level network access (send/receive data to host machine). | IoT_PrivilegedDockerOptions |
 
@@ -39,7 +38,6 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 | Severity | Name | Data Source | Description | RecommendationType |
 |--|--|--|--|--|
-| Low | Enable diagnostics logs in IoT Hub | IoT Hub | Enable logs, and retain them for up to a year. Retaining logs enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | - |
 | Low | IoT Edge Hub memory can be optimized | IoT Hub | Optimize your IoT Edge Hub memory usage by turning off protocol heads for any protocols not used by Edge modules in your solution. | IoT_EdgeHubMemOptimize |
 | Low | No logging configured for IoT Edge module | IoT Hub | Logging is disabled for this IoT Edge module. | IoT_EdgeLoggingOptions |
 
