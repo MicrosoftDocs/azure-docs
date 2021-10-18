@@ -28,7 +28,7 @@ This article tells you how to search for members and owners of a group and how t
 
 ## Group search and sort
 
-On the **All groups** page, when you enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
+On the **All groups** page, when you enter a search string, the search automatically do a `startswith` and substring search on the list of group names. The substring search is done only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
 
 ![new substring searches on the All Groups page](./media/groups-members-owners-search/groups-search-preview.png)
 
@@ -38,21 +38,21 @@ For example, a search for “policy” returns both "MDM policy – West" and "P
 
 ### Search group member and owner lists
 
-You can search the members or owners of a specific group by name, and when you enter a search string, a `startswith` search is automatically performed. For example, a search for “Scott” returns Scott Wilkinson.
+You can search the members or owners of a specific group by name, and when you enter a search string, a `startswith` search is automatically done. For example, a search for “Scott” returns Scott Wilkinson.
 
 ![new substring searches on the group members and owners lists](./media/groups-members-owners-search/members-list.png)
 
-### Filter member and owners lists
+### Filter member and owner lists
 
-In addition to search, you can filter the group members and owners lists by user type. This information is found in the **User Type** column in the members or owners list. You can filter the list to see only members or guests.
+You can also filter the group members and owners lists by user type. This information is found in the **User Type** column in the members or owners list. You can filter the list to see only members or guests.
 
 The **Members** page includes all the unique members of group including anyone who inherits their group membership from another group.
 
-You can also search and filter the direct members list and the all members list individually. Filtering the all members list does not affect the filters that are applied to the direct members list.
+You can also search and filter the lists individually. Filtering the all members list doesn't affect filters that are applied to the direct members list.
 
 ## Group memberships
 
-You can also view group memberships for a group on the **Group memberships** page. The **Group memberships** page supports search, sort and filter operations that are similar to the other Groups pages.
+You can also view group memberships for a group on the **Group memberships** page. The **Group memberships** page supports search, sort, and filter operations that are similar to the other Groups pages.
 
 ## Group member counts
 
