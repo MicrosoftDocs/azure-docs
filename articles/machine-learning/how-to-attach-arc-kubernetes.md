@@ -51,7 +51,7 @@ Azure Arc-enabled Kubernetes has a cluster extension functionality that enables 
 > [!NOTE]
 > Train only clusters also support batch inferencing as part of Azure Machine Learning Pipelines.
 
-Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?view=azure-cli-latest) command to deploy the Azure Machine Learning extension to your Azure Arc-enabled Kubernetes cluster.
+Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true) command to deploy the Azure Machine Learning extension to your Azure Arc-enabled Kubernetes cluster.
 
 > [!IMPORTANT]
 > Set the `--cluster-type` parameter to `managedCluster` to deploy the Azure Machine Learning extension to AKS clusters.
@@ -177,10 +177,10 @@ Once the Azure Machine Learning extension is deployed, the following resources a
 ## Verify your AzureML extension deployment
 
 ```azurecli
-az k8s-extension show --name amlarc-compute --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group>
+az k8s-extension show --name arcml-extension --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group>
 ```
 
-In the response, look for `"extensionType": "amlarc-compute"` and `"installState": "Installed"`. Note it might show `"installState": "Pending"` for the first few minutes.
+In the response, look for `"extensionType": "arcml-extension"` and `"installState": "Installed"`. Note it might show `"installState": "Pending"` for the first few minutes.
 
 When the `installState` shows **Installed**, run the following command on your machine with the kubeconfig file pointed to your cluster to check that all pods under *azureml* namespace are in *Running* state:
 
