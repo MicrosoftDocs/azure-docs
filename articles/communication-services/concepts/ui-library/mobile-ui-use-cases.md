@@ -97,14 +97,12 @@ These client libraries also require the context for the call they will join. Sim
 - Accessibility by design is a principle across Microsoft products.
 - UI Library follows this principle in making sure that all UI Components are fully accessible.
 - During public preview, the UI Library will continue to improve and add accessibility feature to the UI Components.
-- We expect to add more details on accessibility ahead of the UI Library being in General Availability.
 
 ## Localization
 
 - Localization is a key to making products that can be used across the world and by people who speak different languages.
 - UI Library will provide out of the box support for some languages and capabilities such as RTL.
 - Developers can provide their own localization files to be used for the UI Library.
-- These localization capabilities will be added ahead of the UI Library being in General Availability.
 
 > [!div class="nextstepaction"]
 

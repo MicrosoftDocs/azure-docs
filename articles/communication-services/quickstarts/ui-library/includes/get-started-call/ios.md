@@ -4,7 +4,7 @@ author: palatter
 
 ms.author: palatter
 ms.date: 10/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
@@ -67,7 +67,7 @@ Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the
 
 ## Initialize composite
 
-Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with your group id for your call, `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
+Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with your group ID for your call, `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
 
 ```swift
 import UIKit
@@ -162,7 +162,7 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 
 #### Group call
 
-Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group id for your call and `<DISPLAY_NAME>` with your name.
+Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
@@ -172,7 +172,7 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 
 #### Teams meeting
 
-Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group id for your call and `<DISPLAY_NAME>` with your name.
+Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
