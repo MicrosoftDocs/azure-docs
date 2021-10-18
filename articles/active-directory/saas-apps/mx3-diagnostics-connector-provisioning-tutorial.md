@@ -53,12 +53,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [MX3 Portal](https://portal.mx3.app). Navigate to the SSO settings page by clicking on settings and then click on **Single sign-on** or click [here](https://portal.mx3.app/settings/sso).
 
-    ![MX3 SSO setting](media/mx3-provisioning/sso-settings.png)
+    ![Screenshot for MX3 Diagnostics Connector Single sign-on settings](media/mx3-provisioning/sso-settings.png)
 
 
 1. Scroll down to view the token. Copy and save the token. You will need it in the **Step 5**.
 
-    ![MX3 SSO settings](media/mx3-provisioning/sso-settings-token.png)
+    ![Screenshot of MX3 Diagnostics Connector's secret token process](media/mx3-provisioning/sso-settings-token.png)
 
 ## Step 3. Add MX3 Diagnostics Connector from the Azure AD application gallery
 
@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot that displays Enterprise applications blade](common/enterprise-applications.png)
 
 1. In the applications list, select **MX3 Diagnostics Connector**.
 
@@ -89,19 +89,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Provisioning tab and where to find it.](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshot of Provisioning tab that shows to select automatic.](common/provisioning-automatic.png)
 
 1. Under the **Admin Credentials** section, input your MX3 Diagnostics Connector Tenant URL (https://scim.mx3.app) and Secret Token. Click **Test Connection** to ensure Azure AD can connect to MX3 Diagnostics Connector. If the connection fails, ensure your MX3 Diagnostics Connector account has Admin permissions and try again.
 
- 	![Token](common/provisioning-testconnection-tenanturltoken.png)
+ 	![Screenshot that displays text field to enter Token and SCIM URL](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of a text field where you can enter email for notification.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
