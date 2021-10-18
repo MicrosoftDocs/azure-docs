@@ -161,7 +161,7 @@ Please make sure all prerequisites are in place before following below steps for
 7. **Generate score using PREDICT:** You can call PREDICT 3 ways viz. using Spark SQL API, using User define function (UDF) and using Transformer API. Below are examples.
 
    > [!NOTE]
-   > Update the model alias name, view name and comma separated model input column name in this script before running it. Comma separated model input columns are same which ere used while training the model.
+   > Update the model alias name, view name and comma separated model input column name in this script before running it. Comma separated model input columns are same which are used while training the model.
 
    ```PYSPARK
    # Call PREDICT using Spark SQL API
