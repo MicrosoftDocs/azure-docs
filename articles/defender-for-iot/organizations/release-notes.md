@@ -30,7 +30,7 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 
 The following feature enhancements are available with version 10.5.2 of Azure Defender for IoT.
 
-- [PLC operating mode and risk management (Public Preview)](#plc-operating-mode-and-risk-management-public-preview)
+- [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
 
 - [PCAP API](#pcap-api)
 
