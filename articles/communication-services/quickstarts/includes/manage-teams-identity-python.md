@@ -87,7 +87,7 @@ client = CommunicationIdentityClient.from_connection_string(connection_string)
 Use the `exchange_user_token` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```python
-token_result = client.exchange_user_token(teams_token_result.access_token);
+token_result = client.exchange_user_token(teams_token_result['access_token'])
 print("Token: " + token_result.token)
 ```
 
