@@ -46487,6 +46487,10 @@
       "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md",
       "redirect_url": "/azure/app-service/environment/using",
       "redirect_document_id": false
+    },
+    "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sample-label-tool.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/try-sample-label-tool",
+      "redirect_document_id": false
     }
   ]
 }
