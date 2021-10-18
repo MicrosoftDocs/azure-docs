@@ -178,7 +178,7 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 To issue, or verify a verifiable credential, follow these steps:
 
-1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](https://TBD), or your tenant name.
+1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your **tenant ID**, or your tenant name.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
