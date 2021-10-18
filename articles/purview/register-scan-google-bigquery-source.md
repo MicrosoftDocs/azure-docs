@@ -64,7 +64,7 @@ On the Register sources (Google BigQuery) screen, do the following:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **ProjectID.** This should be a fully qualified project Id. For example, mydomain.com:myProject
+1. Enter the **ProjectID.** This should be a fully qualified project ID. For example, mydomain.com:myProject
 
 1. Select a collection or create a new one (Optional)
 
