@@ -171,7 +171,7 @@ main().catch((error) => {
 > * We've added the file URI value to the `formUrl` variable near the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginExtractLayout` method.
 
-### Add the following code to your layout application on the line below the `key` variable
+### Add the following code to your layout application on the line below the `apiKey` variable
 
 ```javascript
 

@@ -134,7 +134,7 @@ import java.util.Arrays;
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-Update your application's **FormRecognizer** class, with the following code:
+Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
 ```java
 public class FormRecognizer {
@@ -271,7 +271,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-Update your application's **FormRecognizer** class, with the following code:
+Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
 ```java
 public class FormRecognizer {
@@ -350,7 +350,7 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-Update your application's **FormRecognizer** class, with the following code:
+Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
 ```java
 
@@ -500,7 +500,7 @@ public class FormRecognizer {
 
 ```
 
-Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+Congratulations! In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 ## Next steps
 

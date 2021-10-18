@@ -14,9 +14,8 @@ recommendations: false
 
 > [!IMPORTANT]
 >
-> * This quickstart targets API  **v2.1**.
+> This quickstart targets Azure Form Recognizer REST API  **v2.1**.
 >
->* For simplicity, the code in this article uses un-secured credentials storage.
 
 [Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -45,6 +44,7 @@ Open a terminal window in your local environment and install the Azure Form Reco
 pip install azure-ai-formrecognizer
 
 ```
+
 ### Create a new Python application
 
 Create a new Python application called **form_recognizer_quickstart.py** in your preferred editor or IDE. Then import the following libraries:

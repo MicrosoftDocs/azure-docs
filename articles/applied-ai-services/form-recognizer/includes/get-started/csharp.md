@@ -16,7 +16,7 @@ recommendations: false
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 >
-> * This quickstart targets API  **v2.1**.
+> This quickstart  targets Azure Form Recognizer REST API version **2.1** using cURL to execute REST API calls.
 >
 >* For simplicity, the code in this article uses synchronous methods and unsecured credentials storage.
 

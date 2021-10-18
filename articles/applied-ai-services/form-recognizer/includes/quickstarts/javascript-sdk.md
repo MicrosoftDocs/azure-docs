@@ -17,9 +17,7 @@ ms.custom: "devx-track-js"
 
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
->
->* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
+> This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
 
 [Reference documentation](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
