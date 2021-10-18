@@ -95,20 +95,20 @@ To assign the custom role:
 
 4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to:
 
-```azcopy
-"Microsoft.Compute/virtualMachines/deallocate/action", 
-"Microsoft.Compute/virtualMachines/restart/action", 
-"Microsoft.Compute/virtualMachines/powerOff/action", 
-"Microsoft.Compute/virtualMachines/start/action", 
-"Microsoft.Compute/virtualMachines/read",
-"Microsoft.DesktopVirtualization/hostpools/read",
-"Microsoft.DesktopVirtualization/hostpools/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-```
+    ```azcopy
+    "Microsoft.Compute/virtualMachines/deallocate/action", 
+    "Microsoft.Compute/virtualMachines/restart/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action", 
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/read",
+    "Microsoft.DesktopVirtualization/hostpools/read",
+    "Microsoft.DesktopVirtualization/hostpools/write",
+    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
+    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
+    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+    ```
 
 5. When you're finished, select **Ok**.
 
@@ -229,19 +229,19 @@ To create or change a schedule:
     >[!NOTE]
     >You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
 
-- For **Ramp-down**, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
+    - For **Ramp-down**, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
 
-    - Start time
-    - Load-balancing algorithm
-    - Minimum percentage of hosts (%)
-    - Capacity threshold (%)
-    - Force logoff users
+      - Start time
+      - Load-balancing algorithm
+      - Minimum percentage of hosts (%)
+      - Capacity threshold (%)
+      - Force logoff users
 
-- Likewise, **Off-peak hours** works the same way as **Peak hours**:
+    - Likewise, **Off-peak hours** works the same way as **Peak hours**:
 
-    - Start time, which is also the end of the ramp-down period.
-    - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
-    - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
+      - Start time, which is also the end of the ramp-down period.
+      - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
+      - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
 
 ## Assign host pools
 
