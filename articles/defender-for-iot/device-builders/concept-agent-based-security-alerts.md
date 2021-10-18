@@ -68,7 +68,6 @@ For more information, see [customizable alerts](concept-customizable-security-al
 
 | Name | Severity | Data Source | Description | Suggested remediation steps | Alert type |
 |--|--|--|--|--|--|
-| Agent sending underutilized messages | Low | Defender-IoT-micro-agent | IoT agent message size capacity is currently underutilized, causing an increase in the number of sent messages. Adjust message intervals for better utilization. | To avoid too many underutilized messages, consider enlarging the high/low priority send intervals. | - |
 | Bash history cleared | Low | Defender-IoT-micro-agent | Bash history log cleared. Malicious actors commonly erase bash history to hide their own commands from appearing in the logs. | Review with the user that ran the command that the activity in this alert to see if you recognize this as legitimate administrative activity. If not, escalate the alert to the information security team. | IoT_ClearHistoryFile |
 
 ## Next steps
