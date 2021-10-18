@@ -515,7 +515,7 @@ Main capabilities:
 - Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
 - Unified experience for Azure VMs and Azure Arc machines
 
-[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Learn more about deploying the integrated Qualys vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc-enabled servers](../azure-arc/servers/index.yml).
 
@@ -980,7 +980,7 @@ Main capabilities:
 - Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
 - Unified experience for Azure VMs and Azure Arc machines
 
-[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Learn more about deploying the integrated Qualys vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc-enabled servers](../azure-arc/servers/index.yml).
 
@@ -1253,7 +1253,7 @@ The security findings are now available for export through continuous export whe
 
 Related pages:
 
-- [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
+- [Security Center's integrated Qualys vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
 - [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-container-registries-usage.md)
 - [Continuous export](continuous-export.md)
 
