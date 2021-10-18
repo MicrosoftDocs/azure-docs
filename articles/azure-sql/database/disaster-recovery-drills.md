@@ -7,8 +7,8 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
