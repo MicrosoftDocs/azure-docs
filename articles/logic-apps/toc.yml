@@ -247,6 +247,8 @@
         href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
+  - name: Business continuity and disaster recovery
+    items:
     - name: Build a disaster recovery plan
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: Replicate Azure resources for business continuity and disaster recovery
