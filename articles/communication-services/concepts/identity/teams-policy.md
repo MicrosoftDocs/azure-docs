@@ -20,14 +20,14 @@ Azure Communication Services support Teams identities to manage Teams calling ex
 
 |Policy                                   |Supported  |Note     |
 |-----------------------------------------|-----------|---------|
-|Mode for IP audio                        |   ❔      |         |
-|Mode for IP video                        |   ❔      |         |
-|Allow IP video                           |   ❔      |         |
+|Mode for IP audio                        |   ❌      |         |
+|Mode for IP video                        |   ❌      |         |
+|Allow IP video                           |   ❌      |         |
 |Media bit rate                           |   ❔      |         |
 |Screen sharing mode                      |   ❔      |         |
 |Automatically admit people               |   ❔      |         |
 |Roles enforcement                        |   ❔      |         |
-|QoS markers for real-time media traffic  |   ❔      |         |
+|QoS markers for real-time media traffic  |   ❌      |         |
 |Port ranges and DSCP markings            |   ❔      |         |
 
 
@@ -39,3 +39,5 @@ Azure Communication Services support Teams identities to manage Teams calling ex
 
 ## Security, privacy and compliance 
 |Compliance recording            |     ❔    |         |
+|Information barrier             |     ❔    |         |
+|eDiscoverability                |     ❔    |         |
