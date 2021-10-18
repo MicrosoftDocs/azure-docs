@@ -6,7 +6,7 @@ ms.author: gesaur
 ms.service: synapse-analytics
 ms.subservice: 
 ms.topic: conceptual 
-ms.date: 11/022021
+ms.date: 11/02/2021
 ms.custom: template-concept 
 ---
 
