@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: jmartens
 author: j-martens
-ms.date: 10/14/2021
+ms.date: 10/18/2021
 ms.topic: tutorial
 #Customer intent: As a Azure user, I want to learn how to automatically test builds for performance regressions on every pull request and/or deployment with GitHub Actions
 ---
@@ -49,7 +49,7 @@ You'll require the following files in your repository for running the load test.
 
 1. Load test YAML file: The repository contains a SampleApp.yaml file. For a new test, you can author this file using [this syntax](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). If you've already run a load test, download the file from the input files section on the dashboard as shown below.  
 
-    :::image type="content" source="media/tutorial-continuous-regression-testing-cicd-azure-pipeline/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
+    :::image type="content" source="./media/tutorial-continuous-regression-testing-cicd-azure-pipeline/download-input-files-from-dashboard.png" alt-text="Download the input files from the dashboard of a test run":::
 
 > [!IMPORTANT]
 > The path of the testPlan and configurationFiles should be relative to the Load test YAML file.  
