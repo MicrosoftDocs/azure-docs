@@ -3,7 +3,7 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 10/15/2021
 ms.author: helohr
 manager: femila
 ---
@@ -45,7 +45,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWFYsj) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWNg9F) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -53,9 +53,17 @@ The following table lists the latest versions of the WebSocket Service:
 
 |Version        |Release date  |
 |---------------|--------------|
+|1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+#### Updates for version 1.1.2110.16001
+
+- Fixed an issue that caused the screen to turn black while screen sharing. If you've been experiencing this issue, confirm that this update will resolve it by resizing the Teams window. If screen sharing starts working again after resizing, the update will resolve this issue.
+- You can now control the meeting, ringtone, and notification volume from the host VM. You can only use this feature with version 1.2.2459 or later of [the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+- The installer will now make sure that Teams is closed before installing updates.
+- Fixed an issue that prevented users from returning to full screen mode after leaving the call window.
 
 #### Updates for version 1.0.2106.14001
 
