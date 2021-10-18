@@ -24,7 +24,7 @@ When a model is deployed, you will be able to test the model directly in the por
 
 Simply select a model and click on deploy model in the Deploy model page. 
 
-:::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio" lightbox="../media/deploy-model.png":::
+:::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png":::
 
 **Orchestration workflow projects deployments**
 

@@ -53,19 +53,19 @@ This option is best used when you're interested in extracting the longest possib
 
 #### Examples
 
-1. _If "Palm Beach" was matched by the List component and "Palm Beach Extension" was predicted by the Learned component, then "**Palm Beach Extension**" is returned because it is the longest set of characters in this overlap._
+If "Palm Beach" was matched by the List component and "Palm Beach Extension" was predicted by the Learned component, then "**Palm Beach Extension**" is returned because it is the longest set of characters in this overlap.
 
-    :::image type="content" source="../media/return-longest-overlap-example-1.svg" alt-text="A screenshot showing an example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-1.svg":::
+:::image type="content" source="../media/return-longest-overlap-example-1.svg" alt-text="A screenshot showing an example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-1.svg":::
 
-2. _If "Palm Beach" was matched by the List component and "Beach Extension" was predicted by the Learned component, then "**Beach Extension**" is returned because it is the component with longest set of characters in this overlap._
+If "Palm Beach" was matched by the List component and "Beach Extension" was predicted by the Learned component, then "**Beach Extension**" is returned because it is the component with longest set of characters in this overlap.
 
-    :::image type="content" source="../media/return-longest-overlap-example-2.svg" alt-text="A screenshot showing a second example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-2.svg":::
+:::image type="content" source="../media/return-longest-overlap-example-2.svg" alt-text="A screenshot showing a second example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-2.svg":::
 
-3. _If "Palm Beach" was matched from the List component and "Extension" was predicted by the Learned component, then 2 separate instances of the entities are returned, as there is no overlap between them: one for "**Palm Beach**" and one for "**Extension**", as no overlap has occurred in this instance._
+If "Palm Beach" was matched from the List component and "Extension" was predicted by the Learned component, then 2 separate instances of the entities are returned, as there is no overlap between them: one for "**Palm Beach**" and one for "**Extension**", as no overlap has occurred in this instance.
 
-    :::image type="content" source="../media/return-longest-overlap-example-3.svg" alt-text="A screenshot showing a third example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-3.svg":::
+:::image type="content" source="../media/return-longest-overlap-example-3.svg" alt-text="A screenshot showing a third example of longest overlap results for components." lightbox="../media/return-longest-overlap-example-3.svg":::
 
-### Exact Overlap
+### Exact overlap
 
 All components must overlap at the **exact same characters** in the text for the entity to return. If one of the defined components is not matched or predicted, the entity will not return.
 
@@ -73,19 +73,19 @@ This option is best when you have a strict entity that needs to have several com
 
 #### Examples
 
-1. _If "Palm Beach" was matched by the list component and "Palm Beach" was predicted by the learned component, and those were the only 2 components defined in the entity, then "**Palm Beach**" is returned because all the components overlapped at the exact same characters._
+If "Palm Beach" was matched by the list component and "Palm Beach" was predicted by the learned component, and those were the only 2 components defined in the entity, then "**Palm Beach**" is returned because all the components overlapped at the exact same characters.
 
-    :::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
 
-2. _If "Palm Beach" was matched by the list component and "Beach Extension" was predicted by the learned component, then the entity is **not** returned because all the components did not overlap at the exact same characters._
+If "Palm Beach" was matched by the list component and "Beach Extension" was predicted by the learned component, then the entity is **not** returned because all the components did not overlap at the exact same characters.
 
-    :::image type="content" source="../media/require-exact-overlap-example-2.svg" alt-text="A screenshot showing a second example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-2.svg":::
+:::image type="content" source="../media/require-exact-overlap-example-2.svg" alt-text="A screenshot showing a second example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-2.svg":::
 
-3. _If "Palm Beach" was matched from the list component and "Extension" was predicted by the learned component, then the entity is **not** returned because no overlap has occurred in this instance._
+If "Palm Beach" was matched from the list component and "Extension" was predicted by the learned component, then the entity is **not** returned because no overlap has occurred in this instance.
 
-    :::image type="content" source="../media/require-exact-overlap-example-3.svg" alt-text="A screenshot showing a third example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-3.svg":::
+:::image type="content" source="../media/require-exact-overlap-example-3.svg" alt-text="A screenshot showing a third example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-3.svg":::
 
-### Union Overlap
+### Union overlap
 
 When two or more components are found in the text and overlap, the **union** of the components' spans are returned.
 
@@ -93,17 +93,17 @@ This option is best when you're optimizing for recall and attempting to get the 
 
 #### Examples
 
-1. _If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then "**Palm Beach Extension**" is returned because the first character at the beginning of the overlap is the "P" in "Palm", and the last letter at the end of the overlapping components is the "n" in "Extension"._
+If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then "**Palm Beach Extension**" is returned because the first character at the beginning of the overlap is the "P" in "Palm", and the last letter at the end of the overlapping components is the "n" in "Extension".
 
-    :::image type="content" source="../media/return-union-example-1.svg" alt-text="A screenshot showing an example of union overlap results for components." lightbox="../media/return-union-example-1.svg":::
+:::image type="content" source="../media/return-union-example-1.svg" alt-text="A screenshot showing an example of union overlap results for components." lightbox="../media/return-union-example-1.svg":::
 
-2. _If "Palm Beach" was matched by the list component and "Beach Extension" was predicted by the learned component, then "**Palm Beach Extension**" is returned because the first character at the beginning of the overlap is the "P" in "Palm", and the last letter at the end of the overlapping components is the "n" in "Extension"._
+If "Palm Beach" was matched by the list component and "Beach Extension" was predicted by the learned component, then "**Palm Beach Extension**" is returned because the first character at the beginning of the overlap is the "P" in "Palm", and the last letter at the end of the overlapping components is the "n" in "Extension".
 
-    :::image type="content" source="../media/return-union-example-2.svg" alt-text="A screenshot showing a second example of union overlap results for components." lightbox="../media/return-union-example-2.svg":::
+:::image type="content" source="../media/return-union-example-2.svg" alt-text="A screenshot showing a second example of union overlap results for components." lightbox="../media/return-union-example-2.svg":::
 
-3. _If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then " __**New York Beach Extension**__" is returned because the first character at the beginning of the overlap is the "N" in "New" and the last letter at the end of the overlapping components is the "n" in "Extension"._
+If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then " __**New York Beach Extension**__" is returned because the first character at the beginning of the overlap is the "N" in "New" and the last letter at the end of the overlapping components is the "n" in "Extension".
 
-    :::image type="content" source="../media/return-union-example-3.svg" alt-text="A screenshot showing a third example of union overlap results for components." lightbox="../media/return-union-example-3.svg":::
+:::image type="content" source="../media/return-union-example-3.svg" alt-text="A screenshot showing a third example of union overlap results for components." lightbox="../media/return-union-example-3.svg":::
 
 ### Return all separately
 
@@ -113,13 +113,13 @@ This option is best when you'd like to apply your own overlap logic for the enti
 
 #### Examples
 
-1. _If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then the entity returns two instances: one for "**Palm Beach**" and another for "**Palm Beach Extension**"._
+If "Palm Beach" was matched by the list component and "Palm Beach Extension" was predicted by the learned component, then the entity returns two instances: one for "**Palm Beach**" and another for "**Palm Beach Extension**".
 
-    :::image type="content" source="../media/return-all-overlaps-example-1.svg" alt-text="A screenshot showing an example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-1.svg":::
+:::image type="content" source="../media/return-all-overlaps-example-1.svg" alt-text="A screenshot showing an example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-1.svg":::
 
-2. _If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then the entity returns with 3 instances: one for "**New York**", one for "**York Beach**", and one for "**Beach Extension**"._
+If "New York" was predicted by the prebuilt component, "York Beach" was matched by the list component, and "Beach Extension" was predicted by the learned component, then the entity returns with 3 instances: one for "**New York**", one for "**York Beach**", and one for "**Beach Extension**".
 
-    :::image type="content" source="../media/return-all-overlaps-example-2.svg" alt-text="A screenshot showing a second example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-2.svg":::
+:::image type="content" source="../media/return-all-overlaps-example-2.svg" alt-text="A screenshot showing a second example of returning all overlap results for components." lightbox="../media/return-all-overlaps-example-2.svg":::
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.author: aahi
 
 Use this article to learn which natural languages are supported by the Custom Language Understanding feature of Language Services.
 
-### Supported languages for conversation Projects
+### Supported languages for conversation projects
 
 When creating a conversation project in CLU, you can specify the primary language of your project. The primary language is used as the default language of the project.
 
@@ -41,7 +41,7 @@ The supported languages for conversation projects are:
 | Telugu | `te-in` |
 | Turkish | `tr-tr` |
 
-#### Multilingual Conversation Projects
+#### Multilingual conversation projects
 
 When you enable multiple languages in a project, you can add data in multiple languages to your project. You can also train the project in one language and immediately predict it in other languages. The quality of predictions may vary between languages – and certain language groups work better than others with respect to multilingual predictions.
 

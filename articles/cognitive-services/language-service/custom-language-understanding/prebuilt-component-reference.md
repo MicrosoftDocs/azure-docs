@@ -18,7 +18,7 @@ Conversational Language Understanding allows you to add prebuilt components to e
 
 ## Reference
 
-The following prebuilt components are available in Conversational Language Understanding .
+The following prebuilt components are available in Conversational Language Understanding.
 
 | Type | Description | Supported languages |
 | --- | --- | --- |

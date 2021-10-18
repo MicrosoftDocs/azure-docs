@@ -27,7 +27,7 @@ To import a LUIS application JSON file, click on the icon next to **Create a new
 
 :::image type="content" source="../media/import.png" alt-text="A screenshot showing the import button for conversation projects." lightbox="../media/import.png":::
 
-### Supported Features
+### Supported features
 When importing the LUIS JSON application into CLU, it will create a **Conversations** project with the following features will be selected:
 
 |**Feature**|**Notes**|
@@ -42,7 +42,7 @@ When importing the LUIS JSON application into CLU, it will create a **Conversati
 |Non-required entity features in ML entities|If you had a prebuilt entity or a list entity as a non-required feature to another ML entity (top-level only, sub-entities are ignored), then the ML entity will be transferred as a CLU entity with the same name and its ML labels will apply. If an ML entity was used as a feature to another ML entity, it will not be transferred over.|
 |Roles|All of your roles will be transferred as CLU entities with the same names. Each role will be its own CLU entity. The role’s entity type will determine which component is populated for the role. Roles on prebuilt entities will transfer as CLU entities with the prebuilt entity component enabled and the role labels transferred over to train the Learned component. Roles on list entities will transfer as CLU entities with the list entity component populated and the role labels transferred over to train the Learned component. Roles on ML entities will be transferred as CLU entities with their labels applied to train the Learned component of the entity.  |
 
-### Unsupported Features
+### Unsupported features
 
 When importing the LUIS JSON application into CLU, certain features will be ignored, but they will not block you from importing the application. The following features will be ignored:
 

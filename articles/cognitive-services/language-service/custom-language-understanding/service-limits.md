@@ -23,7 +23,7 @@ Learn about the data, region, and throughput limits for the Conversational Langu
     - Orchestration workflow projects will enable **Conversation projects** and **QnA Maker** connections only in West US 2. There is no authoring West US 2 region for LUIS. 
 - The only available SKU to access CLU is the **Text Analytics** resource with the **S** sku.
 
-## Data Limits
+## Data limits
 
 The following limits are observed for the Conversational Language Understanding service.
 
@@ -41,14 +41,14 @@ The following limits are observed for the Conversational Language Understanding 
 \**Only includes utterances added by the user. Data pulled in for orchestration workflow projects do not count towards the total.*
 
 
-## Throughput Limits
+## Throughput limits
 
 |Item | Limit |
 --- | --- 
 |Authoring Calls| 60 requests per minute|
 |Prediction Calls| 60 requests per minute|
 
-## Quota Limits
+## Quota limits
 
 | Item | Limit |
 --- | --- 

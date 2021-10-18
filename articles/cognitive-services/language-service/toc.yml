@@ -126,6 +126,8 @@ items:
         href: custom-language-understanding/how-to/build-schema.md
       - name: Tag utterances
         href: custom-language-understanding/how-to/tag-utterances.md
+      - name: Train a model
+        href: custom-language-understanding/how-to/train-model.md
       - name: View model evaluation and scoring
         href: custom-named-entity-recognition/how-to/view-model-evaluation.md
       - name: Query the runtime

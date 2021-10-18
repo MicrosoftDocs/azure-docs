@@ -25,7 +25,7 @@ In language studio, find the **Understand conversational language** section, and
 
 You will see the Conversational Language Understanding projects page.
 
-:::image type="content" source="../media/projects_page.png" alt-text="A screenshot showing the Conversational Language Understanding projects page." lightbox="../media/projects_page.png":::
+:::image type="content" source="../media/projects-page.png" alt-text="A screenshot showing the Conversational Language Understanding projects page." lightbox="../media/projects-page.png":::
 
 ## Create a conversation project
 After selecting conversation, you need to provide the following details:

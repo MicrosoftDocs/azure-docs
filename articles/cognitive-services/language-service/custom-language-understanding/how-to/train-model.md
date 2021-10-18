@@ -28,7 +28,7 @@ Enter a new model name or select an existing model from the **Model Name** dropd
 
 Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page.
 
-## Evaluate Model
+## Evaluate model
 
 After model training is completed, you can view your model details and see how well it performs against the test set if you enabled evaluation in the training step. Observing how well your model performed is called evaluation. The test set is composed of 20% of your utterances, and this split is done at random before training. The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 utterances in your training set.
 
@@ -45,6 +45,6 @@ In the **view model details** page, you'll be able to see all your models, with 
 
 You can view the [confusion matrix](../concepts/evaluation-metrics.md#confusion-matrix) for intents and entities by clicking on the **Test set confusion matrix** tab at the top fo the screen. 
 
-## Next Steps
+## Next steps
 * [Model evaluation metrics](../concepts/evaluation-metrics.md)
 * [Deploy and query the model](./deploy-query-model.md)
