@@ -2,9 +2,8 @@
   href: index.yml
 - name: Overview
   items: 
-    - name: What is Azure Machine Learning?
-      displayName: AML, services, overview, introduction
-      href: overview-what-is-azure-machine-learning.md
+    - name: What is the Dev/Test offer?
+      href: overview-devtest-offer-for-visual-studio.md
 - name: Quickstart
   items: 
   - name: Get started with an individual Azure Dev/Test credit
