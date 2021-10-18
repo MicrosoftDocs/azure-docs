@@ -54,9 +54,9 @@ You can also search and filter the direct members list and the all members list 
 
 You can also view group memberships for a group on the **Group memberships** page. The **Group memberships** page supports search, sort and filter operations that are similar to the other Groups pages.
 
-## Improved group member counts
+## Group member counts
 
-The group **Overview** page provides group member counts for groups. You can see the total number of direct members for a group and the total membership count (all the unique members of group including inherited memberships) on the **Overview** page.
+The group **Overview** page provides member counts for groups. You can see the total number of direct members for a group and the total membership count (all the unique members of group including inherited memberships) on the **Overview** page.
 
 ![Higher accuracy in group membership counts](./media/groups-members-owners-search/member-numbers.png)
 
