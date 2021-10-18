@@ -7,9 +7,9 @@ ms.subservice: B2C
 ms.topic: how-to
 ms.date: 07/05/2021
 
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 ---
