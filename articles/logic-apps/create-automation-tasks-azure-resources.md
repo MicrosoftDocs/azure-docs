@@ -148,7 +148,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    | Status | Description |
    |--------|-------------|
-   | **Cancelled** | The task was cancelled while running. |
+   | **Cancelled** | The task was canceled while running. |
    | **Failed** | The task has at least one failed action, but no subsequent actions existed to handle the failure. |
    | **Running** | The task is currently running. |
    | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
