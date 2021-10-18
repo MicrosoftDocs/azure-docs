@@ -74,7 +74,41 @@ sections:
     
   - name: Labeling capabilities in Azure Purview
     questions:
-      
+      - question: How can I determine if consent has been granted to extend labeling to Purview?
+        answer: |
+          Only compliance administrators, global administrators of the tenant or a custom role that has access to the [Set-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-policyconfig) cmdlet can [enable labels for Azure Purview](how-to-automatically-label-your-content.md). To verify whether an administrator has extended labeling to Purview, connect to Exchange Online Powershell and run the [Get-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/get-policyconfig) cmdlet.  For example,
+          
+          ~~~powershell
+          Get-PolicyConfig | format-list Purview*
+          ~~~
+
+          When labeling has been extended to Purview, you'll see **True** for the **PurviewLabelConsent** parameter as well as a timestamp indicating when consent was activated and an **ObjectId** of who activated consent.
+
+          ~~~output
+          PurviewLabelConsent        : True
+          PurviewLabelConsentCaller  : d8675309-1111-2222-3333-1234567890ab
+          PurviewLabelConsentTime    : 9/28/2021 6:04:45 PM
+          PurviewLabelConsentDetails : {"Consent":true,"Caller":"d8675309-1111-2222-3333-1234567890ab","Time":"9/28/2021 6:04:45 PM"}
+          ~~~
+
+          When labeling has not been extended, you'll see False for **PurviewLabelConsent** like the example below:
+          
+          ~~~output
+          PurviewLabelConsent        : False
+          PurviewLabelConsentCaller  : 
+          PurviewLabelConsentTime    : 
+          PurviewLabelConsentDetails :
+          ~~~
+
+          This is different than auditing the action of adding Purview to the scope of a sensitivity label. That activity can be found in the unified audit logs. For example,
+          
+          ~~~powershell
+          Search-UnifiedAuditLog -Operations "Set-Label" -StartDate 10/05/2021 -EndDate 10/16/2021
+          ~~~
+          
+          For more information see [Search the audit log](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) in the Microsoft 365 compliance center.
+
+
       - question: Which data sources can I apply sensitivity labels to in Azure Purview? 
         answer: |
           You can apply sensitivity labels to all the data sources that can be scanned in Azure Purview. For more information, see [Supported data types for sensitivity labels in Azure Purview](create-sensitivity-label.md#supported-data-sources). 
