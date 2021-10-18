@@ -94,7 +94,7 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Network security groups
 
-An app that uses regional VNet Integration can use a [network security group](../virtual-network/security-overview/) to block outbound traffic to resources in your VNet or the Internet. To block traffic to public addresses, you must ensure you enable [Route All](#application-routing) to the VNet. When Route All is not enabled, NSGs are only applied to RFC1918 traffic.
+An app that uses regional VNet Integration can use a [network security group](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your VNet or the Internet. To block traffic to public addresses, you must ensure you enable [Route All](#application-routing) to the VNet. When Route All is not enabled, NSGs are only applied to RFC1918 traffic.
 
 An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet. 
 
