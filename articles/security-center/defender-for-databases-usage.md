@@ -16,7 +16,7 @@ Azure Defender detects anomalous activities indicating unusual and potentially h
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
 
-To get alerts from the Azure Defender plan you'll first need to enable it as [shown below](#enable-azure-defender).
+To get alerts from the Azure Defender plan you'll first need to enable it as [shown below](#enable-enhanced-security).
 
 Learn more about this Azure Defender plan in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
 
@@ -39,7 +39,7 @@ When Azure Defender is enabled on your database, it detects anomalous activities
 
 - In the Azure portal:
     - **Azure Defender security alerts page** - Shows alerts for all resources protected by Azure Defender in the subscriptions you've got permissions to view.
-    - The resource's **Security Center** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable Azure Defender](#enable-azure-defender).
+    - The resource's **Security Center** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable Azure Defender](#enable-enhanced-security).
 - In the inbox of whoever in your organization has been [designated to receive email alerts](security-center-provide-security-contact-details.md).  
 
 > [!TIP]

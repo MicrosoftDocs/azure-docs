@@ -31,7 +31,7 @@
   - name: 1. Enable Defender for Cloud on your subscriptions
     href: security-center-get-started.md
   - name: 2. Enable the enhanced protections
-    href: enable-azure-defender.md
+    href: enable-enhanced-security.md
   - name: 3. Configure auto provisioning
     href: security-center-enable-data-collection.md
   - name: 4. Set up email notifications

@@ -36,8 +36,8 @@ Security Center is offered in two modes:
 
 - [How can I track who in my organization enabled Azure Defender changes in Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
 - [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
-- [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
-- [Can I enable Microsoft Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [How do I enable Azure Defender for my subscription?](#how-do-i-enable-enhanced-security-for-my-subscription)
+- [Can I enable Microsoft Defender for servers on a subset of servers in my subscription?](#can-i-enable-enhanced-security-for-servers-on-a-subset-of-servers-in-my-subscription)
 - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [My subscription has Microsoft Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
 - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)

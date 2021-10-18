@@ -56,7 +56,7 @@ landingContent:
           - text: Enable Security Center on your subscriptions
             url: security-center-get-started.md
           - text: Enable Azure Defender
-            url: enable-azure-defender.md
+            url: enable-enhanced-security.md
           - text: Configure auto provisioning
             url: security-center-enable-data-collection.md
           - text: Set up email notifications

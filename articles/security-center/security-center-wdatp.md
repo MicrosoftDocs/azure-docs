@@ -79,7 +79,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. Enable **Microsoft Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+1. Enable **Microsoft Defender for servers**. See [Quickstart: Enable Azure Defender](enable-enhanced-security.md).
 
     > [!IMPORTANT]
     > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
