@@ -67,6 +67,7 @@ The **General** tab contains information specific to the table itself.
    - **Inherited from** (optional) this value will be present if the table was created from a database template. It cannot be edited and tells the user which template table it was derived from.
    - **Description** a description of the table. If the table was created from a database template, this will contain a description of the concept represented by this table. This field is editable and can be changed to match the description that matches your business requirements.
    - **Display folder** provides the name of the business area folder this table was grouped under as part of the database template. For custom tables, this value will be "Other".
+
 ![Screenshot of the General tab](./media/modify-lake-database/general-tab.png)
 In addition, there is a collapsible section called **Storage settings for table** that provides settings for the underlying storage information used by the table.
    - **Inherit from database default** a checkbox that determines whether the storage settings below are inherited from the values set in the database **Properties** tab, or are set individually. If you want to customize the storage values, uncheck this box.
