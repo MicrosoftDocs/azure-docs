@@ -46,7 +46,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Use PREDICT in Synapse PySpark notebook for MLFLOW packaged models
 
-Please make sure all prerequisites are in place beofre following below steps for using PREDICT.
+Please make sure all prerequisites are in place before following below steps for using PREDICT.
 
 1. Import libraries: Import below libraries to use PREDICT in spark session.
 
@@ -60,8 +60,11 @@ Please make sure all prerequisites are in place beofre following below steps for
 
 2. Set parameters using variables: Synapse ADLS data path and model URI need to be set using input variables. We also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
 
+   > [!NOTE]
+   > Update the URI for ADLS Gen2 data file along with model output return data type and ADLS/AML URI for model file in this script before running it.
+
 ```PYSPARK
-   # Import libraries
+   # Set input data path
    DATA_FILE = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<file path>"
 
    # Set model URI
@@ -72,13 +75,16 @@ Please make sure all prerequisites are in place beofre following below steps for
           ADLS_MODEL_URI = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<model mlflow folder path>"
 
    # Define model return type
-   RETURN_TYPES = "INT"
+   RETURN_TYPES = "<data_type>" # for ex: int, float etc. PySpark data types are supported
 
    # Define model runtime. This supports only mlflow
    RUNTIME = "mlflow"
 ```
 
 3. Ways to authenticate AML workspace: If model is stored in default ADLS account of Synapse workspace then we do not need any further auth setup. In case model is registered in AML, then we can choose any of the 2 supported ways of authentication:
+
+   > [!NOTE]
+   > Update tenant, client, subscription, resource group, AML workspace and linked service details in this script before running it.
 
     3.1. Through service principle: You can use service principle client id and secret directly to authenticate to AML workspace. Service principle must have "Contributor" access at AML workspace.
 
@@ -123,6 +129,9 @@ Please make sure all prerequisites are in place beofre following below steps for
 
 5. Bind model in spark session: Bind model with required inputs so that model can be referred in spark session and define alias so that while PREDICT call you can use same alias..
 
+   > [!NOTE]
+   > Update model alias and model uri in this script before running it.
+
 ```PYSPARK
    # Bind model within Spark session
    model = pcontext.bind_model(
@@ -134,13 +143,21 @@ Please make sure all prerequisites are in place beofre following below steps for
     ).register()
 ```
 
-1. Enable PREDICT in spark session: Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
+6. Read data from ADLS: Read data from ADLS. Create spark dataframe and view on top of data frame.
+
+   > [!NOTE]
+   > Update view name in this script before running it.
 
  ```PYSPARK
-   # Enable SynapseML predict
-   spark.conf.set("spark.synapse.ml.predict.enabled","true")
+   # Read data from ADLS
+   df = spark.read \
+    .format("csv") \
+    .option("header", "true") \
+    .csv(DATA_FILE,
+        inferSchema=True)
+   df.createOrReplaceTempView('<view_name>')
 ```
-1. Run the following code.
+7. Run the following code.
 
    > [!NOTE]
    > Update the file URL, ADLS Gen2 storage name and key in this script before running it.
@@ -149,68 +166,6 @@ Please make sure all prerequisites are in place beofre following below steps for
    # To read data
    import fsspec
    import pandas
-
-   adls_account_name = '' #Provide exact ADLS account name
-   adls_account_key = '' #Provide exact ADLS account key
-
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
-
-   with fsspec_handle.open() as f:
-       df = pandas.read_csv(f)
-
-   # To write data
-   import fsspec
-   import pandas
-
-   adls_account_name = '' #Provide exact ADLS account name 
-   adls_account_key = '' #Provide exact ADLS account key 
-   
-   data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
-   
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name=adls_account_name,    account_key=adls_account_key, mode="wt")
-   
-   with fsspec_handle.open() as f:
-   	data.to_csv(f)
-   ```
-
-## Read/Write data using linked service
-
-FSSPEC can read/write ADLS data by specifying the linked service name.
-
-
-1. In Synapse studio, open **Data** > **Linked** > **Azure Data Lake Storage Gen2**. Upload data to the default storage account.
-
-1. Run the following code.
-
-   > [!NOTE]
-   > Update the file URL, Linked Service Name and ADLS Gen2 storage name in this script before running it.
-
-   ```PYSPARK
-   # To read data
-   import fsspec
-   import pandas
-   
-   adls_account_name = '' #Provide exact ADLS account name
-   sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>)
-   
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
-   
-   with fsspec_handle.open() as f:
-       df = pandas.read_csv(f)
-
-   # To write data
-   import fsspec
-   import pandas
-   
-   adls_account_name = '' #Provide exact ADLS account name
-   
-   data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
-   sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>) 
-   
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
-   
-   with fsspec_handle.open() as f:
-       data.to_csv(f) 
    ```
 
 ## Next steps
