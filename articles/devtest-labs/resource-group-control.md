@@ -7,7 +7,7 @@ ms.date: 10/18/2021
 
 # Specify a resource group for lab virtual machines in Azure DevTest Labs
 
-As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. This feature helps you in the following scenarios:
+By default, Azure DevTest Labs creates a new resource group as lab owner whenever a new virtual machine is created. As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. This feature helps you in the following scenarios:
 
 - Have fewer resource groups created by labs in your subscription.
 - Have your labs operate within a fixed set of resource groups that you configure.
@@ -29,7 +29,7 @@ Follow these steps to specify a resource group for all VMs created in the lab.
 5. Select **Configuration and policies** in the **Settings** section on the left menu. 
 6. Select **Lab settings** on the left menu. 
 7. Select **All virtual machines in one resource group**. 
-8. Select an existing resource group in the drop-down list (or) select **Create new**, enter a **name** for the resource group, and select **OK**. By default, Azure DevTest Labs creates a new resource group as lab owner whenever a new virtual machine is created.
+8. Select an existing resource group in the drop-down list (or) select **Create new**, enter a **name** for the resource group, and select **OK**. 
 
     ![Select the resource group for all lab VMs](./media/resource-group-control/select-resource-group.png)
 
