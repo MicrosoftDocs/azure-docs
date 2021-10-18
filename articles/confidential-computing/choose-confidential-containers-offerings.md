@@ -29,7 +29,7 @@ There are two programming and deployment models on Azure Kubernetes Service (AKS
 1. Unmodified containers support for higher programming languages on Intel SGX through Azure Partner ecosystem of OSS projects. [Read more on the deployment flow and samples](./confidential-containers.md).  
 1. Enclave aware containers through custom Intel SGX programming model. [Read more on the deployment flow and samples](./enclave-aware-containers.md). 
 
-Below is the isolation and security boundaries of enclave confidential containers on Intel SGX.
+Below are the isolation and security boundaries of enclave confidential containers on Intel SGX.
 
 ![Enclave Confidential Container with Intel SGX](./media/confidential-containers/confidential-container-intel-sgx.png)
 
