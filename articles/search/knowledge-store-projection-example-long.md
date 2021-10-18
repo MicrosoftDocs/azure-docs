@@ -17,6 +17,12 @@ This article provides a detailed example that supplements [high-level concepts](
 
 If your application requirements call for multiple skills and projections, this example can give you a better understanding of how shapes and projections intersect.
 
+## Download sample definitions
+
+Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
+
+Sample documents aren't specifically included with the collection, but the [mixed media files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) have both text and images to support the projections described in this example.
+
 ## Example skillset
 
 To understand the dependency between shapes and projections, review the following skillset that creates enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
@@ -25,7 +31,7 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
 
 ```json
 {
-    "name": "azureblob-skillset",
+    "name": "projections-demo-ss",
     "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
     "skills": [
         {
@@ -44,7 +50,6 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
             ],
             "defaultLanguageCode": "en",
             "minimumPrecision": null,
-            "includeTypelessEntities": null,
             "inputs": [
                 {
                     "name": "text",
@@ -67,10 +72,6 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
                 {
                     "name": "locations",
                     "targetName": "locations"
-                },
-                {
-                    "name": "entities",
-                    "targetName": "entities"
                 }
             ]
         },
@@ -262,8 +263,7 @@ The example skillset introduced at the start of this article did not include the
 Within a skillset, a Shaper skill might look like this:
 
 ```json
-    "name": "azureblob-skillset",
-    "description": "A friendly description of the skillset goes here.",
+    "name": "projections-demo-ss",
     "skills": [
         {
             <Shaper skill goes here>
