@@ -119,7 +119,7 @@ The following inserts a sample document we will continue to use throughout the s
 document_id = collection.insert_one({SAMPLE_FIELD_NAME: randint(50, 500)}).inserted_id
 ```
 
-### Writing a document
+### Reading/Updating a document
 The following queries, updates, and again queries for the document that we previously inserted.
 
 ```python
