@@ -4,8 +4,6 @@ description: This article describes how to use Azure Data Explorer Insights.
 services: azure-monitor 
 ms.topic: conceptual
 ms.date: 01/05/2021
-author: lgayhardt
-ms.author: lagayhar
 
 ---
 

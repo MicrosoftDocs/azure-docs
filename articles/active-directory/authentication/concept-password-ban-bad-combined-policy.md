@@ -22,7 +22,7 @@ As the combined check for password policy and banned passwords gets rolled out t
 
 ## Azure AD password policies
 
-A password policy is applied to all user and admin accounts that are created and managed directly in Azure AD. You can ban weak passwords and define parameters to [lock out an account](howto-password-smart-lockout.md) after repeated bad password attempts. Other password policy settings can't be modified.
+A password policy is applied to all user and admin accounts that are created and managed directly in Azure AD. You can [ban weak passwords](concept-password-ban-bad.md) and define parameters to [lock out an account](howto-password-smart-lockout.md) after repeated bad password attempts. Other password policy settings can't be modified.
 
 The Azure AD password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
@@ -35,7 +35,7 @@ The following Azure AD password policy requirements apply for all passwords that
 | Password length |Passwords require<br>- A minimum of 8 characters<br>- A maximum of 256 characters</li> |
 | Password complexity |Passwords require three out of four of the following:<br>- Uppercase characters<br>- Lowercase characters<br>- Numbers <br>- Symbols<br> Note: Password complexity check is not required for Education tenants. |
 | Password not recently used | When a user changes or resets their password, the new password cannot be the same as the current or recently used passwords. |
-| Password is not banned by Azure AD Password Protection | The password can't be on the global list of banned passwords for Azure AD Password Protection, or on a customizable list of banned passwords specific to your organization. |
+| Password is not banned by [Azure AD Password Protection](concept-password-ban-bad.md) | The password can't be on the global list of banned passwords for Azure AD Password Protection, or on the customizable list of banned passwords specific to your organization. |
 
 ## Password expiration policies
 
