@@ -20,13 +20,19 @@ The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application 
 Key features made available via Speech SDK APIs include:
 * **Realtime microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
 * **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario does not include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
-* **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays.
+* **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays (see more information on supported preset geometries at [Microphone array recommendations](speech-devices-sdk-microphone.md#microphone-geometry)).
 * **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.
 
 Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
 
 > [!NOTE]
 > The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available here, with corresponding docs available here. All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer. For migration information, see [Migrating from Speech Devices SDK](#migrating-from-speech-devices-sdk).
+
+## Reference channel for echo cancellation
+
+Microsoft Audio Stack requires the reference channel (also known as loopback channel) to perform echo cancellation. The source of the reference channel varies by platform:
+* **Windows** - The reference channel is automatically gathered by the Speech SDK if the `SpeakerReferenceChannel::LastChannel` option is provided when creating `AudioProcessingOptions`.
+* **Linux** - ALSA (Advanced Linux Sound Architecture) will need to be configured to provide the reference audio stream as the last channel for the audio input device that will be used. This is in addition to providing the `SpeakerReferenceChannel::LastChannel` option when creating `AudioProcessingOptions`.
 
 ## Language and platform support
 

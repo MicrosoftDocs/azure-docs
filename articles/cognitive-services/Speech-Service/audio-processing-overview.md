@@ -45,8 +45,7 @@ Microsoft Audio Stack can be used by any product or application that can meet th
 * **Raw audio** - Microsoft Audio Stack requires raw (i.e., unprocessed) audio as input to yield the best results. Providing audio that is already processed limits the audio stack’s ability to perform enhancements at high quality.
 * **Microphone geometries** - Geometry information about each microphone on the device is required to correctly perform all enhancements offered by the Microsoft Audio Stack. Information includes the number of microphones, their physical arrangement, and coordinates. Up to 16 input microphone channels are supported. 
 * **Loopback or reference audio** - An audio channel that represents the audio being played out of the device is required to perform acoustic echo cancellation. 
-* **Input format** - Microsoft Audio Stack supports downsampling for sample rates that are integral multiples of 16 KHz. Additionally, the following formats are supported: 32-bit IEEE little endian float, 32-bit little endian signed int, 24-bit little endian signed int, 16-bit little endian signed int, and 8-bit signed int.
-
+* **Input format** - Microsoft Audio Stack supports downsampling for sample rates that are integral multiples of 16 kHz. A minimum sampling rate of 16 kHz is required. Additionally, the following formats are supported: 32-bit IEEE little endian float, 32-bit little endian signed int, 24-bit little endian signed int, 16-bit little endian signed int, and 8-bit signed int.
 
 ## Next steps
 
