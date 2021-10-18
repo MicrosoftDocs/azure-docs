@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -60,7 +60,10 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         |  NFSv3  |  `Unix`  |  None  |  UNIX (mode bits or NFSv4.x ACLs) <br><br>  Note that NFSv4.x ACLs can be applied using an NFSv4.x administrative client and honored by NFSv3 clients.  |
         |  NFS  |  `Ntfs`  |  UNIX to Windows  |  NTFS ACLs (based on mapped Windows user SID)  |
 
-* If you have large topologies, and you use the `Unix` security style with a dual-protocol volume or LDAP with extended groups, Azure NetApp Files might not be able to access all servers in your topologies.  If this situation occurs, contact your account team for assistance.  <!-- NFSAAS-15123 --> 
+* The LDAP with extended groups feature supports the dual protocol of both [NFSv3 and SMB] and [NFSv4.1 and SMB] with the Unix security style. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for more information. 
+
+* If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you should use the **LDAP Search Scope** option on the Active Directory Connections page to avoid "access denied" errors on Linux clients for Azure NetApp Files. See [Configure ADDS LDAP with extended groups](configure-ldap-extended-groups.md#ldap-search-scope) for details.
+
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
 
 ## Create a dual-protocol volume
