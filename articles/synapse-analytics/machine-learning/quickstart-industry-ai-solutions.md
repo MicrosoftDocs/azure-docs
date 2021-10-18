@@ -36,7 +36,7 @@ The Retail Recommendation Solution provides recommendation pipeline for content-
 1. Open your Synapse workspace
 1. From your Home screen, select **Knowledge center** in the **Discover more** section
 1. In the Knowledge center, select **Browse gallery**
-1. In the Gallery, select the **Lake Database Templates** tab, scroll down to the **AI solutions** section, and select the *Retail - Product recommendations* solution. Click **Continue**.
+1. In the Gallery, select the **Lake Database Templates** tab, scroll down to the **AI solutions** section, and select the "Retail - Product recommendations" solution. Click **Continue**.
 
    :::image type="content" source="media\quickstart-industry-ai-solutions\retail-product-reco1.png" alt-text="Retail AI solution for product recommendation" border="false":::
 
