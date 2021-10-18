@@ -5,7 +5,7 @@ services: automation
 ms.subservice:
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2021
+ms.date: 10/18/2021
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,6 +45,16 @@ Computers running the Hybrid Runbook Worker should meet the minimum hardware req
 Confirm the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate an increase is necessary.
 
 Check the **Microsoft-SMA** event log for a corresponding event with the description `Win32 Process Exited with code [4294967295]`. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Runbook Worker group. Review runbook permissions in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) to confirm that you've correctly configured authentication for your runbooks.
+
+### Scenario: Runbooks fail with gateway error
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed to refresh when communicating through a Log Analytics Gateway server and the error returned is similar to: `Spool operation id does not exist (spool ID): see attachment for job details and exact exception messages.`
+
+#### Resolution
+
+Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](../azure-monitor/agents/gateway#troubleshooting.md).
 
 ### <a name="cannot-connect-signalr"></a>Scenario: Event 15011 in the Hybrid Runbook Worker
 
