@@ -30,17 +30,17 @@ The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn
 
 1. Select **Add VNet**.
 
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-app.png" alt-text="Select VNet Integration":::
+    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Select VNet Integration":::
 
 1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Underneath that is a list of the Resource Manager virtual networks in all other regions. Select the VNet you want to integrate with.
 
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-add-vnet.png" alt-text="Select the VNet":::
+    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Select the VNet":::
 
     * If the VNet is in the same region, either create a new subnet or select an empty pre-existing subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled.
     * To integrate with a classic VNet, instead of selecting the **Virtual Network** drop-down list, select **Click here to connect to a Classic VNet**. Select the classic virtual network you want. The target VNet must already have a Virtual Network gateway provisioned with point-to-site enabled.
 
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-classic.png" alt-text="Select Classic VNet":::
+    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-classic.png" alt-text="Select Classic VNet":::
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with.
 

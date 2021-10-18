@@ -21,12 +21,12 @@ Your app is already be integrated using the Regional VNet Integration feature.
 
 You can use the following steps to disable Route All in your app through the portal: 
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-enabled.png" alt-text="Route All enabled":::
+:::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-enabled.png" alt-text="Route All enabled":::
 
 1. Go to the **VNet Integration** UI in your app portal.
 1. Set **Route All** to Disabled.
     
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-disabling.png" alt-text="Disable Route All":::
+    :::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-disabling.png" alt-text="Disable Route All":::
 
 1. Select **Yes**.
 

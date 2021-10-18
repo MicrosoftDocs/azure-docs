@@ -38,7 +38,7 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 Apps in App Service are hosted on worker roles. Regional VNet Integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. Because the from address is in your VNet, it can access most things in or through your VNet like a VM in your VNet would. The networking implementation is different than running a VM in your VNet. That's why some networking features aren't yet available for this feature.
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-regional-works.png" alt-text="How regional VNet Integration works":::
+:::image type="content" source="./media/overview-vnet-integration/vnetint-how-regional-works.png" alt-text="How regional VNet Integration works":::
 
 When regional VNet Integration is enabled, your app makes outbound calls through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration VNet or peered VNet, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, ```WEBSITE_PRIVATE_IP```.
 
@@ -171,7 +171,7 @@ If you create the gateway for use with App Service VNet Integration, you don't n
 
 Gateway-required VNet Integration is built on top of point-to-site VPN technology. Point-to-site VPNs limit network access to the virtual machine that hosts the app. Apps are restricted to send traffic out to the internet only through Hybrid Connections or through VNet Integration. When your app is configured with the portal to use gateway-required VNet Integration, a complex negotiation is managed on your behalf to create and assign certificates on the gateway and the application side. The result is that the workers used to host your apps are able to directly connect to the virtual network gateway in the selected VNet.
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-gateway-works.png" alt-text="How gateway-required VNet Integration works":::
+:::image type="content" source="./media/overview-vnet-integration/vnetint-how-gateway-works.png" alt-text="How gateway-required VNet Integration works":::
 
 ### Access on-premises resources
 
