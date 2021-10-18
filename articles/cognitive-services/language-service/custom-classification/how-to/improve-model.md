@@ -62,8 +62,6 @@ To examine data distribution in your dataset:
 
 4. Go back to the **Tag data** page, and make adjustments once you have formed an idea on how you should tag your data differently.
 
-You can [view recommended practices](../concepts/recommended-practices.md#data-tagging) for data tagging to help you improve your model.
-
 ## Next steps
 
-* Once you're satisfied with how your model performs, you can start [sending text classification requests] using the runtime API.
+* Once you're satisfied with how your model performs, you can start [sending text classification requests](call-api.md) using the runtime API.
