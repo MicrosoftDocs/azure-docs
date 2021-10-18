@@ -582,12 +582,24 @@ items:
       href: data-explorer/data-explorer-overview.md
     - name: Compare with Azure Data Explorer
       href: data-explorer/data-explorer-compare.md
+    - name: Data ingestion
+      items:
+      - name: Data ingestion overview
+        href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+      - name: Data ingestion properties
+        href: data-explorer/ingest-data/data-explorer-ingest-properties.md
+      - name: Data ingestion formats
+        href: data-explorer/ingest-data/data-explorer-ingest-supported-formats.md
   - name: Quickstarts
     items:
     - name: Create a Data Explorer pool using the Azure portal
       href: data-explorer/data-explorer-create-pool-portal.md
     - name: Create a Data Explorer pool using the Synapse Studio
       href: data-explorer/data-explorer-create-pool-studio.md
+    - name: Ingest data using One-click
+      href: data-explorer/ingest-data/data-explorer-ingest-one-click.md
+    - name: Ingest data using pipelines
+      href: data-explorer/ingest-data/data-explorer-ingest-pipeline.md
     - name: Monitor and diagnose pools
       href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language

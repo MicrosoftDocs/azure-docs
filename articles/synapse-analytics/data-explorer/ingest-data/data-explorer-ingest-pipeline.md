@@ -2,7 +2,7 @@
 title: 'Quickstart: Get started ingesting data with pipelines (Preview)'
 description: In this quickstart, you'll learn to ingest data to Data Explorer pools using Azure Synapse Pipelines.
 ms.topic: quickstart
-ms.date: 09/30/2021
+ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -13,98 +13,117 @@ ms.subservice: data-explorer
 
 # Quickstart: Ingest data using Azure Synapse Pipelines (Preview)
 
-In this article, you'll learn how to set up a Azure Synapse Analytics Linked service to ingest data using Sy.
+In this quickstart, you learn how to load data from a data source into Azure Synapse Analytics Data Explorer pool.
 
 ## Prerequisites
 
-Create a Data Explorer pool using [Synapse Studio](../data-explorer-create-pool-studio.md) or [the Azure portal](../data-explorer-create-pool-portal.md)
+- Create a Data Explorer pool using [Synapse Studio](../data-explorer-create-pool-studio.md) or [the Azure portal](../data-explorer-create-pool-portal.md)
 
-## Before you start
+- [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
 
-Use these steps to get the Query and Data Ingestion endpoints for use with external services, tools, or SDKs.
+- Create a Data Explorer database.
+    1. In Synapse Studio, on the left-side pane, select **Data**.
+    1. Select **&plus;** (Add new resource) > **Data Explorer pool**, and use the following information:
 
-1. In Synapse Studio, on the left-side pane, select **Manage** > **Data Explorer pools**.
-1. Select the Data Explorer pool you want to use to view its details.
+        | Setting | Suggested value | Description |
+        |--|--|--|
+        | Pool name | *contosodataexplorer* | The name of the Data Explorer pool to use |
+        | Name | *TestDatabase* | The database name must be unique within the cluster. |
+        | Default retention period | *365* | The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested. |
+        | Default cache period | *31* | The time span (in days) for which to keep frequently queried data available in SSD storage or RAM, rather than in longer-term storage. |
 
-    :::image type="content" source="../media/ingest-data-pipeline/select-data-explorer-pool-properties-endpoints.png" alt-text="Screenshot of the Data Explorer pools screen, showing the list of existing pools.":::
+    1. Select **Create** to create the database. Creation typically takes less than a minute.
+- Create a table
+    1. In Synapse Studio, on the left-side pane, select **Develop**.
+    1. Under **KQL scripts**, Select **&plus;** (Add new resource) > **KQL script**. On the right-side pane, you can name your script.
+    1. In the **Connect to** menu, select *contosodataexplorer*.
+    1. In the **Use database** menu, select *TestDatabase*.
+    1. Paste in the following command, and select **Run** to create a StormEvents table.
 
-1. Make a note of the Query and Data Ingestion endpoints. You'll need them later.
+        ```Kusto
+        .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
+        ```
 
-    :::image type="content" source="../media/ingest-data-pipeline/select-data-explorer-pool-properties-endpoints.png" alt-text="Screenshot of the Data Explorer pools properties pane, showing the Query and Data Ingestion URI addresses.":::
+        > [!TIP]
+        > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *StormEvents* table appears in the list.
 
-## Create a Data Explorer database
+## Create a linked service
 
-1. In Synapse Studio, on the left-side pane, select **Data**.
-1. Select **&plus;** (Add new resource) > **Data Explorer pool**, and paste the following information:
-
-
-    | Setting | Suggested value | Description |
-    |--|--|--|
-    | Pool name | *contosodataexplorer* | The name of the Data Explorer pool to use |
-    | Name | *TestDatabase* | The database name must be unique within the cluster. |
-    | Default retention period | *365* | The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested. |
-    | Default cache period | *31* | The time span (in days) for which to keep frequently queried data available in SSD storage or RAM, rather than in longer-term storage. |
-
-1. Select **Create** to create the database. Creation typically takes less than a minute.
-
-## Add a linked service
+In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll create a linked service for Azure Data Explorer.
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Linked services**.
 1. Select **&plus; New**.
 
     :::image type="content" source="../media/ingest-data-pipeline/add-new-data-explorer-linked-service.png" alt-text="Screenshot of the Linked services screen, showing the list of existing services and highlighting the add new button.":::
 
-1. Select **Azure Data Explorer** service.
+1. Select the **Azure Data Explorer** service from the gallery, and then select **Continue**.
 
     :::image type="content" source="../media/ingest-data-pipeline/select-new-data-explorer-linked-service.png" alt-text="Screenshot of the new Linked services pane, showing the list of available services and highlighting the add new Azure Data Explorer service.":::
 
-1. Paste the following information:
+1. In the New Linked Services page, use the following information:
 
     | Setting | Suggested value | Description |
     |--|--|--|
     | Name | *contosodataexplorerlinkedservice* | The name for the new Azure Data Explorer linked service. |
     | Authentication method | *Managed Identity* | The authentication method for the new service. |
     | Account selection method | *Enter manually* | The method for specifying the Query endpoint. |
-    | Endpoint | *https:\/\/contosodataexplorer.contosoanalytics.dev.kusto.windows.net* | The Query endpoint you made a [note of earlier](#before-you-start). |
+    | Endpoint | *https:\/\/contosodataexplorer.contosoanalytics.dev.kusto.windows.net* | The Query endpoint you made a [note of earlier](#prerequisites). |
     | Database | *TestDatabase* | The database where you want to ingest data. |
 
     :::image type="content" source="../media/ingest-data-pipeline/create-new-data-explorer-linked-service.png" alt-text="Screenshot of the new Linked services details pane, showing the fields that need to be completed for the new service.":::
 
-1. Select **Test connection** to verify the linked service is working, and then select **Create** to finish.
+1. Select **Test connection** to validate the settings, and then select **Create**.
 
-## Ingest sample data and analyze with a simple query
+## Create a pipeline to ingest data
 
-1. In Synapse Studio, on the left-side pane, select **Develop**.
-1. Under **KQL scripts**, Select **&plus;** (Add new resource) > **KQL script**. On the right-side pane, you can name your script.
-1. In the **Connect to** menu, select *contosodataexplorer*.
-1. In the **Use database** menu, select *TestDatabase*.
-1. Paste in the following command, and select **Run** to create a StormEvents table.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline containing a copy activity that ingests data from your preferred source into a Data Explorer pool.
 
-    ```Kusto
-    .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
-    ```
+1. In Synapse Studio, on the left-side pane, select **Integrate**.
 
-    > [!TIP]
-    > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *StormEvents* table appears in the list.
+1. Select **&plus;** > **Pipeline**. On the right-side pane, you can name your pipeline.
 
-1. Paste in the following command, and select **Run** to ingest data into StormEvents table.
+    :::image type="content" source="../media/ingest-data-pipeline/add-new-data-explorer-pipeline.png" alt-text="Screenshot showing the selection for creating a new pipeline.":::
 
-    ```Kusto
-    .ingest into table StormEvents 'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?sv=2019-12-12&ss=b&srt=o&sp=r&se=2022-09-05T02:23:52Z&st=2020-09-04T18:23:52Z&spr=https&sig=VrOfQMT1gUrHltJ8uhjYcCequEcfhjyyMX%2FSc3xsCy4%3D' with (ignoreFirstRecord=true)
-    ```
+1. Under **Activities** > **Move & transform**, drag **Copy data** onto the pipeline canvas.
+1. Select the copy activity and go to the **Source** tab. Select or create a new source dataset as the source to copy data from.
+1. Go to the **Sink** tab. Select **New** to create a new sink dataset.
 
-1. After ingestion completes, paste in the following query, select the query in the window, and select **Run**.
+    :::image type="content" source="../media/ingest-data-pipeline/add-data-explorer-pipeline-copy-sink.png" alt-text="Screenshot of the pipeline copy activity, showing the selection for creating a new sink.":::
 
-    ```Kusto
-    StormEvents
-    | sort by StartTime desc
-    | take 10
-    ```
+1. Select the **Azure Data Explorer** dataset from the gallery, and then select **Continue**.
+1. In the **Set properties** pane, use the following information, and then select **OK**.
 
-    The query returns the following results from the ingested sample data.
+    | Setting | Suggested value | Description |
+    |--|--|--|
+    | Name | *AzureDataExplorerTable* | The name for the new pipeline. |
+    | Linked service | *contosodataexplorerlinkedservice* | The linked service you created earlier. |
+    | Table | *StormEvents* | The table you created earlier. |
 
-    :::image type="content" source="data-explorer/media/get-started-analyze-data-explorer/sample-query-results.png" alt-text="Results for query run on sample data":::
+    :::image type="content" source="../media/ingest-data-pipeline/add-data-explorer-pipeline-copy-sink-set-properties.png" alt-text="Screenshot of the pipeline copy activity set properties pane, showing the fields that need to be completed for the new sink.":::
+
+1. To validate the pipeline, select **Validate** on the toolbar. You see the result of the Pipeline validation output on the right side of the page.
+
+## Debug and publish the pipeline
+
+Once you've finished configuring your pipeline, you can execute a debug run before you publish your artifacts to verify everything is correct.
+
+1. Select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window.
+
+1. Once the pipeline run succeeds, in the top toolbar, select **Publish all**. This action publishes entities (datasets and pipelines) you created to the Synapse Analytics service.
+1. Wait until you see the **Successfully published** message. To see notification messages, select the bell button in the top-right.
+
+## Trigger and monitor the pipeline
+
+In this section, you manually trigger the pipeline published in the previous step.
+
+1. Select **Add Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **OK**.
+
+1. Go to the **Monitor** tab located in the left sidebar. You see a pipeline run that is triggered by a manual trigger.
+1. When the pipeline run completes successfully, select the link under the **Pipeline name** column to view activity run details or to rerun the pipeline. In this example, there's only one activity, so you see only one entry in the list.
+1. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **Activity name** column. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
+1. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
+1. Verify your data is correctly written in the Data Explorer pool.
 
 ## Next steps
 
-[Tutorial: Use KQL queries](/azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context&pivots=synapse)
+[Analyze with Data Explorer](../../get-started-analyze-data-explorer.md)
