@@ -21,6 +21,7 @@ In this tutorial, you learn how to:
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
+> * Chain a load balancer frontend to gateway load balancer.
 
 > [!IMPORTANT]
 > Gateway Azure Load Balancer is currently in public preview.
@@ -32,6 +33,9 @@ In this tutorial, you learn how to:
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
+    - For the purposes of this tutorial, the existing load balancer in the examples is named **myLoadBalancer**.
 
 ## Register preview feature
 
@@ -222,7 +226,7 @@ A health probe is required to monitor the health of the backend instances in the
 
 ### Create load-balancing rule
 
-Traffic destined for the backend instances is routed with a load-balancing rule. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig)  to create the load-balancing rule.
+Traffic destined for the backend instances is routed with a load-balancing rule. Use [az network lb rule create](/cli/azure/network/lb/probe#az_network_lb_rule_create)  to create the load-balancing rule.
 
 ```azurecli-interactive
   az network lb rule create \
@@ -238,6 +242,33 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
 ```
 
 The load balancer is ready for NVAs in the backend pool.
+
+## Chain load balancer frontend to gateway load balancer
+
+In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
+
+You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+
+Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_az_network_lb_frontend_ip_show) to place the resource ID of your gateway load balancer frontend into a variable.
+
+Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) to chain the gateway load balancer frontend to your existing load balancer.
+
+```azurecli-interactive
+  feid=$(az network lb frontend-ip show \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer-gw \
+    --name myFrontend \
+    --query id \
+    --output tsv)
+
+  az network lb frontend-ip update \
+    --resource-group CreatePubLBQS-rg \
+    --name myFrontendIP \
+    --lb-name myLoadBalancer \
+    --public-ip-address myPublicIP \
+    --gateway-lb $feid
+
+```
 
 ## Clean up resources
 
