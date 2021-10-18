@@ -60,5 +60,5 @@ The test results consist of *client-side* and *server-side* metrics:
 ## Next steps
 
 Start using Azure Load Testing:
-- [Tutorial: Run a load test in the Azure portal to identify performance bottlenecks](./tutorial-identify-bottlenecks-in-azure-portal.md)
-- [Run a load test in Visual Studio Code to identify performance bottlenecks](./how-to-identify-bottlenecks-in-vs-code.md)
+- [Tutorial: Run a load test in the Azure portal to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test in Visual Studio Code to identify performance bottlenecks](./how-to-identify-bottlenecks-vs-code.md)

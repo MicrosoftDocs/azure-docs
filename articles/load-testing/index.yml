@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   ms.author: jmartens
   author: j-martens
-  ms.date: 08/23/2021
+  ms.date: 10/14/2021
 
 # highlightedContent section 
 highlightedContent:
@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: 'Tutorial: Identify performance bottlenecks'
       itemType: get-started
-      url: tutorial-identify-bottlenecks-in-azure-portal.md
+      url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
     - title: Set up resources
       itemType: get-started
@@ -55,7 +55,7 @@ conceptualContent:
         - url: ../machine-learning/how-to-train-cli.md
           itemType: tutorial
           text: Run training code in the cloud (v2 CLI preview)
-        - url: how-to-identify-bottlenecks-in-vs-code.md
+        - url: how-to-identify-bottlenecks-vs-code.md
           itemType: how-to-guide
           text: Tune hyperparameters for model training
         - url: ../machine-learning/how-to-create-machine-learning-pipelines.md
