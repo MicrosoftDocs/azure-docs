@@ -36,7 +36,7 @@ In general, data access from studio involves the following checks:
     - There are multiple different types of authentication depending on the storage type, including account key, token, service principal, managed identity, and user identity.
     - If user identity, then it is important to know *which* user is trying to access storage.
 2. Do they have permission?
-    - Are the credentials correct? And if so, does the service principal, managed identity, etc., have the necessary permission on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
+    - Are the credentials correct? And if so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](/azure/role-based-access-control/built-in-roles#reader) of the storage account reads metadata of the storage.
     - [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) reads data within a blob container.
     - [Contributor](/azure/role-based-access-control/built-in-roles#contributor) allows write access to a storage account.
@@ -59,9 +59,9 @@ The following diagram shows the general flow of a data access call. In this exam
 ## Azure Storage Account
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
-### Existing filestore
+### Using an existing storage account
 
-If you use an existing storage account as the default when creating a workspace, the `azureml-filestore` folder in the filestore doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
+If you use an existing storage account as the __default storage__ when creating a workspace, the `azureml-filestore` folder in the file store doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
 
 To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](/azure/storage/common/storage-network-security).
 
