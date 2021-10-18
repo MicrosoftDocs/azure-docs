@@ -15,22 +15,23 @@ ms.date: 02/11/2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Dv5 and Dsv5-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features an all core Turbo clock speed of 3.4 GHz. 
+The Dv5 and Dsv5-series run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor in a hyper-threaded configuration. This custom processor can reach an all-core Turbo clock speed of up to 3.5GHz and features Intel® Turbo Boost Technology 2.0, Intel® Advanced Vector Extensions 512 (Intel® AVX-512) and Intel® Deep Learning Boost.
 
 > [!NOTE]
 > For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 ## Dv5-series
 
-Dv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake). The Dv5-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dv5-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+The Dv5 series virtual machines are based on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor in a hyper-threaded configuration. This custom processor can reach an all-core Turbo clock speed of up to 3.5GHz and features Intel® Turbo Boost Technology 2.0, Intel® Advanced Vector Extensions 512 (Intel® AVX-512) and Intel® Deep Learning Boost.
 
-Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dsv5 sizes. The pricing and billing meters for Dsv5 sizes are the same as Dv5-series.
+The Dv5 VM sizes offer a combination of vCPUs and memory able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more. They also provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class).
 
-[ACU](acu.md): 195-210<br>
+The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs, and Standard HDDs disk storage to these VMs. If you prefer to use Premium SSD or Ultra Disk storage, please select the Dsv5 virtual machines instead. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
@@ -44,15 +45,18 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 | Standard_D32_v5             | 32 | 128 | Remote Storage Only | 32 | 8 | 16000 |
 | Standard_D48_v5             | 48 | 192 | Remote Storage Only | 32 | 8 | 24000 |
 | Standard_D64_v5             | 64 | 256 | Remote Storage Only | 32 | 8 | 30000 |
-| Standard_D96_v5             | 96 | 384 | Remote Storage Only | 32 | 8 | 30000 |
+| Standard_D96_v5             | 96 | 384 | Remote Storage Only | 32 | 8 | 35000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Dsv5-series
 
-Dsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (IceLake). The Dv5-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads. Dsv5-series VMs feature [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Remote Data disk storage is billed separately from virtual machines.
+The Dsv5 series virtual machines are based on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor in a hyper-threaded configuration. This custom processor can reach an all-core Turbo clock speed of up to 3.5GHz and features Intel® Turbo Boost Technology 2.0, Intel® Advanced Vector Extensions 512 (Intel® AVX-512) and Intel® Deep Learning Boost.
 
-[ACU](acu.md): 195-210<br>
+The Dsv5 VM sizes offer a combination of vCPUs and memory able to meet the requirements associated with most production workloads. They also provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class).
+
+The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
@@ -64,14 +68,14 @@ Dsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (IceLake). The
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2s_v5<sup>1</sup>  | 2  | 8   | Remote Storage Only | 4  | 3200/48    | 2 | 1000  |
-| Standard_D4s_v5              | 4  | 16  | Remote Storage Only | 8  | 6400/96    | 2 | 2000  |
-| Standard_D8s_v5              | 8  | 32  | Remote Storage Only | 16 | 12800/192  | 4 | 4000  |
-| Standard_D16s_v5             | 16 | 64  | Remote Storage Only | 32 | 25600/384  | 8 | 8000  |
-| Standard_D32s_v5             | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 | 16000 |
-| Standard_D48s_v5             | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 | 24000 |
-| Standard_D64s_v5             | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
-| Standard_D96s_v5             | 96 | 384 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
+| Standard_D2s_v5<sup>1</sup>  | 2  | 8   | Remote Storage Only | 4  | 3750/85    | 2 | 1000  |
+| Standard_D4s_v5              | 4  | 16  | Remote Storage Only | 8  | 6400/145   | 2 | 2000  |
+| Standard_D8s_v5              | 8  | 32  | Remote Storage Only | 16 | 12800/290  | 4 | 4000  |
+| Standard_D16s_v5             | 16 | 64  | Remote Storage Only | 32 | 25600/600  | 8 | 8000  |
+| Standard_D32s_v5             | 32 | 128 | Remote Storage Only | 32 | 51200/865  | 8 | 16000 |
+| Standard_D48s_v5             | 48 | 192 | Remote Storage Only | 32 | 76800/1315 | 8 | 24000 |
+| Standard_D64s_v5             | 64 | 256 | Remote Storage Only | 32 | 80000/1735 | 8 | 30000 |
+| Standard_D96s_v5             | 96 | 384 | Remote Storage Only | 32 | 80000/2600 | 8 | 35000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
