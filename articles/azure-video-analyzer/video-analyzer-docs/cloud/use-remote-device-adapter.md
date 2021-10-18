@@ -179,13 +179,7 @@ The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo 
 ## Playback recorded video in the Azure portal
 
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
-
-1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
-1. Select **Videos** in the **Video Analyzer** section.
-1. You'll find a video listed with the name specified in the video sink node of the pipeline topology used.
-1. Select the video.
-1. The video details page will open and the playback should start automatically.
+<!-- TODO: add link to Mayank's Cloud pipeline quickstart to playback section-->
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
