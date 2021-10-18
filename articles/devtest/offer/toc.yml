@@ -1,24 +1,19 @@
 - name: Azure Dev/Test offer Docs
   href: index.yml
 - name: Overview
+  expanded: true
   items: 
     - name: What is the Dev/Test offer?
       href: overview-what-is-devtest-offer-visual-studio.md
 - name: Quickstart
+  expanded: true
   items: 
   - name: Get started with an individual Azure Dev/Test credit
     href: how-to-individual-credit.md
   - name: Create an enterprise Dev/Test subscription
     href: create-enterprise-devtest-subscriptions.md    
-- name: Tutorials
-  expanded: true
-  items: 
-    - name: "Python get started (day 1)"
-      expanded: true
-      items:
-        - name: Use your own data
-          href: tutorial-experiment-bring-data.md
 - name: Concepts
+  expanded: true
   items:
   - name: GitOps & Azure Dev/Test offer
     href: gitops-azure-devtest.md  
