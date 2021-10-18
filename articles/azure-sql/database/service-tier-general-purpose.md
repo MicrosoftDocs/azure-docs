@@ -51,7 +51,8 @@ The General Purpose service tier is a default service tier in Azure SQL Database
 
 The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the general purpose service tier. 
 
-| Feature  | **Azure SQL Database** | **Azure SQL Managed Instance** |
+|  | **Azure SQL Database** | **Azure SQL Managed Instance** |
+|:--|:--|:--|
 | **Compute size**| 1 - 80 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores| 
 | **Storage type** | Remote storage | Remote storage| 
 | **Database size** | 1 GB - 4 TB | 32 GB – 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only|
