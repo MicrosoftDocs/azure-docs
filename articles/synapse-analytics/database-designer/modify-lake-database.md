@@ -54,7 +54,7 @@ In this article, you will learn how to modify an existing [lake database](./conc
 10.   With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [link]() If you are using Synapse Live mode, you can click "publish".
    - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
 ![Screenshot of the validation pane showing validation errors in the database](./media/create-lake-database-from-lake-database-template/validation-error.png)
-   - Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+    - Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
 
 ## Customize tables within a database
