@@ -370,10 +370,7 @@ If you want your replication task to process more events or messages per second 
 
 If you set up the geo-disaster recovery capabilities in Azure Event Hubs or Azure Service Bus, you can use replication tasks to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity, which becomes the new primary or source. So, if a disaster happens, and the primary entity fails over, the event publishing or message sending applications are redirected to the new primary (formerly secondary) source.
 
-When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't automatic or immediate. 
-To make sure that your replication task starts reading can consume and replicate events from the new primary, you have to manually reconfigure the task to consume from the appropriate offset information at the start of the stream for the new primary namespace.
-
-The position or *offset* in the stream or sequence where the primary or source entity stopped reading is read by the Azure storage account that was created by the replication task.
+When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't immediate. The *offset* is the position in the stream or sequence where the primary or source entity stopped reading. This offset is read by and kept in the Azure storage account that was created by the replication task. To make sure that your replication task starts reading can consume and replicate events from the new primary, you have to manually reconfigure the task to consume from the appropriate offset information at the start of the stream for the new primary namespace.
 
 To enable failover from the primary or source entity and to make sure that the replication task starts reading from the secondary or target entity at the correct position, follow these steps:
 
@@ -390,6 +387,10 @@ To enable failover from the primary or source entity and to make sure that the r
 1. Return to the logic app resource or workflow behind the replication task. Start the logic app or enable the workflow again.
 
 To force producers and consumers to use the secondary endpoint, you need to make information about the entity available to use and look up in a location that's easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
+
+For more information about geo-disaster recovery, review the following documentation:
+
+- [Azure Event Hubs - Geo-disaster recovery]()
 
 <a name="problems-failures"></a>
 
