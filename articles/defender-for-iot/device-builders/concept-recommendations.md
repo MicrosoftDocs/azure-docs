@@ -28,8 +28,6 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 | Severity | Name | Data Source | Description | RecommendationType |
 |--|--|--|--|--|
-| Medium | Default IP filter policy should be deny | IoT Hub | IP filter configuration should have rules defined for allowed traffic, and should by default, deny all other traffic by default. | - |
-| Medium | IP filter rule includes large IP range | IoT Hub | An allow IP filter rule source IP range is too large. Overly permissive rules can expose your IoT hub to malicious actors. | - |
 | Medium | Service principal not used with ACR repository | IoT Hub | Authentication schema used to pull an IoT Edge module from an ACR repository does not use Service Principal Authentication. | IoT_ACRAuthentication |
 | Medium | TLS cipher suite upgrade needed | IoT Hub | Unsecured TLS configurations detected. Immediate TLS cipher suite upgrade recommended. | IoT_VulnerableTLSCipherSuite |
 | Medium | Default IP filter policy should be deny | IoT Hub | By default, IP filter configuration needs rules defined for allowed traffic and should deny all other traffic. | IoT_IPFilter_DenyAll |
@@ -41,10 +39,10 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 | Severity | Name | Data Source | Description | RecommendationType |
 |--|--|--|--|--|
-| Low | Enable diagnostics logs in IoT Hub | IoT Hub | Enable logs and retain them for up to a year. Retaining logs enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | - |
+| Low | Enable diagnostics logs in IoT Hub | IoT Hub | Enable logs, and retain them for up to a year. Retaining logs enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | - |
 | Low | IoT Edge Hub memory can be optimized | IoT Hub | Optimize your IoT Edge Hub memory usage by turning off protocol heads for any protocols not used by Edge modules in your solution. | IoT_EdgeHubMemOptimize |
 | Low | No logging configured for IoT Edge module | IoT Hub | Logging is disabled for this IoT Edge module. | IoT_EdgeLoggingOptions |
 
 ## Next steps
 
-- Learn more about the [Micro Agent security recommendations](concept-security-recommendations-for-micro-agent.md)
+- Learn more about the [Classic Defender for IoT devices security alerts](agent-based-security-alerts.md)
