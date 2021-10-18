@@ -64,4 +64,4 @@ Confidential computing nodes on AKS also support containers that are programmed 
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions-sgx.md

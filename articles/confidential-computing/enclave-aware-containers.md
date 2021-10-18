@@ -55,7 +55,7 @@ The open-source [EGo SDK](https://www.ego.dev) brings support for the Go program
 
 [Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
-[Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started)
+[Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
 
 <!-- LINKS - external -->
 [Azure Attestation](../attestation/overview.md)
