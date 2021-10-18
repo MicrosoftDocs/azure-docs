@@ -66,7 +66,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
     1. In Synapse Studio, on the left-side pane, select **Data**.
     1. Under **Data Explorer Databases**, right-click the relevant database, and then select **Open in Azure Data Explorer**.
 
-    :::image type="content" source="../media/ingest-data-one-click/open-azure-data-explorer-synapse.png" alt-text="Screenshot of Azure Synapse Studio, showing opening Azure Data Explorer in the context of a specific pool.":::
+        :::image type="content" source="../media/ingest-data-one-click/open-azure-data-explorer-synapse.png" alt-text="Screenshot of Azure Synapse Studio, showing opening Azure Data Explorer in the context of a specific pool.":::
 
     1. Right-click the relevant pool, and then select **Ingest new data**.
 
@@ -76,7 +76,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
     1. Under **Data Explorer pools**, select the relevant pool.
     1. On the **Welcome to Data Explorer pool** home screen, select **Ingest new data**.
 
-    :::image type="content" source="../media/ingest-data-one-click/open-azure-data-explorer-portal.png" alt-text="Screenshot of the Azure portal, showing opening Azure Data Explorer in the context of a specific pool.":::
+        :::image type="content" source="../media/ingest-data-one-click/open-azure-data-explorer-portal.png" alt-text="Screenshot of the Azure portal, showing opening Azure Data Explorer in the context of a specific pool.":::
 
 
 * To access the wizard from the Azure Data Explorer web ui:
@@ -98,7 +98,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 1. On the **Source** tab:
     1. Select *Event Hub* as the **Source type** for the ingestion.
 
-    :::image type="content" source="../media/ingest-data-one-click/select-azure-data-explorer-ingest-source-type.png" alt-text="Screenshot of the Azure Data Explorer one-click ingestion wizard, showing the selection of the source type.":::
+        :::image type="content" source="../media/ingest-data-one-click/select-azure-data-explorer-ingest-source-type.png" alt-text="Screenshot of the Azure Data Explorer one-click ingestion wizard, showing the selection of the source type.":::
 
     1. Fill out the Event Hub data connection details using the following information:
 
@@ -109,7 +109,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
         | Even Hub namespace | *contosoeventhubnamespace* | The namespace of the Event Hub. |
         | Consumer group | *contosoconsumergroup* | The name of the Even Hub consumer group. |
 
-    :::image type="content" source="../media/ingest-data-one-click/select-azure-data-explorer-ingest-event-hub-details.png" alt-text="Screenshot of the Azure Data Explorer one-click ingestion wizard, showing the Event Hub connection details.":::
+        :::image type="content" source="../media/ingest-data-one-click/select-azure-data-explorer-ingest-event-hub-details.png" alt-text="Screenshot of the Azure Data Explorer one-click ingestion wizard, showing the Event Hub connection details.":::
 
     1. Select **Next**.
 
