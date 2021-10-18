@@ -55,9 +55,9 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
 
 Azure Arc-enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for the following scenarios:
 
-* Training
-* Real-time inferencing only
-* Training and inferencing
+* [Training](#training)
+* [Real-time inferencing only](#inferencing)
+* [Training and inferencing](#training-inferencing)
 
 > [!NOTE]
 > Train only clusters also support batch inferencing as part of Azure Machine Learning Pipelines.
@@ -66,7 +66,7 @@ Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?
 
 You can use ```--config``` or ```--config-protected``` to specify list of key=value pairs for AuzreML deployment configurations. Following is the list of configuration settings available to be used for different AzureML extension deployment scenarios.
 
-|Configuration Setting Key Name  |Description  |Training |Inference |Training and Inference
+|Configuration Setting Key Name  |Description  |Training |Inference |Training and Inference |
 |---|---|---|---|---|
 |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
 |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to leverage this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
@@ -79,15 +79,64 @@ You can use ```--config``` or ```--config-protected``` to specify list of key=va
 | ```inferenceLoadBalancerHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy multiple ingress controller replicas for high availability. Set this to ```False``` if you have limited cluster resource and want to deploy AzureML extension for development and testing only, in this case it will deploy one ingress controller replica only. | N/A| Optional |  Optional |
 |```openshift``` | ```True``` or ```False```, default ```False```. Set to ```True``` if you deploy AzureML extension on ARO or OCP cluster.The deployment process will automatically compile a policy package and load policy package on each node so AzureML services operation can function properly.  | Optional| Optional |  Optional |
 
-### Deploy extension for training workloads
+### Deploy extension for training workloads <a id="training"></a>
 
 
 
-### Deploy extension for real-time inferencing workloads
+### Deploy extension for real-time inferencing workloads <a id="inferencing"></a>
 
+Depending your network setup, Kubernetes distribution variant, and where your Kubernetes cluster is hosted (on-premises or the cloud), you can choose one of following options to deploy AzureML extension.
 
+#### Public endpoints support with public load balancer
 
-### Deploy extension for training and inferencing workloads
+* **HTTPS**
+
+    ```azurecli
+    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --resource-group <resource-group> --scope cluster
+    ```
+
+* **HTTP**
+
+    > [!WARNING]
+    > Public HTTP endpoints support with public load balancer is the least secure way of deploying the Azure Machine Learning extension for real-time inferencing scenarios and is therefore **NOT** recommended.
+
+    ```azurecli
+    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name>  --configuration-settings enableInference=True allowInsecureConnections=True --resource-group <resource-group> --scope cluster
+    ```
+
+#### Private endpoints support with internal load balancer
+
+* **HTTPS**
+
+    ```azurecli
+    az k8s-extension create --name amlarc-compute --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointILB=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --resource-group <resource-group> --scope cluster
+    ```
+
+* **HTTP**
+
+   ```azurecli
+   az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointILB=True allowInsecureConnections=True --resource-group <resource-group> --scope cluster
+   ```
+
+#### Endpoints support with NodePort
+
+Using a NodePort gives you the freedom to set up your own load balancing solution, to configure environments that are not fully supported by Kubernetes, or even to expose one or more nodes' IPs directly.
+
+When you deploy with NodePort service, the scoring url (or swagger url) will be responsed with one of Node IP (e.g. ```http://<NodeIP><NodePort>/<scoring_path>```) and remain unchanged even if the Node is unavailable. But you can replace it with any other Node IP.
+
+* **HTTPS**
+
+    ```azurecli
+    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster --config enableInference=True privateEndpointNodeport=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file>
+    ```
+
+* **HTTP**
+
+   ```azurecli
+   az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointNodeport=True allowInsecureConnections=Ture --resource-group <resource-group> --scope cluster
+   ```
+
+### Deploy extension for training and inferencing workloads <a id="training-inferencing"></a>
 
 <!-- 1. Deploy Azure Machine Learning extension
 
