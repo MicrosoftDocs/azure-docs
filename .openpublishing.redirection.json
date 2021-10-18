@@ -23654,6 +23654,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/notification-hubs/configure-android-device-messaging.md",
       "redirect_url": "/azure/notification-hubs/configure-google-firebase-cloud-messaging",
       "redirect_document_id": false
