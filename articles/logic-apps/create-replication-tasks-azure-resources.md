@@ -16,7 +16,7 @@ ms.date: 10/22/2021
 
 While maximum availability and reliability are top operational priorities for Azure services, many ways still exist for communication to stop due to networking or name resolution problems, errors, or temporary unresponsiveness. Such conditions aren't "disastrous" such that you'll want to abandon the regional deployment altogether as you might do in disaster recovery situation. However, the business scenario for some apps might become impacted by availability events that last no more than a few minutes or even seconds.
 
-To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource, which is hosted in single-tenant Azure Logic Apps. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource where you can add multiple workflows. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 > [!NOTE]
 > Currently, [replication task templates](#replication-task-templates) are available for 
@@ -32,13 +32,13 @@ A replication task receives data, events, or messages from a source, moves that 
 
 Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key.
 
-- Event Hubs also sequentially [arranges messages with the same partition key in the same partition](../event-hubs/event-hubs-features.md#partitions).
+- Event Hubs also sequentially [arranges messages with the same partition key in the same partition](../event-hubs/event-hubs-features.md#partitions). Event Hubs and Service Bus can also have duplicate events during replication.
 
-  If the partition count in the source and target Event Hubs entities is identical, all streams in the target map to the same partitions as in the source. However, if the partition count differs, which matters in some of the patterns described in [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md), the mapping differs, but streams are always kept together and in order. The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
+  If the partition count in the source and target Event Hubs entities is identical, all streams in the target map to the same partitions as in the source. However, if the partition count differs, which matters in some of the patterns described in [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md), the mapping differs, but streams are always kept together and in order. For example, if the source has 6 partitions and the destination has 8 partitions, the relative order of events is preserved based on their partition key. The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
 
   For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
-- For Service Bus, the replication task enables session support for the source entity so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
+- For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
@@ -53,20 +53,16 @@ For Service Bus, the service-assigned metadata of a message obtained from the so
 
 For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
 
-<a name="replication-task-differences"></a>
-
-## Replication tasks with Azure Logic Apps versus Azure Functions
-
 <a name="replication-task-templates"></a>
 
 ## Replication task templates
 
 The following table lists the replication task templates currently available in this preview:
 
-| Resource type | Replication task templates |
-|---------------|----------------------------|
-| Azure Event Hubs | - **Replicate to Event Hubs instance**: Replicate content between two Event Hubs instances, or event hubs. <br>- **Replicate from Event Hubs instance to Service Bus queue** <br>- **Replicate from Event Hubs instance to Service Bus topic** |
-| Azure Service Bus | - **Replicate to Service Bus queue**: Replicate content between two Service Bus queues. <br>- **Replicate from service Bus queue to Event Hub instance** <br>- **Replicate from Service Bus queue to Service Bus topic** <br>- **Replicate from Service Bus topic subscription to Service Bus queue** <br>- **Replicate from Service Bus topic subscription to Event Hubs instance** |
+| Resource type | Replication source and target |
+|---------------|-------------------------------|
+| Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
+| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Event Hub instance <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
 |||
 
 ## Replication topology and workflow
@@ -95,6 +91,8 @@ For information about replication and federation in Azure Service Bus, review th
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
+<a name="naming"></a>
+
 ## Naming conventions
 
 For example, if you want to create a replication task between Service Bus queues, you can use the following suggested naming convention:
@@ -104,6 +102,12 @@ For example, if you want to create a replication task between Service Bus queues
 | Namespace: `<name>-sb-<region>` | `fabrikam-sb-weu` | Logic app: `<name-source-region-target-region>` | `fabrikam-rep-weu-wus` | Namespace: `<name>-sb-<region>` | `fabrikam-sb-wus` |
 | Queue: `<name>` | `jobs-transfer` | Workflow: `<name>` | `jobs-transfer-workflow` | Queue: `<name>` | `jobs` |
 |||||||
+
+<a name="monitor"></a>
+
+## Monitor replication tasks
+
+To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a particularly useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
 
 <a name="pricing"></a>
 
@@ -329,23 +333,41 @@ If you change the underlying workflow for a replication task, your changes affec
 
 1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
 
-## Set up failover for replication tasks
+<a name="edit-default-config"></a>
 
-You can use replication tasks for disaster recovery and to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity.
+## Increase replication speed and performance
 
-When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't automatic or immediate. The position or *offset* in the stream or sequence where the primary or source entity stopped reading is read by the Azure storage account that was created by the replication task.
+If you want your replication task to process more events or messages per second for faster replication, you can edit the default configuration for the trigger and actions in the task workflow.
+
+- For Event Hubs, go to the `host.jon` file in the Event Hubs extension, and change the trigger's default configuration. For more information, review [Azure Event Hubs trigger and bindings](../azure-functions/functions-bindings-event-hubs.md#host-json)
+
+- For Service Bus, go to the `host.json` file in the  , they should go to host.json of the Logic App and change the default configurations. 
+
+
+<a name="failover"></a>
+
+## Set up failover with replication tasks
+
+If you set up the geo-disaster recovery capabilities in Azure Event Hubs or Azure Service Bus, you can use replication tasks to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity, which becomes the new primary or source. So, if a disaster happens, and the primary entity fails over, the event publishing or message sending applications are redirected to the new primary (formerly secondary) source.
+
+When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't automatic or immediate. 
+To make sure that your replication task starts reading can consume and replicate events from the new primary, you have to manually reconfigure the task to consume from the appropriate offset information at the start of the stream for the new primary namespace.
+
+The position or *offset* in the stream or sequence where the primary or source entity stopped reading is read by the Azure storage account that was created by the replication task.
 
 To enable failover from the primary or source entity and to make sure that the replication task starts reading from the secondary or target entity at the correct position, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open the logic app resource and the underlying workflow behind the replication task.
+1. In the [Azure portal](https://portal.azure.com), open the logic app resource or underlying workflow behind the replication task.
 
-1. On the workflow's navigation menu, select **Overview**. On the **Overview** toolbar, select **Disable**.
+1. On the resource or workflow's navigation menu, select **Overview**. On the **Overview** toolbar, either select **Disable** for the workflow or select **Stop** for the logic app resource.
 
-1. Go to the Azure resource group that contains the replication task resources, including the logic app resource and the Azure storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped reading when the primary's region became unavailable.
+1. Go to the Azure resource group that contains the replication task resources.
+
+   This resource group includes the logic app resource and the Azure storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped when the primary's region became unavailable.
 
 1. Delete the storage account.
 
-1. Return to the workflow behind the replication task and enable the workflow again.
+1. Return to the logic app resource or workflow behind the replication task. Start the logic app or enable the workflow again.
 
 To force producers and consumers to use the secondary endpoint, you need to make information about the entity available to use and look up in a location that's easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
 

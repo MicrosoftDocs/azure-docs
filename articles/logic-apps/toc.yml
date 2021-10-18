@@ -249,6 +249,8 @@
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
     - name: Build a disaster recovery plan
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
+    - name: Replicate Azure resources for business continuity and disaster recovery
+      href: create-replication-tasks-azure-resources.md
   - name: Connectors - In-depth topics
     items:
     - name: AS2
