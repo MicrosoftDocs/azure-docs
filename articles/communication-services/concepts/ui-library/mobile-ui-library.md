@@ -38,13 +38,13 @@ Users can join easily over the call using the *Teams meeting URL* or they can se
 
 As a participant of the calls, you can provide a name and set up a default configuration for audio and video devices, and you're ready to jump into the call.
 
-:::image type="content" source="../media/mobile-ui/teams_meet.png" alt-text="Pre-meeting experience.":::
+:::image type="content" source="../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience.":::
 
 ### Call experience
 
 The calling composite provide an end two end experience, optimizing development time, and focusing into a clean layout.  
 
-:::image type="content" source="../media/mobile-ui/Calling_composite.png" alt-text="Meeting experience.":::
+:::image type="content" source="../media/mobile-ui/calling-composite.png" alt-text="Meeting experience.":::
 
 **The calling experience provides all these capabilities in one single composite component, providing a clear path without complex code which leads to faster development time.**
 
@@ -55,8 +55,6 @@ Mobile Composites are initialized using [Azure Communication Services access tok
 ### More details
 
 If you need more details about mobile composites, please visit [use cases site](mobile-ui-use-cases.md) to discover more.
-
-***We expect to add more scenarios ahead of the UI Library being in General Availability.***
 
 ## What UI Artifact is Best for my Project?
 

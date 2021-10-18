@@ -1,7 +1,14 @@
 ---
 description: In this tutorial, you learn how to use the Calling composite on Android
 author: pprystinka
+
+ms.author: pprystinka
+ms.date: 10/10/2021
+ms.topic: quickstart
+ms.service: azure-communication-services
 ---
+
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -40,7 +47,6 @@ dependencies {
     implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.1'
 }
 ```
-
 
 In your project setting level (**app folder**) `settings.gradle`, add the following lines to the repositories.
 
@@ -102,7 +108,7 @@ Go to the layout file (`app/src/main/res/layout/activity_main.xml`). Here we'll 
 
 ## Initialize composite 
 
-Go to `MainActivity`. Here we'll drop the following code to initialize our Composite Components for Calling. Replace `"GROUP_CALL_ID"` with your group id for your call, `"DISPLAY_NAME"` with your name, and  `"<USER_ACCESS_TOKEN>"` with your token.
+Go to `MainActivity`. Here we'll drop the following code to initialize our Composite Components for Calling. Replace `"GROUP_CALL_ID"` with your group ID for your call, `"DISPLAY_NAME"` with your name, and  `"<USER_ACCESS_TOKEN>"` with your token.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -221,7 +227,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
 
-## [Create Call Composite](#create-call-composite)
+## Create Call Composite
 
 Initialize a `CallCompositeBuilder` instance and a `CallComposite` instance inside the `startCallComposite` function.
 
@@ -237,7 +243,7 @@ CallComposite callComposite = new CallCompositeBuilder().build();
 ```
 
 -----
-## Create CommunicationTokenCredential
+### Create `CommunicationTokenCredential`
 
 Initialize a `CommunicationTokenCredential` instance inside the `startCallComposite` function. Replace `"<USER_ACCESS_TOKEN>"` with your token.
 
@@ -270,11 +276,11 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 
 Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
 
-### [Group Call](#group-call)
+### Group Call
 
-Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.<
+Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
 
-Replace `"GROUP_CALL_ID"` with your group id for your call.
+Replace `"GROUP_CALL_ID"` with your group ID for your call.
 
 Replace `"DISPLAY_NAME"` with your name.
 
@@ -300,10 +306,10 @@ GroupCallOptions options = new GroupCallOptions(
 );
 ```
 -----
-### [Teams Meeting](#teams-meeting)
+### Teams Meeting
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with your group id for your call.
+Replace `"TEAMS_MEETING_LINK"` with your group ID for your call.
 
 Replace `"DISPLAY_NAME"` with your name.
 
@@ -337,7 +343,7 @@ A Microsoft Teams meeting link can be retrieved using Graph APIs. This process i
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
-## [Launch](#launch)
+## Launch
 
 Call `launch` on the `CallComposite` instance inside the `startCallComposite` function
 
@@ -364,11 +370,16 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 ```kotlin
 val communicationCallComposite: CallComposite =
             CallCompositeBuilder()
-                .onException { 
-                    //...
-                }
+                .callCompositeEventsHandler(ApplicationCallCompositeEventsHandler())
                 .build()
 
+...
+
+class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
+    override fun onException(eventArgs: OnExceptionEventArgs) {
+        //...
+    }
+}
 ```
 
 #### [Java](#tab/java)
@@ -376,18 +387,23 @@ val communicationCallComposite: CallComposite =
 ```java
 CallComposite communicationCallComposite =
                 new CallCompositeBuilder()
-                        onException(eventArgs -> {
-                            //...
-                        })
+                        .callCompositeEventsHandler(new ApplicationCallCompositeEventsHandler())
                         .build();
+...
 
+class ApplicationCallCompositeEventsHandler implements CallCompositeEventsHandler {
+    @Override
+    public void onException(@NonNull OnExceptionEventArgs eventArgs) {
+        //...
+    }
+}
 ```
 
 -----
 
-## [Apply theme configuration](#apply-theme-configuration)
+## Apply theme configuration
 
-To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme id in `CallCompositeBuilder`.
+To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
 
 ```xml
 <style name="MyCompany.CallComposite" parent="AzureCommunicationUI.Theme.Calling">

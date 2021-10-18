@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add Calling composite into your app
+title: Quickstart - Add calling composite into your app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to get started with Call composite from UI Library
+description: In this quickstart, you'll learn how to get started with calling composite from UI Library
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
 ---
 
-# Quickstart: Get started with Calling Composite 
+# Quickstart: Get started with calling composite 
 
 Get started with Azure Communication Services by using the UI Library to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how to integrate the Calling composite into your Android application.
 

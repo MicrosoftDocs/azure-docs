@@ -1,6 +1,11 @@
 ---
 description: In this tutorial, you learn how to use the Calling composite on iOS
 author: palatter
+
+ms.author: palatter
+ms.date: 10/10/2021
+ms.topic: quickstart
+ms.service: azure-communication-services
 ---
 
 ## Prerequisites
@@ -55,12 +60,12 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <string></string>
 ```
 
-### Turn off Bitcode
+### Turn off `Bitcode`
 Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the setting, you have to change the filter from `Basic` to `All`, you can also use the search bar on the right.
 
 ![Screenshot showing the BitCode option in Xcode.](../../media/xcode-bitcode-option.png)
 
-## Initialize Composite
+## Initialize composite
 
 Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with your group id for your call, `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
 
@@ -106,11 +111,11 @@ class ViewController: UIViewController {
 
 ## Run the code
 
-You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.'
+You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
 
-- Tap `Start Experience`.
-- Accept audio permissions and select device, mic, and video settings.
-- Tap `Start Call`.
+1) Tap `Start Experience`.
+2) Accept audio permissions and select device, mic, and video settings.
+3) Tap `Start Call`.
 
 ![Final look and feel of the quick start app](../../media/quick-start-calling-composite-running-ios.gif)
 
@@ -127,9 +132,9 @@ The following classes and interfaces handle some of the major features of the Az
 | TeamsMeetingOptions | The options for joining a Team's meeting, such as the meeting link. |
 | ThemeConfiguration | Allows you to customize the theme. |
 
-## UI Library Functionality
+## UI Library functionality
 
-### Create Call Composite Options and Call Composite
+### Create call composite options and call composite
 
 Initialize a `CallCompositeOptions` instance and a `CallComposite` instance inside the `startCallComposite` function.
 
@@ -141,7 +146,7 @@ Initialize a `CallCompositeOptions` instance and a `CallComposite` instance insi
 }
 ```
 
-### Setup Authentication
+### Setup authentication
 
 Initialize a `CommunicationTokenCredential` instance inside the `startCallComposite` function. Replace `<USER_ACCESS_TOKEN>` with your token.
 
@@ -151,11 +156,11 @@ let communicationTokenCredential = try! CommunicationTokenCredential(token: "<US
 
 Refer to the [user access token](../../../identity/quick-create-identity.md) documentation if you don't already have a token available.
 
-### Setup Group Call or Teams Meeting Options
+### Setup group call or Teams meeting options
 
 Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
 
-#### Group Call
+#### Group call
 
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group id for your call and `<DISPLAY_NAME>` with your name.
 
@@ -165,7 +170,7 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
                                groupId: uuid)
 ```
 
-#### Teams Meeting
+#### Teams meeting
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group id for your call and `<DISPLAY_NAME>` with your name.
 

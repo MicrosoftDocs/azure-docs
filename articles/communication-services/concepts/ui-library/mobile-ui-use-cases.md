@@ -1,7 +1,7 @@
 ---
-title: UI Mobile Library Usage scenarios
-titleSuffix: An Azure Communication Services - UI Mobile Library Usage scenarios
-description: In this document, introduce the UI Mobile Library Capabilities and how is going to work in your applications
+title: UI Mobile Library use cases scenarios
+titleSuffix: An Azure Communication Services - UI Mobile Library use cases scenarios
+description: In this document, introduce the UI Mobile Library capabilities and how is going to work in your applications
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -22,7 +22,7 @@ Composites enable developers to easily integrate a whole calling experience into
 | Area                                                                                            | Use Cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | Call Types                                                                                      | Join Teams Meeting                                     |
-|                                                                                                 | Join Azure Communication Services call with Group Id   |
+|                                                                                                 | Join Azure Communication Services call with Group ID   |
 | [Teams Interop](../../concepts/teams-interop.md) | Call Lobby                                             |
 |                                                                                                 | Transcription and recording alert banner               |
 | Participant Gallery                                                                             | Remote participants are displayed on grid              |
@@ -45,20 +45,20 @@ For more information on authentication, see [Authentication](../authentication.m
 
 ## Teams Interop
 
-![Teams Interop pattern for calling and chat](../media/mobile-ui/TeamsInteropDiagram.png)
+![Teams Interop pattern for calling and chat](../media/mobile-ui/teams-interop-diagram.png)
 
 For [Teams Interop](../teams-interop.md) scenarios, developers can use the UI Mobile Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
-:::image type="content" source="../media/mobile-ui/teams_meet.png" alt-text="Pre-meeting experience":::
+:::image type="content" source="../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience":::
 
 ## Theming
 
-The UI Library Calling Composite for iOS and Android provides interfaces for developers change the theme of the experience by passing in a primary color. The Composite uses that primary color to provide appropriate theming across the experience. More theming customizations will be available on GA release.
+The UI Library Calling Composite for iOS and Android provides interfaces for developers change the theme of the experience by passing in a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| :::image type="content" source="../media/mobile-ui/android_color.png" alt-text="android theming"::: | :::image type="content" source="../media/mobile-ui/ios_dark.png" alt-text="iOS theming":::  |
+| :::image type="content" source="../media/mobile-ui/android-color.png" alt-text="android theming"::: | :::image type="content" source="../media/mobile-ui/ios-dark.png" alt-text="iOS theming":::  |
 
 
 ## Screen size
@@ -67,7 +67,7 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 |Split mode | Tablet mode|
 |---------|---------|
-| :::image type="content" source="../media/mobile-ui/meet_splitscreen.png" alt-text="split screen"::: |  :::image type="content" source="../media/mobile-ui/tablet_landscape.png" alt-text="tablet mode"::: |
+| :::image type="content" source="../media/mobile-ui/meet-splitscreen.png" alt-text="split screen"::: |  :::image type="content" source="../media/mobile-ui/tablet-landscape.png" alt-text="tablet mode"::: |
 
 ## Recommended Architecture
 
