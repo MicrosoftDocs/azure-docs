@@ -33,7 +33,7 @@ sections:
 
       - question: Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
         answer: |
-          Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-enclavenodes-aks-get-started.md).
+          Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-enclave-nodes-aks-get-started.md).
 
       - question: Can I run Windows Nodes and windows containers with ACC?
         answer: |
@@ -48,7 +48,7 @@ sections:
           DCSv2/DCsv3 SKUs. More about [DCSv2](../virtual-machines/dcv2-series.md) and [DCSv3](../virtual-machines/dcv3-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)      
       - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
         answer: |
-          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclavenodes-aks-get-started.md).
+          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclave-nodes-aks-get-started.md).
           
        
       - question: What Ubuntu version and VM generation is supported? 
@@ -65,7 +65,7 @@ sections:
           
       - question: Can I provision AKS with DCSv2/DCSv3 Node Pools through Azure portal? 
         answer: |
-          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclavenodes-aks-get-started.md).
+          Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclave-nodes-aks-get-started.md).
           
    
       - question: What Ubuntu version and VM generation is supported?
@@ -132,7 +132,7 @@ sections:
  
       - question: Do I have to mount the driver volumes in my deployment yaml?
         answer: |
-          No. Product provides ACC Add On that includes the (confcom) will help you with this. Read more on the deployment details [here](confidential-enclavenodes-aks-get-started.md).  
+          No. Product provides ACC Add On that includes the (confcom) will help you with this. Read more on the deployment details [here](confidential-enclave-nodes-aks-get-started.md).  
                   
      
       - question: Can we change the current Intel SGX DCAP diver version on AKS? 

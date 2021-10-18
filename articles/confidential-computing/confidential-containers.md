@@ -37,7 +37,7 @@ Confidential containers are fully supported on AKS and enabled through Azure Par
 
 Below is the overall process for taking existing containers and running them confidentially on AKS.
 
-![The confidential container conversion](./media/confidential-containers/confidential-containers-deploy-process.jpg)
+![The confidential container conversion](./media/confidential-containers/confidential-containers-deploy-steps.jpg)
 
 ## Partner Enablers
 > [!NOTE]
@@ -96,7 +96,7 @@ Have questions with your implementation or want to become an enabler? Send an em
 
 ## Reference Links
 
-[Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started)
+[Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
 
 [Microsoft Azure Attestation](../attestation/overview.md)
 

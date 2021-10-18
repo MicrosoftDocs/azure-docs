@@ -5,7 +5,7 @@ author: agowdamsft
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 11/1/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
 ---
@@ -24,7 +24,7 @@ Features of confidential computing nodes include:
 - Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 
 > [!NOTE]
-> DCsv2/DCsv3 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions]((virtual-machine-solutions-sgx.md). DCsv3 VM's are currently in preview in limited regions. Please refer to above mentioned page for details. 
+> DCsv2/DCsv3 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md). DCsv3 VM's are currently in preview in limited regions. Please refer to above mentioned page for details. 
 
 
 ## Prerequisites
