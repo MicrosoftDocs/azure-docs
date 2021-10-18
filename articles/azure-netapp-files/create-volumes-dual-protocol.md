@@ -62,7 +62,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 * The LDAP with extended groups feature supports the dual protocol of both [NFSv3 and SMB] and [NFSv4.1 and SMB] with the Unix security style. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for more information. 
 
-* If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you should use the **LDAP Search Scope** option on the Active Directory Connections page to avoid "access denied" errors on Linux clients for Azure NetApp Files. See [Configure ADDS LDAP with extended groups](configure-ldap-extended-groups.md#ldap-search-scope) for details.
+* If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you should use the **LDAP Search Scope** option on the Active Directory Connections page to avoid "access denied" errors on Linux clients for Azure NetApp Files. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for more information.
 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
 

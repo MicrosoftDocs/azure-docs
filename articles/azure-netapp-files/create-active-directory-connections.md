@@ -213,10 +213,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * **LDAP over TLS**   
-        See [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md) for details about this option.
+        See [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md) for information about this option.
 
     * **User DN**, **Group DN**, and **Group Membership Filter**   
-        See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for details about these options.
+        See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
     * **Security privilege users**   <!-- SMB CA share feature -->   
         You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
