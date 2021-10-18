@@ -2561,6 +2561,8 @@
         href: miro-provisioning-tutorial.md
       - name: monday.com
         href: mondaycom-provisioning-tutorial.md
+      - name: MX3 Diagnostics
+        href: mx3-diagnostics-connector-provisioning-tutorial.md  
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
     - name: N - S
