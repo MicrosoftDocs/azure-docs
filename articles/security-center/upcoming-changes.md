@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/10/2021
+ms.date: 10/13/2021
 ms.author: memildin
 
 ---
@@ -15,7 +15,7 @@ ms.author: memildin
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Security Center. It describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Security Center. The page describes planned modifications to the product that might impact things like your secure score or workflows.
 
 If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
 
@@ -29,6 +29,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | November 2021| 
 | [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | November 2021    |
+| [Changes to a security alert from Azure Defender for Storage](#changes-to-a-security-alert-from-azure-defender-for-storage)  | November 2021    |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | Q1 2022    |
 |||
 
@@ -119,7 +120,7 @@ Security Center includes multiple recommendations for improving the management o
     |---------|---------|---------|
     |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        | Unchanged|
     |Name     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions        |
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices).|
     |Related policy     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |
     |||
 
@@ -127,12 +128,31 @@ Security Center includes multiple recommendations for improving the management o
     |---------|---------|---------|
     |Assessment key     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Unchanged|
     |Name     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices).|
     |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
     |||
  
 
 
+
+
+### Changes to a security alert from Azure Defender for Storage
+
+**Estimated date for change:** November 2021
+
+One of the preview alerts provided by Azure Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
+
+**The alert type is changing too.**
+
+- Before the change, the alert was:<br>
+    "Preview - Anonymous scan of public storage containers"<br>(Storage.Blob_ContainerAnonymousScan)
+
+- From this change, there'll be two recommendations:
+
+    - "Open storage containers discovered by external scanning tool or script"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - "Successful discovery of open storage containers by external scanning script or tool"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+More details of these alerts will be published when the change is released.
 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases

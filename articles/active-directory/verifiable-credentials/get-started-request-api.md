@@ -1,10 +1,10 @@
 ---
-title: How to call the Request Service REST API
+title: How to call the Request Service REST API (preview)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue and verify using the Request Service REST API
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -14,7 +14,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application
 ---
 
-# Request Service REST API (Preview)
+# Request Service REST API (preview)
 
 Azure Active Directory verifiable credentials Request Service REST API allows you to issue and verify verifiable credentials using the Azure AD Verifiable Credentials Service. This article shows you how to start using the Request Service REST API.
 
@@ -178,7 +178,7 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 To issue, or verify a verifiable credential, follow these steps:
 
-1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](https://TBD), or your tenant name.
+1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your **tenant ID**, or your tenant name.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request

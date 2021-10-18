@@ -33,7 +33,7 @@ There are some PaaS limitations that are introduced in SQL Managed Instance and 
 
 Most of these features are architectural constraints and represent service features.
 
-Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [release notes page](../database/doc-changes-updates-release-notes.md).
+Temporary known issues that are discovered in SQL Managed Instance and will be resolved in the future are described in [What's new?](doc-changes-updates-release-notes-whats-new.md).
 
 ## Availability
 
@@ -556,5 +556,6 @@ SQL Managed Instance places verbose information in error logs. There are many in
 
 - For more information about SQL Managed Instance, see [What is SQL Managed Instance?](sql-managed-instance-paas-overview.md)
 - For a features and comparison list, see [Azure SQL Managed Instance feature comparison](../database/features-comparison.md).
-- For release updates and known issues state, see [SQL Managed Instance release notes](../database/doc-changes-updates-release-notes.md)
+- For release updates, see [What's new?](doc-changes-updates-release-notes-whats-new.md).
+- For issues, workarounds, and resolutions, see [Known issues](doc-changes-updates-known-issues.md).
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](instance-create-quickstart.md).

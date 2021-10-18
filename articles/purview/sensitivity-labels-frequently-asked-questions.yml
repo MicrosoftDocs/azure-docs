@@ -58,7 +58,7 @@ sections:
           |**Definition**| Classifications are regular expressions or patterns that can help identify data types that exist inside an asset. | Sensitivity labels are tags that allow organizations to categorize data based on business impact, while abstracting the type of data from the user. |
           |**Examples**| Social Security Number, Drive license number, Bank account number, etc. | Highly confidential, Confidential, General, Public, etc. |
           | **Scope** | The scope of classifications applied to an asset is limited to the Purview account where the classifications were applied. If the data moves to an asset managed by another Purview account, classifications applied in the original location are not visible in the new location. | Sensitivity labels applied on an asset travel with the data no matter where the data goes. For example, this means that sensitivity labels applied to a file in Microsoft 365 are automatically visible and remain applied to the file, even if it moves to Azure, SharePoint, or Teams. |
-          | **Scan Process** | Scanning an asset in Azure Purview looks for both system-defined and user-defined (custom) classifications in your data. If found, classifications are added in the Purview catalog for the scanned asset. | If you have sensitivity labels extended to Azure Purview and auto-labeling rules defined, scanning an asset in Purview applies the labels to assets in the catalog based on the classifications found in the scan. |
+          | **Scan Process** | Scanning an asset in Azure Purview looks for both system-defined and user-defined (custom) classifications in your data. If found, classifications are added in the Purview catalog for the scanned asset. | If you have sensitivity labels extended to Azure Purview and autolabeling rules defined, scanning an asset in Purview applies the labels to assets in the catalog based on the classifications found in the scan. |
           | **Authoring environment** | Custom classifications and classification rules can be created in the Azure Purview studio. You can also create custom classifications in Microsoft 365. However, we do not yet support importing them to Purview. | Manage sensitivity labels using the [Microsoft 365 compliance center](/microsoft-365/compliance/create-sensitivity-labels). |
           | **Assignment Limits** | Assets can have no classifications, or one or more classifications assigned. | Each asset can have only one sensitivity label. |
           | **Asset application workflow** | You can use Purview to manually add or modify classifications that are assigned to an asset. | In Purview, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in Purview is not currently supported. | 
@@ -68,20 +68,54 @@ sections:
       - question: Are classifications in Purview and Sensitive Information Types (SITs) in Microsoft 365 the same thing? 
         answer: While classifications and SITs are fundamentally the same things, classifications are an Azure Purview concept and SITs are a Microsoft 365 concept. Both classifications and SITs are used by their respective services to identify the type of data found in an asset. 
 
-      - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my auto-labeling rules for database columns. Can I use this custom SIT in Azure Purview? 
+      - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my autolabeling rules for database columns. Can I use this custom SIT in Azure Purview? 
         answer: |
           No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) from Microsoft 365 are not supported in Azure Purview at this time. Azure Purview currently only supports Microsoft 365 [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).</br></br>
     
   - name: Labeling capabilities in Azure Purview
     questions:
-      
+      - question: How can I determine if consent has been granted to extend labeling to Purview?
+        answer: |
+          Only compliance administrators, global administrators of the tenant, or a custom role that has access to the [Set-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-policyconfig) cmdlet can [enable labels for Azure Purview](how-to-automatically-label-your-content.md). To verify whether an administrator has extended labeling to Purview, connect to Exchange Online PowerShell and run the [Get-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/get-policyconfig) cmdlet.  For example:
+          
+          ~~~powershell
+          Get-PolicyConfig | format-list Purview*
+          ~~~
+
+          When labeling has been extended to Purview, you'll see **True** for the **PurviewLabelConsent** parameter and a timestamp indicating when consent was activated and an **ObjectId** of who activated consent.
+
+          ~~~output
+          PurviewLabelConsent        : True
+          PurviewLabelConsentCaller  : d8675309-1111-2222-3333-1234567890ab
+          PurviewLabelConsentTime    : 9/28/2021 6:04:45 PM
+          PurviewLabelConsentDetails : {"Consent":true,"Caller":"d8675309-1111-2222-3333-1234567890ab","Time":"9/28/2021 6:04:45 PM"}
+          ~~~
+
+          When labeling has not been extended, you'll see False for **PurviewLabelConsent** like the example below:
+          
+          ~~~output
+          PurviewLabelConsent        : False
+          PurviewLabelConsentCaller  : 
+          PurviewLabelConsentTime    : 
+          PurviewLabelConsentDetails :
+          ~~~
+
+          This is different than auditing the action of adding Purview to the scope of a sensitivity label. That activity can be found in the unified audit logs. For example,
+          
+          ~~~powershell
+          Search-UnifiedAuditLog -Operations "Set-Label" -StartDate 10/05/2021 -EndDate 10/16/2021
+          ~~~
+
+          For more information, see [Search the audit log](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) in the Microsoft 365 compliance center.
+
+
       - question: Which data sources can I apply sensitivity labels to in Azure Purview? 
         answer: |
           You can apply sensitivity labels to all the data sources that can be scanned in Azure Purview. For more information, see [Supported data types for sensitivity labels in Azure Purview](create-sensitivity-label.md#supported-data-sources). 
           
       - question: Can I manually label an asset, or manually modify or remove a label in Azure Purview? 
         answer: |
-          Azure Purview supports automatic labeling only. Labels are automatically applied to assets in Azure Purview based on the classifications found on the assets and the auto-labeling rules for the labels. 
+          Azure Purview supports automatic labeling only. Labels are automatically applied to assets in Azure Purview based on the classifications found on the assets and the autolabeling rules for the labels. 
           
           Purview does not currently support manually applying a label, modifying, or removing a label from an asset. 
 
