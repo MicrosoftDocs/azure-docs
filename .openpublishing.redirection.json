@@ -46512,6 +46512,11 @@
       "source_path_from_root": "/articles/azure-monitor/app/how-do-i.md",
       "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/web-sites-integrate-with-vnet.md",
+      "redirect_url": "/azure/app-service/overview-vnet-integration",
+      "redirect_document_id": false
     }
   ]
 }
