@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 09/22/2021
+ms.date: 10/18/2021
 zone_pivot_groups: iot-develop-toolset
 
 #- id: iot-develop-toolset
@@ -475,7 +475,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. If a **Tool not Found** dialog appears, select **connect SAM E54 board**, and then select **OK**.
 
-1. It may take a few minutes for the program to download and start running. Once the program has successfully downloaded and is running, you'll see the following status in the MPLAB **Output** pane.
+1. It may take a few minutes for the program to download and start running. Once the program has successfully downloaded and is running, you'll see the following status in the MPLAB X IDE **Output** pane.
 
     ```output
     Programming complete
@@ -613,7 +613,10 @@ If you experience issues building the device code, flashing the device, or conne
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-For help debugging the application, see the selections under **Help** in IAR.  
+For help debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+For help debugging the application, see the selections under **Help** in **MPLAB X IDE**.  
 :::zone-end
 
 ## Clean up resources
