@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a serverless Apache Spark GPU pool'
 description: Create a serverless Apache Spark GPU pool using the Azure portal by following the steps in this guide. 
 services: synapse-analytics 
-author: nidutta 
+author: Niharikadutta 
 ms.service: synapse-analytics 
 ms.topic: quickstart 
 ms.subservice: spark
 ms.date: 10/18/2021 
-ms.author: nidutta  
+ms.author: Niharikadutta  
 ---
 
 # Quickstart: Create a new serverless Apache Spark GPU pool using the Azure portal
