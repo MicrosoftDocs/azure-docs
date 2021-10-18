@@ -163,7 +163,7 @@
         href: just-in-time-access-usage.md
     - name: Use the integrated Microsoft Defender for Endpoint license
       displayName: ATP, mdatp, wdatp, mde, mdfe
-      href: security-center-wdatp.md
+      href: integration-defender-for-endpoint.md
     - name: Define lists of safe applications for machines
       displayName: aac, whitelist, allowlist, reviewgroup, adaptive application controls
       href: adaptive-application-controls.md

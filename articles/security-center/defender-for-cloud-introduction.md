@@ -107,7 +107,7 @@ Security Center's threat protection includes fusion kill-chain analysis, which a
 
 ### Integration with Microsoft Defender for Endpoint
 
-Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md)
+Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)
 
 
 ### Protect PaaS
@@ -216,7 +216,7 @@ Use the advanced protection tiles in the Azure Defender dashboard to monitor and
 
 Azure Defender includes vulnerability assessment for your virtual machines and container registries at no extra cost. Some of the scanners are powered by Qualys but you don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. 
 
-If you've enabled the [integration with Microsoft Defender for Endpoint](security-center-wdatp.md) you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+If you've enabled the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
 Review the findings from these vulnerability scanners and respond to them all from within Security Center. This brings Security Center closer to being the single pane of glass for all of your cloud security efforts.
 

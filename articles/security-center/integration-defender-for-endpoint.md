@@ -57,7 +57,7 @@ By integrating Defender for Endpoint with Defender for Cloud, you'll benefit fro
 
 - **Single pane of glass**. The Defender for Cloud portal pages display Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
-    :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/integration-defender-for-endpoint/microsoft-defender-security-center.png":::
 
 ## What are the requirements for the Microsoft Defender for Endpoint tenant?
 
@@ -99,7 +99,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/enable-integration-with-edr.png" alt-text="Enable the integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
 
@@ -119,14 +119,14 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
 1. Select **Integrations**. You'll know that the integration is enabled, if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
 
-    :::image type="content" source="./media/security-center-wdatp/integration-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/integration-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
 
     > [!NOTE]
     > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
 
     With this preview, a new button, **Enable for Linux machines**, has been added below this checkbox:
 
-    :::image type="content" source="./media/security-center-wdatp/deploy-to-linux.png" alt-text="The preview introduces a button to manually control when to deploy Defender for Endpoint for Linux":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/deploy-to-linux.png" alt-text="The preview introduces a button to manually control when to deploy Defender for Endpoint for Linux":::
 
 1. To add your Linux machines to your integration
 
@@ -134,7 +134,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     1. Select **Save**.
     1. In the confirmation prompt, verify the information and select **Enable** if you're happy to continue. 
 
-    :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirming the integration between Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/enable-for-linux-result.png" alt-text="Confirming the integration between Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
 
     Microsoft Defender for Cloud will:
 
@@ -220,7 +220,7 @@ For endpoints running Windows:
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
 
     If the command is successful, you'll see a new alert on the Microsoft Defender for Cloud dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
 1. To review the alert in Defender for Cloud, go to **Security alerts** > **Suspicious PowerShell CommandLine**.

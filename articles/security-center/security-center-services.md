@@ -20,7 +20,7 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc-enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
+|[Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
@@ -44,7 +44,7 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 
 | **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Azure Defender required**       |
 |---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------:|
-| [Microsoft Defender for Endpoint integration](security-center-wdatp.md)                                                   | ✔                                                                                                               | -                                    | ✔                              | Yes                              |
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                                   | ✔                                                                                                               | -                                    | ✔                              | Yes                              |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                         | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                               |
 | [Fileless security alerts](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | Yes                               |
 | [Network-based security alerts](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
@@ -136,7 +136,7 @@ By default, the AV component is **disabled** to avoid clashes with other AV soft
 | - [Docker host hardening](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
 | - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Not Available                  | Not Available |
 | - [Regulatory compliance dashboard & reports](./security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
-| - [Microsoft Defender for Endpoint deployment and integrated license](./security-center-wdatp.md)                                                         | GA             | GA                             | Not Available |
+| - [Microsoft Defender for Endpoint deployment and integrated license](./integration-defender-for-endpoint.md)                                                         | GA             | GA                             | Not Available |
 | - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                      | GA             | Not Available                  | Not Available |
 | - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  | Not Available |
 |                                                                                                                                                           |                |                                |               |

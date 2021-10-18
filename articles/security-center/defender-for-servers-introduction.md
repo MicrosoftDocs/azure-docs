@@ -23,14 +23,14 @@ For Linux, Azure Defender collects audit records from Linux machines by using au
 
 The threat detection and protection capabilities provided with Microsoft Defender for servers include:
 
-- **Integrated license for Microsoft Defender for Endpoint** - Microsoft Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
+- **Integrated license for Microsoft Defender for Endpoint** - Microsoft Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](integration-defender-for-endpoint.md).
 
     When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn more about Microsoft Defender for Endpoint.
 
     > [!IMPORTANT]
     > Security Center’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
     >
-    > We're currently offering the sensor for Linux machines in preview. Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+    > We're currently offering the sensor for Linux machines in preview. Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 - **Vulnerability assessment tools for machines** - Microsoft Defender for servers includes a choice of  vulnerability discovery and management tools for your machines. From Security Center's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
 

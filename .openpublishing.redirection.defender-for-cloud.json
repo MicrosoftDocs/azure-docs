@@ -50,5 +50,10 @@
             "redirect_url": "/azure/security-center/enable-enhanced-security",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-wdatp.md",
+            "redirect_url": "/azure/security-center/integration-defender-for-endpoint",
+            "redirect_document_id": false
+        },
     ]
 }

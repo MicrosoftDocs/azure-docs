@@ -58,7 +58,7 @@ Also, our global team of security researchers constantly monitor the threat land
 - [Can I still get cluster protections without the Log Analytics agent?](#can-i-still-get-cluster-protections-without-the-log-analytics-agent)
 - [Does AKS allow me to install custom VM extensions on my AKS nodes?](#does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes)
 - [If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?](#if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too)
-- [Does Microsoft Defender for Kubernetes support AKS with VMSS nodes?](#does-azure-defender-for-kubernetes-support-aks-with-vmss-nodes)
+- [Does Microsoft Defender for Kubernetes support AKS with VMSS nodes?](#does-microsoft-defender-for-kubernetes-support-aks-with-vmss-nodes)
 
 ### Can I still get cluster protections without the Log Analytics agent?
 

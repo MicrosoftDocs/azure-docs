@@ -1,6 +1,6 @@
 ---
-title: Setting up and responding to alerts from Azure Defender for open-source relational databases
-description: Learn how to configure Azure Defender for open-source relational databases to detect anomalous database activities indicating potential security threats to the database.
+title: Setting up and responding to alerts from Microsoft Defender for open-source relational databases
+description: Learn how to configure Microsoft Defender for open-source relational databases to detect anomalous database activities indicating potential security threats to the database.
 author: memildin
 ms.author: memildin
 ms.date: 06/17/2021
@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ---
-# Enable Azure Defender for open-source relational databases and respond to alerts
+# Enable Microsoft Defender for open-source relational databases and respond to alerts
 
-Azure Defender detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
+Microsoft Defender detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
 
-To get alerts from the Azure Defender plan you'll first need to enable it as [shown below](#enable-enhanced-security).
+To get alerts from the Microsoft Defender plan you'll first need to enable it as [shown below](#enable-enhanced-security).
 
-Learn more about this Azure Defender plan in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
+Learn more about this Microsoft Defender plan in [Introduction to Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
-## Enable Azure Defender
+## Enable enhanced security
 
 1. From [the Azure portal](https://portal.azure.com), open the configuration page of the database server you want to protect.
 
-1. From the security menu on the left, select **Security Center**.
+1. From the security menu on the left, select **Microsoft Defender for Cloud**.
 
-1. If Azure Defender isn't enabled, you'll see a button as shown in the following screenshot. Select **Enable Azure Defender for [Database type]** (for example, "Azure Defender for MySQL") and select **Save**.
+1. If enhanced security isn't enabled, you'll see a button as shown in the following screenshot. Select **Enable Azure Defender for [Database type]** (for example, "Azure Defender for MySQL") and select **Save**.
 
     :::image type="content" source="media/defender-for-databases-usage/enable-defender-for-mysql.png" alt-text="Enable Azure Defender for MySQL." lightbox="media/defender-for-databases-usage/enable-defender-for-mysql.png":::
 
@@ -38,25 +38,25 @@ Learn more about this Azure Defender plan in [Introduction to Azure Defender for
 When Azure Defender is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
 
 - In the Azure portal:
-    - **Azure Defender security alerts page** - Shows alerts for all resources protected by Azure Defender in the subscriptions you've got permissions to view.
-    - The resource's **Security Center** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable Azure Defender](#enable-enhanced-security).
+    - **Microsoft Defender for Cloud's security alerts page** - Shows alerts for all resources protected by Azure Defender in the subscriptions you've got permissions to view.
+    - The resource's **Microsoft Defender for Cloud** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable enhanced security](#enable-enhanced-security).
 - In the inbox of whoever in your organization has been [designated to receive email alerts](security-center-provide-security-contact-details.md).  
 
 > [!TIP]
 > A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Azure Defender alerts page and get an overview of active threats detected on your databases.
 >
-> For detailed steps and the recommended method to respond to Azure Defender alerts, see [Respond to a security alert](tutorial-security-incident.md#respond-to-a-security-alert).
+> For detailed steps and the recommended method to respond to security alerts, see [Respond to a security alert](tutorial-security-incident.md#respond-to-a-security-alert).
 
 
 ### Respond to email notifications of security alerts
 
-Azure Defender sends email notifications when it detects anomalous database activities. The email includes details of the suspicious security event such as the nature of the anomalous activities, database name, server name, application name, and event time. The email also provides information on possible causes and recommended actions to investigate and mitigate any potential threats to the database.
+Defender for Cloud sends email notifications when it detects anomalous database activities. The email includes details of the suspicious security event such as the nature of the anomalous activities, database name, server name, application name, and event time. The email also provides information on possible causes and recommended actions to investigate and mitigate any potential threats to the database.
 
-1. Select the **View the full alert** link in the email to launch the Azure portal and show the alerts page, which provides an overview of active threats detected on the database.
+1. From the email, select the **View the full alert** link to launch the Azure portal and show the alerts page, which provides an overview of active threats detected on the database.
     
-    :::image type="content" source="media/defender-for-databases-usage/suspected-brute-force-attack-notification-email.png" alt-text="Azure Defender's email notification about a suspected brute force attack.":::
+    :::image type="content" source="media/defender-for-databases-usage/suspected-brute-force-attack-notification-email.png" alt-text="Defender for Cloud's email notification about a suspected brute force attack.":::
 
-    View active threats at the subscription level from within the Security Center portal pages:
+    View active threats at the subscription level from within the Defender for Cloud portal pages:
 
     :::image type="content" source="media/defender-for-databases-usage/db-alerts-page.png" alt-text="Active threats on one or more subscriptions are shown in Microsoft Defender for Cloud." lightbox="media/defender-for-databases-usage/db-alerts-page.png":::
 
@@ -71,6 +71,6 @@ Azure Defender sends email notifications when it detects anomalous database acti
 
 ## Next steps
 
-- [Automate responses to Security Center triggers](workflow-automation.md)
+- [Automate responses to Defender for Cloud triggers](workflow-automation.md)
 - [Stream alerts to a SIEM, SOAR, or ITSM solution](export-to-siem.md)
-- [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
+- [Suppress alerts from Defender for Cloud](alerts-suppression-rules.md)
