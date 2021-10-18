@@ -1,6 +1,6 @@
 ---
-title: Related GitHub Projects for Azure Healthcare APIs IoT connector
-description: List all Open Source (GitHub) repositories for IoT connector
+title: Related GitHub projects for IoT connector - Azure Healthcare APIs
+description: List all open-source (GitHub) repositories for IoT connector
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 10/18/2021
 ms.author: jasteppe
 ---
-# Open-Source Projects
+# Open-source projects
 
 Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with IoT connector. 
 
@@ -24,11 +24,14 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 * [Tools to help build Device and FHIR destination mappings](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing the device input data and transform it to FHIR resources. Developers can use this tool to edit and test Device mappings and FHIR destination mappings. Export them for uploading to IoT connector in the Azure portal.
 
-#### HealthKit and FHIR Integration
+#### HealthKit and FHIR integration
 
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): a Swift library that automates the export of Apple HealthKit Data to a FHIR service.
 
->[!div class="nextstepaction"]
->[Overview of Azure Healthcare APIs](../healthcare-apis-overview.md)
+## Next steps
+Learn how to deploy IoT connector in the Azure portal
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
+>[!div class="nextstepaction"]
+>[Deploy IoT connector managed service](deploy-iot-connector-in-azure.md)
+
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
