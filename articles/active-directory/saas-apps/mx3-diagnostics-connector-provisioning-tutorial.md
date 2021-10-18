@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [MX3 Portal](https://portal.mx3.app). Navigate to the SSO settings page by clicking on settings and then click on **Single sign-on** or click [here](https://portal.mx3.app/settings/sso).
 
-    ![MX3 SSO settings](media/mx3-provisioning/sso-settings.png)
+    ![MX3 SSO setting](media/mx3-provisioning/sso-settings.png)
 
 
 1. Scroll down to view the token. Copy and save the token. You will need it in the **Step 5**.
