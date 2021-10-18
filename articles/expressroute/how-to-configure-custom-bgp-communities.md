@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 10/18/2021
 ms.author: duau
 ---
 
@@ -21,8 +21,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
-
+  
 ### Working with Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
@@ -104,6 +103,10 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
     } 
     Get-AzVirtualNetwork @virtualnetwork
     ```
+
+> [!IMPORTANT]
+>  If your existing virtual network is already connected to an ExpressRoute circuit, you'll need to delete and recreate the ExpressRoute connection after applying the custom BGP community value. See [link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md), to learn how.
+>
 
 ## Next steps
 
