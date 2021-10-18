@@ -15,6 +15,9 @@ ms.date: 03/12/2019
 # Distributed transactions across cloud databases (preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
+> [!IMPORTANT]
+> Distributed transactions for Azure SQL Managed Instance are now generally available, while for Azure SQL Database are in preview.
+
 Elastic database transactions for Azure SQL Database and Azure SQL Managed Instance allow you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO.NET and integrate with the familiar programming experience using the [System.Transaction](/dotnet/api/system.transactions) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 Additionally, for Managed Instance distributed transactions are available in [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
 
@@ -26,14 +29,14 @@ In this document terms "distributed transactions" and "elastic database transact
 
 ## Common scenarios
 
-Elastic database transactions enable applications to make atomic changes to data stored in several different databases. The preview focuses on client-side development experiences in C# and .NET. A server-side experience (code written in stored procedures or server-side scripts) using [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) is available for Managed Instance only.
+Elastic database transactions enable applications to make atomic changes to data stored in several different databases. Both SQL Database and SQL Managed Instance support client-side development experiences in C# and .NET. A server-side experience (code written in stored procedures or server-side scripts) using [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) is available for SQL Managed Instance only.
 > [!IMPORTANT]
-> In preview, running elastic database transactions between Azure SQL Database and Azure SQL Managed Instance is not supported at the moment. Elastic database transaction can only span across set of SQL Databases or set of Managed Instances.
+> Running elastic database transactions between Azure SQL Database and Azure SQL Managed Instance is not supported. Elastic database transaction can only span across set of SQL Databases or set of Managed Instances.
 
 Elastic database transactions target the following scenarios:
 
 * Multi-database applications in Azure: With this scenario, data is vertically partitioned across several databases in SQL Database or Managed Instance such that different kinds of data reside on different databases. Some operations require changes to data, which is kept in two or more databases. The application uses elastic database transactions to coordinate the changes across databases and ensure atomicity.
-* Sharded database applications in Azure: With this scenario, the data tier uses the [Elastic Database client library](elastic-database-client-library.md) or self-sharding to horizontally partition the data across many databases in SQL Database or Managed Instance. One prominent use case is the need to perform atomic changes for a sharded multi-tenant application when changes span tenants. Think for instance of a transfer from one tenant to another, both residing on different databases. A second case is fine-grained sharding to accommodate capacity needs for a large tenant, which in turn typically implies that some atomic operations need to stretch across several databases used for the same tenant. A third case is atomic updates to reference data that are replicated across databases. Atomic, transacted, operations along these lines can now be coordinated across several databases using the preview.
+* Sharded database applications in Azure: With this scenario, the data tier uses the [Elastic Database client library](elastic-database-client-library.md) or self-sharding to horizontally partition the data across many databases in SQL Database or Managed Instance. One prominent use case is the need to perform atomic changes for a sharded multi-tenant application when changes span tenants. Think for instance of a transfer from one tenant to another, both residing on different databases. A second case is fine-grained sharding to accommodate capacity needs for a large tenant, which in turn typically implies that some atomic operations need to stretch across several databases used for the same tenant. A third case is atomic updates to reference data that are replicated across databases. Atomic, transacted, operations along these lines can now be coordinated across several databases.
   Elastic database transactions use two phase commit to ensure transaction atomicity across databases. It's a good fit for transactions that involve fewer than 100 databases at a time within a single transaction. These limits aren't enforced, but one should expect performance and success rates for elastic database transactions to suffer when exceeding these limits.
 
 ## Installation and migration
@@ -238,7 +241,10 @@ Use the following PowerShell cmdlets to manage cross-server communication relati
 
 ## Transactions across multiple servers for Azure SQL Managed Instance
 
-Distributed transactions are supported across different servers in Azure SQL Managed Instance. When transactions cross Managed Instance boundaries, the participating instances first need to be entered into a mutual security and communication relationship. This is done by creating a [Server Trust Group](../managed-instance/server-trust-group-overview.md), which can be done on Azure portal. If Managed Instances are not on the same Virtual network then [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) needs to be set up and Network security group inbound and outbound rules need to allow ports 5024 and 11000-12000 on all participating Virtual networks.
+> [!IMPORTANT]
+> Distributed transactions for Azure SQL Managed Instance are now generally available.
+
+Distributed transactions are supported across multiple Azure SQL Managed Instances. When transactions cross Managed Instance boundaries, the participating instances need to be in a mutual security and communication relationship. This is done by creating a [Server Trust Group](../managed-instance/server-trust-group-overview.md), which can be done on Azure portal or Azure PowerShell or CLI. If Managed Instances are not on the same Virtual network then [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) needs to be set up and Network security group inbound and outbound rules need to allow ports 5024 and 11000-12000 on all participating Virtual networks.
 
   ![Server Trust Groups on Azure Portal][3]
 
@@ -258,15 +264,15 @@ These DMVs are particularly useful:
 
 ## Limitations
 
-The following limitations currently apply to elastic database transactions in SQL Database:
+The following limitations currently apply to elastic database transactions in *SQL Database*:
 
 * Only transactions across databases in SQL Database are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of SQL Database can't participate in elastic database transactions. That means that elastic database transactions can't stretch across on premises SQL Server and Azure SQL Database. For distributed transactions on premises, continue to use MSDTC.
 * Only client-coordinated transactions from a .NET application are supported. Server-side support for T-SQL such as BEGIN DISTRIBUTED TRANSACTION is planned, but not yet available.
 * Transactions across WCF services aren't supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](/dotnet/api/system.servicemodel.protocolexception).
 
-The following limitations currently apply to distributed transactions in Managed Instance:
+The following limitations currently apply to distributed transactions in *Managed Instance*:
 
-* Only transactions across databases in Managed Instance are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of Azure SQL Managed Instance can't participate in distributed transactions. That means that distributed transactions can't stretch across on premises SQL Server and Azure SQL Managed Instance. For distributed transactions on premises, continue to use MSDTC.
+* Only transactions across databases in Managed Instances are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of Azure SQL Managed Instance can't participate in distributed transactions. That means that distributed transactions can't stretch across on premises SQL Server and Azure SQL Managed Instance. For distributed transactions on premises, continue to use MSDTC.
 * Transactions across WCF services aren't supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](/dotnet/api/system.servicemodel.protocolexception).
 * Azure SQL Managed Instance must be part of a [Server trust group](../managed-instance/server-trust-group-overview.md) in order to participate in distributed transaction.
 * Limitations of [Server trust groups](../managed-instance/server-trust-group-overview.md) affect distributed transactions.
