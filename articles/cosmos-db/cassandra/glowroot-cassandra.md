@@ -26,12 +26,12 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
     * Verify successful installation by running: `mvn --version`
 
 
-## PRunning Glowroot Test
+## Running Glowroot Tests
 Open a support ticket if you intend to run Glowroot tests against your Cassandra API account. Providing the subscription ID and account name where your Glowroot test will be running.
 > [!NOTE]
 > If you run into issues while running the test, running Glowroot test please reach out to us via our support team.
 
-## Running Glowroot Central Collector with CosmosDB endpoint
+### Running Glowroot Central Collector with CosmosDB endpoint
 Once the endpoint configuration has been completed. 
 1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot/wiki/Central-Collector-Installation#central-collector-installation)
 2. [In the glowroot-central.properties file, populate the following properties from your CosmosDB Cassandra endpoint]
