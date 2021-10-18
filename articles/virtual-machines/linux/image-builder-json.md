@@ -393,7 +393,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
      ], 
 ```
 
-OS support: Windows and Linux
+OS support: Windows
 
 Customize properties:
 

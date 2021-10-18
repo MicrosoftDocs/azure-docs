@@ -1,6 +1,6 @@
 ---
-title: Marketplace metering service authentication strategies | Azure Marketplace
-description: Metering service authentication strategies supported in the Azure Marketplace. 
+title: Marketplace metering service authentication strategies supported in Azure Marketplace
+description: Metering service authentication strategies supported in Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

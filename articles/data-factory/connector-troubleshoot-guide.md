@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -31,6 +31,7 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 - [Delimited text format](connector-troubleshoot-delimited-text.md)
 - [Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM](connector-troubleshoot-dynamics-dataverse.md)
 - [FTP, SFTP and HTTP](connector-troubleshoot-ftp-sftp-http.md)
+- [Hive](connector-troubleshoot-hive.md)
 - [Oracle](connector-troubleshoot-oracle.md)
 - [ORC format](connector-troubleshoot-orc.md)
 - [Parquet format](connector-troubleshoot-parquet.md)
