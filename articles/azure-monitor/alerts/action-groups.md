@@ -159,7 +159,7 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 
 An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
-To define an Event Hub action you must have previously created an Event Hub.
+To define an Event Hub action you must have previously created an Event Hub. From the Azure portal select the Event Hub action type.
 
 ![The "Add Event Hub action" dialog](./media/action-groups/action-group-event-hub.png)
 
