@@ -116,11 +116,30 @@ Please make sure all prerequisites are in place beofre following below steps for
 
 1. Enable PREDICT in spark session: Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
 
- ```PYSPARK
+```PYSPARK
    # Enable SynapseML predict
    spark.conf.set("spark.synapse.ml.predict.enabled","true")
 ```
 
+1. Bind model in spark session: Bind model with required inputs so that model can be referred in spark session and define alias so that while PREDICT call you can use same alias..
+
+```PYSPARK
+   # Bind model within Spark session
+   model = pcontext.bind_model(
+    return_types=RETURN_TYPES, 
+    runtime=RUNTIME, 
+    model_alias="<give_some_random_alias>", #This alias will be used in PREDICT call to refer this model
+    model_uri=ADLS_MODEL_URI, #In case of AML, it will be AML_MODEL_URI
+    aml_workspace=ws #This is only for AML. In case of ADLS, this parameter can be removed
+    ).register()
+```
+
+1. Enable PREDICT in spark session: Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
+
+ ```PYSPARK
+   # Enable SynapseML predict
+   spark.conf.set("spark.synapse.ml.predict.enabled","true")
+```
 1. Run the following code.
 
    > [!NOTE]
