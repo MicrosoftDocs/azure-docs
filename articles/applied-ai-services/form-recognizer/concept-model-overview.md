@@ -46,7 +46,7 @@ recommendations: false
 
 ### Layout
 
-The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from documents and returns a structured JSON data representation.
+The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
 ##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
 
@@ -57,7 +57,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ### Invoice
 
-The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation.
+The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
 
 ##### Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
@@ -68,7 +68,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 ### Receipt
 
-The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts; extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total; and returns a structured JSON data representation.
+The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
 
 ##### Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
@@ -79,7 +79,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 ### ID document
 
-The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents; extracts key information such as first name, last name, address, and date of birth; and returns a structured JSON data representation.
+The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
 ##### Sample U.S. Driver's License processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
@@ -90,7 +90,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 ### Business card
 
-The business card model analyzes and extracts key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
+The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and  extracts key information such as first name, last name, company name, email address, and phone number.
 
 ##### Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
 
@@ -133,8 +133,8 @@ The custom model analyzes and extracts data from forms and documents specific to
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
 > The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
