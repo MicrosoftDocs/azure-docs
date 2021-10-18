@@ -37,8 +37,8 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
     | Disks                            |  The test validates that all the device disks are connected and functional. This includes checking that the disks have the right firmware installed and Bitlocker is configured correctly. |
     | Power supply units (PSUs)                             |  The test validates all the power supplies are connected and working.  |
     | Network interfaces               | The test validates that all the network interfaces are connected on your device and that the network topology for that system is as expected.    |
-    | CPUs                             |  The test validates that CPUs on the system have the right configuration and that they are up and functional.    |
-    | Compute acceleration             | The test validates that the compute acceleration (depending on the device model this could be a GPU or VPU or FPGA) is functioning as expected in terms of both hardware and software.    |
+    | Central Processing Units (CPUs)                             |  The test validates that CPUs on the system have the right configuration and that they are up and functional.    |
+    | Compute acceleration             | The test validates that the compute acceleration is functioning as expected in terms of both hardware and software. Depending on the device model, the compute acceleration could be a Graphical Processing Unit (GPU) or Vision Processing Unit (VPU) or a Field Programmable Gate Array (FPGA).   |
     | Network settings                 |  This test validates the network configuration of the device.    |
     | Internet connectivity            |  This test validates the internet connectivity of the device.   |
     | System software                  |  This test validates that the system storage and software stack is functioning as expected.   |
