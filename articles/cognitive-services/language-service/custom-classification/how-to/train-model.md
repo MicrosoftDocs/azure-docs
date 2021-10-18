@@ -19,7 +19,7 @@ Training is the process where the model learns from your [tagged data](tag-data.
 
 > [!NOTE]
 > * The minimum number of tagged instances per class is 10. You can start with this and add more tagged instances if needed. Model performance depends on how distinct the classes in your documents are and how easily they can be differentiated from each other.
-> The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
+> * The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
 ## Data splits
 
