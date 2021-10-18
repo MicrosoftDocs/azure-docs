@@ -52,7 +52,6 @@ IPv6 for Azure VNet includes the following capabilities:
     - Optional multiple front-end configurations which enable a single load balancer to use multiple IPv6 public IP addresses- the same frontend protocol and port can be reused across frontend addresses.
     - Optional IPv6 ports can be reused on backend instances using the *Floating IP* feature of load-balancing rules 
     - Note: Load balancing does not perform any protocol translation (no NAT64). 
-    - Note: IPv6 can be load balanced only to the primary network interface (NIC) on Azure VMs. 
 - [Standard IPv6 internal Load Balancer](../../virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) support to create resilient multi-tier applications within Azure VNETs.   
 - Basic IPv6 public Load Balancer support for compatibility with legacy deployments
 - [Reserved IPv6 Public IP addresses and address ranges](public-ip-address-prefix.md) provide stable, predictable IPv6 addresses which ease filtering of your azure-hosted applications for your company and your customers.
