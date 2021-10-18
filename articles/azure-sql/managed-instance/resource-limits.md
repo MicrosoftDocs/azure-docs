@@ -5,13 +5,13 @@ description: This article provides an overview of the resource limits for Azure 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: service-overview
-ms.custom:
+ms.custom: references_regions
 ms.devlang: 
 ms.topic: reference
 author: vladai78
 ms.author: vladiv 
-ms.reviewer: mathoma, vladiv, sachinp
-ms.date: 10/15/2021
+ms.reviewer: mathoma, vladiv, sachinp, wiassaf
+ms.date: 10/18/2021
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ SQL Managed Instance has characteristics and resource limits that depend on the 
 > [!NOTE]
 > The Gen5 hardware generation is now **Standard Series**, and the newest hardware generations will be available in two **Premium Series** tiers.
 
-For information on legacy hardware generations, see [Legacy hardware generation details](#legacy-hardware-generation-details) later in this article. 
+For information on previous generation hardware generations, see [Previous generation hardware generation details](#previous-generation-hardware-generation-details) later in this article. 
 
 Hardware generations have different characteristics, as described in the following table:
 
@@ -38,7 +38,19 @@ Hardware generations have different characteristics, as described in the followi
 | **Number of vCores** | 4-80 vCores | 4-80 vCores | 4-40 vCores |
 | **Max memory (memory/core ratio)** | 5.1 GB per vCore<br/>Add more vCores to get more memory. | 7 GB per vCore | 13.6 GB per vCore |
 | **Max In-Memory OLTP memory** |  Instance limit: 0.8 - 1.65 GB per vCore | ||
-| **Max instance reserved storage** |   General Purpose: 8 TB, 16 TB (preview) depending on the number of cores<br/> Business Critical: 1 TB, 2 TB, or 4 TB depending on the number of cores | General Purpose: <br/> Business Critical:| General Purpose: <br/> Business Critical:|
+| **Max instance reserved storage** |   General Purpose: 8 TB, 16 TB depending on the number of cores<br/> Business Critical: 1 TB, 2 TB, 4 TB, 16 TB (preview) depending on the number of cores | General Purpose: <br/> Business Critical:| General Purpose: <br/> Business Critical:|
+
+### Regional support for 16TB max instance reserve storage size (preview)
+
+Support for the 16TB max instance reserve storage size (public preview) is currently available only in specific regions. Current preview availability for this feature is in these regions:
+
+| Region | **Premium Series** | **Premium Series - Memory Optimized** | 
+| Central US | Yes | Yes | 
+| East US 2 | Yes | Yes | 
+| North Europe | Yes | Yes | 
+| West Europe | Yes | Yes | 
+| West US | Yes | Yes | 
+| West US 2 | Yes | Yes | 
 
 ### In-memory OLTP available space 
 
@@ -166,13 +178,13 @@ The following table shows the **default regional limits** for supported subscrip
 
 If you need more instances in your current regions, send a support request to extend the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../database/quota-increase-request.md).
 
-## Legacy hardware generation details
+## Previous generation hardware generation details
 
-This section includes details on legacy hardware generations.
+This section includes details on previous generation hardware generations. Consider [moving your instance of SQL Managed Instance to Gen 5](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
-Gen4 is being phased out and is not available anymore for new deployments. Consider [moving your instance of SQL Managed Instance to Gen 5](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
+- Gen4 is being phased out and is not available for new deployments. 
 
-### Legacy hardware generation characteristics
+### Previous generation hardware generation characteristics
 
 |   | **Gen4** | 
 | --- | --- | 
@@ -182,7 +194,7 @@ Gen4 is being phased out and is not available anymore for new deployments. Consi
 | **Max In-Memory OLTP memory** |  Instance limit: 1-1.5 GB per vCore |
 | **Max instance reserved storage** |  General Purpose: 8 TB <br/>Business Critical: 1 TB | 
 
-### Legacy in-memory OLTP available space 
+### Previous generation in-memory OLTP available space 
 
 The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists limits of memory that can be used for In-memory OLTP objects.
 
@@ -193,7 +205,7 @@ The amount of In-memory OLTP space in [Business Critical](../database/service-ti
 | 24    vCores |  36 GB |
 
 
-### Legacy service tier characteristics
+### Previous generation service tier characteristics
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
