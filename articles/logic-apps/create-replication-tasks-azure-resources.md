@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 11/01/2021
 ---
 
 # Create replication tasks for Azure resources using Azure Logic Apps (preview)
