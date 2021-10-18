@@ -51,11 +51,12 @@ In this article, you will learn how to create an empty [lake database](./concept
     - You will land on the **New external table** page where you can update any settings related to the data format, as well as **Preview Data** to check if Synapse identified the file correctly.
     - When you are happy with the settings, select **Create**.
     - A new table with the name you selected will be added to the canvas, and the **Storage settings for table** section will show the file that you specified.
-10.   With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [Learn more about source control in Azure Synapse](././cicd/../../cicd/source-control.md) If you are using Synapse Live mode, you can click "publish".
+    
+10. With the database customized, it's now time to publish it. If you are using Git integration with your Synapse workspace, you must commit your changes and merge them into the collaboration branch. [Learn more about source control in Azure Synapse](././cicd/../../cicd/source-control.md) If you are using Synapse Live mode, you can click "publish".
     - Your database will be validated for errors before it is published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
-    ![Screenshot of the validation pane showing validation errors in the database](./media/create-empty-lake-database/validation-error.png)
-      
-      Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+    
+       ![Screenshot of the validation pane showing validation errors in the database](./media/create-empty-lake-database/validation-error.png)
+    - Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.Publishing will create your database schema in the Azure Synapse Metastore. This will allow the database and table objects to be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
 
 11. You have now created an empty lake database in Azure Synapse, and added tables to it using the **Custom** and **From data lake** options.
 
