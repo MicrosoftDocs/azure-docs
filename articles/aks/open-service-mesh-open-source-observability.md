@@ -28,7 +28,6 @@ In this tutorial, you will:
 > [!div class="checklist"]
 >
 > - Create and deploy a Prometheus instance
-> - Configure OSM to allow Prometheus scraping
 > - Update the Prometheus `Configmap`
 > - Create and deploy a Grafana instance
 > - Configure Grafana with the Prometheus datasource
@@ -103,29 +102,9 @@ For more information on running Prometheus, visit:
 https://prometheus.io/
 ```
 
-### Configure OSM to allow Prometheus scraping
-
-To ensure that the OSM components are configured for Prometheus scrapes, we'll want to check the **prometheus_scraping** configuration located in the osm-config config file. View the configuration with the following command:
-
-```azurecli-interactive
-kubectl get configmap -n kube-system osm-config -o json | jq '.data.prometheus_scraping'
-```
-
-The output of the previous command should return `true` if OSM is configured for Prometheus scraping. If the returned value is `false`, we will need to update the configuration to be `true`. Run the following command to turn **on** OSM Prometheus scraping:
-
-```azurecli-interactive
-kubectl patch configmap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
-```
-
-You should see the following output.
-
-```Output
-configmap/osm-config patched
-```
-
 ### Update the Prometheus Configmap
 
-The default installation of Prometheus will contain two Kubernetes `configmaps`. You can view the list of Prometheus `configmaps` with the following command.
+By default, Prometheus is set to scrape the OSM components. The default installation of Prometheus will contain two Kubernetes `configmaps`. You can view the list of Prometheus `configmaps` with the following command.
 
 ```azurecli-interactive
 kubectl get configmap | grep prometheus
