@@ -90,18 +90,18 @@ The IoT device registers a direct method `tunnelOpen`, where the body of the
 ## Implement the direct method `tunnelOpen`
 When the `tunnelOpen` direct method is invoked by Video Analyzer service, the application needs to do the following:
 
-1.	Get the available RTSP port(s) of the device
-1.	Compare the `localPort` value specified in the direct method call with the available ports
-   *	Return **BadRequest** if no match is found (see Error Responses section below)
+1. Get the available RTSP port(s) of the device
+1. Compare the `localPort` value specified in the direct method call with the available ports
+   * Return **BadRequest** if no match is found (see Error Responses section below)
 1. Open a TCP connection to "localhost:`localPort`"
-   *	Return **BadRequest** if the connection fails
-1.	Open a web socket connection to the `remoteEndpoint` (through a proxy if configured on the device)
-   *	Set the authorization header as "Bearer `remoteAuthorizationToken`"
-   *	Set the header "TunnelConnectionSource" with value "PnpDevice"
-   *	Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be make or model of the device.
-   *	Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
-1.	Return response (do not block)
-1.	Asynchronously connect the web socket tunnel
+   * Return **BadRequest** if the connection fails
+1. Open a web socket connection to the `remoteEndpoint` (through a proxy if configured on the device)
+   * Set the authorization header as "Bearer `remoteAuthorizationToken`"
+   * Set the header "TunnelConnectionSource" with value "PnpDevice"
+   * Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be the make or model of the device.
+   * Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
+1. Return response (do not block)
+1. Asynchronously connect the web socket tunnel
 
 Video Analyzer service will retry `tunnelOpen` requests on failure, so retries are not needed in the application.
 
