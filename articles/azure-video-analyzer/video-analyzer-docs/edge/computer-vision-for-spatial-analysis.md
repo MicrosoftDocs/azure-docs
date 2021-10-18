@@ -206,11 +206,8 @@ In your deployment template file:
 #### [Desktop machine](#tab/desktop-machine)
 Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are `avaedge` module, `rtspsim` module and our `spatialanalysis` module. 
 
-The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 #### [Azure VM with GPU](#tab/virtual-machine)
 Look for the deployment file in **/src/edge/deployment.spatialAnalysis.generic.template.json**. From the template, there are `avaedge` module, `rtspsim` module and our `spatialanalysis` module.
-
-The **BILLING** and **APIKEY** values should be replaced with those from the [Create the Computer Vision resource](#create-the-computer-vision-resource) step.
 
 ---
 
