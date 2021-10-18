@@ -578,7 +578,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 | | | | |
 -->
 
-## VMWare
+## VMware
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|

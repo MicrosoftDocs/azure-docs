@@ -1,6 +1,6 @@
 ---
 title: Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions | Microsoft Docs
-description: This article shows how customers can easily find and deploy data analysis tools packaged together with data connectors and other content.
+description: This article shows how customers can easily find and deploy data analysis tools, packaged together with data connectors and other content.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -23,13 +23,13 @@ ms.author: yelevin
 >
 > Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Sentinel Content hub provides access to Azure Sentinel out-of-the-box content and solutions, which are packed with content for for end-to-end product, domain, or industry needs.
+The Azure Sentinel Content hub provides access to Azure Sentinel out-of-the-box content and solutions, which are packed with content for end-to-end product, domain, or industry needs.
 
 This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use. 
 
 - Find your solutions in the Content hub based on their statuses, the content included, support, and more.
 
-- Install the solution in your workspace when find one that fits your organization's needs, and make sure to keep updating it with the latest changes.
+- Install the solution in your workspace when you find one that fits your organization's needs. Make sure to keep it updated with the latest changes.
 
 > [!TIP]
 > If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.

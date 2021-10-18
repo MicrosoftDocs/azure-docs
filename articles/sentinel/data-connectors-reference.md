@@ -13,7 +13,7 @@ ms.author: bagol
 
 # Find your Azure Sentinel data connector
 
-This article describes how to deploy data connectors in Azure Sentinel, listing all supported, out-of-the-box data connectors, together with links to generic deployment procedures and extra steps required for specific connectors.
+This article describes how to deploy data connectors in Azure Sentinel, listing all supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors.
 
 > [!TIP]
 > Some data connectors are deployed only via solutions. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md). You can also find other, community-built data connectors in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
@@ -38,7 +38,7 @@ This article describes how to deploy data connectors in Azure Sentinel, listing 
     > [!NOTE]
     > The **Azure service-to-service integration** data ingestion method links to three different sections of its article, depending on the connector type. Each connector's section below specifies the section within that article that it links to.
 
-1. When deploying a specific connector, choose the appropriate article linked to its **data ingestion method**, and use the information and additional guidance in the relevant section below to supplement the information in that article.
+1. When deploying a specific connector, choose the appropriate article linked to its **data ingestion method**, and use the information and extra guidance in the relevant section below to supplement the information in that article.
 
 > [!TIP]
 > - Many data connectors can also be deployed as part of an [Azure Sentinel solution](sentinel-solutions.md), together with related analytics rules, workbooks and playbooks. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
@@ -81,7 +81,7 @@ This process will give you three pieces of information for use when [deploying t
 The Agari connector uses an environment variable to store log access timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.
 
 1. In the Azure portal, navigate to **Function App**.
-1. In the **Function App** blade, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.
+1. In the **Function App** page, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.
 1. In the **System assigned** tab, set the **Status** to **On**.
 1. Select **Save**, and an **Azure role assignments** button will appear. Select it.
 1. In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**.
@@ -105,8 +105,8 @@ Configure Darktrace to forward Syslog messages in CEF format to your Azure works
 1. From the left-hand menu, select **Modules** and choose **Azure Sentinel** from the available **Workflow Integrations**.
 1. A configuration window will open. Locate **Azure Sentinel Syslog CEF** and select **New** to reveal the configuration settings, unless already exposed.
 1. In the **Server configuration** field, enter the location of the log forwarder and optionally modify the communication port. Ensure that the port selected is set to 514 and is allowed by any intermediary firewalls.
-1. Configure any alert thresholds, time offsets, or additional settings as required.
-1. Review any additional configuration options you may wish to enable that alter the Syslog syntax.
+1. Configure any alert thresholds, time offsets, or extra settings as required.
+1. Review any extra configuration options you may wish to enable that alter the Syslog syntax.
 1. Enable **Send Alerts** and save your changes.
 
 ## AI Vectra Detect (Preview)
@@ -133,7 +133,7 @@ From the Vectra interface, navigate to Settings > Notifications and choose Edit 
 
 You can select the **Test** button to force the sending of some test events to the log forwarder.
 
-For more information, refer to Cognito Detect Syslog Guide which can be downloaded from the resource page in Detect UI.
+For more information, see the Cognito Detect Syslog Guide, which can be downloaded from the resource page in Detect UI.
 
 ## Akamai Security Events (Preview)
 
@@ -143,7 +143,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | AkamaiSIEMEvent |
 | **Kusto function URL:** | https://aka.ms/sentinel-akamaisecurityevents-parser |
-| **Vendor documentation/<br>installation instructions** | [Configure SIEM integration](https://developer.akamai.com/tools/integrations/siem)<br>[Set up a CEF connector](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector). |
+| **Vendor documentation/<br>installation instructions** | [Configure Security Information and Event Management (SIEM) integration](https://developer.akamai.com/tools/integrations/siem)<br>[Set up a CEF connector](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector). |
 | **Supported by** | [Akamai](https://www.akamai.com/us/en/support/) |
 | | |
 
@@ -178,9 +178,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 1. **Configure Alsid to send logs to your Syslog server**
 
-    On your **Alsid for AD** portal, go to **System**, **Configuration** and then **Syslog**. From there you can create a new Syslog alert toward your Syslog server.
+    On your **Alsid for AD** portal, go to **System**, **Configuration**, and then **Syslog**. From there, you can create a new Syslog alert toward your Syslog server.
 
-    Once this is done, check that the logs are correctly gathered on your server in a separate file (to do this, you can use the *Test the configuration* button in the Syslog alert configuration in AFAD). If you used the Quickstart template, the Syslog server will by default listen on port 514 in UDP and 1514 in TCP, without TLS.
+    Once you've created a new Syslog alert, check that the logs are correctly gathered on your server in a separate file. For example, to check your logs, you can use the *Test the configuration* button in the Syslog alert configuration in AFAD. If you used the Quickstart template, the Syslog server will by default listen on port 514 in UDP and 1514 in TCP, without TLS.
 
 ## Amazon Web Services - CloudTrail
 
@@ -307,7 +307,7 @@ See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.m
 
 Before setting up the new Azure Activity log connector, you must disconnect the existing subscriptions from the legacy method.
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Azure Activity**, and then click the **Open connector page** button on the lower right.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Azure Activity**, and then select the **Open connector page** button on the lower right.
 
 1. Under the **Instructions** tab, in the **Configuration** section, in step 1, review the list of your existing subscriptions that are connected to the legacy method (so you know which ones to add to the new), and disconnect them all at once by clicking the **Disconnect All** button below.
 
@@ -503,7 +503,7 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available from the the [Check Point solution](sentinel-solutions-catalog.md#check-point)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>Available from the [Check Point solution](sentinel-solutions-catalog.md#check-point)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Log Exporter - Check Point Log Export](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) |
 | **Supported by** | [Check Point](https://www.checkpoint.com/support-services/contact-support/) |
@@ -553,10 +553,10 @@ You will only see the storage types that you actually have defined resources for
 ### Extra configuration for Cisco Firepower eStreamer
 
 1. **Install the Firepower eNcore client**  
-Install and configure the Firepower eNcore eStreamer client. For more information see the [full Cisco install guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
+Install and configure the Firepower eNcore eStreamer client. For more information, see the [full Cisco install guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
 
 1. **Download the Firepower Connector from GitHub**  
-Download the latest version of the Firepower eNcore connector for Azure Sentinel from the [Cisco GitHub repository](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector). If you plan on using python3 use the [python3 eStreamer connector](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector/tree/python3).
+Download the latest version of the Firepower eNcore connector for Azure Sentinel from the [Cisco GitHub repository](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector). If you plan on using python3, use the [python3 eStreamer connector](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector/tree/python3).
 
 1. **Create a pkcs12 file using the Azure/VM IP Address**  
 Create a pkcs12 certificate using the public IP of the VM instance in Firepower under **System > Integration > eStreamer**. For more information, see the [install guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049443).
@@ -565,7 +565,7 @@ Create a pkcs12 certificate using the public IP of the VM instance in Firepower 
 Copy the pkcs12 file from the FMC to the Azure/VM instance and run the test utility (./encore.sh test) to ensure a connection can be established. For more information, see the [setup guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049430).
 
 1. **Configure eNcore to stream data to the agent**  
-Configure eNcore to stream data via TCP to the Log Analytics Agent. This should be enabled by default. However, additional ports and streaming protocols can be configured depending on your network security posture. It is also possible to save the data to the file system. For more information, see [Configure eNcore](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049433).
+Configure eNcore to stream data via TCP to the Log Analytics Agent. This configuration should be enabled by default, but extra ports and streaming protocols can be configured depending on your network security posture. It is also possible to save the data to the file system. For more information, see [Configure eNcore](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049433).
 
 ## Cisco ISE (Preview)
 
@@ -783,7 +783,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 1. Select the **ADD NEW** button and add a **native user**.
 1. Create a new user for the API account. **Optional:** Select a **Home group** other than **All** to limit what detections are ingested.
 1. Under the **Permission Sets** tab, assign the **Enterprise Inspector reviewer** permission set.
-1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
+1. Sign out of the administrator account and log into the console with the new API credentials for validation, then sign out of the API account.
 
 ## ESET Security Management Center (SMC) (Preview)
 
@@ -824,7 +824,7 @@ In order to easily recognize Eset data, push it to a separate table and parse at
 
 In the **/etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.conf** file, modify the `match oms.**` section to send data as API objects, by changing the type to `out_oms_api`.
     
-The following is an example of the full `match oms.**` section:
+The following  code is an example of the full `match oms.**` section:
 
 ```bash
     <match oms.** docker.**>
@@ -1101,7 +1101,7 @@ end
 Add http://localhost:8081/ under **Authorized redirect URIs** while creating [Web application credentials](https://developers.google.com/workspace/guides/create-credentials#web).
 
 1. [Follow the instructions](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) to obtain the credentials.json.
-1. To get the Google pickle string run [this python script](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (in the same path as credentials.json).
+1. To get the Google pickle string, run [this python script](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (in the same path as credentials.json).
 1. Copy the pickle string output in single quotes and save. It will be needed for deploying the Function App.
 
 ## HYAS (Preview)
@@ -1188,7 +1188,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) <br><br>Only available after installing the [Lookout Mobile Threat Defense for Azure Sentinel](sentinel-solutions-catalog.md#lookout) solution |
 | **Log Analytics table(s)** | Lookout_CL |
 | **API credentials** | <li>Lookout Application Key |
-| **Vendor documentation/<br>installation instructions** | <li>[Installation Guide](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) (login required)<li>[API Documentation](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) (login required)<li>[Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security) |
+| **Vendor documentation/<br>installation instructions** | <li>[Installation Guide](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) (sign-in required)<li>[API Documentation](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) (sign-in required)<li>[Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security) |
 | **Supported by** | [Lookout](https://www.lookout.com/support) |
 | | |
 
@@ -1476,7 +1476,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Supported by** | [Perimeter 81](https://support.perimeter81.com/) |
 | | |
 
-## Ping Identiy
+## Ping Identity
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1551,7 +1551,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 1. Select the **New** drop-down menu and select **Users**.
 1. Create a username and password for the API account.
 1. In the **User Roles** tab, ensure the account role is set to **Manager** and access is allowed to **GUI** and **API**
-1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
+1. Sign out of the administrator account and sign into the console with the new API credentials for validation, then sign out of the API account.
 1. Log back into the console using an administrator account and modify the API accounts User Roles, removing access to **GUI**.
 1. Save all changes.
 
@@ -1575,7 +1575,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 1. Select the **New** drop-down menu and select **Users**.
 1. Create a username and password for the API account.
 1. In the **User Roles** tab, ensure the account role is set to **Manager** and access is allowed to **GUI** and **API**
-1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
+1. Sign out of the administrator account and log into the console with the new API credentials for validation, then sign out of the API account.
 1. Log back into the console using an administrator account and modify the API accounts User Roles, removing access to **GUI**.
 1. Save all changes.
 
@@ -1583,12 +1583,12 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 **Configure the host.json file**
 
-Due to the potentially large amount of Qualys host detection data being ingested, it can cause the execution time to surpass the default Function App timeout of five (5) minutes. Increase the default timeout duration to the maximum of ten (10) minutes, under the Consumption Plan, to allow more time for the Function App to execute.
+Due to the potentially large amount of Qualys host detection data being ingested, it can cause the execution time to surpass the default Function App timeout of five minutes. Increase the default timeout duration to the maximum of 10 minutes, under the Consumption Plan, to allow more time for the Function App to execute.
 
-1. In the Function App, select the Function App Name and select the **App Service Editor** blade.
+1. In the Function App, select the Function App Name and select the **App Service Editor** page.
 1. Select **Go** to open the editor, then select the **host.json** file under the **wwwroot** directory.
 1. Add the line `"functionTimeout": "00:10:00",` above the `managedDependancy` line.
-1. Ensure **SAVED** appears on the top right corner of the editor, then exit the editor.
+1. Ensure **SAVED** appears on the top-right corner of the editor, then exit the editor.
 
 If a longer timeout duration is required, consider upgrading to an [App Service Plan](../azure-functions/functions-scale.md).
 
@@ -1681,7 +1681,7 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 
 Follow the instructions to obtain the credentials.
 
-1. Log in to the SentinelOne Management Console with Admin user credentials.
+1. Sign-in to the SentinelOne Management Console with Admin user credentials.
 1. In the Management Console, select **Settings**.
 1. In the **SETTINGS** view, select **USERS**
 1. Select **New User**.
@@ -2000,7 +2000,7 @@ Follow the instructions to obtain the credentials.
 
 ### Configure Webhooks
 
-1. Log in to the Workplace with Admin user credentials.
+1. Sign in to the Workplace with Admin user credentials.
 1. In the Admin panel, select **Integrations**.
 1. In the **All integrations** view, select **Create custom integration**.
 1. Enter the name and description and select **Create**.
@@ -2009,7 +2009,7 @@ Follow the instructions to obtain the credentials.
 
 ### Add Callback URL to Webhook configuration
 
-1. Open your Function App's page, go to the **Functions** list, select **Get Function URL** and copy it.
+1. Open your Function App's page, go to the **Functions** list, select **Get Function URL**, and copy it.
 1. Go back to **Workplace from Facebook**. In the **Configure webhooks** panel, on each Tab set the **Callback URL** as the Function URL you copied in the last step, and the **Verify token** as the same value you received during automatic deployment, or entered during manual deployment.
 1. Select **Save**.
 
@@ -2026,15 +2026,15 @@ Follow the instructions to obtain the credentials.
 
 ## Zimperium Mobile Thread Defense (Preview)
 
-Zimperium Mobile Threat Defense data connector connects the Zimperium threat log to Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This connector gives you more insight into your organization's mobile threat landscape and enhances your security operation capabilities. For more instructions, see the .
+Zimperium Mobile Threat Defense data connector connects the Zimperium threat log to Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This connector gives you more insight into your organization's mobile threat landscape and enhances your security operation capabilities.
 
-For more information about connecting to Azure Sentinel, see [Connect Zimperium to Azure Sentinel](#zimperium-mobile-thread-defense-preview).
+For more information, see [Connect Zimperium to Azure Sentinel](#zimperium-mobile-thread-defense-preview).
 
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>[Configure and connect Zimperium MTD](#configure-and-connect-zimperium-mtd) |
 | **Log Analytics table(s)** | ZimperiumThreatLog_CL<br>ZimperiumMitigationLog_CL |
-| **Vendor documentation/<br>installation instructions** | [Zimperium customer support portal](https://support.zimperium.com/) (login required) |
+| **Vendor documentation/<br>installation instructions** | [Zimperium customer support portal](https://support.zimperium.com/) (sign-in required) |
 | **Supported by** | [Zimperium](https://www.zimperium.com/support) |
 | | |
 
@@ -2092,7 +2092,7 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 
 ### Extra configuration for Zscaler Private Access
 
-Follow the configuration steps below to get Zscaler Private Access logs into Azure Sentinel. Refer to the [Azure Monitor Documentation](../azure-monitor/agents/data-sources-json.md) for more details on these steps. Zscaler Private Access logs are delivered via Log Streaming Service (LSS). Refer to [LSS documentation](https://help.zscaler.com/zpa/about-log-streaming-service) for detailed information.
+Follow the configuration steps below to get Zscaler Private Access logs into Azure Sentinel. For more information, see the [Azure Monitor Documentation](../azure-monitor/agents/data-sources-json.md). Zscaler Private Access logs are delivered via Log Streaming Service (LSS). Refer to [LSS documentation](https://help.zscaler.com/zpa/about-log-streaming-service) for detailed information.
 
 1. Configure [Log Receivers](https://help.zscaler.com/zpa/configuring-log-receiver). While configuring a Log Receiver, choose **JSON** as **Log Template**.
 1. Download config file [zpa.conf](https://aka.ms/sentinel-zscalerprivateaccess-conf).
@@ -2104,7 +2104,7 @@ Follow the configuration steps below to get Zscaler Private Access logs into Azu
 1. Sign in to the server where you have installed the Azure Log Analytics agent.
 1. Copy zpa.conf to the /etc/opt/microsoft/omsagent/`workspace_id`/conf/omsagent.d/ folder.
 1. Edit zpa.conf as follows:
-    1. Specify the port which you have set your Zscaler Log Receivers to forward logs to (line 4)
+    1. Specify the port that you have set your Zscaler Log Receivers to forward logs to (line 4)
     1. Replace `workspace_id` with real value of your Workspace ID (lines 14,15,16,19)
 1. Save changes and restart the Azure Log Analytics agent for Linux service with the following command:
 
