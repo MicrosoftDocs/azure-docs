@@ -8,7 +8,9 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud using a remote device adapter
 
-Azure Video Analyzer cloud can directly ingest video from RTSP cameras available on the public Internet. Video from existing legacy RTSP cameras in private networks can also be ingested with the aid of Video Analyzer Edge acting as a transparent gateway. This approach is useful in the following scenarios:
+Azure Video Analyzer allows users to connect cameras directly to the cloud in order to capture and record video, using cloud pipelines.
+Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets via RTSP protocol. This approach is useful in the following scenarios:
+
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently

@@ -1,12 +1,12 @@
 ---
-title: How to manage devices using the Azure portal | Microsoft Docs
+title: Manage devices in Azure AD using the Azure portal
 description: Learn how to use the Azure portal to manage devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 10/14/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,15 +17,26 @@ ms.collection: M365-identity-device-management
 ---
 # Manage device identities using the Azure portal
 
-Azure AD provides you with a central place to manage device identities.
+Azure AD provides you with a central place to manage device identities and monitor related event information.
 
-The **All devices** page enables you to:
+[![Devices overview in the Azure portal](./media/device-management-azure-portal/devices-azure-portal.png)](./media/device-management-azure-portal/devices-azure-portal.png#lightbox)
+
+You can access the devices overview using the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Devices**.
+
+From the devices overview you can find the total device number, stale devices, noncompliant devices, and unmanaged devices. You can also quickly access links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
+
+Device counts on the overview page don't update in real-time, changes should be reflected every few hours.
+
+From there you can go to **All devices** to:
 
 - Identify devices, including:
    - Devices that have been joined or registered in Azure AD.
    - Devices deployed using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
    - Printers using [Universal Print](/universal-print/fundamentals/universal-print-getting-started)
-- Perform device identity management tasks like enable, disable, delete, or manage.
+- Complete device identity management tasks like enable, disable, delete, or manage.
    - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices have limited management options in Azure AD. They must be managed from their respective admin interfaces.
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
@@ -34,42 +45,16 @@ The **All devices** page enables you to:
 
 [![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
-You can access the devices portal using the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Devices**.
-
-## Manage devices
-
-There are two locations to manage devices in Azure AD:
-
-- **Azure portal** > **Azure Active Directory** > **Devices**
-- **Azure portal** > **Azure Active Directory** > **Users** > Select a user > **Devices**
-
-Both options allow administrators the ability to:
-
-- Search for devices.
-- See device details including:
-    - Device name
-    - Device ID
-    - OS and Version
-    - Join type
-    - Owner
-    - Mobile device management and compliance
-    - BitLocker recovery key
-- Perform device identity management tasks like, enable, disable, delete, or manage.
-   - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices have limited management options in Azure AD. They must be managed from their respective admin interfaces.
-
 > [!TIP]
 > - Hybrid Azure AD Joined Windows 10 devices do not have an owner. If you are looking for a device by owner and didn't find it, search by the device ID.
 >
-> - If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.yml).
+> - If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the **Registered** column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.yml).
 >
 > - For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices where MDM is marked **Microsoft Intune**. If the device is not enrolled with Microsoft Intune, the "Manage" option will be greyed out.
+If you have rights to manage devices in Intune, you can manage devices where Mobile Device Management is marked **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the "Manage" option will be greyed out.
 
 ### Enable or disable an Azure AD device
 
@@ -99,11 +84,11 @@ To delete a device, you have two options:
 >    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
 >    - Represents a non-recoverable activity and is not recommended unless it is required.
 
-If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](manage-stale-devices.md) before deleting any devices.
+If a device is managed by another management authority, like Microsoft Intune, make sure that the device has been wiped or retired before you delete the device. Review how to [manage stale devices](manage-stale-devices.md) before deleting any devices.
 
 ### View or copy device ID
 
-You can use a device ID to verify the device ID details on the device or using PowerShell during troubleshooting. To access the copy option, click the device.
+You can use a device ID to verify the device ID details on the device or using PowerShell during troubleshooting. To access the copy option, select the device.
 
 ![View a device ID](./media/device-management-azure-portal/35.png)
   
@@ -113,7 +98,7 @@ You can view and copy the BitLocker keys to allow users to recover encrypted dri
 
 ![View BitLocker keys](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
-To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
+To view or copy the BitLocker keys, you need to be the owner of the device, or have one of the following roles:
 
 - Cloud Device Administrator
 - Global Administrator
@@ -141,11 +126,11 @@ To enable the preview filtering functionality in the **All devices** view:
 1. Browse to **Azure Active Directory** > **Devices**.
 1. Select the banner that says, **Try out the new devices filtering improvements. Click to enable the preview.**
 
-You will now have the ability to **Add filters** to your **All devices** view.
+You can now **Add filters** to your **All devices** view.
 
 ### Download devices (preview)
 
-Cloud device administrators, Intune administrators, and Global administrators can use the **Download devices (preview)** option to export a CSV file of devices based on any applied filters. If no filters are applied to the list then all devices will be exported. An export may run for a period of up to one hour depending on the 
+Cloud device administrators, Intune administrators, and Global administrators can use the **Download devices (preview)** option to export a CSV file of devices based on any applied filters. If no filters are applied to the list, all devices will be exported. An export task may run for up to one hour depending on the selections.
 
 The exported list includes the following device identity attributes:
 
@@ -181,7 +166,7 @@ This option is a premium edition capability available through products such as A
 > - We recommend using ["Register or join devices" user action](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing multi-factor authentication for joining or registering a device. 
 > - You must set this setting to **No** if you are using Conditional Access policy to require multi-factor authencation. 
 
-- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100 and if you enter a value above 100, Azure AD will set it to 100. You can also use Unlimited value to enforce no limit other than existing quota limits.
+- **Maximum number of devices** - This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If a user reaches this quota, they can't add more devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100 and if you enter a value above 100, Azure AD will set it to 100. You can also use Unlimited value to enforce no limit other than existing quota limits.
 
 > [!NOTE]
 > **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
@@ -220,12 +205,11 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Target
 - Initiated By (Actor)
 
-In addition to the filters, you can search for specific entries.
+You can also search for specific entries.
 
 :::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot of audit data filter controls, with category, activity resource type, activity, date range, target, and actor fields and a search field." border="false":::
 
 ## Next steps
 
-[How to manage stale devices in Azure AD](manage-stale-devices.md)
-
-[Enterprise State Roaming](enterprise-state-roaming-overview.md)
+- [How to manage stale devices in Azure AD](manage-stale-devices.md)
+- [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
