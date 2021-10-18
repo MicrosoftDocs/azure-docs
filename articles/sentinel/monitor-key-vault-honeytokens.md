@@ -61,7 +61,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
     curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s honeytokens
     ```
 
-1. Select **To open a cloud shell, click here** to open a CloudShell tab, and then run the command displayed.
+1. Select **To open a cloud shell, click here** to open a Cloud Shell tab, and then run the command displayed.
 
     The script you run creates an Azure AD (AAD) function app, which will deploy your honeytokens. The script output includes the AAD app ID and secret.
 
@@ -73,13 +73,13 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 1. On the **Azure Functions** tab, define the following values:
 
-    **Key vault configuration**: The following fields define values for the key vault where you'll store your AAD app's ID and secret. This is not the key vault where you'll be deploying honeytokens.
+    **Key vault configuration**: The following fields define values for the key vault where you'll store your AAD app's ID and secret. These fields do not *not* define the the key vault where you'll be deploying honeytokens.
 
     |Field  |Description  |
     |---------|---------|
     |**Service plan**     |   Select whether you want to use a **Premium** or **Consumption** plan for your function app. For more information, see TBD.      |
     |**Should a new KeyVault be created**     |    Select **new** to create a new key vault for your application client ID and secret, or **existing** to use an already existing key vault for these values.   |
-    |**KeyVault name**     | Enter the name of the key vault you want to use to store your client ID and secret. This name must globally unique.      |
+    |**KeyVault name**     | Enter the name of the key vault you want to use to store your client ID and secret. This name must be globally unique.      |
     |**KeyVault resource group**     | Enter the name of the resource group where you want to store the key vault for the client ID and secret.      |
     |**KeyVault secret name**     |   Enter the name of the secret used to store the  client secret.      |
 
@@ -108,7 +108,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
 1. Select **View saved workbook** > **Add to trusted**. Infrastructure is deployed in your key vaults to allow for the honeytoken deployment.
 
-1. In the workbook's **Key Vault** tab, view the key vaults ready to deploy honeytokens and those with honeytokens already deployed.
+1. In the workbook's **Key Vault** tab, view the key vaults ready to deploy honeytokens and any key vaults with honeytokens already deployed.
 
     In the **Is Monitored by SOC** column, a green checkmark :::image type="icon" source="media/honeytokens/checkmark.png" border="false"::: indicates that the key vault already has honeytokens. A red x-mark :::image type="icon" source="media/honeytokens/xmark.png" border="false"::: indicates that the key vault does not yet have honeytokens.
 
@@ -148,7 +148,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
 ---
 
-You may need to wait a few minutes as the data is populated. Refresh the page to show any additional key vaults that now have honeytokens deployed.
+You may need to wait a few minutes as the data is populated. Refresh the page to show any new key vaults that now have honeytokens deployed.
 
 If you need help, you can contact one of your SOC admins using the contact information shown at the bottom of the page.
 
@@ -159,23 +159,23 @@ If you need help, you can contact one of your SOC admins using the contact infor
 
 1. Download the public key for one of your honeytokens.
 
-    To do this, go to Azure Key Vault, select one of your honeytokens and then select **Download public key**. This action creates a KeyGet log that should trigger a watchlist item in Azure Sentinel.
+    To download the key, go to Azure Key Vault, select one of your honeytokens, and then select **Download public key**. This action creates a KeyGet log that should trigger a watchlist item in Azure Sentinel.
 
-1. Back in Azure Sentinel, on the **Watchlists** page, select the **My watchlists** tab, select then **HoneyTokens** watchlist.
+1. Back in Azure Sentinel, on the **Watchlists** page, select the **My watchlists** tab, and then select the **HoneyTokens** watchlist.
 
     In the HoneyTokens column, you should see the honeytoken key name of public key you downloaded.
 
-1. Go to the **Azure Sentinel Analytics** page. On the **Active rules** tab, filter for `HoneyTokens` to view all related analytics rules that will detect any suspicious honeytoken access. For example, these will be called **HoneyTokens: KeyVault HoneyTokens key accessed**.
+1. Go to the **Azure Sentinel Analytics** page. On the **Active rules** tab, filter for `HoneyTokens` to view all related analytics rules that will detect any suspicious honeytoken access. For example, these rules will be called **HoneyTokens: KeyVault HoneyTokens key accessed**.
 
 1. Go to the **Incidents** page, where you should see a new incident, named **HoneyTokens: KeyVault HoneyTokens key accessed**.
 
-    Select the incident to view its details, such as the key operation performed, the user who access the honeytoken key, and the name of the compromised key vault.
+    Select the incident to view its details, such as the key operation performed, the user who accessed the honeytoken key, and the name of the compromised key vault.
 
     > [!TIP]
     > Any access or operation with the honeytoken keys and secrets will generate incidents that you can investigate in Azure Sentinel. Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
     >
 
-1. View honeytoken activity in the **HoneyTokensIncident** workbook. In the Azure Sentinel **Workbooks** page search for and open the **HoneyTokensIncident** workbook.
+1. View honeytoken activity in the **HoneyTokensIncident** workbook. In the Azure Sentinel **Workbooks** page, search for and open the **HoneyTokensIncident** workbook.
 
     This workbook displays all honeytoken-related incidents, the related entities, compromised key vaults, key operations performed, and accessed HoneyTokens.
 
@@ -187,7 +187,7 @@ We recommend that you deploy honeytokens in as many key vaults as possible to en
 
 However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens.
 
-1. Obtain the the link to your **SOCHTManagement** workbook. In Azure Sentinel, navigate to the **Workbooks** > **My workbooks** > **SOCHTManagement** workbook, and select **Copy link** in the toolbar.
+1. Obtain the link to your **SOCHTManagement** workbook. In Azure Sentinel, navigate to the **Workbooks** > **My workbooks** > **SOCHTManagement** workbook, and select **Copy link** in the toolbar.
 
 1. Share the workbook link with your SOC teams.
 
@@ -202,7 +202,7 @@ However, many SOC teams don't have access to key vaults. To help cover this gap,
     - A new initiative, named **HoneyTokens**
     - Two new policies, named **KeyVault HoneyTokens** and **KVReviewTag**.
 
-1. Assign the **KVReviewTag** policy to the scope you need. This adds the **KVReview** tag and a value of **ReviewNeeded** to all key vaults in the selected scope.
+1. Assign the **KVReviewTag** policy to the scope you need. This assignment adds the **KVReview** tag and a value of **ReviewNeeded** to all key vaults in the selected scope.
 
     Make sure to select the **Remediation** checkbox to apply the tag to existing key vaults.
 
@@ -220,128 +220,6 @@ An audit recommendation, with a link to the **SOCHTManagement** workbook, is add
 
 For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
 
-
-
-<!-->
-You may want to do this using a custom Microsoft Defender for Cloud recommendation. For example:
-
-1. Deploy the following policies to your Azure subscription, providing the link to your SOCHTManagement workbook.
-
-    To get the link, open the workbook, select **Share Report** and then copy the link.
-
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-        "parameters": {
-        "ManagementWorkbookLink": {
-          "type": "string",
-          "metadata": {
-            "description": "The link to the honeytokens management workbook"
-          }
-        }
-      },
-      "resources": [
-        {
-          "type": "Microsoft.Authorization/policyDefinitions",
-          "name": "KVReviewTag",
-          "apiVersion": "2019-09-01",
-          "properties": {
-            "displayName": "KVReviewTag",
-            "policyType": "Custom",
-            "description": "Add a KVReview tag on all KVs in the scope",
-            "metadata": {
-              "category": "Deception"
-            },
-            "mode": "Indexed",
-            "policyRule": {
-              "if": {
-                    "field": "type",
-                    "equals": "Microsoft.KeyVault/vaults"
-                  },
-              "then": {
-                "effect": "modify",
-                "details": {
-                  "roleDefinitionIds": [
-                    "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-                  ],
-                  "operations": [
-                    {
-                      "operation": "add",
-                      "field": "tags[KVReview]",
-                      "value": "ReviewNeeded"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": "Microsoft.Authorization/policyDefinitions",
-          "name": "KeyVault HoneyTokens",
-          "apiVersion": "2019-09-01",
-          "properties": {
-            "displayName": "KeyVault HoneyTokens",
-            "policyType": "Custom",
-            "mode": "All",
-            "description": "Install honey-tokens in KeyVault resources",
-            "metadata": {
-              "securityCenter": {
-                "RemediationDescription": "[concat('1.  <a href=\"',parameters('ManagementWorkbookLink'),'\">Click</a> to install honeytokens in Key Vaults<br>2.  Change the value of the KVReview tag on this KeyVault to Reviewed')]",
-                "Severity": "Medium"
-              },
-              "category": "Deception"
-            },
-            "parameters": {},
-            "policyRule": {
-              "if": {
-                "allOf": [
-                  {
-                    "field": "type",
-                    "equals": "Microsoft.KeyVault/vaults"
-                  },
-                  {
-                    "field": "tags[KVReview]",
-                    "exists": "true"
-                  },
-                  {
-                    "value": "tags[KVReview]",
-                    "notEquals": "ReviewNeeded"
-                  }
-                ]
-              },
-              "then": {
-                "effect": "audit"
-              }
-            }
-          }
-        },
-        {
-          "type": "Microsoft.Authorization/policySetDefinitions",
-          "apiVersion": "2019-09-01",
-          "name": "HoneyTokens",
-          "dependsOn": [
-            "[resourceId('Microsoft.Authorization/policyDefinitions', 'KeyVault HoneyTokens')]"
-          ],
-          "properties": {
-            "displayName": "HoneyTokens",
-            "description": "Deploy HoneyTokens into Azure resources",
-            "policyType": "Custom",
-            "metadata": {
-              "category": "Deception"
-            },
-            "policyDefinitions": [
-              {
-                "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'KeyVault HoneyTokens')]"
-              }
-            ]
-          }
-        }
-      ]
-    }
-    ```
--->
 
 
 <!--this needs to be clarified w hani - can we do it either in policy or in defender? when would we want to use one or the other?-->
