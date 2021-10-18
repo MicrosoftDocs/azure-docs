@@ -4,7 +4,7 @@ description: How to set up naming policy for Microsoft 365 groups in Azure Activ
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

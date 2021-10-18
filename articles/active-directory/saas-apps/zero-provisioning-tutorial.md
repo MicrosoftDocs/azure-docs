@@ -25,7 +25,7 @@ This tutorial describes the steps you need to perform in both Zero and Azure Act
 > * Remove users in Zero when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Zero.
 > * Provision groups and group memberships in Zero.
-> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Chaos (recommended).
+> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Zero (recommended).
 
 
 ## Prerequisites
@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Zero to support provisioning with Azure AD
 
-1. first you one need to have a Zero administrator account.And then contact [Zero support](https://help.teamzero.com/) to get your SCIM secret token. This value will be entered in the Secret Token field in the Provisioning tab of your Zero application in the Azure portal.
+1. Have your ZERO account administrator contact [Zero support](https://help.teamzero.com/) to get your SCIM secret token This value will be entered in the Secret Token field in the Provisioning tab of your Zero application in the Azure portal.
 1. The tenant url is: `https://api.teamzero.com/scim/v2/`. This value will be entered in the Tenant URL field in the Provisioning tab of your Zero application in the Azure portal.
 
 ## Step 3. Add Zero from the Azure AD application gallery

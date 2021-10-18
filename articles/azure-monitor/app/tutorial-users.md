@@ -1,12 +1,8 @@
 ---
 title: Understand your customers in  Application Insights | Microsoft Docs
 description: Tutorial on using Application Insights to understand how customers are using your application.
-
 ms.topic: tutorial
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/30/2021
-
 ms.custom: mvc
 ---
 
