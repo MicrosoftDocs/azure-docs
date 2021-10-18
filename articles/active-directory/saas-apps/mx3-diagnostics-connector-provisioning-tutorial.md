@@ -23,7 +23,7 @@ ms.author: Thwimmer
 This tutorial describes the steps you need to perform in both MX3 Diagnostics Connector and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [MX3 Diagnostics Connector](https://www.mx3diagnostics.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in MX3 Diagnostics Connector.
 > * Remove users in MX3 Diagnostics Connector when they do not require access anymore.
