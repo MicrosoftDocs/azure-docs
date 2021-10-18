@@ -36,7 +36,7 @@ items:
   - name: How-to guides
     items:
     - name: Project requirements
-      href: custom-classification/how-to/use-azure-resources.md
+      href: custom-classification/how-to/project-requirements.md
     - name: Data selection and schema design
       href: custom-classification/concepts/recommended-practices.md
       displayName: Best practices
@@ -49,7 +49,7 @@ items:
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
     - name: Deploy a model and call the runtime API to classify text
-      href: custom-classification/how-to/run-inference.md
+      href: custom-classification/how-to/call-api.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -82,7 +82,7 @@ items:
   - name: How-to guides
     items:
     - name: Use Azure resources
-      href: custom-classification/how-to/use-azure-resources.md
+      href: custom-classification/how-to/project-requirements.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Train a model

@@ -19,7 +19,7 @@ Before you can use custom text classification, you will need to create a Text An
 > [!IMPORTANT]
 > To get started quickly, we recommend creating a new Azure Text Analytics resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
 >
-> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/project-requirements.md#optional-using-a-pre-existing-azure-resource)  for information.
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/project-requirements.md#using-a-pre-existing-azure-resource)  for information.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
 

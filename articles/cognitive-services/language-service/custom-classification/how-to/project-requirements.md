@@ -129,7 +129,7 @@ To set proper roles on your storage account:
 
 * You can only use `.txt`. files for custom text classification. If your data is in other format, you can use [Cognitive Services Language Utilities tool](https://aka.ms/CognitiveServicesLanguageUtilities) to parse your file to `.txt` format.
 
-* You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](tag-data.md#data-tag-json-file-format). 
+* You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](../concepts/data-formats.md). 
 
 >[!TIP]
 > Review the [recommended practices](..//concepts/recommended-practices.md) for data selection and preparation.
