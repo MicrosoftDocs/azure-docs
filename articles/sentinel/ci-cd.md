@@ -193,7 +193,6 @@ For more information, see:
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Azure Sentinel](hunting.md)
-- [Use Jupyter notebooks to hunt for security threats](notebooks.md)
 - [Use Azure Sentinel watchlists](watchlists.md)
 - [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md)
 
