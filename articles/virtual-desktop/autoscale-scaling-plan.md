@@ -20,9 +20,16 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 - Session limits per session host
 
 >[!NOTE]
->Windows Virtual Desktop (classic) doesn't support the autoscale feature. It also doesn't support scaling ephermal disks.
+>Windows Virtual Desktop (classic) doesn't support the autoscale feature. It also doesn't support scaling ephemeral disks.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
+
+>[!IMPORTANT]
+>The preview version of this feature currently has the following limitations:
+>
+> - You can only use autoscale in the Azure public cloud.
+> - You can only configure autoscale with the Azure portal.
+> - You can only deploy the scaling plan in the US and Europe regions.
 
 ## Requirements
 
