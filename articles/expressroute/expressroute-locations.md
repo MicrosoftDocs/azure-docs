@@ -262,7 +262,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
 | **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
-| **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
+| **[IVedha Inc](https://ivedha.com/cloud-services)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Level 3 Communications |Amsterdam |
 | **LGA Telecom** |Equinix |Singapore|
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong SAR 
