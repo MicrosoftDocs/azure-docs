@@ -643,7 +643,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
    The Azure Resource Manager action is a single-authentication action, so the connection information pane shows a **Managed identity** list that automatically selects the managed identity that's currently enabled on the logic app resource. If you enabled a system-assigned managed identity, the **Managed identity** list selects **System-assigned managed identity**. If you had enabled a user-assigned managed identity instead, the list selects that identity instead.
 
-   If you're using a multiple-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Managed identity** option among other authentication types.
+   If you're using a multi-authentication trigger or action, such as Azure Blob Storage, the connection information pane shows an **Authentication type** list that includes the **Logic Apps Managed Identity** option among other authentication types.
 
    In this example, **System-assigned managed identity** is the only selection available.
 
@@ -693,7 +693,11 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 ## Logic app resource definition and connections that use a managed identity (Consumption)
 
-A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app resource. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
+A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app resource. At runtime, the Azure Logic Apps service checks whether any managed connector trigger and actions in the logic app workflow are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, Azure Logic Apps retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
+
+### [Consumption](#tab/consumption)
+
+In a **Logic App (Consummption)** resource, the connection configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
 
 This example shows what the configuration looks like when the logic app enables the system-assigned managed identity:
 
@@ -738,7 +742,39 @@ This example shows what the configuration looks like when the logic app enables 
 }
 ```
 
-During runtime, the Azure Logic Apps service checks whether any managed connector trigger and actions in the logic app workflow are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, Azure Logic Apps retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
+### [Standard](#tab/standard)
+
+In a **Logic App (Standard)** resource, the connection configuration is saved in the logic app resource or project's `connections.json` file, which contains a `managedApiConnections` JSON object that includes connection configuration information for each managed connector used in a workflow. For example, this connection information includes pointers to the connection's resource ID along with the managed identity properties, such as the resource ID, if the user-assigned identity is enabled.
+
+This example shows what the configuration looks like when the logic app enables the user-assigned managed identity:
+
+```json
+{
+    "managedApiConnections": {
+        "<connector-name>": {
+            "api": {
+                "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/<connector-name>"
+            },
+            "connection": {
+                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/<connection-name>"
+            },
+            "connectionRuntimeUrl": <connection-URL>,
+            "authentication": { // Authentication with APIHub
+                "type": "ManagedServiceIdentity"
+            },
+            "connectionProperties": {
+                "authentication": { //Authentication with the target resource
+                    "type": "ManagedServiceIdentity",
+                    "identity": "<user-assigned-identity>", // Optional
+                    "audience": "<resource-URL>"
+                }
+            }
+        }
+    }
+}
+```
+
+---
 
 <a name="arm-templates-connection-resource-managed-identity"></a>
 
@@ -784,7 +820,7 @@ When you disable the managed identity on your logic app resource, you remove the
 >
 > Try to avoid disabling the system-assigned identity as much as possible. If you want to remove 
 > the identity's access to Azure resources, remove the identity's role assignment from the target 
-> resource.If you delete your logic app resource, Azure automatically removes the managed identity 
+> resource. If you delete your logic app resource, Azure automatically removes the managed identity 
 > from Azure AD.
 
 The steps in this section cover using the [Azure portal](#azure-portal-disable) and [Azure Resource Manager template (ARM template)](#template-disable). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
