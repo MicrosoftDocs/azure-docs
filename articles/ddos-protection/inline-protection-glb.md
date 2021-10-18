@@ -25,7 +25,7 @@ Gateway Load Balancer is a SKU of Azure Load Balancer catered specifically for h
 
 With the capabilities of Gateway LB, you can deploy, scale, and manage NVAs with ease – chaining a Gateway LB to your public endpoint merely requires one click.  You can insert appliances for a variety of scenarios such as firewalls, advanced packet analytics, intrusion detection and prevention systems, or custom scenarios that suit your needs into the network path with Gateway LB. In scenarios with NVAs, it is especially important that flows are ‘symmetrical’ – this ensures sessions are maintained and symmetrical. Gateway LB maintains flow symmetry to a specific instance in the backend pool.
 
-For more details on Gateway Load Balancer refer to the [Gateway LB](http://aka.ms/gatewaylb) product and documentation. 
+For more details on Gateway Load Balancer refer to the [Gateway LB](https://aka.ms/gatewaylb) product and documentation. 
 
 ## Inline DDoS protection with Gateway LB and Partner NVAs
 
