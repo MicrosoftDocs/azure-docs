@@ -6,18 +6,18 @@ author: nidutta
 ms.service: synapse-analytics 
 ms.topic: quickstart 
 ms.subservice: spark
-ms.date: 10/15/2021 
+ms.date: 10/18/2021 
 ms.author: nidutta  
 ---
 
-# Quickstart: Create a new serverless Apache Spark GPU using the Azure portal
+# Quickstart: Create a new serverless Apache Spark GPU pool using the Azure portal
 
 An Apache Spark pool provides open-source big data compute capabilities where data can be loaded, modeled, processed, and distributed for faster analytic insight. Synapse now offers the ability to create Apache Spark pools that use GPUs on the backend, using open-source [RAPIDS libraries](spark/apache-spark-rapids-gpu.md) to run your Spark workloads on GPUs for accelerated processing.
 
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU pool in a Synapse workspace.
 
-> [!IMPORTANT]
-> Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
+> [NOTE]
+> Apache Spark on GPUs in Synapse Analytics is currently in Public Preview. These are all the regions this feature is currently available in: East US, East US2, West US2, West Europe.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
-3. Select **Next: additional settings** and review the default settings. Do not modify any default settings. Note that GPU pools can only run with Apache Spark 3.1.
+3. Select **Next: additional settings** and review the default settings. Do not modify any default settings. Note that GPU pools can only be created with Apache Spark 3.1.
     ![Screenshot that shows the "Create Apache Spark pool" page with the "Additional settings" tab selected.](media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-02.png)
 
 4. Select **Next: tags**. Don't add any tags.
@@ -87,8 +87,10 @@ If you want to delete the Apache Spark pool, do the following:
 1. Navigate to the Apache Spark pools blade in the workspace.
 2. Select the Apache Spark pool to be deleted (in this case, **contosospark**).
 3. Press **delete**.
+
  ![Listing of Apache Spark pools, with the recently created pool selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirm the deletion, and press **Delete** button.
+
  ![Confirmation dialog to delete the selected Apache Spark pool.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
 5. When the process completes successfully, the Apache Spark pool will no longer be listed in the workspace resources.
 
