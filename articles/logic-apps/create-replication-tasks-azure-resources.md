@@ -14,7 +14,9 @@ ms.date: 10/22/2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To reduce the impact that unpredictable events can have on your Azure resources, you can replicate content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource, which is hosted in single-tenant Azure Logic Apps. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+While maximum availability and reliability are top operational priorities for Azure services, many ways still exist for communication to stop due to networking or name resolution problems, errors, or temporary unresponsiveness. Such conditions aren't "disastrous" such that you'll want to abandon the regional deployment altogether as you might do in disaster recovery situation. However, the business scenario for some apps might become impacted by availability events that last no more than a few minutes or even seconds.
+
+To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over. Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource, which is hosted in single-tenant Azure Logic Apps. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 > [!NOTE]
 > Currently, [replication task templates](#replication-task-templates) are available for 
@@ -30,6 +32,13 @@ A replication task receives data, events, or messages from a source, moves that 
 
 Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, replication focuses on preserving the relative order of events where required by grouping related events with the same partition key and arranges messages with the same partition key sequentially in the same partition.
 
+To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
+
+- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs/event-hubs-federation-overview.md)
+- [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
+- [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
+- [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
+
 <a name="replication-task-templates"></a>
 
 ## Replication task templates
@@ -44,24 +53,24 @@ The following table lists the replication task templates currently available in 
 
 ## Replication tasks with Azure Logic Apps versus Azure Functions
 
+
+
 ### Replication topology for Event Hubs
 
 ![Conceptual diagram showing topology for replication task powered by a "Logic App (Standard)" workflow between Event Hubs instances.](media/create-replication-tasks-azure-resources/replication-topology-event-hubs.png)
 
-For more information about replication and federation in Azure Event Hubs with Azure Functions, review the following documentation:
+For information about replication and federation in Azure Event Hubs, review the following documentation:
 
-- [Multi-site and multi-region federation for Event Hubs](../event-hubs/event-hubs/event-hubs-federation-overview.md)
-- [Event replication tasks and applications with Azure Functions](../event-hubs/event-hubs-federation-replicator-functions.md)
+- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs/event-hubs-federation-overview.md)
 - [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
 
 ### Replication topology for Service Bus
 
 ![Conceptual diagram showing topology for replication task powered by "Logic App (Standard)" workflow between Service Bus queues.](media/create-replication-tasks-azure-resources/replication-topology-service-bus-queues.png)
 
-For more information about replication and federation in Azure Service Bus with Azure Functions, review the following documentation:
+For information about replication and federation in Azure Service Bus, review the following documentation:
 
-- [Message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
-- [Message replication tasks and applications](../service-bus-messaging/service-bus-federation-replicator-functions.md)
+- [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
 ## Naming conventions
@@ -297,6 +306,15 @@ If you change the underlying workflow for a replication task, your changes affec
    ![Screenshot showing the workflow's run details with the trigger's inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-updated-run-details-trigger-inputs.png)
 
 1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
+
+## Failover using replication tasks
+
+You can use replication tasks for disaster recovery and to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the source to the target and communicating with . and  or topic to the next, telling producers and/or consumers to use the secondary endpoint.
+
+For all failover scenarios, it is assumed that the required elements of the namespaces are structurally identical, meaning that queues and topics are identically named and that shared access signature rules and/or role-based access control rules are set up in the same way. You can create (and update) a secondary namespace by following the guidance for moving namespaces and omitting the cleanup step.
+
+To force producers and consumers to switch, you need to make the information about which namespace to use available for lookup in a location that is easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but we point out two in the following: DNS and file shares.
+
 
 ## Next steps
 
