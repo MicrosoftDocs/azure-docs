@@ -56,8 +56,12 @@
       href: concept-mfa-licensing.md
     - name: MFA for Office 365
       href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
+    - name: Operator assistance
+      href: concept-authentication-operator-assistance.md
     - name: FAQ
       href: multi-factor-authentication-faq.yml
+    - name: Operator assistance
+      href: concept-authentication-operator-assistance.md
   - name: Password protection
     items:
     - name: Combined password policy check 
