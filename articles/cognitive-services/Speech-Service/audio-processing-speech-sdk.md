@@ -70,7 +70,7 @@ auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
 
-#### [C++](#tab/java)
+#### [Java](#tab/java)
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -127,7 +127,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 
 This sample shows how to use MAS with a custom microphone geometry on a specified audio input device. In this example:
 * **Enhancement options** - The default enhancements will be applied on the input audio stream.
-* **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
+* **Custom geometry** - A custom microphone geometry for a 7-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
 * **Audio input** - The audio input is from a file, where the audio within the file is expected to be captured from an audio input device corresponding to the custom geometry specified. 
 
 #### [C#](#tab/csharp)
