@@ -132,12 +132,12 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 > [!NOTE]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
 
-## Install Azure DCAP Client for DC-series VMs
+## Install Azure DCAP Client
 
 > [!NOTE]
-> Trusted Hardware Identity Management (THIM) is a free Azure service that helps you manage the hardware identities of different Trusted Execution Environments (TEEs), including SGX. It fetches collateral from Intel Provisioning Certification Service (PCS) and caches it. The service also enforces minimum Trusted Compute Base (TCB) level as Azure security baseline, for attestation purposes.
+> Trusted Hardware Identity Management (THIM) is a free Azure service that helps you manage the hardware identities of different Trusted Execution Environments (TEEs). It fetches collateral from Intel Provisioning Certification Service (PCS) and caches it. The service enforces a minimum Trusted Compute Base (TCB) level as Azure security baseline, for attestation purposes.
 
-DCsv3 and DCdsv3-series Azure VM users are recommended to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. 
+DCsv2, DCsv3 and DCdsv3-series Azure VM users are recommended to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. To learn more about attestation, please refer to [Microsoft Azure Attestation](https://docs.microsoft.com/en-us/azure/attestation/overview) or [ECDSA Attestation](https://software.intel.com/content/www/us/en/develop/topics/software-guard-extensions/attestation-services.html). 
 
 ## Clean up resources
 
