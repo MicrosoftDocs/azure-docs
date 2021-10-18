@@ -1,7 +1,7 @@
 ---
 title: Configure automatic shutdown of VMs in Azure Lab Services
 description: This article describes how to configure automatic shutdown of VMs in the lab account. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/17/2020
 ---
 

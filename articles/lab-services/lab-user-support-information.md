@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services - view support information (lab user)
+title: view support information (lab user)
 description: This article explains how a lab user or educator can view support information that he/she can use to get help. 
 ms.date: 06/26/2020
 ms.topic: how-to

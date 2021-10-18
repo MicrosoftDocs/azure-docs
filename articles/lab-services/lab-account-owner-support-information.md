@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services - set up support information (lab account owner)
+title: set up support information (lab account owner)
 description: Describes how a lab account owner can set support contact information. Lab creators and lab users can view and use it to get help. 
 ms.date: 06/26/2020
 ms.topic: how-to
