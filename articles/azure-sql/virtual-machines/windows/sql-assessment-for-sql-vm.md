@@ -79,7 +79,7 @@ Using the tabs (All, New, Resolved), you can look at all the recommendations fro
 
 ### Trends tab
 
-There are three charts here that show the trends over time: all issues, new issues, and resolved issues. These should help you see your progress. The ideal is to have the number of recommendations go down and the number of resolved issues go up. The legend shows the average number of issues for each severity level. If you hover over the bars, you can see individual values for each run. Please note that if there are multiple runs in a single day, only the latest run is included in these graphs.
+There are three charts here that show the trends over time: all issues, new issues, and resolved issues. These should help you see your progress. The ideal is to have the number of recommendations go down and the number of resolved issues go up. The legend shows the average number of issues for each severity level. If you hover over the bars, you can see individual values for each run. Please note that if there are multiple runs in a single day, only  the latest run is included in these graphs.
 
 ## Troubleshooting
 #### Deployment failure for Enable or Run Assessment 
