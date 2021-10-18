@@ -9,7 +9,9 @@
   expanded: true
   items: 
     - name: Identify bottlenecks from Azure portal
-      href: tutorial-identify-bottlenecks-in-azure-portal.md
+      href: tutorial-identify-bottlenecks-azure-portal.md
+    - name: Continuous regression testing in GitHub with Azure Load Testing
+      href: tutorial-continuous-regression-testing-cicd-github-actions.md
 - name: Reference
   items: 
     - name: CLI 
@@ -22,7 +24,7 @@
   expanded: true
   items: 
     - name: Identify bottlenecks with Visual Studio Code
-      href: how-to-identify-bottlenecks-in-vs-code.md
+      href: how-to-identify-bottlenecks-vs-code.md
     - name: Automation
       items: 
         - name: Azure Pipelines for CI/CD

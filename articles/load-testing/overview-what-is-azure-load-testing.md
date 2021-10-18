@@ -64,4 +64,5 @@ In the Azure Load Testing dashboard, you can compare multiple load test results.
 ## Next steps
 
 Start using Azure Load Testing:
-- [Tutorial: Run a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-in-azure-portal.md)
+- [Tutorial: Run a load test in the Azure portal to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test in Visual Studio Code to identify performance bottlenecks](./how-to-identify-bottlenecks-vs-code.md)
