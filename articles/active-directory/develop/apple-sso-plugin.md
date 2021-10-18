@@ -265,7 +265,6 @@ Disable app prompt and automatically select an account from the list of matching
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
-We recommend enabling this capability to get a consistent experience across all apps. It's disabled by default. 
 
 #### Use Intune for simplified configuration
 
