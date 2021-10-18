@@ -22,7 +22,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * [Layout](#try-it-layout-model)
 
-* [Invoice](#try-it-prebuilt-invoice-model)
+* [Invoice](#try-it-prebuilt-model)
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -160,7 +160,7 @@ main().catch((err) => {
 
 ```
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-invoice.md#key-value-pair-extraction)
 

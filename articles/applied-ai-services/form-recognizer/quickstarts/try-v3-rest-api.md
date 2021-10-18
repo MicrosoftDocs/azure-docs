@@ -28,7 +28,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -87,7 +87,7 @@ https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{result
 
 ### Get general document results
 
-After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -349,7 +349,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 ### Get layout results
 
-After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -366,7 +366,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 > [!div class="checklist"]
 >
@@ -405,7 +405,7 @@ https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultI
 
 ### Get invoice results
 
-After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.

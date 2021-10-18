@@ -26,7 +26,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * [Layout](#try-it-layout-model)
 
-* [Invoice](#try-it-prebuilt-invoice-model)
+* [Invoice](#try-it-prebuilt-model)
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ FormRecognizerClient client = new FormRecognizerClient(new Uri(endpoint), new Az
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -186,7 +186,7 @@ Response<FormPageCollection> response = await client.StartRecognizeContentFromUr
 
 ```
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
 

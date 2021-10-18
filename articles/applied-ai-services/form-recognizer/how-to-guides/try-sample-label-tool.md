@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: quickstart
-ms.date: 10/07/2021
+ms.topic: how-to
+ms.date: 10/18/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: document processing
@@ -69,9 +69,15 @@ The Form Recognizer sample labeling tool will call the Analyze Layout API and an
      * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
      * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-## Analyze using a Prebuilt model (Invoices, Receipts, IDs ..)
+## Analyze using a Prebuilt model
 
-Extract text, tables and key value pairs from invoices, sales receipts, ID documents, or business cards using a Form Recognizer Prebuilt model.
+There are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+
+* [**Invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**Receipt**](../concept-receipt.md): extracts text and key information from receipts.
+* [**ID document**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
+* [**Business-card**](../concept-business-card.md): extracts text and key information from business cards.
+
 
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use prebuilt model to get data"

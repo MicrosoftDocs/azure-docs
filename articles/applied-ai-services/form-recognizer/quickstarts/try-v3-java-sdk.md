@@ -29,7 +29,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ import java.util.Arrays;
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -330,7 +330,7 @@ public class FormRecognizer {
     }
 ```
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
 

@@ -14,7 +14,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > This quickstart  targets Azure Form Recognizer REST API version **2.1** using cURL to execute REST API calls.
 
@@ -24,7 +24,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * [Layout](#try-it-layout-model)
 
-* [Invoice](#try-it-prebuilt-invoice-model)
+* [Invoice](#try-it-prebuilt-model)
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -116,7 +116,7 @@ See the following invoice image and its corresponding JSON output.
 
 You can view the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout-output.json).
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 > [!div class="checklist"]
 >

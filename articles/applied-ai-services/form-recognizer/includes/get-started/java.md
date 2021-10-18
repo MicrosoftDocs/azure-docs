@@ -13,8 +13,7 @@ recommendations: false
 
 > [!IMPORTANT]
 >
-> This quickstart  targets Azure Form Recognizer REST API version **2.1** using cURL to execute REST API calls.
->
+> This quickstart  targets Azure Form Recognizer version **2.1**.
 
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
@@ -22,7 +21,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * [Layout](#try-it-layout-model)
 
-* [Invoice](#try-it-prebuilt-invoice-model)
+* [Invoice](#try-it-prebuilt-model)
 
 ## Prerequisites
 
@@ -107,7 +106,7 @@ import com.azure.core.util.polling.SyncPoller;
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -164,7 +163,7 @@ public static void main(String[] args) {FormRecognizerClient recognizerClient = 
 
 ```
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
 
