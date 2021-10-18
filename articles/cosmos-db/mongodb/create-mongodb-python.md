@@ -30,8 +30,8 @@ This [quickstart](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-pytho
 
 ## Prerequisites to run the sample app
 
-* Python 3.9+ (It's best to run the [sample code](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) described in this article with this recommended version. Although it may work on older versions of Python 3.)
-* PyMongo installed on your machine
+* [Python](https://www.python.org/downloads/) 3.9+ (It's best to run the [sample code](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) described in this article with this recommended version. Although it may work on older versions of Python 3.)
+* [PyMongo](https://pypi.org/project/pymongo/) installed on your machine
 
 <a id="create-account"></a>
 ## Create a database account
