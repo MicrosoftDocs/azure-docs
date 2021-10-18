@@ -3,12 +3,13 @@ title: IP addresses of Azure API Management service | Microsoft Docs
 description: Learn how to retrieve the IP addresses of an Azure API Management service and when they change.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
 ms.author: apimpm
+ms.custom: fasttrack-edit
 ---
 
 # IP addresses of Azure API Management
@@ -53,7 +54,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private.
 
-Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic. When a request is sent from API Management to a public-facing (Internet-facing) backend, a public IP address will be visible as the origin of the request.
+Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic. 
 
 Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
@@ -81,7 +82,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
-API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet.
+API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet. 
+
+When API management is deployed in the [internal VNet configuration](api-management-using-with-internal-vnet.md) and API management connects to private (intranet-facing) backends, internal IP addresses from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. Therefore in this configuration, if a requirement exists to restrict traffic between API Management and an internal backend, it is better to use the whole API Management subnet prefix with an IP rule and not just the private IP address associated with the API Management resource. 
+
+When a request is sent from API Management to a public-facing (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
 ## IP addresses of Consumption tier API Management service
 

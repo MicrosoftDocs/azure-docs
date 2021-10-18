@@ -38,8 +38,8 @@ To learn about these benefits in more detail, see [Your commercial marketplace b
 
 The Microsoft commercial marketplace as discussed in this article has two main online stores: 
 
-- [Microsoft AppSource](https://appsource.microsoft.com/), which contains business solutions and Azure Marketplace.
-- [Azure Marketplace](https://azuremarketplace.microsoft.com/), which is designed for IT solutions.
+- [Microsoft AppSource](https://appsource.microsoft.com/) for business solutions
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/) for IT solutions
 
 > [!NOTE]
 > Other commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.

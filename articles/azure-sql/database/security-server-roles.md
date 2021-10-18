@@ -51,7 +51,7 @@ The following table shows the fixed server-level roles and their capabilities.
 
 Each built-in server-level role has certain permissions assigned to it. The following table shows the permissions assigned to the server-level roles. It also shows the database-level permissions inherited if a user account exist in the database.
   
-|Fixed server-level role|Server-level permissions|Database-level permissions (if database user exist)  
+|Fixed server-level role|Server-level permissions|Database-level permissions (if a database user matching the login exists)  
 |-------------|----------|-----------------|  
 |**##MS_DefinitionReader##**|VIEW ANY DATABASE, VIEW ANY DEFINITION, VIEW ANY SECURITY DEFINITION|VIEW DEFINITION, VIEW SECURITY DEFINITION|  
 |**##MS_ServerStateReader##**|VIEW SERVER STATE, VIEW SERVER PERFORMANCE STATE, VIEW SERVER SECURITY STATE|VIEW DATABASE STATE, VIEW DATABASE PERFORMANCE STATE, VIEW DATABASE SECURITY STATE|  

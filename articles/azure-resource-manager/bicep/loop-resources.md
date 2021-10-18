@@ -5,7 +5,7 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/30/2021
 ---
 
 # Resource iteration in Bicep
@@ -56,7 +56,11 @@ Loops can be used declare multiple resources by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations.
+Bicep loop has these limitations:
+
+- Can't loop a resource with nested child resources. You must change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
+- Can't loop on multiple levels of properties. See [Property iteration in Bicep](./loop-properties.md).
+- Loop iterations can't be a negative number or exceed 800 iterations.
 
 ## Loop index
 
@@ -186,6 +190,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 ```
 
 For purely sequential deployment, set the batch size to 1.
+
+The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
 ## Iteration for a child resource
 

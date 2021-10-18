@@ -52,7 +52,7 @@ sections:
           | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
           | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
           | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
-          |**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+          |**Availability**|All|1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
           |**Backups**|All| A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant\*\*\*, or locally-redundant\*\*\* backup storage, 7 day retention. | A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) |
           
           \* Elastic pools are not supported in the Hyperscale service tier

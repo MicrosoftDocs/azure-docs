@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: reference
-  ms.date: 05/27/2021
+  ms.date: 10/12/2021
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -70,7 +70,7 @@ sections:
       - question: |
           Can I make guest users visible in the Exchange Global Address List?
         answer: |
-          Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+          Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see "Add guests to the global address list" in the [Microsoft 365 per-group guest access article](/microsoft-365/solutions/per-group-guest-access).
           
       - question: |
           Can I make a guest user a limited administrator?

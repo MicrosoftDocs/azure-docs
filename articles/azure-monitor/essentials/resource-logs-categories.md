@@ -1,34 +1,35 @@
 ---
-title: Azure Monitor Resource Logs supported services and categories
-description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
+title: Supported categories for Azure Monitor resource logs
+description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 10/05/2021
+
 ---
 
-# Supported categories for Azure Resource Logs
+# Supported categories for Azure Monitor resource logs
 
 > [!NOTE]
-> This list is largely auto-generated. Any modification made to this list via GitHub may be written over without warning. Contact the author of this article for details on how to make permanent updates.
+> This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-[Azure Monitor resource logs](../essentials/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor resource logs](../essentials/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema. Each service has the flexibility to emit unique properties for its own events.
 
 Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service-specific fields then added for different log categories. For more information,  see [Common and service-specific schema for Azure Resource Logs]()
+A combination of the resource type (available in the `resourceId` property) and the category uniquely identifies a schema. There's a common schema for all resource logs with service-specific fields then added for different log categories. For more information, see [Common and service-specific schema for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 ## Costs
 
-[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Event hub](https://azure.microsoft.com/pricing/details/event-hubs/), and partners who integrate directly with Azure Monitor ([for example Datadog](../../partner-solutions/datadog/overview.md)) have costs associated with ingesting data and storing data. Check the previous links to pricing pages for these services to understand those costs. Resource logs are just one type of data you can send to these locations. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/), and partners who integrate directly with Azure Monitor (for example, [Datadog](../../partner-solutions/datadog/overview.md)) have costs associated with ingesting data and storing data. Check the pricing pages linked in the previous sentence to understand the costs for those services. Resource logs are just one type of data that you can send to those locations. 
 
-In addition, there may be costs to export some categories of resource logs to those locations. Those logs with possible export costs are listed in the table below. For more information on export pricing, see the *Platform Logs* section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+In addition, there might be costs to export some categories of resource logs to those locations. Logs with possible export costs are listed in the table in the next section. For more information on export pricing, see the **Platform Logs** section on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Supported log categories per resource type
 
 Following is a list of the types of logs available for each resource type. 
 
-Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
+Some categories might be supported only for specific types of resources. See the resource-specific documentation if you feel you're missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
-If you think there is something is missing, you can open a GitHub comment at the bottom of this article.
+If you think something is missing, you can open a GitHub comment at the bottom of this article.
 
 
 ## Microsoft.AAD/DomainServices
@@ -53,6 +54,21 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Signin|Signin|Yes|
 
 
+## Microsoft.AgFoodPlatform/farmBeats
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ApplicationAuditLogs|Application Audit Logs|Yes|
+|FarmManagementLogs|Farm Management Logs|Yes|
+|FarmOperationLogs|Farm Operation Logs|Yes|
+|InsightLogs|Insight Logs|Yes|
+|JobProcessedLogs|Job Processed Logs|Yes|
+|ModelInferenceLogs|Model Inference Logs|Yes|
+|ProviderAuthLogs|Provider Auth Logs|Yes|
+|SatelliteLogs|Satellite Logs|Yes|
+|WeatherLogs|Weather Logs|Yes|
+
+
 ## Microsoft.AnalysisServices/servers
 
 |Category|Category Display Name|Costs To Export|
@@ -66,6 +82,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|No|
+|WebSocketConnectionLogs|Logs related to Websocket Connections|Yes|
 
 
 ## Microsoft.AppConfiguration/configurationStores
@@ -81,6 +98,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ApplicationConsole|Application Console|No|
+|BuildLogs|Build Logs|Yes|
+|IngressLogs|Ingress Logs|Yes|
 |SystemLogs|System Logs|No|
 
 
@@ -98,9 +117,10 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DscNodeStatus|Dsc Node Status|No|
-|JobLogs|Job Logs|No|
-|JobStreams|Job Streams|No|
+|AuditEvent|AuditEvent|Yes|
+|DscNodeStatus|DscNodeStatus|No|
+|JobLogs|JobLogs|No|
+|JobStreams|JobStreams|No|
 
 
 ## Microsoft.AutonomousDevelopmentPlatform/accounts
@@ -112,11 +132,26 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Request|Request|Yes|
 
 
+## microsoft.avs/privateClouds
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|vmwaresyslog|VMware VCenter Syslog|Yes|
+
+
 ## Microsoft.Batch/batchAccounts
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ServiceLog|Service Logs|No|
+
+
+## Microsoft.BatchAI/workspaces
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|No|
 
 
 ## Microsoft.Blockchain/blockchainMembers
@@ -141,6 +176,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BotRequest|Requests from the channels to the bot|No|
+
+
+## Microsoft.Cache/redis
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ConnectedClientList|Connected client list|Yes|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -188,8 +230,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuthOperational|Operational Authentication Logs|Yes|
-|CallDiagnosticsPRIVATEPREVIEW|Call Diagnostics Logs - PRIVATE PREVIEW|Yes|
-|CallSummaryPRIVATEPREVIEW|Call Summary Logs - PRIVATE PREVIEW|Yes|
+|CallDiagnostics|Call Diagnostics Logs|Yes|
+|CallSummary|Call Summary Logs|Yes|
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
@@ -199,6 +241,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Audit|MCVP Audit Logs|Yes|
 |Logs|MCVP Logs|Yes|
 
 
@@ -391,6 +434,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Management|Management|No|
 
 
+## Microsoft.DesktopVirtualization/scalingplans
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Autoscaling|Autoscaling logs|Yes|
+
+
 ## Microsoft.DesktopVirtualization/workspaces
 
 |Category|Category Display Name|Costs To Export|
@@ -530,7 +580,16 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|ExPCompute|ExPCompute|Yes|
 |Request|Request|No|
+
+
+## Microsoft.HealthcareApis/services
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs|Audit logs|No|
+|DiagnosticLogs|Diagnostic logs|Yes|
 
 
 ## Microsoft.HealthcareApis/workspaces/dicomservices
@@ -584,6 +643,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditEvent|Audit Logs|No|
+|AzurePolicyEvaluationDetails|Azure Policy Evaluation Details|Yes|
 
 
 ## Microsoft.Kusto/Clusters
@@ -593,6 +653,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Command|Command|No|
 |FailedIngestion|Failed ingest operations|No|
 |IngestionBatching|Ingestion batching|No|
+|Journal|Journal|Yes|
 |Query|Query|No|
 |SucceededIngestion|Successful ingest operations|No|
 |TableDetails|Table details|No|
@@ -651,6 +712,15 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |KeyDeliveryRequests|Key Delivery Requests|No|
 |MediaAccount|Media Account Health Status|Yes|
+
+
+## Microsoft.Media/videoanalyzers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit Logs|Yes|
+|Diagnostics|Diagnostics Logs|Yes|
+|Operational|Operational Logs|Yes|
 
 
 ## Microsoft.Network/applicationgateways
@@ -763,6 +833,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 |TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
 
 
+## Microsoft.NetworkFunction/azureTrafficCollectors
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ExpressRouteCircuitIpfix|Express Route Circuit IPFIX Flow Records|Yes|
+
+
 ## Microsoft.NotificationHubs/namespaces
 
 |Category|Category Display Name|Costs To Export|
@@ -782,6 +859,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Engine|Engine|No|
+
 
 ## Microsoft.PowerBI/tenants/workspaces
 
@@ -803,6 +881,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
+|Security|PurviewAccountAuditEvents|Yes|
 
 
 ## Microsoft.RecoveryServices/Vaults
@@ -840,6 +919,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |OperationLogs|Operation Logs|No|
 
 
+## microsoft.securityinsights/settings
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Analytics|Analytics|Yes|
+|DataConnectors|Data Collection – Connectors|Yes|
+
+
 ## Microsoft.ServiceBus/namespaces
 
 |Category|Category Display Name|Costs To Export|
@@ -858,7 +945,16 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AllLogs|Azure Web PubSub Service Logs.|Yes|
+|ConnectivityLogs|Connectivity logs for Azure Web PubSub Service.|Yes|
+|HttpRequestLogs|Http Request logs for Azure Web PubSub Service.|Yes|
+|MessagingLogs|Messaging logs for Azure Web PubSub Service.|Yes|
+
+
+## microsoft.singularity/accounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Execution|Execution Logs|Yes|
 
 
 ## Microsoft.Sql/managedInstances
@@ -1024,7 +1120,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceAppLogs|App Service Application Logs|No|
 |AppServiceAuditLogs|Access Audit Logs|No|
 |AppServiceConsoleLogs|App Service Console Logs|No|
-|AppServiceDiagnosticToolsLogs|Report Diagnostic Tools Logs|Yes|
 |AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
 |AppServiceHTTPLogs|HTTP logs|No|
 |AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|

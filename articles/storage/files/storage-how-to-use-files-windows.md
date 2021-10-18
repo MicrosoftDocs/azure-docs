@@ -17,8 +17,8 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
-| Windows 11 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 10, version 21H1 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows 10, version 20H2 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
@@ -26,9 +26,9 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 | Windows 10, version 2004 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server 2019 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
 | Windows 10, version 1809 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
-| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer | AES-128-GCM |
-| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer | AES-128-GCM |
-| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](#windows-10-version-1507) | AES-128-GCM |
 | Windows Server 2012 R2 | SMB 3.0 | No | AES-128-CCM |
 | Windows 8.1 | SMB 3.0 | No | AES-128-CCM |
 | Windows Server 2012 | SMB 3.0 | No | AES-128-CCM |
@@ -127,6 +127,31 @@ You can select **Open** to open a particular snapshot.
 Select **Restore** to copy the contents of the entire directory recursively at the share snapshot creation time to the original location.
 
  ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+
+## Enable SMB Multichannel
+Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied to be up-to-date. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you are running a version of Windows that is newer than these three versions, no additional action is required.
+
+### Windows Server 2016 and Windows 10 version 1607
+To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
+```
+
+### Windows 10 version 1507
+To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
+```
 
 ## Next steps
 See these links for more information about Azure Files:

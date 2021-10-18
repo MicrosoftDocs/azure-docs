@@ -168,7 +168,7 @@ In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual S
     Executing operation pipelineTopologyList
     -----------------------  Request: pipelineTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "1.1"
     }
     ---------------  Response: pipelineTopologyList - Status: 200  ---------------
     {
@@ -184,7 +184,7 @@ In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual S
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "1.1",
           "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "EVRtoVideoSinkOnObjDetect",

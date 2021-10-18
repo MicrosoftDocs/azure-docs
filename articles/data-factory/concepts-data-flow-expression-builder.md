@@ -65,7 +65,7 @@ If your data flow uses a defined schema in any of its sources, you can reference
 
 When you have column names that include special characters or spaces, surround the name with curly braces to reference them in an expression.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### Parameters
 
@@ -154,13 +154,13 @@ Below are a list of shortcuts available in the expression builder. Most intellis
 
 ### Convert to dates or timestamps
 
-To include string literals in your timestamp output, wrap your conversion in ```toString()```.
+To include string literals in your timestamp output, wrap your conversion in `toString()`.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<number of milliseconds>)`. If time is coming in seconds, multiply by 1,000.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
 

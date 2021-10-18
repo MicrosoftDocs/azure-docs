@@ -4,14 +4,14 @@ description: This article outlines the different data stores and functionalities
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 09/27/2021
 ---
 
 # Supported data stores
 
-Purview supports the following data stores. Click each data store to
+Purview supports the following data stores. Select each data store to
 learn the supported capabilities and the corresponding configurations in
 details.
 

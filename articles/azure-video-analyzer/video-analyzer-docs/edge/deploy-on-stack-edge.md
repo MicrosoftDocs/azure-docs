@@ -172,6 +172,40 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "allowUnsecuredEndpoints": true,
     "telemetryOptOut": false
     ```
+1. Select **Add**  
+
+Add the RTSP Simulator edge module
+
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:   
+    Examples:
+    
+    * **IoT Edge Module Name**: rtspsim
+    * **Image URI**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2  
+
+
+1. Open the **Container Create Options** tab.
+ 
+    Copy and paste the following JSON into the box
+    
+    ```
+    {
+        "HostConfig": {
+            "Binds": [
+               "/home/localedgeuser/samples/input/:/live/mediaServer/media/"
+            ],
+            "PortBindings": {
+                    "554/tcp": [
+                        {
+                        "HostPort": "554"
+                        }
+                    ]
+            }
+        }
+    }
+    ```
+1. Select **Add**  
+
 1. Select **Next: Routes** to continue to the routes section. Specify routes.
 
     Under NAME, enter **AVAToHub**, and under VALUE, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream**
@@ -190,6 +224,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="Copy token":::
+
+
 
 #### (Optional) Setup Docker Volume Mounts
 
@@ -265,7 +301,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
                     "Mounts": 
                     [
                         {
-                            "Target": "/var/media",
+                            "Target": "/live/mediaServer/media",
                             "Source": "media",
                             "Type": "volume"
                         }

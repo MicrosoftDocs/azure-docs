@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 08/30/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
 
 ---
@@ -26,7 +26,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* A virtual network.
+* A [virtual network](../virtual-network/quick-create-portal.md).
 * A Windows virtual machine in the virtual network. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
 * The following required roles for your resources:
    * Required VM roles:
@@ -91,7 +91,7 @@ This section helps you create the bastion object in your VNet. This is required 
 
 * **Name**: The name of the new Bastion resource.
 
-* **Region**: The Azure public region in which the resource will be created.
+* **Region**: The Azure public region in which the resource will be created. Choose the region in which your virtual network resides.
 
 * **Tier:** The tier is also known as the **SKU**. For this tutorial, we select the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
 
@@ -101,9 +101,9 @@ This section helps you create the bastion object in your VNet. This is required 
 
 * **Virtual network**: The virtual network in which the Bastion resource will be created. You can create a new virtual network in the portal during this process, or use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements. If you don't see your virtual network from the dropdown, make sure you have selected the correct Resource Group.
 
-* **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in which your Bastion instances will be deployed. 
+* **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in which your Bastion instances will be deployed. The name must be **AzureBastionSubnet**. See the following steps to add the subnet.
 
-#### Add the AzureBastionSubnet
+#### Manage subnet configuration
 
 In most cases, you will not already have an AzureBastionSubnet configured. To configure the bastion subnet: 
 

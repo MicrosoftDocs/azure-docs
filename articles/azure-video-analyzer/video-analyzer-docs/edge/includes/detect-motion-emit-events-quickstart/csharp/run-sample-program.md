@@ -37,7 +37,7 @@ Follow these steps to run the sample code:
    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
 
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "1.1"
    }
 
    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
@@ -57,7 +57,7 @@ Follow these steps to run the sample code:
 
    ```json
    {
-     "@apiVersion": "1.0",
+     "@apiVersion": "1.1",
      "name": "Sample-Pipeline-1",
      "properties": {
        "topologyName": "MotionDetection",

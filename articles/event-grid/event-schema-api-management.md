@@ -17,21 +17,21 @@ API Management emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.APIManagement.UserCreated | Raised when a user is created. |
-| Microsoft.APIManagement.UserUpdated | Raised when a user is updated. |
-| Microsoft.APIManagement.UserDeleted | Raised when a user is deleted. |
-| Microsoft.APIManagement.APICreated | Raised when an API is created. |
-| Microsoft.APIManagement.APIUpdated | Raised when an API is updated. |
-| Microsoft.APIManagement.APIDeleted | Raised when an API is deleted. |
-| Microsoft.APIManagement.ProductCreated | Raised when a product is created. |
-| Microsoft.APIManagement.ProductUpdated | Raised when a product is updated. |
-| Microsoft.APIManagement.ProductDeleted | Raised when a product is deleted. |
-| Microsoft.APIManagement.ReleaseCreated | Raised when an API release is created. |
-| Microsoft.APIManagement.ReleaseUpdated | Raised when an API release is updated. |
-| Microsoft.APIManagement.ReleaseDeleted | Raised when an API release is deleted. |
-| Microsoft.APIManagement.SubscriptionCreated | Raised when a subscription is created. |
-| Microsoft.APIManagement.SubscriptionUpdated | Raised when a subscription is updated. |
-| Microsoft.APIManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
+| Microsoft.ApiManagement.UserCreated | Raised when a user is created. |
+| Microsoft.ApiManagement.UserUpdated | Raised when a user is updated. |
+| Microsoft.ApiManagement.UserDeleted | Raised when a user is deleted. |
+| Microsoft.ApiManagement.APICreated | Raised when an API is created. |
+| Microsoft.ApiManagement.APIUpdated | Raised when an API is updated. |
+| Microsoft.ApiManagement.APIDeleted | Raised when an API is deleted. |
+| Microsoft.ApiManagement.ProductCreated | Raised when a product is created. |
+| Microsoft.ApiManagement.ProductUpdated | Raised when a product is updated. |
+| Microsoft.ApiManagement.ProductDeleted | Raised when a product is deleted. |
+| Microsoft.ApiManagement.ReleaseCreated | Raised when an API release is created. |
+| Microsoft.ApiManagement.ReleaseUpdated | Raised when an API release is updated. |
+| Microsoft.ApiManagement.ReleaseDeleted | Raised when an API release is deleted. |
+| Microsoft.ApiManagement.SubscriptionCreated | Raised when a subscription is created. |
+| Microsoft.ApiManagement.SubscriptionUpdated | Raised when a subscription is updated. |
+| Microsoft.ApiManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
 
 ## Example event
 
@@ -137,7 +137,7 @@ The following example shows the schema of an API updated event. The schema of ot
   "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "Type": "Microsoft.ApiManagement.APIUpdated",
   "Time": "2021-07-12T23:13:44.9048323Z",

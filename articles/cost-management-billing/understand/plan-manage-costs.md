@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -90,7 +90,7 @@ Additionally, you can click the labels of the chart to see the daily spend histo
 
 ## Optimize and reduce costs
 
-If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Azure Cost Management](../costs/cost-mgt-best-practices.md).
+If you're unfamiliar with the principles of cost management, read [How to optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).
 
 In the Azure portal, you can also optimize and reduce Azure costs with auto shutdown for VMs and Advisor recommendations.
 

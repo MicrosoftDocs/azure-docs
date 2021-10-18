@@ -75,7 +75,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - [Setup and Subscribe to JetStream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
 
-- [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/storage-blob-storage-tiers.md). 
+- [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
    >The **Enable hierarchical namespace** option on the blob isn't supported.   
@@ -94,7 +94,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 - [Setup and Subscribe to JetStream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) from the Azure Marketplace to download the JetStream DR software.
 
-- [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/storage-blob-storage-tiers.md). 
+- [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
    >The **Enable hierarchical namespace** option on the blob isn't supported.   

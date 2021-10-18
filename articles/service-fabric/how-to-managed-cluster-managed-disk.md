@@ -38,10 +38,9 @@ Possible values are:
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "dataDiskType": "StandardSSD_LRS"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "dataDiskType": "StandardSSD_LRS"
 }
 ```
 

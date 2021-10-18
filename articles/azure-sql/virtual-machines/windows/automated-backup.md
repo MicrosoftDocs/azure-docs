@@ -108,8 +108,9 @@ This means that the next available backup window is Monday at 10 PM for 6 hours.
 
 Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 
+
 > [!IMPORTANT]
-> When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
+> Backups happen sequentially during each interval. For instances with a large number of databases, schedule your backup interval with enough time to accommodate all backups. If backups cannot complete within the given interval, some backups may be skipped, and your time between backups for a single database may be higher than the configured backup interval time, which could negatively impact your restore point objective (RPO). 
 
 ## Configure new VMs
 

@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Calling Recording overview
 
@@ -24,11 +25,12 @@ Call Recording provides a set of APIs to start, stop, pause and resume recording
 ![Call recording concept diagram](../media/call-recording-concept.png)
 
 ## Media output types
-Call recording currently supports mixed audio+video MP4 output format. The output media matches meeting recordings produced via Microsoft Teams recording.
+Call recording currently supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording.
 
 | Channel Type | Content Format | Video | Audio |
 | :----------- | :------------- | :---- | :--------------------------- |
 | audioVideo | mp4 | 1920x1080 8 FPS video of all participants in default tile arrangement | 16kHz mp4a mixed audio of all participants |
+| audioOnly| mp3/wav | N/A | 16kHz mp3/wav mixed audio of all participants |
 
 
 ## Run-time Control APIs

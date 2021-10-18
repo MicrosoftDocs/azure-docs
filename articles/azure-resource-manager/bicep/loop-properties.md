@@ -5,7 +5,7 @@ description: Use a Bicep property loop to iterate when creating a resource prope
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/23/2021
 ---
 
 # Property iteration in Bicep
@@ -52,7 +52,10 @@ Loops can be used to declare multiple properties by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
+Bicep loop has these limitations:
+
+- Can't loop on multiple levels of properties.
+- Loop iterations can't be a negative number or exceed 800 iterations.
 
 ## Loop array
 

@@ -52,7 +52,7 @@ The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based o
 
 In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the Intel OpenVINO™ DL Streamer – Edge AI Extension, an Edge module that has been designed to work with Azure Video Analyzer.
 
-In the initial release of this inference server, you have access to the following [models](https://aka.ms/intel-dlstreamer-docs):
+In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection
 ![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)
@@ -142,9 +142,10 @@ Add the following extensionConfiguration after the rtsp params:
 
 
 Your `operations.json` should look like this:
+
 ```
 {
-  "apiVersion": "1.0",
+  "apiVersion": "1.1,
   "operations": [
       {
           "opName": "pipelineTopologyList",
@@ -279,7 +280,7 @@ Tracking:
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "1.1",
            "name": "Sample-Pipeline-1",
            "properties": {
              "topologyName": "InferencingWithGrpcExtension",

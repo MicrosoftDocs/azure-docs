@@ -23,7 +23,7 @@ The direct methods are based on the following conventions:
   {
     "methodName": "pipelineTopologySet",
     "payload": {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{TopologyName}",
         "properties": {
             // Desired Topology properties
@@ -47,7 +47,7 @@ The direct methods are based on the following conventions:
 -----------------------  Request: livePipelineList  --------------------------------------------------
 
 {
-  "@apiVersion": "1.0"
+  "@apiVersion": "1.1"
 }
 
 ---------------  Response: livePipelineList - Status: 200  ---------------
@@ -114,7 +114,7 @@ This direct method lists all the pipeline topologies that have been created.
 
 ```
 {
-  "@apiVersion": "1.0"
+  "@apiVersion": "1.1"
 }
 ```
 #### Response
@@ -172,7 +172,7 @@ Key aspects:
   {
     "methodName": "pipelineTopologySet",
     "payload": {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{TopologyName}",
         "properties": {
             // Desired pipeline topology properties
@@ -217,7 +217,7 @@ It retrieves a pipeline topology with the specified name, if it exists.
 
 ```
   {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{TopologyName}"       
   }
 ```
@@ -261,7 +261,7 @@ Deletes a single pipeline topology.
   {
     "methodName": "pipelineTopologyDelete",
     "payload": {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{TopologyName}"
     }
   }
@@ -293,7 +293,7 @@ Lists all live pipelines.
 
 ```
   {
-        "@apiVersion": "1.0"
+        "@apiVersion": "1.1"
   }
 ```
 #### Response
@@ -340,7 +340,7 @@ Key aspects:
 
 ```
   {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{livePipelineName}",
         "properties": {
             // Desired live pipeline properties
@@ -388,7 +388,7 @@ Key aspects:
 
 ```
   {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{livePipelineName}"
   }
 ```
@@ -418,7 +418,7 @@ This is similar to liveTopologyGet. It retrieves a live pipeline with the specif
 
 ```
   {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{livePipelineName}"       
   }
 ```
@@ -467,7 +467,7 @@ Key aspects
 
 ```
   {
-        "@apiVersion": "1.0",
+        "@apiVersion": "1.1",
         "name": "{livePipelineName}"
   }
 ```
@@ -511,7 +511,7 @@ Key aspects:
 
 ```
   {
-    "@apiVersion": "1.0",
+    "@apiVersion": "1.1",
     "name": "{livePipelineName}"
   }
 ```

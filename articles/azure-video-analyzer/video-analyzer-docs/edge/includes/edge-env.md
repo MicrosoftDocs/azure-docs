@@ -6,5 +6,10 @@ ms.date: 08/29/2021
 ms.author: juliako
 ---
 
-**Current environment**: ![edge icon](../media/env-icon/icon.png). Check out [developing in the cloud](../../overview.md).
+![edge icon](../media/env-icon/edge.png)  
+Check out topics under [Create video applications in the cloud](../../index.yml).
+
+---
+
+
 

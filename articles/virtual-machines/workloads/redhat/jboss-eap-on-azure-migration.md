@@ -85,7 +85,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Validate the compatibility
 
-It is recommended that you validate your current deployment model and version before planning for migration. You may have to make significant changes to your application if your current version isn’t supported.
+It is recommended that you validate your current deployment model and version before planning for migration. You may have to make significant changes to your application if your current version isn't supported.
 
 The MTA supports migrations from third-party enterprise application servers, such as Oracle WebLogic Server, to JBoss EAP and upgrades to the latest release of JBoss EAP.
 
@@ -244,7 +244,7 @@ You can expose the application using the following methods which is suitable for
 After you've reached the migration goals you defined in the pre-migration step, perform some end-to-end acceptance testing to verify that everything works as expected. Some topics for post-migration enhancements include, but are certainly not limited to the following:
 
 * Using Azure Storage to serve static content mounted to the VMs. For more information, visit [Attach or detach a data disk to a VM](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)
-* Deploy your applications to your migrated JBoss cluster with Azure DevOps. For more information, visit [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
+* Deploy your applications to your migrated JBoss cluster with Azure DevOps. For more information, visit [Azure DevOps getting started documentation](/azure/devops/get-started).
 * Consider using [Application Gateway](../../../application-gateway/index.yml).
 * Enhance your network topology with advanced load balancing services. For more information, visit [Using load-balancing services in Azure](../../../traffic-manager/traffic-manager-load-balancing-azure.md).
 * Leverage Azure Managed Identities to managed secrets and assign Role Based Access Control (RBAC) to Azure resources. For more information, visit [What are managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md)?

@@ -77,7 +77,7 @@ To send device-to-cloud telemetry messages using routing, use the ModuleClient o
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Sending device-to-cloud telemetry messages with the MQTT broker is similar to publishing messages on user-defined topics, but using the following IoT Hub special topic for your module: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be set up appropriately. The MQTT bridge must also be configured to forward the messages on this topic to the cloud.
+Sending device-to-cloud telemetry messages with the MQTT broker is similar to publishing messages on user-defined topics, but using the following IoT Hub special topic for your module: `devices/<device_name>/modules/<module_name>/messages/events`. Authorizations must be set up appropriately. The MQTT bridge must also be configured to forward the messages on this topic to the cloud.
 
 ::: moniker-end
 
@@ -86,7 +86,7 @@ To process messages using routing, first set up a route to send messages coming 
 <!-- <1.2> -->
 ::: moniker range=">=iotedge-2020-11"
 
-Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/<module_name>/messages/events`. Authorizations must be set up appropriately. Optionally you can send new messages on the topics of your choice.
+Processing messages using the MQTT broker is similar to subscribing to messages on user-defined topics, but using the IoT Edge special topics of your module's output queue: `devices/<device_name>/modules/<module_name>/messages/events`. Authorizations must be set up appropriately. Optionally you can send new messages on the topics of your choice.
 
 ::: moniker-end
 

@@ -254,7 +254,7 @@ Now that you have created your gRPC extension module, we will now create and dep
 
         ```
         {
-        	"@apiVersion": "1.0",
+        	"@apiVersion": "1.1",
         	"name": "TopologyName",
         	"properties": {
             "processors": [

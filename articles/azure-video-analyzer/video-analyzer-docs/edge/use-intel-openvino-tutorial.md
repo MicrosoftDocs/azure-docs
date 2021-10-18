@@ -111,7 +111,7 @@ If you open the pipeline topology (`pipelineTopologyUrl`) for this tutorial in a
 
          ```json
             {
-              "@apiVersion": "1.0",
+              "@apiVersion": "1.1",
               "name": "Sample-Pipeline-1",
               "properties": {
                 "topologyName": "InferencingWithOpenVINO",

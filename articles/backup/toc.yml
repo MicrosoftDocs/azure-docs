@@ -196,8 +196,12 @@
       href: manage-monitor-sql-database-backup.md
   - name: Azure Database for PostgreSQL backup
     items:
+    - name: Overview
+      href: backup-azure-database-postgresql-overview.md
     - name: Backup
       href: backup-azure-database-postgresql.md
+    - name: Restore
+      href: restore-azure-database-postgresql.md
     - name: Manage
       href: manage-azure-database-postgresql.md
   - name: Windows backup using MARS agent
@@ -252,6 +256,14 @@
         href: backup-managed-disks-cli.md
       - name: Restore
         href: restore-managed-disks-cli.md
+    - name: With REST API
+      items:
+      - name: Policy
+        href: backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md
+      - name: Backup
+        href: backup-azure-dataprotection-use-rest-api-backup-disks.md
+      - name: Restore
+        href: backup-azure-dataprotection-use-rest-api-restore-disks.md
   - name: Azure Blobs backup
     items:
     - name: Overview
@@ -276,7 +288,7 @@
         href: restore-blobs-storage-account-cli.md
     - name: With REST API
       items:
-      - name: Blob policy
+      - name: Policy
         href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
       - name: Backup
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
@@ -322,6 +334,8 @@
     items:
     - name: Overview
       href: sap-hana-db-about.md
+    - name: Architecture
+      href: azure-backup-architecture-for-sap-hana-backup.md
     - name: Backup
       href: backup-azure-sap-hana-database.md
     - name: Restore
@@ -545,6 +559,8 @@
       href: disk-backup-troubleshoot.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+    - name: Azure Database for PostgreSQL
+      href: backup-azure-database-postgresql-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State

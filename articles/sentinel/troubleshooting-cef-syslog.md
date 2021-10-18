@@ -501,7 +501,7 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see logs being written to the local log file, either **/var/log/messages** or **/var/log/syslog**
 
-- Make sure that you can see data packets flowing on port 25524, 25526, or both
+- Make sure that you can see data packets flowing on port 25224, 25226, or both
 
 - Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
 

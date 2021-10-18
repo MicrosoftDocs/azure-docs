@@ -4,15 +4,18 @@ description: This how-to guide describes how to view and use the Purview file ex
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
+ms.date: 09/27/2021
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
 # File extension insights about your data from Azure Purview 
 
 This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data.
+
+> [!IMPORTANT]
+> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Amazon S3 buckets
 
@@ -22,18 +25,18 @@ In this how-to guide, you'll learn how to:
 > - View file extension insights on your data
 > - Drill down for more file extension details on your data
 
-## Prerequisites 
+## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
+- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
 
 - Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
 
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
 ## Use Purview File extension insights
 

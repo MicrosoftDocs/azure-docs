@@ -4,6 +4,7 @@ description: Learn how to use Azure Monitor to monitor Azure Data Factory pipeli
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
+ms.custom: contperf-fy22q1
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual

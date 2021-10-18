@@ -1,18 +1,18 @@
 ---
-title: Use managed identities for access control (preview)
+title: Use managed identities for access control
 titleSuffix: Azure Machine Learning
 description: Learn how to use managed identities to control access to Azure resources from Azure Machine Learning workspace.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 10/13/2021
 ---
 
-# Use Managed identities with Azure Machine Learning (preview)
+# Use Managed identities with Azure Machine Learning
 
 [Managed identities](../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
@@ -25,9 +25,6 @@ In this article, you'll learn how to use managed identities to:
  * Configure and use ACR for your Azure Machine Learning workspace without having to enable admin user access to ACR.
  * Access a private ACR external to your workspace, to pull base images for training or inference.
  * Create workspace with user-assigned managed identity to access associated resources.
-
-> [!IMPORTANT]
-> Using managed identities to control access to resources with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## Prerequisites
 
@@ -263,4 +260,6 @@ If you have an existing workspace, you can update it from system-assigned to use
 
 ## Next steps
 
-* Learn more about [enterprise security in Azure Machine Learning](concept-enterprise-security.md).
+* Learn more about [enterprise security in Azure Machine Learning](concept-enterprise-security.md)
+* Learn about [identity-based data access](how-to-identity-based-data-access.md)
+* Learn about [managed identities on compute cluster](how-to-create-attach-compute-cluster.md).

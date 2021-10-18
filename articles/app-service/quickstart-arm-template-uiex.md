@@ -148,6 +148,7 @@ To deploy a different language stack, update <abbr title="This template is compa
 ::: zone pivot="platform-linux"
 <details>
 <summary>How do I deploy a different language stack?</summary>
+ 
 To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |
@@ -185,4 +186,3 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 - [Python with Postgres](tutorial-python-postgresql-app.md)
 - [PHP with MySQL](tutorial-php-mysql-app.md)
 - [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-- [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)

@@ -1,22 +1,15 @@
 ---
-title: Useful resources when working with Azure Sentinel| Microsoft Docs
+title: Useful resources when working with Azure Sentinel
 description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
-documentationcenter: na
 author: yelevin
 manager: rkarlin
-editor: ''
-
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
-
 ---
 # Useful resources for working with Azure Sentinel
 
@@ -41,7 +34,7 @@ For more information, see [Azure Logic Apps connectors](/connectors/).
 
 The following table describes the differences between playbooks, workbooks, and notebooks in Azure Sentinel:
 
-|  |Playbooks  |Workbooks  |Notebooks  |
+| Category |Playbooks  |Workbooks  |Notebooks  |
 |---------|---------|---------|---------|
 |**Personas**     |   <ul><li>SOC engineers</li><li>Analysts of all tiers</li></ul>      | <ul><li> SOC engineers</li><li>Analysts of all tiers</li></ul>       | <ul><li>Threat hunters and Tier-2/Tier-3 analysts</li><li>Incident investigators</li><li>Data scientists</li><li>Security researchers</li></ul>       |
 |**Uses**     | Automation of simple, repeatable tasks:<ul><li>Ingesting external data </li><li>Data enrichment with TI, GeoIP lookups, and more </li><li> Investigation </li><li>Remediation </li></ul>       | <ul><li>Visualization</li></ul>        |   <ul><li>Querying Azure Sentinel data and external data </li><li>Data enrichment with TI, GeoIP lookups, and WhoIs lookups, and more </li><li> Investigation </li><li> Visualization </li><li> Hunting </li><li>Machine learning and big data analytics </li></ul>      |

@@ -99,7 +99,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Screenshot of Create Deployment for Single Device":::
 
-1. When you're prompted to select an IoT Hub device, select **ava-sample-iot-edge-device**.
+1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
    - The **avaedge** module, which is the Video Analyzer module.
@@ -153,7 +153,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
     Executing operation pipelineTopologyList
     -----------------------  Request: pipelineTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "1.1"
     }
     ---------------  Response: pipelineTopologyList - Status: 200  ---------------
     {
@@ -170,7 +170,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "1.1",
           "name": "Sample-Pipeline-1",
           "properties": {
             "topologyName": "CVRHttpExtensionObjectTracking",

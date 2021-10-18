@@ -2,11 +2,10 @@
 title: Tutorial - View Azure IoT Hub message routing results (.NET) | Microsoft Docs
 description: Tutorial - After setting up all of the resources using Part 1 of the tutorial, add the ability to route messages to Azure Stream Analytics and view the results in Power BI.
 author: robinsh
-
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2018
+ms.date: 09/21/2021
 ms.author: robinsh
 ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
@@ -19,12 +18,13 @@ ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 
 ## Rules for routing the messages
 
-These are the rules for the message routing; these were set up in Part 1 of this tutorial, and you see them work in this second part.
+The following are the rules for the message routing that were set up in Part 1 of this tutorial, and you see them work in this second part.
 
 |Value |Result|
 |------|------|
 |level="storage" |Write to Azure Storage.|
-|level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
+|level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from 
+ the queue and uses Office 365 to e-mail the message.|
 |default |Display this data using Power BI.|
 
 Now you create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
@@ -33,57 +33,66 @@ Now you create the resources to which the messages will be routed, run an app to
 
 The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue.
 
-1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then select **Create** to continue to the **Create logic app** pane. Fill in the fields.
-
-   **Name**: This field is the name of the logic app. This tutorial uses **ContosoLogicApp**.
+1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource**. Put **logic app** in the search box and select Enter. From the search results displayed, select Logic App, then select **Create** to continue to the **Create logic app** pane. Fill in the fields.
 
    **Subscription**: Select your Azure subscription.
 
-   **Resource group**: Select **Use existing** and select your resource group. This tutorial uses **ContosoResources**.
+   **Resource group**: Select **Create new** under the Resource Group field. Specify **ContosoResources** for the name of the resource group. 
 
-   **Location**: Use your location. This tutorial uses **West US**.
+   **Instance Details**
+   **Type**: Select **Consumption** for the instance type. 
 
-   **Enable Log Analytics**: This toggle should be turned off.
+   For **Logic App Name**, specify the name of the logic app. This tutorial uses **ContosoLogicApp**. 
+
+   **Region**: Use the location of the nearest datacenter. This tutorial uses **West US**.
+
+   **Enable Log Analytics**: Set this toggle button to not enable the log analytics. 
 
    ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Select **Create**. It may take a few minutes for the app to deploy.
+   Select **Review + Create**. It may take a few minutes for the app to deploy. When it's finished, it shows a screen giving the overview of the deployment. 
 
-2. Now go to the Logic App. The easiest way to get to the Logic App is to select **Resource groups**, select your resource group (this tutorial uses **ContosoResources**), then select the Logic App from the list of resources. 
+2. Go to the Logic App. If you're still on the deployment page, you can select **Go To Resource**. Another way to get to the Logic App is to select **Resource groups**, select your resource group (this tutorial uses **ContosoResources**), then select the Logic App from the list of resources. 
 
-    The Logic Apps Designer page appears (you might have to scroll over to the right to see the full page). On the Logic Apps Designer page, scroll down until you see the tile that says **Blank Logic App +** and select it. The default tab is "For You". If this pane is blank, select **All** to see all of the connectors and triggers available.
+    Scroll down until you see the almost-empty tile that says **Blank Logic App +** and select it. The default tab on the screen is "For You". If this pane is blank, select **All** to see the connectors and triggers available.
 
 3. Select **Service Bus** from the list of connectors.
 
    ![The list of connectors](./media/tutorial-routing-view-message-routing-results/logic-app-connectors.png)
 
-4. A list of triggers is displayed. Select **When a message is received in a queue (auto-complete) / Service Bus**.
+4. This screenshot shows a list of triggers. Select the one that says **When a message is received in a queue (auto-complete)**.
 
-   ![The list of triggers for the Service Bus](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
+   ![The list of triggers](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
-5. On the next screen, fill in the Connection Name. This tutorial uses **ContosoConnection**.
+5. Fill in the fields on the next screen with the connection information.
 
-   ![Setting up the connection for the Service Bus queue](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
+   **Connection Name**: ContosoConnection
+   
+   Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **RootManageSharedAccessKey**. The **Create** button changes to blue (active). Select it; it shows the queue selection screen.  
 
-   Select the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and select **Create**.
+6. Next, you are asked for information about the queue.  
 
-   ![Finishing setting up the connection](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
+   ![Selecting a queue](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-6. On the next screen, select the name of the queue (this tutorial uses **contososbqueue**) from the dropdown list. You can use the defaults for the rest of the fields.
+   **Queue Name:** This field is the name of the queue from which the message is sent. Click this dropdown list and select the queue name that was set in the setup steps. This tutorial uses **contososbqueue**.
 
-   ![The queue options](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
+   **Queue Type:** The type of queue. Select **Main** from the dropdown list.
 
-7. Now set up the action to send an e-mail when a message is received in the queue. In the Logic Apps Designer, select **+ New step** to add a step, then select **All** to see all of the options available. In the **Choose an action** pane, find and select **Office 365 Outlook**. On the Actions screen, select **Send an e-mail / Office 365 Outlook**.  
+   Take the defaults for the other fields. Select **Save** to save the logic apps designer configuration.
 
-   ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
+7. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook**. In the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
-8. Sign in to your work or school account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
+8. Fill in the fields to be used when sending an e-mail about the message in the queue. 
 
-   Select **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
+   ![Select to send-an-email from one of the Outlook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
 
-   ![The e-mail options for the logic app](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
+   **To:** Put in the e-mail address where the warning is to be sent.
 
-9. Select **Save**. Then close the Logic App Designer.
+   **Subject:** Fill in the subject for the e-mail.
+
+   **Body**: Fill in some text for the body. Click **Add dynamic content**, it will show fields you can pick from the e-mail to include. If you don't see any, select **See More** to see more options. Select **Content** to have the body from the e-mail displayed in the error message.
+
+9. Click **Save** to save your changes. Close the Logic app Designer. 
 
 ## Set up Azure Stream Analytics
 
@@ -91,7 +100,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Create the Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+1. Put **stream** **analytics** **job** in the [Azure portal](https://portal.azure.com) search box and select **Enter**. Select **Create** to get to the Stream Analytics job screen, and then **create** again to get to the create screen. 
 
 2. Enter the following information for the job.
 
@@ -107,7 +116,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 3. Select **Create** to create the job. It may take a few minutes to deploy.
 
-    To get back to the job, select **Resource groups**. This tutorial uses **ContosoResources**. Select the resource group, then select the Stream Analytics job in the list of resources.
+    To return to the job, select **Go to resource**. You can also select **Resource groups**. This tutorial uses **ContosoResources**. Then select the resource group, then select the Stream Analytics job in the list of resources.
 
 ### Add an input to the Stream Analytics job
 
@@ -117,18 +126,16 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Input alias**: This tutorial uses **contosoinputs**.
 
-   **Select IoT Hub from your subscription**: Select this radio button option.
-
-   **Subscription**: Select the Azure subscription you're using for this tutorial.
-
+   Select **Select IoT Hub from your subscriptions**, then select your subscription from the dropdown list.
+   
    **IoT Hub**: Select the IoT hub. This tutorial uses **ContosoTestHub**.
 
-   **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
+   **Consumer group**: Select the consumer group set up in Part 1 of this tutorial. This tutorial uses **contosoconsumers**.
 
    **Shared access policy name**: Select **service**. The portal fills in the Shared Access Policy Key for you.
 
-   **Consumer group**: Select the consumer group set up in Part 1 of this tutorial. This tutorial uses **contosoconsumers**.
-   
+   **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
+
    For the rest of the fields, accept the defaults. 
 
    ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
@@ -143,15 +150,15 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Output alias**: The unique alias for the output. This tutorial uses **contosooutputs**. 
 
+   Select **Select Group workspace from your subscriptions**. In **Group workspace**, specify **My workspace**.
+
+   **Authentication mode**: Select **User token**. 
+
    **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
 
    **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
 
-  **Authentication mode**: Select the mode to use.
-
-   Accept the defaults for the rest of the fields.
-
-3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
+3. Select **Authorize**, and sign in to your Power BI account. (Signing in may take more than one try).
 
    ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
@@ -175,15 +182,15 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 In the Stream Analytics job, select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
-To set up the Power BI report, you need data, so you'll set up Power BI after creating the device and running the device simulation application.
+To set up the Power BI report, you need data, so you'll set up Power BI after you create the device and run the device simulation application to generate some data.
 
 ## Run simulated device app
 
-In Part 1 of this tutorial, you set up a device to simulate using an IoT device. In this section, you download the .NET console app that simulates that device sending device-to-cloud messages to an IoT hub (assuming you didn't already download the app and resources in Part 1).
+In Part 1 of this tutorial, you set up a device to simulate using an IoT device. If you haven't already downloaded it, download it not the .NET console app that simulates the device sending device-to-cloud messages to an IoT hub, you'll download it here.
 
 This application sends messages for each of the different message routing methods. There is also a folder in the download that contains the complete Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
-If you didn't download the files from the repository in Part 1 of this tutorial, go ahead and download them now from [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Selecting this link downloads a repository with several applications in it; the solution you are looking for is iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
+If you didn't download the files from the repository in Part 1 of this tutorial, go ahead and download them now from [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Selecting this link downloads a repository with several applications in it; the solution you are looking for is iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
 
 Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{your hub name}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{your device key}` with the device key you saved earlier when setting up the simulated device. 
 
@@ -199,7 +206,7 @@ Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in 
 
 Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
 
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings will be displayed in the BI report you set up next.
+The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings can be displayed in a BI report. 
 
 If everything is set up correctly, at this point you should see the following results:
 
@@ -215,7 +222,7 @@ If everything is set up correctly, at this point you should see the following re
 
 2. In the [Azure portal](https://portal.azure.com), select **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. 
 
-    Select the storage account, select **Containers**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
+    Select the storage account, select **Containers**, then select the container that stores your results. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
 
    ![The result files in storage](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -223,43 +230,31 @@ This result means the following statement is true.
 
    * The routing to the storage account is working correctly.
 
-Now, with the application still running, set up the Power BI visualization to see the messages coming through the default routing.
+With the application still running, set up the Power BI visualization to see the messages coming through the default endpoint.
 
 ## Set up the Power BI visualizations
 
 1. Sign in to your [Power BI](https://powerbi.microsoft.com/) account.
 
-2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
+2. Select **My Workspace**. It shows at least one dataset that was created. If there's nothing there, run the **Simulated Device** application for another 5-10 minutes to stream more data. After the workspace appears, it will have a dataset called ContosoDataset. Right-click on the three vertical dots to the right of the dataset name. In the dropdown list, select **Create report**.
 
-3. Select **Datasets**. If you don't have any datasets, wait a few minutes and check again.
+     ![Power BI creating report](./media/tutorial-routing-view-message-routing-results/bi-personal-workspace.png)
 
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosodataset**. (It may take 5-10 minutes for the dataset to show up the first time.)
+3. Look in the **Visualizations** section on the right-hand side and select **Line chart** to select a line chart in the BI report page. Drag the graphic so it fills the space horizontally. Now in the **Fields** section on the right, open ContosoTable. Select **EventEnqueuedUtcTime**. It should put it across the X-Axis. Select **temperature** and drag it into the **Values** field for temperature. This adds temperature to the chart. You should have something that looks like the following graphic:
 
-4. Under **ACTIONS**, select the first icon to create a report.
+     ![Power BI graph of temperature](./media/tutorial-routing-view-message-routing-results/bi-temperature-chart.png)
 
-   ![Power BI workspace with Actions and report icon highlighted](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
+4. Click in the bottom half of the chart area. Select **Line Chart** again. It creates a chart under the first one.
 
-5. Create a line chart to show real-time temperature over time.
+5. In the table, select **EventQueuedTime**, it will put it in the Axis field. Drag **humidity** to the Values field. Now you see both charts.
 
-   * On the report creation page, add a line chart by selecting the line chart icon.
+     ![Power BI graph of both fields](./media/tutorial-routing-view-message-routing-results/bi-chart-temp-humidity.png)
 
-     ![The visualizations and fields](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
+   You sent messages from the default endpoint of the IoT Hub to the Azure Stream Analytics. Then you added a Power BI report to show the data, adding two charts to represent the temperature and the humidity. 
 
-   * On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosotable**.
+7. Select **File > Save** to save the report, entering a name for the report when prompted. Save your report in your workspace.
 
-   * Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
-
-   * Drag **temperature** to **Values**.
-
-   A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
-
-6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same process for the first chart, placing **EventEnqueuedUtcTime** on the x-axis (**Axis**) and **humidity** on the y-axis (**Values**).
-
-   ![The final Power BI report with the two charts](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
-
-7. Select **Save** to save the report, entering a name for the report if prompted.
-
-You should be able to see data on both charts. This result means the following statements are true:
+You are able to see data on both charts. This result means the following statements are true:
 
    * The routing to the default endpoint is working correctly.
    * The Azure Stream Analytics job is streaming correctly.
@@ -297,22 +292,25 @@ You may also want to delete the quantity of emails in your inbox that were gener
 
 ## Next steps
 
-In this 2-part tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by performing the following tasks.  
+In this two-part tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by performing the following tasks.  
 
 **Part I: Create resources, set up message routing**
 > [!div class="checklist"]
-> * Create the resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
+> * Create the resources--an IoT hub, a storage account, a Service Bus queue, and a simulated device.
 > * Configure the endpoints and message routes in IoT Hub for the storage account and Service Bus queue.
 
 **Part II: Send messages to the hub, view routed results**
 > [!div class="checklist"]
 > * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
 > * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
+>
 > * Create a Power BI visualization for data sent to the default endpoint.
+>
 > * View the results ...
 > * ...in the Service Bus queue and e-mails.
 > * ...in the storage account.
 > * ...in the Power BI visualization.
+
 
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 

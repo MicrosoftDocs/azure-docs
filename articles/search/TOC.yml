@@ -17,11 +17,13 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a skillset
-      href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
-    - name: Query with Search explorer
+    - name: Translate text and recognize entities
+      href: cognitive-search-quickstart-blob.md
+    - name: Apply OCR and image analysis
+      href: cognitive-search-quickstart-ocr.md
+    - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
     href: search-get-started-vs-code.md
@@ -398,6 +400,8 @@
         href: knowledge-store-projection-shape.md
       - name: Define projections
         href: knowledge-store-projections-examples.md 
+      - name: Projection example
+        href: knowledge-store-projection-example-long.md
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
@@ -442,8 +446,6 @@
     items:
     - name: Filter overview
       href: search-filters.md
-    - name: Facet filters
-      href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
     - name: Troubleshoot collection filters

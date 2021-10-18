@@ -18,6 +18,9 @@ ms.date: 06/01/2021
 
 You can use a pipeline topology to analyze live video, without recording any portions of the video to a file or an asset. The pipeline topologies shown below are similar to the ones in the article on [Event-based video recording](event-based-video-recording-concept.md), but without a video sink node or file sink node.
 
+> [!NOTE]
+> Analyzing live videos is currently available only for edge module and not for cloud.
+
 ### Motion detection
 
 The pipeline topology shown below consists of an [RTSP source](pipeline.md#rtsp-source) node, a [motion detection processor](pipeline.md#motion-detection-processor) node, and an [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node - you can see the settings used in its [JSON representation](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-detection/topology.json). This topology enables you to detect motion in the incoming live video stream and relay the motion events to other apps and services via the IoT Hub message sink node. The external apps or services can trigger an alert or send a notification to appropriate personnel.

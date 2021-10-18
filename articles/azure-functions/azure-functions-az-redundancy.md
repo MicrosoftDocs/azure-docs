@@ -62,7 +62,7 @@ Below is an ARM template snippet for a zone redundant, Premium Function Plan, sh
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2021-01-15",
-            "name": "[parameters('serverfarms_ASP_johnguo_9401_name')]",
+            "name": "your_plan_name_here",
             "location": "Central US",
             "sku": {
                 "name": "EP3",

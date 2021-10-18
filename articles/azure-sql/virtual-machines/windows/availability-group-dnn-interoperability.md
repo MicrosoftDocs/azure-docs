@@ -124,6 +124,9 @@ Configure the linked server using the AG DNN listener name and port. If the port
 
    Yes. The cluster binds the DNN in DNS with the physical IP addresses of all replicas in the availability regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
 
+- Does the availability group DNN listener support read-only routing? 
+
+   Yes. Read-only routing is supported with the DNN listener. 
 
 
 ## Next steps

@@ -30,7 +30,7 @@ Previous versions also currently supported include: `3.0.2`
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
 | patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. We have included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
-| patch (conditional)            | No        | No        |
+| patch (conditional)            | Yes       | Yes       |
 | delete                         | Yes       | Yes       | See details in the delete section below |
 | delete (conditional)           | Yes       | Yes       | See details in the delete section below |
 | history                        | Yes       | Yes       |
@@ -70,7 +70,7 @@ DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
 
 ## Extended Operations
 
-All the operations that are supported that extend the RESTful API.
+All the operations that are supported that extend the REST API.
 
 | Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
 |------------------------|-----------|-----------|---------|

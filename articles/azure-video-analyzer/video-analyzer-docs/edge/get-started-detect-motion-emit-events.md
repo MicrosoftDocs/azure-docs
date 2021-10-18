@@ -101,7 +101,7 @@ This step enumerates all the [pipeline topologies](../pipeline.md) in the module
    
 ```json
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "1.1"
 }
 ```
 
@@ -127,7 +127,7 @@ Using the same steps as above, you can invoke `pipelineTopologySet` to set a pip
 
 ```json
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "1.1",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",
@@ -291,7 +291,7 @@ Invoke `pipelineTopologyGet` by using the following payload.
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "MotionDetection"
 }
 ```
@@ -387,7 +387,7 @@ Next, create a live pipeline that references the above pipeline topology. Invoke
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name": "mdpipeline1",
     "properties": {
         "topologyName": "MotionDetection",
@@ -471,7 +471,7 @@ Next, you can activate the live pipeline - which starts the flow of (simulated) 
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline1"
 }
 ```
@@ -493,7 +493,7 @@ Now invoke the `livePipelineGet` direct method with the following payload:
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline1"
 }
 ```
@@ -576,7 +576,7 @@ Invoke the`livePipelineDeactivate` direct method with the following payload:
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline1"
 }
 ```
@@ -600,7 +600,7 @@ Invoke the direct method `livePipelineDelete` with the following payload
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline1"
 }
 ```
@@ -619,7 +619,7 @@ If you also created the pipeline called "mdpipeline2", then you cannot delete th
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline2"
 }
 ```
@@ -643,7 +643,7 @@ After all live pipelines have been deleted, you can invoke the `pipelineTopology
 
 ```json
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "MotionDetection"
 }
 ```

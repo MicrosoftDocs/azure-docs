@@ -48,12 +48,13 @@ This produces a redacted MP4 video file in a single pass without any manual edit
 ### Analyze mode
 
 The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face.
+Be advised that the face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 | Stage | File Name | Notes |
 | --- | --- | --- |
 | Input asset |"ignite-sample.mp4" |Video in WMV, MPV, or MP4 format |
 | Preset config |Face Detector configuration |**mode**: FaceRedactorMode.Analyze, **resolution**: AnalysisResolution.SourceResolution|
-| Output asset |ignite-sample_annotations.json |Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
+| Output asset |ignite-sample_annotations.json |Annotation data of face locations in JSON format. Face id's are not guaranteed to be identical on subsequent runs of the analysis pass. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
 #### Output example
@@ -126,6 +127,7 @@ The output from the Analyze pass does not include the original video. The video 
 #### Example output
 
 This is the output from an IDList with one ID selected.
+The face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 Example foo_IDList.txt
 
