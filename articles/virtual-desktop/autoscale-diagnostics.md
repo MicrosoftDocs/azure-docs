@@ -3,7 +3,7 @@ title: Set up diagnostics for Azure Virtual Desktop autoscale feature
 description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/19/2021
 ms.author: helohr
 manager: femila
 ---
@@ -51,11 +51,11 @@ Now that you've opened the JSON file, let's do a quick overview of what each pie
 
 - The **CorrelationID** is the ID that you need to show when you create a support case.
 
-2. **OperationName** is the type of operation running while the issue happened.
+- **OperationName** is the type of operation running while the issue happened.
 
-3. **ResultType** is the result of the operation. This item can show you where issues are if you notice any incomplete results.
+- **ResultType** is the result of the operation. This item can show you where issues are if you notice any incomplete results.
 
-4. **Message** is the error message that provides information on the incomplete operation. This message can include links to important troubleshooting documentation, so review it carefully.
+- **Message** is the error message that provides information on the incomplete operation. This message can include links to important troubleshooting documentation, so review it carefully.
 
 The following JSON file is an example of what you'll see when you open a report:
 

@@ -3,7 +3,7 @@ title: Azure Virtual Desktop scaling plans for host pools (preview)
 description: How to assign scaling plans to new or existing host pools in your deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/19/2021
 ms.author: helohr
 manager: femila
 ---
@@ -32,10 +32,10 @@ To assign a scaling plan to an existing host pool:
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the scaling plan window. The + Add button in the upper left-hand corner is highlighted with a red border.](media/assign-scaling-plan.png)
 
-    - When you've enabled the scaling plan during deployment, you also have the option to disable the plan for the selected host pool here.
+    If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable scaling plan** checkbox, as shown in the following screenshot.
 
-        > [!div class="mx-imgBorder"]
-        > ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
 
 ## Edit an existing scaling plan
 
