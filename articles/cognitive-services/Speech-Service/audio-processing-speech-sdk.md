@@ -58,7 +58,6 @@ var audioInput = AudioConfig.FromDefaultMicrophoneInput(audioProcessingOptions);
 
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
----
 
 #### [C++](#tab/cpp)
 
@@ -70,7 +69,6 @@ auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions
 
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
----
 
 #### [C++](#tab/java)
 
@@ -101,7 +99,6 @@ var audioInput = AudioConfig.FromMicrophoneInput("hw:0,1", audioProcessingOption
 
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
----
 
 #### [C++](#tab/cpp)
 
@@ -113,7 +110,6 @@ auto audioInput = AudioConfig::FromMicrophoneInput("hw:0,1", audioProcessingOpti
 
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
----
 
 #### [Java](#tab/java)
 
@@ -155,7 +151,6 @@ var audioInput = AudioConfig.FromWavFileInput("katiesteve.wav", audioProcessingO
 
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
----
 
 #### [C++](#tab/cpp)
 
@@ -172,7 +167,6 @@ auto audioInput = AudioConfig::FromWavFileInput("katiesteve.wav", audioProcessin
 
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
----
 
 #### [Java](#tab/java)
 
@@ -213,7 +207,6 @@ var audioInput = AudioConfig.FromDefaultMicrophoneInput(audioProcessingOptions);
 
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
----
 
 #### [C++](#tab/cpp)
 
@@ -225,7 +218,6 @@ auto audioInput = AudioConfig::FromDefaultMicrophoneInput(audioProcessingOptions
 
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
----
 
 #### [Java](#tab/java)
 
@@ -266,7 +258,6 @@ var audioInput = AudioConfig.FromStreamInput(pushStream, audioProcessingOptions)
 
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
----
 
 #### [C++](#tab/cpp)
 
@@ -286,7 +277,6 @@ auto audioInput = AudioConfig::FromStreamInput(pushStream, audioProcessingOption
 
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
----
 
 #### [Java](#tab/java)
 
