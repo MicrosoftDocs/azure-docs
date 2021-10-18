@@ -69,7 +69,9 @@ After determining the specific frontend host and filtering possible routing rule
 3. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response.
 
 >[!NOTE]
-> Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
+> * Any Paths without a wildcard are considered to be exact-match Paths. Even if the Path ends in a slash, it's still considered exact match.
+> * Patterns to match paths are case insensitive, meaning paths with different casings are treated as duplicates. For example, you have the same host using the same protocol with paths `/FOO` and `/foo`. These paths are considered duplicates which is not allowed in the Patterns to match setting.
+> 
 
 To explain further, let's look at another set of examples:
 
@@ -119,7 +121,7 @@ Given that configuration, the following example matching table would result:
 
 ### Routing decision
 
-After you have matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, what's evaluated next is whether you have configured [URL wewrite (a custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path is updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
+After you have matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, what's evaluated next is whether you have configured [URL rewrite (a custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path is updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
 
 ## Next steps
 

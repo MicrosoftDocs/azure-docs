@@ -4,14 +4,14 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: mtillman
+  manager: karenh444
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: reference
   ms.date: 04/27/2021
   ms.author: kenwith
-  ms.reviewer: japere
+  ms.reviewer: ashishj
     
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
 summary: This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.
@@ -179,7 +179,7 @@ sections:
       - question: |
          Can I configure Application Proxy to add the HSTS header?
         answer: |
-              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap. If you are interested in a preview that enables adding this to responses, reach out to aadapfeedback@microsoft.com for details.
+              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
 
       - question: |
          Integrated Windows authentication
@@ -286,7 +286,7 @@ sections:
       - question: |
          Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
         answer: |
-              Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
+              Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications.
           
               Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
           

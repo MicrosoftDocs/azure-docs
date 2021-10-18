@@ -23,13 +23,13 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 | Americas | Europe | Africa | Asia Pacific |
 |--------------------|----------------------|---------------------|----------------|
-| Brazil South | France Central | South Africa North\* | Australia East |
+| Brazil South | France Central | South Africa North | Australia East |
 | Canada Central | Germany West Central | | Central India\* |
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe | | |
-| US Gov Virginia | | | |
+| South Central US | West Europe | | East Asia* |
+| US Gov Virginia | Sweden* | | |
 | West US 2 | | | |
 | West US 3 | | | |
 
