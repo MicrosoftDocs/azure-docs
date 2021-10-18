@@ -94,14 +94,10 @@ items:
     items:
     - name: Check connection status
       href: overview.md
-  - name: Secure
-    items:
-    - name: Authentication type between services
-      href: overview.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
-      href: overview.md
+      href: how-to-troubleshoot-front-error.md
 - name: Reference
   expanded: true
   items:

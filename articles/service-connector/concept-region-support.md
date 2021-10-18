@@ -1,5 +1,5 @@
 ---
-title: Resource - Service Connector Region Support
+title: Service Connector Region Support
 description: Service Connector region availability and region support list     
 author: shizn
 ms.author: xshi
