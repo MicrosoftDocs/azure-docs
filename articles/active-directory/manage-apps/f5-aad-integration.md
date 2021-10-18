@@ -143,6 +143,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
 
+- [Configure Azure AD B2C with F5 BIG-IP](https://docs.microsoft.com/azure/active-directory-b2c/partner-f5)
+
 ## Additional resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
