@@ -177,7 +177,7 @@
       - name: Alerts and automated actions
         href: best-practices-alerts.md
     - name: Monitor Azure resource
-      href: monitor-azure-resource.md
+      href: essentials/monitor-azure-resource.md
     - name: Monitor virtual machines
       items:
       - name: Overview
