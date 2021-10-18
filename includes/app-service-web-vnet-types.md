@@ -6,10 +6,10 @@ ms.date: 10/01/2020
 ms.author: madsd
 ---
 
-* The multitenant systems that support the full range of pricing plans except Isolated.
-* The App Service Environment, which deploys into your VNet and supports Isolated pricing plan apps.
+* The Dedicated Compute variation which includes the Basic, Standard, Premium, PremiumV2, and PremiumV3 pricing plans.
+* The App Service Environment which deploys directly into your VNet with dedicated supporting infrastructure and is using the Isolated and IsolatedV2 pricing plans.
 
-The VNet Integration feature is used in multitenant apps. If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet. For more information on all of the networking features, see [App Service networking features][Networkingfeatures].
+The VNet Integration feature is used in App Service Dedicated Compute apps. If your app is in [App Service Environment](../articles/app-service/environment/overview.md)], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet. For more information on all of the networking features, see [App Service networking features](../articles/app-service/networking-features.md).
 
 VNet Integration gives your app access to resources in your VNet, but it doesn't grant inbound private access to your app from the VNet. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. VNet Integration is used only to make outbound calls from your app into your VNet. The VNet Integration feature behaves differently when it's used with VNet in the same region and with VNet in other regions. The VNet Integration feature has two variations:
 
@@ -18,9 +18,9 @@ VNet Integration gives your app access to resources in your VNet, but it doesn't
 
 The VNet Integration features:
 
-* Require a Standard, Premium, PremiumV2, PremiumV3, or Elastic Premium pricing plan.
+* Require a **Standard**, **Premium**, **PremiumV2**, **PremiumV3**, or **Elastic Premium** pricing plan.
 * Support TCP and UDP.
-* Work with Azure App Service apps and function apps.
+* Work with Azure App Service apps and Function apps.
 
 There are some things that VNet Integration doesn't support, like:
 
@@ -30,8 +30,4 @@ There are some things that VNet Integration doesn't support, like:
 
 Gateway-required VNet Integration provides access to resources only in the target VNet or in networks connected to the target VNet with peering or VPNs. Gateway-required VNet Integration doesn't enable access to resources available across Azure ExpressRoute connections or work with service endpoints.
 
-Regardless of the version used, VNet Integration gives your app access to resources in your VNet, but it doesn't grant inbound private access to your app from the VNet. Private site access refers to making your app accessible only from a private network, such as from within an Azure VNet. VNet Integration is only for making outbound calls from your app into your VNet.
-
-<!--Links-->
-[ASEintro]: ../articles/app-service/environment/intro.md
-[Networkingfeatures]: ../articles/app-service/networking-features.md
+Regardless of the version used, VNet Integration gives your app access to resources in your VNet, but it doesn't grant inbound private access to your app from the VNet. Private site access refers to making your app accessible only from a private network, such as from within an Azure Virtual Network. VNet Integration is only for making outbound calls from your app into your VNet.
