@@ -3,7 +3,7 @@
 - name: Overview
   items: 
     - name: What is the Dev/Test offer?
-      href: overview-devtest-offer-for-visual-studio.md
+      href: overview-what-is-devtest-offer-visual-studio.md
 - name: Quickstart
   items: 
   - name: Get started with an individual Azure Dev/Test credit
