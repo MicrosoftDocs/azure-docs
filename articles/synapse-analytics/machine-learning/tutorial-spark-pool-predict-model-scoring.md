@@ -36,6 +36,8 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 > [!NOTE]
 > This functionality is currently supported only for MLFLOW packaged ONNX, TensorFlow, PyTorch and Sklearn models. Mlflow Pyfunc packaging is also supported for customized python models (viz EBMClassifier etc.).
+> Only AML or ADLS model source is supported. So to use PREDICT either model should be registered in AML or should be uploaded in ADLS. Here ADLS account refers to default Synapse workspace ADLS account.
+> PREDICT is supported on Spark3.1 version onwards. Python 3.8 is recommended version for model creation and training
 
 ## Sign in to the Azure portal
 
@@ -74,6 +76,49 @@ Please make sure all prerequisites are in place beofre following below steps for
 
    # Define model runtime. This supports only mlflow
    RUNTIME = "mlflow"
+```
+
+1. Ways to authenticate AML workspace: If model is stored in default ADLS account of Synapse workspace then we do not need any further auth setup. In case model is registered in AML, then we can choose any of the 2 supported ways of authentication:
+
+    1. Through service principle: You can use service principle client id and secret directly to authenticate to AML workspace. Service principle must have "Contributor" access at AML workspace.
+
+    ```PYSPARK
+       # AML workspace authentication using service principle
+       AZURE_TENANT_ID = "<tenant_id>"
+       AZURE_CLIENT_ID = "<client_id>"
+       AZURE_CLIENT_SECRET = "<client_secret>"
+
+       AML_SUBSCRIPTION_ID = "<subscription_id>"
+       AML_RESOURCE_GROUP = "<resource_group_name>"
+       AML_WORKSPACE_NAME = "<aml_workspace_name>"
+
+       svc_pr = ServicePrincipalAuthentication( 
+           tenant_id=AZURE_TENANT_ID,
+           service_principal_id=AZURE_CLIENT_ID,
+           service_principal_password=AZURE_CLIENT_SECRET
+       )
+
+       ws = Workspace(
+           workspace_name = AML_WORKSPACE_NAME,
+           subscription_id = AML_SUBSCRIPTION_ID,
+           resource_group = AML_RESOURCE_GROUP,
+           auth=svc_pr
+       )
+    ```
+
+    1. Through linked service: You can use linked service to authenticate to AML workspace. Linked service can use "Service Principle" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service Principle" or "Managed Service Identity (MSI)" must have "Contributor" access at AML workspace.
+
+    ```PYSPARK
+       # AML workspace authentication using linked service
+       from notebookutils.mssparkutils import azureML
+       ws = azureML.getWorkspace("<linked_service_name>") # "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked service supports MSI and service principle both
+    ```
+
+1. Enable PREDICT in spark session: Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
+
+ ```PYSPARK
+   # Enable SynapseML predict
+   spark.conf.set("spark.synapse.ml.predict.enabled","true")
 ```
 
 1. Run the following code.
