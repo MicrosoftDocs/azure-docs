@@ -18,12 +18,15 @@ Azure Container Apps allows your application to securely store sensitive configu
 - Each application revision can reference one or more secrets.
 - Multiple revisions can reference the same secret(s).
 
-When a secret is updated or deleted, applications can respond to changes in one of two ways:
+When a secret is updated or deleted, you can respond to changes in one of two ways:
 
  1. Deploy a new revision.
  2. Restart an existing revision.
 
-An updated or removed secret does not automatically re-create a revision. If a revision references a deleted secret, the provisioning status shows as "failed" and the application will not be scheduled.
+An updated or removed secret does not automatically re-start a revision.
+
+- Before you delete a secret, deploy a new revision that no longer references the old secret.
+- If you change a secret value, you need to restart the revision to consume the new value.
 
 ## Defining secrets
 
