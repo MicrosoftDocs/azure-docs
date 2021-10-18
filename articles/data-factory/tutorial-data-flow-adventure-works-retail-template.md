@@ -21,8 +21,8 @@ AdventureWorks is a fictional sports equipment retailer that is used to demo Mic
 
 ## Prerequisites
 
-1. [Create an Azure subscription](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription#:~:text=Create%20Subscription%20Azure%201%20Sign%20in%20to%20the,for%20each%20type%20of%20billing%20account.%20See%20More.) if you don't have one already.
-2. [Create an Azure Synapse Workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace#:~:text=%20Create%20a%20Synapse%20workspace%20%201%20Open,choice%20is%20to%20create%20a%20new...%20More%20) if you don't have one already.
+1. [Create an Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#:~:text=Create%20Subscription%20Azure%201%20Sign%20in%20to%20the,for%20each%20type%20of%20billing%20account.%20See%20More.) if you don't have one already.
+2. [Create an Azure Synapse Workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace#:~:text=%20Create%20a%20Synapse%20workspace%20%201%20Open,choice%20is%20to%20create%20a%20new...%20More%20) if you don't have one already.
 
 ## Finding the Template
 Navigate to your Synapse workspace. From the home page, click "Learn" and then select "Browse gallery". This will open the Synapse gallery where you can search for datasets, scripts, pipelines and more to install in your workspace. 
