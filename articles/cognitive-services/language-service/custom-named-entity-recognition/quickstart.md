@@ -31,5 +31,5 @@ In this article, we use the Language studio to demonstrate key concepts of custo
 
 ## Next steps
 
-* After you've tested your model, you can begin [improving the model's performance](how-to/improve-model.md), and start [sending NER requests](how-to/submit-task.md).
-* [View recommended practices](concepts/recommended-practices.md)
+* After you've tested your model, you can start [sending NER requests](how-to/submit-task.md).
+* As you create your own custom NER projects, see the [recommended practices](concepts/recommended-practices.md). 

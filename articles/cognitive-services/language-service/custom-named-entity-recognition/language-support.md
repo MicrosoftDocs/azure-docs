@@ -17,6 +17,13 @@ ms.author: aahi
 
 Use this article to learn about the languages and regions currently supported by Custom Named Entity Recognition (NER).
 
+## Multiple language support
+
+With custom NER, you can train a model in one language and test in another language. This feature is very powerful because it helps you save time and effort, instead of building separate projects for every language, you can handle multi-lingual dataset in one project. Your dataset doesn't have to be entirely in the same language but you have to specify this option at project creation. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in this language to your training set.
+
+> [!NOTE]
+> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/project-requirements.md).
+
 ## Language support
 
 Custom NER supports `.txt` files in the following languages:
@@ -30,20 +37,6 @@ Custom NER supports `.txt` files in the following languages:
 | Spanish (Spain) |`es-ES` |
 | Portuguese (Portugal) | `pt-PT` |
 | Portuguese (Brazil) | `pt-BR` |
-
-## Multiple language support
-
-With custom entity extraction, your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages.
-
-> [!NOTE]
-> If your files are in multiple languages you need to enable this option when [creating your project](quickstart.md).
-
-## Regional availability
-
-Custom entity extraction is only available in the following regions:
-
-* West US 2
-* West Europe
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Custom Named Entity Recognition (NER) data limits
+title: Custom Named Entity Recognition (NER) service limits
 titleSuffix: Azure Cognitive Services
 description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Custom Named Entity Recognition (NER) data limits
+# Custom Named Entity Recognition (NER) service limits
 
 Use this article to learn about the data and service limits when using Custom NER.
 
@@ -48,6 +48,10 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Project names have to be unique within the same resource across both custom NER and [custom classification](../../custom-classification/overview.md).
 
+* Custom NER is only available in the following regions:    
+    * West US 2
+    * West Europe
+    
 ## Project limits
 
 * You can only connect 1 storage container for each project. This process is irreversible. If you connect a container to your project, you cannot disconnect it later.

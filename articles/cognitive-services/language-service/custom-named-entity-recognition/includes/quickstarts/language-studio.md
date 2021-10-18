@@ -13,19 +13,45 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-### Create new resource from Azure portal
+## Create a new Azure resource and Azure Blob Storage account
 
-Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom NER API.  
-
-|Requirement  |Required value  |
-|---------|---------|
-|Location | "West US 2" or "West Europe"         |
-|Pricing tier     | Standard (**S**) pricing tier        |
+Before you can use custom NER, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataset that will be used to building your model.
 
 > [!IMPORTANT]
-> In the **Custom NER & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use Custom NER. While you can specify a storage account later, it's easier to do it now. 
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
+>
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**project requirements**](../../how-to/project-requirements.md#using-a-pre-existing-azure-resource)  for information.
+
+1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
+
+    |Azure resource requirement  |Required value  |
+    |---------|---------|
+    |Location | "West US 2" or "West Europe"         |
+    |Pricing tier     | Standard (**S**) pricing tier        |
+
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments.
+
+    |Storage account value  |Recommended value  |
+    |---------|---------|
+    | Name | Any name |
+    | Performance | Standard |
+    | Account kind| Storage (general purpose v1) |
+    | Replication | Locally-redundant storage (LRS)
+    |Location | Any location closest to you, for best latency.        |
+
+## Upload sample data to blob container
+
+After you have created an Azure storage account and linked it to your Language Service resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+
+1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+
+2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
+
+The provided sample dataset contains TBD
 
 ## Create a custom named entity recognition project
+
+Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
 1. Sign into the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
@@ -53,17 +79,11 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 6. Review the data you entered and select **Create Project**.
 
-## Import the example tagged data
-
-Typically, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the NER model. For this quickstart you will use an example file that already contains tagged data. 
-
-1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
-
-2. Select the **Import** button on your project in Language Studio.
-
 ## Train your model
 
-To start training your model:
+Typically after you create a project, you would import your data and begin tagging the entities within it to train the NER model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
+
+A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
 
 1. Select **Train** from the left side menu.
 
@@ -90,6 +110,8 @@ Generally after training a model you would review its [evaluation details](../..
 2. Select the model you want to deploy, then select **Deploy model**.
 
 ## Test your model
+
+After your model is deployed, you can start using it for entity extraction. Use the following steps to send your first entity extraction request.
 
 1. Select **Test model** from the left side menu.
 
