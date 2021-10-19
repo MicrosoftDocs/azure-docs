@@ -1,8 +1,8 @@
 ---
-title: Add an artifact repository to your Azure DevTest Labs
+title: Add an artifact repository to your lab
 description: Learn how to specify your own artifact repository for your lab in Azure DevTest Labs to store tools unavailable in the public artifact repository.
 ms.topic: how-to
-ms.date: 10/18/2021 
+ms.date: 10/19/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
