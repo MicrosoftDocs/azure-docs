@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Use FSSPEC to read/write ADLS data in Synapse Analytics spark pool'
-description: Tutorial for how to use FSSPEC for machine learning workloads to read/write ADLS data in dedicated Spark pools.
+title: 'Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics'
+description: Tutorial for how to use FSSPEC in PySpark notebook to read/write ADLS data in serverless Apache Spark pool.
 services: synapse-analytics
 ms.service: synapse-analytics 
-ms.subservice: machine-learning
+ms.subservice: spark
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 06/07/2021
+ms.date: 11/02/2021
 author: AjAgr
 ms.author: ajagarw
 ---
 
-# Tutorial: Use FSSPEC to read/write ADLS data in Synapse Analytics spark pool
+# Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics
 
-Learn how to use Filesystem Spec (FSSPEC) to read/write data to Azure Data Lake Storage (ADLS) using a linked service in a dedicated Spark pool in Azure Synapse Analytics.
+Learn how to use Filesystem Spec (FSSPEC) to read/write data to Azure Data Lake Storage (ADLS) using a linked service in a serverless Apache Spark pool in Azure Synapse Analytics.
 
 In this tutorial, you'll learn how to:
 
@@ -42,7 +42,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
 1. Enter your authentication credentials. Account key is currently supported authentication type. Select **Test connection** to verify your credentials are correct. Select **Create**.
 
-   :::image type="content" source="media/tutorial-spark-pool-filesystem-spec/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
+   :::image type="content" source="media/tutorial-spark-pool-filesystem-spec/create-adls-linked-service.png" alt-text="Screenshot of creating a linked service using an ADLS Gen2 storage access key.":::
 
 
 ## Read/Write data using storage account name and key
@@ -64,7 +64,7 @@ FSSPEC can read/write ADLS data by specifying the storage account name and key d
    adls_account_name = '' #Provide exact ADLS account name
    adls_account_key = '' #Provide exact ADLS account key
 
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
 
    with fsspec_handle.open() as f:
        df = pandas.read_csv(f)
@@ -78,7 +78,7 @@ FSSPEC can read/write ADLS data by specifying the storage account name and key d
    
    data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
    
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name=adls_account_name,    account_key=adls_account_key, mode="wt")
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key, mode="wt")
    
    with fsspec_handle.open() as f:
    	data.to_csv(f)
@@ -104,7 +104,7 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
    adls_account_name = '' #Provide exact ADLS account name
    sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>)
    
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
    
    with fsspec_handle.open() as f:
        df = pandas.read_csv(f)
@@ -118,12 +118,44 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
    data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
    sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>) 
    
-   fsspec_handle = fsspec.open('abfs://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
    
    with fsspec_handle.open() as f:
        data.to_csv(f) 
    ```
 
+## Upload file from local file system to Synapse workspace default ADLS storage account 
+
+FSSPEC can upload file from local file system to Synapse workspace default ADLS storage account.
+
+
+Run the below code.
+
+   > [!NOTE]
+   > Update the file URL in this script before running it.
+
+   ```PYSPARK
+   # Import libraries
+   import fsspec
+   import os
+   
+   # Set variables
+   local_file_name = "<local_file_name>"
+   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.cor.net/"+local_file_name
+   
+   # Generate local file for testing 
+   with open(local_file_name, mode='w') as f:
+       for i in range(1000):
+           f.write("Testing local file functionality\n")
+   print("Created: " + local_file_name)
+
+   # Upload local file to ADLS 
+   fs = fsspec.filesystem('abfs[s]')
+   fs.upload(local_file_name, ADLS_Store_Path)
+   ```
+
 ## Next steps
 
-- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
+- [Pandas in Synapse Analytics using serverless Apache Spark pool](tutorial-use-pandas-spark-pool.md)
+- [Azure Synapse Analytics](../index.yml)
+- [FSSPEC official documentation](https://filesystem-spec.readthedocs.io/en/latest/)
