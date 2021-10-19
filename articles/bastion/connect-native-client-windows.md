@@ -8,7 +8,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 11/01/2021
 ms.author: cherylmc
 
 ---
@@ -27,7 +27,7 @@ Currently, this feature has the following limitations:
 
 * Signing in using an SSH private key stored in Azure Key Vault is not supported with this feature. Download your private key to a file on your local machine before logging into your Linux VM using an SSH key pair.
 
-## Prerequisites
+## <a name="prereq"></a>Prerequisites
 
 Before you begin, verify that you have met the following criteria:
 
@@ -39,25 +39,43 @@ Before you begin, verify that you have met the following criteria:
 
 Follow the instructions that pertain to your environment.
 
-### Modify an existing bastion host
+### To modify an existing bastion host
 
 If you have already configured Bastion for your VNet, modify the following settings:
 
-* Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU is **Standard**. If it isn't, change it to **Standard** from the dropdown.
-* Check the box for **Native Client Support** and apply your changes.
+1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU is **Standard**. If it isn't, change it to **Standard** from the dropdown.
+1. Check the box for **Native Client Support** and apply your changes.
 
-   :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for a updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
+    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
+1. Install the CLI commands that correspond to the type of session you want to create.
 
-### Configure a new bastion host
+   * **SSH sessions**: If you are only planning to use this feature for SSH sessions with your target VM, see the [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
+
+   * **RDP sessions**: If you are planning to use this feature for RDP sessions with your target VM, use the following instructions:
+
+     * Install the 64-bit version of Python. For more information, see [Python Releases for Windows](https://www.python.org/downloads/windows/).
+
+     * Run `<full_path_to_python.exe> -m pip install azure-cli`.
+
+### To configure a new bastion host
 
 If you don't already have a bastion host configured, see [Create a bastion host](tutorial-create-host-portal.md#createhost). When configuring the bastion host, specify the following settings:
 
-* On the **Basics** tab, for **Instance Details -> Tier** select **Standard** to create a bastion host using the Standard SKU.
+1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard** to create a bastion host using the Standard SKU.
 
    :::image type="content" source="./media/connect-native-client-windows/standard.png" alt-text="Settings for a new bastion host with Standard SKU selected." lightbox="./media/connect-native-client-windows/standard.png":::
-* On the **Advanced** tab, check the box for **Native Client Support**.
+1. On the **Advanced** tab, check the box for **Native Client Support**.
 
    :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host-expand.png":::
+1. Install the CLI commands that correspond to the type of session you want to create.
+
+   * **SSH sessions**: If you are only planning to use this feature for SSH sessions with your target VM, see the [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
+
+   * **RDP sessions**: If you are planning to use this feature for RDP sessions with your target VM, use the following instructions:
+
+     * Install the 64-bit version of Python. For more information, see [Python Releases for Windows](https://www.python.org/downloads/windows/).
+
+     * Run `<full_path_to_python.exe> -m pip install azure-cli`.
 
 ## Verify roles and ports
 
@@ -129,13 +147,13 @@ This section helps you connect to your virtual machine. Use the steps that corre
    * If you are logging into an Azure AD-joined (AADJ) VM, use the following command. To learn more about how to use Azure AD to log into your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
       ```azurecli-interactive
-      az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "AAD"
+      <full_path_to_python.exe> az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "AAD"
       ```
 
    * If you are logging in using a local username and password:
 
       ```azurecli-interactive
-      az network bastion rdp "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "password" --username "<Username>" --password "<Password>"
+      <full_path_to_python.exe> az network bastion rdp "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "password" --username "<Username>" --password "<Password>" 
       ```
 
 1. Once you log into your target VM, the native client on your local computer will open up with your VM session (**mstc** for RDP sessions and **az ssh** for SSH sessions).
