@@ -67,7 +67,7 @@ You can use the following PowerShell script to create a custom gMSA account.  Th
 #
 #
 #
-#Declare variables
+# Declare variables 
 $Name = 'provAPP1gMSA'
 $Description = "Azure AD Cloud Sync service account for APP1 server"
 $Server = "APP1.contoso.com"
