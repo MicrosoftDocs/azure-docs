@@ -473,7 +473,7 @@ In order to deploy to Azure, you must sign in with your Azure account, then choo
 
     ![Edit the Maven Goal](media/spring-cloud-quickstart-java/intellij-edit-maven-goal.png)
 
-1. In the **Command line** textbox, enter '-DskipTests' after 'package', then select **OK**.
+1. In the **Command line** textbox, enter *-DskipTests* after *package*, then select **OK**.
 
     ![Deploy to Azure OK](media/spring-cloud-quickstart-java/intellij-maven-goal-command-line.png)
 
