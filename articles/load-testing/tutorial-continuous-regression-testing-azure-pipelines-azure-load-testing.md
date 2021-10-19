@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 * An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up.md?view=azure-devops&preserve-view=true). Azure DevOps Services includes Azure Pipelines. If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline.md?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).  
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).  
-* An existing Azure Load Testing resource. [Follow these steps to create one.](placeholder for doc in draft.)  
+* An existing Azure Load Testing resource. <!-- [Follow these steps to create one.](placeholder for doc in draft.)  -->
 
 ## Set up your repository
 
