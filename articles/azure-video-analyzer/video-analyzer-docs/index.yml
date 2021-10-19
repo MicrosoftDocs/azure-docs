@@ -138,5 +138,7 @@ landingContent:
             url: release-notes.md
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/video-analyzer/
-          - text: FAQ
-            url: faq.yml
+          - text: Edge module FAQ
+            url: edge/faq.yml
+          - text:  Cloud pipelines FAQ
+            url: cloud/faq.yml
