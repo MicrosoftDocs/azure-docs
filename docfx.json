@@ -649,7 +649,7 @@
         "articles/hdinsight/kafka/*.md": "argangu",
         "articles/hdinsight/**/*.md": "jasonh",
         "articles/jenkins/**/*.md": "tarcher",
-        "articles/lab-services/**/*.md": "ntrogh",
+        "articles/lab-services/**/*.md": "nicktrog",
         "articles/lighthouse/**/*.md": "jenhayes",
         "articles/logic-apps/*.md": "estfan",
         "articles/machine-learning/*.md": "cgronlun",
