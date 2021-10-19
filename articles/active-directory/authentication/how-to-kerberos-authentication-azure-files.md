@@ -261,16 +261,17 @@ Follow these instructions to set up Azure files.
 
 1. Configure RBAC permissions on the file share:
    1. There are three Azure built-in roles for granting share-level permissions to users:
-      - Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB.
-      - Storage File Data SMB Share Contributor allows read, write, and delete access in Azure Storage file shares over SMB.
-      - Storage File Data SMB Share Elevated Contributor allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
+      - *Storage File Data SMB Share Reader* allows read access in Azure Storage file shares over SMB.
+      - *Storage File Data SMB Share Contributor* allows read, write, and delete access in Azure Storage file shares over SMB.
+      - *Storage File Data SMB Share Elevated Contributor* allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
    1. To assign an Azure role to an Azure AD identity, using the Azure portal, follow these steps:
       1. In the Azure portal, go to your file share.
       1. Select **Access Control (IAM)**.
       1. Select **Add a role assignment**.
       1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the Role list. Leave Assign access to the default setting: Azure AD user, group, or service principal. Select the target Azure AD identity by name or email address. **The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity.** This means that the same identity is also represented in AD DS.
-      1. Select Save to complete the role assignment operation.
-   1. Detailed information (including PowerShell and CLI options) located here: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-assign-permissions
+      1. Select **Save** to complete the role assignment operation.
+   
+   For more information, including PowerShell and CLI options, see [Part two: assign share-level permissions to an identity](/storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
 1. Mount the file share. From a command-line window, mount as the user:
 
