@@ -17,10 +17,7 @@ Azure Automation supports three operational categories:
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
 
-
-
-
-
+:::image type="content" source="./media/overview/automation-overview.png" alt-text="Diagram of Automation capabilities" border="true":::
 
 ## Process Automation
 
