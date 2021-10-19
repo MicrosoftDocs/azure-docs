@@ -4,14 +4,50 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/19/2021
 ---
 
 # Resource declaration in Bicep
 
-To deploy a resource through a Bicep file, you add a resource declaration by using the `resource` keyword.
+This article describes the syntax you use to add a resource to your Bicep file.
 
-## Set resource type and version
+## Declaration
+
+Add a resource declaration by using the `resource` keyword. The values you provide in the declaration are described in more details in this article.
+
+```bicep
+resource <symbolic-name> '<resource-type>@<api-version>' = {
+  <resource-properties>
+}
+```
+
+To conditionally deploy a resource, use the `if` syntax. For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
+
+```bicep
+resource <symbolic-name> '<resource-type>@<api-version>' = if (condition) {
+  <resource-properties>
+}
+```
+
+To deploy more than one instance of a resource, use the `for` syntax. For more information, see [Iterative loops in Bicep](loops.md).
+
+```bicep
+resource <symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
+  <properties-to-repeat>
+}]
+```
+
+You can also use the `for` syntax on the resource properties to create an array.
+
+```bicep
+resource <symbolic-name> '<resource-type>@<api-version>' = {
+  properties: {
+    <array-property>: [for <item> in <collection>: <value-to-repeat>]
+  }
+}
+```
+
+## Resource type and version
 
 When adding a resource to your Bicep file, start by setting the resource type and API version. These values determine the other properties that are available for the resource.
 
@@ -27,7 +63,7 @@ You set a symbolic name for the resource. In the preceding example, the symbolic
 
 Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
-## Set resource name
+## Resource name
 
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
 
@@ -51,7 +87,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## Set location
+## Location
 
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
@@ -95,11 +131,11 @@ az provider show \
 
 ---
 
-## Set tags
+## Tags
 
 You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
 
-## Set managed identities for Azure resources
+## Managed identities for Azure resources
 
 Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration.
 
@@ -133,7 +169,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 ```
 
-## Set resource-specific properties
+## Resource-specific properties
 
 The preceding properties are generic to most resource types. After setting those values, you need to set the properties that are specific to the resource type you're deploying.
 
@@ -154,7 +190,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## Set resource dependencies
+To assign an array to a property, use the `for` syntax.
+
+## Resource dependencies
 
 When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
 

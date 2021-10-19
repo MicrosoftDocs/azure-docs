@@ -17,7 +17,7 @@ To learn more about loops, and for hands-on guidance, see [Build flexible Bicep 
 
 Loops can be declared by:
 
-- Using an **integer index**. This option works for the scenario - "I want to create x number of instances." The [range function](bicep-functions-array.md#range) creates an array of integers from the start index and containing the number of specified elements. Within the loop, you can use the integer index to modify values. For more information, see [Loop index](#loop-index).
+- Using an **integer index**. This option works when your scenario is: "I want to create this many instances." The [range function](bicep-functions-array.md#range) creates an array of integers from the start index and containing the number of specified elements. Within the loop, you can use the integer index to modify values. For more information, see [Integer index](#integer-index).
 
   ```bicep
   [for <index> in range(<startIndex>, <numberOfElements>): {
@@ -25,7 +25,7 @@ Loops can be declared by:
   }]
   ```
 
-- Using **items in an array**. This option works for the scenario - "I want to create an instance for each element in an array." Within the loop, you can use the value of the current array element to modify values. For more information, see [Loop array](#loop-array).
+- Using **items in an array**. This option works when your scenario is: "I want to create an instance for each element in an array." Within the loop, you can use the value of the current array element to modify values. For more information, see [Array elements](#array-elements).
 
   ```bicep
   [for <item> in <collection>: {
@@ -33,15 +33,15 @@ Loops can be declared by:
   }]
   ```
 
-- Using **items in a dictionary object**. This option works for the scenario - "I want to create an instance for each item in an object." The [items function](bicep-functions-array.md#items) converts the object to an array. Within the loop, you can use properties from the object to create values. For more information, see [Loop object](#loop-object).
+- Using **items in a dictionary object**. This option works when your scenario is: "I want to create an instance for each item in an object." The [items function](bicep-functions-array.md#items) converts the object to an array. Within the loop, you can use properties from the object to create values. For more information, see [Dictionary object](#dictionary-object).
 
-```bicep
-[for <item> in items(<object>): {
-  ...
-}]
-```
+  ```bicep
+  [for <item> in items(<object>): {
+    ...
+  }]
+  ```
 
-- Using **integer index and items in an array**. This option works for the scenario - "I want to create an instance for each element in an array, but I also need the current index to create another value." For more information, see [Loop array and index](#loop-array-and-index).
+- Using **integer index and items in an array**. This option works when your scenario is: "I want to create an instance for each element in an array, but I also need the current index to create another value." For more information, see [Loop array and index](#array-and-index).
 
   ```bicep
   [for (<item>, <index>) in <collection>: {
@@ -49,7 +49,7 @@ Loops can be declared by:
   }]
   ```
 
-- Adding a **conditional deployment**. This option works for the scenario - "I want to create multiple instances, but only when a condition is true." For more information, see [Loop with condition](#loop-with-condition).
+- Adding a **conditional deployment**. This option works when your scenario is: "I want to create multiple instances, but for each instance I want to deploy only when a condition is true." For more information, see [Loop with condition](#loop-with-condition).
 
   ```bicep
   [for <item> in <collection>: if(<condition>) {
@@ -57,121 +57,17 @@ Loops can be declared by:
   }]
   ```
 
-## Available uses
-
-You can use a loop when defining a variable, property on resource, resource, module, or output.
-
-### Properties
-
-For a **property on a resource**, use:
-
-```bicep
-resource <symbolic-name> '<resource-type>' = {
-  properties: {
-    <array-property>: [for <item> in <collection>: <value-to-repeat>]
-  }
-}
-```
-
-The following example sets the **subnets** property to an array that is constructed from the loop expression:
-
-```bicep
-var subnets = [
-  {
-    name: 'api'
-    subnetPrefix: '10.144.0.0/24'
-  }
-  {
-    name: 'worker'
-    subnetPrefix: '10.144.1.0/24'
-  }
-]
-
-resource vnet 'Microsoft.Network/virtualNetworks@2020-07-01' = {
-  name: 'vnet'
-  location: 'westus'
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        '10.144.0.0/20'
-      ]
-    }
-    subnets: [for subnet in subnets: {
-      name: subnet.name
-      properties: {
-        addressPrefix: subnet.subnetPrefix
-      }
-    }]
-  }
-}
-```
-
-### Resources
-
-For a **resource**, use:
-
-```bicep
-resource <symbolic-name> '<resource-type>' = [for <item> in <collection>: {
-  <properties-to-repeat>
-}]
-```
-
-The following example creates the number of storage accounts specified in the `storageCount` parameter.
-
-```bicep
-param storageCount int = 2
-
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
-  name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: 'westus'
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-}]
-```
-
-Notice the index `i` is used in creating the storage account resource name.
-
-### Modules
-
-For a **module**, use:
-
-```bicep
-module <symbolic-name> '<path>' = [for <item> in <collection>: {
-  <module-values-to-repeat>
-}]
-```
-
-The following example deploys a module for each name provided in the `storageNames` parameter. The module creates a storage account
-
-```bicep
-param storageNames array = [
-  'contoso'
-  'fabrikam'
-  'coho'
-]
-
-module stgModule './storageAccount.bicep' = [for name in storageNames: {
-  name: '${name}${uniqueString(resourceGroup().id)}'
-  params: {
-    storageName: name
-    location: 'westus'
-  }
-}]
-```
-
 ## Loop limits
 
 Bicep loop has these limitations:
 
-- Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
-- Can't loop on multiple levels of properties. See [Property iteration in Bicep](./loop-properties.md).
 - Loop iterations can't be a negative number or exceed 800 iterations.
+- Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
+- Can't loop on multiple levels of properties.
 
-## Loop index
+## Integer index
 
-For a simple example or using an index, you can create a **variable** for an array of strings.
+For a simple example of using an index, create a **variable** for an array of strings.
 
 ```bicep
 param itemCount int = 5
@@ -234,7 +130,7 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
 }]
 ```
 
-## Loop array
+## Array elements
 
 The following example creates one storage account for each name provided in the `storageNames` parameter.
 
@@ -256,9 +152,42 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 }]
 ```
 
-If you want to return values from the deployed resources, you can use a loop in the [output section](loop-outputs.md).
+The next example iterates over an array to define a property. It creates two subnets within a virtual network.
 
-## Loop array and index
+```bicep
+param rgLocation string = resourceGroup().location
+
+var subnets = [
+  {
+    name: 'api'
+    subnetPrefix: '10.144.0.0/24'
+  }
+  {
+    name: 'worker'
+    subnetPrefix: '10.144.1.0/24'
+  }
+]
+
+resource vnet 'Microsoft.Network/virtualNetworks@2020-07-01' = {
+  name: 'vnet'
+  location: rgLocation
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.144.0.0/20'
+      ]
+    }
+    subnets: [for subnet in subnets: {
+      name: subnet.name
+      properties: {
+        addressPrefix: subnet.subnetPrefix
+      }
+    }]
+  }
+}
+```
+
+## Array and index
 
 The following example uses both the array element and index value when defining the storage account.
 
@@ -323,11 +252,33 @@ output deployedNSGs array = [for (name, i) in orgNames: {
 }]
 ```
 
+## Dictionary object
+
+When you want to iterate over elements in a dictionary object, use the [items function](bicep-functions-array.md#items) to convert the object to an array. Use the `value` property to get properties on the objects.
+
+```bicep
+param nsgValues object = {
+  nsg1: {
+    name: 'nsg-westus1'
+    location: 'westus'
+  }
+  nsg2: {
+    name: 'nsg-east1'
+    location: 'eastus'
+  }
+}
+
+resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for nsg in items(nsgValues): {
+  name: nsg.value.name
+  location: nsg.value.location
+}]
+```
+
 ## Loop with condition
 
 For **resources and modules**, you can add an `if` expression with the loop syntax to conditionally deploy the collection.
 
-The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value.
+The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value. In this example, a single condition is applied to all instances of the module.
 
 ```bicep
 param location string
@@ -341,6 +292,20 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): if
   params: {
     storageName: '${i}${baseName}'
     location: location
+  }
+}]
+```
+
+The next example shows how to apply a condition that is specific to the current element in the array.
+
+```bicep
+resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent in parents: if(parent.enabled) {
+  name: parent.name
+  properties: {
+    children: [for child in parent.children: {
+      name: child.name
+      setting: child.settingValue
+    }]
   }
 }]
 ```
@@ -367,7 +332,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 }]
 ```
 
-For completely sequential deployment, set the batch size to 1.
+For sequential deployment, set the batch size to 1.
 
 The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
