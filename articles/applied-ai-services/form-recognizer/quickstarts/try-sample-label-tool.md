@@ -76,7 +76,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **API key** field, paste  the subscription key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="../media/fott-select-form-type.png" alt-text="{alt-text}":::
+    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
 
 1. Select **Run analysis**. The Form Recognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
 
@@ -109,7 +109,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. Select **Run Layout**. The Form Recognizer sample labeling tool will call the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="../media/fott-layout.png" alt-text="{alt-text}":::
+    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
@@ -128,21 +128,21 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 * An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip).
 
-### Configure CORS
+* Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
+    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
 
-:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+    :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
-1. Select the CORS blade for the storage account.
-2. Start by creating a new CORS entry in the Blob service.
-3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
-4. Select all the available 8 options for **Allowed methods**.
-5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
-6. Set the **Max Age** to 120 seconds or any acceptable value.
-7. Click the save button at the top of the page to save the changes.
+    1. Select the CORS blade for the storage account.
+    2. Start by creating a new CORS entry in the Blob service.
+    3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+    4. Select all the available 8 options for **Allowed methods**.
+    5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+    6. Set the **Max Age** to 120 seconds or any acceptable value.
+    7. Click the save button at the top of the page to save the changes.
 
-CORS should now be configured to use the storage account from Form Recognizer Studio.
+    CORS should now be configured to use the storage account from Form Recognizer Studio.
 
 ### Use the sample labeling tool
 
@@ -155,6 +155,8 @@ CORS should now be configured to use the storage account from Form Recognizer St
 2. Select "New Project"
 
 #### Create a new project
+
+* Select **New project**
 
 Configure the project settings fill in the fields with the following values:
 
@@ -214,7 +216,7 @@ Next, you will create tags (labels) and apply them to the text elements that you
     > * Tags cannot span across pages.
     > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
     > * Don't include keys in your tagged fields&mdash;only the values.
-    > * Table data should be detected automatically and will be available in the final output JSON file in the 'pageResults' section. However, if the model fails to detect all of your table data, you can also label and train a model to detect tables, see [Train a custom model | Label your forms](label-tool.md#label-your-forms)
+    > * Table data should be detected automatically and will be available in the final output JSON file in the 'pageResults' section. However, if the model fails to detect all of your table data, you can also label and train a model to detect tables, see [Train a custom model | Label your forms](../label-tool.md#label-your-forms)
     > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
