@@ -32,6 +32,7 @@ Question answering allows you to manage your projects/knowledge bases by providi
 5. Enter basic project settings:
 
     |Setting| Value|
+    |-------|------|
     |**Name** | Enter your unique project name here ("project" and "knowledge base" refer to the same thing in question answering.) |
     |**Description** | Enter a description for your project |
     |**Source language** | Whether or not this value is greyed out, is dependent on the selection that was made when the first project associated with the language resource was created.  |
