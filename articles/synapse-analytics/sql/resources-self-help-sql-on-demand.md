@@ -411,6 +411,10 @@ FROM
     AS [result]
 ```
 
+### Incorrect syntax near 'NOT'
+
+This error indicates that there are some external tables with the columns containing `NOT NULL` constaint in the column definition. Update the table to remove `NOT NULL` from the column definition.
+
 ## Configuration
 
 ### Query fails with: Please create a master key in the database or open the master key in the session before performing this operation.
