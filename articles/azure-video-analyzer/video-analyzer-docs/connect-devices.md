@@ -1,18 +1,18 @@
 ---
-title: Connect devices behind a firewall to Azure Video Analyzer
-description: This article describes how to connect devices behind a firewall to Azure Video Analyzer
+title: Connect devices to Azure Video Analyzer
+description: This article describes how to connect devices to Azure Video Analyzer
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 11/02/2021 
  
 ---
-# Connect devices behind a firewall to Azure Video Analyzer
+# Connect devices to Azure Video Analyzer
 
 In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an application on the device, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server. 
 
 ## Overview 
 
-This article provides high-level concepts to about building an application that can enable Video Analyzer to capture and record video from a device behind a firewall. 
+This article provides high-level concepts to about building an application that can enable Video Analyzer to capture and record video from a device. 
 
 The application will need to: 
 
@@ -27,7 +27,7 @@ The application will need to:
 
 ## Run as an IoT Device 
 
-The Video Analyzer application will be deployed as an Azure IoT device. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub using symmetric key authentication to get the Azure IoT Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
+The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub using symmetric key authentication to get the Azure IoT Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
 
 ### IoT Device Client Configuration
 
