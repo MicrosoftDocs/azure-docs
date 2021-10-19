@@ -10,6 +10,8 @@ ms.date: 10/29/2021
 
 # Integrate Azure SQL Database with Service Connector
 
+This page shows the supported authentication types and client types of Azure SQL Database using Service Connector. You might still be able to connect to Azure SQL Database in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+
 ## Supported compute service
 
 - Azure App Service
@@ -53,9 +55,9 @@ ms.date: 10/29/2021
 
 | Application properties | Description | Example value |
 | --- | --- | --- |
-| spring.datatsource.url | | `jdbc:sqlserver://{your-sql-server}.database.windows.net:1433;databaseName={sql-db};` |
-| spring.datatsource.username | | `{sql-user}` |
-| spring.datatsource.password | | `{sql-pass}` |
+| spring.datatsource.url | Spring Boot JDBC database URL | `jdbc:sqlserver://{your-sql-server}.database.windows.net:1433;databaseName={sql-db};` |
+| spring.datatsource.username | Database username | `{sql-user}` |
+| spring.datatsource.password | Database password | `{sql-pass}` |
 
 ### Node.js
 
@@ -63,11 +65,11 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 |---------|---------|---------|
-| AZURE_SQL_HOST |  | `{sql-server}.database.windows.net` |
-| AZURE_SQL_USER |  | `{sql-user}` |
-| AZURE_SQL_PASSWORD |  | `{sql-pass}` |
-| AZURE_SQL_DATABASE |  | `{sql-db}` |
-| AZURE_SQL_PORT |  | `1433` |
+| AZURE_SQL_HOST | Database URL  | `{sql-server}.database.windows.net` |
+| AZURE_SQL_USER | Database username  | `{sql-user}` |
+| AZURE_SQL_PASSWORD | Database password | `{sql-pass}` |
+| AZURE_SQL_DATABASE | Database name  | `{sql-db}` |
+| AZURE_SQL_PORT | Port number | `1433` |
 
 ### Python (pyodbc)
 
@@ -75,11 +77,11 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_SQL_SERVER |  | `{sql-server}.database.windows.net` |
-| AZURE_SQL_PORT |  | `1433` |
-| AZURE_SQL_PASSWORD |  | `{sql-pass}` |
-| AZURE_SQL_DATABASE |  | `{sql-db}` |
-| AZURE_SQL_USER |  | `{sql-user}` |
+| AZURE_SQL_SERVER | Database URL | `{sql-server}.database.windows.net` |
+| AZURE_SQL_PORT | Port number | `1433` |
+| AZURE_SQL_PASSWORD | Database password | `{sql-pass}` |
+| AZURE_SQL_DATABASE | Database name | `{sql-db}` |
+| AZURE_SQL_USER | Database username | `{sql-user}` |
 
 ### Python-Django (mssql-django)
 
@@ -87,11 +89,11 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_SQL_HOST |  | `{sql-server}.database.windows.net` |
-| AZURE_SQL_PORT |  | `1433` |
-| AZURE_SQL_PASSWORD |  | `{sql-pass}` |
-| AZURE_SQL_NAME |  | `{sql-db}` |
-| AZURE_SQL_USER |  | `{sql-user}` |
+| AZURE_SQL_HOST | Database URL | `{sql-server}.database.windows.net` |
+| AZURE_SQL_PORT | Port number | `1433` |
+| AZURE_SQL_PASSWORD | Database password | `{sql-pass}` |
+| AZURE_SQL_NAME | Database name | `{sql-db}` |
+| AZURE_SQL_USER | Database username | `{sql-user}` |
 
 
 ### Go (go-mssqldb)
@@ -109,10 +111,10 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 |---------|---------|---------|
-| AZURE_SQL_SERVERNAME|  | `{sql-server}.database.windows.net,1433` |
-| AZURE_SQL_UID |  | `{sql-user}` |
-| AZURE_SQL_PWD |  | `{sql-pass}` |
-| AZURE_SQL_DATABASE |  | `{sql-db}` |
+| AZURE_SQL_SERVERNAME | Database server name  | `{sql-server}.database.windows.net,1433` |
+| AZURE_SQL_UID | Database username | `{sql-user}` |
+| AZURE_SQL_PWD | Database password  | `{sql-pass}` |
+| AZURE_SQL_DATABASE | Database name  | `{sql-db}` |
 
 
 ### Ruby 
@@ -121,8 +123,15 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_SQL_HOST |  | `{sql-server}.database.windows.net` |
-| AZURE_SQL_PORT |  | `1433` |
-| AZURE_SQL_PASSWORD |  | `{sql-pass}` |
-| AZURE_SQL_DATABASE |  | `{sql-db}` |
-| AZURE_SQL_USERNAME |  | `{sql-user}` |
+| AZURE_SQL_HOST | Database URL | `{sql-server}.database.windows.net` |
+| AZURE_SQL_PORT | Port number | `1433` |
+| AZURE_SQL_PASSWORD | Database password | `{sql-pass}` |
+| AZURE_SQL_DATABASE | Database name | `{sql-db}` |
+| AZURE_SQL_USERNAME | Database username | `{sql-user}` |
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

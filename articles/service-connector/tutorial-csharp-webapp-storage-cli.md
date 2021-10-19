@@ -97,4 +97,9 @@ az webapp browse --name <app-name>
 
 Each time you visit this sample web app, it upload a blob, download it and then display the content. You will see "Hello Service Connector! Current is `{UTC Time Now}`", which indicates your web app is successfully connected to the blob storage with managed identity.
 
-  
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

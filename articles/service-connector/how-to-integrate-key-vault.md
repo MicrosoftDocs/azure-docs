@@ -10,6 +10,8 @@ ms.date: 10/29/2021
 
 # Integrate Azure Key Vault with Service Connector
 
+This page shows the supported authentication types and client types of Azure Key Vault using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+
 ## Supported compute service
 
 - Azure App Service
@@ -33,34 +35,41 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_KEYVAULT_SCOPE | | `https://management.azure.com/.default` |
-| AZURE_KEYVAULT_RESOURCEENDPOINT | | `https://{yourKeyVault}.vault.azure.net/` |
+| AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
+| AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
 
 **User-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_KEYVAULT_SCOPE | | `https://management.azure.com/.default` |
-| AZURE_KEYVAULT_RESOURCEENDPOINT | | `https://{yourKeyVault}.vault.azure.net/` |
-| AZURE_KEYVAULT_CLIENTID | | `{yourClientID}` |
+| AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
+| AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
+| AZURE_KEYVAULT_CLIENTID | Your Client ID | `{yourClientID}` |
 
 **Service Principal**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_KEYVAULT_SCOPE | | `https://management.azure.com/.default` |
-| AZURE_KEYVAULT_RESOURCEENDPOINT | | `https://{yourKeyVault}.vault.azure.net/` |
-| AZURE_KEYVAULT_CLIENTID | | `{yourClientID}` |
-| AZURE_KEYVAULT_CLIENTSECRET | | `{yourClientSecret}` |
-| AZURE_KEYVAULT_CLIENTID | | `{yourTenantID}` |
+| AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
+| AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
+| AZURE_KEYVAULT_CLIENTID | Your Client ID | `{yourClientID}` |
+| AZURE_KEYVAULT_CLIENTSECRET | Your Client secret | `{yourClientSecret}` |
+| AZURE_KEYVAULT_TENANTID | Your Tenant ID | `{yourTenantID}` |
 
 ### Java - Spring Boot
 
 **Service Principal**
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| azure.keyvault.uri | | `"https://{yourKeyVaultName}.vault.azure.net/"` |
-| azure.keyvault.client-id | | `{yourClientID}` |
-| azure.keyvault.client-key | | `{yourClientSecret}` |
-| azure.keyvault.tenant-id | | `{yourTenantID}` |
-| azure.keyvault.scope | | `https://management.azure.com/.default` |
+| azure.keyvault.uri | Your Key Vault endpoint URL | `"https://{yourKeyVaultName}.vault.azure.net/"` |
+| azure.keyvault.client-id | Your Client ID | `{yourClientID}` |
+| azure.keyvault.client-key | Your Client secret | `{yourClientSecret}` |
+| azure.keyvault.tenant-id |  Your Tenant ID | `{yourTenantID}` |
+| azure.keyvault.scope | Your Azure RBAC scope | `https://management.azure.com/.default` |
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

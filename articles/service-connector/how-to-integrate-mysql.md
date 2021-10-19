@@ -10,6 +10,8 @@ ms.date: 10/29/2021
 
 # Integrate Azure Database for MySQL with Service Connector
 
+This page shows the supported authentication types and client types of Azure Database for MySQL using Service Connector. You might still be able to connect to Azure Database for MySQL in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+
 ## Supported compute service
 
 - Azure App Service
@@ -53,9 +55,9 @@ ms.date: 10/29/2021
 
 | Application properties | Description | Example value |
 | --- | --- | --- |
-| spring.datatsource.url | | `jdbc:mysql://{MySQLName}.mysql.database.azure.com:3306/{MySQLDbName}?sslmode=required` |
-| spring.datatsource.username | | `{MySQLUsername}@{MySQLName}` |
-| spring.datatsource.password | | `****` |
+| spring.datatsource.url | Spring Boot JDBC database URL | `jdbc:mysql://{MySQLName}.mysql.database.azure.com:3306/{MySQLDbName}?sslmode=required` |
+| spring.datatsource.username | Database username | `{MySQLUsername}@{MySQLName}` |
+| spring.datatsource.password | Database password | `****` |
 
 ### Node.js (mysql) 
 
@@ -63,12 +65,12 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 |---------|---------|---------|
-| AZURE_MYSQL_HOST |  | `{MySQLName}.mysql.database.azure.com` |
-| AZURE_MYSQL_USER |  | `MySQLDbName` |
-| AZURE_MYSQL_PASSWORD |  | `****` |
-| AZURE_MYSQL_DATABASE |  | `{MySQLUsername}@{MySQLName}` |
-| AZURE_MYSQL_PORT |  | `3306` |
-| AZURE_MYSQL_SSL |  | `true` |
+| AZURE_MYSQL_HOST | Database Host URL  | `{MySQLName}.mysql.database.azure.com` |
+| AZURE_MYSQL_USER | Database Username | `MySQLDbName` |
+| AZURE_MYSQL_PASSWORD | Database password | `****` |
+| AZURE_MYSQL_DATABASE | Database name  | `{MySQLUsername}@{MySQLName}` |
+| AZURE_MYSQL_PORT | Port number | `3306` |
+| AZURE_MYSQL_SSL | SSL option | `true` |
 
 ### Python (mysql-connector-python)
 
@@ -76,10 +78,10 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_MYSQL_HOST |  | `{MySQLName}.mysql.database.azure.com` |
-| AZURE_MYSQL_NAME |  | `{MySQLDbName}` |
-| AZURE_MYSQL_PASSWORD |  | `****` |
-| AZURE_MYSQL_USER |  | `{MySQLUsername}@{MySQLName}` |
+| AZURE_MYSQL_HOST | Database Host URL  | `{MySQLName}.mysql.database.azure.com` |
+| AZURE_MYSQL_NAME | Database name | `{MySQLDbName}` |
+| AZURE_MYSQL_PASSWORD | Database password  | `****` |
+| AZURE_MYSQL_USER | Database Username  | `{MySQLUsername}@{MySQLName}` |
 
 ### Python-Django
 
@@ -87,10 +89,10 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_MYSQL_HOST |  | `{MySQLName}.mysql.database.azure.com` |
-| AZURE_MYSQL_USER |  | `{MySQLUsername}@{MySQLName}` |
-| AZURE_MYSQL_PASSWORD |  | `****` |
-| AZURE_MYSQL_NAME |  | `MySQLDbName` |
+| AZURE_MYSQL_HOST | Database Host URL  | `{MySQLName}.mysql.database.azure.com` |
+| AZURE_MYSQL_USER | Database Username | `{MySQLUsername}@{MySQLName}` |
+| AZURE_MYSQL_PASSWORD | Database password | `****` |
+| AZURE_MYSQL_NAME | Database name | `MySQLDbName` |
 
 
 ### Go (go-sql-driver for mysql)
@@ -108,12 +110,12 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 |---------|---------|---------|
-| AZURE_MYSQL_HOST |  | `{MySQLName}.mysql.database.azure.com` |
-| AZURE_MYSQL_USERNAME |  | `{MySQLUsername}@{MySQLName}` |
-| AZURE_MYSQL_PASSWORD |  | `****` |
-| AZURE_MYSQL_DBNAME |  | `{MySQLDbName}` |
-| AZURE_MYSQL_PORT |  | `3306` |
-| AZURE_MYSQL_FLAG |  | `MYSQLI_CLIENT_SSL` |
+| AZURE_MYSQL_HOST | Database Host URL | `{MySQLName}.mysql.database.azure.com` |
+| AZURE_MYSQL_USERNAME | Database Username | `{MySQLUsername}@{MySQLName}` |
+| AZURE_MYSQL_PASSWORD | Database password | `****` |
+| AZURE_MYSQL_DBNAME | Database name | `{MySQLDbName}` |
+| AZURE_MYSQL_PORT | Port number  | `3306` |
+| AZURE_MYSQL_FLAG | SSL or other flags | `MYSQLI_CLIENT_SSL` |
 
 ### Ruby (mysql2)
 
@@ -121,8 +123,15 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 |---------|---------|---------|
-| AZURE_MYSQL_HOST |  | `{MySQLName}.mysql.database.azure.com` |
-| AZURE_MYSQL_USERNAME |  | `{MySQLUsername}@{MySQLName}` |
-| AZURE_MYSQL_PASSWORD |  | `****` |
-| AZURE_MYSQL_DATABASE |  | `{MySQLDbName}` |
-| AZURE_MYSQL_SSLMODE |  | `required` |
+| AZURE_MYSQL_HOST | Database Host URL  | `{MySQLName}.mysql.database.azure.com` |
+| AZURE_MYSQL_USERNAME | Database Username | `{MySQLUsername}@{MySQLName}` |
+| AZURE_MYSQL_PASSWORD | Database password | `****` |
+| AZURE_MYSQL_DATABASE | Database name | `{MySQLDbName}` |
+| AZURE_MYSQL_SSLMODE | SSL option | `required` |
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

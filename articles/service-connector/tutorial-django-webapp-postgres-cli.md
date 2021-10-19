@@ -579,3 +579,8 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## Next steps
 
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+

@@ -10,6 +10,8 @@ ms.date: 10/29/2021
 
 # Integrate Azure Queue Storage with Service Connector
 
+This page shows the supported authentication types and client types of Azure Queue Storage using Service Connector. You might still be able to connect to Azure Queue Storage in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+
 ## Supported compute service
 
 - Azure App Service
@@ -34,29 +36,29 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEQUEUE_CONNECTIONSTRING | | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+| AZURE_STORAGEQUEUE_CONNECTIONSTRING | Queue storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
 
 **System-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEQUEUE_RESOURCEENDPOINT | | `https://{StorageAccountName}.queue.core.windows.net/` |
+| AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://{StorageAccountName}.queue.core.windows.net/` |
 
 **User-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEQUEUE_RESOURCEENDPOINT | | `https://{storageAccountName}.queue.core.windows.net/` |
-| AZURE_STORAGEQUEUE_CLIENTID | | `{yourClientID}` |
+| AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://{storageAccountName}.queue.core.windows.net/` |
+| AZURE_STORAGEQUEUE_CLIENTID | Your client ID | `{yourClientID}` |
 
 **Service Principal**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEQUEUE_RESOURCEENDPOINT | | `https://{storageAccountName}.queue.core.windows.net/` |
-| AZURE_STORAGEQUEUE_CLIENTID | | `{yourClientID}` |
-| AZURE_STORAGEQUEUE_CLIENTSECRET | | `{yourClientSecret}` |
-| AZURE_STORAGEQUEUE_TENANTID | | `{yourTenantID}` |
+| AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://{storageAccountName}.queue.core.windows.net/` |
+| AZURE_STORAGEQUEUE_CLIENTID | Your client ID | `{yourClientID}` |
+| AZURE_STORAGEQUEUE_CLIENTSECRET | Your client secret | `{yourClientSecret}` |
+| AZURE_STORAGEQUEUE_TENANTID | Your tenant ID | `{yourTenantID}` |
 
 ### Java - Spring Boot
 
@@ -64,5 +66,12 @@ ms.date: 10/29/2021
 
 | Application properties | Description | Example value |
 | --- | --- | --- |
-| azure.storage.account-name | | `{storageAccountName}` |
-| azure.storage.account-key | | `{yourSecret}` |
+| azure.storage.account-name | Queue storage account name | `{storageAccountName}` |
+| azure.storage.account-key | Queue storage account key | `{yourSecret}` |
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

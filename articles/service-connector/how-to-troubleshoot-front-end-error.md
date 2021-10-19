@@ -50,3 +50,10 @@ If you come across an issue, you can refer to the error message to find suggeste
 | Usage error: {} [KEY=VALUE ...] | Check the available keys and provide values for the the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Unsupported Key `{Key}` is provided for parameter `{Parameter}`. All possible keys are: `{Keys}` | Check the available keys and provide values for the the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Provision failed, please create the target resource manually and then create the connection. Error details: `{ErrorTrace}` | <ul><li>Retry.</li><li>Create the target resource manually and then create the connection.</li></ul> |
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

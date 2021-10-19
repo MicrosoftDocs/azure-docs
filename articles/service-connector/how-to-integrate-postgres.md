@@ -10,6 +10,8 @@ ms.date: 10/29/2021
 
 # Integrate Azure Database for PostgreSQL with Service Connector
 
+This page shows the supported authentication types and client types of Azure Database for PostgreSQL using Service Connector. You might still be able to connect to Azure Database for PostgreSQL in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+
 ## Supported compute service
 
 - Azure App Service
@@ -53,9 +55,9 @@ ms.date: 10/29/2021
 
 | Application properties | Description | Example value |
 | --- | --- | --- |
-| spring.datatsource.url | | `jdbc:postgresql://{your-postgres-server-name}.postgres.database.azure.com:5432/{database-name}?sslmode=require` |
-| spring.datatsource.username | | `{username}@{servername}` |
-| spring.datatsource.password | | `****` |
+| spring.datatsource.url | Database URL | `jdbc:postgresql://{your-postgres-server-name}.postgres.database.azure.com:5432/{database-name}?sslmode=require` |
+| spring.datatsource.username | Database username | `{username}@{servername}` |
+| spring.datatsource.password | Database password | `****` |
 
 ### Node.js (pg) 
 
@@ -63,12 +65,12 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 |---------|---------|---------|
-| AZURE_POSTGRESQL_HOST |  | `{your-postgres-server-name}.postgres.database.azure.com` |
-| AZURE_POSTGRESQL_USER |  | `{username}@{servername}` |
-| AZURE_POSTGRESQL_PASSWORD |  | `****` |
-| AZURE_POSTGRESQL_DATABASE |  | `{database-name}` |
-| AZURE_POSTGRESQL_PORT |  | `5432` |
-| AZURE_POSTGRESQL_SSL |  | `true` |
+| AZURE_POSTGRESQL_HOST | Database host URL | `{your-postgres-server-name}.postgres.database.azure.com` |
+| AZURE_POSTGRESQL_USER | Database username | `{username}@{servername}` |
+| AZURE_POSTGRESQL_PASSWORD | Database password | `****` |
+| AZURE_POSTGRESQL_DATABASE | Database name | `{database-name}` |
+| AZURE_POSTGRESQL_PORT | Port number  | `5432` |
+| AZURE_POSTGRESQL_SSL | SSL option  | `true` |
 
 ### Python (psycopg2)
 
@@ -84,10 +86,10 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_POSTGRESQL_HOST |  | `{your-postgres-server-name}.postgres.database.azure.com` |
-| AZURE_POSTGRESQL_USER |  | `{username}@{servername}` |
-| AZURE_POSTGRESQL_PASSWORD |  | `****` |
-| AZURE_POSTGRESQL_NAME |  | `{database-name}` |
+| AZURE_POSTGRESQL_HOST | Database host URL | `{your-postgres-server-name}.postgres.database.azure.com` |
+| AZURE_POSTGRESQL_USER | Database username | `{username}@{servername}` |
+| AZURE_POSTGRESQL_PASSWORD | Database password | `****` |
+| AZURE_POSTGRESQL_NAME | Database name | `{database-name}` |
 
 
 ### Go (pg)
@@ -115,3 +117,9 @@ ms.date: 10/29/2021
 | --- | --- | --- |
 | AZURE_POSTGRESQL_CONNECTIONSTRING | Ruby pg connection string | `host={your-postgres-server-name}.postgres.database.azure.com port=5432 dbname={database-name} sslmode=require user={username}@{servername} password=****` |
 
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

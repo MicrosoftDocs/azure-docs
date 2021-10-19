@@ -10,6 +10,8 @@ ms.date: 10/29/2021
 
 # Integrate Azure Blob Storage with Service Connector
 
+This page shows the supported authentication types and client types of Azure Blob Storage using Service Connector. You might still be able to connect to Azure Blob Storage in other programming languages without using Service Connector. This page also shows default environment variable name and value (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+
 ## Supported compute service
 
 - Azure App Service
@@ -34,29 +36,29 @@ ms.date: 10/29/2021
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEBLOB_CONNECTIONSTRING | | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
+| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
 
 **System-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | | `https://{storageAccountName}.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
 
 **User-assigned Managed Identity**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | | `https://{storageAccountName}.blob.core.windows.net/` |
-| AZURE_STORAGEBLOB_CLIENTID | | `{yourClientID}` |
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_CLIENTID | Your client ID | `{yourClientID}` |
 
 **Service Principal**
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
-| AZURE_STORAGEBLOB_RESOURCEENDPOINT | | `https://{storageAccountName}.blob.core.windows.net/` |
-| AZURE_STORAGEBLOB_CLIENTID | | `{yourClientID}` |
-| AZURE_STORAGEBLOB_CLIENTSECRET | | `{yourClientSecret}` |
-| AZURE_STORAGEBLOB_TENANTID | | `{yourTenantID}` |
+| AZURE_STORAGEBLOB_RESOURCEENDPOINT | Blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+| AZURE_STORAGEBLOB_CLIENTID | Your client ID | `{yourClientID}` |
+| AZURE_STORAGEBLOB_CLIENTSECRET | Your client secret | `{yourClientSecret}` |
+| AZURE_STORAGEBLOB_TENANTID | Your tenant ID | `{yourTenantID}` |
 
 ### Java - Spring Boot
 
@@ -64,6 +66,13 @@ ms.date: 10/29/2021
 
 | Application properties | Description | Example value |
 | --- | --- | --- |
-| azure.storage.account-name | | `{storageAccountName}` |
-| azure.storage.account-key | | `{yourSecret}` |
-| azure.storage.blob-endpoint | | `https://{storageAccountName}.blob.core.windows.net/` |
+| azure.storage.account-name | Your blob storage account name | `{storageAccountName}` |
+| azure.storage.account-key | Your blob storage account key | `{yourSecret}` |
+| azure.storage.blob-endpoint | Your blob storage endpoint | `https://{storageAccountName}.blob.core.windows.net/` |
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
