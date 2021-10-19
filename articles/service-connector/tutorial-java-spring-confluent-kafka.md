@@ -116,7 +116,7 @@ az spring-cloud connection create confluentcloud -g <your-resource-group-name> -
 - **Replace** *\<kafka-schema-registry-endpoint>* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
 - **Replace** *\<registry-api-key>* and *\<registry-api-secret>* with your kafka Schema Registry API key and secret.
 
-#### [Portal]](#tab/Azure-portal)
+#### [Portal](#tab/Azure-portal)
 
 Click **Service Connector (Preview)** Select or enter the following settings.
 
