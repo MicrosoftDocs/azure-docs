@@ -235,15 +235,15 @@ $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.N
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
-## Retrieve a private endpoint using Azure powershell
+## Retrieve a private endpoint using Azure PowerShell
 
-To get the details of a private endpoint, use the this PowerShell command:
+To get the details of a private endpoint, use this PowerShell command:
 
 ```azurepowershell-interactive
 Get-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
 ```
 
-## Remove a private endpoint using Azure powershell
+## Remove a private endpoint using Azure PowerShell
 
 To remove a private endpoint, use the following PowerShell command:
 
@@ -253,7 +253,7 @@ To remove a private endpoint, use the following PowerShell command:
 
 ## Create a private endpoint using Azure CLI
 
-To create a private endpoint named *myPrivateEndpoint* for an existing Azure Cache for Redis instance, tun the following Azure CLI script. Replace the variable values with the details for your environment:
+To create a private endpoint named *myPrivateEndpoint* for an existing Azure Cache for Redis instance, run the following Azure CLI script. Replace the variable values with the details for your environment:
 
 ```azurecli-interactive
     # Resource group where the Azure Cache for Redis and virtual network resources are located
