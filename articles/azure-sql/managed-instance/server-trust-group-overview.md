@@ -31,11 +31,11 @@ The following section describes setup of Server Trust Group using Azure portal.
 
 3. On the **Security** settings, select the **SQL trust groups** tab.
 
-   :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Server trust groups":::
+   :::image type="content" source="./media/server-trust-group-overview/_sql-trust-groups.png" alt-text="SQL trust groups":::
 
 4. In the Server Trust Group configuration page, select the **New Group** icon.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="New Group":::
+   :::image type="content" source="./media/server-trust-group-overview/_new-sql-trust-group-button.png" alt-text="New Group":::
 
 5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in group's subscription, resource group and region. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group. Trust scope is fixed, and all available functionalities are preselected and this cannot be changed. Select **subscription** and **Resource group** to choose Azure SQL Managed Instances that will be members of the group.
 
