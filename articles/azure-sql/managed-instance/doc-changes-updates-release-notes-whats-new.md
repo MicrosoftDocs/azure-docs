@@ -28,8 +28,7 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 
 | Feature | Details |
 | ---| --- |
-| [16 TB support for SQL Managed Instance Business Critical](resource-limits.md#service-tier-characteristics) | Support for allocation up to 16 TB of space on SQL Managed Instance in the Business Critical service tier. | 
-| [16 TB support for SQL Managed Instance General Purpose](resource-limits.md)| Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
+| [16 TB support for SQL Managed Instance Business Critical](resource-limits.md#service-tier-characteristics) | Support for allocation up to 16 TB of space on SQL Managed Instance in the Business Critical service tier using the new premium memory optimized hardware generation. | 
 | [Azure Active Directory-only authentication for Azure SQL](../database/authentication-azure-ad-only-authentication.md) |  It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. |
 | [Elastic transactions](../database/elastic-transactions-overview.md) | Elastic transactions let you execute distributed transactions across cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
 | [Instance pools](instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
@@ -38,8 +37,8 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | [Long-term backup retention](long-term-backup-retention-configure.md) | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. |
 | [Service Broker cross-instance message exchange](/sql/database-engine/configure-windows/sql-server-service-broker) | Support for cross-instance message exchange using Service Broker on Azure SQL Managed Instance. |
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. |
-| [ Premium series service tier](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium series service tier to take advantage of the new generation of hardware.  | 
-| [Premium series - memory optimized service tier](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium series - memory optimized service tier to take advantage higher memory to vCore ratios. | 
+| [ Premium series hardware generation](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium series hardware generation to take advantage of the new gen8 hardware.  | 
+| [Premium series - memory optimized hardware generation](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium series - memory optimized service tier to take advantage higher memory to vCore ratios. | 
 | [Transactional Replication](replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](replication-between-two-instances-configure-tutorial.md). |
 | [Threat detection](threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
@@ -51,6 +50,7 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
+| [16 TB support for SQL Managed Instance General Purpose](resource-limits.md)| November 2021 |  Support for allocation up to 16 TB of space on SQL Managed Instance in the General Purpose service tier. |
 | [Machine Learning Service](machine-learning-services-overview.md) | March 2021 | Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. |
 | [Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
@@ -65,7 +65,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 
 | Changes | Details |
 | --- | --- |
-|**New premium service tiers** | There are now two new service tiers for SQL Managed Instance - premium, and premium memory-optimized. Both service tiers take advantage of a new generation of hardware, and the memory-optimized service tier enables a greater a higher memory to vCore ratio to support larger instances. As part of this deployment, the Gen5 service tier has been renamed to the Standard service tier. The two new premium service tiers are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
+|**New hardware generation** | There are now two new hardware generations for SQL Managed Instance - premium, and premium memory-optimized. Both offerings take advantage of a new generation of hardware, and the memory-optimized hardware generation enables a greater a higher memory to vCore ratio to support larger instances. As part of this deployment, the Gen5 hardware generation has been renamed to the Standard hardware generation. The two new premium hardware generations are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
 | **16 TB support for Business Critical** | Support has been added for up to of up to 16 TB of space for SQL Managed Instance in the Business Critical service tier on the premium memory optimized series. This instance offer is currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
 | | | 
 
