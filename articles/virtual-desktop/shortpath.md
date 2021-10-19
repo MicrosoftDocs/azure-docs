@@ -47,7 +47,7 @@ The diagram below gives a high-level overview of the RDP Shortpath network conne
 
 ## Requirements
 
-To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of the following technologies:
+To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of these methods:
 
 - Make sure the remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, non-Windows clients aren't supported.
 - Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
