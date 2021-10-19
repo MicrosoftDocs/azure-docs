@@ -37,12 +37,12 @@ Total Memory Encryption: Multi Key Supported<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (CLI provisioning or ARM template only)<br>
-[Azure Kubernetes Service](..aks/intro-kubernetes): Supported (CLI provisioning only initially)<br>
+[Azure Kubernetes Service](..aks/intro-kubernetes.md): Supported (CLI provisioning only initially)<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Dedicated Host](dedicated-hosts): Not Supported Initially<br>
+[Dedicated Host](dedicated-hosts.md): Not Supported Initially<br>
 
 ## DCsv3-series Technical specifications
 
@@ -85,7 +85,6 @@ Total Memory Encryption: Multi Key Supported<br>
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- [More On Disk Types](./disks-types.md#ultra-disk)
 
 Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
