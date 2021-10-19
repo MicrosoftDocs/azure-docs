@@ -91,7 +91,7 @@ Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-
 
 All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
 
-However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
+However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
