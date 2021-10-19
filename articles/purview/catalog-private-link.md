@@ -109,7 +109,7 @@ If you **have configured on-premises DNS Servers**, **DNS Forwarders or custom D
 
 2. If your DNS record is `web.privatelink.purview.azure.com`, update the record to `web.privatelink.purviewstudio.azure.com`.
 
-3. If your conditional forwarder is `privatelink.purview.azure.com`, DO NOT REMOVE the zone. You are required to add a new Conditional forwarder to `privatelink.purviewstudio.azure.com`.
+3. If your conditional forwarder is `privatelink.purview.azure.com`, DO NOT REMOVE the zone. You are required to add a new conditional forwarder to `privatelink.purviewstudio.azure.com`.
 
 #### Scenario 3
 
