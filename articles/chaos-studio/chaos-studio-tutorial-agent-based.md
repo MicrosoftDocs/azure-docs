@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause a high CPU event on a Linux virtual machine using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against an application becoming resource-starved.
 
-These same steps can be used to set up and run an experiment for any agent-based fault. An **agent-based** fault requires setup and installation of the chaos agent, unlike a service-direct fault, runs directly against an Azure resource without any need for instrumentation.
+These same steps can be used to set up and run an experiment for any agent-based fault. An **agent-based** fault requires setup and installation of the chaos agent, unlike a service-direct fault, which runs directly against an Azure resource without any need for instrumentation.
 
 
 ## Prerequisites
