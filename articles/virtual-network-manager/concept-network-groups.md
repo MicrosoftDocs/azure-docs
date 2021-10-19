@@ -26,7 +26,7 @@ A *network group* is a set of virtual networks selected manually or by using con
 
 When you create a network group, you can add virtual networks to a group by manually selecting individual virtual network from a provided list. The list of virtual network is dependent on the scope (management group or subscription) defined at the time of the Azure Virtual Network Manager deployment. This method is useful when you have a few virtual networks you want to add to the network group. Updates to configurations containing static members will need to be deployed again to have the new changes applied.
 
-## <a name="dynamic"></a>Dynamic membership
+## Dynamic membership
 
 Dynamic membership gives you the flexibility of selecting multiple virtual networks at once if they meet the conditional statements you defined. This method is useful for scenarios where you have hundreds or thousands of virtual networks in one or more subscriptions and need to select a handful either by name, IDs, or tags. Each condition gets processed in the order listed and configurations are applied to virtual networks to meet those conditions. See [Exclude elements from dynamic membership](how-to-exclude-elements.md), to learn how to configure conditional statements.
 
