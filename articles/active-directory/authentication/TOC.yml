@@ -138,6 +138,8 @@
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
         href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
+      - name: Kerberos for Azure Files
+        href: how-to-kerberos-authentication-azure-files.md
   - name: Security info registration
     items:
     - name: Enable combined registration
