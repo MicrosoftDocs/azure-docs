@@ -1,5 +1,5 @@
 ---
-title: Export a portion of an Video Analyzer recorded video to an MP4 file - Azure
+title: Export a portion of an Azure Video Analyzer recorded video to an MP4 file
 description: In this tutorial, you'll learn how to export a portion of an Video Analyzer recorded video as an MP4 which is stored as a Video Analyzer video which can be downloaded and consumed outside of the Video Analyzer account ecosystem.
 ms.topic: tutorial
 ms.date: 10/18/2021
@@ -40,7 +40,7 @@ In this tutorial, you will learn:
 
 A pipeline topology of batch kind enables you to describe how recorded video should be processed for export based on your custom needs through three interconnected nodes.  A pipeline topology of batch kind is the base that is used for pipeline jobs.  A pipeline job is the individual instance of a pipeline topology of batch kind and the pipeline job imports the recorded Video Analyzer video and saves it to the Video Analyzer's storage account as a downloadable MP4 file.  The pipeline topology of batch kind uses 1 source node ([video source](../pipeline.md#video-source)), 1 processor node ([encoder processor](../pipeline.md#encoder-processor)), and one sink node ([video sink](../pipeline.md#video-sink)).
 
-> [!NTOE]
+> [!NOTE]
 > For more information about sources, processors and sinks please see [sources, processors, and sinks](../pipeline.md#sources-processors-and-sinks). For more information on pipeline jobs please see [pipeline jobs](../pipeline.md#batch-pipeline)
 
 ## Create a pipeline job (video playback blade)
@@ -56,20 +56,20 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
     > :::image type="content" source="./media/export-portion-of-video-as-mp4/create-job.png" alt-text="Image of Azure Video Analyzer's video widget blade highlighting the create a job selection.":::
 1. In the `Create Job` fly out blade select:
 
-   * Select **Create from sample** for the `Batch topology`
-   * Select the **Video export** sample topology in the `Batch topology name` drop down list.
-   * Enter a name in the `Batch topology name` to save the topology as.
+   1. Select **Create from sample** for the `Batch topology`.
+   1. Select the **Video export** sample topology in the `Batch topology name` drop down list.
+   1. Enter a name in the `Batch topology name` to save the topology as.
 
         > [!NOTE]
         > The sample topology will be saved as the name entered above.  It will be available to re-use next time a video is to be exported.
 1. In the `Name your job` section enter a **Job name** in the Job name filed and a **Description** for the job in the description field (the description is optional)
 1. In the `Define parameters` section:
-    * Enter the name of the Video Analyzer recorded video in the `sourceVideoName` field.
-    * In the `videoSourceTimeSequenceParameter` field select the start and end dates by clicking on the calendar icon and selecting the dates for each value.  In the time fields enter the start and end times for the pipeline job to use for creating the video clip with.
+    1. Enter the name of the Video Analyzer recorded video in the `sourceVideoName` field.
+    1. In the `videoSourceTimeSequenceParameter` field select the start and end dates by clicking on the calendar icon and selecting the dates for each value.  In the time fields, enter the start and end times for the pipeline job to use for creating the video clip with.
       > [!NOTE]
       > The time value for a given recorded video is displayed in the upper right hand side of the video widget player.  This time value is shown in the image below with a red box around it.  The calendar icon is also shown in the image below with a green box around it.
 
-    * Enter a name for the exported MP4 file in the `exportedVideoName` field.
+    1. Enter a name for the exported MP4 file in the `exportedVideoName` field.
   
       > [!div class="mx-imgBorder"]
       > :::image type="content" source="./media/export-portion-of-video-as-mp4/video-widget-job-creation.png" alt-text="Image of Azure Video Analyzer's video player widget and pipeline jobs fly-out blade highlighting the video time stamp in a red box and a green box around the calendar icon.":::
