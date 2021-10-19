@@ -41,7 +41,7 @@ In this article, you learn to do the following tasks:
 
 * Create an Azure Machine Learning workspace if you don't have one. For workspace creation, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
 
-* Configure your default workspace and resource group for the Azure CLI. Machine Learning CLI commands require the `--workspace/-w` and `--resource-grou/-g` parameters. Configure the defaults can avoid passing in the values multiple times. You can override these on the command line. Run the following code to set up your defaults. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* Configure your default workspace and resource group for the Azure CLI. Machine Learning CLI commands require the `--workspace/-w` and `--resource-group/-g` parameters. Configure the defaults can avoid passing in the values multiple times. You can override these on the command line. Run the following code to set up your defaults. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
 ```azurecli
 az account set -s "<subscription ID>"
