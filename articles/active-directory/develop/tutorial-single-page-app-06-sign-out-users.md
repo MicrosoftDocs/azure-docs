@@ -26,7 +26,7 @@ Follow the steps in this tutorial to:
 > - Sign out using popups
 > - Sign out using redirects 
 > - Add the sign-out button
- 
+
 ## Prerequisites 
 
 

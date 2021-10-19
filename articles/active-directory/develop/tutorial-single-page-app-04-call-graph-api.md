@@ -26,7 +26,7 @@ Follow the steps in this tutorial to:
 > - Fetch access token
 > - Make a REST call to MS Graph 
 
-Want to call your API instead? skip to the [call a Web API](tutorial-single-page-app-06-call-web-api.md)section of the tutorial series. 
+Want to call your API instead? skip to the [call a Web API](tutorial-single-page-app-05-call-web-api.md) section of the tutorial series. 
 
 ## Prerequisites
 
