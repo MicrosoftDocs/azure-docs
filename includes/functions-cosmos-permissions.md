@@ -10,8 +10,8 @@ You will need to create a role assignment that provides access to your database 
 
 | Binding type   | Example built-in roles                |
 |----------------|---------------------------------------|
-| Input binding  | [Cosmos DB Built-in Data Reader]      |
 | Trigger        | [Cosmos DB Built-in Data Contributor] |
+| Input binding  | [Cosmos DB Built-in Data Reader]      |
 | Output binding | [Cosmos DB Built-in Data Contributor] |
 
 
