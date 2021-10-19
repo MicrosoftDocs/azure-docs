@@ -92,7 +92,7 @@ sections:
       - question: |
           What size should I use for my key encryption key (KEK)?
         answer: |
-          Windows Server 2022 included a newer version of Bitlocker and, as described in the prerequisites page, we recommend starting with a 3072 or 4096 bit key size. For earlier version of Windows, you may use 2048 bit as well.
+          Windows Server 2022 included a newer version of BitLocker and, as described in the prerequisites page, we recommend starting with a 3072 or 4096 bit key size. For earlier version of Windows, you may use 2048 bit as well.
           
 
       - question: |
