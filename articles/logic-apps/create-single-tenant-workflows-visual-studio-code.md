@@ -747,6 +747,8 @@ From Visual Studio Code, you can directly publish your project to Azure, which d
 
 Deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
+<a name="publish-new-logic-app"></a>
+
 ### Publish to a new Logic App (Standard) resource
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
