@@ -21,7 +21,7 @@ The application will need to:
 1. Upon receiving such a command: 
    * Validate the arguments received 
    * Open a secure websocket connection to the URL provided using the token provided
-   * Forward the RTSP requests received from the Video Analyzer service to the RTSP server running on the device 
+   * Forward the websocket bytes to the camera's RTSP server TCP connection
 
 <!--- To-do: Add image --->
 
