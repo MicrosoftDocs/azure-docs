@@ -30,7 +30,9 @@ RDP Shortpath uses a TLS connection between the client and the session host usin
 
 ## RDP Shortpath connection sequence
 
-After establishing the [reverse connect transport](./network-connectivity.md), the client and session host starts the RDP connection and negotiate multi-transport capabilities. Extra steps are described below:
+After establishing the [reverse connect transport](./network-connectivity.md), the client and session host starts the RDP connection and negotiates the multi-transport capabilities.
+
+Here's how the session host negotiates multi-transport capabilities:
 
 1. The session host sends the list of its private and public IPv4 and IPv6 addresses to the client.
 2. The client starts the background thread to establish a parallel UDP-based transport directly to one of the host's IP addresses.
