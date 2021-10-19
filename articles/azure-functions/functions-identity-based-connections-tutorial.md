@@ -2,24 +2,28 @@
 title: Create a function app that uses identity-based Azure service connections
 description: Learn how to use identity-based connections with Azure Functions without having the handle service-specific connection strings.
 ms.topic: tutorial
-ms.date: 7/26/2021
+ms.date: 10/20/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
 ---
 
-# Tutorial: Create a function app that connects to Azure services using managed identities
+# Tutorial: Create a function app that connects to Azure services using identities instead of secrets
 
-This tutorial shows you how to configure a function app using an identity-based storage account connection instead of a connection string. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure a function app using Azure Active Directory identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
-While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions specifically. 
+While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
-In this tutorial, you'll learn how to:
+This tutorial has two parts:
+
+1. Create a function app without default storage secrets in its definition (this article)
+2. [Use identity-based connections instead of secrets with triggers and bindings]
+
+In Part 1, you'll learn how to:
 > [!div class="checklist"]
-> * Create a function app in Azure using an ARM template.
-> * Enable managed identity on the function app.
-> * Create a timer triggered function project and build a deployment package.
-> * Upload a deployment package to Azure Blob Storage.
-> * Use managed identity for the default storage account.
-<!--- >* Update your extension bundle (non-C# languages). ---> 
+> * Create a function app in Azure using an ARM template
+> * Enable both system-assigned and user-assigned managed identities on the function app
+> * Create role assignments that give permissions to other resources
+> * Move secrets that can't be replaced with identities into Azure Key Vault
+> * Configure an app to connect to the default host storage using its managed identity
 
 ## Prerequisites
 
@@ -29,18 +33,92 @@ In this tutorial, you'll learn how to:
 
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
-## Create a function app without Azure Files
+## Why use identity?
 
-To use identity-based connection, your function app can't use Azure Files, which is the default for Windows deployments on Premium and Consumption plans. This limitation is because Azure Files currently doesn't support managed identity for SMB file shares. To learn about the limitations of running without Azure Files, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files).
+Managing secrets and credentials is a common challenge for teams of all sizes. Secrets need to be secured against theft or accidental disclosure, and they may need to be periodically rotated. Many Azure services allow you to instead use an identity in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to authenticate clients and check against permissions which can be modified and revoked quickly. This allows for greater control over application security with less operational overhead. An identity could be a human user, such as the developer of an application, or a running application in Azure with a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-Because the Azure portal doesn't support creating function apps without Azure Files, you instead need to generate and edit an ARM template. You can then use this template to create your function app in Azure without Azure Files.
+Some services do not support Azure Active Directory authentication, so secrets may still be required by your applications. However, these can be stored in [Azure Key Vault](../key-vault/general/overview.md), which helps simplify the management lifecycle for your secrets. Access to a key vault is also controlled with identities.
 
-> [!IMPORTANT]
-> Don't create the function app until after you edit the ARM template.
+By understanding how to use identities instead of secrets when you can and to use Key Vault when you can't, you'll be able to reduce risk, decrease operational overhead, and generally improve the security posture for your applications.
+
+## Create a function app that uses Key Vault for necessary secrets
+
+Azure Files is an example of a service that does not yet support Azure Active Directory authentication for SMB file shares. Azure Files is the default file system for Windows deployments on Premium and Consumption plans. While we could [remove Azure Files entirely](./storage-considerations.md#create-an-app-without-azure-files), this introduces limitations you may not want. Instead, you will move the Azure Files connection string into Azure Key Vault. That way it is centrally managed, with access controlled by the identity.
+
+### Create an Azure Key Vault
+
+First you will need a key vault to store secrets in. You will configure it to use [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) for determining who can read secrets from the vault.
 
 1. In the [Azure portal](https://portal.azure.com), choose **Create a resource (+)**.
 
-1. On the **New** page, select **Compute** > **Function App**.
+1. On the **Create a resource** page, select **Security** > **Key Vault**.
+
+1. On the **Basics** page, use the following table to configure the key vault.
+
+    | Option      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Subscription** | Your subscription | Subscription under which this new function app is created. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group where you'll create your function app. |
+    | **Key vault name** | Globally unique name | Name that identifies your new key vault. The vault name must only contain alphanumeric characters and dashes and cannot start with a number. |
+    | **Pricing Tier** | Standard | Options for billing. Standard is sufficient for this tutorial. |
+    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+
+    Use the default selections for the "Recovery options" sections. 
+
+1. Make a note of the name you used, as you will need it later.
+
+1. Click **Next: Access Policy** to navigate to the **Access Policy** tab.
+
+1. Under **Permission model**, choose **Azure role-based access control**
+
+1. Select **Review + create**. Review the configuration, and then click **Create**.
+
+### Set up an identity and permissions for the app
+
+In order to use Azure Key Vault, your app will need to have an identity that can be granted permission to read secrets. This app will use a user-assigned identity so that the permissions can be set up before the app is even created. You can learn more about managed identities for Azure Functions in the [How to use managed identities in Azure Functions](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json) topic.
+
+1. In the [Azure portal](https://portal.azure.com), choose **Create a resource (+)**.
+
+1. On the **Create a resource** page, select **Identity** > **User Assigned Managed Identity**.
+
+1. On the **Basics** page, use the following table to configure the identity.
+
+    | Option      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Subscription** | Your subscription | Subscription under which this new function app is created. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group where you'll create your function app. |
+    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+    | **Name** | Globally unique name | Name that identifies your new user-assigned identity. |
+
+1. Select **Review + create**. Review the configuration, and then click **Create**.
+
+1. When the identity is created, navigate to it in the portal. Select **Properties**, and make note of the **Resource ID**, as you will need it later.
+
+1. Select **Azure Role Assignments**, and click **Add role assignment (Preview)**.
+
+1. In the **Add role assignment (Preview)** page, use options as shown in the table below.
+
+    | Option      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Scope** |  Key Vault |  Scope is a set of resources that the role assignment applies to. Scope has levels that are inherited at lower levels. For example, if you select a subscription scope, the role assignment applies to all resource groups and resources in the subscription. |
+    |**Subscription**| Your subscription | Subscription under which this new function app is created. |
+    |**Resource**| Your key vault | The key vault you created earlier. |
+    | **Role** | Key Vault Secrets User | A role is a collection of permissions that are being granted. Key Vault Secrets User gives permission for the identity to read secret values from the vault. |
+
+1. Select **Save**. It might take a minute or two for the role to show up when you refresh the role assignments list for the identity.
+
+The identity will now be able to read secrets stored in the vault. Later in the tutorial, you will add additional role assignments for different purposes.
+
+### Generate a template for creating a function app
+
+The portal experience for creating a function app does not interact with Azure Key Vault, so you will need to generate and edit and Azure Resource Manager template. You can then use this template to create your function app referencing the Azure Files connection string from your key vault.
+
+> [!IMPORTANT]
+> Don't create the function app until after you edit the ARM template. The Azure Files configuration needs to be set up at app creation time.
+
+1. In the [Azure portal](https://portal.azure.com), choose **Create a resource (+)**.
+
+1. On the **Create a resource** page, select **Compute** > **Function App**.
 
 1. On the **Basics** page, use the following table to configure the function app.
 
@@ -58,24 +136,113 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
 1. Instead of creating your function app here, choose **Download a template for automation**, which is to the right of the **Next** button.
 
 1. In the template page, select **Deploy**, then in the Custom deployment page, select **Edit template**.
+
     :::image type="content" source="./media/functions-identity-connections-tutorial/1-function-create-deploy.png" alt-text="Screenshot of where to find the deploy button for creating a Function.":::
 
-1. In the editor, search for and remove the JSON objects that define the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings, which look like the following example:
+### Edit the template
+
+You will now edit the template to store the Azure Files connection string in Key Vault and allow your function app to reference it. Make sure that you have the following values from the earlier sections before proceeding:
+
+- The resource ID of the user-assigned identity
+- The name of your key vault
+
+> [!NOTE]
+> If you were to create a full template for automation, you would want to include definitions for the identity and role assignment resources, with the appropriate `dependsOn` clauses. This would replace the earlier steps which used the portal. Consult the [Azure Resource Manager guidance](../azure-resource-manager/templates/syntax.md) and the documentation for each service.
+
+
+1. In the editor, find where the `resources` array begins. Before the function app definition, add the following section which puts the Azure Files connection string into Key Vault. Substitute "VAULT_NAME" with the name of your key vault.
+
+    ```json
+    {
+        "type": "Microsoft.KeyVault/vaults/secrets",
+        "apiVersion": "2016-10-01",
+        "name": "VAULT_NAME/azurefilesconnectionstring",
+        "properties": {
+            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
+        },
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+        ]
+    },
+    ``` 
+    
+1. In the definition for the function app resource (which has `type` set to `Microsoft.Web/sites`), add `Microsoft.KeyVault/vaults/VAULT_NAME/secrets/azurefilesconnectionstring` to the `dependsOn` array. Again substitute "VAULT_NAME" with the name of your key vault. This makes it so your app will not be created before that secret is defined. The `dependsOn` array should look like the following example.
+
+    ```json
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "tags": null,
+            "dependsOn": [
+                "microsoft.insights/components/idcxntut",
+                "Microsoft.KeyVault/vaults/VAULT_NAME/secrets/azurefilesconnectionstring",
+                "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+            ],
+            // ...
+        }
+    ```
+
+1. Add the `identity` block from the following example into the definition for your function app resource. Substitute "IDENTITY_RESOURCE_ID" for the resource ID of your user-assigned identity.
+
+    ```json
+    {
+        "apiVersion": "2018-11-01",
+        "name": "[parameters('name')]",
+        "type": "Microsoft.Web/sites",
+        "kind": "functionapp",
+        "location": "[parameters('location')]",
+        "identity": {
+            "type": "SystemAssigned,UserAssigned",
+            "userAssignedIdentities": {
+                "IDENTITY_RESOURCE_ID": {}
+            }
+        },
+        "tags": null,
+        // ...
+    }
+    ```
+
+    This `identity` block also sets up a system-assigned identity which you will use later in this tutorial.
+
+1. Add the `keyVaultReferenceIdentity` property to the `properties` object for the function app as in the below example. Substitute "IDENTITY_RESOURCE_ID" for the resource ID of your user-assigned identity.
+
+    ```json
+    {
+        // ...
+         "properties": {
+                "name": "[parameters('name')]",
+                "keyVaultReferenceIdentity": "IDENTITY_RESOURCE_ID",
+                // ...
+         }
+    }
+    ```
+
+    You need this configuration because an app could have multiple user-assigned identities configured. Whenever you want to use a user-assigned identity, you have to specify which one through some ID. That isn't true of system-assigned identities, since an app will only ever have one. Many features that use managed identity assume they should use the system-assigned one by default.
+
+1. Now find the JSON objects that defines the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting, which should look like the following example:
 
     ```json
     {
         "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
         "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-06-01').keys[0].value,';EndpointSuffix=','core.windows.net')]"
     },
-    {
-        "name": "WEBSITE_CONTENTSHARE",
-        "value": "[concat(toLower(parameters('name')), 'b847')]"
-    }
     ```
 
-    Remember to remove any preceding comma, which might cause invalid JSON. Removing these settings prevents the two Azure Files-related settings from being created. 
- 
+1. Replace the `value` field with a reference to the secret as shown in the following example. Substitute "VAULT_NAME" with the name of your key vault.
+
+    ```json
+    {
+        "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+        "value": "[concat('@Microsoft.KeyVault(SecretUri=', reference(resourceId('Microsoft.KeyVault/vaults/secrets', 'VAULT_NAME', 'azurefilesconnectionstring')).secretUri, ')')]"
+    },
+    ```
+
 1. Select **Save** to save the updated ARM template.
+
+### Deploy the modified template
 
 1. Make sure that your create options, including **Resource Group**, are still correct and select **Review + create**.
 
@@ -83,119 +250,55 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
 
 1. After deployment completes, select **Go to resource group** and then select the new function app. 
 
-    > [!NOTE]
-    > Because you've created a function app in a Consumption plan, you'll get a warning about Storage not being configured properly. This is expected, and you'll fix it later in this tutorial.
+Congratulations! You've successfully created your function app to reference the Azure Files connection string from Azure Key Vault.
 
-Congratulations! You've successfully created your function app without the Azure Files dependency.  
-Next, you'll enable managed identities so that your function app works without having to store connection string values in application settings.
+Whenever your app would need to add a reference to a secret, you would just need to define a new application setting pointing to the value stored in Key Vault. You can learn more about this in [Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
-## Enable managed identity
+> [!TIP]
+> The [Application Insights connection string](../azure-monitor/app/sdk-connection-string.md) and its included instrumentation key are not considered secrets and can be retrieved from App Insights using [Reader](../role-based-access-control/built-in-roles.md#reader) permissions. You do not need to move them into Key Vault, although you certainly can.
 
-This tutorial uses a system-assigned identity, which lets your app use managed identity to pull packages from Blob Storage. By using an identity-based connection, Functions can run your functions from the deployment package in your storage account without having to use a shared access signature (SAS). 
+## Use managed identity for AzureWebJobsStorage (Preview)
 
-1. In your new function app, under **Settings**, select **Identity** > **System assigned**.
+Next you will use the system-assigned identity you configured in the previous steps for the `AzureWebJobsStorage` connection. `AzureWebJobsStorage` is used by the Functions runtime and by several triggers and bindings to coordinate between multiple running instances. It is required for your function app to operate, and like Azure Files, it is configured with a connection string by default when you create a new function app.
 
-    :::image type="content" source="./media/functions-identity-connections-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
+### Grant the system-assigned identity access to the storage account
 
-1. Switch the **Status** to **On**, and select **Save**. When you're prompted to **enable system assigned managed identity**, select **Yes**.
+Similar to the steps you took before with the user-assigned identity and your key vault, you will now create a role assignment granting the system-assigned identity access to your storage account.
 
-1. Select **Azure role assignments** and then **Azure role assignment (Preview)**.
+1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that was created with your function app earlier.
 
-1. In the **Add role assignment** page, use options as shown in the table below.
+1. Select **Access Control (IAM)**. This is where you can view and configure who has access to the resource.
 
-    :::image type="content" source="./media/functions-identity-connections-tutorial/5-role-assignment.png" alt-text="Screenshot of how to role assignments for storage":::
+1. Click **Add** and select **add role assignment**.
 
-    | Option      | Suggested value  | Description |
-    | ------------ | ---------------- | ----------- |
-    | **Scope** |  Storage |  Scope is a set of resources that the role assignment applies to. Scope has levels that are inherited at lower levels. For example, if you select a subscription scope, the role assignment applies to all resource groups and resources in the subscription. |
-    |**Subscription**| Your subscription | Subscription under which this new function app is created. |
-    |**Resource**| Your storage account | The storage account for your function app. |
-    | **Role** | Storage Blob Data Owner | A role is a collection of permissions. Grants full access to manage all resources, including the ability to assign roles in Azure using role-based access control. |
+1. Search for **Storage Blob Data Owner**, select it, and click **Next**
 
-1. Select **Save**. It might take a minute or two for the role to show up when you refresh the Azure role assignments list. 
+1. On the **Members** tab, under **Assign access to**, choose **Managed Identity**
 
-You've created a system-assigned Storage Blob Data Owner role. Now your app can use managed identity to pull packages from Blob Storage. Now, when you configure your functions to run from the deployment package, you won't need to use a shared access signature (SAS) key to access the package from your storage account. 
+1. Click **Select members** to open the **Select managed identities** panel.
 
-Next, you'll deploy a timer triggered function to confirm things are configured correctly. 
+1. Confirm that the **Subscription** is the one in which you created the resources earlier.
 
-## Deploy packaged project files to the function app
+1. In the **Managed identity** selector, choose **Function App** from the **System-assigned managed identity** category. The label "Function App" may have a number in parentheses next to it, indicating the number of apps in the subscription with system-assigned identities.
 
-To deploy a zipped package without a connected storage account, you must manually create a .zip compressed deployment package and upload it to a Blob Storage container. 
+1. Your app should appear in a list below the input fields. If you don't see it, you can use the **Select** box to filter the results with your app's name.
 
-1. From a command prompt in your local computer, run the following Azure Functions Core Tools commands:
+1. Click on your application. It should move down into the **Selected members** section. Click **Select**.
 
-    ```console
-    func init --worker-runtime dotnet
-    func new --name TimerTrigger --template timer trigger
-    ```
+1. Back on the **Add role assignment** screen, click **Review + assign**. Review the configuration, and then click **Review + assign**.
 
-    These commands create a new C# class library function project in the current folder and add a timer triggered function to the project.
+### Edit the AzureWebJobsStorage configuration
 
-1. Run the following command to start the project and verify that it runs without errors:
+Next you will update your function app to use its system-assigned identity when it uses the blob service for host storage.
 
-    ```console
-    func start
-    ```
-    
-    After the Function host successfully loads the function, press Ctrl-C to stop the host. 
+> [!IMPORTANT]
+> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity (Preview)](./functions-reference.md#connecting-to-host-storage-with-an-identity-preview).
+>
+> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consmption, you will need to deploy via [an external deployment package](/run-functions-from-deployment-package).
 
-1. Run the following command to locally generate the files needed for the deployment package:
- 
-    ```console
-    dotnet publish --configuration Release
-    ```
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
-1. Browse to the `\bin\Release\netcoreapp3.1\publish` subfolder and create a .zip file of this folder, which contains the **host** file and both the **bin** and **TimerTrigger** folders. In Windows, you create a .zip file by right-clicking the folder and selecting **Send to** > **Compressed (zipped) folder**.
-
-1. Back in the [Azure portal](https://portal.azure.com), search for your storage account name or browse for it in storage accounts.
- 
-1. In the storage account, select **Containers** under **Data storage**.
-
-    :::image type="content" source="./media/functions-identity-connections-tutorial/7-new-store-container.png" alt-text="Screenshot of how to create a new storage container.":::
-
-1. Select **+ Container** to create a new Blob Storage container in your account.
-
-1. In the **New container** page, provide a **Name**, make sure the **Public access level** is **Private**, and select **Create**.
-
-1. Select the container you created, select **Upload**, browse to the location of the .zip file you created with your project, and select **Upload**.
-
-    :::image type="content" source="./media/functions-identity-connections-tutorial/8-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
-
-1. After the upload completes, choose your uploaded blob file, and copy the URL.
-
-    :::image type="content" source="./media/functions-identity-connections-tutorial/9-copy-url.png" alt-text="Screenshot of how to get the zipped blob url.":::
-
-1. Search for your new function app or browse for it in the **Function App** page. 
-
-1. In your function app, select **Configurations** under **Settings**.
-
-    :::image type="content" source="./media/functions-identity-connections-tutorial/10-web-run-from-package.png" alt-text="Screenshot of how to add the run from package app setting.":::
-
-1. In the **Application Settings** tab, select **New application setting**
-
-1. Enter the value `WEBSITE_RUN_FROM_PACKAGE` for the **Name**, and paste the URL of your package in Blob Storage as the **Value**.
-
-1. Select **OK**. Then select  **Save** > **Continue** to save the setting and restart the app.
-
-Now you can run your function in Azure to verify that deployment has succeeded using the deployment package .zip file.
-
-## Verify your function app configuration
-
-1. In your function app, select **Functions** under **Functions**, and then select **TimerTrigger**.
-
-    :::image type="content" source="./media/functions-identity-connections-tutorial/11-timer-test.png" alt-text="Screenshot of how to open the test a timer trigger view.":::
-
-1. Under **Developer**, select **Code+Test** > **Test/Run**, and select **Run** to start the timer trigger.
- 
-    :::image type="content" source="./media/functions-identity-connections-tutorial/12-test-run.png" alt-text="Screenshot of how to test the timer trigger.":::
-
-    You should see a success message in the output. 
-
-You've successfully run your timer trigger in Azure. Now, you can switch the `AzureWebJobsStorage` setting to use an identity-based connection. The function works because the function app already has the Storage Blob Data Owner role created. You just need to update an application setting. 
-
-## Use managed identity for AzureWebJobsStorage
-
-1. In your function app under **Settings**, select **Configuration**.
+1. Under **Settings**, select **Configuration**.
 
     :::image type="content" source="./media/functions-identity-connections-tutorial/13-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
 
@@ -204,18 +307,23 @@ You've successfully run your timer trigger in Azure. Now, you can switch the `Az
     | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to the exact name `AzureWebJobsStorage__accountName`. This setting tells the host to use the identity instead of looking for a stored secret. The new setting uses a double underscore (`__`), which is a special character in application settings.  |
-    | **Value** | Your account name | Update the name from the connection string to just your **AccountName** to use the identity instead of secrets. Ex. `DefaultEndpointsProtocol=https;AccountName=identityappstore;AccountKey=...` would become `identityappstore`|
+    | **Value** | Your account name | Update the name from the connection string to just your **AccountName**. |
+
+    This configuration will let the system know that it should use an identity to connect to the resource.
 
 1. Select **OK** and then **Save** > **Continue** to save your changes. 
 
-1. Go back to the **Functions** page and again start your timer trigger to make sure everything is still working correctly.
-
-You've removed the storage connection string requirement from your function app by configuring it to connect to storage using managed identities.  
-
-[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+You've removed the storage connection string requirement for AzureWebJobsStorage by configuring your app to instead connect to blobs using managed identities.  
 
 ## Next steps 
 
-This tutorial showed how to create and deploy a basic function app with a timer trigger using identity-based connections.  
+This tutorial showed how to create a function app without storing secrets in its configuration.
+
+Advance to Part 2 to learn how to use identity-based connections from the triggers and bindings.
+
+> [!div class="nextstepaction"]
+> [Use identity-based connections instead of secrets with triggers and bindings]
 
 To learn more, see [Configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
+
+[Use identity-based connections instead of secrets with triggers and bindings]: ./functions-identity-based-connections-tutorial-2.md
