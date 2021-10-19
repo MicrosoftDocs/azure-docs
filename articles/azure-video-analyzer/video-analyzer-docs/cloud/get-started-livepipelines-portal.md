@@ -44,23 +44,28 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 **Deployment steps:**
 1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, dont have to install web server in linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
 1. Enable inbound connections for RTSP protocol. In the Azure portal, open the management pane for the Linux VM you created above.
+
     1. Click on Networking - you will see the blade open to the inbound port rules for the network security group (NSG) that was created for you to support inbound SSH connections.
     1. Click on Add inbound port rule to add a new one
     1. In the pane that opens up, change Destination port ranges to 554. Choose a Name for the rule, such as "RTSP". Keep all other values as default. See [here](../../../virtual-machines/windows/nsg-quickstart-portal.md) for more details.
 1. Install docker on the VM using instructions [here](https://docs.docker.com/engine/install/ubuntu/), only follow the steps till verifying the Docker installation by running the ‘hello-world’ image.
 1. Connect to your VM, for example using SSH. From the terminal window, create a local folder such as 'localmedia' to host media files, this VM local folder will be used to map to RTSP mediaserver container.
 1. Copy an MKV file used to simulate the camera feed as follows:
-```
-cd localmedia
-wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
-```
+
+    ```
+    cd localmedia
+    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    ```
 1. From the root directory, start the RTSP server on the VM using the pre-built container image as follow
-```    
-sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
-```
+
+    ```    
+    sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
+    ```
 1. Once the RSTP server is running, clients can now connect to it via an RTSP URL:
+
     - Go the 'Overview' page of your VM in Azure portal, and note down the value of 'Public IP address'
-    - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
+    
+        - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
 
 ## Create Azure resources
 
@@ -73,6 +78,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 1. Select **Video Analyzers** under **Services**.
 1. Select **Add**.
 1. In the **Create Video Analyzer account** section, enter these required values:
+
    - **Subscription**: Choose the subscription that you're using to create the Video Analyzer account.
    - **Resource group**: Choose a resource group where you're creating the Video Analyzer account, or select **Create new** to create a resource group.
    - **Video Analyzer account name**: Enter a name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces, and 3 to 24 characters in length.
@@ -86,18 +92,22 @@ The next step is to create the required Azure resources (Video Analyzer account,
 Once the Video Analyzer account is created, you can go ahead with next steps to create a live pipeline topology and a live pipeline.
 1. Go to Video Analyzer account, and locate the **Live** menu item at the bottom left, select it. 
 1. In the Topologies plane, select the **Create** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
+
     - **Create a pipeline topology** wizard will appear on the portal
     - Select **Try sample topologies**-> select **CVR from public camera** topology-> Select 'Proceed' on **Load sample topology** dialog box.
     - The wizard to edit the 'RTSP source to Video sink' live pipeline topology will be displayed
     - Enter the required fields to create topology: 
+    
         - **Topology name** – Enter the name for the topology 
         - **Description** (optional) – Brief description about the topology 
         - **Kind** (prepopulated ‘Live’), **SKU** (prepopulated ‘Live_S1’)
         - For **Rtsp source node**: **Transport** property set as TCP
         - Select **Save** with default configuration for rest of the properties
 1. Next step is to create a live pipeline using the topology created in previous step. 
+
     - Select **Pipelines**-> Select **Create** -> then select the ‘Live pipeline topology’ created in previous step to a create a pipeline. After selecting the topology click **Create**
     - **Create a live pipeline** wizard will appear on the portal. Enter the required fields: 
+    
         - **Live pipeline name** – Use a unique name, allows alpha numerals and dashes
         - **Bitrate** –  It is the maximum capacity in Kbps that is reserved for the live pipeline, allowed range is 500 kbps to 3000 kbps. Use default 1000 for rtsp camera simulator camera-1800s.mkv file (this value should match with sample video file used). 
         - **rtspUserNameParameter**, **rtspPasswordParameter** - Set dummy values for these fields if using rtsp camera simulator else enter authentication credentials for actual rtsp camera stream
@@ -107,11 +117,12 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
     - Select live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Is in use** as pipeline is active and recording.
 1. After a few seconds, select the video, and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
 
-> [!NOTE]
-> If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect, and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+
+    > [!NOTE]
+    > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect, and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
 * If necessary, refer Activity log to quickly verify your deployment operations. Refer [here](./monitor-log-cloud.md) for monitoring and event logs.
 * To deactivate the pipeline recording go to your Video Analyzer account, on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then select **Deactivate** in pipeline grid, it will stop the recording. 
 * You can also continue to delete the pipeline & topology if they are not needed.
