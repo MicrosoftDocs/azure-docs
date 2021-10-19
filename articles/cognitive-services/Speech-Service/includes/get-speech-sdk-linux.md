@@ -8,7 +8,7 @@ ms.author: pafarley
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04** (until September), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
+        The Speech SDK only supports **Ubuntu 16.04** (until September 2021), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -37,7 +37,7 @@ For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServic
 - The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
 - The shared library for ALSA applications (`libasound.so.2`)
 
-# [Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
+# [Ubuntu 18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
