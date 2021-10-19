@@ -35,7 +35,7 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 
 ## User-defined routes
 
-If you are using a 3rd party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See [here](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) for a sample bash script to add the required address prefixes in user-defined routes. 
+If you are using a 3rd party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See [here](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) for a sample bash script to add the required address prefixes in user-defined routes. 
 
 ## Azure Global required network rules
 
