@@ -33,67 +33,57 @@ Clone the repository and prepare the execution environment by using the followin
 
 # [Linux](#tab/linux)
 
-    ```azurecli-interactive
-    mkdir ~/Azure_SAP_Automated_Deployment; cd $_
-
-    git clone https://github.com/Azure/sap-hana.git 
-
-    ```
-
-# [Windows](#tab/windows)
-
-    ```azurecli-interactive
-    mkdir C:\Azure_SAP_Automated_Deployment
-    
-    cd Azure_SAP_Automated_Deployment
-    
-    git clone https://github.com/Azure/sap-hana.git 
-
-
-    ```
-
-> [!TIP]
-> The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
-
-## Prepare the environment
+```azurecli-interactive
+mkdir ~/Azure_SAP_Automated_Deployment; cd $_
+git clone https://github.com/Azure/sap-hana.git 
+```
 
 Prepare the environment using the following steps:
 
-# [Linux](#tab/linux)
-    ```azurecli-interactive
-    export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
-
-    export ARM_SUBSCRIPTION_ID=<subscriptionID>
-    ```
+```azurecli-interactive
+export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-hana
+export ARM_SUBSCRIPTION_ID=<subscriptionID>
+```
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your information.
 
-# [Windows](#tab/windows)
-    ```powershell-interactive
-    Import-Module              C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilities.psd1
-   ```
+You can copy the sample configuration files to start testing the deployment automation framework.
 
-## Copy the sample configuration files
+```azurecli-interactive
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+
+```
+
+
+# [Windows](#tab/windows)
+
+```powershell-interactive
+mkdir C:\Azure_SAP_Automated_Deployment
+    
+cd Azure_SAP_Automated_Deployment
+    
+git clone https://github.com/Azure/sap-hana.git 
+```
+
+Import the PowerShell module
+
+```powershell-interactive
+Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
+```
 
 You can copy the sample configuration files to start testing the deployment automation framework.
 
-# [Linux](#tab/linux)
-    ```azurecli-interactive
-    cd ~/Azure_SAP_Automated_Deployment
+```powershell-interactive
+cd C:\Azure_SAP_Automated_Deployment
+mkdir WORKSPACES
 
-    cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
+```
 
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    ```
-
-# [Windows](#tab/windows)
-    ```powershell-interactive
-    cd C:\Azure_SAP_Automated_Deployment
-    mkdir WORKSPACES
-
-    xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
-
-   ```
+> [!TIP]
+> The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
 
 ## Next steps
 
