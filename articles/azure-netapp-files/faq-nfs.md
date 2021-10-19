@@ -28,9 +28,7 @@ You can specify whether the root account can access the volume or not by using t
 
 ## Can I use the same file path (volume creation token) for multiple volumes?
 
-Yes, you can. However, the file path must be used in either a different subscription or a different region.   
-
-For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
+Yes, you can. However, the file path must be unique within each subnet.     
 
 ## When I try to access NFS volumes through a Windows client, why does the client take a long time to search folders and subfolders?
 
