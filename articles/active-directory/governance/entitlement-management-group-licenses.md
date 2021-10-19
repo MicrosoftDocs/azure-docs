@@ -53,7 +53,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Select **Next: Resource roles** to go to the **Resource roles** tab.
 
-2. On this tab, you select the resources and the resource role to include in the access package. In this scenario, select **Groups and Teams** and search for your group that has assigned [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md).
+2. On this tab, you select the resources and the resource role to include in the access package. In this scenario, select **Groups and Teams** and search for your group that has assigned [Office licenses](/azure/active-directory/enterprise-users/licensing-groups-assign).
 
 3. In the **Role** list, select **Member**.
 
@@ -139,4 +139,4 @@ In this step, you can delete the Office Licenses access package.
 
 Learn how to create access packages to manage access to other types of resources, like applications and sites: 
 
-[Manage access to resources in Azure AD entitlement management](/active-directory/governance/entitlement-management-access-package-first.md)
+[Manage access to resources in Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-access-package-first)
