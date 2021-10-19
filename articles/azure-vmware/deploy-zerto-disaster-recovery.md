@@ -114,7 +114,6 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
    :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot showing the support request for Day 2 Zerto DR configurations.":::
 
-- Because of the nature of Zerto-vSphere integration (using vSphere DRS hard affinity), cluster scale-down operations are expected to fail. Azure VMware Solution SRE teams will remediate these failures offline in the IA phase.
 
 - In the GA phase, all the above operations will be enabled in an automated self-service fashion.
 
