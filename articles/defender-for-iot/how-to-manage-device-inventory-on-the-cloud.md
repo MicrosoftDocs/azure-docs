@@ -1,6 +1,6 @@
 ---
-title: Manage the IoT device inventory
-description: Learn how to manage your device inventory page.
+title: Manage your IoT devices with the device inventory
+description: Learn how to manage your IoT devices with the device inventory.
 ms.date: 10/19/2021
 ms.topic: how-to
 ---
