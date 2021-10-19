@@ -14,11 +14,11 @@ ms.date: 08/03/2021
 The read replica feature allows you to replicate data from a Hyperscale (Citus)
 server group to a read-only server group. Replicas are updated
 **asynchronously** with PostgreSQL physical replication technology. You can
-replicate from the primary server to an unlimited number of replicas.
+replicate from the primary server group to an unlimited number of replicas.
 
 Replicas are new server groups that you manage similar to regular Hyperscale
 (Citus) server groups. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GB/ month.
+compute in vCores and storage in GB/month similar to primary server groups.
 
 Learn how to [create and manage
 replicas](howto-hyperscale-read-replicas-portal.md).
@@ -39,7 +39,7 @@ burdens on the primary.
 
 The feature is meant for scenarios where replication lag is acceptable, and is
 meant for offloading queries. It isn't meant for synchronous replication
-scenarios where replica data is expected to be up to date. There will be a
+scenarios where replica data is expected to be always up to date. There will be a
 measurable delay between the primary and the replica. The delay can be minutes
 or even hours depending on the workload and the latency between the primary and
 the replica.  The data on the replica eventually becomes consistent with the
@@ -50,8 +50,7 @@ delay.
 
 When you start the create replica workflow, a blank Hyperscale (Citus) server
 group is created. The new group is filled with the data that was on the primary
-server group. The creation time depends on the amount of data on the primary
-and the time since the last weekly full backup. The time can range from a few
+server group. The creation time depends on the amount of data on the primary. The time can range from a few
 minutes to several hours.
 
 The read replica feature uses PostgreSQL physical replication, not logical
@@ -73,11 +72,11 @@ server.
 
 You can connect to the replica's coordinator node by using its hostname and a
 valid user account, as you would on a regular Hyperscale (Citus) server group.
-For a server named **my replica** with the admin username **citus**, you can
+For a server named **myreplica** with the admin username **citus**, you can
 connect to the coordinator node of the replica by using psql:
 
 ```bash
-psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
+psql -h c.myreplica.postgres.database.azure.com -U citus -d citus
 ```
 
 At the prompt, enter the password for the user account.
@@ -96,7 +95,7 @@ another read replica.
 
 A replica is created by using the same compute, storage, and worker node
 settings as the primary. After a replica is created, several settings can be
-changed, including storage and backup retention period. Other settings can't be
+changed, including compute on coordinator or worker nodes. Other settings can't be
 changed in replicas, such as storage size and number of worker nodes.
 
 Remember to keep replicas strong enough to keep up changes arriving from the
@@ -108,7 +107,7 @@ to the replica when the replica is created or afterwards.
 
 ### Regions
 
-Hyperscale (Citus) server groups support only same-region replication.
+Hyperscale (Citus) server groups support only same-region replication at this time.
 
 ## Next steps
 
