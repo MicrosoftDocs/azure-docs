@@ -400,7 +400,7 @@ When Azure AD-only authentication is enabled for managed instance, the following
 - EXEC AS statement for Azure AD group member accounts
 - [SQL Agent Jobs in Managed Instance](/azure/azure-sql/managed-instance/job-automation-managed-instance) supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL Agent Jobs.
 
-For additional limitations, see [T-SQL differences between SQL Server & Azure SQL Managed Instance](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#logins-and-users).
+For more limitations, see [T-SQL differences between SQL Server & Azure SQL Managed Instance](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#logins-and-users).
 
 ## Next steps
 
