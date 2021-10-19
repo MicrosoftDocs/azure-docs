@@ -938,7 +938,6 @@
       "redirect_url": "/azure/iot-hub/tutorial-x509-scripts",
       "redirect_document_id": false
     },
- 
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
@@ -1005,7 +1004,11 @@
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-windows-iot-edge-simulated-device.md",
       "redirect_document_id": false
     },
-  
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-firmware-update.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-raspberry-pi",
+      "redirect_document_id": false
+    }
     
   ]
 }

@@ -100,8 +100,20 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts automatically
-    href: set-up-scaling-script.md
+  - name: Scale session hosts with Azure Automation
+    items:
+      - name: Set up a scaling script
+        href: set-up-scaling-script.md
+  - name: Autoscale (preview)
+    items:
+      - name: Use the autoscale feature (preview)
+        href: autoscale-scaling-plan.md
+      - name: Autoscale session hosts (preview)
+        href: autoscale-new-existing-host-pool.md
+      - name: Autoscale diagnostics (preview)
+        href: autoscale-diagnostics.md
+      - name: Autoscale feature FAQ (preview)
+        href: autoscale-faq.yml
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
