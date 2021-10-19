@@ -3,35 +3,23 @@
 - name: Overview
   items: 
     - name: What is Azure Load Testing?
-      displayName: ALT, load
+      displayName: ALT, load, MALT
       href: overview-what-is-azure-load-testing.md
 - name: Tutorials
   expanded: true
   items: 
-    - name: Identify bottlenecks from Azure portal
-      href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Continuous regression testing in GitHub with Azure Load Testing
+  - name: Identify bottlenecks
+    items: 
+     - name: Load test in Azure portal
+       href: tutorial-identify-bottlenecks-azure-portal.md
+     - name: Load test with Visual Studio Code
+       href: how-to-identify-bottlenecks-vs-code.md
+  - name: Continuous regression testing
+    items: 
+    - name: Automate with GitHub Actions
       href: tutorial-continuous-regression-testing-cicd-github-actions.md
-- name: Reference
-  items: 
-    - name: CLI 
-      items: 
-        - name: Train models with CLI (v2)
-          href: ../machine-learning/how-to-train-cli.md
-        - name: Access resources with managed endpoints
-          href: ../machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md
-- name: How-tos
-  expanded: true
-  items: 
-    - name: Identify bottlenecks with Visual Studio Code
-      href: how-to-identify-bottlenecks-vs-code.md
-    - name: Automation
-      items: 
-        - name: Azure Pipelines for CI/CD
-          displayName: continuous, integration, delivery
-          href: /azure/devops/pipelines/targets/azure-machine-learning.md?view=azure-devops&tabs=yaml
-        - name: GitHub Actions for CI/CD
-          href: ../machine-learning/how-to-github-actions-machine-learning.md 
+    - name: Automate with Azure Pipelines
+      href: tutorial-continuous-regression-testing-cicd-github-actions.md
 - name: Resources
   items: 
     - name: Azure roadmap
