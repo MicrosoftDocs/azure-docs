@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Customer responsibilities for running Azure Spring Cloud in VNET
 
-This document includes specifications for use of Azure Spring Cloud in a virtual network.
+This article includes specifications for the use of Azure Spring Cloud in a virtual network.
 
 When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). These endpoints are required to communicate with the Azure Spring Cloud management plane and to download and install core Kubernetes cluster components and security updates.
 
@@ -19,14 +19,14 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
 
 ## Azure Spring Cloud resource requirements
 
-The following is a list of resource requirements for Azure Spring Cloud services. As a general requirement you should not modify resource groups created by Azure Spring Cloud and the underlying network resources.
+The following list shows the resource requirements for Azure Spring Cloud services. As a general requirement, you shouldn't modify resource groups created by Azure Spring Cloud and the underlying network resources.
 
-- Do not modify resource groups created and owned by Azure Spring Cloud.
+- Don't modify resource groups created and owned by Azure Spring Cloud.
   - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
-  - Do not block Azure Spring Cloud from updating reseources in these resource groups.
-- Do not modify subnets used by Azure Spring Cloud.
-- Do not create more than one Azure Spring Cloud service instance in the same subnet.
-- When using a firewall to control traffic, *do not* block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
+  - Don't block Azure Spring Cloud from updating resources in these resource groups.
+- Don't modify subnets used by Azure Spring Cloud.
+- Don't create more than one Azure Spring Cloud service instance in the same subnet.
+- When using a firewall to control traffic, don't block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
 
 ## Azure Spring Cloud network requirements
 
@@ -39,7 +39,6 @@ The following is a list of resource requirements for Azure Spring Cloud services
 | *.azure.io:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                        | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | *.servicebus.windows.net:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hub.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-
 
 ## Azure Spring Cloud FQDN requirements/application rules
 
@@ -58,7 +57,7 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
 | *mscrl.microsoft.com*             | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
 | *crl.microsoft.com*               | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
-| *crl3.digicert.com*               | HTTPS:80  | 3rd Party SSL Certificate Chain Paths.                       |
+| *crl3.digicert.com*               | HTTPS:80  | Third Party TLS/SSL Certificate Chain Paths.                 |
 
 ## Azure Spring Cloud optional FQDN for third-party application performance management
 
