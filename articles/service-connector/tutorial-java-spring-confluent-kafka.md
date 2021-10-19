@@ -4,7 +4,7 @@ description: Create a Spring Boot app connected to Apache Kafka on Confluent Clo
 ms.devlang: java
 author: shizn
 ms.author: xshi
-ms.service: service-connector
+ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 ---
@@ -44,7 +44,7 @@ cd java-springboot
 
 ### 3.1 Create an instance of Apache Kafka for Confluent Cloud
 
-Create an instance of Apache Kafka for Confluent Cloud by following [this guidance](./partner-solutions/apache-kafka-confluent-cloud/create.md).
+Create an instance of Apache Kafka for Confluent Cloud by following [this guidance](../partner-solutions/apache-kafka-confluent-cloud/create.md).
 
 ### 3.2 Create Kafka cluster and schema registry on Confluent Cloud
 
@@ -73,7 +73,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 ### 3.3 Create a Spring Cloud instance
 
-Create an instance of Azure Spring Cloud by following [this guidance](.//spring-cloud/quickstart.md) in Java.
+Create an instance of Azure Spring Cloud by following [this guidance](../spring-cloud/quickstart.md) in Java.
 
 ## 4. Build and deploy the app
 
@@ -106,17 +106,17 @@ az spring-cloud app create -n hellospring -s <service instance name> -g <resourc
 
 Click **Service Connector (Preview)** Select or enter the following settings.
 
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Service Type** | Apache Kafka on Confluent cloud | Target service type. If you don't have a Apache Kafka on Confluent cloud, please complete the previous steps in this tutorial. |
-    | **Name** | Generated unique name | The connection name that identifies the connection between your Spring Cloud and target service  |
-    | **Kafka bootstrap server url** | Your kafka bootstrap server url | You get this value from step 3.2 |
-    | **Cluster API Key** | Your cluster API key |  |
-    | **Cluster API Secret** |  Your cluster API key |  |
-    | **Create connection for schema registry**  | checked | Also create a connection to the schema registry |
-    | **Schema Registry endpoint ** | Your kafka Schema Registry endpoint  |  |
-    | **Schema Registry API Key** | Your kafka Schema Registry API Key | |
-    | **Schema Registry API Secret** | Your kafka Schema Registry API Secret | |
+| Setting      | Suggested value  | Description                               |
+| ------------ |  ------- | -------------------------------------------------- |
+| **Service Type** | Apache Kafka on Confluent cloud | Target service type. If you don't have a Apache Kafka on Confluent cloud, please complete the previous steps in this tutorial. |
+| **Name** | Generated unique name | The connection name that identifies the connection between your Spring Cloud and target service  |
+| **Kafka bootstrap server url** | Your kafka bootstrap server url | You get this value from step 3.2 |
+| **Cluster API Key** | Your cluster API key |  |
+| **Cluster API Secret** |  Your cluster API key |  |
+| **Create connection for schema registry**  | checked | Also create a connection to the schema registry |
+| **Schema Registry endpoint ** | Your kafka Schema Registry endpoint  |  |
+| **Schema Registry API Key** | Your kafka Schema Registry API Key | |
+| **Schema Registry API Secret** | Your kafka Schema Registry API Secret | |
 
 Select **Review + Create** to review the connection settings. Then select **Create** to create start creating the service connection.
 
@@ -133,4 +133,4 @@ az spring-cloud app deploy -n hellospring -s <service instance name> -g <resourc
 
 Navigate to your Spring Cloud app's endpoint from Azure Portal, click the application URL. You will see "10 messages were produced to topic test1". Then go to the Confluent portal and the topic's page will show production throughput.
 
-    ![Sample metrics](media/tutorial-java-spring-confluent-kafka/confluent-metrics.png)
+![Sample metrics](media/tutorial-java-spring-confluent-kafka/confluent-metrics.png)

@@ -272,7 +272,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.3.6*.
 1. In the **Subscription** textbox, verify your subscription.
-1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md).
+1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](../quickstart-provision-service-instance.md).
 1. Set **Public Endpoint** to *Enable*.
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *api-gateway*, then select **OK**.
