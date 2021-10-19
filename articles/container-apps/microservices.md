@@ -13,13 +13,13 @@ ms.author: cshoe
 
 [Microservice architectures](https://azure.microsoft.com/solutions/microservice-applications/#overview) allow you to independently develop, upgrade, version, and scale core areas of functionality in an overall system. Azure Container Apps provides the foundation for deploying microservices featuring:
 
-- independent [scaling](overview.md), [versioning](overview.md), and [upgrades](overview.md)
-- [service discovery](connect-apps.md)
-- native [Dapr integration](microservices-dapr.md)
+- Independent [scaling](overview.md), [versioning](overview.md), and [upgrades](overview.md)
+- [Service discovery](connect-apps.md)
+- Native [Dapr integration](microservices-dapr.md)
 
 :::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Azure Container Apps: Microservices":::
 
-A Container Apps [environment](environment.md) provides an isolation boundary around a group of container apps. A single container app typically represents a microservice, which is composed of pods made up of one or more [containers](containers.md).
+A Container Apps [environment](environment.md) provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of pods made up of one or more [containers](containers.md).
 
 ## Dapr integration
 
