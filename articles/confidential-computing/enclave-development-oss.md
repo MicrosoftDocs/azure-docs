@@ -43,11 +43,9 @@ The [Intel SGX SDK](https://01.org/intel-softwareguard-extensions) is developed 
 
 ### Confidential Consortium Framework (CCF) <a id="ccf"></a>
 
-The [CCF](https://github.com/Microsoft/CCF) is a distributed network of nodes, each running their own enclaves. The trusted node network allows you to run a distributed ledger. The ledger provides secure, reliable components for the protocol to use. 
+The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework leverages the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure Intel SGX virtual machines and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
 
-![CCF Nodes](media/application-development/ccf.png)
-
-This open-source framework enables high throughout, fine-grained confidentiality, and consortium governance for blockchain. With each node using TEEs, you can ensure secure consensus and transaction processing.
+In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach consensus.
 
 
 ## Next steps
