@@ -58,8 +58,7 @@ performing forms-based SSO to the backend application.
 | 4. | Azure AD redirects user back to SAML SP with issued token and claims. |
 | 5. | APM prompts for application password and stores in cache. | 6. |  BIG-IP request to application receives login form.
 | 7. | APM scripting responds filling in username and password before submitting form.|
-| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking 
-for cookie or redirect URI. |
+| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking for cookie or redirect  URI. |
 
 ## Prerequisites
 
@@ -122,7 +121,7 @@ to Azure AD, before granting access to the published service.
 ## Configure Azure AD SSO
 
 1. With the new **F5** application properties in view, go to
-**Manage** \> **Single sign-on**
+**Manage** > **Single sign-on**
 
 2. On the **Select a single sign-on method** page, select **SAML and** skip the prompt to save the single sign-on settings by selecting **No, I'll save later**
 
@@ -170,9 +169,9 @@ This completes the Azure AD part of the SAML federation trust. The BIG-IP APM ca
 
 ## Advanced configuration
 
-- **Service provider**
+### Service provider
 
-   These settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication.
+These settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication.
 
 1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services** > **Create**
 
@@ -184,9 +183,9 @@ This completes the Azure AD part of the SAML federation trust. The BIG-IP APM ca
 
     **SP Name Settings** are only required if the entity ID is not an exact match of the hostname portion of the published URL, or equally if it isn't in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is  `urn:myvacation:contosoonline`.
 
-- **External IdP Connector**
+### External IdP Connector 
 
-  A SAML IdP connector defines the settings required for the BIG-IP APM to trust Azure AD as its SAML IDP. These settings will map the SAML SP to a SAML IdP, establishing the federation trust between the APM and Azure AD.
+A SAML IdP connector defines the settings required for the BIG-IP APM to trust Azure AD as its SAML IDP. These settings will map the SAML SP to a SAML IdP, establishing the federation trust between the APM and Azure AD.
 
 1. Scroll down to select the new SAML SP object and select
     **Bind/UnBind IdP Connectors**
@@ -348,7 +347,7 @@ For the BIG-IP to know where to forward client traffic, you need to create a BIG
 >Health Monitors require additional
 [configuration](https://support.f5.com/csp/article/K13397) not covered in this tutorial.
 
-## Virtual server configuration
+### Virtual server configuration
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Any received traffic is processed and evaluated against the APM access profile associated with the virtual server, before being directed according to the policy results and settings.
 
