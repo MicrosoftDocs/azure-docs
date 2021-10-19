@@ -16,6 +16,15 @@ ms.author: aahi
 
 Before building your custom entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio. To tag your data, you must have [created a project](../quickstart.md).
 
+## Prerequisites
+
+Before you can tag data, you need:
+
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
+    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
 ## Tag your data
 
 After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
@@ -73,4 +82,5 @@ To delete or rename an entity:
 
 ## Next Steps
 
-* [Train your model](train-model.md)
+After you've tagged your data, you can begin [training a model](train-model.md) that will learn based on your data.
+

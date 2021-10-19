@@ -18,6 +18,14 @@ After you have completed tagging your data, you can start training your model. Y
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
+## Prerequisites
+
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
+    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
 ## Data split
 
 Before starting the training process, files in your dataset are divided into three groups at random: 
@@ -48,4 +56,4 @@ You must also have a [custom NER project](../quickstart.md) with at least 10 [ta
 
 ## Next steps
 
-After training is completed, you can [view the model's evaluation details](view-model-evaluation.md) and [improve your model](improve-model.md)
+After training is completed, you will be able to use the [model evaluation metrics](view-model-evaluation.md) to optionally [improve your model](improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](submit-task.md) from text.

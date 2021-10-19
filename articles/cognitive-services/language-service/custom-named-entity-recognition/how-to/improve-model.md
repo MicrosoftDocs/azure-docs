@@ -18,9 +18,15 @@ After you've trained your model you reviewed its evaluation details, you can sta
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart.md).
-* Completed [model training](train-model.md) successfully.
-* Viewed [model evaluation details](view-model-evaluation.md).
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
+    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+* A [successfully trained model](train-model.md)
+* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
+    * Familiarized yourself with the [evaluation metrics](../concepts/evaluation-metrics.md) used for evaluation.
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
 
 ## Improve model
 
@@ -69,5 +75,4 @@ To examine data distribution in your dataset:
 
 ## Next steps
 
-* After examining the data distribution, you should have an idea of how to [tag your data](tag-data.md) differently.
-* [View the recommended practices](../concepts/recommended-practices.md) to help you tag your data and improve your model. 
+Once you're satisfied with how your model performs, you can start [sending entity extraction requests](submit-task.md) using the runtime API.

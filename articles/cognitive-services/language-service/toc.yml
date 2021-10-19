@@ -78,8 +78,10 @@ items:
     href: custom-named-entity-recognition/faq.md
   - name: How-to guides
     items:
-    - name: Project requirements
-      href: custom-named-entity-recognition/how-to/project-requirements.md
+    - name: Create projects
+      href: custom-named-entity-recognition/how-to/create-project.md
+    - name: Data selection and schema design
+      href: custom-named-entity-recognition/how-to/design-schema.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Train a model
@@ -105,7 +107,7 @@ items:
   - name: Reference
     items:
     - name: Glossary
-      href: custom-named-entity-recognition/concepts/definitions.md
+      href: custom-named-entity-recognition/glossary.md
     - name: Service limits
       href: custom-named-entity-recognition/concepts/limits.md
     - name: Prediction API

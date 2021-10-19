@@ -12,16 +12,35 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
+Deploy a model and extract entities from text using the runtime API.
+
 # Submit a Custom Named Entity Recognition (NER) task
 
 After deploying your model, it is ready to be used. You can only send entity recognition tasks through the API, not from Language Studio.
 
 ## Prerequisites
 
-* A [Custom NER project](../quickstart.md) with:
-    * [Tagged data](tag-data.md)
-    * A successfully trained and deployed model 
-* [cURL](https://curl.haxx.se/) installed
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
+    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+* A [successfully trained model](train-model.md)
+* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
+    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory..
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
+## Deploy your model
+ 
+> [!TIP]
+> You can test your model in Language Studio by sending samples of text for it to classify.
+>
+> Select **Test model** from the menu on the left side of your project in Language Studio.
+> Select the model you want to test.
+> Add your text to the textbox, you can also upload a .txt file.
+> Click on **Run the test**.
+> In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the JSON tab.
+
+You can deploy your model by navigating to your project in Language Studio, and selecting **Deploy model** from the menu on the left part of the screen.
 
 ## Submit a job to the API
 

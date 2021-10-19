@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: references_regions
 ---
 
-# Custom NER project requirements
+# How to create custom NER projects
 
 Before you start using custom NER, you will need several things:
 
@@ -21,6 +21,13 @@ Before you start using custom NER, you will need several things:
 * An Azure storage account where you will upload your `.txt` files that will be used to train an AI model to classify text
 
 Use this article to learn how to prepare the requirements for using custom NER.
+
+## Prerequisites
+
+An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+You should have an idea of the [project schema](design-schema.md) you will use for your data.
+
+Use this article to learn how to prepare the requirements for using custom text classification.
 
 ## Azure resources
 
@@ -141,4 +148,6 @@ Once your Azure resource and storage account are configured, you can create a pr
 
 ## Next steps
 
-After your project is created, you can start [tagging your data](tag-data.md), which will inform your NER model how to interpret text, and is used for training and evaluation.
+After your project is created, you can start [tagging your data](tag-data.md), which will inform your entity extraction model how to interpret text, and is used for training and evaluation.
+
+As you work with your entity extraction project, review the [recommended practices](../concepts/recommended-practices.md).

@@ -12,6 +12,6 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Frequently asked questions
+# Frequently asked questions for Custom Named Entity Recognition
 
 Find answers to commonly asked questions about concepts, and scenarios related to custom NER in Azure Cognitive Service for Language.
