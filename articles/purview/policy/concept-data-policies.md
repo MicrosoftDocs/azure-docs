@@ -14,7 +14,8 @@ This article helps you understand Azure Purview Data Policies.
 
 ## Overview
 
-Data use policies can be created through the **Policy management** app in Purview Studio. These policies are then enforced across data systems that are registered with Azure Purview Data Policies.
+Azure Purview now enables you to manage access to different data systems across your entire data estate. This is done by creating data policies through the **Policy management** app in Purview Studio. These policies are then enforced on data systems that have been registered with Azure Purview Data Policies.
+Note: this is different from access control in Azure Purview itself, which is described [here](../purview/catalog-permissions).
 
 ## Azure Purview policy concepts
 
@@ -118,8 +119,10 @@ The following table illustrates how actions in Azure Purview Data Policies map t
 |                           |<sub>Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 
 ## Next steps
-Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage and Azure SQL DB:
+Check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
 
 [How to create data access policies for Azure Storage](how-to-storage-access-policies.md)
 
+<!--
 [How to create data access policies for Azure SQL DB](how-to-sql-access-policies.md)
+-->

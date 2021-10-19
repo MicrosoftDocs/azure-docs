@@ -77,17 +77,20 @@ Storage accounts in the regions where this functionality is available.
 
 -   North Europe
 -   West Europe
+-   UK South
 -   East US
 -   East US2
 -   South Central US
 -   West US 2
--   Canada Central
 -   Southeast Asia
 -   Australia East
+-   Canada Central
+-   France Central
+
 
 ##### Azure Storage
 
--   East US 2
+-   France Central
 -   Canada Central
 
 #### Create new Azure Purview account
@@ -135,7 +138,7 @@ Steps to create a new policy in Purview
 
 6.  Select the **Action** button and choose Read or Modify from the drop-down list.
 
-7.  Select the **Effect** button and choose Allow or Deny from the drop-down list.
+7.  Select the **Effect** button and choose Allow from the drop-down list. Deny will also be supported in the future. .
 
 8.  Select the **Data Resources** button to bring up the options to provide the data asset path
 
@@ -184,3 +187,6 @@ The steps to publish a policy are as follows
 
 4.  A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Note that the publish is a background operation. It would take up to 2 hours for the changes to be reflected in the data source.
     :::image type="content" source="./media/how-to-storage-access-policies/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a Data Owner can select the data source where the policy will be published.":::
+
+## Next steps
+Check the concept guide for Azure Purview Data Policies linked [here](concept-data-policies.md)

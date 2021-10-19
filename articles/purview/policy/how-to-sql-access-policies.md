@@ -84,18 +84,20 @@ Storage accounts in the regions where this functionality is available.
 
 -   North Europe
 -   West Europe
+-   UK South
 -   East US
 -   East US2
 -   South Central US
 -   West US 2
--   Canada Central
 -   Southeast Asia
 -   Australia East
+-   Canada Central
+-   France Central
 
 ##### Azure Storage
 
--   East US 2
--   Canada Central
+-   West Europe
+-   UK South
 
 #### Create new Azure Purview account
 
@@ -141,9 +143,9 @@ Steps to create a new policy in Purview
     statement** button. This will bring up the policy statement builder.
     :::image type="content" source="./media/how-to-sql-access-policies/create-new-policy-sql.png" alt-text="Image shows how a Data Owner can create a new policy statement.":::
 
-6.  Select the **Action** button and choose Read or Modify from the drop-down list.
+6.  Select the **Action** button and choose Read from the drop-down list. Modify will also be supported in the future.
 
-7.  Select the **Effect** button and choose Allow or Deny from the drop-down list.
+7.  Select the **Effect** button and choose Allow from the drop-down list. Deny will also be supported in the future.
 
 8.  Select the **Data Resources** button to bring up the options to provide the data asset path
 
@@ -198,6 +200,4 @@ The steps to publish a policy are as follows
     :::image type="content" source="./media/how-to-sql-access-policies/select-data-sources-publish-policy-sql.png" alt-text="Image shows how a Data Owner can select the data source where the policy will be published.":::
 
 ## Next steps
-Please check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
-
-[How to create data access policies for Azure Storage](how-to-storage-access-policies.md)
+Check the concept guide for Azure Purview Data Policies linked [here](concept-data-policies.md)
