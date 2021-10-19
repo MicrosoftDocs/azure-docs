@@ -33,9 +33,13 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 | ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
 | Storage.\<Region\>  | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration. **You need an entry for each region where you have deployed a datacenter.** |
 
+## User-defined routes
+
+If you are using a 3rd party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See [here](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) for a sample bash script to add the required address prefixes in user-defined routes. 
+
 ## Azure Global required network rules
 
-If you are not using Azure Firewall, the required network rules and IP address dependencies are:
+The required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
