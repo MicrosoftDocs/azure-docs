@@ -217,7 +217,7 @@ In some cases, you may need to disable RDP Shortpath transport. You can disable 
 To disable RDP Shortpath for a specific client, you can use the following Group Policy to disable the UDP support:
 
 1. On the client, run **gpedit.msc**.
-2. Navigate to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Client**.
+2. Go to **Computer Configuration** > **Administration Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
 3. Set the **"Turn Off UDP On Client"** setting to **Enabled**
 
 ### Disabling RDP Shortpath on the session host
