@@ -10,7 +10,7 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.date: 10/12/2021
+ms.date: 10/21/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -25,7 +25,7 @@ In this article, you learn about:
 > * Endpoints
 > * Deployments
 > * Managed online endpoints
-> * Azure Kubernetes Service (AKS) online endpoints
+> * Kubernetes online endpoints
 > * Batch inference endpoints
 
 ## What are endpoints and deployments (preview)?
@@ -100,7 +100,7 @@ However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpo
 - SSL by default for endpoint invocation
 
 
-## Managed online endpoints vs AKS online endpoints (preview)
+## Managed online endpoints vs Kubernetes online endpoints (preview)
 
 There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). The following table highlights some of their key differences.
 
@@ -108,17 +108,17 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 |-|-|-|
 | **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Kubernetes and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
-| **Compute type** | Managed (AmlCompute) | Kubernetes cluster |
+| **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kuberntes) |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
 | **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Manual setup at the cluster level |
 | **Application Insights** | Supported | Supported |
-| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Not supported |
+| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Manually configure at cluster level |
 | **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 
 ### Managed online endpoints
 
-Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over AKS online endpoints:
+Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over Kubernetes online endpoints:
 
 - Managed infrastructure
     - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 

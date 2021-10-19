@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 10/12/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -111,11 +111,11 @@ The next table describes the attributes of `deployments`:
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
-> To use Azure Kubernetes Service (AKS) instead of managed endpoints as a compute target:
-> 1. Create and attach your AKS cluster as a compute target to your Azure Machine Learning workspace by using [Azure ML Studio](how-to-create-attach-compute-studio.md#whats-a-compute-target).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target AKS instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
+> To use Kubernetes instead of managed endpoints as a compute target:
+> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
 >
-> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with AKS endpoints.
+> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
 
 ### Register your model and environment separately
 
