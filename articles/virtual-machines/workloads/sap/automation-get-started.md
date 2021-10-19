@@ -86,7 +86,7 @@ xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
 > The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
 
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Run automation framework from Cloud Shell](automation-configure-deployer.md)
