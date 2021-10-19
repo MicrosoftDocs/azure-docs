@@ -216,12 +216,7 @@ Build and start application from Android Studio.
 - Accept audio permissions and select device, mic, and video settings.
 - Click `Join Call`.
 
-<br/>
-<br/>
-
 ## Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start)
-
-<br/>
 
 ![Launch](../../media/composite-android.gif)
 
