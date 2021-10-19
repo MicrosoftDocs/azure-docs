@@ -47,14 +47,15 @@ If you have already configured Bastion for your VNet, modify the following setti
 1. Check the box for **Native Client Support** and apply your changes.
 
     :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
+1. Install the CLI commands that correspond to the type of session you want to create.
 
-If you are only planning to use this feature for SSH sessions with your target VM, see [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
+   * **SSH sessions**: If you are only planning to use this feature for SSH sessions with your target VM, see the [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
 
-If you are planning to use this feature for RDP sessions with your target VM, install the 64-bit version of Azure CLI using the following steps:
+   * **RDP sessions**: If you are planning to use this feature for RDP sessions with your target VM, use the following instructions:
 
-1. Install the 64-bit version of Python. For more information, see [Python Releases for Windows](https://www.python.org/downloads/windows/).
+     * Install the 64-bit version of Python. For more information, see [Python Releases for Windows](https://www.python.org/downloads/windows/).
 
-1. Run `<full_path_to_python.exe> -m pip install azure-cli`.
+     * Run `<full_path_to_python.exe> -m pip install azure-cli`.
 
 ### To configure a new bastion host
 
@@ -66,14 +67,15 @@ If you don't already have a bastion host configured, see [Create a bastion host]
 1. On the **Advanced** tab, check the box for **Native Client Support**.
 
    :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host-expand.png":::
+1. Install the CLI commands that correspond to the type of session you want to create.
 
-If you are only planning to use this feature for SSH sessions with your target VM, see [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
+   * **SSH sessions**: If you are only planning to use this feature for SSH sessions with your target VM, see the [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
 
-If you are planning to use this feature for RDP sessions with your target VM, install the 64-bit version of Azure CLI using the following steps:
+   * **RDP sessions**: If you are planning to use this feature for RDP sessions with your target VM, use the following instructions:
 
-1. Install the 64-bit version of Python. For more information, see [Python Releases for Windows](https://www.python.org/downloads/windows/).
+     * Install the 64-bit version of Python. For more information, see [Python Releases for Windows](https://www.python.org/downloads/windows/).
 
-1. Run `<full_path_to_python.exe> -m pip install azure-cli`.
+     * Run `<full_path_to_python.exe> -m pip install azure-cli`.
 
 ## Verify roles and ports
 
