@@ -61,9 +61,9 @@
             "redirect_document_id": false
         },
         {
-			"source_path_from_root": "/articles/synapse-analytics/machine-learning/tutorial-spark-pool-filesystem-spec.md",
-			"redirect_url": "/azure/synapse-analytics/spark/tutorial-spark-pool-filesystem-spec",
-			"redirect_document_id": false
+            "source_path_from_root": "/articles/synapse-analytics/machine-learning/tutorial-spark-pool-filesystem-spec.md",
+            "redirect_url": "/azure/synapse-analytics/spark/tutorial-spark-pool-filesystem-spec",
+            "redirect_document_id": false
         }
     ]
 }
