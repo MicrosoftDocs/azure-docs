@@ -293,7 +293,7 @@
   - name: Tutorials
     items:
     - name: Workload zone deployment
-      href: automation-workload-zone-deployment.md
+      href: automation-deploy-workload-zone.md
   - name: Configuration
     items:
     - name: Workload zone configuration

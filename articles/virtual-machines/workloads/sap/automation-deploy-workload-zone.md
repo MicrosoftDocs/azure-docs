@@ -133,12 +133,6 @@ New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV
 -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
-> [!NOTE]
-> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace `<keyvaultName>` with the deployer key vault name
-> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
-> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
 ---
 
