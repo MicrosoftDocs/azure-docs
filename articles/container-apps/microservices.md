@@ -17,7 +17,7 @@ ms.author: cshoe
 - [Service discovery](connect-apps.md)
 - Native [Dapr integration](microservices-dapr.md)
 
-:::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Azure Container Apps: Microservices":::
+:::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Container apps are deployed as microservices.":::
 
 A Container Apps [environment](environment.md) provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of pods made up of one or more [containers](containers.md).
 
