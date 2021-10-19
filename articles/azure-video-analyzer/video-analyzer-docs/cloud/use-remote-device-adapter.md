@@ -1,27 +1,22 @@
 ---
 title: Connect camera to cloud using a remote device adapter
 description: This article explains how to connect a camera to Azure Video Analyzer using a remote device adapter
-ms.topic: reference
-ms.date: 11/14/2021
-
+ms.topic: how-to
+ms.date: 11/01/2021
 ---
 
 # Connect cameras to the cloud using a remote device adapter
 
-[!INCLUDE [header](includes/cloud-env.md)]
-
 Azure Video Analyzer allows users to connect cameras directly to the cloud in order to capture and record video, using cloud pipelines.
 Connecting cameras to the cloud using a remote device adapter allows cameras to connect to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets via RTSP protocol. This approach is useful in the following scenarios:
+
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently
 * When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
 
-> [!NOTE]
-> The Video Analyzer edge module is not acting as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service.
-
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-transparent-gateway/use-transparent-gateway.svg" alt-text="Connect cameras to the cloud with a transparent gateway":::
+> :::image type="content" source="./media/use-remote-device-adapter/use-remote-device-adapter.svg" alt-text="Connect cameras to the cloud with a remote device adapter":::
 
 ## Pre-reading
 
@@ -40,13 +35,17 @@ The following are required for this how-to guide:
   * User-assigned managed identity with **Contributor** role access
 * Video Analyzer account must be paired with IoT Hub
 * [IoT Edge with Video Analyzer edge module installed and configured](../edge/deploy-iot-edge-device.md)
-* [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
-  * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
-* IP camera(s) with RTSP Stream
+* RTSP capable camera(s)
   * Ensure that camera(s) are on the same network as edge device
 
+## Overview
+The following is a overview of the instructions of this how-to guide:
 
-## Create IoT device for camera via portal
+* Provision a device entry on IoT Hub to represent the legacy camera device
+* Create a device adapter with Video Analyzer edge to proxy the legacy camera as a transparent gateway
+* Reference the IoT Camera device in the cloud live topology and pipeline to ingest data from the camera.
+
+## Provisioning IoT device entry/credentials
 
 An IoT device has to be created for each camera to connect to the cloud.
 
@@ -56,9 +55,10 @@ In the Azure portal:
 1. Select the **IoT devices** pane under **Explorers**
 1. Select **+Add device** 
 1. Enter a **Device ID** with a unique string (Ex: building404-camera1)
+1. **Authentication type** must be **Symmetric key**
 1. All other properties can be left as default
 1. Select **Save** to create the IoT device
-1. Select the IoT device, and record the **Primary key**, as it will be needed
+1. Select the IoT device, and record the **Primary key** or **Secondary key**, as it will be needed
 
 ## Create remote device adapter to enable transparent gateway
 
@@ -87,10 +87,10 @@ In the Azure portal:
        "host": "<Camera's IP address>"
       },
      "iotHubDeviceConnection": {
-      "deviceId": "<Device ID>",
+      "deviceId": "<IoT Hub Device ID>",
       "credentials": {
         "@type": "#Microsoft.VideoAnalyzer.SymmetricKeyCredentials",
-        "key": "<Primary Key>"
+        "key": "<Primary or Secondary Key>"
        }
      }
    }
@@ -100,19 +100,22 @@ In the Azure portal:
 
 If successful, you will receive a response with a status code 201.
 
-> [!NOTE]
-> IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
 
 ## Create pipeline topology in the cloud
 
+> [!NOTE]
+> IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
+
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
-See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.
+See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.  
 
-The following values are required to enable tunneling on the RTSP source node:
+[This quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) outlines the steps for creating a pipeline topology and live pipeline in Azure portal. Use the sample topology `CVR from private camera`.
+
+The following values, specific to the IoT device provisioned in the previous instructions, are required to enable tunneling on the RTSP source node:
 
 * IoT Hub Name
-* IoT Device ID
+* IoT Hub Device ID
 
 ```
             {
@@ -138,7 +141,7 @@ The following values are required to enable tunneling on the RTSP source node:
 
 ## Create and activate live pipeline in the cloud
 
-When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and IoT Device ID must be defined.
+When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and IoT Hub Device ID must be defined.
 
 ```
    {
@@ -162,33 +165,31 @@ When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and
             },
             {
                 "name": "ioTHubDeviceIdParameter",
-                "value": "building1-camera1"
+                "value": "building404-camera1"
             }
           ]
        }
    }
 ```
+The RTSP URL must be **localhost** because the access to the camera is being tunneled.  
 
-After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.
+After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.  
+[The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a live pipeline in Azure portal.
 
-<!-- TODO: add link to Mayank's Cloud pipeline quickstart -->
+The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can also be used to automate this process.
 
-The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can be used to automate this process.
+### Playback recorded video in the Azure portal
 
-## Playback recorded video in the Azure portal
+1. After activating the live pipeline, the video resource will be available under the Video Analyzer account **Videos** pane in the portal. The status will indicate **Is in use** as pipeline is active and recording.
+1. Select the video name that was defined in the topology and view the video.
 
-You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/camera1800smkv.PNG" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
 
-1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
-1. Select **Videos** in the **Video Analyzer** section.
-1. You'll find a video listed with the name specified in the video sink node of the pipeline topology used.
-1. Select the video.
-1. The video details page will open and the playback should start automatically.
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next steps
 
-Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial]().<!-- TODO: add link to Keith's export to MP4 tutorial -->
+Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial](export-portion-of-video-as-mp4.md).
 
