@@ -477,6 +477,7 @@ You will only see the storage types that you actually have defined resources for
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Box (Preview)
 
 | Connector attribute | Description |
@@ -486,7 +487,7 @@ You will only see the storage types that you actually have defined resources for
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
-
+-->
 ## Broadcom Symantec Data Loss Prevention (DLP) (Preview)
 
 | Connector attribute | Description |
@@ -509,7 +510,7 @@ You will only see the storage types that you actually have defined resources for
 | **Supported by** | [Check Point](https://www.checkpoint.com/support-services/contact-support/) |
 | | |
 
-
+<!--
 ## Cisco ACI (Preview)
 
 | Connector attribute | Description |
@@ -519,6 +520,7 @@ You will only see the storage types that you actually have defined resources for
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Cisco ASA
 
@@ -530,6 +532,7 @@ You will only see the storage types that you actually have defined resources for
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Cisco Duo Security (Preview)
 
 | Connector attribute | Description |
@@ -539,6 +542,7 @@ You will only see the storage types that you actually have defined resources for
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Cisco Firepower eStreamer (Preview)
 
@@ -567,6 +571,7 @@ Copy the pkcs12 file from the FMC to the Azure/VM instance and run the test util
 1. **Configure eNcore to stream data to the agent**  
 Configure eNcore to stream data via TCP to the Log Analytics Agent. This configuration should be enabled by default, but extra ports and streaming protocols can be configured depending on your network security posture. It is also possible to save the data to the file system. For more information, see [Configure eNcore](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049433).
 
+<!--
 ## Cisco ISE (Preview)
 
 | Connector attribute | Description |
@@ -576,6 +581,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
+
 ## Cisco Meraki (Preview)
 
 | Connector attribute | Description |
@@ -588,6 +595,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Cisco Secure Email Gateway / ESA (Preview)
 
 | Connector attribute | Description |
@@ -598,6 +606,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Supported by** | Microsoft |
 | | |
 
+
 ## Cisco StealthWatch (Preview)
 
 | Connector attribute | Description |
@@ -607,6 +616,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
+
 ## Cisco Umbrella (Preview)
 
 | Connector attribute | Description |
@@ -635,6 +646,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Cisco Web Security Appliance (WSA) (Preview)
 
 | Connector attribute | Description |
@@ -644,6 +656,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Citrix Analytics (Security)
 
@@ -665,6 +678,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 | | |
 
+<!--
 ## CloudFlare (Preview)
 
 | Connector attribute | Description |
@@ -674,6 +688,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Cognni (Preview)
 
@@ -690,11 +705,12 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | Only available after installing the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
-| **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md) |
+| **Log Analytics table(s)** | See [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md) |
+| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap-deploy-solution.md) |
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Contrast Security (Preview)
 
 | Connector attribute | Description |
@@ -704,7 +720,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## Crowdstrike (Preview)
 
 | Connector attribute | Description |
@@ -714,6 +732,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## CyberArk Enterprise Password Vault (EPV) Events (Preview)
 
@@ -737,6 +756,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | | |
 
 
+<!--
 ## Digital Guardian (Preview)
 
 | Connector attribute | Description |
@@ -746,6 +766,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+
+-->
 
 ## Domain name server
 
@@ -942,6 +964,7 @@ For more information, see the Eset documentation.
 | **Supported by** | [F5 Networks](https://support.f5.com/csp/home) |
 | | |
 
+<!--
 ## FireEye NX (Preview)
 
 | Connector attribute | Description |
@@ -951,7 +974,9 @@ For more information, see the Eset documentation.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## Flare Systems Firework (Preview)
 
 | Connector attribute | Description |
@@ -961,6 +986,7 @@ For more information, see the Eset documentation.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Forcepoint Cloud Access Security Broker (CASB) (Preview)
 
@@ -1002,6 +1028,7 @@ For more information, see the Eset documentation.
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
 | | |
 
+<!--
 ## Forescout (Preview)
 
 | Connector attribute | Description |
@@ -1011,6 +1038,7 @@ For more information, see the Eset documentation.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## ForgeRock Common Audit (CAUD) for CEF (Preview)
 
@@ -1049,6 +1077,7 @@ end
 - Set the **syslog port** to **514** or the port set on the Syslog daemon on the forwarder.
 - To enable CEF format in early FortiOS versions, you might need to run the command set **csv disable**.
 
+<!--
 ## Google Cloud Platform DNS (Preview)
 
 | Connector attribute | Description |
@@ -1058,7 +1087,8 @@ end
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
-
+-->
+<!--
 ## Google Cloud Platform Cloud Monitoring (Preview)
 
 | Connector attribute | Description |
@@ -1068,7 +1098,8 @@ end
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
-
+-->
+<!--
 ## Google Cloud Platform Identity and Access Management (Preview)
 
 | Connector attribute | Description |
@@ -1078,7 +1109,7 @@ end
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
-
+-->
 
 ## Google Workspace (G-Suite) (Preview)
 
@@ -1104,6 +1135,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 1. To get the Google pickle string, run [this python script](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (in the same path as credentials.json).
 1. Copy the pickle string output in single quotes and save. It will be needed for deploying the Function App.
 
+<!--
 ## HYAS (Preview)
 
 | Connector attribute | Description |
@@ -1113,7 +1145,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
-
+-->
 ## Illusive Attack Management System (AMS) (Preview)
 
 | Connector attribute | Description |
@@ -1148,6 +1180,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | | |
 
 
+<!--
 ## IronNet (Preview)
 
 | Connector attribute | Description |
@@ -1157,8 +1190,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
-
+<!--
 ## Juniper IDP (Preview)
 
 | Connector attribute | Description |
@@ -1168,6 +1202,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Juniper SRX (Preview)
 
@@ -1192,6 +1227,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | [Lookout](https://www.lookout.com/support) |
 | | |
 
+<!--
 ## McAfee ePolicy Orchestrator (Preview)
 
 | Connector attribute | Description |
@@ -1201,7 +1237,9 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## McAfee Network Security Platform (Preview)
 
 | Connector attribute | Description |
@@ -1211,6 +1249,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Microsoft 365 Defender
 
@@ -1281,6 +1320,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Microsoft Teams
 
 | Connector attribute | Description |
@@ -1290,6 +1330,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Morphisec UTPP (Preview)
 
@@ -1408,6 +1449,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Supported by** | [One Identity](https://support.oneidentity.com/) |
 | | |
 
+<!--
 ## Oracle Database Audit
 
 | Connector attribute | Description |
@@ -1417,6 +1459,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Oracle WebLogic Server (Preview)
 
@@ -1476,6 +1519,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Supported by** | [Perimeter 81](https://support.perimeter81.com/) |
 | | |
 
+<!--
 ## Ping Identity
 
 | Connector attribute | Description |
@@ -1485,6 +1529,8 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+
+-->
 
 ## Proofpoint On Demand (POD) Email Security (Preview)
 
@@ -1592,6 +1638,7 @@ Due to the potentially large amount of Qualys host detection data being ingested
 
 If a longer timeout duration is required, consider upgrading to an [App Service Plan](../azure-functions/functions-scale.md).
 
+<!--
 ## Rapid 7 Insight VM CloudAPI (Preview)
 
 | Connector attribute | Description |
@@ -1601,7 +1648,9 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## RSA SecurID
 
 | Connector attribute | Description |
@@ -1611,6 +1660,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Salesforce Service Cloud (Preview)
 
@@ -1641,6 +1691,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 
+<!--
 ## Semperis (Preview)
 
 | Connector attribute | Description |
@@ -1650,7 +1701,9 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## Senserva Pro (Preview)
 
 | Connector attribute | Description |
@@ -1660,6 +1713,7 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## SentinelOne (Preview)
 
@@ -1691,7 +1745,7 @@ Follow the instructions to obtain the credentials.
 1. Save credentials of the new user for using in the data connector.
 
 
-
+<!--
 ## Slack Audit (Preview)
 
 | Connector attribute | Description |
@@ -1702,6 +1756,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
+-->
 
 ## SonicWall Firewall (Preview)
 
@@ -1724,6 +1779,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx) |
 | | |
 
+<!--
 ## Sophos Endpoint Protection (Preview)
 
 | Connector attribute | Description |
@@ -1733,7 +1789,7 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
-
+-->
 
 
 ## Sophos XG Firewall (Preview)
@@ -1771,7 +1827,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
-
+<!--
 ## Symantec Endpoint (Preview)
 
 | Connector attribute | Description |
@@ -1782,6 +1838,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
+-->
 ## Symantec Integrated Cyber Defense Exchange (ICDx)
 
 | Connector attribute | Description |
@@ -1818,6 +1875,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
+<!--
 ## Tenable (Preview)
 
 | Connector attribute | Description |
@@ -1827,6 +1885,8 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+
+-->
 
 ## Thycotic Secret Server (Preview)
 
@@ -1838,7 +1898,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | [Thycotic](https://thycotic.force.com/support/s/) |
 | | |
 
-
+<!--
 ## Trend Micro Apex One (Preview)
 
 | Connector attribute | Description |
@@ -1848,6 +1908,7 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Trend Micro Deep Security
 
@@ -1885,6 +1946,7 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/technical-support) |
 | | |
 
+<!--
 ## Ubiquti UniFi (Preview)
 
 | Connector attribute | Description |
@@ -1894,7 +1956,9 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## vArmour (Preview)
 
 | Connector attribute | Description |
@@ -1904,7 +1968,9 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
+<!--
 ## Vectra Stream (Preview)
 
 | Connector attribute | Description |
@@ -1914,6 +1980,7 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## VMware Carbon Black Endpoint Standard (Preview)
 
@@ -2013,7 +2080,7 @@ Follow the instructions to obtain the credentials.
 1. Go back to **Workplace from Facebook**. In the **Configure webhooks** panel, on each Tab set the **Callback URL** as the Function URL you copied in the last step, and the **Verify token** as the same value you received during automatic deployment, or entered during manual deployment.
 1. Select **Save**.
 
-
+<!--
 ## Zeek Network (Preview)
 
 | Connector attribute | Description |
@@ -2023,6 +2090,7 @@ Follow the instructions to obtain the credentials.
 | **Vendor documentation/<br>installation instructions** | [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) |
 | **Supported by** | Microsoft |
 | | |
+-->
 
 ## Zimperium Mobile Thread Defense (Preview)
 

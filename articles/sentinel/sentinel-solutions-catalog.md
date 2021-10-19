@@ -45,8 +45,8 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |**Zero Trust** (TIC3.0) |Workbooks |Identity, Security - Others |Microsoft |
 | | | | |
 
-<!--|**CyberSecurity Maturity Model Certification** |Workbooks, analytics rules |Compliance |Microsoft |-->
-<!--|**HoneyTokens (Deception Solution for Sentinel)** |Workbooks, analytics rules, watchlists |Security - Threat Protection |Microsoft |-->
+<!--|ALMOST DONE**CyberSecurity Maturity Model Certification** |Workbooks, analytics rules |Compliance |Microsoft |-->
+<!--|ALMOST DONE**HoneyTokens (Deception Solution for Sentinel)** |Workbooks, analytics rules, watchlists |Security - Threat Protection |Microsoft |-->
 
 
 
@@ -232,7 +232,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |**Fortinet Fortigate** |[Data connector](data-connectors-reference.md#fortinet), playbooks, custom Logic App connector|Security - Automation (SOAR) | Microsoft|
 | | | |
 
-<!-- Coming soon>
+<!-- Coming soon ALMOST DONE>
 
 ## GitHub
 
@@ -327,15 +327,13 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 | | | | |
 
 
-<!-- Coming soon>
-
 ## Kaspersky
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Kaspersky AntiVirus** |Data connector   | Security - Threat protection| |
+|**Kaspersky AntiVirus** |Data connector, parser   | Security - Threat protection|Microsoft |
 | | | | |
--->
+
 
 ## Lookout
 
@@ -367,9 +365,9 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+|**Oracle Cloud Infrastructure** |Data connector, parser | Cloud Provider | Microsoft|
 |**Oracle Database Audit Solution** | [Data connector](data-connectors-reference.md#oracle-database-audit), workbook, analytics rules, hunting queries, parser| Application|Microsoft |
 | | | | |
-<!-- | **Oracle Cloud Infrastructure** |Data connector | Cloud Provider | |  -->
 
 ## Palo Alto
 
@@ -483,16 +481,14 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |**Senserva Offer for Azure Sentinel** |[Data connector](data-connectors-reference.md#senserva-pro-preview), workbooks, analytics rules, hunting queries |Compliance |Senserva Pro |
 | | | | |
 
-<!-- Coming soon>
-
+<!-->
 ## Sonrai Security
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Sonrai Security - Azure Sentinel** |Data connector, workbooks, analytics rules   | Compliance| |
+|**Sonrai Security - Azure Sentinel** |Data connector, workbooks, analytics rules   | Compliance|Sonrai Security |
 | | | | |
 -->
-
 ## Slack
 
 |Name    |Includes  |Categories |Supported by  |
