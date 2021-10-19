@@ -97,7 +97,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 1. Next step is to create a live pipeline using the topology created in previous step. 
     - Select **Pipelines**-> Select **Create** -> then select the ‘Live pipeline topology’ created in previous step to a create a pipeline. After selecting the topology click **Create**
     - **Create a live pipeline** wizard will appear on the portal. Enter the required fields: 
-        - **Live pipeline name** – Use a unique name, allows alpha numerals & dashes
+        - **Live pipeline name** – Use a unique name, allows alpha numerals and dashes
         - **Bitrate** –  It is the maximum capacity in Kbps that is reserved for the live pipeline, allowed range is 500 kbps to 3000 kbps. Use default 1000 for rtsp camera simulator camera-1800s.mkv file (this value should match with sample video file used). 
         - **rtspUserNameParameter**, **rtspPasswordParameter** - Set dummy values for these fields if using rtsp camera simulator else enter authentication credentials for actual rtsp camera stream
         - **rtspUrlParameter** – Use `rtsp://<VMpublicIP>:554/media/camera-1800s.mkv` (for RTSP camera simulator) else actual RTSP camera stream URL
