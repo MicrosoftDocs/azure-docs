@@ -38,10 +38,10 @@ In this tutorial, you will learn:
 
 ## Pipeline topology of batch kind (Batch)
 
-A pipeline topology of batch kind enables you to describe how recorded video should be processed for export based on your custom needs through three interconnected nodes.  A pipeline topology of batch kind is the base that is used for pipeline jobs.  A pipeline job is the individual instance of a pipeline topology of batch kind and the pipeline job imports the recorded Video Analyzer video and saves it to the Video Analyzer's storage account as a downloadable MP4 file.  The pipeline topology of batch kind uses 1 source node ([Video Source](../pipeline.md#Video-Source)), 1 processor node ([Encoder processor](../pipeline.md#Encoder-processor)), and one sink node ([Video sink](../pipeline.md#Video-sink)).
+A pipeline topology of batch kind enables you to describe how recorded video should be processed for export based on your custom needs through three interconnected nodes.  A pipeline topology of batch kind is the base that is used for pipeline jobs.  A pipeline job is the individual instance of a pipeline topology of batch kind and the pipeline job imports the recorded Video Analyzer video and saves it to the Video Analyzer's storage account as a downloadable MP4 file.  The pipeline topology of batch kind uses 1 source node ([video source](../pipeline.md#video-source)), 1 processor node ([encoder processor](../pipeline.md#encoder-processor)), and one sink node ([video sink](../pipeline.md#video-sink)).
 
 > [!NTOE]
-> For more information about sources, processors and sinks please see this [article](../pipeline.md#Sources,-processors,-and-sinks).  For more information on pipeline jobs please see [pipeline jobs](../pipeline.md#Batch-pipeline)
+> For more information about sources, processors and sinks please see [sources, processors, and sinks](../pipeline.md#sources-processors-and-sinks). For more information on pipeline jobs please see [pipeline jobs](../pipeline.md#batch-pipeline)
 
 ## Create a pipeline job (video playback blade)
 
