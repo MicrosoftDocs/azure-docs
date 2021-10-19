@@ -290,7 +290,7 @@
     href: automation-get-started.md
   - name: Tutorials
     items:               
-    - name: Deploy the Control Plane
+    - name: Deploy the control plane
       href: automation-deploy-control-plane.md
   - name: About SAP system deployment
     href: automation-system-deployment.md
