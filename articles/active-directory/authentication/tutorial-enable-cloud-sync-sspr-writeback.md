@@ -19,7 +19,7 @@ ms.custom: contperf-fy20q4
 ---
 # Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)
 
-Azure Active Directory Connect cloud sync can synchronize Azure AD password changes in real time between users in disconnected on-premises Active Directory Domain Services (AD DS) domains. The public preview of Azure AD Connect cloud sync can run side-by-side with Azure Active Directory Connect to simplify password writeback for additional scenarios such as disconnected users. You can configure ecah servce to target different sets of users depending on their needs. Azure Active Directory Connect cloud sync uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in the cloud back to an on-premises directory. 
+Azure Active Directory Connect cloud sync can synchronize Azure AD password changes in real time between users in disconnected on-premises Active Directory Domain Services (AD DS) domains. The public preview of Azure AD Connect cloud sync can run side-by-side with [Azure Active Directory Connect](tutorial-enable-sspr-writeback.md) to simplify password writeback for additional scenarios, such as users who are in disconnected domains because of a company split or merge. You can configure each servce to target different sets of users depending on their needs. Azure Active Directory Connect cloud sync uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in the cloud back to an on-premises directory. 
 
 Azure Active Directory Connect cloud sync self-service password reset writeback is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,35 +42,22 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
  
 ### Configure Azure AD Connect cloud sync service account permissions 
 
-<!---Move to troubleshooting and point to permissions.---> 
+For public preview, you need to configure Azure AD Connect cloud sync service account permissions. To set the service account permissions, use the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](./cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
 
-The Azure AD Connect cloud sync group managed service account (gMSA) should have the following permissions set to writeback the passwords by default: 
-
-- Reset password
-- Write permissions on lockoutTime
-- Write permissions on pwdLastSet
-- Extended rights for "Unexpire Password" on the root object of each domain in that forest, if not already set. 
-
-If these permissions are not set, you can set the PasswordWriteBack permission on the service account by using the Set-AADCloudSyncPermissions cmdlet and on-premises enterprise administrator credentials: 
+<!---what is right syntax?--->
 
 ```powershell
-Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 
-Set-AADCloudSyncPermissions -PermissionType PasswordWriteBack -EACredential $(Get-Credential)
+Set-AADCloudSyncPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
-After you have updated the permissions, it may take up to an hour or more for these permissions to replicate to all the objects in your directory. 
+You'll need to set the following permissions for password writeback:
 
-If you don't assign these permissions, writeback may appear to be configured correctly, but users may encounter errors when they update their on-premises passwords from the cloud. Permissions must be applied to “This object and all descendant objects” for "Unexpire Password" to appear. 
+|Type |Name |Access |Applies To|
+|-----|-----|-----|-----| 
+|Allow |AD DS Connector Account |Reset Password |Descendant User objects| 
+|Allow |AD DS Connector Account |Write property lockoutTime |Descendant User objects| 
+|Allow |AD DS Connector Account |Write property pwdLastSet |Descendant User objects| 
 
-If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
-
-Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset password for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies within gpmc.msc. 
-
-If you update the group policy, wait for the updated policy to replicate, or use the gpupdate /force command. 
-
-For passwords to be changed immediately, Minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the Minimum password age is set to a value greater than zero, password writeback will not work after the on-premises policies are evaluated. 
-
-For more information about how to validate or set up the appropriate permissions, see [Configure account permissions for Azure AD Connect](tutorial-enable-sspr-writeback.md#configure-account-permissions-for-azure-ad-connect). 
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
@@ -160,6 +147,38 @@ Have two users disconnected domains and forests reset their password from the Az
 ### Self-service account unlock
 
 Have two users from disconnected domains and forests unlock accounts in the SSPR portal resetting the password. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect. 
+
+## Troubleshooting
+
+The Azure AD Connect cloud sync group managed service account (gMSA) should have the following permissions set to writeback the passwords by default: 
+
+- Reset password
+- Write permissions on lockoutTime
+- Write permissions on pwdLastSet
+- Extended rights for "Unexpire Password" on the root object of each domain in that forest, if not already set. 
+
+If these permissions are not set, you can set the PasswordWriteBack permission on the service account by using the Set-AADCloudSyncPermissions cmdlet and on-premises enterprise administrator credentials: 
+
+```powershell
+Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 
+Set-AADCloudSyncPermissions -PermissionType PasswordWriteBack -EACredential $(Get-Credential)
+```
+
+After you have updated the permissions, it may take up to an hour or more for these permissions to replicate to all the objects in your directory. 
+
+If you don't assign these permissions, writeback may appear to be configured correctly, but users may encounter errors when they update their on-premises passwords from the cloud. Permissions must be applied to “This object and all descendant objects” for "Unexpire Password" to appear. 
+
+If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
+
+Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset password for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies within gpmc.msc. 
+
+If you update the group policy, wait for the updated policy to replicate, or use the gpupdate /force command. 
+
+For passwords to be changed immediately, Minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the Minimum password age is set to a value greater than zero, password writeback will not work after the on-premises policies are evaluated. 
+
+For more information about how to validate or set up the appropriate permissions, see [Configure account permissions for Azure AD Connect](tutorial-enable-sspr-writeback.md#configure-account-permissions-for-azure-ad-connect). 
+
+## Next steps
 
 
 
