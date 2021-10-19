@@ -102,10 +102,10 @@ Depending on your requirements, one or more of the following Azure services inte
 
 These Azure services can invoke an Automation runbook using the HTTP webhook trigger:
 
-* [Azure Logic Apps](../connectors/built-in.md)
-* [Azure Power Apps](../connectors/azureautomation.md)
+* [Azure Logic Apps](/connectors/built-in.md)
+* [Azure Power Apps](/connectors/azureautomation.md)
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
-* [Azure Power Automate](../connectors/azureautomation.md)
+* [Azure Power Automate](/connectors/azureautomation.md)
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
