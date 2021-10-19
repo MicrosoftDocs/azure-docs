@@ -41,7 +41,7 @@ You can assign roles to the user or application using the [Azure portal](/azure/
 
 ## Get an AAD token
 ::: zone pivot="programming-language-csharp"
-To get an AAD token in C#, use the [Azure Identy Client Library](/dotnet/api/overview/azure/identity-readme).
+To get an AAD token in C#, use the [Azure Idenity Client Library](/dotnet/api/overview/azure/identity-readme).
 
 An example of using Azure.Identity to get an AAD Token from an interactive browser:
 ```c#
@@ -53,7 +53,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-To get an AAD token in C++, use the [Azure Identy Client Library](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity).
+To get an AAD token in C++, use the [Azure Idenity Client Library](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity).
 
 An example of using Azure.Identity to get an AAD Token from a client secret credential:
 ```cpp
@@ -77,7 +77,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-To get an AAD token in Java, use the [Azure Identy Client Library](/java/api/overview/azure/identity-readme).
+To get an AAD token in Java, use the [Azure Idenity Client Library](/java/api/overview/azure/identity-readme).
 
 An example of using Azure.Identity to get an AAD Token from a browser:
 ```java
@@ -94,7 +94,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-To get an AAD token in Java, use the [Azure Identy Client Library](/python/api/overview/azure/identity-readme).
+To get an AAD token in Java, use the [Azure Idenity Client Library](/python/api/overview/azure/identity-readme).
 
 An example of using Azure.Identity to get an AAD Token from an interactive browser:
 ```Python
