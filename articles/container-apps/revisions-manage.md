@@ -99,7 +99,7 @@ The `activeRevisionsMode` property accepts two values:
 
 - `multiple`: Configures the container app to allow more than one active revision.
 
-- `single`: Automatically deactivates all other revisions when a revision is activated.This has the effect that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
+- `single`: Automatically deactivates all other revisions when a revision is activated. This has the effect that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
 
 ```json
 {
@@ -122,13 +122,7 @@ The following configuration fragment shows how to set the `activeRevisionsMode` 
 
 Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
-The following example shows how to split traffic between three revisions where:
-
-- 50% of the requests go to the revision with the name REVISION1_NAME
-- 30% of the requests go to the revision with the name REVISION2_NAME
-- 20% of the requests go to the latest revision
-
-The sum total of all revision weights must equal 100.
+The following example shows how to split traffic between three revisions.
 
 # [ARM Template](#tab/arm-template)
 
@@ -155,6 +149,14 @@ The sum total of all revision weights must equal 100.
   }
 }
 ```
+
+Each revision gets traffic based on the following rules:
+
+- 50% of the requests go REVISION1
+- 30% of the requests go REVISION2
+- 20% of the requests go to the latest revision
+
+The sum total of all revision weights must equal 100.
 
 In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [list](#list) command.
 
