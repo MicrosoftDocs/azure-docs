@@ -45,7 +45,7 @@ operating system of guest configuration extension. There's no need to configure
 ## Dependencies are managed per-configuration
 
 When a configuration is
-[packaged using the available tools](../how-to/guest-configuration-create),
+[packaged using the available tools](../how-to/guest-configuration-create.md),
 the required dependencies for the configuration are included in a .zip file.
 Machines that request the configuration extract the contents into a unique
 folder for each configuration. The agent delivered by the guest configuration 
