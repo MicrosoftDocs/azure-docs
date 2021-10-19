@@ -19,7 +19,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 |-|-|
 | Fault Provider | N/A |
 | Supported OS Types | N/A |
-| Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example, waiting for auto-healing to occur before injecting another fault). |
+| Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example, waiting for autohealing to occur before injecting another fault). |
 | Prerequisites | N/A |
 | Urn | urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed |
 | duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
