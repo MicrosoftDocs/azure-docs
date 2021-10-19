@@ -143,7 +143,7 @@ This direct method lists all the discoverable ONVIF devices on the same network 
 
 The onvifDeviceGet call supports both unsecured and TLS enabled endpoints.  This direct method call retrieves detailed information about a specific ONVIF device.
 
-# [UnsecuredEndpoint](#tag/unsecuredendpoint)
+# [UnsecuredEndpoint](#tab/unsecuredendpoint)
 
 >[!NOTE]
 >When the onvifDeviceGet call is made to an unsecured endpoint on an ONVIF enabled camera it is required to set the Video Edge module Identity Twin setting `"AllowUnsecuredEndpoints"` to `"True"`.  For more information see article [Module twin properties](./module-twin-configuration-schema.md).
