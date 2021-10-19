@@ -1,6 +1,6 @@
 ---
 title: Azure API Management validation policies | Microsoft Docs
-description: Learn about policies you can use in Azure API Management to validate requests and responses against an API schema.
+description: Learn about policies you can use in Azure API Management to validate requests and responses.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -11,18 +11,18 @@ ms.date: 11/2/2021
 ms.author: danlep
 ---
 
-# API Management policies to validate requests and responses against a schema
+# API Management policies to validate requests and responses
 
 This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-Use validation policies to validate API requests and responses against an existing schema in the API definition (OpenAPI, XML, or SOAP) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
+Use validation policies to validate API requests and responses against a JSON or XML schema in the API definition (for example, OpenAPI or WSDL) and protect from vulnerabilities such as injection of headers or payload. While not a replacement for a Web Application Firewall, validation policies provide flexibility to respond to an additional class of threats that are not covered by security products that rely on static, predefined rules.
 
 ## Validation policies
 
-- [Validate content](#validate-content) - Validates the size or schema of a request or response body against the OpenAPI, XML, or SOAP schema. 
-- [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the OpenAPI schema.
-- [Validate headers](#validate-headers) - Validates the response headers against the OpenAPI schema.
-- [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the OpenAPI schema.
+- [Validate content](#validate-content) - Validates the size or schema of a request or response body. The supported schema formats are JSON and XML.
+- [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
+- [Validate headers](#validate-headers) - Validates the response headers against the API schema.
+- [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
 > [!NOTE]
 > The maximum size of the API schema that can be used by a validation policy is 4 MB. If the schema exceeds this limit, validation policies will return errors on runtime. To increase it, please contact [support](https://azure.microsoft.com/support/options/). 
@@ -59,13 +59,13 @@ We recommend performing load tests with your expected production workloads to as
 
 The `validate-content` policy validates the size or schema of a request or response body against the API schema. 
 
-The following table shows the formats, sample content types, and API schemas used in API definitions that the policy supports.
+The following table shows the formats and sample content types used in API definitions that the policy supports.
 
-| Format  | Content type | Schema |
-|---------|---------|-----|
-|JSON     |  `application/json`<br/>`application/hal+json` | OpenAPI   |
-|XML     |  `application/xml`  | XSD |
-|SOAP     |  `application/soap+xml` | WSDL  |
+| Format  | Content type examples | 
+|---------|---------|
+|JSON     |  `application/json`<br/>`application/hal+json` | 
+|XML     |  `application/xml`  | 
+|SOAP     |  `application/soap+xml` for SOAP 1.2 APIs<br/>`text/xml` for SOAP 1.1 APIs|
 
 ### Policy statement
 
@@ -116,7 +116,7 @@ Content types other than `application/soap+xml`, including messages without the 
 | size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
-| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".  |  Yes     |  N/A  |
+| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/>When "soap" is specified, the XML schema from the request or response is extracted from the SOAP envelope and validated against an XML schema. The `type` attribute must be `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs |  Yes     |  N/A  |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
 
 ### Usage
@@ -180,7 +180,7 @@ In this example, all query and path parameters are validated in the prevention m
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-parameter-action | [Action](#actions) to perform when validation fails for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
+| specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
 | unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | name | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
@@ -225,7 +225,7 @@ The `validate-headers` policy validates the response headers against the API sch
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-header-action | [Action](#actions) to perform when validation fails for response headers specified in the API schema.  |  Yes     | N/A   |
+| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
 | unspecified-header-action | [Action](#actions) to perform for response headers that are not specified in the API schema.  |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | name | Name of the header to override validation action for. This value is case insensitive. | Yes | N/A |
