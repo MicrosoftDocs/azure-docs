@@ -226,7 +226,7 @@ Following example shows a transaction that is implicitly promoted to distributed
 	}
 ```
 
-## Transactions for Azure SQL Database
+## Transactions for SQL Database
 
 > [!IMPORTANT]
 > Distributed transactions for Azure SQL Database are in preview. 
@@ -239,7 +239,7 @@ Use the following PowerShell cmdlets to manage cross-server communication relati
 * **Get-AzSqlServerCommunicationLink**: Use this cmdlet to retrieve existing communication relationships and their properties.
 * **Remove-AzSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship.
 
-## Transactions for Azure SQL Managed Instance
+## Transactions for SQL Managed Instance
 
 > [!IMPORTANT]
 > Distributed transactions for Azure SQL Managed Instance are now generally available.
@@ -277,7 +277,9 @@ The following limitations currently apply to distributed transactions in *SQL Ma
 * Azure SQL Managed Instance must be part of a [Server trust group](../managed-instance/server-trust-group-overview.md) in order to participate in distributed transaction.
 * Limitations of [Server trust groups](../managed-instance/server-trust-group-overview.md) affect distributed transactions.
 * Managed Instances that participate in distributed transactions need to have connectivity over private endpoints (using private IP address from the virtual network where they are deployed) and need to be mutually referenced using private FQDNs. Client applications can use distributed transactions on private endpoints. Additionally, in cases when Transact-SQL leverages linked servers referencing private endpoints, client applications can use distributed transactions on public endpoints as well. This limitation is explained on the following diagram.
-  ![Private endpoint connectivity limitation][4]
+
+![Private endpoint connectivity limitation][4]
+
 ## Next steps
 
 * For questions, reach out to us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html).
