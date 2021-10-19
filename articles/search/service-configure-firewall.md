@@ -13,9 +13,9 @@ ms.date: 10/19/2021
 
 # Configure an IP firewall for Azure Cognitive Search
 
-Azure Cognitive Search supports IP rules for inbound access through a firewall, similar to the IP rules you'll find in an Azure virtual network security group. By leveraging IP rules, you can restrict search service access to an approved set of machines and cloud services. Access to data stored in your search service from these approved sets of machines and services will still require the caller to present a valid authorization token.
+Azure Cognitive Search supports IP rules for inbound access through a firewall, similar to the IP rules you'll find in an Azure virtual network security group. By leveraging IP rules, you can restrict search service access to an approved set of machines and cloud services. Access to data stored in your search service from the approved sets of machines and services will still require the caller to present a valid authorization token.
 
-You can set IP rules in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
+You can set IP rules in the Azure portal, as described in this article, on search services provisioned at the Basic tier and above. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 <a id="configure-ip-policy"></a> 
 
@@ -37,12 +37,12 @@ To retain service administration through the portal, select the "Allow access" o
 
 ## Allow access from your client
 
-Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of  search service). 
+Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service). 
 
-Providing IP addresses for clients ensures that the request is not rejected outright. For access to content and operations, authorization is also necessary. Use one of the following methodologies:
+Providing IP addresses for clients ensures that the request is not rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 
 + [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request
-+ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service. 
++ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service, and the [registered app presents an OAuth token](search-howto-aad.md) from Azure Active Directory.
 
 ### Rejected requests
 
