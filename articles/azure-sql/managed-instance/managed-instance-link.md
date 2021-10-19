@@ -16,13 +16,13 @@ ms.date: 19/10/2021
 # Overview of Managed Instance link (limited public preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
+The new link feature in SQL Managed Instance connects your SQL Servers hosted anywhere to Azure SQL Managed Instance, providing unprecedented hybrid flexibility and database mobility. With an approach that uses near real-time data replication to the cloud, you can offload workloads to read-only secondaries on Azure to take advantage of cloud-only features, performance, and scale. In addition, you can also choose to migrate one or more applications at the same time, at your own pace, with minimum downtime.
 
-
+The link feature is in limited public preview and supports SQL Server 2019 Enterprise Edition and SQL Server 2022 CTP1 at this time, with all editions in SQL Server 2016 and beyond planned to be supported in the near future. [Sign up now](https://aka.ms/mi-link-signup) to participate in the limited public preview.  
 
 ## Sign-up for managed instance link
 
-To use managed instance link, you will need:
+To use the link feature, you will need:
 - SQL Server 2019 Enterprise Edition, or SQL Server 2022 CTP1, installed on-premises or in Azure VM
 - In case of on-premises installation, a VPN link, or Express Route is required to connect with Azure
 - Managed Instance, either GP or BC service tier, provisioned in Azure
@@ -36,5 +36,9 @@ Use the below link to sign-up for managed instance link limited preview.
 
 ## Next steps
 
-- For more information on managed instance link, see [Managed Instance link unleashed?](https://aka.ms/mi-link-techblog).
-- Sign up for the limited private prevew, 
+For more information on managed instance link, see the following:
+- [Managed Instance link technical blogpost](https://aka.ms/mi-link-techblog).
+
+## See also
+
+- [Transactional replication with Azure SQL Managed Instance (Preview)](replication-transactional-overview.md)
