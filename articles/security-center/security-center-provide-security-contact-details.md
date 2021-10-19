@@ -5,20 +5,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 04/07/2021
+ms.date: 10/20/2021
 ms.author: memildin
 
 ---
 # Configure email notifications for security alerts 
 
-Security alerts need to reach the right people in your organization. By default, Security Center emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
+Security alerts need to reach the right people in your organization. By default, Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
 To define your own preferences for notification emails, Microsoft Defender for Cloud's **Email notifications** settings page lets you choose:
 
 - ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription. 
-- ***what* they should be notified about** - Modify the severity levels for which Security Center should send out notifications.
+- ***what* they should be notified about** - Modify the severity levels for which Defender for Cloud should send out notifications.
 
-To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
+To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. For each subscription, Defender for Cloud sends:
 
 - a maximum of one email per **6 hours** (4 emails per day) for **high-severity** alerts
 - a maximum of one email per **12 hours** (2 emails per day) for **medium-severity** alerts
@@ -40,7 +40,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 ## Customize the security alerts email notifications via the portal<a name="email"></a>
 You can send email notifications to individuals or to all users with specific Azure roles.
 
-1. From Security Center's **Pricing & settings** area, select the relevant subscription, and select **Email notifications**.
+1. From Defender for Cloud's **Pricing & settings** area, select the relevant subscription, and select **Email notifications**.
 
 1. Define the recipients for your notifications with one or both of these options:
 

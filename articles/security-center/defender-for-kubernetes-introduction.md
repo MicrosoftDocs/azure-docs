@@ -12,9 +12,9 @@ manager: rkarlin
 
 # Introduction to Microsoft Defender for Kubernetes
 
-Microsoft Defender for Kubernetes is the Azure Defender plan providing protections for your Kubernetes clusters wherever they're running. 
+Microsoft Defender for Kubernetes is the enhanced security plan providing protections for your Kubernetes clusters wherever they're running. 
 
-We can defend clusters in:
+Defender for Cloud can defend clusters in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications
 
@@ -31,7 +31,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||

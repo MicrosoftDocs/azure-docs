@@ -16,9 +16,9 @@ This page explains how Microsoft Defender for Cloud's threat intelligence report
 
 ## What is a threat intelligence report?
 
-Security Center threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. For more information, see [How Microsoft Defender for Cloud detects and responds to threats](security-center-alerts-overview.md#detect-threats).
+Defender for Cloud's threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. For more information, see [How Microsoft Defender for Cloud detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
-When Security Center identifies a threat, it triggers a [security alert](security-center-managing-and-responding-alerts.md), which contains detailed information regarding the event, including suggestions for remediation. To help incident response teams investigate and remediate threats, Security Center provides threat intelligence reports containing information about detected threats. The report includes information such as:
+When Defender for Cloud identifies a threat, it triggers a [security alert](security-center-managing-and-responding-alerts.md), which contains detailed information regarding the event, including suggestions for remediation. To help incident response teams investigate and remediate threats, Defender for Cloud provides threat intelligence reports containing information about detected threats. The report includes information such as:
 
 * Attacker’s identity or associations (if this information is available)
 * Attackers’ objectives
@@ -31,7 +31,7 @@ When Security Center identifies a threat, it triggers a [security alert](securit
 > [!NOTE]
 > The amount of information in any particular report will vary; the level of detail is based on the malware’s activity and prevalence.
 
-Security Center has three types of threat reports, which can vary according to the attack. The reports available are:
+Defender for Cloud has three types of threat reports, which can vary according to the attack. The reports available are:
 
 * **Activity Group Report**: provides deep dives into attackers, their objectives, and tactics.
 * **Campaign Report**: focuses on details of specific attack campaigns.
@@ -43,8 +43,9 @@ This type of information is useful during the incident response process, where t
 
 ## How to access the threat intelligence report?
 
-1. From Security Center's sidebar, open the **Security alerts** page.
+1. From Defender for Cloud's menu, open the **Security alerts** page.
 1. Select an alert. 
+
     The alerts details page opens with more details about the alert. Below is the **Ransomware indicators detected** alert details page.
 
     [![Ransomware indicators detected alert details page.](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)

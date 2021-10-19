@@ -18,7 +18,7 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 
 ### [**Windows machines**](#tab/features-windows)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc-enabled machines**|**Azure Defender required**
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc-enabled machines**|**Enhanced security features required**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
@@ -42,7 +42,7 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 
 ### [**Linux machines**](#tab/features-linux)
 
-| **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Azure Defender required**       |
+| **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Enhanced security features required**       |
 |---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                                   | ✔                                                                                                               | -                                    | ✔                              | Yes                              |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                         | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                               |
@@ -68,7 +68,7 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 
 
 > [!TIP]
->To experiment with features that are only available with Azure Defender, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+>To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>
@@ -76,11 +76,11 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 The following table provides a matrix of:
 
  - Whether you can use Microsoft Defender for Cloud to install each solution for you.
- - Which endpoint protection solutions Security Center can discover. If an endpoint protection solution from this list is discovered, Security Center won't recommend installing one.
+ - Which endpoint protection solutions Defender for Cloud can discover. If an endpoint protection solution from this list is discovered, Defender for Cloud won't recommend installing one.
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
-| Solution                                                  | Supported platforms                                    | Security Center installation | Security Center discovery |
+| Solution                                                  | Supported platforms                                    | Defender for Cloud installation | Defender for Cloud discovery |
 |-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
 | Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No (built into OS)           | Yes                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2                                 | Via extension                | Yes                       |
@@ -102,7 +102,7 @@ By default, the AV component is **disabled** to avoid clashes with other AV soft
 
 | Feature/Service                                                                                                                                           | Azure          | Azure Government               | Azure China 21Vianet   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
-| **Security Center free features**                                                                                                                         |                |                                |               |
+| **Defender for Cloud free features**                                                                                                                         |                |                                |               |
 | - [Continuous export](./continuous-export.md)                                                                                                             | GA             | GA                             | GA            |
 | - [Workflow automation](./continuous-export.md)                                                                                                           | GA             | GA                             | GA            |
 | - [Recommendation exemption rules](./exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | Not Available |
@@ -118,10 +118,10 @@ By default, the AV component is **disabled** to avoid clashes with other AV soft
 | - [Microsoft Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
 | - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |
-| - [Azure Defender extension for Azure Arc enabled Kubernetes clusters](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | Not Available |
-| - [Azure Defender for Azure SQL database servers](./defender-for-sql-introduction.md)                                                                     | GA             | GA                             | GA  <sup>[9](#footnote9)</sup> |
+| - [Defender extension for Azure Arc enabled Kubernetes clusters](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | Not Available |
+| - [Microsoft Defender for Azure SQL database servers](./defender-for-sql-introduction.md)                                                                     | GA             | GA                             | GA  <sup>[9](#footnote9)</sup> |
 | - [Microsoft Defender for SQL servers on machines](./defender-for-sql-introduction.md)                                                                        | GA             | GA                             | Not Available |
-| - [Azure Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available |
+| - [Microsoft Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available |
 | - [Microsoft Defender for Key Vault](./defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  | Not Available |
 | - [Microsoft Defender for Resource Manager](./defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             | GA            |
 | - [Microsoft Defender for Storage](./defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Not Available |
@@ -161,6 +161,6 @@ By default, the AV component is **disabled** to avoid clashes with other AV soft
 
 ## Next steps
 
-- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
-- Learn how [Security Center manages and safeguards data](security-center-data-security.md).
-- Review the [platforms that support Security Center](security-center-os-coverage.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Defender for Cloud manages and safeguards data](security-center-data-security.md).
+- Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

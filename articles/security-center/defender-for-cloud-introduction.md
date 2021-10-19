@@ -272,7 +272,7 @@ Learn more on the following pages:
 
 - To get started with Security Center, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 
-- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must enable Azure Defender. Azure Defender can be tried for free for 30 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must enable Azure Defender. Azure Defender can be tried for free for 30 days. See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
 - If you're ready to enable Azure Defender now, [Quickstart: Setting up Defender for Cloud](security-center-get-started.md) walks you through the steps.
 

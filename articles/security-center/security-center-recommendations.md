@@ -15,9 +15,9 @@ This topic explains how to view and understand the recommendations in Microsoft 
 
 ## Monitor recommendations <a name="monitor-recommendations"></a>
 
-Security Center analyzes the security state of your resources to identify potential vulnerabilities. 
+Defender for Cloud analyzes the security state of your resources to identify potential vulnerabilities. 
 
-1. From Security Center's menu, open the **Recommendations** page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
+1. From Defender for Cloud's menu, open the **Recommendations** page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 
     :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control." lightbox="./media/security-center-recommendations/view-recommendations.png":::
 
@@ -64,7 +64,7 @@ Security Center analyzes the security state of your resources to identify potent
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
-The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query Security Center's security posture data across multiple subscriptions.
+The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
 
 ARG is designed to provide efficient resource exploration with the ability to query at scale across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
 
@@ -91,10 +91,10 @@ An example of a preview recommendation:
  
 ## Next steps
 
-In this document, you were introduced to security recommendations in Security Center. For related information:
+In this document, you were introduced to security recommendations in Defender for Cloud. For related information:
 
 - [Remediate recommendations](security-center-remediate-recommendations.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
-- [Automate responses to Security Center triggers](workflow-automation.md)--Automate responses to recommendations
+- [Automate responses to Defender for Cloud triggers](workflow-automation.md)--Automate responses to recommendations
 - [Exempt a resource from a recommendation](exempt-resource.md)
 - [Security recommendations - a reference guide](recommendations-reference.md)

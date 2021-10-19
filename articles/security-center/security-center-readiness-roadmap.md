@@ -99,7 +99,7 @@ Articles
 * [Security Center Documentation Page](./index.yml)
 * [Security Center REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
 * [Azure Security Center frequently asked questions (FAQ)](./faq-general.yml)
-* [Security Center Pricing Page](https://azure.microsoft.com/pricing/details/security-center/)
+* [Pricing page](https://azure.microsoft.com/pricing/details/security-center/)
 * [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
 * [Network security best practices](../security/fundamentals/network-best-practices.md)
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)

@@ -21,45 +21,45 @@ This article provides information about how you can manage the user data in Micr
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool. To learn more about the Account Administrator role, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
+A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can access customer data within the tool. To learn more about the Account Administrator role, see [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md) to learn more about the Reader, Owner, and Contributor roles. See [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## Searching for and identifying personal data
-A Security Center user can view their personal data through the Azure portal. Security Center only stores security contact details such as email addresses and phone numbers. For more information, see [Provide security contact details in Microsoft Defender for Cloud](security-center-provide-security-contact-details.md).
+A Defender for Cloud user can view their personal data through the Azure portal. Defender for Cloud only stores security contact details such as email addresses and phone numbers. For more information, see [Provide security contact details in Microsoft Defender for Cloud](security-center-provide-security-contact-details.md).
 
-In the Azure portal, a user can view allowed IP configurations using Security Center's just-in-time VM access feature. For more information, see [Manage virtual machine access using just-in-time](just-in-time-access-usage.md).
+In the Azure portal, a user can view allowed IP configurations using Defender for Cloud's just-in-time VM access feature. For more information, see [Manage virtual machine access using just-in-time](just-in-time-access-usage.md).
 
-In the Azure portal, a user can view security alerts provided by Security Center including IP addresses and attacker details. For more information, see [Managing and responding to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md).
+In the Azure portal, a user can view security alerts provided by Defender for Cloud including IP addresses and attacker details. For more information, see [Managing and responding to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md).
 
 ## Classifying personal data
-You don't need to classify personal data found in Security Center's security contact feature. The data saved is an email address (or multiple email addresses) and a phone number. [Contact data](security-center-provide-security-contact-details.md) is validated by Security Center.
+You don't need to classify personal data found in Defender for Cloud's security contact feature. The data saved is an email address (or multiple email addresses) and a phone number. [Contact data](security-center-provide-security-contact-details.md) is validated by Defender for Cloud.
 
-You don't need to classify the IP addresses and port numbers saved by Security Center's [just-in-time](just-in-time-access-usage.md) feature.
+You don't need to classify the IP addresses and port numbers saved by Defender for Cloud's [just-in-time](just-in-time-access-usage.md) feature.
 
-Only a user assigned the role of Administrator can classify personal data by [viewing alerts](security-center-managing-and-responding-alerts.md) in Security Center.
+Only a user assigned the role of Administrator can classify personal data by [viewing alerts](security-center-managing-and-responding-alerts.md) in Defender for Cloud.
 
 ## Securing and controlling access to personal data
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access [security contact data](security-center-provide-security-contact-details.md).
+A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can access [security contact data](security-center-provide-security-contact-details.md).
 
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can access their [just-in-time](just-in-time-access-usage.md) policies.
+A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can access their [just-in-time](just-in-time-access-usage.md) policies.
 
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can view their [alerts](security-center-managing-and-responding-alerts.md).
+A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can view their [alerts](security-center-managing-and-responding-alerts.md).
 
 ## Updating personal data
-A Security Center user assigned the role of Owner, Contributor, or Account Administrator can update [security contact data](security-center-provide-security-contact-details.md) via the Azure portal.
+A Defender for Cloud user assigned the role of Owner, Contributor, or Account Administrator can update [security contact data](security-center-provide-security-contact-details.md) via the Azure portal.
 
-A Security Center user assigned the role of Owner, Contributor, or Account Administrator can update their [just-in-time policies](just-in-time-access-usage.md).
+A Defender for Cloud user assigned the role of Owner, Contributor, or Account Administrator can update their [just-in-time policies](just-in-time-access-usage.md).
 
 An Account Administrator can't edit alert incidents. An [alert incident](security-center-managing-and-responding-alerts.md) is considered security data and is read only.
 
 ## Deleting personal data
-A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete [security contact data](security-center-provide-security-contact-details.md) via the Azure portal.
+A Defender for Cloud user assigned the role of Owner, Contributor, or Account Administrator can delete [security contact data](security-center-provide-security-contact-details.md) via the Azure portal.
 
-A Security Center user assigned the role of Owner, Contributor, or Account Administrator can delete the [just-in-time policies](just-in-time-access-usage.md) via the Azure portal.
+A Defender for Cloud user assigned the role of Owner, Contributor, or Account Administrator can delete the [just-in-time policies](just-in-time-access-usage.md) via the Azure portal.
 
-A Security Center user can't delete alert incidents. For security reasons, an [alert incident](security-center-managing-and-responding-alerts.md) is considered read-only data.
+A Defender for Cloud user can't delete alert incidents. For security reasons, an [alert incident](security-center-managing-and-responding-alerts.md) is considered read-only data.
 
 ## Exporting personal data
-A Security Center user assigned the role of Reader, Owner, Contributor, or Account Administrator can export [security contact data](security-center-provide-security-contact-details.md) by:
+A Defender for Cloud user assigned the role of Reader, Owner, Contributor, or Account Administrator can export [security contact data](security-center-provide-security-contact-details.md) by:
 
 - Copying from the Azure portal
 - Executing the Azure REST API call, GET HTTP:
@@ -67,7 +67,7 @@ A Security Center user assigned the role of Reader, Owner, Contributor, or Accou
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
   ```
 
-A Security Center user assigned the role of Account Administrator can export the [just-in-time policies](just-in-time-access-usage.md) containing the IP addresses by:
+A Defender for Cloud user assigned the role of Account Administrator can export the [just-in-time policies](just-in-time-access-usage.md) containing the IP addresses by:
 
 - Copying from the Azure portal
 - Executing the Azure REST API call, GET HTTP:
@@ -86,7 +86,7 @@ An Account Administrator can export the alert details by:
 For more information, see [Get Security Alerts (GET Collection)](/previous-versions/azure/reference/mt704050(v=azure.100)).
 
 ## Restricting the use of personal data for profiling or marketing without consent
-A Security Center user can choose to opt out by deleting their [security contact data](security-center-provide-security-contact-details.md).
+A Defender for Cloud user can choose to opt out by deleting their [security contact data](security-center-provide-security-contact-details.md).
 
 [Just-in-time data](just-in-time-access-usage.md) is considered non-identifiable data and is retained for a period of 30 days.
 

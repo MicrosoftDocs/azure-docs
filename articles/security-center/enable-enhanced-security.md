@@ -19,7 +19,7 @@ For the purpose of the Security Center quickstarts and tutorials you must enable
 
 You can protect an entire Azure subscription with Azure Defender and the protections will be inherited by all resources within the subscription.
 
-A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Enable Azure Defender from the Azure portal
 

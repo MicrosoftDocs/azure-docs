@@ -14,7 +14,7 @@ This article lists the recommendations you might see in Microsoft Defender for C
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Security Center's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
+Defender for Cloud's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
 and compliance best practices based on common compliance frameworks. This widely respected benchmark 
 builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
@@ -24,7 +24,7 @@ cloud-centric security.
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Microsoft Defender for Cloud](security-center-remediate-recommendations.md).
 
-Your secure score is based on the number of Security Center recommendations you've completed. To
+Your secure score is based on the number of Defender for Cloud recommendations you've completed. To
 decide which recommendations to resolve first, look at the severity of each one and its potential
 impact on your secure score.
 

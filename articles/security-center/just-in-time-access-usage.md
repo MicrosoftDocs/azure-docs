@@ -1,13 +1,12 @@
 ---
 title: Just-in-time virtual machine access in Microsoft Defender for Cloud | Microsoft Docs
-description: This document demonstrates how just-in-time VM access (JIT) in Microsoft Defender for Cloud helps you control access to your Azure virtual machines.
+description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cloud helps you control access to your Azure virtual machines.
 services: security-center
 author: memildin
 manager: rkarlin
-
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/05/2021
+ms.date: 10/20/2021
 ms.author: memildin
 
 ---
@@ -19,8 +18,8 @@ For a full explanation about how JIT works and the underlying logic, see [Just-i
 
 This page teaches you how to include JIT in your security program. You'll learn how to: 
 
-- **Enable JIT on your VMs** - You can enable JIT with your own custom options for one or more VMs using Security Center, PowerShell, or the REST API. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure virtual machines. When enabled, JIT locks down inbound traffic to your Azure VMs by creating a rule in your network security group.
-- **Request access to a VM that has JIT enabled** - The goal of JIT is to ensure that even though your inbound traffic is locked down, Security Center still provides easy access to connect to VMs when needed. You can request access to a JIT-enabled VM from Security Center, Azure virtual machines, PowerShell, or the REST API.
+- **Enable JIT on your VMs** - You can enable JIT with your own custom options for one or more VMs using Defender for Cloud, PowerShell, or the REST API. Alternatively, you can enable JIT with default, hard-coded parameters, from Azure virtual machines. When enabled, JIT locks down inbound traffic to your Azure VMs by creating a rule in your network security group.
+- **Request access to a VM that has JIT enabled** - The goal of JIT is to ensure that even though your inbound traffic is locked down, Defender for Cloud still provides easy access to connect to VMs when needed. You can request access to a JIT-enabled VM from Defender for Cloud, Azure virtual machines, PowerShell, or the REST API.
 - **Audit the activity** - To ensure your VMs are secured appropriately, review the accesses to your JIT-enabled VMs as part of your regular security checks.   
 
 
@@ -32,14 +31,14 @@ This page teaches you how to include JIT in your security program. You'll learn 
 |Release state:|General availability (GA)|
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Supported VMs:|:::image type="icon" source="./media/icons/yes-icon.png"::: VMs deployed through Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs protected by Azure Firewalls controlled by [Azure Firewall Manager](../firewall-manager/overview.md)|
-|Required roles and permissions:|**Reader** and **SecurityReader** roles can both view the JIT status and parameters.<br>To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).<br>To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Security Center GitHub community pages.|
+|Required roles and permissions:|**Reader** and **SecurityReader** roles can both view the JIT status and parameters.<br>To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).<br>To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
 ## Enable JIT VM access <a name="jit-configure"></a>
 
-You can enable JIT VM access with your own custom options for one or more VMs using Security Center or programmatically. 
+You can enable JIT VM access with your own custom options for one or more VMs using Defender for Cloud or programmatically. 
 
 Alternatively, you can enable JIT with default, hard-coded parameters, from Azure Virtual machines.
 
@@ -51,7 +50,7 @@ Each of these options is explained in a separate tab below.
 
 :::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configuring JIT VM access in Microsoft Defender for Cloud.":::
 
-From Security Center, you can enable and configure the JIT VM access.
+From Defender for Cloud, you can enable and configure the JIT VM access.
 
 1. Open the **Workload protections dashboard** and from the advanced protection area, select **Just-in-time VM access**.
 
@@ -70,7 +69,7 @@ From Security Center, you can enable and configure the JIT VM access.
 
 1. From the **Not configured** tab, mark the VMs to protect with JIT and select **Enable JIT on VMs**. 
 
-    The JIT VM access page opens listing the ports that Security Center recommends protecting:
+    The JIT VM access page opens listing the ports that Defender for Cloud recommends protecting:
     - 22 - SSH
     - 3389 - RDP
     - 5985 - WinRM 
@@ -97,7 +96,7 @@ From Security Center, you can enable and configure the JIT VM access.
 
 
 
-### Edit the JIT configuration on a JIT-enabled VM using Security Center <a name="jit-modify"></a>
+### Edit the JIT configuration on a JIT-enabled VM using Defender for Cloud <a name="jit-modify"></a>
 
 You can modify a VM's just-in-time configuration by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
 
@@ -124,7 +123,7 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 ![Configuring JIT VM access in Azure virtual machines.](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
 
 > [!TIP]
-> If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Security Center, and view and change the settings.
+> If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Defender for Cloud, and view and change the settings.
 
 1. From the [Azure portal](https://ms.portal.azure.com), search for and select **Virtual machines**. 
 
@@ -147,7 +146,7 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 
 1. To edit any of these values, or add more ports to your JIT configuration, use Microsoft Defender for Cloud's just-in-time page:
 
-    1. From Security Center's menu, select **Just-in-time VM access**.
+    1. From Defender for Cloud's menu, select **Just-in-time VM access**.
 
     1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 
@@ -227,7 +226,7 @@ Learn more at [JIT network access policies](/rest/api/securitycenter/jitnetworka
 
 ## Request access to a JIT-enabled VM
 
-You can request access to a JIT-enabled VM from the Azure portal (in Security Center or Azure Virtual machines) or programmatically.
+You can request access to a JIT-enabled VM from the Azure portal (in Defender for Cloud or Azure Virtual machines) or programmatically.
 
 Each of these options is explained in a separate tab below.
 
@@ -237,7 +236,7 @@ Each of these options is explained in a separate tab below.
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Requesting JIT access from Security Center.":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Requesting JIT access from Defender for Cloud.":::
 
 1. From the **Just-in-time VM access** page, select the **Configured** tab.
 
@@ -280,7 +279,7 @@ To request access from Azure virtual machines:
     - If JIT's enabled, select **Request access** to pass an access request with the requesting IP, time range, and ports that were configured for that VM.
 
 > [!NOTE]
-> After a request is approved for a VM protected by Azure Firewall, Security Center provides the user with the proper connection details (the port mapping from the DNAT table) to use to connect to the VM.
+> After a request is approved for a VM protected by Azure Firewall, Defender for Cloud provides the user with the proper connection details (the port mapping from the DNAT table) to use to connect to the VM.
 
 
 
@@ -329,7 +328,7 @@ Learn more at [JIT network access policies](/rest/api/securitycenter/jitnetworka
 
 ---
 
-## Audit JIT access activity in Security Center
+## Audit JIT access activity in Defender for Cloud
 
 You can gain insights into VM activities using log search. To view the logs:
 

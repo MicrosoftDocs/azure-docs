@@ -13,9 +13,9 @@ manager: rkarlin
 
 # Harden your Docker hosts
 
-Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
+Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Defender for Cloud continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
-Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use Security Center's **recommendations page** to view recommendations and remediate issues.
+Defender for Cloud includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Defender for Cloud generates security recommendations. Use Defender for Cloud's **recommendations page** to view recommendations and remediate issues.
 
 When vulnerabilities are found, they're grouped inside a single recommendation.
 
@@ -34,7 +34,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
 ## Identify and remediate security vulnerabilities in your Docker configuration
 
-1. From Security Center's menu, open the **Recommendations** page.
+1. From Defender for Cloud's menu, open the **Recommendations** page.
 
 1. Filter to the recommendation **Vulnerabilities in container security configurations should be remediated** and select the recommendation.
 

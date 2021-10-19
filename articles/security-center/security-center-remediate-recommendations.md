@@ -68,7 +68,6 @@ The remediation operation uses a template deployment or REST API `PATCH` request
 
 ## Next steps
 
-In this document, you were shown how to remediate recommendations in Security Center. To learn more about Security Center, see the following pages:
+In this document, you were shown how to remediate recommendations in Defender for Cloud. To learn how  recommendations are defined and selected for your environment, see the following page:
 
-* [Setting security policies in Microsoft Defender for Cloud](tutorial-security-policy.md) - Learn how to configure security policies for your Azure subscriptions and resource groups
-* [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
