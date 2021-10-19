@@ -23,7 +23,7 @@ If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra
 
 ## Optimize for high throughput
 
-If you're prioritizing throughput, begin by evaluating the number of disk pools required to deliver your throughput targets. Once you have the necessary targets, you can split it amongst each individual disk and their types. Currently, two disk types can be used in a disk pool, premium SSDs and ultra disks. Premium SSDs can deliver high IOPS and MBps that scales with their storage capacity, whereas ultra disks can scale their performance independent of their storage capacity. Select the type that is the best fit for your cost and performance balance. Also, confirm the network connectivity from your clients to the disk pool is not a bottleneck, especially the throughput.
+If you're prioritizing throughput, begin by evaluating the number of disk pools required to deliver your throughput targets. Once you have the necessary targets, you can split it amongst each individual disk and their types. Currently, three disk types can be used in disk pools, premium and standard SSDs, or ultra disks. Premium SSDs can deliver high IOPS and MBps that scales with their storage capacity, whereas ultra disks can scale their performance independent of their storage capacity. Select the type that is the best fit for your cost and performance balance. Also, confirm the network connectivity from your clients to the disk pool is not a bottleneck, especially the throughput.
 
 
 ## Use cases

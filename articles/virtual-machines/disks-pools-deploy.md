@@ -61,6 +61,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 - The **StoragePool** resource provider must have been assigned an RBAC role that contains **Read** and **Write** permissions for every managed disk in the disk pool.
 - Must be either a premium SSD, standard SSD, or an ultra disk in the same availability zone as the disk pool.
     - For ultra disks, it must have a disk sector size of 512 bytes.
+- Disk pools can't be configured to contain both premium/standard SSDs and ultra disks. A disk pool configured for ultra disks can only contain ultra disks. Likewise, a disk pool configured for premium or standard SSDs can only contain premium and standard SSDs.
 - Must be a shared disk with a maxShares value of two or greater.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -97,6 +98,7 @@ To add a disk, it must meet the following requirements:
     - Currently, you can only add premium SSDs and Standard SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
+- Disk pools can't be configured to contain both premium/standard SSDs and ultra disks. A disk pool configured for ultra disks can only contain ultra disks. Likewise, a disk pool configured for premium or standard SSDs can only contain premium and standard SSDs.
 - You must grant RBAC permissions to the resource provide of disk pool to manage the disk you plan to add.
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool pane.
@@ -150,7 +152,8 @@ $rpId = (Get-AzADServicePrincipal -SearchString "StoragePool Resource Provider")
 New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Virtual Machine Contributor" -Scope $scopeDef
 
 # Create a Disk Pool
-New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard_S1 -AdditionalCapability "DiskPool.Disk.Sku.UltraSSD_LRS"
+# If you want to create a disk pool configured for ultra disks, add -AdditionalCapability "DiskPool.Disk.Sku.UltraSSD_LRS" to the command
+New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard_S1
 $diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName
 
 # Add disks to the Disk Pool
@@ -206,13 +209,13 @@ storagePoolObjectId="${storagePoolObjectId#"}"
 az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
 
 #Create a disk pool
+#To create a disk pool configured for ultra disks, add --additional-capabilities "DiskPool.Disk.Sku.UltraSSD_LRS" to your command
 az disk-pool create --name $diskPoolName \
 --resource-group $resourceGroupName \
 --location $location \
 --availability-zones $zone \
 --subnet-id $subnetId \
 --sku name="Standard_S1" \
---additional-capabilities "DiskPool.Disk.Sku.UltraSSD_LRS"
 
 #Initialize an iSCSI target. You can have 1 iSCSI target per disk pool
 az disk-pool iscsi-target create --name $targetName \
