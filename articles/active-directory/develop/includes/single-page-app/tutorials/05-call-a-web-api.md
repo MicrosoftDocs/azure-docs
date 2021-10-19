@@ -16,4 +16,11 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Get user data from a web API
+
+
+## Acquire a token
+
+
+
+
+## Call a web API

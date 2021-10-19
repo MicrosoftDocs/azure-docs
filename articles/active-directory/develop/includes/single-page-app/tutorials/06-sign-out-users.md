@@ -16,4 +16,15 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Sign out users in a React single-page application(SPA)
+
+
+
+## Sign out using popups
+
+
+
+## Sign out using redirects 
+
+
+
+## Add the sign-out button

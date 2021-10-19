@@ -19,14 +19,22 @@ ms.custom: aaddev, devx-track-js
 # Tutorial: Register a single-page application project in the Microsoft identity platform
 
 
+In this tutorial, you register a single-page application that uses the Microsoft Authentication Library (MSAL) in the Microsoft Identity platform. 
 
+Follow the steps in this tutorial to:
 
-## Register your application
+> [!div class="checklist"]
+> - Register your application with Azure AD Register your app with Azure AD 
+> - Configure redirect URIs in your single-page app   
 
+ ## Prerequisites 
 
-
-## Configure your single-page app
 
 
 
 ## Next steps
+
+Move on to the next article in this tutorial series: 
+
+> [!div class="nextstepaction"]
+> [Sign in users](tutorial-single-page-app-03-sign-in-users.md)

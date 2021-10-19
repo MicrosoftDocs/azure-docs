@@ -16,20 +16,28 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Sign in users in a React single-page application(SPA)
+# Tutorial: Sign in users in a single-page application(SPA)
 
 
+In this tutorial, you sign in users in a single-page application that uses the Microsoft Authentication Library (MSAL). 
 
-## Sign in using popups
+Follow the steps in this tutorial to:
 
+> [!div class="checklist"]
+> - Sign in users 
+> - Initialize SDK
+> - Add Login 
+> - Display logged-in content
+ 
+## Prerequisites 
+ 
 
-
-## Sign in using redirects
-
-
-
-## Add the sign-in button
 
 
 
 ## Next steps
+
+Move on to the next article in this tutorial series: 
+
+> [!div class="nextstepaction"]
+> [Call the Microsoft Graph API](tutorial-single-page-app-04-call-graph-api.md)

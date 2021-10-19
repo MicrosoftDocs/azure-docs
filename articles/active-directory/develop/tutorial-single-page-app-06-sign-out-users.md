@@ -18,19 +18,21 @@ ms.custom: aaddev, devx-track-js
 
 # Tutorial: Sign out users in a single-page application(SPA)
 
+In this tutorial, you sign out users in a single-page application that uses the Microsoft Authentication Library (MSAL). 
 
-## Sign out using popups
+Follow the steps in this tutorial to:
+
+> [!div class="checklist"]
+> - Sign out using popups
+> - Sign out using redirects 
+> - Add the sign-out button
+ 
+## Prerequisites 
 
 
 
-## Sign out using redirects 
 
-
-
-## Add the sign-out button
-
-
-## Help and support
-
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
+

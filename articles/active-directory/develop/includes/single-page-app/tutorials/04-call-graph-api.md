@@ -15,4 +15,16 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Call the Microsoft Graph API from a React single-page application
+
+
+
+
+## Add permissions to call MS graph 
+
+
+
+## Fetch Access Token 
+
+
+
+## Make a REST call to MS graph 

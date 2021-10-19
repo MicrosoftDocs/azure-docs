@@ -16,4 +16,31 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Sign in users in a React single-page application(SPA)
+
+
+
+## Sign in users 
+
+
+
+
+### Sign in using popups
+
+
+
+### Sign in using redirects
+
+
+
+## Initialize SDK
+
+
+
+## Add Login 
+
+
+
+
+## Display logged-in content
+
+

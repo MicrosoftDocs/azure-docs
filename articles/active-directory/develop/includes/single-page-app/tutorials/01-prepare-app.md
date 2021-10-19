@@ -16,16 +16,17 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Prepare your single-page app (SPA) for auth
 
-In this tutorial, you build a single-page application (SPA) that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL).
 
-Follow the steps in this tutorial to:
 
-> [!div class="checklist"]
-> - Create a React project with npm
-> - Register the application in the Azure portal
-> - Add code to support user sign-in and sign-out
-> - Add code to call Microsoft Graph API
-> - Add code to call a web API and get user data
-> - Test the app
+## Learn how the tutorial app works
+ 
+
+## Bootstrap app (optional)	
+
+
+## Create application project 
+
+
+## Install the auth library
+ 

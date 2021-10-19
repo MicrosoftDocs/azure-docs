@@ -16,5 +16,18 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Create and register a React single-page application project
+
+
+
+
+## Register your application with Azure AD Register your app with Azure AD 
+
+
+
+
+
+
+
+## Configure redirect URIs in your single-page app  
+
 

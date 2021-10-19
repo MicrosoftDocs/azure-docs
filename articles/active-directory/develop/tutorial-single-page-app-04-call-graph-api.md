@@ -15,17 +15,27 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-# Tutorial: Call the Microsoft Graph API from a React single-page application
+# Tutorial: Call the Microsoft Graph API from a single-page application
 
+In this tutorial, you get access tokens to call the Microsoft Graph API from a single-page application that uses the Microsoft Authentication Library (MSAL). 
 
+Follow the steps in this tutorial to:
 
-## Acquire a token
+> [!div class="checklist"]
+> - Add permissions to call MS Graph
+> - Fetch access token
+> - Make a REST call to MS Graph 
 
+Want to call your API instead? skip to the [call a Web API](tutorial-single-page-app-06-call-web-api.md)section of the tutorial series. 
 
-
-## Call the Microsoft Graph API
+## Prerequisites
 
 
 
 
 ## Next steps
+
+Move on to the next article in this tutorial series: 
+
+> [!div class="nextstepaction"]
+> [Call a web API ](tutorial-single-page-app-06-call-web-api.md)

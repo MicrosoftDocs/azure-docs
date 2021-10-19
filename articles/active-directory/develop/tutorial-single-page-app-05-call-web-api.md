@@ -16,15 +16,25 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Get user profile from a web API
+# Tutorial: Get user data from a web API
 
 
+In this tutorial, you get access tokens to call a web API and get user data from a single-page application that uses the Microsoft Authentication Library (MSAL). 
 
+Follow the steps in this tutorial to:
 
-## Acquire a token
+> [!div class="checklist"]
+> - Acquire tokens 
+> - Make a call to your web API
 
+Want to call the Microsoft Graph API instead? Please refer to the [call the MS Graph API](tutorial-single-page-app-04-call-graph-api.md) section of the tutorial series. 
 
-## Call a web API
+## Prerequisites
 
 
 ## Next Steps
+
+Move on to the next article in this tutorial series:
+
+> [!div class="nextstepaction"]
+> [Sign out users](tutorial-single-page-app-06-sign-out-users.md)
