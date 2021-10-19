@@ -41,7 +41,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 > [!NOTE]
 > - Pandas feature is supported on **Python 3.8** and **Spark3** serverless Apache Spark pool in Azure Synapse Analytics. 
-> - Support available for following versions: **Pandas 1.2.3, FSSPEC 2021.10.0, ADLFS 0.7.7**
+> - Support available for following versions: **pandas 1.2.3, fsspec 2021.10.0, adlfs 0.7.7**
 > - Have capabilities to support both **Azure Data Lake Storage Gen2 URI** (abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path) and **FSSPEC short URL** (abfs[s]://container_name/file_path)
 
 
@@ -50,44 +50,120 @@ If you don't have an Azure subscription, [create a free account before you begin
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 
-## Read/Write data using storage account name and key
+## Read/Write data using default Azure Data Lake Storage Gen2 of Synapse workspace
 
-FSSPEC can read/write ADLS data by specifying the storage account name and key directly.
+Pandas can read/write ADLS data by just specifying the file path directly.
 
-1. In Synapse studio, open **Data** > **Linked** > **Azure Data Lake Storage Gen2**. Upload data to the default storage account.
-
-1. Run the following code.
+Execute the below code.
 
    > [!NOTE]
-   > Update the file URL, ADLS Gen2 storage name and key in this script before running it.
+   > Update the file URL in this script before running it.
 
    ```PYSPARK
-   # To read data
-   import fsspec
+   # Read data file using URI of default Azure Data Lake Storage Gen2
+
    import pandas
 
-   adls_account_name = '' #Provide exact ADLS account name
-   adls_account_key = '' #Provide exact ADLS account key
+   # read csv file
+   df = pandas.read_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path')
+   print(df)
 
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
-
-   with fsspec_handle.open() as f:
-       df = pandas.read_csv(f)
-
-   # To write data
-   import fsspec
-   import pandas
-
-   adls_account_name = '' #Provide exact ADLS account name 
-   adls_account_key = '' #Provide exact ADLS account key 
-   
-   data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
-   
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name,    account_key=adls_account_key, mode="wt")
-   
-   with fsspec_handle.open() as f:
-   	data.to_csv(f)
+   # write csv file
+   data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
+   data.to_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path')
    ```
+
+   ```PYSPARK
+   # Read data file using FSSPEC short URL of default Azure Data Lake Storage Gen2
+
+   import pandas
+
+   # read csv file
+   df = pandas.read_csv('abfs[s]://container_name/file_path')
+   print(df)
+
+   # write csv file
+   data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
+   data.to_csv('abfs[s]://container_name/file_path')
+   ```
+
+## Read/Write data using secondary Azure Data Lake Storage Gen2 account
+
+Pandas can read/write secondary ADLS account data 
+    - using linked service (having auth options - storage account key, service principle, manages service identity and credentials).
+    - using storage options to directly pass client ID & Secret, SAS key, storage account key and connection string.
+
+a) Using linked service
+
+Execute the below code.
+
+   > [!NOTE]
+   > Update the file URL and linked service name in this script before running it.
+
+   ```PYSPARK
+   # Read data file using URI of secondary Azure Data Lake Storage Gen2
+
+   import pandas
+   
+   # read data file
+   df = pandas.read_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path', storage_options = {'linked_service' : 'linked_service_name'})
+   print(df)
+   
+   # write data file
+   data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
+   data.to_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path', storage_options = {'linked_service' : 'linked_service_name'})
+   ```
+
+   ```PYSPARK
+   # Read data file using FSSPEC short URL of default Azure Data Lake Storage Gen2
+
+   import pandas
+   
+   # read data file
+   df = pandas.read_csv('abfs[s]://container_name/file_path', storage_options =    {'linked_service' : 'linked_service_name'})
+   print(df)
+   
+   # write data file
+   data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
+   data.to_csv('abfs[s]://container_name/file_path', storage_options = {'linked_service' : 'linked_service_name'})
+   ```
+
+
+b) Using storage options to directly pass client ID & Secret, SAS key, storage account key and connection string
+
+Execute the below code.
+
+   > [!NOTE]
+   > Update the file URL in this script before running it.
+
+   ```PYSPARK
+   # Read data file using URI of default Azure Data Lake Storage Gen2
+
+   import pandas
+
+   # read csv file
+   df = pandas.read_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path')
+   print(df)
+
+   # write csv file
+   data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
+   data.to_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path')
+   ```
+
+   ```PYSPARK
+   # Read data file using FSSPEC short URL of default Azure Data Lake Storage Gen2
+
+   import pandas
+
+   # read csv file
+   df = pandas.read_csv('abfs[s]://container_name/file_path')
+   print(df)
+
+   # write csv file
+   data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
+   data.to_csv('abfs[s]://container_name/file_path')
+   ```
+
 
 ## Read/Write data using linked service
 
