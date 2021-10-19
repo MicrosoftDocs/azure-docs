@@ -124,7 +124,7 @@ The allowed values are:
 * **managementGroup** - used for [management group deployments](deploy-to-management-group.md).
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
-In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#configure-module-scopes)
+In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
 ## Parameters
 
