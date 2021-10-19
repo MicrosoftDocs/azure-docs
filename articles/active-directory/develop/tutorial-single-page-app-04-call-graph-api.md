@@ -38,4 +38,4 @@ Want to call your API instead? skip to the [call a Web API](tutorial-single-page
 Move on to the next article in this tutorial series: 
 
 > [!div class="nextstepaction"]
-> [Call a web API ](tutorial-single-page-app-06-call-web-api.md)
+> [Call a web API ](tutorial-single-page-app-05-call-web-api.md)
