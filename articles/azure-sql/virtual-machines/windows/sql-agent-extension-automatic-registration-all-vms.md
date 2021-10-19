@@ -1,8 +1,8 @@
 ---
 title: Automatic registration with SQL IaaS Agent extension
 description: Learn how to enable the automatic registration feature to automatically register all past and future SQL Server VMs with the SQL IaaS Agent extension using the Azure portal. 
-author: MashaMSFT
-ms.author: mathoma
+author: adbadram
+ms.author: adbadram
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: mathoma
 ---
 # Automatic registration with SQL IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
