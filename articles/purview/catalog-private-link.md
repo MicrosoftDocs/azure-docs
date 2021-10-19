@@ -99,7 +99,7 @@ If you created a _portal_ private endpoint for your Purview account **prior to 2
 
 If you **have added required DNS A records directly to your DNS or machines' host file**, **no action is required**.
     
-:::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-host.png" alt-text="Screenshot that shows portal purview private endpoint with old DNS zone.":::
+:::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-host.png" alt-text="Screenshot that shows host file with A records.":::
 
 #### Scenario 2
 
