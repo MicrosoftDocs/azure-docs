@@ -18,7 +18,7 @@ Azure confidential computing (ACC) supports multiple deployment models to meet t
 
 Our IaaS offering for ACC includes:
 
-- [Confidential virtual machines](confidential-computing-vm-overview.md). This offering includes virtual machines based on Intel SGX or AMD SEV-SNP technology.
+- Confidential virtual machines. This offering includes virtual machines based on [Intel SGX application enclaves](confidential-computing-enclaves.md) or AMD SEV-SNP technology.
 
 ## Platform as a Service (PaaS)
 
