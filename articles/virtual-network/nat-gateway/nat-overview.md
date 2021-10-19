@@ -80,7 +80,7 @@ A default TCP idle timeout of 4 minutes is used and can be increased to up to 12
 
 ## Non-zonal or zonal with availability zones
 
-NAT has no zonses by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This is known as a zonal deployment.
+NAT is non zonal by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This is known as a zonal deployment.
 
 :::image type="content" source="./media/nat-overview/az-directions.png" alt-text="Figure shows three zonal stacks, each of which contains a NAT gateway and a subnet.":::
 
