@@ -90,8 +90,8 @@ Once your server is created, it comes with the following settings:
 - A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and allows that IP address.
 - "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
 - The `wait_timeout` parameter is set to 8 hours
-- An empty database named "sampledb" is created
-- A new user named "root" with privileges to "sampledb" is created
+- An empty database named `sampledb` is created
+- A new user named "root" with privileges to `sampledb` is created
 
 ## 4. Build and deploy the app
 
