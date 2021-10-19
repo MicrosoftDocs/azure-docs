@@ -95,14 +95,14 @@ In Azure Functions, a function project is a container for one or more individual
 
     # [In-process](#tab/in-process) 
 
-    ```csharp
+    ```console
     func init LocalFunctionProj --dotnet
     ```
 
     # [Isolated process](#tab/isolated-process)
 
-    ```csharp
-    func init LocalFunctionProj --dotnet-isolated
+    ```console
+    func init LocalFunctionProj --worker-runtime dotnet-isolated
     ```
     ---
 
