@@ -472,8 +472,6 @@ items:
       href: custom-question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: custom-question-answering/how-to/create-test-deploy.md
-    - name: Query with REST APIs
-      href: custom-question-answering/how-to/url-test-tool.md
     - name: Encrypt data at rest
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -488,8 +486,6 @@ items:
       href: custom-question-answering/how-to/analytics.md
     - name: Manage knowledge base
       href: custom-question-answering/how-to/manage-knowledge-base.md
-    - name: Generate answer
-      href: custom-question-answering/how-to/generate-answer.md
     - name: Filter responses
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Manage resources
