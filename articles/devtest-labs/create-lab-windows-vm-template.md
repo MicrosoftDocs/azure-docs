@@ -38,9 +38,9 @@ For more ARM template samples, see [Azure Quickstart Templates](https://azure.mi
 
 ## Deploy the template
 
-If you have an Azure subscription, select the following **Deploy to Azure** button to use the ARM template. The template opens the lab creation screen in the Azure portal:
+1. Select the following **Deploy to Azure** button to use the ARM template. The template opens the lab creation screen in the Azure portal:
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. On the **Creates a lab in Azure DevTest Labs with a Windows Server VM** screen, fill out the following items:
 
