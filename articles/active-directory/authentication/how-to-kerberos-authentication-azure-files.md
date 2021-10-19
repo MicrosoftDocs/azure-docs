@@ -40,7 +40,7 @@ This is achieved by flipping the traditional trust model where Azure AD now beco
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
 
-![Diagram of how Kerberos authentication works for Azure Files](media\how-to-kerberos-authentication-azure-files\scenario.png)
+![Diagram of how Kerberos authentication works for Azure Files.](media\how-to-kerberos-authentication-azure-files\scenario.png)
 
 With this, now the users can access Azure files or traditional file servers over the internet i.e. sitting in a coffee shop without requiring a line of sight to DC. This will require the latest Windows client version (Insider build) and the set up described in following sections. We also support native Azure AD authentication with the previous windows client version i.e. Windows client version 2004 and below but to enable this the clients will require a line of sight to the DC. You will also need to create a trust object in your tenant in on premises and registered in Azure AD. 
 
@@ -87,7 +87,7 @@ There is no Azure AD set up required for enabling native Azure AD Authentication
 Enable the following Group Policy setting:
 **Administrative Templates\System\Kerberos\Allow retrieving the cloud kerberos ticket during the logon**
 
-![Diagram of how Kerberos authentication works for Azure Files](media\how-to-kerberos-authentication-azure-files\gp.png)
+![Screenshot of group policy setting Allow retrieving the cloud kerberos ticket during the logon.](media\how-to-kerberos-authentication-azure-files\gp.png)
 
 Note that users with existing logon sessions may need to refresh their PRT if they attempt to use this feature immediately after it’s enabled. It can take up to a few hours for the PRT to refresh on its own. To refresh it manually run this command from a command prompt.
 
@@ -251,7 +251,7 @@ Follow these instructions to set up Azure files.
              - User.Read
         1. Also select **Grant Admin consent**:
 
-           ![Screenshot showing how to grant Admin consent](media\how-to-kerberos-authentication-azure-files\consent.png)
+           ![Screenshot showing how to grant Admin consent.](media\how-to-kerberos-authentication-azure-files\consent.png)
  
 1. Create a file share under the storage account. You can create a file share under the storage account by using the Azure portal or Powershell. 
 
@@ -277,6 +277,8 @@ Follow these instructions to set up Azure files.
    ```cmd
    net use <DriveLetter>: \\<your-storage-account-name>.file.core.windows.net\<your-share-name>
    ```
+
+   ![Screenshot console output from net use command.](media\how-to-kerberos-authentication-azure-files\net-use.png)
 
 1. Configure Windows File and Directory ACLs (permissions)
    1. Using Windows Explorer:
@@ -357,9 +359,9 @@ Log collection for troubleshooting.
 1. Use aka.ms/logsminer to search for traces.
 1. Collect Windows ETL traces from client.
 
-## Feedback 
+## Collect logs with Feedback HUb
 
-Please collect Logs using FeedBack Hub to share any feedback or report any issues while logging into the client:
+Please collect logs using FeedBack Hub to share any feedback or report any issues while logging into the client:
 
 1. Open feedback hub and create a new feedback item.
 1. Select the **Security and Privacy** category, and then the **Logging into Your PC** subcategory.
