@@ -200,9 +200,9 @@ To maximize the throughput, we recommend that you start with **ReadOnly** for ho
 
 ![Screenshot of the managed disk page that shows the ReadOnly and None options.](./media/oracle-design/premium_disk02.png)
 
-- For **OS disks**, use **premium SSD with Read/Write host caching**
-- For **Data disks** containing Oracle datafiles, tempfiles, controlfiles, block change tracking files, BFILEs, files for external tables, and flashback logs, use **premium SSD with ReadOnly host caching**
-- For **Data disks containing Oracle online redo log files**, use **premium SSD or UltraDisk with no host caching (None)**. Oracle archived redo log files and RMAN backupsets can also reside with the online redo log files. Please note that host caching is limited to 4095 GiB, so do not allocate premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, then RAID-0 stripe several premium SSD using Linux LVM2 or using Oracle ASM.
+- For **OS disks**, use **premium SSD with Read/Write host caching**.
+- For **Data disks** that contain Oracle datafiles, tempfiles, controlfiles, block change tracking files, BFILEs, files for external tables, and flashback logs, use **premium SSD with ReadOnly host caching**.
+- For **Data disks containing Oracle online redo log files**, use **premium SSD or UltraDisk with no host caching (None)**. Oracle archived redo log files and RMAN backupsets can also reside with the online redo log files. Note that host caching is limited to 4095 GiB, so do not allocate premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, RAID-0 stripe several premium SSD using Linux LVM2 or using Oracle ASM.
 
 If workloads vary greatly between the day and evening and the IO workload can support it, P1-P20 Premium SSD with bursting may provide the performance required during night-time batch loads or limited IO demands.  
 
