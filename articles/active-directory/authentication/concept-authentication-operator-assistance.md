@@ -32,6 +32,6 @@ You can check the status of this feature in your own tenant by navigating to the
 You can improve the reliability, security, and create a frictionless MFA experience by using the following guidance:
 
 - You have [registered a direct phone number](https://aka.ms/mfasetup) (contains no extension) or [other method](concept-authentication-methods.md) to be used for Multi-Factor Authentication or self-service password reset if enabled. 
-- Your admins have registered a direct phone number (contains no extension) on behalf of the user to be used for [Multi-Factor Authentication](https://www.microsoft.com/security/business/identity-access-management/mfa-multi-factor-authentication) or [self-service password reset](tutorial-enable-sspr.md) if enabled. 
+- Your admins have registered a direct phone number (contains no extension) on behalf of the user to be used for [Multi-Factor Authentication](howto-mfa-userdevicesettings.md#add-authentication-methods-for-a-user) or [self-service password reset](tutorial-enable-sspr.md) if enabled. 
 - Phone system supports automated attendant functionality. 
  
