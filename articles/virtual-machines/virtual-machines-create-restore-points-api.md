@@ -19,11 +19,15 @@ Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task th
 user will complete.
 -->
 
-# Create VM restore points using REST APIs
+# Create VM restore points using REST APIs (Preview)
 
-Azure compute backup and recovery APIs provide programmatic access to virtual machine (VM) backup and restore functions. Independent software vendors (ISVs) often use these APIs to develop business continuity and disaster recovery solutions. Organizations may also use the APIs to protect individual VM instances from failure or data loss.
+Azure compute backup and recovery APIs provide programmatic access to virtual machine (VM) backup and restore functions. An individual VM restore point stores the VM configuration and a snapshot for any attached managed disks. Independent software vendors (ISVs) can use these APIs to develop business continuity and disaster recovery solutions. You can also use the APIs to protect individual VM instances from failure or data loss.
 
-The backup and recovery APIs allow you to create collections of VM restore points. An individual VM restore point stores the VM configuration and a snapshot for each attached managed disk. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM.
+For more information, see FOO ARTICLE.
+
+## About VM restore points
+
+The backup and recovery APIs allow you to create collections of VM restore points. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM.
 
 :::image type="content" source="media/virtual-machines-create-restore-points-api/restore-point-hierarchy.png" alt-text="A diagram illustrating the relationship between the restore point collection parent and the restore point child objects":::
 
@@ -31,7 +35,7 @@ You can use the APIs to create restore points for your source VM in either the s
 
 VM restore points are incremental. The first restore point stores a full copy of all disks attached to the VM. For each successive restore point for a VM, only the incremental changes to your disks are backed up. To reduce your costs, you can optionally exclude any disk when creating a restore point for your VM.
 
-## Restrictions
+Keep the following restrictions in mind when working with VM restore points:
 
 - Works with managed disks only
 - Ultra disks, Ephemeral OS Disks, and Shared Disks aren't supported.
@@ -40,35 +44,25 @@ VM restore points are incremental. The first restore point stores a full copy of
     - Microsoft.Compute/RestorePointExcludeDisks
     - Microsoft.Compute/IncrementalRestorePoints
 
+## About the preview
+
+Cool intro
+
 ## Create VM restore points
 
 Intro text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-### Create a VM restore point collection
+### Step 1: Create a VM restore point collection
 
 To protect a VM from data loss, data corruption, or regional outages, you'll first need to create a restore point collection. The restore point collection will hold all restore points for a specific VM. Depending on your use-case, you can choose to create VM restore points for the source VM in the same Azure region, or in a different region.
 
-# [Restore points in the same region](#tab/sameRegion)
+To create same region, call the namespace blah blah blah create a restore point collection in the same region as the Azure VM. 
 
-  Create a restore point collection in the same region as the Azure VM.
-
-# [Restore points in a different region](#tab/differentRegion)
-
-  Create a restore point collection in the target region, referencing a VM from a source region. You'll need to specify the target region in the `location` property of the request body. You'll also need to specify the source `VM ARM id` in the request body.
-
----
-
-Use the URI below for GET and DELETE operations on the RestorePointCollection resource. The URI contains all required parameters, so there's no need for an additional request body.
-
-```http
-PUT https://management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorePointCollections/<RestorePointCollectionName>/restorePoints/<RestorePointName>?api-version=2021-03-01
-```
-
-You can use a `PATCH/PUT` request to update tags on a `RestorePointCollection` object. No other properties, such as `Location` or `Source VM` can be updated.
+To create restore points in a different region, create a restore point collection in the target region, referencing a VM from a source region. You'll need to specify the target region in the `location` property of the request body. You'll also need to specify the source `VM ARM id` in the request body.
 
 Refer to the [API documentation](/rest/api/compute/restore-point-collections/create-or-update) to create a `RestorePointCollection`.
 
-### Create a VM restore point
+### Step 2: Create a VM restore point
 
 Once the restore point collection is created, create a VM restore point within the restore point collection.
 
