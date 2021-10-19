@@ -46,7 +46,7 @@ Total Memory Encryption: Multi Key Supported<br>
 
 ## DCsv3-series Technical specifications
 
-| Size             | Physical Cores | Memory: GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
+| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
 | Standard_DC1s_v3 | 1              | 8           | N/A                    | 4              | 2     |  4                 |
 | Standard_DC2s_v3 | 2              | 16          | N/A                    | 8              | 2     |  8                 |
@@ -59,7 +59,7 @@ Total Memory Encryption: Multi Key Supported<br>
 
 ## DCdsv3-series Technical specifications
 
-| Size             | Physical Cores | Memory: GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
+| Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
 | Standard_DC1ds_v3 | 1              | 8           | 75                    | 4              | 2     |  4                 |
 | Standard_DC2ds_v3 | 2              | 16          | 150                    | 8              | 2     |  8                 |
