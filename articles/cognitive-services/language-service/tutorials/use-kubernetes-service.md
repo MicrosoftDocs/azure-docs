@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Deploy a key phrase extraction container to Azure Kubernetes Service
 
-Learn how to deploy a [key phrase extraction Docker container](../key-phrase-extraction/how-to/use-containers.md) image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to associate a container image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development. While this article uses the key phrase extraction container as an example, you can use this process for other containers offered by Azure Cognitive Service for Language
+Learn how to deploy a [key phrase extraction Docker container](../key-phrase-extraction/how-to/use-containers.md) image to Azure Kubernetes Service (AKS). This procedure shows how to create a Language resource, how to associate a container image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development. While this article uses the key phrase extraction container as an example, you can use this process for other containers offered by Azure Cognitive Service for Language
 
 ## Prerequisites
 
@@ -25,10 +25,10 @@ This procedure requires several tools that must be installed and run locally. Do
 * The [Azure CLI](/cli/azure/install-azure-cli) installed.
 * The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
-    * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
+    * **Azure Language** resource with F0 or standard pricing tiers only.
     * **Azure Cognitive Services** resource with the S0 pricing tier.
 
-[!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/containers/create-text-analytics-resource.md)]
+[!INCLUDE [Create a Cognitive Services Language resource](../includes/containers/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a language container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 

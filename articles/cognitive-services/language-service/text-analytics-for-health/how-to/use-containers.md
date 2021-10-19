@@ -25,7 +25,7 @@ You must meet the following prerequisites before using Text Analytics for health
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
-* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language Services resource"  target="_blank">Language Services resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">Language resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -65,7 +65,7 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 
 There are multiple ways you can install and run the Text Analytics for health container. 
 
-- Use the Azure portal to create a Language Services resource, and use Docker to get your container.
+- Use the Azure portal to create a Language resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../../docker/index.yml).
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
@@ -75,7 +75,7 @@ To run the container in your own environment after downloading the container ima
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| **{API_KEY}** | The key for your Language Services resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | The endpoint for accessing the Language Services API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
@@ -129,8 +129,8 @@ $resources_location = ""                   # This is the location you wish the A
                                            #    get the list of available locations and location code names.
 $appservice_plan_name = ""                 # This is the AppServicePlan name you wish to have.
 $appservice_name = ""                      # This is the AppService resource name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
+$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Language resource.
+$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Language resource.
 $DOCKER_IMAGE_NAME = "mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest"
 
 az login
@@ -160,8 +160,8 @@ $resources_location = ""                   # This is the location you wish the w
                                            # You can use the "az account list-locations -o table" command to
                                            # Get the list of available locations and location code names.
 $azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
-$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
-$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
+$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Language resource.
+$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Language resource.
 $DNS_LABEL = ""                            # This is the DNS label name you wish your ACI will have
 $DOCKER_IMAGE_NAME = "mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest"
 
