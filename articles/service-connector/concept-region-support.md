@@ -27,7 +27,7 @@ If your compute service instance is located in one of the regions below, you can
 
 If your compute service instance is located in one of the regions below, you can still use Service Connector with the geographical region support, but your service connection will be created in a different region. This may impact compliance, data residency and data latency.
 
-- ES US 2 (Service Connector will be in East US 2)
+- East US 2 (Service Connector will be in East US)
 - West US 3 (Service Connector will be in West US 2)
 - South Central US (Service Connector will be in West US 2)
 
