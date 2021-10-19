@@ -24,7 +24,7 @@ In this tutorial, you register a single-page application that uses the Microsoft
 Follow the steps in this tutorial to:
 
 > [!div class="checklist"]
-> - Register your application with Azure AD Register your app with Azure AD 
+> - Register your application with Azure AD
 > - Configure redirect URIs in your single-page app   
 
  ## Prerequisites 

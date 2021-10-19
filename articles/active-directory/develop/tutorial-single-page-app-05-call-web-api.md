@@ -32,7 +32,7 @@ Want to call the Microsoft Graph API instead? Please refer to the [call the MS G
 ## Prerequisites
 
 
-[!INCLUDE [Call a web API](includes/single-page-app/tutorials/05-call-web-api.md)]
+[!INCLUDE [Call a web API](includes/single-page-app/tutorials/05-call-a-web-api.md)]
 
 
 ## Next Steps
