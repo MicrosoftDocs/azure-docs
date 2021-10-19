@@ -96,11 +96,11 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 10. On the **Name** page, enter a name and description for your rule, then select **Finish**.
 
 When you're done, verify that the new rule matches the format in the following screenshot.
-:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections with Allow the connection option selected" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
 
-:::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections with Remote Desktop Services selected" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
 
-:::image type="content" source="media/rdp-shortpath-firewall-protocol-and-ports.png" alt-text="Screenshot of the Protocols and Ports tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-protocol-and-ports.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-protocol-and-ports.png" alt-text="Screenshot of the Protocols and Ports tab for Firewall configuration for RDP Shortpath Network Connections with UDP port 3390 configured" lightbox="media/rdp-shortpath-firewall-protocol-and-ports.png":::
 
 You can also use PowerShell to configure Windows Firewall:
 
