@@ -221,9 +221,7 @@ Select **Access** > **Single Sign-on** > **Forms Based** > **Create** and provid
  |:-----|:-------|
  |Name | An SSO APM object can be reused by other published applications, so use a descriptive name for the config. For example, `Contoso\FBA\sso`|
  | Use SSO Template | None |
- |Username Source | The preferred username source for
-     pre-filling the password collection form. Any APM session
-     variable can be used but the default `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN|
+ |Username Source | The preferred username source for pre-filling the password collection form. Any APM session variable can be used but the default `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN |
  | Password Source | Leave the default `session.sso.token.last.password` as that's the APM variable the BIG-IP will use to cache the password provided by users |
 
  ![Sceenshot shows new sso configuration](./media/f5-bigip-forms-advanced/new-sso-configuration.png)
