@@ -97,7 +97,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 - Create an [image definition and an image version](image-version.md).
 
-- [Create a VM application](app-packages-how-to.md) in your gallery.
+- [Create a VM application](vm-applications-how-to.md) in your gallery.
 
 - You can also create Azure Compute Gallery [create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/) using a template.
 

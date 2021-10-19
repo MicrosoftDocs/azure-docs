@@ -106,8 +106,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 1. Search for and select **Subscriptions**.
 1. Select your subscription from the list. The page for your subscription will open.
 1. In the left menu, select **Preview features**. The **Preview features** page will open.
-1. In the filter, type <feature name>.
-1. Select <feature name> and then select **+ Register**.
+1. In the filter, type `<feature name>`.
+1. Select `<feature name>` and then select **+ Register**.
 
 ---
 
@@ -219,7 +219,7 @@ az sig gallery-application create \
     --location "East US"
 ```
 
-Create a VM application version using []()
+Create a VM application version using [az sig gallery-application-version create](/cli/azure/sig/gallery-application#az_sig_gallery_application_version_create).
 
 ```azurecli-interactive
 az sig gallery-application-version create \
@@ -317,10 +317,51 @@ PUT
 Create a VM application version.
 
 ```rest
-PUT 
+PUT
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications/\<**applicationName**\>/versions/\<**versionName**\>?api-version=2019-03-01
 
-/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/applications/<applicationName>/versions/<versionName>?api-version=2019-03-01 
+{
+  "location": "$location",
+  "properties": {
+    "publishingProfile": {
+      "source": {
+        "mediaLink": "$mediaLink",
+        "defaultConfigurationLink": "$configLink"
+      },
+      "manageActions": {
+        "install": "echo installed",
+        "remove": "echo removed",
+        "update": "echo update"
+      },
+      "targetRegions": [
+        {
+          "name": "$location1",
+          "regionalReplicaCount": 1 
+        },
+        { "name": "$location1" }
+      ]
+    },
+    "endofLifeDate": "datetime",
+    "excludeFromLatest": "true | false"
+  }
+}
+
 ```
+
+| Field Name                         | Description                                                                                                                                             | Limitations                       |
+|------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| location                           | Source location for the VM Application version                                                                                                          | Valid Azure region                |
+| mediaLink                          | The url containing the application version package                                                                                                      | Valid and existing storage url    |
+| defaultConfigurationLink           | Optional. The url containing the default configuration, which may be overridden at deployment time.                                                     | Valid and existing storage url    |
+| Install                            | The command to install the application                                                                                                                  | Valid command for the given OS    |
+| Remove                             | The command to remove the application                                                                                                                   | Valid command for the given OS    |
+| Update                             | Optional. The command to update the application. If not specified and an update is required, the old version will be removed and the new one installed. | Valid command for the given OS    |
+| targetRegions/name                 | The name of a region to which to replicate                                                                                                              | Validate Azure region             |
+| targetRegions/regionalReplicaCount | Optional. The number of replicas in the region to create. Defaults to 1.                                                                                | Integer between 1 and 3 inclusive |
+| endOfLifeDate                      | A future end of life date for the application version. Note that this is for customer reference only, and is not enforced.                              | Valid future date                 |
+| excludeFromLatest                  | If specified, this version will not be considered for latest.                                                                                           | True or false                     |
+
+
 
 
 To add a VM application version to a VM, perform a PUT on the VM.
@@ -425,7 +466,4 @@ If the VM applications have not yet been installed on the VM, the value will be 
 
 
 ## Next steps
-<!-- You can link back to the overview, or whatever seems like the logical next thing to read -->
-- [Overview](preview-overview.md)
-
-
+[Things to consider when creating VM application packages](vm-application-considerations.md).

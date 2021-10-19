@@ -20,8 +20,8 @@ This article provides details on things to consider when creating VM application
  
 The download location of the application package and the configuration files are:
   
-- Linux: /var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> 
-- Windows: C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.3\Downloads\<appname>\<app version> 
+- Linux: `/var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> `
+- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.3\Downloads\<appname>\<app version> `
 
  
 The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.
@@ -61,7 +61,7 @@ Note: the application package in this example is a compressed archive. 'tar -xf'
 
   
 
-If a configurationReference was provided during creation of the gallery application version, and the install/update/remove command want to pass it to the application package file, they just need to refer to the file <appname>_config. 
+If a `configurationReference` was provided during creation of the gallery application version, and the install/update/remove command want to pass it to the application package file, they just need to refer to the file `<appname>_config`. 
 
   
 
@@ -208,4 +208,4 @@ Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -InstanceV
  
 ## Next steps
 
-Learn how to [create VM application packages](app-packages-how-to.md).
+Learn how to [create VM application packages](vm-applications-how-to.md).
