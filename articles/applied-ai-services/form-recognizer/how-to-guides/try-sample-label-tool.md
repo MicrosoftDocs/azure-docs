@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
+title: "How to label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
@@ -17,57 +17,31 @@ keywords: document processing
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD029 -->
-# Get started with Form Recognizer
+# How to use the Form Recognizer Sample Labeling tool
 
-Get started with the Form Recognizer using the Form Recognizer Sample Tool. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents—the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the sample tool or REST API or SDK. Follow these steps to try out Form Recognizer via the sample tool.
+The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of the Form Recognizer and Optical Character Recognition (OCR) services:
 
-Use Form Recognizer to:
+* [Analyze documents with the Layout API](#analyze-layout). Try our Layout API to extract text, tables, selection marks, and structure from documents.
 
-* Analyze Layout
-* Analyze using a Prebuilt model (invoices, receipts, ID documents)
-* Train & Analyze a custom Form
+* [Analyze documents using a prebuilt model](#analyze-using-a-prebuilt-model). Start with a prebuilt model to extract data from invoices, receipts, identity documents, or business cards.
+
+* [Train and analyze a custom Form](train-a-custom-form-model). Use a custom model to extract data from documents specific to distinct business data and use cases.
+
+
 
 ## Prerequisites
 
-To complete this quickstart, you must have:
+To complete this quickstart, you will need the following:
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint.
-  * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* (Optional) download and unzip the following quickstart sample documents
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. 
 
 ## Create a Form Recognizer resource
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## Analyze Layout
-
-Extract text, tables, selection marks and structure from a document.
-
-1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
-2. At the sample tool home page select "use layout to get text, tables and selection marks"
-
-     :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
-
-3. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
-
-4. Replace {need apiKey} with the subscription key you obtained from your Form Recognizer resource.
-
-    :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
-
-5. Select source url, paste the following url of the sample document `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg` click the Fetch button.
-
-1. Click "Run Layout"
-The Form Recognizer sample labeling tool will call the Analyze Layout API and analyze the document.
-
-1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
-
-    :::image type="content" source="../media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
-
-1. Download the JSON output file to view the detailed Layout Results.
-     * The "readResults" node contains every line of text with its respective bounding box placement on the page.
-     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+ :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Analyze using a Prebuilt model
 
@@ -112,6 +86,36 @@ There are several prebuilt models to choose from, each of which has its own set 
     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
+## Analyze Layout
+
+Extract text, tables, selection marks and structure from a document.
+
+1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
+2. At the sample tool home page select "use layout to get text, tables and selection marks"
+
+     :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
+
+3. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
+
+4. Replace {need apiKey} with the subscription key you obtained from your Form Recognizer resource.
+
+    :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
+
+5. Select source url, paste the following url of the sample document `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg` click the Fetch button.
+
+1. Click "Run Layout"
+The Form Recognizer sample labeling tool will call the Analyze Layout API and analyze the document.
+
+1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
+
+    :::image type="content" source="../media/label-tool/layout-3.jpg" alt-text="Connection settings for Form Recognizer tool.":::
+
+1. Download the JSON output file to view the detailed Layout Results.
+     * The "readResults" node contains every line of text with its respective bounding box placement on the page.
+     * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+
+
 
 ## Train a custom form model
 
