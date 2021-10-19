@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account before you begin
   1. Under **External connections**, select **Linked services**.
   1. To add a linked service, select **New**.
   1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
-  1. Enter your authentication credentials. Account key, Service Principle (SP), Credentials and   Manged service identity (MSI) are currently supported authentication types. Please make sure   that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it   for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
+  1. Enter your authentication credentials. Account key, service principal (SP), Credentials and   Manged service identity (MSI) are currently supported authentication types. Please make sure   that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it   for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
 
    :::image type="content" source="media/tutorial-spark-pool-pandas-usage/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
 
@@ -90,10 +90,10 @@ Execute the below code.
 ## Read/Write data using secondary Azure Data Lake Storage Gen2 account
 
 Pandas can read/write secondary ADLS account data 
-    - using linked service (having auth options - storage account key, service principle, manages service identity and credentials).
+    - using linked service (having auth options - storage account key, service principal, manages service identity and credentials).
     - using storage options to directly pass client ID & Secret, SAS key, storage account key and connection string.
 
-**a) Using linked service**
+**Using linked service**
 
 Execute the below code.
 
@@ -129,7 +129,7 @@ Execute the below code.
    ```
 
 
-**b) Using storage options** to directly pass client ID & Secret, SAS key, storage account key and connection string
+**Using storage options** to directly pass client ID & Secret, SAS key, storage account key and connection string
 
 Execute the below code.
 

@@ -89,10 +89,10 @@ Please make sure all prerequisites are in place before following below steps for
    > [!NOTE]
    > Update tenant, client, subscription, resource group, AML workspace and linked service details in this script before running it.
 
-    3.1. **Through service principle:** You can use service principle client id and secret directly to authenticate to AML workspace. Service principle must have "Contributor" access at AML workspace.
+    3.1. **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. service principal must have "Contributor" access at AML workspace.
 
     ```PYSPARK
-       # AML workspace authentication using service principle
+       # AML workspace authentication using service principal
        AZURE_TENANT_ID = "<tenant_id>"
        AZURE_CLIENT_ID = "<client_id>"
        AZURE_CLIENT_SECRET = "<client_secret>"
@@ -115,12 +115,12 @@ Please make sure all prerequisites are in place before following below steps for
        )
     ```
 
-    3.2. **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "Service Principle" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service Principle" or "Managed Service Identity (MSI)" must have "Contributor" access at AML workspace.
+    3.2. **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "service principal" or "Managed Service Identity (MSI)" must have "Contributor" access at AML workspace.
 
     ```PYSPARK
        # AML workspace authentication using linked service
        from notebookutils.mssparkutils import azureML
-       ws = azureML.getWorkspace("<linked_service_name>") # "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked service supports MSI and service principle both
+       ws = azureML.getWorkspace("<linked_service_name>") # "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked service supports MSI and service principal both
     ```
 
 4. **Enable PREDICT in spark session:** Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
@@ -197,7 +197,7 @@ Please make sure all prerequisites are in place before following below steps for
 
 ## Sklearn linear regression end to end example for using PREDICT
 
-Step1) Import libraries and read train dataset from ADLS
+1. Import libraries and read train dataset from ADLS.
 
 ```PYSPARK
    # Import libraries and read train dataset from ADLS
@@ -209,12 +209,12 @@ Step1) Import libraries and read train dataset from ADLS
    adls_account_name = 'xyz' #Provide exact ADLS account name
    adls_account_key = 'xyz' #Provide exact ADLS account key
    
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>',   account_name=adls_account_name, account_key=adls_account_key)
    
    with fsspec_handle.open() as f:
        train_df = pandas.read_csv(f)
 ```
-Step2) Train model and generate mlflow artifacts
+2. Train model and generate mlflow artifacts.
 
 ```PYSPARK
    # Train model and generate mlflow artifacts
@@ -306,7 +306,7 @@ Step2) Train model and generate mlflow artifacts
    train(train_df, './artifacts/output')
 ```
 
-Step3) Store model MLFLOW artifacts in ADLS or register in AML
+3. Store model MLFLOW artifacts in ADLS or register in AML.
 
 ```PYSPARK
    # Store model MLFLOW artifacts in ADLS
@@ -361,7 +361,7 @@ Step3) Store model MLFLOW artifacts in ADLS or register in AML
    )
 ```
 
-Step4) Set required parameters using variables
+4. Set required parameters using variables.
 
 ```PYSPARK
    # If using ADLS uploaded model
@@ -373,7 +373,7 @@ Step4) Set required parameters using variables
    import azure.synapse.ml.predict.utils._logger as synapse_predict_logger
 
    DATA_FILE = "abfss://xyz@xyz.dfs.core.windows.net/xyz.csv"
-   ADLS_MODEL_URI_SKLEARN = "abfss://xyz@xyz.dfs.core.windows.net/mlflow/sklearn/e2e_linear_regression/"
+   ADLS_MODEL_URI_SKLEARN = "abfss://xyz@xyz.dfs.core.windows.net/mlflow/sklearn/  e2e_linear_regression/"
    RETURN_TYPES = "INT"
    RUNTIME = "mlflow"
 ```
@@ -393,13 +393,13 @@ Step4) Set required parameters using variables
    RUNTIME = "mlflow"
 ```
 
-Step5) Enable SynapseML PREDICT functionality in spark session
+5. Enable SynapseML PREDICT functionality in spark session.
 
 ```PYSPARK
    spark.conf.set("spark.synapse.ml.predict.enabled","true")
 ```
 
-Step6) Bind model in spark session
+6. Bind model in spark session.
 
 ```PYSPARK
    # If using ADLS uploaded model
@@ -424,7 +424,7 @@ Step6) Bind model in spark session
     ).register()
 ```
 
-Step7) Load test data from ADLS
+7. Load test data from ADLS.
 
 ```PYSPARK
    # Load data from ADLS
@@ -439,7 +439,7 @@ Step7) Load test data from ADLS
    df.show(10)
 ```
 
-Step8) Call PREDICT to generate score
+8. Call PREDICT to generate score.
 
 ```PYSPARK
    # Call PREDICT
