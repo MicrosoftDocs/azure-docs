@@ -131,3 +131,10 @@ Once your server is created, it comes with the following settings:
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
     hellospring         eastus    <resource group>   default                                                                       Succeeded              1      2         1/1                 0/1                    -
     ```
+
+## Next steps
+
+Follow the tutorials listed below to learn more about Service Connector.
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

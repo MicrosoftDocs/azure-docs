@@ -71,16 +71,16 @@ There are two major ways to use Service Connector for your Azure application:
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> [Tutorial: WebApp + DB with Azure CLI](./overview.md)
+> [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: WebApp + DB with Azure Portal](./overview.md)
+> [Quickstart: Service Connector in App Service using Azure Portal](./quickstart-portal-app-service-connection.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Spring Cloud + ](./overview.md)
+> [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Spring Cloud + ](./overview.md)
+> [Quickstart: Service Connector in Spring Cloud using Azure Portal](./quickstart-portal-spring-cloud-connection.md)
 
 > [!div class="nextstepaction"]
-> [Explore more Service Connector samples]()
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

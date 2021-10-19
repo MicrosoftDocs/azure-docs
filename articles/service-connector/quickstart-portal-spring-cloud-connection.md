@@ -51,4 +51,7 @@ You will use Service Connector to create a new service connection in Spring Clou
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Spring Cloud + DB with Azure CLI](./overview.md)
+> [Tutorial: Spring Cloud + MySQL](./tutorial-java-spring-mysql.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Spring Cloud + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)
