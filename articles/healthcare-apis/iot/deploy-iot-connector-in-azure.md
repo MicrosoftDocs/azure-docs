@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/13/2021
+ms.date: 10/19/2021
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ It's important that you have the following prerequisites completed before you be
 * [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Resource group deployed in the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
 * [Event Hubs namespace and Event Hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
-* [Workspace deployed in Azure Healthcare APIs](../workspace-overview.md)  
+* [Workspace deployed in Azure Healthcare APIs](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
 
 
@@ -150,7 +150,7 @@ Under the **Tags** tab, enter the tag properties associated with the IoT connect
 
 4. Next, select **Create**.
 
-   The newly deployed IoT connector will display inside your Azure resource group.
+   The newly deployed IoT connector will display inside your Azure Resource groups page.
 
    ![Screenshot of Deployed IoT connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
