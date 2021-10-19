@@ -4,7 +4,7 @@ description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
