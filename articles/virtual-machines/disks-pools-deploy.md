@@ -94,7 +94,7 @@ For optimal performance, deploy the disk pool in the same Availability Zone of y
 To add a disk, it must meet the following requirements:
 
 - Must be either a premium SSD, standard SSD, or an ultra disk in the same availability zone as the disk pool.
-    - Currently, you can only add premium SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
+    - Currently, you can only add premium SSDs and Standard SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 - You must grant RBAC permissions to the resource provide of disk pool to manage the disk you plan to add.
