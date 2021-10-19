@@ -35,7 +35,7 @@ items:
     href: custom-classification/faq.md
   - name: How-to guides
     items:
-    - name: Project requirements
+    - name: Create custom classification projects
       href: custom-classification/how-to/project-requirements.md
     - name: Data selection and schema design
       href: custom-classification/concepts/recommended-practices.md
