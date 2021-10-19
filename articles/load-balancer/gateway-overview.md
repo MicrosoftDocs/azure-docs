@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 Gateway Load Balancer is a SKU of the Azure Load Balancer portfolio catered for high performance and high availability scenarios with third-party Network Virtual Appliances (NVAs). With the capabilities of Gateway Load Balancer, you can easily deploy, scale, and manage NVAs. Chaining a Gateway Load Balancer to your public endpoint only requires one click. 
 
-You can insert appliances transprently for different kinds of scenarios such as:
+You can insert appliances transparently for different kinds of scenarios such as:
 
 * Firewalls
 * Advanced packet analytics
@@ -67,7 +67,7 @@ Gateway Load Balancer consists of the following components:
 
 * **Tunnel interfaces** - Gateway Load balancer backend pools have another component called the tunnel interfaces. The tunnel interface enables the appliances in the backend to ensure network flows are handled as expected. Each backend pool can have up to 2 tunnel interfaces. Tunnel interfaces can be either internal or external. For traffic coming to your backend pool, you should use the external type. For traffic going from your appliance to the application, you should use the internal type.
 
-* **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Public IP configuration on a virtual machine. The addition of advanced networking capabilites in a specific sequence is known as service chaining. As a result, this reference is called a chain.
+* **Chain** - A Gateway Load Balancer can be referenced by a Standard Public Load Balancer frontend or a Public IP configuration on a virtual machine. The addition of advanced networking capabilities in a specific sequence is known as service chaining. As a result, this reference is called a chain.
 
 ## Pricing
 
