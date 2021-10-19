@@ -302,12 +302,17 @@ The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15' and 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedChainExample":::
 
-You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
-* the relationship is bi-directional, so it goes from *floor* to *room* and also from *room* to *floor*
-* the relationship has a name of 'isAssociatedWith'
-* the relationship, given a variable name of *r*, has a length property of 10
+You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *floor*, *room*, and *building*, where...
+* the relationship between *building* and *floor* meets these conditions:
+    - the relationship is left-to-right, with *building* as the source and *floor* as the target
+    - the relationship has a name of 'isAssociatedWith'
+    - the relationship is given a query variable *r1*
+* the relationship between *floor* and *room* meets these conditions:
+    - the relationship is right-to-left, with *room* as the source and *floor* as the target
+    - the relationship has a name of 'isAssociatedWith'
+    - the relationship is given a query variable *r2*'
 
-The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin *building* has a `$dtId` of 'building-3' and *room* has a temperature greater than 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedChainBDExample":::
 
