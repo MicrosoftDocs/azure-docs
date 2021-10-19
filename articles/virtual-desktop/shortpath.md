@@ -65,12 +65,11 @@ To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpa
 
 To enable the RDP Shortpath listener:
 
-1. First, install administrative templates that add rules and settings for Azure Virtual Desktop.
-2. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the .cab file and .zip archive.
-3. Copy the **terminalserver-avd.admx** file, then paste it into the **%windir%\PolicyDefinitions** folder.
-4. Copy the **en-us\terminalserver-avd.adml** file, then paste it into the **%windir%\PolicyDefinitions\en-us** folder.
-5. To confirm the files copied correctly, open the **Group Policy Editor** and go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
-6. You should see one or more Azure Virtual Desktop policies, as shown in the following screenshot
+1. First, install administrative templates that add rules and settings for Azure Virtual Desktop. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the .cab file and .zip archive.
+2. Copy the **terminalserver-avd.admx** file, then paste it into the **%windir%\PolicyDefinitions** folder.
+3. Copy the **en-us\terminalserver-avd.adml** file, then paste it into the **%windir%\PolicyDefinitions\en-us** folder.
+4. To confirm the files copied correctly, open the **Group Policy Editor** and go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
+5. You should see one or more Azure Virtual Desktop policies, as shown in the following screenshot
 
    :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor" lightbox="media/azure-virtual-desktop-gpo.png":::
 
@@ -78,8 +77,8 @@ To enable the RDP Shortpath listener:
    > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
    > For more information about Central Store for Group Policy Administrative Templates, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-7. Open the **"Enable RDP Shortpath for managed networks"** policy and set it to **"Enabled"**. If you enable this policy setting, you can also configure the port number that the Azure Virtual Desktop session host will use to listen for incoming connections. The default port is 3390.
-8. Restart  your session host to apply the changes.
+6. Open the **"Enable RDP Shortpath for managed networks"** policy and set it to **"Enabled"**. If you enable this policy setting, you can also configure the port number that the Azure Virtual Desktop session host will use to listen for incoming connections. The default port is 3390.
+7. Restart  your session host to apply the changes.
 
 ## Configure Windows Defender Firewall with Advanced Security
 
