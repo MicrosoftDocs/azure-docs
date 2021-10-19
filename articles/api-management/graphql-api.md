@@ -14,9 +14,12 @@ ms.custom:
 
 GraphQL is an open-source, industry-standard query language for APIs. Unlike endpoint-based (or REST-style) APIs designed around actions over resources, GraphQL APIs support a broader set of use cases and focus on data types, schemas, and queries.
 
-A single GraphQL API in API Management corresponds to a single GraphQL backend endpoint. 
-
-You can secure GraphQL APIs by applying existing access control policies and new policies to secure and protect against GraphQL-specific attacks.
+API Management tackles the security, authentication, and authorization challenges that come with publishing GraphQL APIs. Using API Management to expose your GraphQL APIs, you can:
+* Add a GraphQL service as APIs via Azure portal.  
+* Secure GraphQL APIs by applying both existing access control policies and new policies to secure and protect against GraphQL-specific attacks. 
+* Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals. 
+* Gain insights into their GraphQL APIs usage via query frequency reports. 
+* Improve GraphQL API performance by caching queries and responses in API Management. 
 
 [!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
 
@@ -25,7 +28,7 @@ In this article, you'll:
 > * Learn more about the benefits of using GraphQL APIs.
 > * Add a GraphQL API to your API Management instance.
 > * Test your GraphQL API.
-> * Learn the limitations of your GraphQL API.
+> * Learn the limitations of your GraphQL API in API Management.
 
 ## Prerequisites
 
