@@ -17,6 +17,13 @@ When you choose the **Logic App (Standard)** resource type to create workflows t
 
 This article provides an overview for why you might want to add SQL storage alongside Azure Storage and shows how to set up SQL for storage use either during logic app creation in the Azure portal or during logic app deployment from Visual Studio Code.
 
+If you're new to logic apps, review the following documentation:
+
+- [What is Azure Logic Apps](logic-apps-overview.md)
+- [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+
+<a name="why-sql"></a>
+
 ## Why use SQL
 
 As the first additional storage option for Azure Logic Apps, SQL provides the following benefits:
@@ -28,6 +35,8 @@ As the first additional storage option for Azure Logic Apps, SQL provides the fo
 | **Use existing assets** | If you're familiar with Microsoft tools, you can use their assets for modern integrations with SQL. You can reuse assets across traditional on-premises deployments and modern cloud implementations with Azure Hybrid Benefits. SQL also provides mature and well-supported tooling, such as SQL Server Management Studio (SSMS), command-line interfaces, and SDKs. |
 | **Compliance** | SQL provides more options than Azure Storage for you to back up, restore, fail over, and build in redundancies. You can apply the same enterprise-grade mechanisms as other enterprise applications to your logic app's storage. |
 |||
+
+<a name="when-use-sql"></a>
 
 ## When to use SQL
 
@@ -155,15 +164,15 @@ The following steps show how to set up SQL as a storage provider for local devel
 
 1. In Visual Studio Code, open the Explorer pane. At your project's root, move your mouse pointer over any blank area under all the project's files and folders, open the shortcut menu, and select **Use SQL as a Storage provider**.
 
-   ![add screenshot]()
+   ![Screenshot showing Visual Studio Code, Explorer pane, and mouse pointer at project root in blank area, opened shortcut menu, and "Use SQL as a Storage provider" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/)
 
 1. When the prompt appears, enter your SQL connection string. You can opt to use a local SQL Express instance or any other SQL database that you have.
 
-   ![add screenshot]()
+   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/)
 
 1. After confirmation, Visual Studio Code creates the following setting in your project's **local.settings.json** folder. You can update this setting at any time.  
 
-   ![add screenshot]()
+   ![Screenshot showing Visual Studio Code, logic app project, and open "local.settings.json" file with SQL connection string setting.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/)
 
 <a name="set-up-sql-logic-app-deployment-visual-studio-code"></a>
 
@@ -239,3 +248,4 @@ When you're done, your new logic app resource and workflow is live in Azure and 
 
 
 ## Next steps
+
