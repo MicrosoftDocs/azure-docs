@@ -66,15 +66,12 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
     1. Under **Exclude this specific detection pattern**, select **exclusion link**, which redirects you to the **Configure Fusion** tab in the analytics rule wizard.
         :::image type="content" source="media/configure-fusion-rules/exclude-fusion-incident.png" alt-text="Screenshot of Fusion incident. Select the exclusion link.":::
 
-- On the **Configure Fusion** tab, you'll see the detection pattern has been added to the exclusion list, with the following details: 
-    - The time when the detection pattern was added
-    - A link to the incident where you initiated the exclusion
-    - A link to all the incidents matching this exclusion pattern (see **Tag** below).
+- On the **Configure Fusion** tab, you'll see the detection pattern - a combination of alerts and anomalies in a Fusion incident - has been added to the exclusion list, along with the time when the detection pattern was added.
 
 - You can remove an excluded detection pattern any time by selecting the trashcan icon on that detection pattern.
     :::image type="content" source="media/configure-fusion-rules/exclusion-patterns-list.png" alt-text="Screenshot of list of excluded detection patterns.":::
 
-- Incidents that match excluded detection patterns will still be triggered, but with the following values:
+- Incidents that match excluded detection patterns will still be triggered, but they will **not show up in your incidents queue**. They will be auto-populated with the following values:
     - **Status**: "Closed"
     - **Closing classification**: “Undetermined”
     - **Comment**: “Auto closed, excluded Fusion detection pattern”
@@ -106,15 +103,12 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
     - [Fortinet - Beacon pattern detected](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/CommonSecurityLog/Fortinet-NetworkBeaconPattern.yaml)
     - [IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN](https://github.com/Azure/Azure-Sentinel/blob/60e7aa065b196a6ed113c748a6e7ae3566f8c89c/Detections/MultipleDataSources/HostAADCorrelation.yaml)
     - [Multiple Password Reset by user](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/MultipleDataSources/MultiplePasswordresetsbyUser.yaml)
-    - [New Admin account activity seen which was not seen historically](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Hunting%20Queries/OfficeActivity/new_adminaccountactivity.yaml)
     - [Rare application consent](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AuditLogs/RareApplicationConsent.yaml)
     - [SharePointFileOperation via previously unseen IPs](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/OfficeActivity/SharePoint_Downloads_byNewIP.yaml)
     - [Suspicious Resource deployment](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AzureActivity/NewResourceGroupsDeployedTo.yaml)
 
     > [!NOTE]
     > For the set of scheduled analytics rules used by Fusion, the ML algorithm does fuzzy matching for the KQL queries provided in the templates. Renaming the templates will not impact Fusion detections.
-
-1. ***DELETE THIS?*** Adjust **alert threshold** as needed. Fusion generates incidents based on the alerts raised from your scheduled analytics rules. If you'd like to reduce the number of Fusion incidents for a specific analytics rule, adjust the alert threshold as needed. You can also disable the specific analytics rule if you do not want to receive any incidents based on that rule.
 
 ## Next steps
 

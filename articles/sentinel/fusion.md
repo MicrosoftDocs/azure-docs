@@ -32,6 +32,9 @@ Since Fusion correlates multiple signals from various products to detect advance
 
 Fusion is enabled by default in Azure Sentinel, as an [analytics rule](detect-threats-built-in.md#view-built-in-detections) called **Advanced multistage attack detection**. You can view and change the status of the rule, configure source signals to be included in the Fusion ML model, or exclude specific detection patterns that may not be applicable to your environment from Fusion detection. Learn how to [configure the Fusion rule](configure-fusion-rules.md).
 
+> [!NOTE]
+> Azure Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
+
 ## Fusion for emerging threats
 
 > [!IMPORTANT]
@@ -40,9 +43,9 @@ Fusion is enabled by default in Azure Sentinel, as an [analytics rule](detect-th
 
 The volume of security events continues to grow, and the scope and sophistication of attacks are ever increasing. We can define the known attack scenarios, but how about the emerging and unknown threats in your environment?  
 
-Azure Sentinel's Fusion ML detection capability can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
+Azure Sentinel's ML-powered Fusion engine can help you find the **emerging and unknown threats** in your environment by applying **extended ML analysis** and by correlating **a broader scope of anomalous signals**, while keeping the alert fatigue low. 
 
-The Fusion ML algorithm constantly learns from existing attacks and applies analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
+The Fusion engine's ML algorithms constantly learn from existing attacks and apply analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
 
 **Fusion for emerging threats** supports data collection and analysis from the following sources:
 
@@ -56,15 +59,11 @@ The Fusion ML algorithm constantly learns from existing attacks and applies anal
     - Microsoft Defender for Endpoint
     - Microsoft Defender for Identity
     - Microsoft Defender for Office 365
-- Palo Alto Networks
 - [**Alerts from scheduled analytics rules**](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections), both [built-in](detect-threats-built-in.md) and those [created by your security analysts](detect-threats-custom.md). Analytics rules must contain kill-chain (tactics) and entity mapping information in order to be used by Fusion.
 
 You don’t need to have connected *all* the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
 
-When the Fusion machine learning model's correlations result in the detection of an emerging threat, a high-severity incident titled “**Possible multistage attack activities detected by Fusion**” is generated in the *incidents* table in your Azure Sentinel workspace.
-
-> [!NOTE]
-> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
+When the Fusion engine's correlations result in the detection of an emerging threat, a high-severity incident titled “**Possible multistage attack activities detected by Fusion**” is generated in the *incidents* table in your Azure Sentinel workspace.
 
 ## Fusion for ransomware
 
@@ -74,7 +73,7 @@ Azure Sentinel's Fusion engine generates an incident when it detects multiple al
 - [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
 - [Microsoft Defender for Identity](./data-connectors-reference.md#microsoft-defender-for-identity)
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
-- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
+- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
 
