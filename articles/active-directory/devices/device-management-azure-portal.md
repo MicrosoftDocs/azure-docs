@@ -54,7 +54,7 @@ From there, you can go to **All devices** to:
 
 ## Manage an Intune device
 
-If you have rights to manage devices in Intune, you can manage devices where Mobile Device Management (MDM) is listed as **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the **Manage** option won't be unavailable.
+If you have rights to manage devices in Intune, you can manage devices for which Mobile Device Management (MDM) is listed as **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the **Manage** option won't be available.
 
 ## Enable or disable an Azure AD device
 
@@ -88,7 +88,7 @@ If a device is managed by another management authority, like Microsoft Intune, b
 
 ## View or copy a device ID
 
-You can use a device ID to verify the device ID details on the device or use it for troubleshooting via PowerShell. To access the copy option, select the device.
+You can use a device ID to verify the device ID details on the device or to troubleshoot via PowerShell. To access the copy option, select the device.
 
 ![Screenshot that shows a device ID and the copy button.](./media/device-management-azure-portal/35.png)
   
@@ -138,7 +138,7 @@ The exported list includes these device identity attributes:
 
 ## Configure device settings
 
-To manage device identities by using the Azure portal, the devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
+If you want to manage device identities by using the Azure portal, the devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
 
 You must be assigned one of the following roles to view or manage device settings in the Azure portal:
 
