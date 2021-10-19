@@ -47,6 +47,7 @@ To start creating a scaling plan, you'll first need to create a custom Role-base
 To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md), using this JSON template:
 
 ```json
+ {
  "properties": {
  "roleName": "Autoscale",
  "description": "Friendly description.",
