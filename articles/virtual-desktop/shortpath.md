@@ -147,7 +147,7 @@ Next, you'll need to make sure your network is using RDP Shortpath. You can do t
 
 ### Connection Information dialog
 
-Make sure connections are using RDP Shortpath, open the "Connection Information" dialog by going to the **Connection** tool bar and selecting the antenna icon, as shown in the following screenshot.
+Make sure connections are using RDP Shortpath, open the "Connection Information" dialog by going to the **Connection** tool bar on the top of the screen and selecting the antenna icon, as shown in the following screenshot.
 
 :::image type="content" source="media/rdp-shortpath-connection-bar.png" alt-text="Image of Remote Desktop Connection Bar":::
 
