@@ -12,14 +12,14 @@ author: AjAgr
 ms.author: ajagarw
 ---
 
-# Tutorial: Use Pandas to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics
+# Tutorial: Use Pandas to read/write Azure Data Lake Storage Gen2 data in serverless Apache Spark pool in Synapse Analytics
 
-Learn how to use Pandas to read/write data to Azure Data Lake Storage (ADLS) using a serverless Apache Spark pool in Azure Synapse Analytics.
+Learn how to use Pandas to read/write data to Azure Data Lake Storage Gen2 (ADLS) using a serverless Apache Spark pool in Azure Synapse Analytics.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> - Read/write ADLS data using Pandas in a Spark session.
+> - Read/write ADLS Gen2 data using Pandas in a Spark session.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage (or primary storage). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
-- Configure [Secondary Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account) account (which is not default to Synapse workspace). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
+- Configure [Secondary Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md) account (which is not default to Synapse workspace). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Create linked services - In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
 
   1. Open the Azure Synapse Studio and select the **Manage** tab.
