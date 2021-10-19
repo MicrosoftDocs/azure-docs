@@ -50,7 +50,7 @@ To create your enterprise dev/test subscriptions, first choose an enrollment acc
     > [!Note]
     > The enrollment can change based on your Enterprise Agreement renewal cycle.
     
-    ![A screenshot of the Enterprise Agreement management portal page.](media/creating-enterprise-devtest-subscriptions/ea-manage-portal.png "Manage your company's enrollments from the Azure Enterprise Portal.")
+    ![A screenshot of the Enterprise Agreement management portal page.](media/create-enterprise-devtest-subscriptions/ea-manage-portal.png "Manage your company's enrollments from the Azure Enterprise Portal.")
     
 3. Once you’ve selected the appropriate enrollment number, select the “Account” tab  
 4. From here, you can edit the Account(s) and toggle the dev/test flag to “Yes.”  
@@ -65,7 +65,7 @@ To add an account:
 6. Enter the Account Owner Email address to associate with the new Account.  
 7. Confirm the email address and then select Add.  
 
-![A screenshot of the Azure Enterprise Portal management page with +Add Account selected.](media/creating-enterprise-devtest-subscriptions/add-account.png "Click on Add Account.")
+![A screenshot of the Azure Enterprise Portal management page with +Add Account selected.](media/create-enterprise-devtest-subscriptions/add-account.png "Click on Add Account.")
 
 ## Add your Azure Enterprise Dev/Test Subscription
 
