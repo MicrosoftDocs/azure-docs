@@ -252,9 +252,9 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                  
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace <keyvaultName> with the deployer key vault name
-> Replace <storageaccountName> with the name of the storage account containing the Terraform state files
-> Replace <statefile_subscription> with the subscription ID for the storage account containing the Terraform state files
+> Replace `<keyvaultName>` with the deployer key vault name
+> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
+> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
 
 # [Windows](#tab/windows)
@@ -277,9 +277,9 @@ New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace <keyvaultName> with the deployer key vault name
-> Replace <storageaccountName> with the name of the storage account containing the Terraform state files
-> Replace <statefile_subscription> with the subscription ID for the storage account containing the Terraform state files
+> Replace `<keyvaultName>` with the deployer key vault name
+> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
+> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
 
 ## Next steps
