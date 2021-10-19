@@ -17,10 +17,10 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
 
 ## Prerequisites and Setup
 
-* [Provision an Azure Cosmos DB Cassandra API account](manage-data-java.md#create-a-database-account).
+* [Create an Azure Cosmos DB Cassandra API account](manage-data-java.md#create-a-database-account).
 * [Install JAVA (version 8) for Windows](https://developers.redhat.com/products/openjdk/download)
 > [!NOTE]
-> Note that there are certain known incompatible build targets with newer versions. If you already have a newer version of JAVA, you can still download JDK8 from Oracle's website.
+> Note that there are certain known incompatible build targets with newer versions. If you already have a newer version of JAVA, you can still download JDK8.
 > If you have newer JAVA installed in addition to JDK8: Set the %JAVA_HOME% variable in the local command prompt to target JDK8. This will only change java version for the current session and leave global machine settings intact. 
 * [Install maven](https://maven.apache.org/download.cgi)
     * Verify successful installation by running: `mvn --version`
@@ -28,13 +28,13 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
 ## Running Glowroot Central Collector with CosmosDB endpoint
 Once the endpoint configuration has been completed. 
 1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot/wiki/Central-Collector-Installation#central-collector-installation)
-2. [In the glowroot-central.properties file, populate the following properties from your CosmosDB Cassandra endpoint]
+2. In the glowroot-central.properties file, populate the following properties from your CosmosDB Cassandra endpoint
     * cassandra.contactPoints
     * cassandra.username
     * cassandra.password
-while adding the following properties `cassandra.ssl=true` and `cassandra.port=10350`
-3. Ensure that the glowroot-central.properties is in the same folder as the glowroot-central.jar.
-4. Run `java -jar glowroot-central.jar` to begin running Glowroot.
+3. Set properties `cassandra.ssl=true`, `cassandra.gcGraceSeconds=0`, and `cassandra.port=10350`.
+4. Ensure that the glowroot-central.properties is in the same folder as the glowroot-central.jar.
+5. Run `java -jar glowroot-central.jar` to begin running Glowroot.
 
 ## FAQs
 Open a support ticket if you have issues running or testing Glowroot. Providing the subscription ID and account name where your Glowroot test will be running.
