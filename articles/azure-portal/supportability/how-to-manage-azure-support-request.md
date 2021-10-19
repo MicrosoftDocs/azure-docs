@@ -3,7 +3,7 @@ title: Manage an Azure support request
 description: Describes how to view support requests, send messages, change the severity level, allow or deny collection of advanced diagnostic information, reopen a closed support request, and upload files.
 tags: billing
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 10/20/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
