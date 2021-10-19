@@ -27,7 +27,7 @@ The application will need to:
 
 ## Run as an IoT Device 
 
-The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
+The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String.
 
 ### IoT Device Client Configuration
 
@@ -96,7 +96,7 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
 1. Open a TCP connection to "localhost:`localPort`"
    * Return **BadRequest** if the connection fails
 1. Open a web socket connection to the `remoteEndpoint` (through a proxy if configured on the device)
-   * Set the authorization header as "Bearer `remoteAuthorizationToken`"
+   * Set the HTTP "Authorization" header as "Bearer <remoteAuthorizationToken>"
    * Set the header "TunnelConnectionSource" with value "PnpDevice"
    * Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be the make or model of the device.
    * Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
