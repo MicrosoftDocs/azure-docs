@@ -52,14 +52,14 @@ performing forms-based SSO to the backend application.
 
 | Steps | Description |
 |:-------|:----------|
-| 1. | User connects to application's SAML SP endpoint (BIG-IP APM).|
-| 2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
-| 3. | SAML IdP authenticates user and applies any enforced CA policies.|
-| 4. | Azure AD redirects user back to SAML SP with issued token and claims. |
-| 5. | APM prompts for application password and stores in cache. | 
-| 6. |  BIG-IP request to application receives login form.|
-| 7. | APM scripting responds filling in username and password before submitting form.|
-| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking for cookie or redirect  URI. |
+| 1. | User connects to application's SAML SP endpoint (BIG-IP APM)|
+| 2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication|
+| 3. | SAML IdP authenticates user and applies any enforced CA policies|
+| 4. | Azure AD redirects user back to SAML SP with issued token and claims |
+| 5. | APM prompts for application password and stores in cache | 
+| 6. |  BIG-IP request to application receives login form|
+| 7. | APM scripting responds filling in username and password before submitting form|
+| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking for cookie or redirect  URI |
 
 ## Prerequisites
 
