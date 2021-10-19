@@ -44,16 +44,19 @@ sections:
         answer: |
           The full list of supported regions is available [here](./automanage-virtual-machines.md#supported-regions).
           
-       - question: |
+		  
+      - question: |
           What does the status Needs upgrade mean.
         answer: |
           Automanage supports a new API for onboarding (version 2021-04-30-preview or later). If you are on the previous version of Automanage (version 2020-06-30-preview), you need to disable Automanage and then re-enable it. You will automatically be onboarded to the latest version.
          
+		 
       - question: |
           Which capabilities does Azure Automanage automate?
         answer: |
           Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
           
+		  
       - question: |
           Does Azure Automanage work with Azure Arc-enabled VMs?
         answer: |

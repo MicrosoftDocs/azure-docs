@@ -1,6 +1,6 @@
 ---
 title: Azure Automanage for Azure Arc-enabled servers
-description: Learn about the Azure Automanage for Azure Arc-enabled servers
+description: Learn about Azure Automanage for Azure Arc-enabled servers
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.collection: linux
@@ -40,7 +40,7 @@ Automanage supports the following operating systems for Azure Arc-enabled server
 |[Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md) |Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. Learn [more](../azure-monitor/logs/design-logs-deployment.md).    |Production, Dev/Test    |
 
 
-<sup>1</sup> The configuration profile selection is available when you are enabling Automanage. Learn [more](automanage-virtual-machines.md#configuration-profiles). You can also create your own custom profile with the set of Azure services and settings that you need.
+<sup>1</sup> The configuration profile selection is available when you are enabling Automanage. Learn [more](automanage-virtual-machines.md#configuration-profile). You can also create your own custom profile with the set of Azure services and settings that you need.
 
 
 ## Next steps

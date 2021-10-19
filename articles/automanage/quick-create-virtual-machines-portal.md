@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
 
-4. Under **Configuration profile**, select your environment type: **Azure Best Practices - Production** or **Azure Best Practices - Dev/Test** or [**Custom profile**](virtual-machines-custom-preferences.md)
+4. Under **Configuration profile**, select your environment type: **Azure Best Practices - Production** or **Azure Best Practices - Dev/Test** or [**Custom profile**](virtual-machines-custom-profile.md)
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
 
@@ -90,7 +90,7 @@ Azure Automanage creates default resource groups to store resources in. Check re
 
 In this quickstart, you enabled Azure Automanage for VMs.
 
-Discover how you can create and apply customized preferences when enabling Automanage on your virtual machine.
+Discover how you can create and apply customize profiles when enabling Automanage on your virtual machine.
 
 > [!div class="nextstepaction"]
-> [Azure Automanage FAQ](faq.md)
+> [Azure Automanage Custom Profiles](virtual-machines-custom-profile.md)

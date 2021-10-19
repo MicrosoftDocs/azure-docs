@@ -1,6 +1,6 @@
 ---
 title: Azure Automanage for Windows Server
-description: Learn about the Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for Windows Server machines.
+description: Learn about Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for Windows Server machines.
 author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -44,7 +44,7 @@ Automanage supports the following Windows Server versions:
 |[Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md) |Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. Learn [more](../azure-monitor/logs/design-logs-deployment.md).    |Production, Dev/Test    |
 
 
-<sup>1</sup> The configuration profile selection is available when you are enabling Automanage. Learn [more](automanage-virtual-machines.md#configuration-profiles). You can also create your own custom profile with the set of Azure services and settings that you need.
+<sup>1</sup> The configuration profile selection is available when you are enabling Automanage. Learn [more](automanage-virtual-machines.md#configuration-profile). You can also create your own custom profile with the set of Azure services and settings that you need.
 
 
 ## Next steps

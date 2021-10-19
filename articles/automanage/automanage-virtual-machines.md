@@ -27,7 +27,7 @@ Azure Automanage machine best practices is a service that eliminates the need to
 
 After onboarding your machines to Azure Automanage, each best practice service is configured to its recommended settings. However, if you want to customize the best pratice services and settings, you can use the [Custom Profile](#custom-profiles) option. 
 
-Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine or Arc-enabled server is onboarded to Azure Automanage, we'll monitor your machine to ensure that it continues to comply with its [configuration profile](#configuration-profiles) across its entire lifecycle. If your virtual machine does drift or deviate from the profile (for example, if a service is offboarded), we will correct it and pull your machine back into the desired state.
+Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine or Arc-enabled server is onboarded to Azure Automanage, we'll monitor your machine to ensure that it continues to comply with its [configuration profile](#configuration-profile) across its entire lifecycle. If your virtual machine does drift or deviate from the profile (for example, if a service is offboarded), we will correct it and pull your machine back into the desired state.
 
 Automanage doesn't store/process customer data outside the geography your VMs are located. In the Southeast Asia region, Automanage does not store/process data outside of Southeast Asia.
 
@@ -92,7 +92,7 @@ For the complete list of participating Azure services, as well as their supporte
 
 In the Azure portal, you can enable Automanage on an existing virtual machine. For concise steps to this process, check out the [Automanage for virtual machines quickstart](quick-create-virtual-machines-portal.md).
 
-If it is your first time enabling Automanage for your VM, you can search in the Azure portal for **Automanage – Azure machine best practices**. Click **Enable on existing VM**, select the [configuration profile](#configuration-profiles) you wish to use and then select the machines you would like to onboard. Click **Enable**, and you're done.
+If it is your first time enabling Automanage for your VM, you can search in the Azure portal for **Automanage – Azure machine best practices**. Click **Enable on existing VM**, select the [configuration profile](#configuration-profile) you wish to use and then select the machines you would like to onboard. Click **Enable**, and you're done.
 
 The only time you might need to interact with this machine to manage these services is in the event we attempted to remediate your VM, but failed to do so. If we successfully remediate your VM, we will bring it back into compliance without even alerting you. For more details, see [Status of VMs](#status-of-vms).
 
