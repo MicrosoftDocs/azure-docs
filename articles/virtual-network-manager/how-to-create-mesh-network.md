@@ -18,7 +18,7 @@ In this article, you'll learn how to create a mesh network topology using Azure 
 > For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Read about [mesh](concept-connectivity-configuration.md#mesh-network-topology) network topology.
-* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-a-virtual-network-manager).
+* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-virtual-network-manager).
 * Identify virtual networks you want to use in the mesh configuration or create new [virtual networks](../virtual-network/quick-create-portal.md).
 
 ## Create a network group
