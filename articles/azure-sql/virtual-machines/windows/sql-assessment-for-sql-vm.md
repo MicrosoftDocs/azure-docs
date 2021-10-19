@@ -15,15 +15,7 @@ ms.reviewer: mathoma
 
 The SQL Assessment feature of the Azure portal identifies possible performance issues and evaluates that your SQL Server on Azure Virtual Machines (VMs) is configured to follow best practices using the [rich ruleset](https://github.com/microsoft/sql-server-samples/blob/master/samples/manage/sql-assessment-api/DefaultRuleset.csv) provided by the [SQL Assessment API](/sql/sql-assessment-api/sql-assessment-api-overview). 
 
-This feature is currently in preview.
-
-## Prerequisites
-
-To use the SQL Assessment feature, you must have the following prerequisites: 
-
-- Your SQL Server VM must be registered with the [SQL Server IaaS extension in Full mode](sql-agent-extension-manually-register-single-vm.md#full-mode). 
-- A [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) in the same subscription as your SQL Server VM to upload assessment results to. 
-
+The SQL Assessment feature is currently in preview.
 
 ## Overview
 
@@ -33,6 +25,13 @@ Once the SQL Assessment feature is enabled, your SQL Server instance and databas
 Assessment results are uploaded to your [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) using [Microsoft Monitoring Agent (MMA)](../../../azure-monitor/agents/log-analytics-agent.md). If your VM is already configured to use Log Analytics, the SQL Assessment feature uses the the existing connection.  Otherwise, the MMA extension is installed to the SQL Server VM and connected to the specified Log Analytics workspace.
 
 Assessment run time depends on your environment (number of databases, objects, etc), with a duration from a few minutes, up to an hour. Similarly, the size of the assessment result also depends on your environment. 
+
+## Prerequisites
+
+To use the SQL Assessment feature, you must have the following prerequisites: 
+
+- Your SQL Server VM must be registered with the [SQL Server IaaS extension in full mode](sql-agent-extension-manually-register-single-vm.md#full-mode). 
+- A [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) in the same subscription as your SQL Server VM to upload assessment results to. 
 
 
 ## Enable
@@ -49,7 +48,7 @@ To enable SQL Assessments, follow these steps:
     
 
 
-This is the previous list for comparison, should be deleted: 
+This is the previous list for comparison, should probably be deleted if the other list is better: 
 
 1. Use the SQL Assessment (Preview) page of the SQL virtual machines resource to enable this feature. IMAGE
 1. Click the Enable SQL Assessment button or the Configuration button. Both will take you to the configuration blade. IMAGE
@@ -71,7 +70,6 @@ Assessments run:
 - On a schedule
 - On demand
 
-
 ### Run scheduled assessment
 
 If you set a schedule in the configuration blade, an assessment runs automatically at the specified date and time. Choose **Configuration** to modify your assessment schedule. 
@@ -81,38 +79,29 @@ If you set a schedule in the configuration blade, an assessment runs automatical
 After the SQL Assessment feature is enabled for your SQL Server VM, it's possible to run an assessment on demand. To do so, select **Run assessment** from the SQL Assessment blade of the [Azure portal SQL Server VM resource](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) page.
 
 
-
 ## View results
 
-The **Assessments results** section of the **SQL Assessments** page shows a list of the most recent assessment runs. Each row shows the start time of a run and the status - scheduled, running, uploading results, completed, or failed. Each assessment run has two parts: evaluates your instance, and uploads the results to your Log Analytics workspace. The status field covers both parts. Assessment results are shown in Azure workbooks. 
+The **Assessments results** section of the **SQL Assessments** page shows a list of the most recent assessment runs. Each row displays the start time of a run and the status - scheduled, running, uploading results, completed, or failed. Each assessment run has two parts: evaluates your instance, and uploads the results to your Log Analytics workspace. The status field covers both parts. Assessment results are shown in Azure workbooks. 
 
 Access the assessment results Azure workbook in three ways: 
+- Select the **View latest successful assessment button** on the **SQL Assessments** page.
 - Choose a completed run from the **Assessment results** section of the **SQL Assessments** page. 
-- Select the **View latest successful assessment button**. 
 - Select **View assessment results** from the **Top 10 recommendations** surfaced on the **Overview** page of your SQL VM resource page. 
 
 Once you have the workbook open, you can use the drop-down to select previous runs. You can view the results of a single run using the **Results** page or review historical trends using the **Trends** page.
-
-
 
 ### Results page
 
 The **Results** page organizes the recommendations using tabs for *All, new, resolved*. Use these tabs to view all recommendations from the current run, all the new recommendations (the delta from previous runs), or resolved recommendations from previous runs. Tabs help you track progress between runs. The *Insights* tab identifies the most recurring issues and the databases with the most issues. Use these to decide where to concentrate your efforts. 
 
-The graph groups assessment results in different categories - high, medium, and low severity. Select each category to see the list of recommendations, or search for key phrases in the search box. 
+The graph groups assessment results in different categories of severity - high, medium, and low. Select each category to see the list of recommendations, or search for key phrases in the search box. It's best to start with the most severe recommendations and go down the list.
 
-It's best to start with the most severe recommendations and go down the list. Sort by **Name** in the table to view recommendations grouped by a particular database or instance. 
-
-Use the search box to view certain types of recommendations based on the tag value or key phrase, such as performance. 
-
-Use the down arrow at the top-right of the table to expert results to an excel file. 
+Sort by **Name** in the table to view recommendations grouped by a particular database or instance. Use the search box to view certain types of recommendations based on the tag value or key phrase, such as performance. Use the down arrow at the top-right of the table to expert results to an excel file. 
 
 The **passed** section of the graph identifies recommendations your system already follows. 
 
-View detailed information for each recommendation by selecting the **Message** field, such as a long description, and online resources. 
+View detailed information for each recommendation by selecting the **Message** field, such as a long description, and relevant online resources. 
  
-
-
 ### Trends page
 
 There are three charts on the **Trends** page to show changes over time: all issues, new issues, and resolved issues. The charts help you see yor progress. Ideally, the number of recommendations should go down while the number of resolved issues goes up. The legend shows the average number of issues for each severity level. Hover over the bars to see the individual vales for each run. 
@@ -121,6 +110,7 @@ If there are multiple runs in a single day, only the latest run is included in t
 
 ## Known issues
 
+You may encounter some of the following known issues when using SQL assessments. 
 
 ### Deployment failure for Enable or Run Assessment 
 
