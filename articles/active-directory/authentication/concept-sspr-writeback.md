@@ -46,7 +46,7 @@ To get started with SSPR writeback, complete either of both of the following tut
 - [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-cloud-sync-sspr-writeback.md)
 - [Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)](tutorial-enable-cloud-sync-sspr-writeback.md)
 
-## Azure Active Directory Connect and cloud sync side-by-side deployment
+## Azure AD Connect and cloud sync side-by-side deployment
 
 You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
 
