@@ -20,7 +20,7 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 | `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 25 |
 | `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 25 |
 
-- If your container app scales to zero, then you are not billed.
+- If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
@@ -117,7 +117,7 @@ In this example, the container app scales according to the following behavior:
 
 ## CPU
 
-CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information regarding this scaler, see [KEDA CPU scaler](https://keda.sh/docs/scalers/cpu/).
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
 
 The following example shows how to create a CPU scaling rule.
 
@@ -147,9 +147,8 @@ The following example shows how to create a CPU scaling rule.
 }
 ```
 
-- At a minimum, a single replica remains in memory.
-
-In this example, the container app scales when CPU utilization exceeds 50%.
+- In this example, the container app scales when CPU usage exceeds 50%.
+- At a minimum, a single replica remains in memory for apps that scale based on CPU utilization.
 
 ## Memory
 
@@ -183,9 +182,9 @@ The following example shows how to create a memory scaling rule.
 }
 ```
 
-- At a minimum, a single replica remains in memory.
+- In this example, the container app scales when memory usage exceeds 50%.
+- At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
-In this example, the container app scales when memory utilization exceeds 50%.
 
 ## Considerations
 
