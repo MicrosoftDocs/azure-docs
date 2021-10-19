@@ -399,22 +399,22 @@ To enable failover from the primary or source entity and to make sure that the r
 
    This resource group includes the logic app resource and the Azure storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped when the primary's region became unavailable.
 
-1. Go to the storage account that's associated with the logic app resource.
+1. Go to the storage account that's associated with the logic app resource. Delete the storage account by following these steps:
 
-1. On the storage account navigation menu, under **Data storage**, select **Containers**.
+   1. On the storage account navigation menu, under **Data storage**, select **Containers**.
 
-1. On the **Containers** pane that opens, choose one of the following options:
+   1. On the **Containers** pane that opens, choose one of the following options:
 
-   - If the source is an Event Hubs entity, select **azure-webjobs-eventhub**.
+      - If the source is an Event Hubs entity, select **azure-webjobs-eventhub**.
 
-   - If the source is a Service Bus entity, select **azure-webjobs-servicebus**.
+      - If the source is a Service Bus entity, select **azure-webjobs-servicebus**.
 
-   > [!NOTE]
-   > If no **azure-webjobs-<*source-name*>** exists, make sure that the task runs at least one time.
+      > [!NOTE]
+      > If no **azure-webjobs-<*source-name*>** exists, make sure that the task runs at least one time.
 
-1. On the **azure-webjobs-<*source-name*>** pane, select the namespace folder, which has a name with the following format: `<namespace>.servicebus.windows.net`.
+   1. On the **azure-webjobs-<*source-name*>** pane, select the namespace folder, which has a name with the following format: `<namespace>.servicebus.windows.net`.
 
-1. In the namespace folder, delete the source entity folder named `src` that holds checkpoint information for the former primary source entity.
+   1. In the namespace folder, delete the source entity folder named `src` that holds checkpoint information for the former primary source entity.
 
 1. Return to the logic app resource or workflow behind the replication task. Start the logic app or enable the workflow again.
 
