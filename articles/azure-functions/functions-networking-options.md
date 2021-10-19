@@ -36,6 +36,12 @@ Access restrictions are available in the [Premium](functions-premium-plan.md), [
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
+## Private endpoint connections
+
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints by enabling VNet integration](#private-endpoints).
+
 ### Use service endpoints
 
 By using service endpoints, you can restrict access to selected Azure virtual network subnets. To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
@@ -50,12 +56,6 @@ You can't use service endpoints to restrict access to apps that run in an App Se
 
 To learn how to set up service endpoints, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
 
-## Private endpoint connections
-
-[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
-
-To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints by enabling VNet integration](#private-endpoints).
-
 ## Virtual network integration
 
 Virtual network integration allows your function app to access resources inside a virtual network.
@@ -68,7 +68,7 @@ Virtual network integration in Azure Functions uses shared infrastructure with A
 * [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Gateway-required virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-To learn how to set up virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+To learn how to set up virtual network integration, see [Enable Vnet Integration](#enable-vnet-integration).
 
 ## Enable VNet Integration
 
@@ -76,11 +76,11 @@ To learn how to set up virtual network integration, see [Integrate a function ap
 
 1. Select **Add VNet**.
 
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-app.png" alt-text="Select VNet Integration":::
+    :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Select VNet Integration":::
 
 1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Underneath that is a list of the Resource Manager virtual networks in all other regions. Select the VNet you want to integrate with.
 
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-add-vnet.png" alt-text="Select the VNet":::
+    :::image type="content" source="./media/functions-networking-options/vnet-int-add-function-app.png" alt-text="Select the VNet":::
 
     * The Functions Premium Plan only supports regional VNet integration. If the VNet is in the same region, either create a new subnet or select an empty pre-existing subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled. This is only supported for Dedicated plans.
@@ -274,3 +274,8 @@ To learn more about networking and Azure Functions:
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
+
+
+<!--Links-->
+[VNETnsg]: ../virtual-network/network-security-groups-overview.md/
+[privateendpoints]: ../app-service/networking/private-endpoint.md
