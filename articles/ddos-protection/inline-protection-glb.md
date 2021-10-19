@@ -16,12 +16,12 @@ ms.date: 10/21/2021
 # Inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs
 
 Azure DDoS Protection is always-on but not inline and takes 30-60 seconds from the time an attack is detected until it is mitigated. Azure DDoS Protection Standard also works at L3/4 (network layer) and does not inspect the packet payload i.e. application layer (L7).  
-Workloads that are highly sensitive to latency and cannot tolerate 30-60 seconds of on-ramp time for DDoS protection to kick-in requires inline protection. Inline protection entails that all the traffic always goes through the DDoS protection pipeline. Further, for scenarios such as web protection or gaming workload protection (UDP) it becomes crucial to inspect the packet payload to mitigate against extreme low volume attacks which exploit the vulnerability in the application layer (L7). 
+Workloads that are highly sensitive to latency and cannot tolerate 30-60 seconds of on-ramp time for DDoS protection to kick in requires inline protection. Inline protection entails that all the traffic always goes through the DDoS protection pipeline. Further, for scenarios such as web protection or gaming workload protection (UDP) it becomes crucial to inspect the packet payload to mitigate against extreme low volume attacks which exploit the vulnerability in the application layer (L7). 
 
 Partner NVAs deployed with Gateway Load Balancer and integrated with Azure DDoS Protection Standard offers comprehensive inline L7 DDoS Protection for high performance and high availability scenarios. Inline L7 DDoS Protection combined with Azure DDoS Protection Standard provides comprehensive L3-L7 protection against volumetric as well as low-volume DDoS attacks. 
 
 ## What is a Gateway Load Balancer?
-Gateway Load Balancer is a SKU of Azure Load Balancer catered specifically for high performance and high availability scenarios with third party Network Virtual Appliances (NVAs).
+Gateway Load Balancer is a SKU of Azure Load Balancer catered specifically for high performance and high availability scenarios with third-party Network Virtual Appliances (NVAs).
 
 With the capabilities of Gateway LB, you can deploy, scale, and manage NVAs with ease – chaining a Gateway LB to your public endpoint merely requires one click.  You can insert appliances for a variety of scenarios such as firewalls, advanced packet analytics, intrusion detection and prevention systems, or custom scenarios that suit your needs into the network path with Gateway LB. In scenarios with NVAs, it is especially important that flows are ‘symmetrical’ – this ensures sessions are maintained and symmetrical. Gateway LB maintains flow symmetry to a specific instance in the backend pool.
 
