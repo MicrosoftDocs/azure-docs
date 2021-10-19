@@ -258,8 +258,6 @@ The following table lists the metrics provided by the Secrets Store CSI driver:
 |keyvault_request|Distribution of how long it took to get from keyvault|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
 |grpc_request|Distribution of how long it took for the gRPC requests|`os_type=<runtime os>`, `provider=azure`, `grpc_method=<rpc full method>`, `grpc_code=<grpc status code>`, `grpc_message=<grpc status message>`|
 
-## Troubleshooting
-
 ## Next steps
 <!-- Add a context sentence for the following links -->
 After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see the following resources:
