@@ -243,4 +243,4 @@ The `"start_lun"` attribute defines the first logical unit number (LUN) for disk
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [About workload zone deployment with automation framework](automation-workload-zone-deployment.md)
+> [About workload zone deployment with automation framework](automation-deploy-workload-zone.md)

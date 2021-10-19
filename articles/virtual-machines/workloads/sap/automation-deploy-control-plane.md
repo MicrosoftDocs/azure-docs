@@ -91,6 +91,6 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP Workload Zone](automation-workload-zone-deployment.md)
+> [Configure SAP Workload Zone](automation-deploy-workload-zone.md)
 
 
