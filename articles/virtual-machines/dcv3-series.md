@@ -29,20 +29,20 @@ We are offering two variants dependent on whether the workload benefits from a l
 
 ## Configuration
 
-[CPU]: 3rd Generation Intel® Xeon Scalable Processor 8370C<br>
-[Base All-Core Frequency]: 2.8 GHz<br>
+CPU: 3rd Generation Intel® Xeon Scalable Processor 8370C<br>
+Base All-Core Frequency: 2.8 GHz<br>
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
-[Total Memory Encryption]: Multi Key Supported<br>
-[Premium Storage and Caching]: Supported<br>
-[Ultra-Disk Storage]: Supported<br>
-[Accelerated Networking]: Supported (CLI provisioning or ARM template only)<br>
-[Azure Kubernetes Service]: Supported (CLI provisioning only initially)<br>
-[Live Migration]: Not Supported<br>
-[Memory Preserving Updates]: Not Supported<br>
-[VM OS Generation Support]: Generation 2<br>
-[Ephemeral OS Disks]: Supported<br>
-[Dedicated Host]: Not Supported Initially<br>
+Total Memory Encryption: Multi Key Supported<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (CLI provisioning or ARM template only)<br>
+[Azure Kubernetes Service](..aks/intro-kubernetes): Supported (CLI provisioning only initially)<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Dedicated Host](dedicated-hosts): Not Supported Initially<br>
 
 ## DCsv3-series Technical specifications
 
