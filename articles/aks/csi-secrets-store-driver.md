@@ -241,7 +241,6 @@ spec:
 
 Enable NGINX Ingress Controller with TLS
 
-
 ## Metrics
 
 Metrics are served via Prometheus from port 8898, but this port is not exposed outside the pod by default. Use `kubectl port-forward` to access the metrics over localhost:
