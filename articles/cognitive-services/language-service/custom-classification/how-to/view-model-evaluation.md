@@ -16,8 +16,6 @@ ms.author: aahi
 
 Reviewing model evaluation is an important step in developing a custom classification model. It helps you learn how well your model is performing, and gives you an idea about how it will perform when used in production. 
 
-:::image type="content" source="../media/development-lifecycle/evaluate-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/evaluate-model.png":::
-
 
 ## Prerequisites
 
@@ -26,6 +24,8 @@ Before you train your model you need:
     * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
+
+:::image type="content" source="../media/development-lifecycle/evaluate-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/evaluate-model.png":::
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 

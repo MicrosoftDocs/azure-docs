@@ -20,6 +20,11 @@ Before you start using custom text classification, you will need several things:
 * An Azure Language resource 
 * An Azure storage account where you will upload your `.txt` files that will be used to train an AI model to classify text
 
+## Prerequisites
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* You should have an idea of the [project schema](../concepts/recommended-practices.md) you will use for your data.
+
 Use this article to learn how to prepare the requirements for using custom text classification.
 
 ## Azure resources

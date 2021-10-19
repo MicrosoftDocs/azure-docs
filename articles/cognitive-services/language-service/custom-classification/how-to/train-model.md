@@ -17,14 +17,14 @@ ms.author: aahi
 
 Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
 
-:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
-
 ## Prerequisites
 
 Before you train your model you need:
 * [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
     * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
+
+:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 

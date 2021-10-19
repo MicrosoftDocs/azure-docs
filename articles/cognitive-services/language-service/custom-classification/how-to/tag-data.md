@@ -16,13 +16,13 @@ ms.author: aahi
 
 Before creating a custom text classification model, you need to have tagged data first. If your data is not tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
 
-:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
-
 ## Prerequisites
 
 Before you can tag data, you need:
 * [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
     * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+
+:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
