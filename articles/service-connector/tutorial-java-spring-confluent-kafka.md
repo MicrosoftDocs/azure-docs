@@ -31,7 +31,7 @@ Learn how to access Apache Kafka on Confluent Cloud for a spring boot applicatio
 Clone the sample repository:
 
 ```Bash
-git clone https://github.com/xfz11/ConnectorSampleCode/tree/master/Confluent
+git clone https://github.com/Azure-Samples/serviceconnector-springcloud-confluent-springboot/
 ```
 
 Then navigate into that folder:
@@ -73,7 +73,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 ### 3.3 Create a Spring Cloud instance
 
-Create an instance of Azure Spring Cloud by following [this guidance](../spring-cloud/quickstart.md) in Java.
+Create an instance of Azure Spring Cloud by following [this guidance](../spring-cloud/quickstart.md) in Java. Make sure your Spring Cloud instance is created in [the region that has Service Connector support](concept-region-support.md).
 
 ## 4. Build and deploy the app
 
@@ -81,9 +81,7 @@ Create an instance of Azure Spring Cloud by following [this guidance](../spring-
 
 1. Sign in to Azure and choose your subscription.
 
-Azure CLI
-
-```Azure CLI
+```azurecli
 az login
 
 az account set --subscription <Name or ID of your subscription>
@@ -98,11 +96,27 @@ az account set --subscription <Name or ID of your subscription>
 
 3. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
 
-```Azure CLI
-az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
+```azurecli
+az spring-cloud app create -n hellospring -s <service-instance-name> -g <your-resource-group-name> --assign-endpoint true
 ```
 
 ## 4.2 Create service connection using Service Connector
+
+#### [CLI](#tab/Azure-CLI)
+
+Run the following command to connect your Apache Kafka on Confluent cloud to your spring cloud app.
+
+```azurecli
+az spring-cloud connection create confluentcloud -g <your-resource-group-name> -n site --bootstrap-server endpoint="<kafka-bootstrap-server-url>" key="<cluster-api-key>" secret="<cluster-api-secret>" --schema-registry endpoint="<kafka-schema-registry-endpoint>" key="registry-api-key" secret="registry-api-secret"
+```
+
+- **Replace** *\<your-resource-group-name>* with the resource group name that you created your Spring Cloud instance.
+- **Replace** *\<kafka-bootstrap-server-url>* with your kafka bootstrap server url (the value should be like `pkc-xxxx.eastus.azure.confluent.cloud:9092`)
+- **Replace** *\<cluster-api-key>* and *\<cluster-api-secret>* with your cluster API key and secret.
+- **Replace** *\<kafka-schema-registry-endpoint>* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
+- **Replace** *\<registry-api-key>* and *\<registry-api-secret>* with your kafka Schema Registry API key and secret.
+
+#### [Portal]](#tab/Azure-portal)
 
 Click **Service Connector (Preview)** Select or enter the following settings.
 
@@ -112,9 +126,9 @@ Click **Service Connector (Preview)** Select or enter the following settings.
 | **Name** | Generated unique name | The connection name that identifies the connection between your Spring Cloud and target service  |
 | **Kafka bootstrap server url** | Your kafka bootstrap server url | You get this value from step 3.2 |
 | **Cluster API Key** | Your cluster API key |  |
-| **Cluster API Secret** |  Your cluster API key |  |
+| **Cluster API Secret** |  Your cluster API secret |  |
 | **Create connection for schema registry**  | checked | Also create a connection to the schema registry |
-| **Schema Registry endpoint ** | Your kafka Schema Registry endpoint  |  |
+| **Schema Registry endpoint** | Your kafka Schema Registry endpoint  |  |
 | **Schema Registry API Key** | Your kafka Schema Registry API Key | |
 | **Schema Registry API Secret** | Your kafka Schema Registry API Secret | |
 
@@ -125,8 +139,8 @@ Select **Review + Create** to review the connection settings. Then select **Crea
 
 Run the following command to upload the jar file (`build/libs/java-springboot-0.0.1-SNAPSHOT.jar`) to your Spring Cloud app
 
-```Azure CLI
-az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name>  --artifact-path build/libs/java-springboot-0.0.1-SNAPSHOT.jar
+```azurecli
+az spring-cloud app deploy -n hellospring -s <service-instance-name> -g <your-resource-group-name>  --artifact-path build/libs/java-springboot-0.0.1-SNAPSHOT.jar
 ```
 
 ## 5. View sample application
