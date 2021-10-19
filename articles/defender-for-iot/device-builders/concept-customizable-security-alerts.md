@@ -9,7 +9,7 @@ ms.date: 10/18/2021
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 
-We encourage you to create custom alerts based on your knowledge of expected device behavior to ensure alerts act as the most efficient indicators of potential compromise in your unique organizational deployment and landscape.
+Create custom alerts based on your knowledge of each expected device's behavior. These alerts act as the most efficient indicators of any potential changes to your organizational deployment, or landscape.
 
 The following lists of Defender for IoT alerts are definable by you based on your expected IoT Hub behavior. For more information about how to customize each alert, see [create custom alerts](quickstart-create-custom-alerts.md).
 
