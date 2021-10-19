@@ -137,7 +137,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 
 | Parameter name | Description |
 |--------------|------------|
-| `--assign-identity` | Default is `None`. Creates a [system-assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) if parameter is set to "SystemAssigned" |
+| `--assign-identity` | Default is `None`. Creates a [system-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) if parameter is set to "SystemAssigned" |
 | `--location, --l` | Location of the custom location Azure Resource Manager resource in Azure. By default, this will be set to the location (or Azure region) of the connected cluster |
 | `--tags` | Space-separated list of tags: key[=value] [key[=value] ...]. Use '' to clear existing tags |
 | `--kubeconfig` | Admin Kubeconfig of Cluster. Needs to passed in as a file if the cluster is a non-AAD enabled cluster |
@@ -193,7 +193,7 @@ Use `update` command when you want to add new tags, associate new cluster extens
 
 | Parameter name | Description |
 |--------------|------------|
-| `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) to the custom location |
+| `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to the custom location |
 | `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension ids |
 | `--tags` | Add new tags in addition to existing tags.Space-separated list of tags: key[=value] [key[=value] ...]. |
 
@@ -216,7 +216,7 @@ Use `patch` command when you want to replace existing tags, cluster extension ID
 
 | Parameter name | Description |
 |--------------|------------|
-| `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) to the custom location |
+| `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to the custom location |
 | `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension ids |
 | `--tags` | Add new tags in addition to existing tags.Space-separated list of tags: key[=value] [key[=value] ...]. |
 
