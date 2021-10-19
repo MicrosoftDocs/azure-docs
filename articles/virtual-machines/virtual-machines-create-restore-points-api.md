@@ -19,11 +19,11 @@ Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task th
 user will complete.
 -->
 
-# Create virtual machine restore points using REST APIs
+# Create VM restore points using REST APIs
 
 Azure compute backup and recovery APIs provide programmatic access to virtual machine (VM) backup and restore functions. Independent software vendors (ISVs) often use these APIs to develop business continuity and disaster recovery solutions. Organizations may also use the APIs to protect individual VM instances from failure or data loss.
 
-The backup and recovery APIs allow you to to create collections of VM restore points. An individual VM restore point stores the VM configuration and a snapshot for each attached managed disk. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM.
+The backup and recovery APIs allow you to create collections of VM restore points. An individual VM restore point stores the VM configuration and a snapshot for each attached managed disk. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM.
 
 :::image type="content" source="media/virtual-machines-create-restore-points-api/restore-point-hierarchy.png" alt-text="A diagram illustrating the relationship between the restore point collection parent and the restore point child objects":::
 
@@ -72,7 +72,7 @@ Refer to the [API documentation](/rest/api/compute/restore-point-collections/cre
 
 Once the restore point collection is created, create a VM restore point within the restore point collection.
 
-Use the URI below for GET and DELETE operations on the RestorePointResource. The URI contains all required parameters, so there is no need for an additional request body.
+Use the URI below for GET and DELETE operations on the RestorePointResource. The URI contains all required parameters, so there's no need for an additional request body.
 
 ```http
 PUT https://management.azure.com/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorePointCollections/<RestorePointCollectionName>/RestorePoints/<RestorePointName>?api-version=2021-03-01
@@ -82,7 +82,7 @@ Refer to the [API documentation](/rest/api/compute/restore-points/create) to cre
 
 ### Track the status of the VM restore point creation
 
-Creation of a cross-region VM restore point is a long running operation, hence the operation returns a 201 as the response for the creation request. Customers are expected to poll for the status using the operation. Both the `Location` and `Azure-AsyncOperation` headers are provided for this purpose.
+Creation of a cross-region VM restore point is a long running operation, so the operation will return an HTTP 201 response for the creation request. Customers are expected to poll for the status using the operation. Both the `Location` and `Azure-AsyncOperation` headers are provided for this purpose.
 
 During restore point creation, the `ProvisioningState` would appear as `Creating` in the response. If creation fails, `ProvisioningState` will be set to `Failed`.
 
@@ -94,7 +94,7 @@ Create VM restore points in a remote region to protect your VM from region failu
 
 The first step in protecting a VM from region failure is to create a restore point collection in the target region referencing a VM from a source region. This restore point collection will hold all the restore points for the source VM.  
 
-You need to specify the target region in the `location` property of the request body.
+Ensure that you specify the target region in the `location` property of the request body.
 
 You need to specify the source VM ARM id in the request body.
 
