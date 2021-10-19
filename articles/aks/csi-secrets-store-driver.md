@@ -231,6 +231,18 @@ spec:
 
 ## Metrics
 
+Metrics are served via Prometheus from port 8898, but this port is not exposed outside the pod by default. Use `kubectl port-forward` to access the metrics over localhost:
+
+```bash
+kubectl port-forward ds/csi-secrets-store-provider-azure 8898:8898 &
+curl localhost:8898/metrics
+```
+
+|Metric|Description|Tags|
+|----|----|----|
+|keyvault_request|Distribution of how long it took to get from keyvault|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
+|grpc_request|Distribution of how long it took for the gRPC requests|`os_type=<runtime os>`, `provider=azure`, `grpc_method=<rpc full method>`, `grpc_code=<grpc status code>`, `grpc_message=<grpc status message>`|
+
 ## Troubleshooting
 
 ## Next steps
