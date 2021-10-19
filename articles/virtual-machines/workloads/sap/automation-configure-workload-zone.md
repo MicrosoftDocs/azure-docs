@@ -15,7 +15,7 @@ ms.service: virtual-machines-sap
 
 The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 
-### Terraform Parameters
+## Terraform Parameters
 
 The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
 
@@ -23,7 +23,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 | ----------------------- | ---------- | ------------------------------------- | 
 | `tfstate_resource_id`   | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
 | `deployer_tfstate_key`  | Required * | The name of the state file for the Deployer  |
-### Generic Parameters
+## Generic Parameters
 
 The table below contains the parameters that define the resource group and the resource naming.
 
@@ -34,7 +34,7 @@ The table below contains the parameters that define the resource group and the r
 | `resource_group_name`   | Optional   | Name of the resource group to be created |
 | `resource_group_arm_id` | Optional   | Azure resource identifier for an existing resource group |
 
-### Network Parameters
+## Network Parameters
 
 The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
  - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
@@ -70,7 +70,7 @@ The table below contains the networking parameters.
 | `web_subnet_nsg_name`            | Optional	 | The name of the 'web' Network Security Group name | |
 | `web_subnet_nsg_arm_id`          | Mandatory * | The Azure resource identifier for the 'web' Network Security Group | Mandatory for brown field deployments |
 
-### ISCI Parameters
+## ISCI Parameters
 
 | Variable                         | Type        | Description                           | Notes  |
 | -------------------------------- | ----------- | ------------------------------------- | ------ |
@@ -97,7 +97,7 @@ version="latest"
 }
 ```
 
-### Key Vault Parameters
+## Key Vault Parameters
 
 The table below defines the parameters used for defining the Key Vault information
 
@@ -106,14 +106,14 @@ The table below defines the parameters used for defining the Key Vault informati
 | `user_keyvault_id`	             | Optional	   | Azure resource identifier for the user key vault |
 | `spn_keyvault_id`                  | Optional	   | Azure resource identifier for the user key vault containing the deployment credentials (SPNs) |
 
-### DNS
+## DNS
 
 | Variable                           | Type        | Description                           | 
 | ---------------------------------- | ----------- | ------------------------------------- | 
 | `dns_label`                        | Optional    | If specified, is the DNS name of the private DNS zone | 
 | `dns_resource_group_name`          | Optional    | The name of the resource group containing the Private DNS zone | 
 
-### Azure NetApp support
+## Azure NetApp support
 
 | Variable                           | Type        | Description                           | Notes  |
 | ---------------------------------- | ----------- | ------------------------------------- | ------ |
@@ -127,7 +127,7 @@ The table below defines the parameters used for defining the Key Vault informati
 | `anf_subnet_address_prefix`        | Required *  | The address range for the 'ANF' subnet  | Mandatory for green field deployments |
 
 
-### Other parameters
+## Other parameters
 
 | Variable                             | Type        | Description                           | Notes  |
 | ------------------------------------ | ----------- | ------------------------------------- | ------ |
