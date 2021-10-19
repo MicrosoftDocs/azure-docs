@@ -20,6 +20,7 @@ Azure Active Directory pod-managed identities uses Kubernetes primitives to asso
 ### Prerequisites
 
 - Ensure the [AAD pod identity addon][aad-pod-identity] has been enabled on your cluster
+- You must be using a Linux-based cluster
 
 ### Usage
 
