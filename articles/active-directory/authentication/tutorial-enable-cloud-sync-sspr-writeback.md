@@ -42,7 +42,7 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
  
 ### Configure Azure AD Connect cloud sync service account permissions 
 
-For public preview, you need to configure Azure AD Connect cloud sync service account permissions. To set the service account permissions, use the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](./cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
+You need to configure Azure AD Connect cloud sync service account permissions by using the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](./cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
 
 <!---what is right syntax?--->
 
