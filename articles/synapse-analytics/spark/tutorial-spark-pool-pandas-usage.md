@@ -93,7 +93,7 @@ Pandas can read/write secondary ADLS account data
     - using linked service (having auth options - storage account key, service principle, manages service identity and credentials).
     - using storage options to directly pass client ID & Secret, SAS key, storage account key and connection string.
 
-a) Using linked service
+**a) Using linked service**
 
 Execute the below code.
 
@@ -129,7 +129,7 @@ Execute the below code.
    ```
 
 
-b) Using storage options to directly pass client ID & Secret, SAS key, storage account key and connection string
+**b) Using storage options** to directly pass client ID & Secret, SAS key, storage account key and connection string
 
 Execute the below code.
 
