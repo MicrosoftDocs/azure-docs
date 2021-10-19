@@ -1,7 +1,7 @@
 ---
 title: Deploy Service fabric node-types with Managed Disk support
 description: Learn how to create and deploy Service fabric node-types with Managed data disks attached
-author: micraft
+author: craftyhouse
 
 ms.topic: conceptual
 ms.date: 10/19/2021
@@ -73,20 +73,12 @@ Service Fabric Extension ARM template
 }
 ```
 
-## Migrate to using Stateless node types in a cluster
-For all migration scenarios, a new stateless-only node type needs to be added. Existing node type cannot be migrated to be stateless-only.
-
-To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
-
-The new LB and IP should be referenced in the new Stateless node types that you would like to use. In the example above, a new virtual machine scale set resources is added to be used for Stateless node types. These virtual machine scale sets reference the newly created LB and IP and are marked as stateless node types in the Service Fabric Cluster Resource.
-
-To begin, you will need to add the new resources to your existing Resource Manager template. These resources include:
-* A Public IP Resource using Standard SKU.
-* A Load Balancer Resource using Standard SKU.
-* A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
+## Migrate to using Managed data disks for Service fabric node types
+For all migration scenarios, a new node type needs to be added which uses managed data disks as specified above. Workloads needs to be migrated to these new node types.
 
 Once the resources have finished deploying, you can begin to disable the nodes in the node type that you want to remove from the original cluster.
 
 ## Next steps 
-* [Reliable Services](service-fabric-reliable-services-introduction.md)
+* [Service Fabric Overview](service-fabric-reliable-services-introduction.md)
 * [Node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md)
+* [Service Fabric capacity planning](service-fabric-best-practices-capacity-scaling.md)
