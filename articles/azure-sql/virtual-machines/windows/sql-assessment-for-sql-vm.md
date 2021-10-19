@@ -1,6 +1,6 @@
 ---
 title: SQL Assessment for SQL Server VMs
-description: "Assess that your SQL Server VM is configured to follow best practices by using the SQL Assessments feature in the Azure portal." 
+description: "Identify performance issues and assess that your SQL Server VM is configured to follow best practices by using the SQL Assessments feature in the Azure portal." 
 author: ebruersan
 ms.author: ebrue
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.reviewer: mathoma
 ---
 
 
-# SQL Assessment for Azure SQL VM (Preview)
+# SQL Assessment for SQL Server on Azure VMs (Preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 The SQL Assessment feature of the Azure portal identifies possible performance issues and evaluates that your SQL Server on Azure Virtual Machines (VMs) is configured to follow best practices using the [rich ruleset](https://github.com/microsoft/sql-server-samples/blob/master/samples/manage/sql-assessment-api/DefaultRuleset.csv) provided by the [SQL Assessment API](/sql/sql-assessment-api/sql-assessment-api-overview). 
