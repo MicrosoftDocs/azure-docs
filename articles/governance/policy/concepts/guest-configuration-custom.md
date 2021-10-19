@@ -55,12 +55,12 @@ extracted.
 
 Multiple benefits result from this change.
 
-- It is possible to use difference module versions for each configuration, on
+- It's possible to use difference module versions for each configuration, on
   the same machine.
 - When a configuration is no longer deleted on a machine, the entire folder
   where it was extracted is safely deleted by the agent without the need to
   manage shared dependencies across configurations.
-- It is not requird to manage multiple versions of any module in a central
+- It's not requird to manage multiple versions of any module in a central
   service.
 
 ## Configuration mode is set in the package artifact
