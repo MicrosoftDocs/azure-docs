@@ -34,7 +34,8 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 | GuestAndHybridManagement | HTTPS | 443 |  Required to gather information about and manage Cassandra nodes (for example, reboot) |
 | ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
 
-> [!NOTE] In addition to the above, you will also need to add the following address prefixes, as a service tag does not exist for the relevant service:
+> [!NOTE]
+> In addition to the above, you will also need to add the following address prefixes, as a service tag does not exist for the relevant service:
 > 104.40.0.0/13
 > 13.104.0.0/14
 > 40.64.0.0/10
