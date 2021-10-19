@@ -25,7 +25,7 @@ The Form Recognizer Sample Labeling tool is an open source tool that enables you
 
 * [Analyze documents using a prebuilt model](#analyze-using-a-prebuilt-model). Start with a prebuilt model to extract data from invoices, receipts, identity documents, or business cards.
 
-* [Train and analyze a custom Form](train-a-custom-form-model). Use a custom model to extract data from documents specific to distinct business data and use cases.
+* [Train and analyze a custom Form](#train-a-custom-form-model). Use a custom model to extract data from documents specific to distinct business data and use cases.
 
 
 
