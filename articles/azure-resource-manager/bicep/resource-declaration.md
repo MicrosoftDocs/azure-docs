@@ -192,7 +192,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 To assign an array to a property, use the `for` syntax.
 
-## Resource dependencies
+## Dependencies
 
 When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
 
@@ -266,7 +266,7 @@ Visual Studio Code provides a tool for visualizing the dependencies. Open a Bice
 
 :::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
 
-## Reference existing resources
+## Existing resources
 
 To reference a resource that's outside of the current Bicep file, use the `existing` keyword in a resource declaration.
 

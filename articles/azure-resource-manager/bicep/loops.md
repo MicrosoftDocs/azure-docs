@@ -386,4 +386,4 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01
 
 ## Next steps
 
-- To set dependencies on resources that are created in a loop, see [Set resource dependencies](./resource-declaration.md#set-resource-dependencies).
+- To set dependencies on resources that are created in a loop, see [Resource dependencies](./resource-declaration.md#dependencies).
