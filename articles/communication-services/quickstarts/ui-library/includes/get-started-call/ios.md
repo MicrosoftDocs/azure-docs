@@ -120,6 +120,8 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 ![Final look and feel of the quick start app](../../media/quick-start-calling-composite-running-ios.gif)
 
+## Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/palatter/create-ui-library-quickstart)
+
 ## Object Model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
