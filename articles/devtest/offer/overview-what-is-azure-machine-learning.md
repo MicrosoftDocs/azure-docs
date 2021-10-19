@@ -26,7 +26,7 @@ Azure Dev/Test offer is for individuals and teams implementing MLOps within thei
 
 Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager APIs, for building advanced ML tooling.
 
-Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control /(RBAC/) for infrastructure. You can set up a project to deny access to protected data and select operations.
+Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control (RBAC) for infrastructure. You can set up a project to deny access to protected data and select operations.
 
 ### Collaboration for machine learning teams
 

@@ -17,7 +17,7 @@ Azure’s cloud environment gives you flexibility in managing cost and workloads
 
 Services within the subscription and resource group levels is zero cost – only the resources themselves have cost to them.  
 
-![A diagram of Azure Organizations and Governance](media/managing-and-monitoring/orgs-and-governance.png "Azure organizations and governance.")
+![A diagram of Azure Organizations and Governance](media/manage-and-monitor/orgs-and-governance.png "Azure organizations and governance.")
 
 When managing from an operational expense perspective, you only pay for what you use. There are several tools with Azure dev/test subscriptions that help you manage cost during deployment.  
 
