@@ -27,7 +27,7 @@ The application will need to:
 
 ## Run as an IoT Device 
 
-The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub using symmetric key authentication to get the Azure IoT Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
+The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String. Once the connection is successful, keep the connection alive. There may be network interruptions that break the connection. Typically, the SDK should handle retries, but it may be necessary to explicitly attempt to recreate the connection.
 
 ### IoT Device Client Configuration
 
