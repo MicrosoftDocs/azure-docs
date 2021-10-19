@@ -19,7 +19,7 @@ You can set IP rules in the Azure portal, as described in this article, on searc
 
 <a id="configure-ip-policy"></a> 
 
-## Configure an IP firewall using the Azure portal
+## Set IP ranges in Azure portal
 
 To set the IP access control policy in the Azure portal, go to your Azure Cognitive Search service page and select **Networking** on the left navigation pane. Endpoint networking connectivity must be **Public Access**. If your connectivity is set to **Private Access** or **Shared Private Access**, you can only access your search service via a Private Endpoint.
 
