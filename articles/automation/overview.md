@@ -93,13 +93,13 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
 * **Respond to alerts** - Orchestrate a response when cost-based, system-based, service-based, and/or resource utilization alerts are generated.
 
-Depending on your requirements, one or more Azure services integrate with or compliment Azure Automation that can help fullfil them. Specifically:
+Depending on your requirements, one or more Azure services integrate with or compliment Azure Automation to help fullfil them. Specifically:
 
 * [Azure Arc-enabled servers](../azure-arc/servers/overview.md) enables simplified onboarding of hybrid machines to Update Management, Change Tracking and Inventory, and the Hybrid Runbook Worker role.
-* [Azure Alerts action groups](../azure-monitor/alerts/action-groups.md)
-* [Azure Monitor](../azure-monitor/overview.md) to collect metrics and log data from your Automation account, and Automation features relying on the Log Analytics workspace.
-* [Azure Logic Apps](../connectors/built-in.md) using the HTTP webhook trigger.
-* [Azure Power Apps](../connectors/azureautomation.md)
+* [Azure Alerts action groups](../azure-monitor/alerts/action-groups.md) can initiate an Automation runbook when an alert is raised.
+* [Azure Monitor](../azure-monitor/overview.md) to collect metrics and log data from your Automation account for further analysis and acting on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace.
+* [Azure Logic Apps](../connectors/built-in.md) can invoke an Automation runbook using the HTTP webhook trigger.
+* [Azure Power Apps](../connectors/azureautomation.md) 
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
 * [Azure Power Automate](../connectors/azureautomation.md)
 * [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards.
