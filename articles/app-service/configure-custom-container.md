@@ -77,12 +77,12 @@ Use the following steps to configure your web app to pull from ACR using managed
     ```azurecli-interactive
     az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
     ```
-    Replace <app-name> with the name you used in the previous step. The output of the command (filtered by the --query and --output arguments) is the service principal of the assigned identity, which you use shortly.
+    Replace `<app-name>` with the name you used in the previous step. The output of the command (filtered by the --query and --output arguments) is the service principal of the assigned identity, which you use shortly.
 1. Get the resource id of your Azure Container Registry:
     ```azurecli-interactive
     az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
     ```
-    Replace <registry-name> with the name of your registry. The output of the command (filtered by the --query and --output arguments) is the resource if of the Azure Container Registry.
+    Replace `<registry-name>` with the name of your registry. The output of the command (filtered by the --query and --output arguments) is the resource if of the Azure Container Registry.
 1. Grant the managed identity permission to access the container registry:
 
     ```azurecli-interactive
@@ -122,7 +122,7 @@ You are all set, and the web app will now use managed identity to pull from Azur
 
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet Integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull by setting the `WEBISTE_PULL_IMAGE_OVER_VNET=true` App Setting:
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet Integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBISTE_PULL_IMAGE_OVER_VNET=true`:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBISTE_PULL_IMAGE_OVER_VNET=true
