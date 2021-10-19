@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 09/22/2021
+ms.date: 10/19/2021
 ---
 
 # Azure Policy for Azure Active Directory only authentication with Azure SQL
@@ -72,7 +72,6 @@ The Azure Policy can prevent a new logical server or managed instance from being
 
 ## Limitations
 
-- Currently, you can't create a logical server or managed instance in the Azure portal with Azure AD-only authentication enabled. You can create a logical server or managed instance with Azure AD-only authentication enabled using the Azure CLI, PowerShell, Rest API, or with an ARM template. For more information, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
 - Azure Policy enforces Azure AD-only authentication during logical server or managed instance creation. Once the server is created, authorized Azure AD users with special roles (for example, SQL Security Manager) can disable the Azure AD-only authentication feature. The Azure Policy allows it, but in this case, the server or managed instance will be listed in the compliance report as `Non-compliant` and the report will indicate the server or managed instance name.  
 - For more remarks, known issues, and permissions needed, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
 

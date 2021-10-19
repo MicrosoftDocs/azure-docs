@@ -123,7 +123,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
-}
 ```
 
 After the pipeline run is finished, you can preview the image in the right panel of the module.
@@ -209,7 +208,7 @@ The Execute Python Script module contains sample Python code that you can use as
 
     ```python
     def my_func(dataframe1):
-    return dataframe1
+        return dataframe1
     ```
     Following is sample code showing how to consume the files in the script bundle:    
 
