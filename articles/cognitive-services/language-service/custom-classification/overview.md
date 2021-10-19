@@ -21,7 +21,7 @@ Custom text classification is offered as part of the custom features within Azur
 Custom text classification supports two types of projects: 
 
 * **Single label classification** - you can assign a single class for each file of your dataset. For example, a movie script could only be classified as "Action" or "Thriller". 
-* **Multiple label classification** - You can assign multiple classes for each file of your dataset. For example a movie script could be classified as "Action" or "Action and Thriller". 
+* **Multiple label classification** - You can assign multiple classes for each file of your dataset. For example, a movie script could be classified as "Action" or "Action and Thriller". 
 
 ## Example usage scenarios
 
@@ -31,7 +31,7 @@ Support centers of all types receive thousands to hundreds of thousands of email
 
 ### Knowledge mining to enhance/enrich semantic search
 
-Search is foundational to apps that display text content to users, with common scenarios including: catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content which includes both structured and unstructured documents. As a part of their pipeline, developers can use custom classification to categorize text into classes that are relevant to their industry. The predicted classes could be used to enrich the indexing of the file for a more customized search experience. 
+Search is foundational to apps that display text content to users, with common scenarios including: catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content, which includes both structured and unstructured documents. As a part of their pipeline, developers can use custom classification to categorize text into classes that are relevant to their industry. The predicted classes could be used to enrich the indexing of the file for a more customized search experience. 
 
 ## Application development lifecycle
 
@@ -59,4 +59,4 @@ Follow these steps to get the most out of your model:
 
 * Use the [quickstart article](quickstart.md) to start sending requests using Language Studio.  
 
-* As you go through the application development lifecycle, review the [glossary](definitions.md) to learn more aabout the terms used throughout the documentation for this feature. 
+* As you go through the application development lifecycle, review the [glossary](definitions.md) to learn more about the terms used throughout the documentation for this feature. 

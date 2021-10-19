@@ -36,4 +36,8 @@ After you've created a text classification model, you can:
 
 When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
 
-(TODO: Add how-to links here) 
+* [Data selection and schema design](how-to/recommended-practices.md)
+* [Tag data](how-to/tag-data.md)
+* [Train a model](how-to/train-model)
+* [View model evaluation](how-to/view-model-evaluation.md)
+* [Improve a model](how-to/improve-model.md)
