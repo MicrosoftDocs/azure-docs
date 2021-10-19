@@ -77,8 +77,10 @@
     items:
     - name: Connect camera to cloud using portal  #??
       href: overview.md
-    - name: Export a clip (batch pipeline)         #??
-      href: overview.md
+    - name: Export a clip (batch pipeline)
+      href: cloud/export-portion-of-video-as-mp4.md
+  - name: Visualize AI inference events
+    href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
   - name: C# sample repository
