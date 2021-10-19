@@ -28,7 +28,134 @@ The workload zones are typically deployed in spokes in a hub and spoke architect
 
 Supports the Private DNS from the Control Plane.
 
-## Configure SAP workload zone
+
+### Minimal configuration
+
+The following example parameter file shows only required parameters.
+
+```azurecli-interactive
+# The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
+environment="DEV"
+
+# The location value is a mandatory field, it is used to control where the resources are deployed
+location="westeurope"
+
+# The network logical name is mandatory - it is used in the naming convention and should map to the workload virtual network logical name 
+network_name="SAP01"
+
+# network_address_space is a mandatory parameter when an existing Virtual network is not used
+network_address_space="10.110.0.0/16"
+
+# admin_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+admin_subnet_address_prefix="10.110.0.0/19"
+
+# db_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+db_subnet_address_prefix="10.110.96.0/19"
+
+# app_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+app_subnet_address_prefix="10.110.32.0/19"
+
+# The automation_username defines the user account used by the automation
+automation_username="azureadm"
+
+```
+
+### Comprehensive example
+
+A comprehensive sample can be found in the ´sap-hana/deploy/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE´ folder
+
+## Deploy SAP workload zone
+
+## Preparing the Workload zone deployment credentials
+
+The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Workload Zone deployment using the following steps using an account with permissions to create Service Principals:
+
+
+```azurecli-interactive
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
+  
+```
+
+> [!IMPORTANT]
+> The name of the Service Principal must be unique.
+>
+> Record the output values from the command.
+   > - appId
+   > - password
+   > - tenant
+
+Assign the correct permissions to the Service Principal: 
+
+```azurecli-interactive
+az role assignment create --assignee <appId> --role "User Access Administrator"
+```
+
+## Deploying the SAP Workload zone
+   
+The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
+
+Running the command below will deploy the SAP Workload Zone.
+
+# [Linux](#tab/linux)
+
+> [!TIP]
+> Perform this task from the deployer.
+
+```azurecli-interactive
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
+subscriptionID=<subscriptionID>
+appId=<appID>
+spn_secret=<password>
+tenant_id=<tenant>
+keyvault=<keyvaultName>
+storageaccount=<storageaccountName>
+statefile_subscription=<statefile_subscription>
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                                  \
+        --parameter_file LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE/DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars           \
+        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                     \
+        --keyvault $keyvault                                                                                    \
+        --state_subscription $statefile_subscription                                                            \
+        --subscription $subscriptionID                                                                          \
+        --spn_id $appID                                                                                         \
+        --spn_secret "$spn_secret"                                                                              \ 
+        --tenant_id $tenant
+```
+
+> [!NOTE]
+> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace `<keyvaultName>` with the deployer key vault name
+> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
+> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
+
+
+# [Windows](#tab/windows)
+
+```powershell-interactive
+$subscription="<subscriptionID>"
+$appId="<appID>"
+$spn_secret="<password>"
+$tenant_id="<tenant>"
+$keyvault=<keyvaultName>
+$storageaccount=<storageaccountName>
+$statefile_subscription=<statefile_subscription>
+
+cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
+
+New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+-Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
+-State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
+```
+> [!NOTE]
+> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace `<keyvaultName>` with the deployer key vault name
+> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
+> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
+
+## Appendix 
 
 The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 
@@ -152,134 +279,6 @@ The table below defines the parameters used for defining the Key Vault informati
 | `use_private_endpoint`               | Optional    | Boolean flag controlling if private endpoints are used. | 
 | `diagnostics_storage_account_arm_id` | Required *  | The Azure resource identifier for the diagnostics storage account | Mandatory for brown field deployments |
 | `witness_storage_account_arm_id`     | Required *  | The Azure resource identifier for the witness storage account | Mandatory for brown field deployments |
-
-
-
-## Example parameter file (required parameters only)
-
-The following example parameter file shows only required parameters.
-
-```
-# The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
-environment="DEV"
-
-# The location value is a mandatory field, it is used to control where the resources are deployed
-location="westeurope"
-
-# The network logical name is mandatory - it is used in the naming convention and should map to the workload virtual network logical name 
-network_name="SAP01"
-
-# network_address_space is a mandatory parameter when an existing Virtual network is not used
-network_address_space="10.110.0.0/16"
-
-# admin_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
-admin_subnet_address_prefix="10.110.0.0/19"
-
-# db_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
-db_subnet_address_prefix="10.110.96.0/19"
-
-# app_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
-app_subnet_address_prefix="10.110.32.0/19"
-
-# The automation_username defines the user account used by the automation
-automation_username="azureadm"
-
-```
-
-## Example parameter file (all parameters)
-
-A comprehensive sample can be found in the ´sap-hana/deploy/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE´ folder
-
-## Deploy SAP workload zone
-
-## Preparing the Workload zone deployment credentials
-
-The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Workload Zone deployment using the following steps using an account with permissions to create Service Principals:
-
-
-```azurecli-interactive
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
-  
-```
-
-> [!IMPORTANT]
-> The name of the Service Principal must be unique.
->
-> Record the output values from the command.
-   > - appId
-   > - password
-   > - tenant
-
-Assign the correct permissions to the Service Principal: 
-
-```azurecli-interactive
-az role assignment create --assignee <appId> --role "User Access Administrator"
-```
-
-## Deploying the SAP Workload zone
-   
-The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
-
-Running the command below will deploy the SAP Workload Zone.
-
-# [Linux](#tab/linux)
-
-> [!TIP]
-> Perform this task from the deployer.
-
-```azurecli-interactive
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
-keyvault=<keyvaultName>
-storageaccount=<storageaccountName>
-statefile_subscription=<statefile_subscription>
-
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                                  \
-        --parameter_file LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE/DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars           \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                     \
-        --keyvault $keyvault                                                                                    \
-        --state_subscription $statefile_subscription                                                            \
-        --subscription $subscriptionID                                                                          \
-        --spn_id $appID                                                                                         \
-        --spn_secret "$spn_secret"                                                                              \ 
-        --tenant_id $tenant
-```
-
-> [!NOTE]
-> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace `<keyvaultName>` with the deployer key vault name
-> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
-> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
-
-
-# [Windows](#tab/windows)
-
-```powershell-interactive
-$subscription="<subscriptionID>"
-$appId="<appID>"
-$spn_secret="<password>"
-$tenant_id="<tenant>"
-$keyvault=<keyvaultName>
-$storageaccount=<storageaccountName>
-$statefile_subscription=<statefile_subscription>
-
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
-
-New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
--Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
--State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
-```
-> [!NOTE]
-> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace `<keyvaultName>` with the deployer key vault name
-> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
-> Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
 
 ## Next steps
