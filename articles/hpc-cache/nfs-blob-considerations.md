@@ -37,7 +37,7 @@ On an NFS-enabled blob container, *a file can only be edited by the same protoco
 
 It's not a problem for the cache if your container is empty, or if the files were created by using NFS.
 
-If the files in your container were created with Azure Blob's REST API instead of NFS, Azure HPC Cache is restricted to these actions on the original files:
+If the files in your container were created with the Azure Blob REST API instead of NFS, Azure HPC Cache is restricted to these actions on the original files:
 
 * List the file in a directory.
 * Read the file (and hold it in the cache for subsequent reads).
