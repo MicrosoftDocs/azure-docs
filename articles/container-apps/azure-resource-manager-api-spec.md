@@ -103,7 +103,7 @@ The following is an example ARM template used to deploy a container app.
             "name": "[parameters('containerappName')]",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('kubeEnvironmentName'))]",
+                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
                 "configuration": {
                     "secrets": [
                         {
