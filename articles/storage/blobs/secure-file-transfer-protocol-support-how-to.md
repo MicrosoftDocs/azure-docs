@@ -55,7 +55,7 @@ This section helps you to configure a local user, choose an authentication metho
 2. Select **SFTP**, and then in the SFTP configuration page, select **Add local user**. 
 
    > [!div class="mx-imgBorder"]
-   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-local-user-config.png)
+   > ![Add local users button](./media/secure-file-transfer-protocol-support-how-to/sftp-local-user-config.png)
 
 3. In the **Add local user** configuration page, add the name of a user, and then select which methods of authentication you'd like associate with this local user. 
 
@@ -67,6 +67,9 @@ This section helps you to configure a local user, choose an authentication metho
    If you select **Secure with SSH public key**, then select **Add key source** to specify a key. 
 
    You can generate a new key pair, use an existing key stored in Azure, or specify an existing public key.  To learn more about these options, see [Authentication methods](secure-file-transfer-protocol-support.md#authentication-methods).
+
+   > [!div class="mx-imgBorder"]
+   > ![Add key source](./media/secure-file-transfer-protocol-support-how-to/add-local-user-configuration-page-add-key-source.png)
 
 4. Select **Next** to move to the **Container permissions** tab of the configuration page.
 
@@ -83,7 +86,7 @@ This section helps you to configure a local user, choose an authentication metho
 
    If you chose to secure data with a password, then your password appears in a dialog box. This password can't be generated again, so make sure to copy the password, and then store it in a place where you can find it. 
 
-   If you choose to generate a new key pair, then you'll be prompted to download the private key of that key pair.
+   If you chose to generate a new key pair, then you'll be prompted to download the private key of that key pair.
 
 ## Enable SFTP support
 
@@ -92,7 +95,7 @@ This section helps you to configure a local user, choose an authentication metho
 2. Select **SFTP**, and then select **Enable SFTP**.
 
    > [!div class="mx-imgBorder"]
-   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable.png)
+   > ![Enable SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable.png)
 
    >[!NOTE]
    > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Add a local user](#add-local-users) section of this article.
