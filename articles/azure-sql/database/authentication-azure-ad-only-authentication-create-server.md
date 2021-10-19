@@ -725,7 +725,6 @@ Once the deployment is complete for your managed instance, you may notice that t
 
 ## Limitations
 
-- Creating a managed instance using the Azure portal with Azure AD-only authentication enabled during provisioning is currently not supported.
 - To reset the server administrator password, Azure AD-only authentication must be disabled.
 - If Azure AD-only authentication is disabled, you must create a server with a server admin and password when using all APIs.
 
