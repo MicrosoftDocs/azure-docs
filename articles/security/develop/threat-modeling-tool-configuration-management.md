@@ -26,8 +26,8 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Web Application** | <ul><li>[Implement Content Security Policy (CSP), and disable inline JavaScript](#csp-js)</li><li>[Enable browser's XSS filter](#xss-filter)</li><li>[ASP.NET applications must disable tracing and debugging prior to deployment](#trace-deploy)</li><li>[Access third-party Javascripts from trusted sources only](#js-trusted)</li><li>[Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses](#ui-defenses)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications](#cors-aspnet)</li><li>[Enable ValidateRequest attribute on ASP.NET Pages](#validate-aspnet)</li><li>[Use locally hosted latest versions of JavaScript libraries](#local-js)</li><li>[Disable automatic MIME sniffing](#mime-sniff)</li><li>[Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting](#standard-finger)</li></ul> |
 | **Database** | <ul><li>[Configure a Windows Firewall for Database Engine Access](#firewall-db)</li></ul> |
 | **Web API** | <ul><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API](#cors-api)</li><li>[Encrypt sections of Web API's configuration files that contain sensitive data](#config-sensitive)</li></ul> |
-| **IoT Device** | <ul><li>[Ensure that all admin interfaces are secured with strong credentials](#admin-strong)</li><li>[Ensure that unknown code cannot execute on devices](#unknown-exe)</li><li>[Encrypt OS and additional partitions of IoT Device with BitLocker](#partition-iot)</li><li>[Ensure that only the minimum services/features are enabled on devices](#min-enable)</li></ul> |
-| **IoT Field Gateway** | <ul><li>[Encrypt OS and additional partitions of IoT Field Gateway with BitLocker](#field-bit-locker)</li><li>[Ensure that the default login credentials of the field gateway are changed during installation](#default-change)</li></ul> |
+| **IoT Device** | <ul><li>[Ensure that all admin interfaces are secured with strong credentials](#admin-strong)</li><li>[Ensure that unknown code cannot execute on devices](#unknown-exe)</li><li>[Encrypt OS and other partitions of IoT Device with BitLocker](#partition-iot)</li><li>[Ensure that only the minimum services/features are enabled on devices](#min-enable)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Encrypt OS and other partitions of IoT Field Gateway with BitLocker](#field-bit-locker)</li><li>[Ensure that the default login credentials of the field gateway are changed during installation](#default-change)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Ensure that the Cloud Gateway implements a process to keep the connected devices firmware up to date](#cloud-firmware)</li></ul> |
 | **Machine Trust Boundary** | <ul><li>[Ensure that devices have end-point security controls configured as per organizational policies](#controls-policies)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure secure management of Azure storage access keys](#secure-keys)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on Azure storage](#cors-storage)</li></ul> |
@@ -42,7 +42,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](https://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is an allowed list-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker-controlled domain will not be in CSP's allowed list of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's allowed list</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
+| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is an allowed list-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in two ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker-controlled domain will not be in CSP's allowed list of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's allowed list</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
 Example policy: 
@@ -55,7 +55,7 @@ This policy allows scripts to load only from the web application's server and go
 Inline scripts will not execute. Following are examples of inline scripts 
 ```JavaScript
 <script> some Javascript code </script>
-Event handling attributes of HTML tags (e.g., <button onclick="function(){}">
+Event handling attributes of HTML tags (for example, <button onclick="function(){}">
 javascript:alert(1);
 ```
 
@@ -74,7 +74,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [XSS Protection Filter](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **Steps** | <p>X-XSS-Protection response header configuration controls the browser's cross site script filter. This response header can have following values:</p><ul><li>`0:` This will disable the filter</li><li>`1: Filter enabled` If a cross-site scripting attack is detected, in order to stop the attack, the browser will sanitize the page</li><li>`1: mode=block : Filter enabled`. Rather than sanitize the page, when an XSS attack is detected, the browser will prevent rendering of the page</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. The browser will sanitize the page and report the violation.</li></ul><p>This is a Chromium function utilizing CSP violation reports to send details to a URI of your choice. The last 2 options are considered safe values.</p>|
+| **Steps** | <p>X-XSS-Protection response header configuration controls the browser's cross site script filter. This response header can have following values:</p><ul><li>`0:` This will disable the filter</li><li>`1: Filter enabled` If a cross-site scripting attack is detected, in order to stop the attack, the browser will sanitize the page</li><li>`1: mode=block : Filter enabled`. Rather than sanitize the page, when an XSS attack is detected, the browser will prevent rendering of the page</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. The browser will sanitize the page and report the violation.</li></ul><p>This is a Chromium function utilizing CSP violation reports to send details to a URI of your choice. The last two options are considered safe values.</p>|
 
 ## <a id="trace-deploy"></a>ASP.NET applications must disable tracing and debugging prior to deployment
 
@@ -162,7 +162,7 @@ If access to web.config is not available, then CORS can be configured by adding 
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
 
-Please note that it is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application >without any restrictions, thereby making the application vulnerable to CSRF attacks. 
+Note that it is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (for example, setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application >without any restrictions, thereby making the application vulnerable to CSRF attacks. 
 
 ## <a id="validate-aspnet"></a>Enable ValidateRequest attribute on ASP.NET Pages
 
@@ -188,7 +188,7 @@ or, at application level
    </system.web>
 </configuration>
 ```
-Please note that Request Validation feature is not supported, and is not part of MVC6 pipeline. 
+Note that Request Validation feature is not supported, and is not part of MVC6 pipeline. 
 
 ## <a id="local-js"></a>Use locally-hosted latest versions of JavaScript libraries
 
@@ -361,7 +361,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-Please note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. EnableCors can be decorated at controller level. 
+Note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (for example, setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. EnableCors can be decorated at controller level. 
 
 ### Example
 To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
@@ -466,7 +466,7 @@ public void ConfigureServices(IServiceCollection services)
     });
 }
 ```
-Please note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. 
+Note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (for example, setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. 
 
 ### Example
 To disable CORS for a controller or action, use the [DisableCors] attribute. 
@@ -511,7 +511,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **References**              | [Enabling Secure Boot and BitLocker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Steps** | UEFI Secure Boot restricts the system to only allow execution of binaries signed by a specified authority. This feature prevents unknown code from being executed on the platform and potentially weakening the security posture of it. Enable UEFI Secure Boot and restrict the list of certificate authorities that are trusted for signing code. Sign all code that is deployed on the device using one of the trusted authorities. |
 
-## <a id="partition-iot"></a>Encrypt OS and additional partitions of IoT Device with BitLocker
+## <a id="partition-iot"></a>Encrypt OS and other partitions of IoT Device with BitLocker
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -520,7 +520,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Windows 10 IoT Core implements a lightweight version of BitLocker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using BitLocker and any additional partitions also in case they store any sensitive data. |
+| **Steps** | Windows 10 IoT Core implements a lightweight version of BitLocker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using BitLocker and any other partitions also in case they store any sensitive data. |
 
 ## <a id="min-enable"></a>Ensure that only the minimum services/features are enabled on devices
 
@@ -531,9 +531,9 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Do not enable or turn off any features or services in the OS that is not required for the functioning of the solution. For e.g. if the device does not require a UI to be deployed, install Windows IoT Core in headless mode. |
+| **Steps** | Do not enable or turn off any features or services in the OS that is not required for the functioning of the solution. For example, if the device does not require a UI to be deployed, install Windows IoT Core in headless mode. |
 
-## <a id="field-bit-locker"></a>Encrypt OS and additional partitions of IoT Field Gateway with BitLocker
+## <a id="field-bit-locker"></a>Encrypt OS and other partitions of IoT Field Gateway with BitLocker
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -542,7 +542,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Windows 10 IoT Core implements a lightweight version of BitLocker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using BitLocker and any additional partitions also in case they store any sensitive data. |
+| **Steps** | Windows 10 IoT Core implements a lightweight version of BitLocker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using BitLocker and any other partitions also in case they store any sensitive data. |
 
 ## <a id="default-change"></a>Ensure that the default login credentials of the field gateway are changed during installation
 
