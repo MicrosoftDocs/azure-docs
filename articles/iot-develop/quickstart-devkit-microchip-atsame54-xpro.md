@@ -48,7 +48,7 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
@@ -248,7 +248,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 
 * Hardware
 
@@ -380,7 +380,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 
 * Hardware
 
