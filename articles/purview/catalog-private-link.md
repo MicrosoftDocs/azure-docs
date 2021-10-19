@@ -71,7 +71,7 @@ If you created a _portal_ private endpoint for your Purview account **prior to 2
 
 ### Review your current DNS settings
 
-1. From Azure Portal, locate your Purview account. From left hand menu click on **Networking**, select **Private Endpoint connections**. Click on each private endpoint in the list and follow the steps below.
+1. From Azure portal, locate your Purview account. From left hand menu click on **Networking**, select **Private Endpoint connections**. Click on each private endpoint in the list and follow the steps below.
 
     :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-1.png" alt-text="Screenshot that shows purview private endpoint.":::
 
