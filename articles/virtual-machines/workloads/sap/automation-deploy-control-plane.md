@@ -69,10 +69,6 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --tenant_id $tenant
 ```
 
-> [!NOTE]
-> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-
 # [Windows](#tab/windows)
 
 ```powershell-interactive
@@ -86,6 +82,11 @@ cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRASTRUCTURE\MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 ```
 ---
+
+
+> [!NOTE]
+> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
 ## Next step
 
