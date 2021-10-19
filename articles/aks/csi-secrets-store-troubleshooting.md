@@ -79,7 +79,7 @@ E1029 17:37:42.461313       1 server.go:54] failed to process mount request, err
 It means the provider pod is unable to access the AKV instance because
 - There is a firewall rule blocking egress traffic from the provider.
 - Network policies configured in the cluster that’s blocking egress traffic.
-- The provider pods run on hostNetwork. So if there is a policy blocking this traffic or there are network jitters on the node it could result in the above failure. Check for policies configured to block traffic and whitelist the provider pods. Also, ensure there is connectivity to AAD and Keyvault from the node.
+- The provider pods run on hostNetwork. So if there is a policy blocking this traffic or there are network jitters on the node it could result in the above failure. Check for policies configured to block traffic and allowlist the provider pods. Also, ensure there is connectivity to AAD and Keyvault from the node.
 
 You can test Azure Key Vault connectivity from pod running on host network as follows:
 - Create Pod
@@ -116,7 +116,7 @@ kubectl exec -it curl -- sh
 curl -X POST 'https://login.microsoftonline.com/<AAD_TENANT_ID>/oauth2/v2.0/token' -d 'grant_type=client_credentials&client_id=<AZURE_CLIENT_ID>&client_secret=<AZURE_CLIENT_SECRET>&scope=https://vault.azure.net/.default'
 ```
 
-- Try getting secret which is already created in AKV
+- Try getting a secret already created in AKV
 
 ```bash
 curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
@@ -130,7 +130,7 @@ If you received the following error message in the logs/events:
 E0610 22:27:02.283100       1 secretproviderclasspodstatus_controller.go:325] "failed to create Kubernetes secret" err="secrets is forbidden: User \"system:serviceaccount:default:secrets-store-csi-driver\" cannot create resource \"secrets\" in API group \"\" in the namespace \"default\"" spc="default/azure-linux" pod="default/busybox-linux-5f479855f7-jvfw4" secret="default/dockerconfig" spcps="default/busybox-linux-5f479855f7-jvfw4-default-azure-linux"
 ```
 
-It means the RBAC clusterrole and clusterrolebinding required for the CSI driver required to sync the mounted content as Kubernetes secret is not installed. When installing/upgrading the driver and provider using helm charts from [this repo][csi-ss-provider], set secrets-store-csi-driver.syncSecret.enabled=true. This will install the required clusterrole and clusterrolebinding.
+It means the RBAC clusterrole and clusterrolebinding required for the CSI driver required to sync the mounted content as Kubernetes secret is not installed. When installing/upgrading the driver and provider using helm charts from [this repo][csi-ss-provider], set secrets-store-csi-driver.syncSecret.enabled=true. This operation will install the required clusterrole and clusterrolebinding.
 
 ```bash
 # sync as Kubernetes secret clusterrole
