@@ -295,26 +295,31 @@ Follow these instructions to set up Azure files.
 
 ## Validation Scenarios
 
-Validation Process
-Part 1: Validating share mount
-1.	The validation process will be to execute the following command from a command line
 
-net use <DriveLetter>: \\<your-storage-account-name>.file.core.windows.net\<your-share-name> /persistent:yes
+### Part 1 Validating share mount
 
-2.	Open the drive letter from explorer and verify connectivity without any prompts.
+1. The validation process will be to execute the following command from a command line
 
-3.	Reboot the machine and log back into Windows.
+   ```comd
+   net use <DriveLetter>: \\<your-storage-account-name>.file.core.windows.net\<your-share-name> /persistent:yes
+   ```
 
-4.	Verify the drive is reconnected.
+1. Open the drive letter from explorer and verify connectivity without any prompts.
+1. Reboot the machine and log back into Windows.
+1. Verify the drive is reconnected.
 
-Part 2: Validating share-level permissions
-In section 7.2.3, there is a guide on how to assign share-level permissions to users’ AAD identities using Azure Portal.  We’d want to validate that these permissions are enforced by doing the following:
-1.	Assign a user “Storage File Data SMB Share Reader” permissions to authorize them read access of the file share.
-2.	Execute “Part 1” above such that they have mounted the share.
-3.	Try to add a new file to the share – the expectation is that this fails.
+### Part 2: Validating share-level permissions
 
-Part 3: Validating file-level permissions
-In section 7.2.7, there is a guide on how to configure file-level permissions to assign granular access for users at the file and directory level.  We’d want to validate that these permissions are enforced by doing the following:
+In the section to set up Azure Files, there is a guide on how to assign share-level permissions to users’ Azure AD identities using Azure Portal.  We’d want to validate that these permissions are enforced by doing the following:
+
+1. Assign a user **Storage File Data SMB Share Reader** permissions to authorize them read access of the file share.
+1. Execute Part 1 above such that they have mounted the share.
+1. Try to add a new file to the share – the expectation is that this fails.
+
+### Part 3: Validating file-level permissions
+
+In the section to set up Azure Files, there is a guide on how to configure file-level permissions to assign granular access for users at the file and directory level.  We’d want to validate that these permissions are enforced by doing the following:
+
 1.	Mount the share using storage account and key.
 2.	Create a file.
 3.	Using the guide in 7.2.7, go through the steps to configure the file’s permission such that a user is denied access to that file.
@@ -323,27 +328,34 @@ In section 7.2.7, there is a guide on how to configure file-level permissions to
 
 ## Troubleshooting 
 
-9.1.	Verify tickets are getting cached
-1.	klist get krbtgt/kerberos.microsoftonline.com <-- should return a ticket from on-prem realm.
+### Verify tickets are getting cached
 
-2.	klist get cifs/<azfiles.host.name.com> <-- should return a ticket from kerberos.microsoftonline.com realm with SPN to <azfiles.host.name.com>
+1. `klist get krbtgt/kerberos.microsoftonline.com` should return a ticket from on-prem realm.
 
-9.2.	Verify and investigate connection issues to Azure Storage
-1.	Verify connectivity over Port 445 using Test-NetConnection cmdlet, for an example, use this reference: https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked 
-2.	For other issues specific to storage, refer to our Windows client troubleshooting guide: https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems 
-9.3.	Investigate message flow failures.
-1.	Wireshark traffic between client and on-prem KDC. Expect 
-AS-REQ: Client => on-prem KDC => returns on-prem TGT
-TGS-REQ: Client => on-prem KDC => returns referral to kerberos.microsoftonline.com
+1. `klist get cifs/<azfiles.host.name.com>` should return a ticket from kerberos.microsoftonline.com realm with SPN to <azfiles.host.name.com>
 
-2.	Fiddler traffic between client and ESTS over HTTPS (run as admin). Expect:
-TGS-REQ: Client => login.msol.com/{tenant}/kerberos => returns ticket to <azfiles.host.name.com>
-Use plugin to decode Kerberos messages: https://github.com/dotnet/Kerberos.NET/releases/tag/ext-installer-v1
-9.4.	Verify existing commands work as expected.
+### Verify and investigate connection issues to Azure Storage
+
+1. Verify connectivity over Port 445 using Test-NetConnection cmdlet, for an example, use [this reference](/storage/files/storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked).
+1. For other issues specific to storage, refer to our [Windows client troubleshooting guide](/storage/files/storage-troubleshoot-windows-file-connection-problems.md).
+
+### Investigate message flow failures
+
+1. Wireshark traffic between client and on-prem KDC. Expect: 
+   AS-REQ: Client => on-prem KDC => returns on-prem TGT
+   TGS-REQ: Client => on-prem KDC => returns referral to kerberos.microsoftonline.com
+
+1. Fiddler traffic between client and ESTS over HTTPS (run as admin). Expect:
+   TGS-REQ: Client => login.msol.com/{tenant}/kerberos => returns ticket to <azfiles.host.name.com>
+   Use the [plugin to decode Kerberos messages](https://github.com/dotnet/Kerberos.NET/releases/tag/ext-installer-v1)
+
+### Verify existing commands work as expected
+
 Log collection for troubleshooting.
-1.	Collect fiddler traces and Request Id or Correlation Id from response headers.
-2.	Use aka.ms/logsminer to search for traces.
-3.	Collect Windows ETL traces from client.
+
+1. Collect fiddler traces and Request Id or Correlation Id from response headers.
+1. Use aka.ms/logsminer to search for traces.
+1. Collect Windows ETL traces from client.
 
 ## Feedback 
 
