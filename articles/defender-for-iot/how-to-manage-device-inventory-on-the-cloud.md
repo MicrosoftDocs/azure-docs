@@ -1,7 +1,7 @@
 ---
-title: Manage the device inventory on the cloud
-description: Learn how to manage your device inventory on the cloud.
-ms.date: 10/17/2021
+title: Manage the IoT device inventory
+description: Learn how to manage your device inventory page.
+ms.date: 10/19/2021
 ms.topic: how-to
 ---
 
@@ -25,7 +25,7 @@ Some of the benefits of the device inventory include:
 
 The Device inventory gives you an overview of all devices within your environment. Here you can see the individual details of each device and filter, and order your search by various options.
 
-The following table describes the different parameters in the device inventory.
+The following table describes the different device properties in the device inventory.
 
 | Parameter | Description | Default value |
 |--|--|--|
@@ -113,9 +113,9 @@ You can export your device inventory to a CSV file. Any filters that you apply t
 
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
 
-## How to identify all devices that have not communicated recently
+## How to identify devices that have not recently communicated with the Azure cloud
 
-If you are under the impression that certain devices are not actively communicating, there is a way to check, and see which devices have not communicated in a specified number of days.
+If you are under the impression that certain devices are not actively communicating, there is a way to check, and see which devices have not communicated in a specified time period.
 
 **To identify all devices that have not communicated recently**:
 
