@@ -90,8 +90,4 @@ xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
 ## Next step
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD
-> [Run automation framework from Cloud Shell](automation-configure-control-plane.md)
-=======
-> [Run automation framework from Cloud Shell](automation-configure-deployer.md)
->>>>>>> 977e9d1ab62864a0b0f340608f4f93e44a637c1a
+> [Configure Control Plane](automation-configure-control-plane.md)
