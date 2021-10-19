@@ -17,17 +17,17 @@ zone_pivot_groups: programming-languages-set-two
 When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (AAD). This article describes how to configure the Speech resource and create a Speech SDK configuration object to use AAD for authentication.
 
 This article shows how to use AAD authentication with the Speech SDK by following four steps:
-1) Create a Speech Resource
-2) Configure the Speech Resource for AAD Authentication
+1) Create a Speech resource
+2) Configure the Speech resource for AAD Authentication
 3) Get an AAD token
 4) Create the appropriate SDK configuration object.
 
-## Create a Speech Resource
-To create a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
+## Create a Speech resource
+To create a Speech resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
 
-## Configure the Speech Resource for AAD Authentication
+## Configure the Speech resource for AAD Authentication
 
-Follow these steps to configure the Speech Resource to be usable for AAD Authentication:
+Follow these steps to configure the Speech resource to be usable for AAD Authentication:
 1) Create a Custom Domain Name
 2) Assign Roles
 
@@ -35,7 +35,7 @@ Follow these steps to configure the Speech Resource to be usable for AAD Authent
 [!INCLUDE [Custom Domain include](includes/how-to/custom-domain.md)]
 
 ### Assign roles
-AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech Resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
+AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
 
 You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
@@ -109,9 +109,9 @@ Find samples that get an AAD token in [Microsoft identity platform code samples]
 
 For programming languages where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
 ::: zone-end
-## Get the Speech Resource ID
+## Get the Speech resource ID
 
-You'll need the Speech Resource's ID to make SDK calls using AAD Authentication.
+You'll need the Speech resource's ID to make SDK calls using AAD Authentication.
 
 > [!NOTE]
 > For Intent Recognition use the ID for the LUIS Prediction Resource.
@@ -153,7 +153,7 @@ $speechResourceName = "Your Speech resource name"
 # You can skip this step if your Azure account has only one active subscription.
 Set-AzContext -SubscriptionId $subId
 
-# Get the Speech Resource 
+# Get the Speech resource 
 $resource = Get-AzCognitiveServicesAccount -Name $speechResourceName -ResourceGroupName $resourceGroup
 
 # Get the resource ID:
