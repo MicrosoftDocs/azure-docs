@@ -32,7 +32,7 @@ The application can be hosted anywhere: in Azure, on-premises or in other clouds
 
 Azure Load Testing automatically incorporates Azure networking best practices to make sure your tests run securely and reliably. Load tests are automatically aborted if the application endpoints or Azure components start throttling requests.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Diagram showing the Azure Load Testing architecture overview.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram showing the Azure Load Testing architecture overview.":::
 
 > [!NOTE]
 > This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components, and isn't a comprehensive list of supported Azure resources.
