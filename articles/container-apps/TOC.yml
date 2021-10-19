@@ -11,10 +11,12 @@
       href: get-started.md
 - name: Concepts
   items:
-    - name: Containers
-      href: containers.md
     - name: Environment
       href: environment.md
+    - name: Containers
+      href: containers.md
+    - name: Revisions
+      href: revisions.md
     - name: Auto-scaling
       href: autoscale.md
     - name: Microservices
