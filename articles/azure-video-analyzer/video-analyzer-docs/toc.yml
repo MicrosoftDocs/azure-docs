@@ -174,7 +174,7 @@
     - name: Monitor  
       href: overview.md       
     - name: Troubleshoot      
-      href: overview.md       
+      href: cloud/troubleshoot.md       
   - name: Visualize
     items:
     - name: Embed player widget in a web app
