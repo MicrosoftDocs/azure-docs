@@ -14,8 +14,8 @@ ms.custom: devtestoffer
 Across Microsoft, we're focused on empowering developers to build better apps, faster. By providing a range of products and services, we cover all stages of the software development lifecycle, including:
 
 - IDEs and DevOps tools
-- application and data platforms on the cloud
-- operating systems
+- Application and data platforms on the cloud
+- Operating systems
 - Artificial Intelligence
 - IoT solutions and more  
 
@@ -47,7 +47,7 @@ If you haven’t activated your credits yet, go to the [Monthly Azure Credits fo
 
 ![Screenshot of a Microsoft account sign in page.](media/sign-into-azure-with-github/sign-in-with-github.png "Sign in with Email, phone, or Skype.")  
 
-Once you complete the sign in process, you'll be taken to the last Azure Visual Studio organization you visited. If you’re brand new to Azure Visual Studio and Credits Subscription, you’ll land within a new organization created for you.  
+Once you complete the sign-in process, you'll be taken to the last Azure Visual Studio organization you visited. If you’re brand new to Azure Visual Studio and Credits Subscription, you’ll land within a new organization created for you.  
 
 ## Access all of Microsoft online services  
 
