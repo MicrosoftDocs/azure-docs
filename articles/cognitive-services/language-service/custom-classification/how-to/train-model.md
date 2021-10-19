@@ -17,12 +17,22 @@ ms.author: aahi
 
 Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
 
-> [!NOTE]
-> * While there is no minimum of tagged instances per class, you can start with 50 files per class. Model performance depends on how distinct the entities in your documents are, and how easily they can be differentiated from each other.
+## Prerequisites
+
+Before you train your model you need:
+* [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
+    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+
+:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
+## Training a model 
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
-:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
+
 
 As you train your model, keep in mind:
 
