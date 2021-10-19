@@ -66,7 +66,7 @@ The following table describes some reasons why you might want to use SQL:
 
      You have to have a usable database before you can set up the SQL Storage Provider.
 
-  1. Now you can follow the [SQL setup steps](#set-up-sql) in this article.
+  1. Now you can follow the [steps to set up your SQL environment](#set-up-sql-environment) in this article.
 
 - Optional: [Visual Studio Code](https://code.visualstudio.com/Download) installed on your local computer for local development. For more information, review [Create integration workflows with single-tenant Azure Logic Apps (Standard) in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
@@ -104,7 +104,7 @@ The following table describes some reasons why you might want to use SQL:
 
 <a name="set-up-sql-logic-app-creation-azure-portal"></a>
 
-## Set up SQL for creation in the Azure portal
+## Set up SQL during creation in the Azure portal
 
 When you create your logic app using the **Logic App (Standard)** resource type in Azure, you can set up SQL as your storage provider.
 
@@ -176,13 +176,13 @@ The following steps show how to set up SQL as a storage provider for local devel
 
 <a name="set-up-sql-logic-app-deployment-visual-studio-code"></a>
 
-## Set up SQL for deployment from Visual Studio Code
+## Set up SQL during deployment from Visual Studio Code
 
 You can directly publish your logic app project from Visual Studio Code to Azure. This action deploys your logic app project using the **Logic App (Standard)** resource type.
 
-- If you're deploying your logic app as a new resource in Azure, and you want to use SQL as your primary storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL when deploying new logic apps](#set-up-sql-new-logic-app).
+- If you're deploying your logic app as a new resource in Azure, and you want to use SQL as your primary storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
 
-- If you're deploying your logic app to an existing **Logic App (Standard)** resource in Azure, and you already set up your SQL settings, just publish your logic app. This action overwrites your existing logic app, so when the following message appears after you publish, make sure that you select **Upload settings**. For complete steps, follow [Set up SQL when deploying to existing logic apps](#set-up-sql-existing-logic-app).
+- If you're deploying your logic app to an existing **Logic App (Standard)** resource in Azure, and you already set up your SQL settings, just publish your logic app. This action overwrites your existing logic app, so when the following message appears after you publish, make sure that you select **Upload settings**.
 
   ![Screenshot that shows Visual Studio Code and the deployment completed message with "Upload settings" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-upload-settings.png)
 
@@ -190,7 +190,7 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 <a name="deploy-new-logic-app-visual-studio-code"></a>
 
-### Deploy as new Logic App (Standard) resource
+### Set up SQL for new Logic App (Standard) resource deployment
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
