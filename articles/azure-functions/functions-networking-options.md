@@ -87,6 +87,8 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with.
 
+When initially integrated with a VNet, all traffic will be routed into your VNet. If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet#application-routing)
+
 ## Regional virtual network integration
 
 Using regional VNet Integration enables your app to access:
@@ -169,7 +171,6 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS private zones. To work with Azure DNS private zones, you need to add the following app settings:
 
-1. `WEBSITE_DNS_SERVER` with value `168.63.129.16`
 1. `WEBSITE_VNET_ROUTE_ALL` with value `1`
 
 These settings send all of your outbound calls from your app into your VNet and enables your app to access an Azure DNS private zone. With these settings, your app can use Azure DNS by querying the DNS private zone at the worker level.  
