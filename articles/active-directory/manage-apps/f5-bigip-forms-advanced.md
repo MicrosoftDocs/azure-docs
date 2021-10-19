@@ -183,7 +183,7 @@ These settings define the SAML SP properties that the APM will use for overlayin
 
     **SP Name Settings** are only required if the entity ID is not an exact match of the hostname portion of the published URL, or equally if it isn't in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is  `urn:myvacation:contosoonline`.
 
-### External IdP Connector 
+### External IdP connector 
 
 A SAML IdP connector defines the settings required for the BIG-IP APM to trust Azure AD as its SAML IDP. These settings will map the SAML SP to a SAML IdP, establishing the federation trust between the APM and Azure AD.
 
@@ -250,7 +250,7 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 
 1. Select **Access** > **Profiles / Policies** > **Access Profiles (Per-Session Policies)** > **Create** to provide the following:
 
-   | Value | Description |
+   | Property | Description |
    |:-----|:-------|
    | Name | For example, `MyVacation` |
    |Profile Type | All |
@@ -299,7 +299,7 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 12. Select the link in the upper **Deny** box to change the
     **Successful** branch to **Allow** > **Save**.
 
-**Attribute Mapping**
+**Attribute mapping**
 
 Although optional, adding a LogonID_Mapping configuration enables the BIG-IP active sessions list to display the UPN of the logged in user instead of a session number. This is useful for when analyzing logs or troubleshooting.
 
@@ -335,11 +335,11 @@ For the BIG-IP to know where to forward client traffic, you need to create a BIG
 
 2. Add a pool member object with the following:
 
-   - **Node Name**: Optional display name for the server hosting the backend web application
-
-   - **Address**: IP address of the server hosting the application
-
-   - **Service Port**: The HTTP/S port the application is listening on
+   | Property | Description |
+   |:-----|:-------|
+   | Node Name | Optional display name for the server hosting the backend web application |
+   | Address | IP address of the server hosting the application|
+   | Service Port | The HTTP/S port the application is listening on |
 
    ![Sceenshot shows pool member](./media/f5-bigip-forms-advanced/pool-member.png)
 
