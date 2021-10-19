@@ -59,7 +59,7 @@ items:
   - name: Security
     items:
     - name: Public IP security baseline
-    href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+      href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/ip-services/toc.json
 - name: How-to
   items:
     - name: Configure IP addresses for an Azure network interface

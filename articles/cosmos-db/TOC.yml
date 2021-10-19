@@ -1036,6 +1036,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: cassandra/find-request-unit-charge-cassandra.md
+        - name: Preventing rate-limiting errors
+          href: cassandra/prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
           href: cassandra/access-data-spring-data-app.md
         - name: Troubleshoot common issues
@@ -1303,6 +1305,8 @@
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
           href: graph/cli-samples.md
+        - name: Supply chain traceability solution
+          href: graph/supply-chain-traceability-solution.md
     - name: Reference
       items:
         - name: Response Headers

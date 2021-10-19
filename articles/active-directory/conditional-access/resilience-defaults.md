@@ -83,7 +83,7 @@ You can configure Conditional Access resilience defaults from the Azure portal, 
 
 ### MS Graph APIs
 
-You can also manage resilience defaults for your Conditional Access policies using the MS Graph API and the [Microsoft Graph Explorer](/graph/graph-explorer). 
+You can also manage resilience defaults for your Conditional Access policies using the MS Graph API and the [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview). 
 
 Sample request URL: 
 

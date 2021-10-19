@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 10/05/2021
+ms.date: 10/12/2021
 ms.author: jasteppe
 ---
 
@@ -92,7 +92,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 ## View device data in FHIR service
 
-You can view the FHIR Observation resource(s) created by the IoT connector on the FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by IoT connector on the FHIR service using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../azure-api-for-fhir/configure-azure-rbac.md) to assign required data plane roles.

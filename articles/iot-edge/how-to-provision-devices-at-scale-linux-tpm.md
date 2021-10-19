@@ -101,7 +101,7 @@ A virtual switch enables your virtual machine to connect to a physical network.
 
 Create a new VM from a bootable image file.
 
-1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](/support.md).
+1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](/azure/iot-edge/support).
 
 1. In Hyper-V Manager, select **Action** > **New** > **Virtual Machine** in the **Actions** menu.
 

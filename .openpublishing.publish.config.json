@@ -430,6 +430,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "terraform",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
       "branch": "master",

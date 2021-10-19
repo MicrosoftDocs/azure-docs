@@ -211,9 +211,9 @@
       - name: Query Store
         href: concepts-query-store.md
         displayName: performance, query store
-      - name: Query performance insights
+      - name: Query Performance Insight
         href: concepts-query-performance-insight.md
-        displayName: query performance insights
+        displayName: Query Performance Insight
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName:  recommendation

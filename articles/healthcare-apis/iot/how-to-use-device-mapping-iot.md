@@ -5,23 +5,23 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/12/2021
 ms.author: jasteppe
 ---
 
-# How to use the Device mapping template
+# How to use Device mapping
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-IoT connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
+IoT connector requires two types of JSON-based mappings. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
 The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The two types of mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoT connector through the Azure portal. The Device mapping document is added through the **Device mapping** page and the FHIR destination mapping document through the **Destination** page.
+The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your IoT connector through the Azure portal. The Device mapping document is added through the **Device mapping** page and the FHIR destination mapping document through the **Destination** page.
 
 > [!NOTE]
-> Mapping templates are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
+> Mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
 
 ## Device mapping
 
@@ -29,14 +29,14 @@ Device mapping provides mapping functionality to extract device content into a c
 
 | Property             | Description                                                                                                                                                                                                                                                   |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Type**             | The name/type to classify the measurement. This value is used to bind to the required FHIR mapping template.  Multiple templates can output to the same type allowing you to map different representations across multiple devices to a single common output. |
+| **Type**             | The name/type to classify the measurement. This value is used to bind to the required FHIR destination mapping.  Multiple mappings can output to the same type allowing you to map different representations across multiple devices to a single common output. |
 | **OccurenceTimeUtc** | The time the measurement occurred.                                                                                                                                                                                                                            |
 | **DeviceId**         | The identifier for the device. This value should match an identifier on the device resource that exists on the destination FHIR service.                                                                                                                       |
 | **Properties**       | Extract at least one property so the value can be saved in the Observation resource created.  Properties are a collection of key value pairs extracted during normalization.                                                                                  |
 
 Below is a conceptual example of what happens during normalization.
 
-[Normalization Example](media/concepts-iot-mapping-templates/normalization-example.png) ](media/concepts-iot-mapping-templates/normalization-example.png#lightbox)
+![Normalization Example](media/concepts-iot-mapping-templates/normalization-example.png#lightbox)
 
 The content payload itself is an Azure Event Hub message, which is composed of three parts: Body, Properties, and SystemProperties. The `Body` is a byte array representing an UTF-8 encoded string. During template evaluation, the byte array is automatically converted into the string value. `Properties` is a key value collection for use by the message creator. `SystemProperties` is also a key value collection reserved by the Azure Event Hub framework with entries automatically populated by it.
 
@@ -59,7 +59,7 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 ```
 ### Mapping with JSON path
 
-The three device content template types supported today rely on JSON Path to both match the required template and extracted values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). All three template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
+The three device content mapping types supported today rely on JSON Path to both match the required mapping and extracted values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). All three template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
 
 #### JsonPathContentTemplate
 
@@ -73,7 +73,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 |**DeviceIdExpression**|The JSON Path expression to extract the device identifier.|`$.deviceId`
 |**PatientIdExpression**|*Optional*: The JSON Path expression to extract the patient identifier.|`$.patientId`
 |**EncounterIdExpression**|*Optional*: The JSON Path expression to extract the encounter identifier.|`$.encounterId`
-|**Values[].ValueName**|The name to associate with the value extracted by the subsequent expression. Used to bind the required value/component in the FHIR destination mapping template. |`hr`
+|**Values[].ValueName**|The name to associate with the value extracted by the subsequent expression. Used to bind the required value/component in the FHIR destination mapping. |`hr`
 |**Values[].ValueExpression**|The JSON Path expression to extract the required value.|`$.heartRate`
 |**Values[].Required**|Will require the value to be present in the payload.  If not found, a measurement will not be generated and an InvalidOperationException will be thrown.|`true`
 
@@ -446,6 +446,6 @@ The IotCentralJsonPathContentTemplate also doesn't require DeviceIdExpression an
 ## Next steps
 
 >[!div class="nextstepaction"]
->[How to use IoT connector FHIR destination mapping](how-to-use-fhir-mapping-iot.md)
+>[How to use FHIR destination mapping](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

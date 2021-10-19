@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Identify required appliances
 
-This article provides information on certified Defender for IoT sensor appliances. Defender fort IoT can be deployed on physical and virtual appliances.
+This article provides information on certified Defender for IoT sensor appliances. Defender for IoT can be deployed on physical and virtual appliances.
 
 This includes certified *pre-configured* appliances, on which software is already installed, and non-configured certified appliances on which you can download and install required software.
 
@@ -27,7 +27,7 @@ Defender for IoT supports both physical and virtual deployments.
 
 ### Physical sensors
 
-This section provides an overview of physical sensor models that are available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
+This section provides an overview of physical sensor models that are available. You can purchase sensors with pre-configured software or purchase sensors that are not pre-configured.
 
 | Deployment type | Corporate | Enterprise | SMB rack mount| SMB Ruggedized |
 |--|--|--|--|--|
@@ -35,7 +35,7 @@ This section provides an overview of physical sensor models that are available. 
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | Up to 4 RJ45 | Up to 5 RJ45 |
 | Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
-| Maximum protected devices | 30,000 | 15,000 | 1,000 | 800 |
+| Maximum protected devices | 10,000 | 10,000 | 1,000 | 800 |
 
 See [Appliance specifications](#appliance-specifications) for vendor details.
 
@@ -49,12 +49,12 @@ About bringing your own appliance: Review the supported models described here. A
 
 ### Virtual sensors
 
-This section provides an overview of the virtual sensors that are available.
+This section provides describes virtual sensors that are available.
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
 | Maximum bandwidth | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
-| Maximum protected devices | 30,000 | 10,000 | 800 |
+| Maximum protected devices | 10,000 | 10,000 | 800 |
 
 ## On-premises management console appliance
 

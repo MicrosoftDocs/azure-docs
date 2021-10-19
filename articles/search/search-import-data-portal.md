@@ -16,7 +16,7 @@ The **Import data wizard** in the Azure portal creates multiple objects used for
 
 If you're using the wizard for proof-of-concept testing, this article explains the internal workings of the wizard so that you can use it more effectively.
 
-This article is not a step by step. For help using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a skillset](cognitive-search-quickstart-blob.md).
+This article is not a step by step. For help using the wizard with built-in sample data, see the [Quickstart: Create a search index](search-get-started-portal.md) or [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md).
 
 ## Starting the wizard
 
