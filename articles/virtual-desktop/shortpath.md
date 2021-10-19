@@ -96,7 +96,7 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 9. On the **Profile** page, select the network location types to which this rule applies, and then select **Next**.
 10. On the **Name** page, enter a name and description for your rule, then select **Finish**.
 
-You can verify that the new rule matches the screenshots below:
+When you're done, verify that the new rule matches the format in the following screenshot.
 :::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
 
 :::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
@@ -141,9 +141,11 @@ Follow the [network security group documentation](../virtual-machines/windows/ns
 
 If you need to block specific subnets from using the RDP Shortpath transport, you can configure another network security group that specifies the correct Source IP ranges.
 
-## Verifying the connectivity
+## Verify your network connectivity
 
-### Using Connection Information dialog
+Next, you'll need to make sure your network is using RDP Shortpath. You can do this with either a "Connection Information" dialog or by using Log Analytics.
+
+### Connection Information dialog
 
 Make sure connections are using RDP Shortpath, open the "Connection Information" dialog by going to the **Connection** tool bar and selecting the antenna icon, as shown in the following screenshot.
 
@@ -153,13 +155,13 @@ Make sure connections are using RDP Shortpath, open the "Connection Information"
 
 ### Using event logs
 
-To verify that session is using RDP Shortpath transport:
+To make sure your session is using RDP Shortpath transport:
 
 1. Use the Azure Virtual Desktop client of your choice to connect to your VM desktop.
-2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**
-3. To determine if RDP Shortpath transport is used, look for event ID 131.
+2. Open **Event Viewer**, then go to **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**.
+3. If you can see Event ID 131, then your network is using RDP Shortpath transport.
 
-### Using Log Analytics to verify Shortpath connectivity
+### Use Log Analytics
 
 If you're using [Azure Log Analytics](./diagnostics-log-analytics.md), you can monitor connections by querying the [WVDConnections table](/azure/azure-monitor/reference/tables/wvdconnections). A column named UdpUse indicates whether Azure Virtual Desktop RDP Stack is using UDP protocol on the current user connection.
 The possible values are:
