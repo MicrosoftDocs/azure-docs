@@ -12,7 +12,7 @@ services: iot-central
 
 # How to use the IoT Central REST API to manage device templates
 
-The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to manage device templates in your IoT Central application.
+The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to manage [device templates](concepts-device-templates.md) in your IoT Central application.
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
@@ -20,18 +20,9 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Device templates
 
-Any device that's connected to and managed by an IoT Central application is associated with a device template in the application. The device model in the template acts as a contract between the IoT Central application and the devices connected to it. The device template also includes information about how IoT Central displays information about the device in the web UI. For example, a device template can include definitions of dashboards to show device telemetry or to send commands to a device.
+A device template contains a device model, cloud property definitions, customizations, and view definitions. The REST API lets you manage the device model, cloud property definitions, and customizations. Use the UI to create and manage views.
 
-The device model section of a device template specifies the capabilities of a device you want to connect to your application. For example, a device template can specify:
-
-* The types of telemetry, such as temperature, that your device sends to IoT Central
-* Properties, such as firmware version, that your device will report to IoT Central.
-* Properties, such as target temperature, that IoT Central will set on your device.
-* Commands, such as reboot, that IoT Central will send to your device.
-
-The capabilities in a device model are grouped into interfaces. Interfaces enable you to share groups of related capabilities across templates. For example, the common Device Information interface defines device properties such as the manufacturer, model, and software version.
-
-Device templates includes _cloud properties_ which specifies any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. It also includes _customizations_, they can override some of the definitions in the device model. Customizations are useful if you want to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. However, you cannot add _views_ from the API, it can be added only through the UI.
+The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## Device templates REST API
 
@@ -45,7 +36,7 @@ The IoT Central REST API lets you:
 
 ### Add a device template
 
-Use the following request to publish a new device template. Default views will be automatically generated for new device templates created this way.
+Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
 PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
@@ -54,7 +45,7 @@ PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-
 >[!NOTE]
 >Device template IDs follow the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) naming convention, for example: `dtmi:contoso:mythermostattemplate;1`
 
-The sample request body looks like the following example:
+The following example shows a request body that adds a device template for a thermostat device. The `capabilityModel` includes temperature telemetry, two properties, and a command. The device template defines the `CustomerName` cloud property and customizes the `targetTemperature` property with `decimalPlaces`, `displayUnit`, `maxValue`, and `minValue`. The value of the device template `@id` must match the `deviceTemplateId` value in the URL. The value of the device template `@id` is not the same as the value of the `capabilityModel` `@id` value.
 
 ```json
 {
@@ -176,7 +167,7 @@ The sample request body looks like the following example:
 }
 ```
 
-Request body some required fields:
+The request body has some required fields:
 
 * `@id`: a unique ID in the form of a simple Uniform Resource Name.
 * `@type`: declares that this object is an interface.
@@ -322,6 +313,9 @@ Use the following request to retrieve details of a device template from your app
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
 ```
+
+>[!NOTE]
+> You can get the `deviceTemplateId` from IoT Central Application UI by hovering the mouse over a device.
 
 The response to this request looks like the following example:
 
@@ -708,7 +702,7 @@ PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?ap
 >[!NOTE] 
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which adds a new cloud property:
+The sample request body looks like the following example which adds a the `LastMaintenanceDate` cloud property to the device template:
 
 ```json
 {
@@ -979,12 +973,6 @@ Use the following request to delete a device template:
 
 ```http
 DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
-```
-
-The sample request looks like the following example:
-
-```http
-DELETE https://appsubdomain.azureiotcentral.com/api/deviceTemplates/dtmi:contoso:testDeviceTemplate;1?api-version=1.0
 ```
 
 ## Next steps
