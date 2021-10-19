@@ -78,11 +78,11 @@ In this tutorial, you learn how to:
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                     // Load all keys that start with `TestApp:`.
                     .Select("TestApp:*")
-                    // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
+                    // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
                     .ConfigureRefresh(refresh =>
                     {
                         refresh.Register("TestApp:Settings:Message")
-                            .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                               .SetCacheExpiration(TimeSpan.FromSeconds(10));
                     });
 
             _refresher = options.GetRefresher();
