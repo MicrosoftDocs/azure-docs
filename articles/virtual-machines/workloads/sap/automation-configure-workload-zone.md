@@ -11,6 +11,8 @@ ms.service: virtual-machines-sap
 
 # Workload zone configuration in SAP automation framework
 
+An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
+
 ## Workload zone deployment configuration
 
 The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
