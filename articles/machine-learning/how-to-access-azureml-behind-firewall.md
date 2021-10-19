@@ -217,11 +217,13 @@ When using Azure Kubernetes Service with Azure Machine Learning, the following t
 * __Outbound__ to mcr.microsoft.com.
 * When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
 
-### Azure Arc enabled Kubernetes
+### Azure Arc enabled Kubernetes <a id="arc-kubernetes"></a>
 
-The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
+The hosts in this section are used to deploy the Azure Machine Learning extension to Kubernetes clusters and submit training and inferencing workloads to the clusters.
 
 **Azure Machine Learning extension deployment**
+
+Enable outbound access to the following endpoints when deploying the Azure Machine Learning extension to the cluster.
 
 | Destination Endpoint| Port | Use |
 |--|--|--|
@@ -233,7 +235,9 @@ The hosts in this section are used to install Visual Studio Code packages to est
 | auth.docker.io| https:443 | Docker repository authentication, required to access docker hub registry |
 | *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and anaylize system logs in Kusto |
 
-**Training workloads**
+**Training workloads only**
+
+Enable outbound access to the following endpoints to submit training workloads to the cluster.
 
 | Destination Endpoint| Port | Use |
 |--|--|--|
@@ -242,10 +246,12 @@ The hosts in this section are used to install Visual Studio Code packages to est
 
 **Training and inferencing workloads**
 
+In addition to the endpoints for training workloads, enable outbound access for the following endpoints to submit training and inferencing workloads.
+
 | Destination Endpoint| Port | Use |
 |--|--|--|
 | *.azurecr.io | https:443 | Azure container registry, required to pull container images to host training or inference jobs|
-| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch ML project scripts, container images and job logs/metrics|
+| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts, container images and job logs/metrics |
 | *.workspace.\<region\>.api.azureml.ms ,  \<region\>.experiments.azureml.net,  \<region\>.api.azureml.ms | https:443 | Azure mahince learning service api, required to communucate with AML |
 
 ### Visual Studio Code hosts

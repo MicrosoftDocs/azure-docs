@@ -40,18 +40,36 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
     az account set --subscription <your-subscription-id>
     ```  
 
+* **Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only**
+    * An ARO or OCP Kubernetes cluster is up and running. For more information, see [Create ARO Kubernetes cluster](/azure/openshift/tutorial-create-cluster) and [Create OCP Kubernetes cluster](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html)
+    * Grant privileged access to AzureML service accounts. 
+        
+        Run `oc edit scc privileged` and add the following 
+
+        * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
+        * ```system:serviceaccount:azureml:{EXTENSION NAME}-kube-state-metrics``` **(Note:** ```{EXTENSION NAME}``` **here must match with the extension name used in** ```az k8s-extension create --name``` **step)**
+        * ```system:serviceaccount:azureml:cluster-status-reporter```
+        * ```system:serviceaccount:azureml:prom-admission```
+        * ```system:serviceaccount:azureml:default```
+        * ```system:serviceaccount:azureml:prom-operator```
+        * ```system:serviceaccount:azureml:csi-blob-node-sa```
+        * ```system:serviceaccount:azureml:csi-blob-controller-sa```
+        * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
+        * ```system:serviceaccount:azureml:azureml-fe```
+        * ```system:serviceaccount:azureml:prom-prometheus```
+    
 > [!IMPORTANT]
-> Clusters running behind an outbound proxy server or firewall need additional network configurations. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+> Clusters running behind an outbound proxy server or firewall need additional network configurations. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
 
 ## Deploy Azure Machine Learning extension
 
 Azure Arc-enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for the following scenarios:
 
-* [Training](#training)
+* [Training](#training). 
 * [Real-time inferencing only](#inferencing)
 * [Training and inferencing](#training-inferencing)
 
-> [!NOTE]
+> [!TIP]
 > Train only clusters also support batch inferencing as part of Azure Machine Learning Pipelines.
 
 Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true) command to deploy the Azure Machine Learning extension to your Azure Arc-enabled Kubernetes cluster.
@@ -62,6 +80,9 @@ Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?
 The following is the list of configuration settings available to be used for different Azure Machine Learning extension deployment scenarios.
 
 You can use ```--config``` or ```--config-protected``` to specify list of key-value pairs for Azure Machine Learning deployment configurations.
+
+> [!TIP]
+> Set the `openshift` parameter to `True` to deploy the Azure Machine Learning extension to ARO and OCP Kubernetes clusters.
 
 | Configuration Setting Key Name  | Description  | Training | Inference | Training and Inference |
 |---|---|---|---|---|
@@ -84,7 +105,7 @@ You can use ```--config``` or ```--config-protected``` to specify list of key-va
 Use the following Azure CLI command to deploy the Azure Machine Learning extension and enable training workloads on your Kubernetes cluster:
 
 ```azurecli
-az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True  --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster
+az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster
 ```
 
 ### Deploy extension for real-time inferencing workloads <a id="inferencing"></a>
@@ -406,9 +427,122 @@ else:
 
 ### [CLI](#tab/cli)
 
-Enter information about CLI here
+Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest) command to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+
+```azurecli
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/connectedClusters/amlarc-compute" --type kubernetes --file advanced-attach.yml --no-wait
+```
+
+#### Advanced compute attach scenarios
+
+Kubernetes compute targets allow you to specify an attach configuration file for advanced compute target capabilities. The following is an example of an attach configuration YAML file:
+
+```yaml
+instance_types: 
+-   name: gpu_instance
+    node_selector: 
+        accelerator: nvidia-tesla-k80
+    resources: 
+        requests:
+          cpu: 1
+          memory: 4Gi
+          "nvidia.com/gpu": 1
+        limits:
+          cpu: 1
+          memory: 4Gi
+          "nvidia.com/gpu": 1
+-   name: big_cpu_sku
+    node_selector: null
+    resources: 
+        requests:
+          cpu: 4
+          memory: 16Gi
+          "nvidia.com/gpu": 0
+        limits:
+          cpu: 4
+          memory: 16Gi
+          "nvidia.com/gpu": 0
+```
 
 ---
+
+## Assign managed identity
+
+A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
+
+To access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, attach Azure Machine Learning Arc compute with system-assigned or user-assigned managed identity enabled.
+
+The following sample shows how you can assign managed identity for your Kubernetes clusters when you attach them to your workspace.
+
+```azurecli
+from azureml.core.compute import KubernetesCompute
+from azureml.core.compute import ComputeTarget
+from azureml.core.workspace import Workspace
+import os
+
+ws = Workspace.from_config()
+
+# choose a name for your Azure Arc-enabled Kubernetes compute
+amlarc_compute_name = "<COMPUTE_CLUSTER_NAME>"
+
+# resource ID for your Azure Arc-enabled Kubernetes cluster and user-managed identity
+resource_id = "/subscriptions/<sub ID>/resourceGroups/<RG>/providers/Microsoft.Kubernetes/connectedClusters/<cluster name>"
+user_assigned_identity_resouce_id = ['subscriptions/<sub ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity name>']
+    
+if amlarc_compute_name in ws.compute_targets:
+    amlarc_compute = ws.compute_targets[amlarc_compute_name]
+    if amlarc_compute and type(amlarc_compute) is KubernetesCompute:
+        print("found compute target: " + amlarc_compute_name)
+else:
+   print("creating new compute target...")
+   ns = "default" 
+   instance_types = {
+      "gpu_instance": {
+         "resources": {
+            "requests": {
+               "cpu": "1",
+               "memory": "4Gi",
+               "nvidia.com/gpu": "1"
+            },
+            "limits": {
+               "cpu": "1",
+               "memory": "4Gi",
+               "nvidia.com/gpu": "1"
+            }
+        }
+      },
+      "big_cpu_sku": {
+         "resources": {
+            "requests": {
+               "cpu": "0.5",
+               "memory": "1Gi",
+               "nvidia.com/gpu": "0"
+            },
+            "limits": {
+               "cpu": "0.5",
+               "memory": "1Gi",
+               "nvidia.com/gpu": "0"
+            }         
+         }
+      }
+   }
+
+# assign user-assigned managed identity
+amlarc_attach_configuration = KubernetesCompute.attach_configuration(resource_id = resource_id, namespace = ns, default_instance_type="big_cpu_sku", instance_types = instance_types, identity_type ='UserAssigned',identity_ids = user_assigned_identity_resouce_id) 
+
+# assign system-assigned managed identity
+# amlarc_attach_configuration = KubernetesCompute.attach_configuration(resource_id = resource_id, namespace = ns, default_instance_type="gpu_instance", instance_types = instance_types, identity_type ='SystemAssigned') 
+
+amlarc_compute = ComputeTarget.attach(ws, amlarc_compute_name, amlarc_attach_configuration)
+amlarc_compute.wait_for_completion(show_output=True)
+
+# get detailed compute description containing managed identity principle ID, used for permission access. 
+print(amlarc_compute.get_status().serialize())
+```
+
+The `identity_type` and `identity_ids` parameters enable and defined which identities to use for your cluster.
+
+
 
 ## Next steps
 
