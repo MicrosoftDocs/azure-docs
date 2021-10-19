@@ -11,7 +11,7 @@ ms.custom: seodec18
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway #
 
-The [App Service Environment](./intro.md) is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with a public or private endpoint for app access. The deployment of the App Service Environment with a private endpoint (that is, an internal load balancer) is called an ILB App Service Environment.  
+The [App Service Environment](./intro.md) is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with an external or internal endpoint for app access. The deployment of the App Service Environment with a internal endpoint is called an internal load balancer (ILB) App Service Environment (ASE).
 
 Web application firewalls help secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. You can get a WAF device from the Azure marketplace or you can use the [Azure Application Gateway][appgw].
 
@@ -36,11 +36,11 @@ To integrate your Application Gateway with your ILB App Service Environment, you
 * A private DNS zone for ILB App Service Environment.
 * An app running in the ILB App Service Environment.
 * A public DNS name that is used later to point to your Application Gateway.
-* A valid public certificate that is used later to bind to your Application Gateway.
+* If you need to use TLS/SSL encryption to Application Gateway, a valid public certificate that is used to bind to your Application Gateway is required.
 
 ### ILB App Service Environment
 
-For details on how to create an ILB App Service Environment from Azure portal, see [Create an App Service Environment][ilbase] or create from template, see [Create an ASE with ARM - Azure App Service Environment][createfromtemplate]
+For details on how to create an ILB App Service Environment in the Azure portal, see [Create an App Service Environment][ilbase] or create from template, see [Create an ASE with ARM - Azure App Service Environment][createfromtemplate]
 
 * After ILB ASE had been created, the default domain will be `<YourAseName>.appserviceenvironment.net`
 
@@ -52,7 +52,7 @@ For details on how to create an ILB App Service Environment from Azure portal, s
 
 ### Private DNS Zone
 
-You will need a private DNS zone for internal name resolution. If you didn't configure private DNS zone while creating ASE, you have to create a private DNS zone after ASE created. To create a private DNS zone on Azure Portal, see [Quickstart - Create an Azure private DNS zone using the Azure portal][createprivatednszone], the record sets listed a below,
+You will need a private DNS zone for internal name resolution. If you didn't configure private DNS zone while creating ASE, you have to create a private DNS zone after ASE created. To create a private DNS zone in the Azure Portal, see [Quickstart - Create an Azure private DNS zone using the Azure portal][createprivatednszone], the record sets listed a below,
 
 | Name  | Type | Value               |
 | ----- | ---- | ------------------- |
@@ -64,7 +64,7 @@ You will need a private DNS zone for internal name resolution. If you didn't con
 :::image type="content" source="./media/integrate-with-application-gateway/appgw-privatednszone.png" alt-text="Private DNS zone":::
 ### App Service on ILB ASE
 
-You will need to create an app service and an app service plan reside in an ILB ASE. To create an app service in an ILB ASE on Azure Portal, in app service creation **Basics** setting, you need to pick the ILB ASE you created previously in the **Region** dropdown list.
+You will need to create an app service and an app service plan reside in an ILB ASE. To create an app service in an ILB ASE in the Azure Portal, in app service creation **Basics** setting, you need to pick the ILB ASE you created previously in the **Region** dropdown list.
 
 :::image type="content" source="./media/integrate-with-application-gateway/appgw-createwebapp.png" alt-text="Create a Web App":::
 
@@ -92,9 +92,9 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 
 In this tutorial, we will use Azure Portal to create an Application Gateway.
 
-### Create an Application Gateway on Azure Portal
+### Create an Application Gateway in the Azure Portal
 
-On the Azure Portal, select **New** > **Network** > **Application Gateway** to create an Application Gateway
+In the Azure Portal, select **New** > **Network** > **Application Gateway** to create an Application Gateway
 
 ### Basics setting
 
@@ -124,23 +124,38 @@ In **Configuration** setting, you need to add a routing rule by clicking **Add a
 
 :::image type="content" source="./media/integrate-with-application-gateway/appgw-configuration.png" alt-text="Application Gateway Configuration":::
 
-You will need to configure a **Listener** and  **Backend targets** in a routing rule.
+You will need to configure a **Listener** and  **Backend targets** in a routing rule. You can add a HTTP listener for proof of concept deployment or add a HTTPS listener for security enhancement.
 
-* The listener settings listed as below,
+* To connect to Application Gateway with HTTP protocol, you can create a listener with following settings,
 
 | Parameter      | Value                             | Description                                                  |
 | -------------- | --------------------------------- | ------------------------------------------------------------ |
-| Rule name      | For example: https-routingrule    | Routing name                                                 |
-| Listener name  | For example: https-listener       | Listener name                                                |
+| Rule name      | For example: `http-routingrule`    | Routing name                                                 |
+| Listener name  | For example: `http-listener`       | Listener name                                                |
+| Frontend IP    | Public                            | For internet access, set to Public                           |
+| Protocol       | HTTP                             | Do not use TLS/SSL encryption                                       |
+| Port           | 80                               | Default HTTP Port                                           |
+| Listener type  | Multi site                        | Allow to listen multi-sites on Application Gateway           |
+| Host type      | Multiple/Wildcard                 | Set to multiple or wildcard website name if listener type is set to multi-sites. |
+| Host name      | For example:  `app.asabuludemo.com` | Set to a routable domain name for app service              |
+
+:::image type="content" source="./media/integrate-with-application-gateway/appgw-http-routingrule.png" alt-text="Application Gateway Routing Rule - HTTP Listener":::
+
+* To connect to Application Gateway with TLS/SSL encryption, you can create a listener with following settings,
+
+| Parameter      | Value                             | Description                                                  |
+| -------------- | --------------------------------- | ------------------------------------------------------------ |
+| Rule name      | For example: `https-routingrule`    | Routing name                                                 |
+| Listener name  | For example: `https-listener`       | Listener name                                                |
 | Frontend IP    | Public                            | For internet access, set to Public                           |
 | Protocol       | HTTPS                             | Use TLS/SSL encryption                                       |
 | Port           | 443                               | Default HTTPS Port                                           |
 | Https Settings | Upload a certificate              | Upload a certificate contains the CN and the private key with .pfx format. |
 | Listener type  | Multi site                        | Allow to listen multi-sites on Application Gateway           |
 | Host type      | Multiple/Wildcard                 | Set to multiple or wildcard website name if listener type is set to multi-sites. |
-| Host name      | For example:  app.asabuludemo.com | Set to a routable domain name for app service              |
+| Host name      | For example:  `app.asabuludemo.com` | Set to a routable domain name for app service              |
 
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-routingrule.png" alt-text="Application Gateway Routing Rule":::
+:::image type="content" source="./media/integrate-with-application-gateway/appgw-https-routingrule.png" alt-text="Application Gateway Routing Rule - HTTPS Listener":::
 
 * You will need to configure a **Backend Pool** and  **HTTP setting** in **Backend targets**. The Backend pool was configured in previously steps. You need to add a HTTP setting.
 
@@ -150,23 +165,20 @@ You will need to configure a **Listener** and  **Backend targets** in a routing 
 
 | Parameter                     | Value                                                        | Description                                                  |
 | ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| HTTP setting name             | For example: https-setting                                   | HTTP setting name                                            |
+| HTTP setting name             | For example: `https-setting`                                   | HTTP setting name                                            |
 | Backend protocol              | HTTPS                                                        | Use TLS/SSL encryption                                       |
 | Backend port                  | 443                                                          | Default HTTPS Port                                           |
 | Use well known CA certificate | Yes                                                          | The default domain name of ILB ASE is **.appserviceenvironment.net**, the certificate of this domain is issued by an public trusted root authority. In the Trusted root certificate setting, you can set to use **well known CA trusted root certificate**. |
 | Override with new host name   | Yes                                                          | The host name header will be overwrote on connecting to the app on ILB ASE |
-| Host name override            | Override with specific domain name<br />For example: app.asev3-ilb-20211008.appserviceenvironment.net | Set host name to the private DNS record of the app on ILB ASE |
+| Host name override            | Pick host name from backend target | When setting backend pool to App Service, you can pick host from backend target |
+| Create custom probes | No | Use default health probe|
 
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-httpsetting.png" alt-text="Application Gateway HTTP settings":::
+:::image type="content" source="./media/integrate-with-application-gateway/appgw-https-setting.png" alt-text="Application Gateway HTTP settings":::
 
 
 ## Configure Application Gateway integration with ILB ASE
 
-After the Application Gateway had been created, there is a health probe had been provisioned. The health probe name is *httpsettings-{GUID}*. You may encounter an error as below when check the health probes. One of the reasons that Application Gateway probe cannot access to backend is failed to resolve the private domain name. To fix this issue, you need to add an virtual network link to private DNS zone.
-
-`Cannot connect to backend server. Check whether any NSG/UDR/Firewall is blocking access to the server. Check if application is running on correct port.`
-
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-healthprobeerror.png" alt-text="Application Gateway health probe error":::
+In order to access ILB ASE from Application Gateway, you need to check if an virtual network link to private DNS zone. If there is no virtual network link to your Application Gateway virtual network in private DNS zone, you can add the virtual network with following steps.
 
 ### Configure virtual network links with private DNS zone
 
@@ -178,29 +190,7 @@ After the Application Gateway had been created, there is a health probe had been
 
 :::image type="content" source="./media/integrate-with-application-gateway/appgw-vnetlink.png" alt-text="Virtual network links in private DNS zone":::
 
-### Configure Health Probe
-
-You can recreate the health probe to replace the default health probe when Application Gateway created. To configure the health probe, the key parameters listed as below,
-
-* Health Probe settings:
-
-| Parameter                                 | Value                                                        | Description                                                  |
-| ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Health Probe                              | For example: https-probe                                     | Health probe name                                            |
-| Protocol                                  | HTTPS                                                        | Use TLS/SSL encryption                                       |
-| Host                                      | For example:  app.asev3-ilb-20211008.appserviceenvironment.net | Set host name to the private DNS record of the app on ILB ASE |
-| Pick host name form backend HTTP settings | No                                                           | Do not pick host name from backend as we set the Host explictly |
-| Pick port from backend HTTP settings      | Yes                                                          | Pick port from backend                                       |
-| Path                                      | /                                                            | Use default root path                                        |
-| HTTP settings                             | https-setting                                                | Use the HTTP setting on Application Gateway                  |
-
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-addhealthprobe.png" alt-text="Application Gateway add a health probe":::
-
-Click Test button to test the backend health. Once the status is green, add to the Application Gateway.
-
-:::image type="content" source="./media/integrate-with-application-gateway/appgw-healthprobestatus.png" alt-text="Application Gateway health probe status":::
-
-* Also confirm the backend health status from **Backend health** in the Application Gateway plane.
+* You can confirm the backend health status from **Backend health** in the Application Gateway plane.
 
 :::image type="content" source="./media/integrate-with-application-gateway/appgw-backendhealth.png" alt-text="Application Gateway backend health":::
 
