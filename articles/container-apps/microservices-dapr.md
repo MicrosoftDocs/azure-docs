@@ -92,7 +92,7 @@ Create a new Log Analytics workspace with the following command:
 ```azurecli
 az monitor log-analytics workspace create \
   --resource-group $RESOURCE_GROUP \
-  --name $LOG_ANALYTICS_WORKSPACE
+  --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
 Next, retrieve the Log Analytics Client ID and client secret.
