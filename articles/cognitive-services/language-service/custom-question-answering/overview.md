@@ -19,7 +19,7 @@ This documentation contains the following article types:
 * The [quickstarts](./quickstart/sdk.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time.
 * The [how-to guides](./how-to/manage-knowledge-base.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concepts/precise-answering.md) provide in-depth explanations of the service's functionality and features.
-* [**Tutorials**](./tutorials/bot-services.md) are longer guides that show you how to use the service as a component in broader business solutions. 
+* [**Tutorials**](./tutorials/bot-service.md) are longer guides that show you how to use the service as a component in broader business solutions. 
 
 ## When to use question answering
 
