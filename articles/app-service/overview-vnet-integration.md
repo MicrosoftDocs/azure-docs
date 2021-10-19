@@ -38,7 +38,7 @@ Apps in App Service are hosted on worker roles. Regional VNet integration works 
 
 :::image type="content" source="./media/overview-vnet-integration/vnetint-how-regional-works.png" alt-text="How regional VNet integration works":::
 
-When regional VNet Iitegration is enabled, your app makes outbound calls through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration VNet or peered VNet, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, ```WEBSITE_PRIVATE_IP```.
+When regional VNet integration is enabled, your app makes outbound calls through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration VNet or peered VNet, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, ```WEBSITE_PRIVATE_IP```.
 
 When all traffic routing is enabled, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the VNet and outbound traffic to the internet will go through the same channels as normal.
 
@@ -162,7 +162,7 @@ If you create the gateway for use with gateway-required VNet integration, you do
 
 ### How gateway-required VNet integration works
 
-Gateway-required VNet integration is built on top of point-to-site VPN technology. Point-to-site VPNs limit network access to the virtual machine that hosts the app. Apps are restricted to send traffic out to the internet only through Hybrid Connections or through VNet integration. When your app is configured with the portal to use gateway-required VNet integration, a complex negotiation is managed on your behalf to create and assign certificates on the gateway and the application side. The result is that the workers used to host your apps are able to directly connect to the virtual network gateway in the selected VNet.
+Gateway-required VNet integration is built on top of point-to-site VPN technology. Point-to-site VPNs limit network access to the virtual machine that hosts the app. Apps are restricted to send traffic out to the internet only through hybrid connections or through VNet integration. When your app is configured with the portal to use gateway-required VNet integration, a complex negotiation is managed on your behalf to create and assign certificates on the gateway and the application side. The result is that the workers used to host your apps are able to directly connect to the virtual network gateway in the selected VNet.
 
 :::image type="content" source="./media/overview-vnet-integration/vnetint-how-gateway-works.png" alt-text="How gateway-required VNet integration works":::
 

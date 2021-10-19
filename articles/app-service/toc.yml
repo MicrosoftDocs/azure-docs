@@ -143,7 +143,7 @@
           href: networking/private-endpoint.md
         - name: Hybrid connections
           href: app-service-hybrid-connections.md
-        - name: Virtual Network Integration
+        - name: Virtual network integration
           href: overview-vnet-integration.md
         - name: Application Gateway integration
           href: networking/app-gateway-with-service-endpoints.md
@@ -301,9 +301,9 @@
           href: manage-disaster-recovery.md
         - name: Enable on Azure Arc
           href: manage-create-arc-environment.md
-        - name: Enable VNet Integration
+        - name: Enable VNet integration
           href: configure-vnet-integration-enable.md
-        - name: Configure VNet Integration routing
+        - name: Configure VNet integration routing
           href: configure-vnet-integration-routing.md
 
     - name: Move app

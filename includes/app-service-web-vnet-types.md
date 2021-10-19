@@ -9,7 +9,7 @@ ms.author: madsd
 * The dedicated compute pricing tiers, which includes the Basic, Standard, Premium, PremiumV2, and PremiumV3.
 * The App Service Environment which deploys directly into your VNet with dedicated supporting infrastructure and is using the Isolated and IsolatedV2 pricing tiers.
 
-The VNet integration feature is used in App Service dedicated compute pricing tiers. If your app is in [App Service Environment](../articles/app-service/environment/overview.md)], then it's already in a VNet and doesn't require use of the VNet integration feature to reach resources in the same VNet. For more information on all of the networking features, see [App Service networking features](../articles/app-service/networking-features.md).
+The VNet integration feature is used in App Service dedicated compute pricing tiers. If your app is in [App Service Environment](../articles/app-service/environment/overview.md), then it's already in a VNet and doesn't require use of the VNet integration feature to reach resources in the same VNet. For more information on all of the networking features, see [App Service networking features](../articles/app-service/networking-features.md).
 
 VNet integration gives your app access to resources in your VNet, but it doesn't grant inbound private access to your app from the VNet. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. VNet integration is used only to make outbound calls from your app into your VNet. The VNet integration feature behaves differently when it's used with VNet in the same region and with VNet in other regions. The VNet integration feature has two variations:
 
