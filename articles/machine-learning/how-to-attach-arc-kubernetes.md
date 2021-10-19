@@ -30,7 +30,7 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
 
 * Fulfill [Azure Arc-enabled Kubernetes cluster extensions prerequisites](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version >= 2.24.0
-  * Azure CLI k8s-extension extension version >= 0.4.3
+  * Azure CLI k8s-extension extension version >= 1.0.0
 * An Azure Machine Learning workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
   * Azure Machine Learning Python SDK version >= 1.30
 * Log into Azure using the Azure CLI
@@ -41,9 +41,10 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
     ```  
 
 * **Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only**
+
     * An ARO or OCP Kubernetes cluster is up and running. For more information, see [Create ARO Kubernetes cluster](/azure/openshift/tutorial-create-cluster) and [Create OCP Kubernetes cluster](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html)
-    * Grant privileged access to AzureML service accounts. 
-        
+    * Grant privileged access to AzureML service accounts.
+
         Run `oc edit scc privileged` and add the following 
 
         * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
@@ -57,7 +58,7 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
         * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
         * ```system:serviceaccount:azureml:azureml-fe```
         * ```system:serviceaccount:azureml:prom-prometheus```
-    
+
 > [!IMPORTANT]
 > Clusters running behind an outbound proxy server or firewall need additional network configurations. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
 
@@ -427,7 +428,7 @@ else:
 
 ### [CLI](#tab/cli)
 
-Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest) command to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) command to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
 
 ```azurecli
 az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/connectedClusters/amlarc-compute" --type kubernetes --file advanced-attach.yml --no-wait
