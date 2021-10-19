@@ -68,11 +68,11 @@ This section enumerates the quotas and limitations of Video Analyzer cloud pipel
 
 ### Maximum number of Concurrent Live Pipeline Activations 
 
-At most 10 live pipelines per Video Analyzer account (created via livePipelineSet) can be in activating state. 
+At most 10 live pipelines per Video Analyzer account can be in activating state. 
 
 ### Maximum number of pipeline topologies 
 
-At most 5 pipeline topologies per Video Analyzer account (created via pipelineTopologySet) are supported. 
+At most 5 pipeline topologies per Video Analyzer account are supported. 
 
 ### Live Pipeline Activations per time window 
 
