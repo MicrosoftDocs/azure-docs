@@ -162,7 +162,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
-[azure-cli-install]:/cli/azure/install-azure-cli.md
+[azure-cli-install]:/cli/azure/install-azure-cli
  
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -744,7 +744,7 @@ For information about installation, configuration and how to use CLI commands to
 
 * [Install the Azure classic CLI][xplat-cli]
 * [Install the Azure CLI 2.0][azure-cli-install]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
@@ -779,7 +779,7 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 ---
 > ![Windows logo.][Logo_Windows] Windows
 >
-> See more details here: </azure/virtual-machines/windows/upload-generalized-managed>
+> For more details, read [Upload a generalized Windows VHD and use it to create new VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed)
 > The Windows settings (like Windows SID and hostname) must be abstracted/generalized on the on-premises VM via the sysprep command.
 >
 >
@@ -875,7 +875,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 ### Transferring VMs and VHDs between on-premises to Azure
 Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
-A third alternative would be to use various third-party GUI-oriented tools. However, make sure that these tools are supporting Azure Page Blobs. For our purposes, we need to use Azure Page Blob store (the differences are described here: </rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Also the tools provided by Azure are efficient in compressing the VMs and VHDs, which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S.-based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
+A third alternative would be to use various third-party GUI-oriented tools. However, make sure that these tools are supporting Azure Page Blobs. For our purposes, we need to use Azure Page Blob store (the differences are described in [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs). Also the tools provided by Azure are efficient in compressing the VMs and VHDs, which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S.-based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
 #### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Uploading a VHD from on-premises to Azure
 To upload an existing VM or VHD from the on-premises network such a VM or VHD needs to meet the requirements as listed in chapter [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document.
@@ -888,19 +888,19 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 **PowerShell**
 
 * Sign in to your subscription with *Connect-AzAccount*
-* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see </powershell/module/az.accounts/set-Azcontext>
-* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see </powershell/module/az.compute/add-Azvhd>
-* (Optional) Create a Managed Disk from the VHD with *New-AzDisk*  - see </powershell/module/az.compute/new-Azdisk>
-* Set the OS disk of a new VM config to the VHD or Managed Disk with *Set-AzVMOSDisk* - see </powershell/module/az.compute/set-Azvmosdisk>
-* Create a new VM from the VM config with *New-AzVM* - see </powershell/module/az.compute/new-Azvm>
-* Add a data disk to a new VM with *Add-AzVMDataDisk* - see </powershell/module/az.compute/add-Azvmdatadisk>
+* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see [Set-AzContext](/powershell/module/az.accounts/set-azcontext)
+* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see [Add-AzVhd](/powershell/module/az.compute/add-azvhd)
+* (Optional) Create a Managed Disk from the VHD with *New-AzDisk*  - see [New-AzDisk](/powershell/module/az.compute/new-azdisk)
+* Set the OS disk of a new VM config to the VHD or Managed Disk with *Set-AzVMOSDisk* - see [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk)
+* Create a new VM from the VM config with *New-AzVM* - see [New-AzVM](/powershell/module/az.compute/new-azvm)
+* Add a data disk to a new VM with *Add-AzVMDataDisk* - see [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk)
 
 **Azure CLI**
 
 * Sign in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
 * Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli].
-* (Optional) Create a Managed Disk from the VHD with *az disk create* - see [az disk](/cli/azure/disk.md).
+* (Optional) Create a Managed Disk from the VHD with *az disk create* - see [az disk](/cli/azure/disk).
 * Create a new VM specifying the uploaded VHD or Managed Disk as OS disk with *az vm create* and parameter *--attach-os-disk*
 * Add a data disk to a new VM with *az vm disk attach* and parameter *--new*
 
@@ -915,13 +915,13 @@ To upload an existing VM or VHD from the on-premises network, in order to use it
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Sign in to your subscription with *Connect-AzAccount*
-* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see </powershell/module/az.accounts/set-Azcontext>
-* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see </powershell/module/az.compute/add-Azvhd>
-* (Optional) Create a Managed Disk Image from the VHD with *New-AzImage*  - see </powershell/module/az.compute/new-Azimage>
+* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see [Set-AzContext](/powershell/module/az.accounts/set-azcontext)
+* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see [Add-AzVhd](/powershell/module/az.compute/add-azvhd)
+* (Optional) Create a Managed Disk Image from the VHD with *New-AzImage*  - see [New-AzImage](/powershell/module/az.compute/new-azimage)
 * Set the OS disk of a new VM config to the
-  * VHD with *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* - see </powershell/module/az.compute/set-Azvmosdisk>
-  * Managed Disk Image *Set-AzVMSourceImage* - see </powershell/module/az.compute/set-Azvmsourceimage>
-* Create a new VM from the VM config with *New-AzVM* - see </powershell/module/az.compute/new-Azvm>
+  * VHD with *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* - see [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk)
+  * Managed Disk Image *Set-AzVMSourceImage* - see [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
+* Create a new VM from the VM config with *New-AzVM* - see [New-AzVM](/powershell/module/az.compute/new-azvm)
 
 **Azure CLI**
 
@@ -970,7 +970,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  For more details of the Save-AzVhd cmdlet, check here </powershell/module/az.compute/save-Azvhd>.
+  For more details of the Save-AzVhd cmdlet, see [Save-AzVhd](/powershell/module/az.compute/save-azvhd).
 
 #### Azure CLI
 * Downloading a Managed Disk
@@ -1086,8 +1086,8 @@ You can also copy VHDs between subscriptions. For more information, read [this a
 
 The basic flow of the PowerShell cmdlet logic looks like this:
 
-* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see </powershell/module/az.storage/new-AzStoragecontext>
-* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see </powershell/module/az.storage/new-AzStoragecontext>
+* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)
+* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)
 * Start the copy with
 
 ```powershell
@@ -1269,9 +1269,7 @@ See the architecture difference between classic model and ARM as described in [t
 
 #### Configuration of the SAP System and SAP GUI connectivity over the internet
 
-See this article, which describes details to this topic:
-
-</archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
+See this article, which describes details to this topic: [SAP GUI connection closed when connecting to SAP system in Azure](/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure)
 
 #### Changing Firewall Settings within VM
 
@@ -2016,8 +2014,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 
 Since Mid 2014, extensions to various components around Hyper-V, System Center, and Azure enable the usage of Azure as DR site for VMs running on-premises based on Hyper-V.
 
-A blog detailing how to deploy this solution is documented here:
-</archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
+A blog detailing how to deploy this solution is documented here: [Protecting SAP Solutions with Azure Site Recovery](/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery).
 
 ## Summary for High Availability for SAP systems
 
