@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Workload zone deployment in SAP automation framework
+# Workload zone configuration in SAP automation framework
 
 ## Workload zone deployment configuration
 
