@@ -57,7 +57,7 @@ With this, now the users can access Azure files or traditional file servers over
 
 ## Limitations
 
-### AAD Cached Logon 
+### Azure AD cached logon 
 
 In case of upgrades and fresh deployment, there is a potential for the user accounts to not have the refreshed TGT (ticket granting ticket) immediately i.e. within 4 hours resulting in failed tickets requests from Azure AD.  As Windows tries to limit how often it connects to AAD so during that period there is a possibility that the machine hasn’t gotten a TGT yet. As an administrator, you can trigger an online logon immediately to handle upgrade scenarios by running the command below and then locking and unlocking the user session to get a refreshed TGT.
 
@@ -65,7 +65,7 @@ In case of upgrades and fresh deployment, there is a potential for the user acco
 dsregcmd.exe /RefreshPrt
 ```
 
-### Running On-Premises-backed Azure Files and Cloud-backed Azure Files in the same environment
+### Running on-premises-backed Azure Files and cloud-backed Azure Files in the same environment
 
 There is a known limitation with having two or more different Azure Files services with one backed by an on-premises Active Directory environment and the other backed by Azure AD. This is only needed for customers who already have Azure files services using AD authentication in their environment and are now moving to Azure AD backed Azure files with this preview. Windows relies on the namespace of the service (*.file.core.windows.net) to identify whether it should contact Azure AD for a Kerberos ticket or Active Directory. Since both services use the same namespace, Windows cannot distinguish between an on-prem configuration and a cloud configuration. 
 
@@ -279,17 +279,17 @@ Follow these instructions to set up Azure files.
    ```
 
 1. Configure Windows File and Directory ACLs (permissions)
-   1. Using Windows Explorer
-      1. To use Windows Explorer for permission management, your client should allow RPC call over the internet, and support LDAP to Active Directory Domain Controller. If not, you can consider option b with icacls.
+   1. Using Windows Explorer:
+      1. To use Windows Explorer for permission management, your client should allow RPC call over the internet, and support LDAP to Active Directory domain controller. If not, you can consider option b with icacls.
       1. Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
-      1. Open Windows File Explorer and right click on the file/directory and select Properties.
-      1. Select the Security tab.
-      1. Select “Edit..” to change permissions.
-      1. You can change the permissions of existing users or select Add... to grant permissions to new users.
-      1. In the prompt window for adding new users, enter the target username you want to grant permissions to in the Enter the object names to select box, and select Check Names to find the full UPN name of the target user.
-      1. Select OK.
-      1. In the Security tab, select all permissions you want to grant your new user.
-      1. Select Apply.
+      1. Open Windows File Explorer and right-click the file/directory and select **Properties**.
+      1. Select the **Security** tab.
+      1. Select **Edit...** to change permissions.
+      1. You can change the permissions of existing users or select **Add...** to grant permissions to new users.
+      1. In the prompt window for adding new users, enter the target username you want to grant permissions to in **Enter the object names to select**, and select **Check Names** to find the full UPN name of the target user.
+      1. Select **OK**.
+      1. In the **Security** tab, select all permissions you want to grant your new user.
+      1. Select **Apply**.
 
     For more information, including instructions for using icacls cmd-line utility, see [Part three: configure directory and file level permissions over SMB](/storage/files/storage-files-identity-ad-ds-configure-permissions.md).
 
@@ -322,7 +322,7 @@ In the section to set up Azure Files, there is a guide on how to configure file-
 
 1.	Mount the share using storage account and key.
 2.	Create a file.
-3.	Using the guide in 7.2.7, go through the steps to configure the file’s permission such that a user is denied access to that file.
+3.	Using the steps to srt up Azure Files, go through the steps to configure the file’s permission such that a user is denied access to that file.
 4.	Mount the share as the denied user.
 5.	Verify that they cannot access the file.  
 
