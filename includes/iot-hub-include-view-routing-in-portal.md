@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 10/19/2021
 ms.author: robinsh
 ms.custom: include file
 ---
