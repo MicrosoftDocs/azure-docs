@@ -34,24 +34,24 @@ Content in Azure Sentinel includes any of the following types:
 - [Hunting queries](hunting.md) are used by SOC teams to proactively hunt for threats in Azure Sentinel
 - [Notebooks](notebooks.md) help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
 - [Watchlists](watchlists.md) support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue
-- [Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md) provide the ability to run automated investigations, remediations, and response scenarios in Azure Sentinel
+- [Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md) provide features for automated investigations, remediations, and response scenarios in Azure Sentinel
 
 Azure Sentinel *solutions* are packages of Azure Sentinel content or Azure Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Azure Sentinel.
 
 > [!TIP]
-> You can either customize built-in (out-of-the-box) content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Azure Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions’ authoring and publishing.
+> You can either customize out-of-the-box content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Azure Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions’ authoring and publishing.
 >
 ## Discover and manage Azure Sentinel content
 
-Use the Azure Sentinel **Content hub** to centrally discover and install built-in content.
+Use the Azure Sentinel **Content hub** to centrally discover and install out-of-the-box content.
 
-The Azure Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical built-in solutions and content in Azure Sentinel.
+The Azure Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical out-of-the-box solutions and content in Azure Sentinel.
 
-- In the **Content hub**, filter by [categories](#azure-sentinel-built---in-content-and-solution-categories) and other parameters to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-built---in-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+- In the **Content hub**, filter by [categories](#azure-sentinel-out-of-the-box-content-and-solution-categories) and other parameters to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
 
-    Manage [updates for built-in content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Azure Sentinel **Content hub**, and for custom content via the **Repositories** page.
+    Manage [updates for out-of-the-box content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Azure Sentinel **Content hub**, and for custom content via the **Repositories** page.
 
-- Customize built-in content for your own needs, or create custom content, including analytics rules, hunting queries, notebooks, workbooks, and more. Manage your custom content directly in your Azure Sentinel workspace, via the [Azure Sentinel API](/rest/api/securityinsights/), or in your own source control repository, via the [Azure Sentinel **Repositories** page](ci-cd.md).
+- Customize out-of-the-box content for your own needs, or create custom content, including analytics rules, hunting queries, notebooks, workbooks, and more. Manage your custom content directly in your Azure Sentinel workspace, via the [Azure Sentinel API](/rest/api/securityinsights/), or in your own source control repository, via the Azure Sentinel **Repositories** page.
 
 ### Why content hub and solutions?
 
@@ -65,18 +65,18 @@ Azure Sentinel solutions provide in-product discoverability, single-step deploym
 
 - **Integrations** include services or tools built using Azure Sentinel or Azure Log Analytics APIs that support integrations between Azure and existing customer applications, or migrate data, queries, and more, from those applications into Azure Sentinel.
 
-Solutions also provide the ability to install packages of content / multiple pieces of built-in-content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
+You can also use solutions to install packages of out-of-the-box content in a single step, where the content is often ready to use immediately. Providers and partners can use solutions to productize investments by delivering combined product, domain, or vertical value.
 
-Use the Content hub to centrally discover and deploy solutions and built-in content in a sceanario-driven manner.
+Use the Content hub to centrally discover and deploy solutions and out-of-the-box content in a scenario-driven manner.
 
 For more information, see:
 
-- [Centrally discover and deploy Azure Sentinel built-in content and solutions](sentinel-solutions-deploy.md)
+- [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel Content hub catalog](sentinel-solutions-catalog.md)
 
-## Azure Sentinel built-in content and solution categories
+## Azure Sentinel out-of-the-box content and solution categories
 
-Azure Sentinel built-in content can be applied with one or more of the following categories. In the **Content hub**, select the categories you want to view to change the content displayed.
+Azure Sentinel out-of-the-box content can be applied with one or more of the following categories. In the **Content hub**, select the categories you want to view to change the content displayed.
 
 ### Domain categories
 
@@ -91,16 +91,16 @@ Azure Sentinel built-in content can be applied with one or more of the following
 | **IT Operations**| Products and services managing IT   |
 | **Migration**    | Migration enablement products, services, and               |
 | **Networking**   | Network products, services, and tools    |
-| **Platform**     | Azure Sentinel generic or framework components, Cloud infrastructure and platform|
+| **Platform**     | Azure Sentinel generic or framework components, Cloud infrastructure, and platform|
 | **Security - Others**   | Other security products and services with no other clear category           |
-| **Security - Threat Intelligence**  | Threat intelligence platforms, feeds, products and services        |
+| **Security - Threat Intelligence**  | Threat intelligence platforms, feeds, products, and services        |
 | **Security - Threat Protection**   | Threat protection, email protection, and XDR and endpoint protection products and services     |
-| **Security – 0-day Vulnerability**   | Specialized solutions for 0-day vulnerability attacks like [Nobelium](/azure/security/fundamentals/recover-from-identity-compromise) |
+| **Security – 0-day Vulnerability**   | Specialized solutions for zero-day vulnerability attacks like [Nobelium](/azure/security/fundamentals/recover-from-identity-compromise) |
 | **Security – Automation (SOAR)**   | Security automations, SOAR (Security Operations and Automated Responses), security operations, and incident response products and services.   |
 | **Security – Cloud Security** | CASB (Cloud Access Service Broker), CWPP (Cloud workload protection platforms), CSPM (Cloud security posture management and other Cloud Security products and services |
 | **Security – Information Protection**   | Information protection and document protection products and services|
 | **Security – Insider Threat**  | Insider threat and user and entity behavioral analytics (UEBA) for security products and services                |
-| **Security – Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention) and network packet capture   |
+| **Security – Network**    | Security network devices, firewall, NDR (network detection and response), NIDP (network intrusion and detection prevention), and network packet capture   |
 | **Security – Vulnerability Management** | Vulnerability management products and  services                    |
 | **Storage**      | File stores and file sharing products and services                 |
 | **Training and Tutorials**  | Training, tutorials, and onboarding assets |
@@ -117,9 +117,9 @@ Azure Sentinel built-in content can be applied with one or more of the following
 | **Manufacturing** | Products, services, and content specific for the manufacturing industry |
 | **Retail**       | Products, services, and content specific for the retail industry       |
 
-## Azure Sentinel built-in content and solution support models
+## Azure Sentinel out-of-the-box content and solution support models
 
-Both Microsoft and other organizations author Azure Sentinel built-in content and solutions. Each piece of built-in content or solution has one of the following support types:
+Both Microsoft and other organizations author Azure Sentinel out-of-the-box content and solutions. Each piece of out-of-the-box content or solution has one of the following support types:
 
 - **Microsoft-supported**: Applies to:
 
@@ -130,7 +130,7 @@ Both Microsoft and other organizations author Azure Sentinel built-in content an
 
 - **Partner-supported**: Applies to content/solutions authored by parties other than Microsoft.
 
-    The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that content/solutions.
+    The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for the selected content/solutions.
 
     For any issues with a partner-supported solution, contact the specified support contact.
 
@@ -145,7 +145,7 @@ After you've learned about Azure Sentinel content, start managing content and so
 
 Discover and install solutions from the Azure Sentinel **Content hub**. For more information, see:
 
-- [Centrally discover and deploy built-in content and solutions (Public preview)](sentinel-solutions-deploy.md)
+- [Centrally discover and deploy out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Azure Sentinel content hub catalog](sentinel-solutions-catalog.md)
 - [Azure Sentinel data connectors](connect-data-sources.md)
 - [Find your Azure Sentinel data connector](data-connectors-reference.md)

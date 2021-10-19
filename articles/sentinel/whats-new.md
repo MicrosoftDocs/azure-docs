@@ -165,6 +165,20 @@ For example:
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
+
+### Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel
+
+The new **Azure Sentinel Deception** solution helps you watch for malicious activity in your key vaults by helping you to deploy decoy keys and secrets, called *honey* tokens, to selected Azure key vaults.
+
+Once deployed, any access or operation with the honeytoken keys and secrets generate incidents that you can investigate in Azure Sentinel.
+
+Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
+
+The **Azure Sentinel Deception** solution includes a workbook to help you deploy the honeytokens, either at scale or one at a time, watchlists to track the honeytokens created, and analytics rules to generate incidents as needed.
+
+For more information, see [Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel (Public preview)](monitor-key-vault-honeytokens.md).
+
+
 ## October 2021
 
 - [Defender for Office 365 events now available in the M365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
