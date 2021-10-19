@@ -11,13 +11,11 @@ ms.service: virtual-machines-sap
 
 # Deploy the control plane
 
-## Overview
-
 The control plane deployment consists of the following components:
  - Deployer
  - SAP library
 
-## Preparing the deployment credentials
+## Prepare the deployment credentials
 
 The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
 
@@ -41,7 +39,7 @@ Assign the correct permissions to the Service Principal:
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
-## Deploying the control plane
+## Deploy the control plane
    
 The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
 
@@ -87,8 +85,9 @@ cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
 
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRASTRUCTURE\MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 ```
+---
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Configure SAP Workload Zone](automation-workload-zone-deployment.md)
