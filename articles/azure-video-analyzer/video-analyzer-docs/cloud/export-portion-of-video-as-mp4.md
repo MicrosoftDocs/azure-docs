@@ -66,8 +66,8 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
 1. In the `Define parameters` section:
     1. Enter the name of the Video Analyzer recorded video in the `sourceVideoName` field.
     1. In the `videoSourceTimeSequenceParameter` field select the start and end dates by clicking on the calendar icon and selecting the dates for each value.  In the time fields, enter the start and end times for the pipeline job to use for creating the video clip with.
-      > [!NOTE]
-      > The time value for a given recorded video is displayed in the upper right hand side of the video widget player.  This time value is shown in the image below with a red box around it.  The calendar icon is also shown in the image below with a green box around it.
+        > [!NOTE]
+        > The time value for a given recorded video is displayed in the upper right hand side of the video widget player.  This time value is shown in the image below with a red box around it.  The calendar icon is also shown in the image below with a green box around it.
 
     1. Enter a name for the exported MP4 file in the `exportedVideoName` field.
   
