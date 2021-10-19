@@ -37,7 +37,7 @@ The following section describes setup of Server Trust Group using Azure portal.
 
    :::image type="content" source="./media/server-trust-group-overview/_new-sql-trust-group-button.png" alt-text="New Group":::
 
-5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in group's subscription, resource group and region. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group. Trust scope is fixed, and all available functionalities are preselected and this cannot be changed. Select **subscription** and **Resource group** to choose Azure SQL Managed Instances that will be members of the group.
+5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in group's subscription, resource group and region. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group. Trust scope is fixed, and all available functionalities are preselected and this cannot be changed. Select **Subscription** and **Resource group** to choose Azure SQL Managed Instances that will be members of the group.
 
    :::image type="content" source="./media/server-trust-group-overview/_new-sql-trust-group.png" alt-text="SQL trust group create blade":::
 
@@ -60,11 +60,11 @@ Following section describes Server trust group deletion process.
 2. Navigate to a Managed Instance that belongs to the SQL trust group.
 3. On the **Security** settings select the **SQL trust groups** tab.
 4. Select the trust group you want to delete.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Select SQL trust group":::
+   :::image type="content" source="./media/server-trust-group-overview/_select-delete-sql-trust-group.png" alt-text="Select SQL trust group":::
 5. Click **Delete group**.
    :::image type="content" source="./media/server-trust-group-overview/_delete-sql-trust-group.png" alt-text="Delete SQL trust group":::
 6. Type in the SQL trust group name to confirm deletion and click **Delete**.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirm SQL trust group deletion":::
+   :::image type="content" source="./media/server-trust-group-overview/_confirm-delete-sql-trust-group.png" alt-text="Confirm SQL trust group deletion":::
 
 > [!NOTE]
 > Deleting the SQL Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) for the latest updates on this.
