@@ -87,7 +87,7 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with.
 
-When initially integrated with a VNet, all traffic will be routed into your VNet. If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet#application-routing)
+When initially integrated with a VNet, all traffic will be routed into your VNet. If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet#application-routing).
 
 ## Regional virtual network integration
 
@@ -114,7 +114,7 @@ When you use VNet Integration with VNets in the same region, you can use the fol
 There are some limitations with using VNet Integration with VNets in the same region:
 
 * You can't reach resources across global peering connections.
-* The feature is available from all App Service scale units in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service scale units. If you are on an older scale unit, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after that.  
+* The feature is available from all App Service scale units in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service scale units. If you are on an older scale unit, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after that.
 * The integration subnet can be used by only one App Service plan.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager VNet.
@@ -161,11 +161,11 @@ To control inbound traffic to your app, use the Access Restrictions feature. An 
 
 ### Routes
 
-You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When your function app is VNet integrated, all of your outbound calls are affected. Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
+You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When Route All is enabled, all of your outbound calls are affected. When [Route All](../app-service/web-sites-integrate-with-vnet#application-routing) is disabled, only private traffic (RFC1918) is affected by your route tables. Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 
-Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. By default, BGP routes affect only your RFC1918 destination traffic. When your function app is VNet integrated, all outbound traffic can be affected by your BGP routes.
+Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic is affected. By default, BGP routes affect only your RFC1918 destination traffic. When your function app is VNet integrated with Route All enabled, all outbound traffic can be affected by your BGP routes.
 
 ### Azure DNS private zones 
 
