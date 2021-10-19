@@ -13,16 +13,15 @@ ms.reviewer: mathoma
 ms.date: 10/18/2021
 ---
 
-# Use auto-failover groups to enable transparent and coordinated failover of multiple databases
+# Use auto-failover groups to enable transparent and coordinated geo-failover of multiple databases
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-The auto-failover groups feature allows you to manage the replication and failover of a group of databases on a server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](active-geo-replication-overview.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate a geo-failover manually or you can delegate it to the Azure service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database or SQL Managed Instance availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads. Auto-failover groups support geo-replication of all databases in the group to only one secondary server or instance in a different region.
-
->[!NOTE]
-> Auto-failover groups are not currently supported in the [Hyperscale](service-tier-hyperscale.md) service tier. For geographic failover of a Hyperscale database, use [active geo-replication](active-geo-replication-overview.md).
+The auto-failover groups feature allows you to manage the replication and failover of a group of databases on a server or all databases in a managed instance to another region. It is a declarative abstraction on top of the existing [active geo-replication](active-geo-replication-overview.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. You can initiate a geo-failover manually or you can delegate it to the Azure service based on a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database or SQL Managed Instance availability in the primary region. A failover group can include one or multiple databases, typically used by the same application. Additionally, you can use the readable secondary databases to offload read-only query workloads.
 
 > [!NOTE]
-> If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
+> Auto-failover groups support geo-replication of all databases in the group to only one secondary server or instance in a different region. If you need to create multiple Azure SQL Database geo-secondary replicas (in the same or different regions) for the same primary replica, use [active geo-replication](active-geo-replication-overview.md).
+> 
+> Auto-failover groups are not currently supported in the [Hyperscale](service-tier-hyperscale.md) service tier. For geographic failover of a Hyperscale database, use [active geo-replication](active-geo-replication-overview.md).
 
 When you are using auto-failover groups with automatic failover policy, an outage that impacts one or several of the databases in the group will result in an automatic geo-failover. Typically, these are outages that cannot be automatically mitigated by the built-in high availability infrastructure. Examples of geo-failover triggers include an incident caused by a SQL Database tenant ring or control ring being down due to an OS kernel memory leak on compute nodes, or an incident caused by one or more tenant rings being down because a wrong network cable was accidentally cut during routine hardware decommissioning. For more information, see [SQL Database High Availability](high-availability-sla.md).
 
