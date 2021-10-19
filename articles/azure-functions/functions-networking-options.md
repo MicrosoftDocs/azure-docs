@@ -146,14 +146,14 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. Regional VNet Integration enables your function app to reach Azure services that are secured with service endpoints. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration. To access a service endpoint-secured service, you must do the following:
 
-1. Configure regional VNet Integration with your function app to connect to a specific subnet for integration.
+1. Configure regional VNet Integration with your function app to connect to a specific subnet.
 1. Go to the destination service and configure service endpoints against the integration subnet.
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ### Network security groups
 
-You can use network security groups to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must enable VNet integration. The inbound rules in an NSG don't apply to your app because VNet Integration affects only outbound traffic from your app.
+You can use network security groups to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must enable VNet integration. The inbound rules in an NSG don't apply to your app because VNet Integration affects only outbound traffic from your app.
 
 To control inbound traffic to your app, use the Access Restrictions feature. An NSG that's applied to your integration subnet is in effect regardless of any routes applied to your integration subnet. If your function app is VNet integrated, and you don't have any routes that affect public address traffic on your integration subnet, all of your outbound traffic is still subject to NSGs assigned to your integration subnet. When your function app isn't VNet integrated, NSGs are only applied to RFC1918 traffic.
 
