@@ -31,17 +31,15 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 - Improve access to legacy on-premises apps and data sources by keeping virtual desktops and apps in the same location.
 
-- Reduce costs and improve user experience for Windows 10 and Windows 11 Enterprise multi-session virtual desktops.
+- Reduce costs and improve user experience with Windows 10 and Windows 11 Enterprise multi-session virtual desktops.
 
-- Make it easier to deploy and manage traditional on-premises VDI solutions by using the Azure portal.
+- Simplify your VDI deployment and management compared to traditional on-premises VDI solutions by using the Azure portal.
 
 ## Pricing
 
 The folowing things affect how much it costs to run Azure Virtual Desktop for Azure Stack HCI:
 
-- Infrastructure costs. Instead of compute, storage, and networking infrastructure costs in the Azure public cloud, you'll pay monthly service fees for Azure Stack HCI. Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
-
-- Access costs for Azure Virtual Desktop. The same license entitlements that grant access to Azure Virtual Desktop in the cloud also apply to Azure Virtual Desktop for Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+- User access rights for Azure Virtual Desktop. The same licenses that grant access to Azure Virtual Desktop in the cloud also apply to Azure Virtual Desktop for Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 - The Azure Virtual Desktop hybrid service fee. This fee requires you to pay for each active virtual CPU (vCPU) of Azure Virtual Desktop session hosts you're running on Azure Stack HCI. This fee will become active once the preview period ends.
 

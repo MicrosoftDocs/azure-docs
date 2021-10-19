@@ -13,32 +13,32 @@ manager: femila
 > Azure Virtual Desktop for Azure Stack HCI is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hcioverview.md).
+With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
 ## Requirements
 
 In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
 
-- An [Azure Stack HCI cluster registered to Azure Portal](/azure-stack/hci/deploy/register-with-azure).
+- An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure).
 
 - An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions.
 
 - [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
-- A stable connection to your Azure subscription from your on-premises network.
+- A stable connection to Azure from your on-premises network.
 
 ## Set up your deployment
 
 To set up Azure Virtual Desktop for Azure Stack HCI:
 
-1. Follow the instructions in [Begin the host pool setup process](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process) to create a host pool and workspace. At the end of that section, come back to this article and start on step 2.
+1. Create a new host pool with no virtual machines by following the instructions in [Begin the host pool setup process](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process). At the end of that section, come back to this article and start on step 2.
 
-2. Next, follow the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm) to deploy a VM with a supported OS and join it to a domain.
+2. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
 
    >[!NOTE]
    >Install the Remote Desktop Session Host (RDSH) role if the VM is running a Windows Server OS.
 
-3. Follow the directions in [Install Arc for server agents on the VM](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+3. Enable Azure to manage the new virtual machine through Azure Arc by installing the Connected Machine agent to it. Follow the directions in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to install the Windows agent to the virtual machine.
 
 4. Install the [Azure Virtual Desktop Agent](agent-overview.md) and follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
 
