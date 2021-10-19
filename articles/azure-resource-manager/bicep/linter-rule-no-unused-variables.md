@@ -19,12 +19,4 @@ To reduce confusion in your template, delete any variables that are defined but 
 
 ## Next steps
 
-* For more information about the linter, see [Use Bicep linter](./linter.md).
-* The current linter rules are:
-
-  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-  * [no-unused-params](./linter-rule-no-unused-parameters.md)
-  * [no-unused-vars](./linter-rule-no-unused-variables.md)
-  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+For more information about the linter, see [Use Bicep linter](./linter.md).

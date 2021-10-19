@@ -270,7 +270,7 @@ First, if you have already deployed the SAP connector without the SNC or SAPGENP
 
    1. Wait for the portal notification that the connection has been deleted.
 
-1. Or, delete connections to your SAP connector from your ISE's API connections.
+1. Or, delete connections to your SAP connector from the API connections in your ISE.
 
    1. Open your ISE resource in the Azure portal.
 
