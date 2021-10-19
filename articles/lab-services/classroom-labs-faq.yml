@@ -96,6 +96,14 @@ sections:
   - name: General
     questions:
       - question: |
+          How do I prevent capacity constraints and Azure compute quota limitations on my subscription?
+        answer: |
+          When you start to use Azure Lab Services for the first time, you will need to submit a request to increase the Azure compute quota limit that exists on your subscription.  As your lab usage grows and increases in the number of VM cores you need, you may need to repeat this process to increase your quota limit further.
+          As part of your up front planning each time that you deploy new labs, you also need to ensure that there is adequate VM core capacity in the region that you plan to deploy in.  This is especially important for GPUs.
+          For more information on how to plan for both capacity and Azure compute quota limitations, read the following articles:
+            - [VM Subscription Limits and Regional Capacity](https://techcommunity.microsoft.com/t5/azure-lab-services/vm-subscription-limits-and-regional-capacity/ba-p/1845553)
+            - [Capacity limits in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/capacity-limits)
+      - question: |
           What if my question isn't answered here?
         answer: |
           If your question isn't listed here, let us know, so we can help you find an answer.
