@@ -15,7 +15,7 @@ Automation is needed in three broad areas of cloud operations:
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
 
-There are several Azure services that can deliver the above requirements. While each service has its own pros and cons, you can use multiple services together to accomplish meet your requirements. Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
+Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
 Automation gives you complete control during deployment, operations, and decommissioning of enterprise workloads and resources.
 
