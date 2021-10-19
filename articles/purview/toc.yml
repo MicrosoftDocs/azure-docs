@@ -74,6 +74,8 @@ items:
     href: concept-insights.md
   - name: Upgraded Azure Purview accounts
     href: concept-account-upgrade.md
+  - name: Concept guide Azure Purview Data Policies
+    href: policy/concept-data-policies.md
 - name: How-to guides
   items:
   - name: Create and manage collections
@@ -261,8 +263,8 @@ items:
     items:
     - name: How to create data access policies for Azure Storage
       href: policy/how-to-storage-access-policies.md
-    - name: How to create data access policies for Azure SQL DB
-      href: policy/how-to-sql-access-policies.md
+#   - name: How to create data access policies for Azure SQL DB
+#     href: policy/how-to-sql-access-policies.md
 - name: Reference
   items:
     - name: Azure Purview product glossary

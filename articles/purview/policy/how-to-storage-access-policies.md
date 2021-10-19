@@ -16,15 +16,16 @@ ms.date: 10/06/2021
 The Purview policy authoring supports following capabilities:
 -   Data policy for Azure Storage to control access to data stored in Blob or ADLS Gen2 files
 
-\[**IMPORTANT**\] These capabilities are currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might
-not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
+> [!IMPORTANT]
+> These capabilities are currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Pre-requisites
 
 ### Using isolated subscription for preview
 
-\[**IMPORTANT**\] Given the sensitive nature of the functionality (centrally defined data access control), we require the preview to be evaluated in an isolated subscription. Microsoft will explicitly approve that subscription to enable the data policy functionality in Azure Purview and Azure Storage accounts.
+> [!IMPORTANT]
+> Given the sensitive nature of the functionality (centrally defined data access control), we require the preview to be evaluated in an isolated subscription. Microsoft will explicitly approve that subscription to enable the data policy functionality in Azure Purview and Azure Storage accounts.
 
 ### Provision new accounts in the isolated subscriptions
 
@@ -77,17 +78,20 @@ Storage accounts in the regions where this functionality is available.
 
 -   North Europe
 -   West Europe
+-   UK South
 -   East US
 -   East US2
 -   South Central US
 -   West US 2
--   Canada Central
 -   Southeast Asia
 -   Australia East
+-   Canada Central
+-   France Central
+
 
 ##### Azure Storage
 
--   East US 2
+-   France Central
 -   Canada Central
 
 #### Create new Azure Purview account
@@ -129,26 +133,22 @@ Steps to create a new policy in Purview
 
 4.  The new policy page will appear. Enter the policy **Name** and **Description**.
 
-5.  To add policy statements to the new policy, select the **New policy
-    statement** button. This will bring up the policy statement builder.
+5.  To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
     :::image type="content" source="./media/how-to-storage-access-policies/create-new-policy-storage.png" alt-text="Image shows how a Data Owner can create a new policy statement.":::
 
 6.  Select the **Action** button and choose Read or Modify from the drop-down list.
 
-7.  Select the **Effect** button and choose Allow or Deny from the drop-down list.
+7.  Select the **Effect** button and choose Allow from the drop-down list.
 
 8.  Select the **Data Resources** button to bring up the options to provide the data asset path
 
-9.  In the **Assets** box, enter the **Data Source Type** and select the
-    **Name** of a previously registered data source.
+9.  In the **Assets** box, enter the **Data Source Type** and select the **Name** of a previously registered data source.
     :::image type="content" source="./media/how-to-storage-access-policies/select-data-source-type-storage.png" alt-text="Image shows how a Data Owner can select a Data Resource when editing a policy statement.":::
 
-10. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will
-    take you back to the policy editor.
+10. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will take you back to the policy editor.
     :::image type="content" source="./media/how-to-storage-access-policies/select-asset-storage.png" alt-text="Image shows how a Data Owner can select the asset when creating or editing a policy statement.":::
 
-11. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will
-    take you back to the policy editor
+11. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
     :::image type="content" source="./media/how-to-storage-access-policies/select-subject.png" alt-text="Image shows how a Data Owner can select the subject when creating or editing a policy statement.":::
 
 12. Repeat the steps #5 to #11 to enter any additional policy statements.
@@ -184,3 +184,6 @@ The steps to publish a policy are as follows
 
 4.  A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Note that the publish is a background operation. It would take up to 2 hours for the changes to be reflected in the data source.
     :::image type="content" source="./media/how-to-storage-access-policies/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a Data Owner can select the data source where the policy will be published.":::
+
+## Next steps
+Check the [Concept guide for Azure Purview Data Policies](concept-data-policies.md)
