@@ -37,7 +37,7 @@ If you're using the Secure Shell (SSH) network protocol to connect with the dev 
 - **Use the dev kit's serial port**: Azure Percept DK includes a serial connection port that can be used to connect directly to the device. For more information, see [Connect to Azure Percept DK over serial cable](./how-to-connect-to-percept-dk-over-serial.md).
 
 ## Next steps
-Depending on the cellular device you have access to, you can connect in either of two ways:
+Depending on the cellular device you have access to, you can connect in one of two ways:
 
 * [Connect by using a USB modem](./connect-over-cellular-usb.md)
 * [Connect by using 5G or LTE](./connect-over-cellular.md)
