@@ -2,22 +2,32 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/19/2021
 ---
 
 # Outputs in Bicep
 
 This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
 
-The format of each output value must resolve to one of the [data types](data-types.md).
-
 ## Define output values
 
-The following example shows how to use the `output` keyword to return a property from a deployed resource. In the example, `publicIP` is the identifier (symbolic name) of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
+The syntax for defining an output value is:
+
+```bicep
+output <name> <data-type> = <value>
+```
+
+Each output value must resolve to one of the [data types](data-types.md).
+
+The following example shows how to return a property from a deployed resource. In the example, `publicIP` is the symbolic name for a public IP address that is deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
 ```
+
+The next example shows how to return outputs of different types.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
 
 If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
 
@@ -29,10 +39,19 @@ var user = {
 output stringOutput string = user['user-name']
 ```
 
-The next example shows how to return outputs of different types.
+To return one of two values depending a condition in the deployment, use the the `?` operator. For more information, see [Conditional output](#conditional-output).
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
+```bicep
+output <name> <data-type> = <condition> ? <true-value> : <false-value>
+```
 
+To return more than one instance of an output value, use the `for` expression. For more information, see [Dynamic number of outputs](#dynamic-number-of-outputs).
+
+```bicep
+output <name> <data-type> = [for <item> in <collection>: {
+  ...
+}]
+```
 
 ## Conditional output
 
@@ -69,28 +88,29 @@ In Bicep, add a `for` expression that defines the conditions for the dynamic out
 
 ```bicep
 param nsgLocation string = resourceGroup().location
-param nsgNames array = [
-  'nsg1'
-  'nsg2'
-  'nsg3'
+param orgNames array = [
+  'Contoso'
+  'Fabrikam'
+  'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in nsgNames: {
-  name: name
+resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in orgNames: {
+  name: 'nsg-${name}'
   location: nsgLocation
 }]
 
-output nsgs array = [for (name, i) in nsgNames: {
-  name: nsg[i].name
+output deployedNSGs array = [for (name, i) in orgNames: {
+  orgName: name
+  nsgName: nsg[i].name
   resourceId: nsg[i].id
 }]
 ```
 
-You can also iterate over a range of integers. For more information, see [Output iteration in Bicep](loop-outputs.md).
+For more information about loops, see [Iterative loops in Bicep](loops.md).
 
-## Modules
+## Outputs from modules
 
-You can deploy related templates by using modules. To retrieve an output value from a module, use the following syntax:
+To get an output value from a module, use the following syntax:
 
 ```bicep
 <module-name>.outputs.<property-name>
