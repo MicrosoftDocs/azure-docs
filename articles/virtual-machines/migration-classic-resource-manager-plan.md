@@ -192,7 +192,7 @@ Be purposeful on what services you now want to enable in Azure Resource Manager.
 - [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 - [Azure Resource Manager templates for easier and more controlled deployment](../azure-resource-manager/templates/overview.md).
 - [Tags](../azure-resource-manager/management/tag-resources.md).
-- [Activity Control](../azure-resource-manager/management/view-activity-logs.md)
+- [Activity Control](../azure-monitor/essentials/activity-log.md)
 - [Azure Policies](../governance/policy/overview.md)
 
 ### Pitfalls to avoid

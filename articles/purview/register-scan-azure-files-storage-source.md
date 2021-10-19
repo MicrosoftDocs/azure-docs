@@ -1,10 +1,10 @@
 ---
-title: 'How to scan Azure files'
-description: This how to guide describes details of how to scan Azure files. 
+title: 'How to register and scan Azure files'
+description: This how to guide describes details of how to scan Azure files in Azure Purview. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 06/22/2021
 ---
@@ -71,7 +71,7 @@ On the **Register sources (Azure Files)** screen, follow these steps:
 
 To create and run a new scan, follow these steps:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Files source that you registered.
 

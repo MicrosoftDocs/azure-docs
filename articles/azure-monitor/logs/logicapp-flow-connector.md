@@ -21,7 +21,7 @@ The Azure Monitor Logs connector has these limits:
 * Max query timeout 110 second
 * Chart visualizations could be available in Logs page and missing in the connector since the connector and Logs page don't use the same charting libraries currently
 
-The connector may reach limits depending on the query you use and the size of the results. You can often avoid such cases by adjusting the flow recurrence to run more frequent on smaller time range, or aggregate data to reduce the results size. Frequent queries with lower intervals than 100 seconds aren’t recommended due to caching.
+The connector may reach limits depending on the query you use and the size of the results. You can often avoid such cases by adjusting the flow recurrence to run more frequent on smaller time range, or aggregate data to reduce the results size. Frequent queries with lower intervals than 120 seconds aren’t recommended due to caching.
 
 ## Actions
 The following table describes the actions included with the Azure Monitor Logs connector. Both allow you to run a log query against a Log Analytics workspace or Application Insights application. The difference is in the way the data is returned.

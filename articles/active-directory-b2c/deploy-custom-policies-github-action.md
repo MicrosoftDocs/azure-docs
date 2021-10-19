@@ -3,14 +3,14 @@ title: Deploy custom policies with GitHub Actions
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using GitHub Actions.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -94,7 +94,7 @@ To create a workflow, follow these steps:
           uses: azure-ad-b2c/deploy-trustframework-policy@v3
           with:
             folder: "./Policies"
-            files: "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
+            files: "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
             tenant: ${{ env.tenant }}
             clientId: ${{ env.clientId }}
             clientSecret: ${{ secrets.clientSecret }}
@@ -107,12 +107,13 @@ To create a workflow, follow these steps:
     | `env` | `clientId` | **Application (client) ID** of the application you registered in the [Register an MS Graph application](#register-a-microsoft-graph-application) step. |
     |`env`| `tenant` | Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, contoso.onmicrosoft.com). |
     | `with`| `folder`| A folder where the custom policies files are stored, for example, `./Policies`.|
-    | `with`| `files` | Comma-delimited list of policy files to deploy, for example, `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
+    | `with`| `files` | Comma-delimited list of policy files to deploy, for example, `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
     
     > [!IMPORTANT]
     > When running the agents and uploading the policy files, make sure they're uploaded in the correct order:
     >
     > 1. *TrustFrameworkBase.xml*
+    > 1. *TrustFrameworkLocalization.xml*
     > 1. *TrustFrameworkExtensions.xml*
     > 1. *SignUpOrSignin.xml*
     > 1. *ProfileEdit.xml*

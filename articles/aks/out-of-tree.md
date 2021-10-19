@@ -38,7 +38,7 @@ You must have the following resource installed:
 To use the Cloud Controller Manager feature, you must enable the `EnableCloudControllerManager` feature flag on your subscription. 
 
 ```azurecli
-az feature register –name EnableCloudControllerManager --namespace Microsoft.ContainerService
+az feature register --name EnableCloudControllerManager --namespace Microsoft.ContainerService
 ```
 You can check on the registration status by using the [az feature list][az-feature-list] command:
 

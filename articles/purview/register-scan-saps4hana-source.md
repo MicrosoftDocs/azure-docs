@@ -4,9 +4,9 @@ description: This article outlines how to register SAP S/4HANA source in Azure P
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 10/18/2021
 ---
 # Register and Scan a SAP S/4HANA source
 
@@ -19,11 +19,10 @@ The SAP S/4HANA source supports **Full scan** to extract metadata from a SAP S/4
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted
-    integration
-    runtime](../data-factory/create-self-hosted-integration-runtime.md).
+1.  Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md). 
+
+    >[!NOTE]
+    >Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with large memory e.g. 128 GB.
 
 2.  Make sure the [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -95,7 +94,7 @@ On the **Register sources (SAP S/4HANA)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime
 
@@ -125,20 +124,16 @@ To create and run a new scan, do the following:
     e.  **JCo library path**: Specify the path to the folder where the
         JCo libraries are located.
 
-    f.  **Maximum memory available:** Maximum memory (in GB) available
-        on customer's VM to be used by scanning processes. This is
-        dependent on the size of SAP S/4HANA source to be scanned.
-    > [!Note] 
-    > As a thumb rule, please provide 1GB memory for every 1000 tables
-
+    f.  **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP S/4HANA source to be scanned. It's recommended to provide large available memory e.g. 100.
+   
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="scan SAP S/4HANA" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

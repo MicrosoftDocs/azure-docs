@@ -48,8 +48,7 @@ The assessment phase is critical in understanding available options for the migr
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | **Choose a target storage service**            | - Azure Blob Storage and Data Lake Storage<br>- Azure Files<br>- Azure NetApp Files<br>- ISV solutions |
 | **Select a migration method**                  | - Online<br>- Offline<br> - Combination of both                                  |
-| **Choose the best migration tool for the job** | - Commercial tools (Azure and ISV)<br> - Open source                             
-
+| **Choose the best migration tool for the job** | - Commercial tools (Azure and ISV)<br> - Open source
 
 There are several commercial (ISV) tools that can help with the assessment phase. See the [comparison matrix](../solution-integration/validated-partners/data-management/migration-tools-comparison.md).
 
@@ -111,7 +110,9 @@ The duration of the migration for unstructured data depends on several aspects. 
 
 Migration of block-based devices is typically done as part of virtual machine or physical host migration. It's a common misconception to delay block storage decisions until after the migration. Making these decisions ahead of time with appropriate considerations for workload requirements leads to a smoother migration to the cloud.
 
-To explore workloads to migrate and approach to take, see the [Azure Disk Storage documentation](../../virtual-machines/disks-types.md), and resources on the [Disk Storage product page](https://azure.microsoft.com/services/storage/disks/#resources). You can learn about which disks fit your requirements, and the latest capabilities such as [disk bursting](../../virtual-machines/disk-bursting.md). For information about how to migrate the virtual machines together with the underlying block-based devices, see the [Azure Migrate](../../migrate/index.yml) documentation.
+To explore workloads to migrate and approach to take, see the [Azure Disk Storage documentation](../../virtual-machines/disks-types.md), and resources on the [Disk Storage product page](https://azure.microsoft.com/services/storage/disks/#resources). You can learn about which disks fit your requirements, and the latest capabilities such as [disk bursting](../../virtual-machines/disk-bursting.md). Migration of block based devices can be done in two ways:
+- For migration of full virtual machines together with the underlying block-based devices, see the [Azure Migrate](../../migrate/index.yml) documentation
+- For migration of block based devices only, and more complexed use cases, use [Cirrus Migrate Cloud](../solution-integration/validated-partners/data-management/cirrus-data-migration-guide.md).
 
 ## See also
 

@@ -224,4 +224,4 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 #### .NET Core doesn't support interactive authentication with an embedded browser
 
 For .NET Core, acquisition of tokens interactively is only available through the system web browser, not with embedded web views. Indeed, .NET Core doesn't provide UI yet.
-If you want to customize the browsing experience with the system web browser, you can implement the [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) interface and even provide your own browser.
+If you want to customize the browsing experience with the system web browser, you can implement the [IWithCustomUI](scenario-desktop-acquire-token-interactive.md#withcustomwebui) interface and even provide your own browser.

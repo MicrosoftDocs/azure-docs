@@ -1,17 +1,15 @@
 ---
 title: Create an image version encrypted with your own keys 
 description: Create an image version in a shared image gallery, by using customer-managed encryption keys.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
-ms.author: olayemio 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Preview: Use customer-managed keys for encrypting images
+# Use customer-managed keys for encrypting images
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/16/2021
 ---
 # Documentation resources for AI enrichment in Azure Cognitive Search
 
@@ -29,7 +29,8 @@ The following is a consolidated list of the documentation for AI enrichment.
 
 ## Hands on walkthroughs
 
-+ [Quickstart: Create a cognitive skillset in the Azure portal](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create an OCR image skillset](cognitive-search-quickstart-ocr.md)
 + [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md)
 + [Tutorial: Diagnose, repair, and commit changes to your skillset with Debug Sessions](cognitive-search-tutorial-debug-sessions.md)
 

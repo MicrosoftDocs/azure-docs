@@ -338,7 +338,7 @@ Select either all databases or specific databases that you want to migrate to Az
 
 2. Verify the target database(s) on the target **Azure SQL Database**.
 
-### Additional resources
+## Additional resources
 
 - For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 - For information about Azure SQL Database, see the article [What is the Azure SQL Database service?](../azure-sql/database/sql-database-paas-overview.md).

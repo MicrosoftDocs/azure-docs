@@ -3,15 +3,15 @@ title: Set up a sign-in flow
 titleSuffix: Azure Active Directory B2C
 description: Learn how to set up a sign-in flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/24/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -33,7 +33,8 @@ The sign-in policy lets users:
 
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+- If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+- Complete the steps in [Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md).
 
 ::: zone pivot="b2c-user-flow"
 

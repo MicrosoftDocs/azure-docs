@@ -77,9 +77,9 @@ Azure IoT Edge for Linux on Windows supports the following provisioning methods:
 
   * Choose the authentication method you want to use, and then follow the steps in the appropriate article to set up an instance of DPS and create an enrollment to provision your device or devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](../iot-dps/concepts-service.md#enrollment).
 
-    * [Provision an IoT Edge device with DPS and symmetric keys.](how-to-auto-provision-symmetric-keys.md)
-    * [Provision an IoT Edge device with DPS and X.509 certificates.](how-to-auto-provision-x509-certs.md)
-    * [Provision an IoT Edge device with DPS and TPM attestation.](how-to-auto-provision-tpm-linux-on-windows.md)
+    * [Provision an IoT Edge device with DPS and symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md).
+    * [Provision an IoT Edge device with DPS and X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md).
+    * [Provision an IoT Edge device with DPS and TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 ## Create a new deployment
 
@@ -236,9 +236,9 @@ You can use the Windows Admin Center or an elevated PowerShell session to provis
 
 * Automatic provisioning:
 
-  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [Automatic provisioning using DPS and TPM attestation](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md#configure-the-device-with-provisioning-information)
 
 ### Manual provisioning using the connection string
 
@@ -317,6 +317,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 # [PowerShell](#tab/powershell)
 
+> [!IMPORTANT]
+> If you're using IoT Edge for Linux on Windows PowerShell public functions, be sure to set the execution policy on the target device to `AllSigned`. Ensure that all prerequisites for [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md) are met.
+
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
    ```powershell
@@ -347,9 +350,6 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
-
-> [!NOTE]
-> If you're using IoT Edge for Linux on Windows PowerShell public functions, be sure to set the execution policy on the target device to `AllSigned`. Ensure that all prerequisites for [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md) are met.
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
 

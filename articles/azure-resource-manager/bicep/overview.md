@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/09/2021
 ---
 
 # What is Bicep?
@@ -107,8 +107,7 @@ When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 ## Known limitations
 
-- No support for single-line object and arrays. For example, `['a', 'b', 'c']` isn't supported. For more information, see [Arrays](data-types.md#arrays) and [Objects](data-types.md#objects).
-- No support for breaking long lines into multiple lines. For example:
+- Bicep is newline sensitive. For example:
 
     ```bicep
     resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {

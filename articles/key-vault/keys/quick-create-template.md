@@ -20,15 +20,13 @@ ms.author: sebansal
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
 
-> [!NOTE]
-> This feature is not available for Azure Government.
 
 ## Prerequisites
 
 To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- User would need to have an Azure built-in role assigned eg. contributor. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
+- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
 - Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
@@ -170,7 +168,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 |Parameter  |Definition  |
 |---------|---------|
-|**Keysize**  | Specifies operations that can be performed by using the key. If you do not specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**keyOps**  | Specifies operations that can be performed by using the key. If you do not specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
 |**CurveName**  |  Elliptic curve name for EC key type. See [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
 |**Kty**  |  The type of key to create. For valid values, see [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
 |**Tags** | Application specific metadata in the form of key-value pairs.  |

@@ -68,14 +68,20 @@ sections:
         answer: |
           *Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open in case of no activity. 
           
-          The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you'll need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
+          The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you'll need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. Changing the value of the private IP address is not supported. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
           
           ```azurepowershell-interactive
           $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
           $publicIP.IdleTimeoutInMinutes = "15"
           Set-AzPublicIpAddress -PublicIpAddress $publicIP
           ```
-          
+ 
+      - question: Can I rename my Application Gateway resource?
+        answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
+        
+      - question: Is there a way to restore an Application Gateway and its public IP if it has been deleted?
+        answer: No. There is no way to restore an Application Gateway resource or its public IP once deleted. You must create a new resource.
+        
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
         answer: In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
 
@@ -129,6 +135,10 @@ sections:
           
           To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-http-settings.md#cookie-based-affinity) for more information.
           
+      - question: What is considered an active listener versus inactive listener?
+        answer: |
+          An active listener is a listener that is associated to a rule **and** sending traffic to a backend pool. Any listener that **only** redirects traffic is not an active listener. Listeners associated with redirect rules are not considered active. If the redirect rules is a path-based rule, then all the paths in that redirect rule must be redirecting traffic, else the listener is considered active. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) for individual component limit details. 
+      
   - name: Performance
     questions:
       - question: How does Application Gateway support high availability and scalability?
@@ -153,7 +163,7 @@ sections:
           
       - question: Can I change instance size from medium to large without disruption?
         answer: Yes.
-
+        
   - name: Configuration
     questions:
       - question: Is Application Gateway always deployed in a virtual network?
@@ -326,6 +336,9 @@ sections:
           
       - question: How many TLS/SSL certificates does Application Gateway support?
         answer: Application Gateway supports up to 100 TLS/SSL certificates.
+
+      - question: Does Application Gateway have support for OCSP and OCSP stapling?
+        answer: Yes, Application Gateway supports certificates with OCSP extensions and OCSP stapling for server certificates.
 
       - question: How many authentication certificates for backend reencryption does Application Gateway support?
         answer: Application Gateway supports up to 100 authentication certificates.

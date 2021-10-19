@@ -3,19 +3,19 @@ title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
 ms.date: 11/22/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 ---
 
-# Quickstart: Get started with Application Insights in a Java web project
+# Get started with Application Insights in a Java web project
 
 > [!CAUTION]
 > This document applies to Application Insights Java 2.x which is no longer recommended.
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
-In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+In this tutorial, you use the Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 

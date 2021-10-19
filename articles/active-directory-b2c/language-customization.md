@@ -2,15 +2,15 @@
 title: Language customization in Azure Active Directory B2C
 description: Learn about customizing the language experience in your user flows in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -33,6 +33,10 @@ You might not need that level of control over what languages your customer sees.
 
 > [!NOTE]
 > If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
+
+Watch this video to learn how to localize or customize language using Azure AD B2C.
+
+>[!Video https://www.youtube.com/embed/yqrX5_tA7Ms]
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -180,7 +184,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## Add custom languages
 
-You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode", for example `en-GB`. For more information on locale ID formats, please refer to https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
+You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode", for example `en-GB`. For more information, please refer to [locale ID formats](/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a).
 
 1. In your Azure AD B2C tenant, select **User flows**.
 2. Click the user flow where you want to add custom languages, and then click **Languages**.
@@ -412,12 +416,13 @@ In the following example, English (en) and Spanish (es) custom strings are added
 </ContentDefinitions>
 ```
 
-##  Upload and test your updated custom policy
+## Upload and test your updated custom policy
 
 ### Upload the custom policy
 
 1. Save the extensions file.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.

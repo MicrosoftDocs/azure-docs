@@ -5,7 +5,7 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 08/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -68,3 +68,6 @@ The app looks for objects in the current field of view and then tracks them once
 
 > [!div class="nextstepaction"]
 > [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)

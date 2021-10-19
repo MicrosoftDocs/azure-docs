@@ -230,13 +230,6 @@ sections:
           For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
           
       - question: |
-          In my App Service Environment, why can I create only one App Service plan, even though I have two workers available?
-        answer: |
-          To provide fault tolerance, App Service Environment requires that each worker pool needs at least one additional compute resource. The additional compute resource cannot be assigned a workload.
-          
-          For more information, see [How to create an App Service Environment](environment/app-service-web-how-to-create-an-app-service-environment.md).
-          
-      - question: |
           Why do I see timeouts when I try to create an App Service Environment?
         answer: |
           Sometimes, creating an App Service Environment fails. In that case, you see the following error in the Activity logs:

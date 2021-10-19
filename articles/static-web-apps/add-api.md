@@ -272,10 +272,10 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     # [No Framework](#tab/vanilla-javascript)
 
-    Pass the current folder (`.`) and the API folder (`api`) to the CLI.
+    Pass the current folder (`src`) and the API folder (`api`) to the CLI.
      
     ```bash
-    swa start . --api api
+    swa start src --api-location api
     ```
 
     # [Angular](#tab/angular)
@@ -283,7 +283,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     Pass the build output folder (`dist/angular-basic`) and the API folder (`api`) to the CLI.
 
     ```bash
-    swa start dist/angular-basic --api api
+    swa start dist/angular-basic --api-location api
     ```
 
     # [React](#tab/react)
@@ -291,7 +291,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     Pass the build output folder (`build`) and the API folder (`api`) to the CLI.
 
     ```bash
-    swa start build --api api
+    swa start build --api-location api
     ```
 
     # [Vue](#tab/vue)
@@ -299,7 +299,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     Pass the build output folder (`dist`) and the API folder (`api`) to the CLI.
 
     ```bash
-    swa start dist --api api
+    swa start dist --api-location api
     ```
 
     ---

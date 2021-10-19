@@ -3,7 +3,7 @@ title: Azure AD on-premises app provisioning to SCIM-enabled apps
 description: This article describes how to use the Azure AD provisioning service to provision users into an on-premises app that's SCIM enabled.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -61,7 +61,5 @@ To provision users to SCIM-enabled apps:
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)
 - [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)

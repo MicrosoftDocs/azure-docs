@@ -46,8 +46,8 @@ If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. a
 ### Capacity planning for migration to API for MongoDB
 
 Trying to do capacity planning for a migration to Azure Cosmos DB SQL API from an existing database cluster? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+* If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).
 
 ## API for MongoDB
 
@@ -60,8 +60,8 @@ API for MongoDB is compatible with the 4.0, 3.6, and 3.2 MongoDB server versions
 ### Capacity planning for migration to API for MongoDB
 
 Trying to do capacity planning for a migration to Azure Cosmos DB API for MongoDB from an existing database cluster? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./mongodb/estimate-ru-capacity-planner.md)
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./mongodb/estimate-ru-capacity-planner.md).
 
 ## Cassandra API
 
@@ -79,7 +79,7 @@ Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerp
 
 This API stores data in key/value format. If you are currently using Azure Table storage, you may see some limitations in latency, scaling, throughput, global distribution, index management, low query performance. Table API overcomes these limitations and it’s recommended to migrate your app if you want to use the benefits of Azure Cosmos DB. Table API only supports OLTP scenarios.
 
-Applications written for Azure Table storage can migrate to the Table API with little code changes and take advantage of premium capabilities. To learn more, see [Table API](introduction.md) article.
+Applications written for Azure Table storage can migrate to the Table API with little code changes and take advantage of premium capabilities. To learn more, see [Table API](table/introduction.md) article.
 
 ## Next steps
 

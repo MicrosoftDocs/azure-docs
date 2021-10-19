@@ -2,11 +2,11 @@
 title: Azure EA pricing
 description: Describes Azure EA pricing overview
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/11/2021
 ms.author: banders
 ---
 
