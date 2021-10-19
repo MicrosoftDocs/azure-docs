@@ -76,7 +76,7 @@ This section will guide you through how to create a mesh configuration with the 
 
 ## Deploy the hub and spoke configuration
 
-To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual network are created.
+To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual networks are created.
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 
@@ -98,7 +98,7 @@ To have this configuration take effect in your environment, you'll need to deplo
 
 1. Go to one of the virtual networks in the portal and select **Network Manager** under *Settings*. You should see the configuration listed on that page.
 
-1. To test connectivity between virtual networks, deploy a test virtual machine into each virtual network and initiate an ICMP request between them.
+1. To test connectivity between virtual networks, deploy a test virtual machine into each virtual network and start an ICMP request between them.
 
 ## Next steps
 
