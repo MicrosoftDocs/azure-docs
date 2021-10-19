@@ -12,7 +12,7 @@ author: AjAgr
 ms.author: ajagarw
 ---
 
-# Tutorial: Use FSSPEC to read/write ADLS data in Synapse Analytics spark pool
+# Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics
 
 Learn how to use Filesystem Spec (FSSPEC) to read/write data to Azure Data Lake Storage (ADLS) using a linked service in a serverless Apache Spark pool in Azure Synapse Analytics.
 
