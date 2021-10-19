@@ -412,7 +412,9 @@ To enable failover from the primary or source entity and to make sure that the r
    > [!NOTE]
    > If no **azure-webjobs-<*source-name*>** exists, make sure that the task runs at least one time.
 
-1. On the **azure-webjobs-<*source-name*>** pane, select the namespace folder. In the namespace folder, delete the source entity folder that holds checkpoint information for the former primary source entity.
+1. On the **azure-webjobs-<*source-name*>** pane, select the namespace folder, which has a name with the following format: `<namespace>.servicebus.windows.net`.
+
+1. In the namespace folder, delete the source entity folder named `src` that holds checkpoint information for the former primary source entity.
 
 1. Return to the logic app resource or workflow behind the replication task. Start the logic app or enable the workflow again.
 
