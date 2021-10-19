@@ -49,6 +49,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/containerapps
+    - name: ARM API specification
+      href: azure-resource-manager-api-spec.md
 - name: Resources
   items:
     - name: Pricing
