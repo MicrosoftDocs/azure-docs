@@ -194,14 +194,31 @@ Run the below code.
    import pandas
    
    # read parquet file
-   df = pandas.read_parquet('abfss://synapsemlfs@synapsemladlsgen2.dfs.core.windows.net/experiment/   mr/128mb/part-00001-3b6ab1ba-c265-48fc-af6d-fdaa073934fb-c000.snappy.parquet')
+   df = pandas.read_parquet('abfs[s]://file_system_name@account_name.dfs.core.windows.net/parquet_file_path')
    print(df)
    
    # write parquet file
-   df.to_parquet('abfss://synapsemlfs@synapsemladlsgen2.dfs.core.windows.net/pandas/write/test_20.   parquet')
+   df.to_parquet('abfs[s]://file_system_name@account_name.dfs.core.windows.net/parquet_file_path')
+   ```
+
+## Example to read/write excel file 
+
+Run the below code.
+
+   > [!NOTE]
+   > Update the file URL in this script before running it.
+
+   ```PYSPARK
+   import pandas
+   
+   # read excel file
+   df = pandas.read_excel('abfs[s]://file_system_name@account_name.dfs.core.windows.net/excel_file_path')
+   print(df)
+   
+   # write excel file
+   df.to_excel('abfs[s]://file_system_name@account_name.dfs.core.windows.net/excel_file_path')
    ```
 
 ## Next steps
 
 - [Azure Synapse Analytics](../index.yml)
-- [FSSPEC official documentation](https://filesystem-spec.readthedocs.io/en/latest/)
