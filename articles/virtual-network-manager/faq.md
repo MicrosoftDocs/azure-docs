@@ -66,7 +66,7 @@ Yes, you'll need to have the appropriate permissions to access those virtual net
 
 ### What is dynamic group membership?
 
-For more information, see [dynamic membership](concept-network-groups.md#dynamic).
+For more information, see [dynamic membership](concept-network-groups.md#dynamic-membership).
 
 ### How does the deployment of configuration differ for dynamic membership and static membership?
 
