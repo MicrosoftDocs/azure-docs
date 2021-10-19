@@ -28,11 +28,11 @@ sections:
 
           **What is the difference between Live and Batch Pipelines of Video Analyzer service?**
 
-          For more information, see [Pipeline](../pipeline.md)
+          For more information, see [pipeline](../pipeline.md#pipeline-topologies)
 
           **How do I operate cloud pipelines?**
 
-          You can either use portal or rest APIs. Please refer <ToDo: Howto/operate cloud pipeline> link for details
+          You can either use portal or rest APIs. Please refer <ToDo: How to operate cloud pipelines> link for details
 
           **What is the privacy policy for Video Analyzer?**
 
@@ -46,15 +46,15 @@ sections:
         answer: |
           **How do I create an Azure Video Analyzer account?**
 
-          You can either create the account by using an Azure Resource Manager (ARM) template or via the Azure portal. To create the Azure Video Analyzer account <ToDo update link> https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account
+          You can either create the account by using an Azure Resource Manager (ARM) template or by Azure portal. To create the Azure Video Analyzer account see [here](../create-video-analyzer-account.md)
 
           **How do I simulate RTSP stream if I don’t have camera?**
 
-          Yes you can simulate RTSP stream by using a Azure Linux VM. For more details please see <ToDo GetStartedLivePipelines> Simulate RTSP Camera section
+          Yes you can simulate RTSP stream by using a Azure Linux VM. For more details please see [RTSP camera simulator](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator)
 
           **How can I add sample video files to the Azure RTSP camera simulator?**
 
-          To add a new video file to your existing IoT Edge device folder, please refer here <ToDo GetStartedLivePipelines> Simulate RTSP Camera section.
+          To add a new video file to your existing RTSP camera simulator media folder, see [here](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator).
           Sample media files available for testing can be found at [Media datasets](https://github.com/Azure/video-analyzer/tree/main/media).
 
       - question: Capture from IP camera and RTSP settings
@@ -62,35 +62,34 @@ sections:
           **Do I need to use a special SDK on my camera device to send in a video stream?**
 
           No, Video Analyzer supports capturing media by using RTSP (Real-Time Streaming Protocol) for video streaming, which is supported on most IP cameras. 
-          Video Analyzer currently supports three different methods for connecting cameras to the cloud: connecting via a transparent gateway for video and RTSP protocol, connecting from behind a firewall using an IoT PnP command, and connecting over the open internet without a firewall. For more details, pls see <To Do link Connect cameras to the cloud>
-
+         
           **Can I push media to Video Analyzer service by using protocols other than RTSP?**
 
           No, Video Analyzer service currently supports only RTSP for capturing video from IP cameras. Any camera that supports RTSP streaming over TCP/HTTP should work. 
 
           **Can I reset or update the RTSP source URL in a live pipelines?**
 
-          Yes, when the live pipeline is in inactive state.
+          Yes, when the live pipeline is in 'deactived' state.
 
           **Is an RTSP simulator available to use during testing and development for Live pipelines?**
 
-          Yes, you can use Azure VM RTSP simulator <ToDo correct link> for quickstarts and tutorials to support the learning process. We recommend strongly that you solely not rely on simulator for your projects. You should invest in testing with your actual RTSP source before you plan a production deployment.
+          Yes, you can use [RTSP camera simulator[(./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator) for quickstarts and tutorials to support the learning process. We recommend strongly that you solely not rely on simulator for your projects. You should invest in testing with your actual RTSP source before you plan a production deployment.
 
       - question: Monitoring and metrics
         answer: |
           **Are there any tools to make it easier to monitor the Video Analyzer service?**
 
           You can monitor Video Analyzer’s metrics & diagnostic events published by service to your storage account via going to Azure portal -> Video Analyzer account -> Monitoring option. 
-          For more information, see the <ToDo – Monitor & Telemetry cloud doc>.
+          For more information, see [here](./monitor-log-cloud.md).
           
           **Can I monitor the pipeline on the cloud by using Azure Event Grid?**
 
           No, currently not supported.
 
-          **Can I use Azure Monitor to view the health, metrics, and performance of my pipelines in the cloud or on the edge?**
+          **Can I use Azure Monitor to view the health, metrics, and performance of my pipelines in the cloud?**
 
           Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../../azure-monitor/essentials/data-platform-metrics.md)
-          and <ToDo – Monitor & Telemetry cloud doc>
+          and [Monitor & logging-cloud](./monitor-log-cloud.md)
 
       - question: Billing and availability
         answer: |
@@ -102,4 +101,4 @@ additionalContent: |
 
   ## Next steps
 
-  [Quickstart: Get started with Azure Video Analyzer](../edge/get-started-detect-motion-emit-events.md)
+  [Quickstart: Get started with Azure Video Analyzer](./get-started-livepipelines-portal.md)
