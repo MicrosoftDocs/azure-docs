@@ -247,7 +247,7 @@ ws = Workspace.create(name="workspace name",
     primary_user_assigned_identity="managed identity ARM ID")
 ```
 
-You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) to create a workspace with user-assigned managed identity.
+You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/) to create a workspace with user-assigned managed identity.
 
 > [!IMPORTANT]
 > If you bring your own associated resources, instead of having Azure Machine Learning service create them, you must grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.
