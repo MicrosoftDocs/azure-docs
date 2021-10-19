@@ -49,7 +49,7 @@ After the test completes, you can download the load test results to create your 
 
 You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
 
-In the test configuration, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, fail the test if the average response time exceeds a given threshold.
+In the test configuration, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, when the average response time exceeds a given threshold, the test should fail.
 
 Azure Load Testing will automatically abort an automated load test in specific error conditions. You can also use the AutoStop listener in your JMeter script. Auto-aborting safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
 
