@@ -36,7 +36,11 @@
 - name: How-to guides
   items:
   - name: Block network traffic
-    href: how-to-block-network-traffic-portal.md
+    items:
+    - name: Portal
+      href: how-to-block-network-traffic-portal.md
+    - name: PowerShell
+      href: how-to-block-network-traffic-powershell.md
   - name: Create a network topology
     items:
     - name: Mesh
