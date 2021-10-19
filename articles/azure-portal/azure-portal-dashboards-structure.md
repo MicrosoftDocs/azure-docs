@@ -1,12 +1,15 @@
 ---
-title: The structure of Azure Dashboards
-description: Walk through the JSON structure of an Azure Dashboard using an example dashboard. Includes reference to resource properties.
+title: The structure of Azure dashboards
+description: Walk through the JSON structure of an Azure dashboard using an example dashboard. Includes reference to resource properties.
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 10/19/2021
 ---
 
-# The structure of Azure Dashboards
+# The structure of Azure dashboards
+
 This document walks through the structure of an Azure dashboard, using the following dashboard as an example:
+
+:::image type="content" source="media/azure-portal-dashboards-structure/sample-dashboard.png" alt-text="Screenshot of a sample dashbaord in the Azure portal.":::
 
 ![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
@@ -278,48 +281,55 @@ Since shared [Azure dashboards are resources](../azure-resource-manager/manageme
 
 Let’s break down the relevant sections of the JSON.  The top-level properties, __id__, __name__, __type__, __location__, and __tags__ properties are shared across all Azure resource types. That is, they don’t have much to do with the dashboard’s content.
 
-### The ID property
+### ID
 
-The Azure resource ID, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard it generally chooses an ID in the form of a guid, but you are free to use any valid name when you create them programmatically. 
+The Azure resource ID, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard it generally chooses an ID in the form of a guid, but you are free to use any valid name when you create them programmatically.
 
-### The name property
+### name
+
 The name is the segment of the resource ID that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource ID.
 
-### The type property
+### type
+
 All dashboards are of type __Microsoft.Portal/dashboards__.
 
-### The location property
+### location
+
 Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](/rest/api/resources/subscriptions).
 
-### The tags property
+### tags
+
 Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.
 
 `"tags": { "hidden-title": "Created via API" }`
 
-### The properties object
+### properties
+
 The properties object contains two properties, __lenses__ and __metadata__. The __lenses__ property contains information about the tiles on the dashboard.  The __metadata__ property is there for potential future features.
 
-### The lenses property
-The __lenses__ property contains the dashboard. Note that the lenses object in this example contains a single property called “0”. Lenses are a grouping concept that is not currently implemented in dashboards. For now, all of your dashboards have this single property on the lens object, again, called “0”.
+### lenses
 
-### The lens object
+The __lenses__ property contains the dashboard. Note that the lens object in this example contains a single property called “0”. Lenses are a grouping concept that is not currently implemented in dashboards. For now, all of your dashboards have this single property on the lens object, again, called “0”.
+
+### parts
+
 The object underneath the “0” contains two properties, __order__ and __parts__.  In the current version of dashboards, __order__ is always 0. The __parts__ property contains an object that defines the individual parts (also referred to as tiles) on the dashboard.
 
-The __parts__ object contains a property for each part, where the name of the property is a number. This number is not significant. 
+The __parts__ object contains a property for each part, where the name of the property is a number. This number is not significant.
 
-### The part object
 Each individual part object has a __position__, and __metadata__.
 
-### The position object
+### position
+
 The __position__ property contains the size and location information for the part expressed as __x__, __y__, __rowSpan__, and __colSpan__. The values are in terms of grid units. These grid units are visible when the dashboard is in the customize mode as shown here. If you want a tile to have a width of two grid units, a height of one grid unit, and a location in the top left corner of the dashboard then the position object looks like this:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
 ![Screenshot shows a close up of the grid, with one square grid unit highlighted.](./media/azure-portal-dashboards-structure/grid-units.png)
 
-### The metadata object
-Each part has a metadata property, an object has only one required property called __type__. This string tells the portal which tile to show. Our example dashboard uses these types of tiles:
+### metadata
 
+Each part has a metadata property, an object has only one required property called __type__. This string tells the portal which tile to show. Our example dashboard uses these types of tiles:
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Used to show monitoring metrics
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Used to show with text or images with basic formatting for lists, links, etc.
@@ -328,7 +338,8 @@ Each part has a metadata property, an object has only one required property call
 
 Each type of part has its own configuration. The possible configuration properties are called __inputs__, __settings__, and __asset__. 
 
-### The inputs object
+### inputs
+
 The inputs object generally contains information that binds a tile to a resource instance.  The virtual machine part in our sample dashboard contains a single input that uses the Azure resource ID to express the binding.  This resource ID format is consistent across all Azure resources.
 
 ```json
@@ -341,10 +352,11 @@ The inputs object generally contains information that binds a tile to a resource
 ]
 
 ```
+
 The metrics chart part has a single input that expresses the resource to bind to, as well as information about the metric(s) being displayed. Here is the input for the tile that’s showing the Network In and Network Out metrics.
 
 ```json
-“inputs”:
+"inputs":
 [
     {
         "name": "queryInputs",
@@ -375,7 +387,8 @@ The metrics chart part has a single input that expresses the resource to bind to
 
 ```
 
-### The settings object
+### settings
+
 The settings object contains the configurable elements of a part.  In our sample dashboard, the Markdown part uses settings to store the custom markdown content as well as a configurable title and subtitle.
 
 ```json
@@ -413,7 +426,13 @@ Similarly, the video tile has its own settings that contain a pointer to the vid
 
 ```
 
-### The asset object
+### asset
+
 Tiles that are bound to first class manageable portal objects (called assets) have this relationship expressed via the asset object.  In our example dashboard, the virtual machine tile contains this asset description.  The __idInputName__ property tells the portal that the ID input contains the unique identifier for the asset, in this case the resource ID. Most Azure resource types have assets defined in the portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`
+
+## Next steps
+
+- Learn how to create a dashboard [in the Azure portal](azure-portal-dashboards.md) or [programmatically](azure-portal-dashboards-create-programmatically.md).
+- Learn how to [use markdown tiles on Azure dashboards to show custom content](azure-portal-markdown-tile.md).
