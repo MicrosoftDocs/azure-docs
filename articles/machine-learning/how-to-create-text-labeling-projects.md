@@ -131,7 +131,7 @@ The **ML-assisted labeling** page lets you trigger automatic machine learning mo
 
 To use **ML-assisted labeling**:
 
-* Select *Enable ML assisted labeling*.
+* Select **Enable ML assisted labeling**.
 * Select the **Dataset language** for the project.
 * Specify a compute target to use. If you don't have one in your workspace, a compute cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
 
