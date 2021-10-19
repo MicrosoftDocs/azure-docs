@@ -78,7 +78,7 @@ FSSPEC can read/write ADLS data by specifying the storage account name and key d
    
    data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
    
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name,    account_key=adls_account_key, mode="wt")
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name=adls_account_name, account_key=adls_account_key, mode="wt")
    
    with fsspec_handle.open() as f:
    	data.to_csv(f)
