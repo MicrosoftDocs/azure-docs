@@ -311,8 +311,14 @@
           href: azure-disk-customer-managed-keys.md
         - name: Enable host-based encryption
           href: enable-host-encryption.md
-        - name: CSI Secrets Store driver
-          href: csi-secrets-store-driver.md
+        - name: CSI Secrets Store
+          items:
+          - name: CSI Secrets Store driver
+            href: csi-secrets-store-driver.md
+          - name: Provide Azure Key Vault access
+            href: csi-secrets-store-identity-access.md
+          - name: Configure TLS for NGINX ingress controller
+            href: csi-secrets-store-nginx-tls.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
