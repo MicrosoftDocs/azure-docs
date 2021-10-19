@@ -49,7 +49,7 @@ conceptualContent:
           text: Custom text extraction
           url:  custom-text-extraction/overview.md
         - itemType: overview
-          text: Custom NER
+          text: Conversational NER
           url:  custom-named-entity-recognition/overview.md
         - itemType: overview
           text: Get information from healthcare-related text

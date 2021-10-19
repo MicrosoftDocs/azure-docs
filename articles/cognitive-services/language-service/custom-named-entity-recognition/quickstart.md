@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Custom Named Entity Recognition (NER)
+title: Quickstart - Conversational Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started using Custom Named Entity Recognition (NER) with Language Studio
+description: Use this article to quickly get started using Conversational Named Entity Recognition (NER) with Language Studio
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: aahi
 zone_pivot_groups: usage-custom-language-features     
 ---
 
-# Quickstart: Custom Named Entity Recognition (preview)
+# Quickstart: Conversational Named Entity Recognition (preview)
 
-In this article, we use the Language studio to demonstrate key concepts of custom name entity recognition (NER). As an example we will build a custom NER model to extract relevant entities from loan agreements.
+In this article, we use the Language studio to demonstrate key concepts of conversational name entity recognition (NER). As an example we will build a custom NER model to extract relevant entities from loan agreements.
 
 ::: zone pivot="language-studio"
 
@@ -32,4 +32,4 @@ In this article, we use the Language studio to demonstrate key concepts of custo
 ## Next steps
 
 * After you've tested your model, you can start [sending NER requests](how-to/submit-task.md).
-* As you create your own custom NER projects, see the [recommended practices](concepts/recommended-practices.md). 
+* As you create your own conversational NER projects, see the [recommended practices](concepts/recommended-practices.md). 

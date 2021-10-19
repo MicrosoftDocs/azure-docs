@@ -1,7 +1,7 @@
 ---
 title: Enrich a Cognitive Search index with custom entities
 titleSuffix: Azure Cognitive Services
-description: Improve your cognitive search indices using custom Named Entity Recognition (NER)
+description: Improve your cognitive search indices using conversational Named Entity Recognition (NER)
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,11 +14,11 @@ ms.author: aahi
 
 # Tutorial: Enrich a Cognitive Search index with custom entities from your data
 
-In enterprise, having an abundance of electronic documents can mean that searching through them is a time-consuming and expensive task. [Azure Cognitive Search](/azure/search/search-create-service-portal) can help with searching through your files, based on their indices. Custom NER can help by extracting relevant entities from your files, and enriching the process of indexing these files.
+In enterprise, having an abundance of electronic documents can mean that searching through them is a time-consuming and expensive task. [Azure Cognitive Search](/azure/search/search-create-service-portal) can help with searching through your files, based on their indices. Conversational NER can help by extracting relevant entities from your files, and enriching the process of indexing these files.
 
 In this tutorial, you learn how to:
 
-* Create a Custom Named Entity Recognition project.
+* Create a Conversational Named Entity Recognition project.
 * Publish Azure Function.
 * Add an index to Azure Cognitive Search.
 
@@ -31,9 +31,9 @@ In this tutorial, you learn how to:
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
 * Download this sample data
 
-## Create Custom NER project through Language studio
+## Create a conversational NER project through Language studio
 
-1. Login through the [Language studio portal](https://language.azure.com/) and select **Custom entity extraction**.
+1. Login through the [Language studio portal](https://language.azure.com/) and select **Conversational entity extraction**.
 
 2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/use-azure-resources.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
 
@@ -80,7 +80,7 @@ Next you will need to prepare your secrets for your Azure function. Your project
 * Resource key
 * Model ID
 
-### Get your custom NER project secrets
+### Get your conversational NER project secrets
 
 1. Select **Deploy model** from the left side menu.
 
@@ -150,5 +150,5 @@ Replace `name-your-index-here` with the index name that appears in your Cognitiv
 
 ## Next steps
 
-* [Recommended practices for custom NER projects](../concepts/recommended-practices.md)
+* [Recommended practices for conversational NER projects](../concepts/recommended-practices.md)
 * [Search your app with with the Cognitive Search SDK](/azure/search/search-howto-dotnet-sdk#run-queries)

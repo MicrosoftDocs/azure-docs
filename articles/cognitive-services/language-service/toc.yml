@@ -66,7 +66,7 @@ items:
           - name: v3.2-preview.2
             href: https://go.microsoft.com/fwlink/?linkid=2173145
         
-- name: Custom Named Entity Recognition (NER) (preview)
+- name: Conversational Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
     href: custom-named-entity-recognition/overview.md

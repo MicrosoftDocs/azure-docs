@@ -1,7 +1,7 @@
 ---
-title: Submit a Custom Named Entity Recognition (NER) task
+title: Submit a Conversational Named Entity Recognition (NER) task
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Custom Named Entity Recognition (NER).
+description: Learn about sending a request for Conversational Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 Deploy a model and extract entities from text using the runtime API.
 
-# Submit a Custom Named Entity Recognition (NER) task
+# Submit a Conversational Named Entity Recognition (NER) task
 
 After deploying your model, it is ready to be used. You can only send entity recognition tasks through the API, not from Language Studio.
 

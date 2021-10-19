@@ -1,7 +1,7 @@
 ---
-title: Custom Named Entity Recognition (NER) service limits
+title: Conversational Named Entity Recognition (NER) service limits
 titleSuffix: Azure Cognitive Services
-description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
+description: Learn about the data and service limits when using Conversational Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Custom Named Entity Recognition (NER) service limits
+# Conversational Named Entity Recognition (NER) service limits
 
-Use this article to learn about the data and service limits when using Custom NER.
+Use this article to learn about the data and service limits when using Conversational NER.
 
 ## File limits
 
-* You can only use `.txt`. files for custom text. If your data is in another format, you can use the [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to open your document and extract the text.
+* You can only use `.txt`. files. If your data is in another format, you can use the [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to open your document and extract the text.
 
 * All files uploaded in your container must contain data. Empty files are not allowed for training.
 
@@ -46,9 +46,9 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource across both custom NER and [custom classification](../../custom-classification/overview.md).
+* Project names have to be unique within the same resource across both conversational NER and [conversational text classification](../../custom-classification/overview.md).
 
-* Custom NER is only available in the following regions:    
+* Conversational NER is only available in the following regions:    
     * West US 2
     * West Europe
     
@@ -89,4 +89,4 @@ Use this article to learn about the data and service limits when using Custom NE
 
 ## Next steps
 
-[Custom NER overview](../overview.md)
+[Conversational NER overview](../overview.md)

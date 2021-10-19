@@ -1,7 +1,7 @@
 ---
-title: View the evaluation for a Custom Named Entity Recognition (NER) model
+title: View the evaluation for a Conversational Named Entity Recognition (NER) model
 titleSuffix: Azure Cognitive Services
-description: Learn how to view the evaluation scores for a Custom Named Entity Recognition (NER) model
+description: Learn how to view the evaluation scores for a Conversational Named Entity Recognition (NER) model
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # View the model's evaluation and details
 
-After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset. You must also have a [custom NER project](../quickstart.md) with a [trained model](train-model.md).
+After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset. You must also have a [conversational NER project](../quickstart.md) with a [trained model](train-model.md).
 
 ## Prerequisites
 

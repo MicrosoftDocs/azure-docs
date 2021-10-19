@@ -1,7 +1,7 @@
 ---
-title: How to tag your data for Custom Named Entity Recognition (NER)
+title: How to tag your data for Conversational Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn how to tag your data for use with Custom Named Entity Recognition (NER).
+description: Learn how to tag your data for use with Conversational Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Tag your data for Custom Named Entity Recognition (NER) in language studio
+# Tag your data for Conversational Named Entity Recognition (NER) in language studio
 
-Before building your custom entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio. To tag your data, you must have [created a project](../quickstart.md).
+Before building your conversational entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio. To tag your data, you must have [created a project](../quickstart.md).
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ You have two options to tag your document:
 |Tag using a brush     | Select the brush icon next to an entity in the top-right corner of the screen, then highlight words in the document you want to associate with the entity           |
 |Tag using a menu    | Highlight the word you want to tag as an entity, and a menu will appear. Select the tag you want to assign for this entity.        |
 
-:::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Custom NER." lightbox="../media/tag-options.png":::
+:::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Conversational NER." lightbox="../media/tag-options.png":::
 
 ## Remove tags
 

@@ -1,7 +1,7 @@
 ---
-title: How to train your Custom Named Entity Recognition (NER) model
+title: How to train your Conversational Named Entity Recognition (NER) model
 titleSuffix: Azure Cognitive Services
-description: Learn about how to train your model for Custom Named Entity Recognition (NER).
+description: Learn about how to train your model for Conversational Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Train your Custom Named Entity Recognition (NER) model
+# Train your Conversational Named Entity Recognition (NER) model
 
 After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project. However, if you retrain a specific model, it will overwrite its previous version.
 
@@ -34,7 +34,7 @@ Before starting the training process, files in your dataset are divided into thr
     
 * The test set contains 20% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
 
-You must also have a [custom NER project](../quickstart.md) with at least 10 [tagged data](tag-data.md) files for evaluation to be successful.
+You must also have a [conversational NER project](../quickstart.md) with at least 10 [tagged data](tag-data.md) files for evaluation to be successful.
 
 ## Train model in Language studio
 

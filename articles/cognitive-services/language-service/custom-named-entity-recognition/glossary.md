@@ -1,7 +1,7 @@
 ---
-title: Definitions and terms used for Custom Named Entity Recognition (NER)
+title: Definitions and terms used for Conversational Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about some of the definitions and terms you may encounter when using Custom Named Entity Recognition (NER)
+description: Learn about some of the definitions and terms you may encounter when using Conversational Named Entity Recognition (NER)
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,14 +12,14 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Custom Named Entity Recognition (NER) definitions and terms
+# Conversational Named Entity Recognition (NER) definitions and terms
 
-Use this article to learn about some of the definitions and terms you may encounter when using custom NER.
+Use this article to learn about some of the definitions and terms you may encounter when using conversational NER.
 
 ## Project
 
 A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and other people who have contributor access to the Azure resource you are using.
-As a prerequisite to creating a custom entity extraction project, you have to connect your resource to a storage account with your dataset when you [create a new project](../quickstart.md). Your project automatically includes all the `.txt` files available in your container.
+As a prerequisite to creating a conversational entity extraction project, you have to connect your resource to a storage account with your dataset when you [create a new project](../quickstart.md). Your project automatically includes all the `.txt` files available in your container.
 
 Within your project you can do the following:
 
@@ -40,7 +40,7 @@ A model is an object that has been trained to do a certain task, in our case cus
 
 ## Entity
 
-An entity is a span of text that indicates a certain type of information. The text span can consist of one or more words (or tokens). In Custom Named Entity Recognition (NER), entities represent the information that you want to extract from the text. 
+An entity is a span of text that indicates a certain type of information. The text span can consist of one or more words (or tokens). In Conversational Named Entity Recognition (NER), entities represent the information that you want to extract from the text. 
 
 For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entities might be: 
 
@@ -54,4 +54,4 @@ For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entitie
 
 * [Data and service limits](limits.md).
 * [Recommended practices](recommended-practices.md)
-* [Custom NER overview](../overview.md).
+* [Conversational NER overview](../overview.md).

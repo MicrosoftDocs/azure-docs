@@ -1,7 +1,7 @@
 ---
-title: What is Custom Named Entity Recognition (NER) in Azure Cognitive Service for Language (preview)
+title: What is Conversational Named Entity Recognition (NER) in Azure Cognitive Service for Language (preview)
 titleSuffix: Azure Cognitive Services
-description: Learn how use Custom Named Entity Recognition (NER) with the Language Services API.
+description: Learn how use Conversational Named Entity Recognition (NER) with the Language Services API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# What is Custom Named Entity Recognition (NER) (preview)?
+# What is Conversational Named Entity Recognition (NER) (preview)?
 
-Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
+Conversational NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Conversational NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
 
 To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://language.azure.com). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
@@ -28,19 +28,19 @@ This documentation contains the following article types:
 
 ### Information extraction
 
-Many financial and legal organizations extract and normalize data from thousands of complex unstructured text, such as bank statements, legal agreements, or bank forms on a daily basis. Instead of manually processing these forms, custom NER can help automate this process.
+Many financial and legal organizations extract and normalize data from thousands of complex unstructured text, such as bank statements, legal agreements, or bank forms on a daily basis. Instead of manually processing these forms, conversational NER can help automate this process.
 
 ### Knowledge mining to enhance/enrich semantic search
 
-Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content, which includes both structured and unstructured documents. As a part of their pipeline, developers can use Custom NER for extracting entities from the text that are relevant to their industry. These entities could be used to enrich the indexing of the file for a more customized search experience. 
+Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, retail product search, or knowledge mining for data science. Many enterprises across various industries are looking into building a rich search experience over private, heterogeneous content, which includes both structured and unstructured documents. As a part of their pipeline, developers can use Conversational NER for extracting entities from the text that are relevant to their industry. These entities could be used to enrich the indexing of the file for a more customized search experience. 
 
 ### Audit and compliance
 
-Instead of manually long text files to audit and apply organizational policies, custom NER can be used to help build automated solutions and apply necessary business rules. 
+Instead of manually long text files to audit and apply organizational policies, conversational NER can be used to help build automated solutions and apply necessary business rules. 
 
 ## Application development lifecycle
 
-Using Custom NER typically involves several different steps. 
+Using Conversational NER typically involves several different steps. 
 
 :::image type="content" source="../custom-classification/media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../custom-classification/media/development-lifecycle.png":::
 
@@ -59,8 +59,8 @@ Using Custom NER typically involves several different steps.
 
 6. **Deploy the model**: Deploying a model is to make it available for use.
 
-7. **Extract entities**: Use your custom modeled for entity extraction tasks.
+7. **Extract entities**: Use your custom models for entity extraction tasks.
 
 ## Next steps
 
-[Quickstart: Use Language Studio for Custom NER](quickstart.md)
+[Quickstart: Use Language Studio for Conversational NER](quickstart.md)
