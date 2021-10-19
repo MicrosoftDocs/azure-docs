@@ -81,8 +81,13 @@ sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-On Windows devices, you will also need to configure permissions on the host system directory. This can be done via the File Explorer. You need to grant a principal permission for all `Authenticated Users` to have `Full Control`. 
-
+On Windows devices, you will also need to configure permissions on the host system directory. This can be done through powershell:
+```powershell
+$acl = get-acl <HostStoragePath>
+$ace = new-object system.security.AccessControl.FileSystemAccessRule('Authenticated Users','FullControl','Allow')
+$acl.AddAccessRule($ace)
+$acl | Set-Acl
+```
 
 ## Encrypted data in module storage
 
