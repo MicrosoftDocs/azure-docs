@@ -28,7 +28,7 @@ The application can be hosted anywhere: in Azure, on-premises or in other clouds
 
 - *Client-side metrics* give you details reported by the test engine, such as the number of virtual users, the request response time, or the number of requests per second.
 
-- *Server-side metrics* provide details about your Azure application components. Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, the number of database reads, the type of HTTP responses, or container resource consumption.
+- *Server-side metrics* provide information about your Azure application components. Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, the number of database reads, the type of HTTP responses, or container resource consumption.
 
 Azure Load Testing automatically incorporates Azure networking best practices to make sure your tests run securely and reliably. Load tests are automatically aborted if the application endpoints or Azure components start throttling requests.
 
@@ -39,15 +39,15 @@ Azure Load Testing automatically incorporates Azure networking best practices to
 
 ## How to identify performance bottlenecks using high-scale load tests?
 
-You can create a high-scale load test to identify application performance bottlenecks. Azure Load Testing provides a single dashboard that shows live updates of the client and server-side metrics during the load test.
+Azure Load Testing provides a single dashboard that shows live updates of the client and server-side metrics during the load test. For Azure-hosted applications, you can use the server-side metrics to identify which Azure component in your application is responsible for the performance bottleneck. 
 
-For Azure-hosted applications, you can use the server-side metrics to identify which Azure component in your application is most affected by the load. You can also visually compare the metrics across multiple test runs.
+To detect a performance regression across load test runs, you can select multiple test results and compare them in the dashboard.
 
 After the test completes, you can download the load test results to create your own customized reports for further analysis.
 
 ## How to enable continuous regression testing?
 
-You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline at meaningful points during the development lifecycle. Automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
+You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
 
 In the test configuration, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, fail the test if the average response time exceeds a given threshold.
 
