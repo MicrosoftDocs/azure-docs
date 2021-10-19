@@ -27,7 +27,7 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. Select **Usage + Charges** from the navigation menu.  
    ![Screenshot that shows usage and charges under Billing](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
-1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. If could take a while to prepare your file.  
+1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. It could take a while to prepare your file.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." :::
 1. When the file is ready to download, select **Download csv**.
 
