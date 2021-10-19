@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Use FSSPEC to read/write ADLS data in Synapse Analytics spark pool'
-description: Tutorial for how to use FSSPEC for machine learning workloads to read/write ADLS data in dedicated Spark pools.
+title: 'Tutorial: Use Pandas to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics'
+description: Tutorial for how to use Pandas in PySpark notebook to read/write ADLS data in serverless Apache Spark pool.
 services: synapse-analytics
 ms.service: synapse-analytics 
-ms.subservice: machine-learning
+ms.subservice: spark
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
@@ -12,14 +12,14 @@ author: AjAgr
 ms.author: ajagarw
 ---
 
-# Tutorial: Use FSSPEC to read/write ADLS data in Synapse Analytics spark pool
+# Tutorial: Use Pandas to read/write ADLS data in Synapse Analytics spark pool
 
-Learn how to use Filesystem Spec (FSSPEC) to read/write data to Azure Data Lake Storage (ADLS) using a linked service in a dedicated Spark pool in Azure Synapse Analytics.
+Learn how to use Pandas to read/write data to Azure Data Lake Storage (ADLS) using a serverless Apache Spark pool in Azure Synapse Analytics.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> - Read/write ADLS data in a dedicated Spark session.
+> - Read/write ADLS data using Pandas in a Spark session.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -42,7 +42,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
 1. Enter your authentication credentials. Account key is currently supported authentication type. Select **Test connection** to verify your credentials are correct. Select **Create**.
 
-   :::image type="content" source="media/tutorial-spark-pool-filesystem-spec/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
+   :::image type="content" source="media/tutorial-spark-pool-pandas-usage/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
 
 
 ## Read/Write data using storage account name and key
