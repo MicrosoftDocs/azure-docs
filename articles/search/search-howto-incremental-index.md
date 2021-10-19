@@ -15,7 +15,7 @@ ms.date: 10/15/2021
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature
 
-This article explains how to add caching to an enrichment pipeline so that you can modify downstream enrichment steps without having to rebuild in full every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree must be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
+This article explains how to add caching to an enrichment pipeline so that you can modify downstream enrichment steps without having to rebuild in full every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With [**incremental enrichment**](cognitive-search-incremental-indexing-conceptual.md), the indexer can determine which parts of the document tree must be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
 
 Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component managed by your search service and must not be modified.
 
@@ -163,8 +163,9 @@ A 400 Bad Request error will also occur if you are missing an indexer requiremen
 
 ## Next steps
 
-Incremental enrichment is applicable on indexers that contain skillsets, providing reusable content for both indexes and knowledge stores. The following links provide more information about skillsets.
+Incremental enrichment is applicable on indexers that contain skillsets, providing reusable content for both indexes and knowledge stores. The following links provide more information about caching and skillsets.
 
++ [Incremental enrichment (lifecycle and management)](cognitive-search-incremental-indexing-conceptual.md)
 + [Skillset concepts and composition](cognitive-search-working-with-skillsets.md)
 + [Create a skillset](cognitive-search-defining-skillset.md)
 + [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)
