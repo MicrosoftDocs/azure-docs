@@ -104,7 +104,7 @@ For example, the `connection` property for a Azure Blob trigger definition might
 
 ### Configure an identity-based connection
 
-Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-managed-identity-tutorial.md).
+Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
 Identity-based connections are supported by the following components:
 

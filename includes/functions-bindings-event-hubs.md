@@ -26,7 +26,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 ### Event Hubs extension 5.x and higher
 
-A new version of the Event Hubs bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](../articles/azure-functions/functions-managed-identity-tutorial.md). For .NET applications, it also changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventHubs` with newer types from [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
+A new version of the Event Hubs bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](../articles/azure-functions/functions-identity-based-connections-tutorial.md). For .NET applications, it also changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventHubs` with newer types from [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
 
 This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following configuration to your `host.json` file:
 

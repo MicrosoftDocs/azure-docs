@@ -32,7 +32,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 #### Storage extension 5.x and higher
 
-A new version of the Storage bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-managed-identity-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
+A new version of the Storage bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
 This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following in your `host.json` file:
 
