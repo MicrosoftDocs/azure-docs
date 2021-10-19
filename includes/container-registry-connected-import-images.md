@@ -19,7 +19,7 @@ REGISTRY_NAME=<container-registry-name>
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/acr/connected-registry:0.3.0
+  --source mcr.microsoft.com/acr/connected-registry:0.5.0
 ```
 
 ### IoT Edge and API proxy images
@@ -31,11 +31,11 @@ The [IoT Edge API proxy module](../articles/iot-edge/how-to-configure-api-proxy-
 ```azurecli
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-agent:1.2.3
+  --source mcr.microsoft.com/azureiotedge-agent:1.2.4
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-hub:1.2.3
+  --source mcr.microsoft.com/azureiotedge-hub:1.2.4
 
 az acr import \
   --name $REGISTRY_NAME \
