@@ -13,193 +13,268 @@ ms.service: virtual-machines-sap
 
 An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The SAP deployment automation framework refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
 
-A workload zone combines a virtual network, credentials for [SAP systems](automation-deployment-framework.md#sap-concepts), and a service principal for deploying systems.
-
 You can use workload zones in multiple Azure regions. Each workload zone then has its own Azure Virtual Network (Azure VNet)
 
-The following services are available in a workload zone:
+The following services are provided by the SAP workload zone:
 
-- Azure VNet, including subnets and network security groups.
+- Azure Virtual Network, including subnets and network security groups.
 - Azure Key Vault, for system credentials.
-- Storage accounts for boot diagnostics
-- Storage accounts for cloud witnesses
+- Storage account for boot diagnostics
+- Storage account for cloud witnesses
 
-## Configure workload zones
+:::image type="content" source="./media/automation-deployment-framework/WorkloadZone.png" alt-text="Diagram SAP Workload Zone.":::
 
-The automation framework uses the parameters you define for each workload zone in a JSON file.
+The workload zones are typically deployed in spokes in a hub and spoke architecture. They may be in their own subscriptions.
 
-The root nodes include:
+Supports the Private DNS from the Control Plane.
 
-| Node | Description |
-| ---- | ----------- |
-| `infrastructure` | Defines the resource group and networking information. |
-| `key_vault` | Defines key vault settings for the system. |
-| `authentication` | Defines authentication settings for the system. |
-| `options` | Optional. Defines special settings for the environment. |
+## Configure SAP workload zone
 
-## Parameters
+The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 
-You can configure the following parameters for your workload zone. For reference, see the [example parameter file with required parameters only](#example-parameter-file-required-parameters-only) and the [example parameter file with all possible parameters](#example-parameter-file-all-parameters)
+### Terraform Parameters
 
-| Type | Node | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| Required | `infrastructure.` | `environment` | Designates the workload zone type. The value can be up to five characters. For example, `PROD` for production environments and `NP` for non-production environments. You can also identify environments by a unique Service Principal Name (SPN) or subscription identifier. |
-| Required | `infrastructure.` | `region` | Specifies the Azure region in which you're deploying the workload zone. |
-| Optional | `infrastructure.resource_group.` | `arm_id` | Specifies the identifier of the Azure resource group for deployment. |
-| Optional | `infrastructure.resource_group.` | `name` | Specifies the name of a new resource group to create and use for deployment. |
-| Required | `infrastructure.vnets.sap.` | `name` | Specifies the logical name of the virtual network that you're creating. The automation framework's naming convention constructs the full virtual network name based on this value. For example, `SAP01` becomes `NP-WEEU-SAP01-vnet`. |
-| Optional | `infrastructure.vnets.sap.` | `arm_id` | Specifies the identifier of the Azure resource group for deployment. If you already set the attribute `arm_id` in the node `infrastructure.resource_group.`, the framework uses that resource group identifier unless you specify another value. |
-| Required in certain cases | `infrastructure.vnets.sap.` | `address_space` | Specifies the address space of the virtual network you want to use. Required if the `arm_id` attribute is empty for the nodes `infrastructure.vnets.sap.` and `infrastructure.resource_group.`. |
-| Optional | `infrastructure.vnets.sap.subnet_admin.` | `name` | Specifies the name of the administrator subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_admin.` | `arm_id` | Specifies the resource identifier of the administrator subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_admin.` | `prefix` | Creates a subnet within the virtual network address space. Supports up to 126 servers. The recommended CIDR prefix is `/25`. However, you must size the CIDR appropriately for your expected usage. |
-| Optional | `infrastructure.vnets.sap.subnet_db` | `name` | Specifies the name of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_db` | `arm_id` | Specifies the resource identifier of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_db` | `prefix` | Creates a subnet within the virtual network address space. Supports up to 126 servers. The recommended CIDR prefix is `/25`. However, you must size the CIDR appropriately for your expected usage. |
-| Optional | `infrastructure.vnets.sap.subnet_app` | `name` | Specifies the name of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_app` | `arm_id` | Specifies the resource identifier of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_app` | `prefix` | Creates a subnet within the virtual network address space. Supports up to 126 servers. The recommended CIDR prefix is `/25`. However, you must size the CIDR appropriately for your expected usage. |
-| Optional | `infrastructure.vnets.sap.subnet_web` | `name` | Specifies the name of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_web` | `arm_id` | Specifies the resource identifier of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_web` | `prefix` | Creates a subnet within the virtual network address space. Supports up to 126 servers. The recommended CIDR prefix is `/25`. However, you must size the CIDR appropriately for your expected usage. |
-| Optional | `infrastructure.vnets.sap.subnet_iscsi.` | `name` | Specifies the name of the database subnet. |
-| Optional | `infrastructure.vnets.sap.subnet_iscsi.` | `prefix` | Creates a subnet within the virtual network address space. Supports up to 12 servers. The recommended CIDR prefix is `/28`. However, you must size the CIDR appropriately for your expected usage. |
-| Optional | `infrastructure.iscsi.` | `iscsi_count` | Specifies the number of Internet Small Computer System Interface (iSCSI) devices to create. |
-| Optional | `infrastructure.iscsi.` | `use_DHCP` | Determines whether VMs get their IP addresses from the Azure subnet. Default setting is `false`; to enable this setting, change value to `true`. |
-| Optional | `key_vault.` | `kv_user_id` | Specifies the resource identifier of a key vault to use. |
-| Optional | `key_vault.` | `kv_prvt_id` | Specifies the resource identifier of a private key vault to use. |
-| Optional | `key_vault.` | `kv_spn_id` | Specifies the resource identifier of a private key vault that contains SPN details. |
-| Optional | `key_vault.` | `kv_sid_sshkey_prvt` | Specifies the path to a private SSH key to be stored in the key vault. |
-| Optional | `key_vault.` | `kv_sid_sshkey_pub` | Specifies the path to a public key to be stored in the key vault. |
-| Optional | `key_vault.` | `kv_iscsi_username` | Specifies the iSCSI username to be stored in the key vault. |
-| Optional | `key_vault.` | `kv_iscsi_sshkey_prvt` | Specifies the path to a private SSH key file for iSCSI to be stored in the key vault.  |
-| Optional | `key_vault.` | `kv_iscsi_sshkey_pub` | Specifies the path to a public SSH key file for iSCSI to be stored in the key vault. |
-| Optional | `key_vault.` | `kv_iscsi_pwd` | Specifies the password for an iSCSI account to be stored in the key vault. |
-| Optional | `authentication.` | `username` | Specifies the default username for the environment. |
-| Optional | `authentication.` | `password` | Specifies the default password for the environment. If you don't specify a value, Terraform creates and stores a password in the key vault. |
-| Optional | `authentication.` | `path_to_public_key` | Specifies the path to a public SSH key file to be stored in the key vault. If you don't specify a value, Terraform creates and stores a public SSH key in the key vault. |
-| Optional | `authentication.` | `path_to_private_key` | Specifies the path to a private SSH key file to be stored in the key vault. If you don't specify a value, Terraform creates and stores a private SSH key in the key vault. |
-| Optional | `diagnostics_storage_account` | `arm_id` | Specifies the resource identifier of a storage account that contains the boot diagnostics for the virtual machines. |
-| Optional | `witness_storage_account` | `arm_id` | Specifies the resource identifier of a storage account to be used for the cloud witness data. |
-| Required | `tfstate_resource_id` | `Remote State` | Specifies the resource identifier for the storage account where state files are located. Typically, the SAP Library execution unit deploys these files. |
-| Required | `deployer_tfstate_key` | `Remote State` | Specifies the deployer state file name. This value is case-sensitive. |
+The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
+
+| Variable                | Type       | Description                           | 
+| ----------------------- | ---------- | ------------------------------------- | 
+| `tfstate_resource_id`   | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
+| `deployer_tfstate_key`  | Required * | The name of the state file for the Deployer  |
+### Generic Parameters
+
+The table below contains the parameters that define the resource group and the resource naming.
+
+| Variable                | Type       | Description                           | 
+| ----------------------- | ---------- | ------------------------------------- | 
+| `environment`           | Required   | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. |
+| `location`              | Required   | The Azure region in which to deploy.     |
+| `resource_group_name`   | Optional   | Name of the resource group to be created |
+| `resource_group_arm_id` | Optional   | Azure resource identifier for an existing resource group |
+
+### Network Parameters
+
+The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
+ - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
+ - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
+
+Ensure that the virtual network address space is large enough to host all the resources
+
+The table below contains the networking parameters.
+
+| Variable                         | Type        | Description                           | Notes  |
+| -------------------------------- | ----------- | ------------------------------------- | ------ |
+| `network_name`                   | Required    | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE) | |
+| `network_arm_id`                 | Optional *  | The Azure resource identifier for the virtual network | Mandatory for brown field deployments |
+| `network_address_space`          | Mandatory * | The address range for the virtual network | Mandatory for green field.  |
+| `admin_subnet_name`              | Optional    | The name of the 'admin' subnet | |
+| `admin_subnet_address_prefix`    | Mandatory * | The address range for the 'admin' subnet | Mandatory for green field deployments |
+| `admin_subnet_arm_id`	           | Mandatory * | The Azure resource identifier for the 'admin' subnet | Mandatory for brown field deployments |
+| `admin_subnet_nsg_name`          | Optional	 | The name of the 'admin' Network Security Group name | |
+| `admin_subnet_nsg_arm_id`        | Mandatory * | The Azure resource identifier for the 'admin' Network Security Group | Mandatory for brown field deployments |
+| `db_subnet_name`                 | Optional    | The name of the 'db' subnet | |
+| `db_subnet_address_prefix`       | Mandatory * | The address range for the 'db' subnet | Mandatory for green field deployments |
+| `db_subnet_arm_id`	           | Mandatory * | The Azure resource identifier for the 'db' subnet | Mandatory for brown field deployments |
+| `db_subnet_nsg_name`             | Optional	 | The name of the 'db' Network Security Group name | |
+| `db_subnet_nsg_arm_id`           | Mandatory * | The Azure resource identifier for the 'db' Network Security Group | Mandatory for brown field deployments |
+| `app_subnet_name`                | Optional    | The name of the 'app' subnet | |
+| `app_subnet_address_prefix`      | Mandatory * | The address range for the 'app' subnet | Mandatory for green field deployments |
+| `app_subnet_arm_id`	           | Mandatory * | The Azure resource identifier for the 'app' subnet | Mandatory for brown field deployments |
+| `app_subnet_nsg_name`            | Optional	 | The name of the 'app' Network Security Group name | |
+| `app_subnet_nsg_arm_id`          | Mandatory * | The Azure resource identifier for the 'app' Network Security Group | Mandatory for brown field deployments |
+| `web_subnet_name`                | Optional    | The name of the 'web' subnet | |
+| `web_subnet_address_prefix`      | Mandatory * | The address range for the 'web' subnet | Mandatory for green field deployments |
+| `web_subnet_arm_id`	           | Mandatory * | The Azure resource identifier for the 'web' subnet | Mandatory for brown field deployments |
+| `web_subnet_nsg_name`            | Optional	 | The name of the 'web' Network Security Group name | |
+| `web_subnet_nsg_arm_id`          | Mandatory * | The Azure resource identifier for the 'web' Network Security Group | Mandatory for brown field deployments |
+
+### ISCI Parameters
+
+| Variable                         | Type        | Description                           | Notes  |
+| -------------------------------- | ----------- | ------------------------------------- | ------ |
+| `iscsi_subnet_name`              | Optional    | The name of the 'iscsi' subnet | |
+| `iscsi_subnet_address_prefix`    | Mandatory * | The address range for the 'iscsi' subnet | Mandatory for green field deployments |
+| `iscsi_subnet_arm_id`	           | Mandatory * | The Azure resource identifier for the 'iscsi' subnet | Mandatory for brown field deployments |
+| `iscsi_subnet_nsg_name`          | Optional	 | The name of the 'iscsi' Network Security Group name | |
+| `iscsi_subnet_nsg_arm_id`        | Mandatory * | The Azure resource identifier for the 'iscsi' Network Security Group | Mandatory for brown field deployments |
+| `iscsi_count`                    | Optional    | The number of iSCSI Virtual Machines |
+| `iscsi_use_DHCP`                 | Optional    | Controls if Azure subnet provided IP addresses (dynamic) should be used |
+| `iscsi_image`	                   | Optional	 | Defines the Virtual machine image to use, see below | 
+| `iscsi_authentication_type`      | Optional	 | Defines the default authentication for the iSCSI Virtual Machines |
+| `iscsi__authentication_username` | Optional	 | Administrator account name |
+| `iscsi_nic_ips`                  | Optional    | IP addresses for the iSCSI Virtual Machines, ignored if `iscsi_use_DHCP` is defined|
+ 
+```json 
+{ 
+os_type=""
+source_image_id=""
+publisher="SUSE"
+offer="sles-sap-12-sp5"
+sku="gen1"
+version="latest"
+}
+```
+
+### Key Vault Parameters
+
+The table below defines the parameters used for defining the Key Vault information
+
+| Variable                           | Type        | Description                           | 
+| ---------------------------------- | ----------- | ------------------------------------- | 
+| `user_keyvault_id`	             | Optional	   | Azure resource identifier for the user key vault |
+| `spn_keyvault_id`                  | Optional	   | Azure resource identifier for the user key vault containing the deployment credentials (SPNs) |
+
+### DNS
+
+| Variable                           | Type        | Description                           | 
+| ---------------------------------- | ----------- | ------------------------------------- | 
+| `dns_label`                        | Optional    | If specified, is the DNS name of the private DNS zone | 
+| `dns_resource_group_name`          | Optional    | The name of the resource group containing the Private DNS zone | 
+
+### Azure NetApp support
+
+| Variable                           | Type        | Description                           | Notes  |
+| ---------------------------------- | ----------- | ------------------------------------- | ------ |
+| `use_ANF`                          | Optional    | If specified, deploys the Azure NetApp Files Account and Capacity Pool  | 
+| `ANF_account_arm_id`               | Optional    | Azure resource identifier for the Azure NetApp Files Account  | Mandatory for brown field deployments |
+| `ANF_account_name`                 | Optional    | Name for the Azure NetApp Files Account  | 
+| `ANF_service_level`                | Optional    | Service level for the Azure NetApp Files Capacity Pool  | 
+| `ANF_pool_size`                    | Optional    | The size (in GB) of the Azure NetApp Files Capacity Pool  | 
+| `anf_subnet_name`                  | Optional    | The name of the ANF subnet  | 
+| `anf_subnet_arm_id`                | Required *  | The Azure resource identifier for the 'ANF' subnet | Mandatory for brown field deployments |
+| `anf_subnet_address_prefix`        | Required *  | The address range for the 'ANF' subnet  | Mandatory for green field deployments |
+
+
+### Other parameters
+
+| Variable                             | Type        | Description                           | 
+| ------------------------------------ | ----------- | ------------------------------------- | 
+| `enable_purge_control_for_keyvaults` | Optional    | Boolean flag controlling if purge control is enabled on the Key Vault. Use only for test deployments | 
+| `use_private_endpoint`               | Optional    | Boolean flag controlling if private endpoints are used. | 
+| `diagnostics_storage_account_arm_id` | Required *  | The Azure resource identifier for the diagnostics storage account | Mandatory for brown field deployments |
+| `witness_storage_account_arm_id`     | Required *  | The Azure resource identifier for the witness storage account | Mandatory for brown field deployments |
+
+
 
 ## Example parameter file (required parameters only)
 
 The following example parameter file shows only required parameters.
 
-```json
-{
-  "infrastructure": {
-    "environment"                     : "NP",
-    "region"                          : "eastus2",
-    "vnets": {
-      "sap": {
-        "name"                        : "SAP01",
-        "address_space"               : "10.1.0.0/16"
-      }
-    }
-  },
-  "tfstate_resource_id"               : "",
-  "deployer_tfstate_key"              : ""
+```
+# The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
+environment="DEV"
 
-}
+# The location value is a mandatory field, it is used to control where the resources are deployed
+location="westeurope"
+
+# The network logical name is mandatory - it is used in the naming convention and should map to the workload virtual network logical name 
+network_name="SAP01"
+
+# network_address_space is a mandatory parameter when an existing Virtual network is not used
+network_address_space="10.110.0.0/16"
+
+# admin_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+admin_subnet_address_prefix="10.110.0.0/19"
+
+# db_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+db_subnet_address_prefix="10.110.96.0/19"
+
+# app_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+app_subnet_address_prefix="10.110.32.0/19"
+
+# The automation_username defines the user account used by the automation
+automation_username="azureadm"
+
 ```
 
 ## Example parameter file (all parameters)
 
-The following example parameter file shows all possible parameters.
+A comprehensive sample can be found in the ´sap-hana/deploy/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE´ folder
 
-```json
-{
-	"infrastructure": {
-		"environment": "NP",
-		"region": "eastus2",
-		"resource_group": {
-			"arm_id": "",
-			"name": ""
-		},
-		"vnets": {
-			"sap": {
-				"name": "SAP01",
-				"arm_id": "",
-				"address_space": "0.0.0.0/00",
-				"subnet_admin": {
-					"name": "",
-					"arm_id": "",
-					"prefix": "0.0.0.0/00",
-					"nsg": {
-						"name": "",
-						"arm_id": ""
-					}
-				},
-				"subnet_db": {
-					"name": "",
-					"arm_id": "",
-					"prefix": "0.0.0.0/00",
-					"nsg": {
-						"name": "",
-						"arm_id": ""
-					}
-				},
-				"subnet_app": {
-					"name": "",
-					"arm_id": "",
-					"prefix": "0.0.0.0/00",
-					"nsg": {
-						"name": "",
-						"arm_id": ""
-					}
-				},
-				"subnet_web": {
-					"name": "",
-					"arm_id": "",
-					"prefix": "0.0.0.0/00",
-					"nsg": {
-						"name": "",
-						"arm_id": ""
-					}
-				},
-				"subnet_iscsi": {
-					"name": "",
-					"prefix": "0.0.0.0/00"
-				}
-			}
-		},
-		"iscsi": {
-			"iscsi_count": 3,
-			"use_DHCP": false
-		}
-	},
-	"key_vault": {
-		"kv_user_id": "",
-		"kv_prvt_id": "",
-		"kv_spn_id": "",
-		"kv_sid_sshkey_prvt": "",
-		"kv_sid_sshkey_pub": "",
-		"kv_iscsi_username": "",
-		"kv_iscsi_sshkey_prvt": "",
-		"kv_iscsi_sshkey_pub": "",
-		"kv_iscsi_pwd": ""
-	},
-	"authentication": {
-		"username": "myUsername",
-		"password": "myPassword",
-		"path_to_public_key": "sshkey.pub",
-		"path_to_private_key": "sshkey"
-	},
+## Deploy SAP workload zone
 
-	"options": {},
-	"diagnostics_storage_account": {
-		"arm_id": ""
-	},
-	"witness_storage_account": {
-		"arm_id": ""
-	},
-	"tfstate_resource_id": "",
-	"deployer_tfstate_key": ""
-}
+## Preparing the Workload zone deployment credentials
+
+The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Workload Zone deployment using the following steps using an account with permissions to create Service Principals:
+
+
+```azurecli-interactive
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
+  
 ```
+
+> [!IMPORTANT]
+> The name of the Service Principal must be unique.
+>
+> Record the output values from the command.
+   > - appId
+   > - password
+   > - tenant
+
+Assign the correct permissions to the Service Principal: 
+
+```azurecli-interactive
+az role assignment create --assignee <appId> --role "User Access Administrator"
+```
+
+## Deploying the SAP Workload zone
+   
+The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
+
+Running the command below will deploy the SAP Workload Zone.
+
+# [Linux](#tab/linux)
+
+> [!TIP]
+> Perform this task from the deployer.
+
+```azurecli-interactive
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
+subscriptionID=<subscriptionID>
+appId=<appID>
+spn_secret=<password>
+tenant_id=<tenant>
+keyvault=<keyvault>
+storageaccount=<storageaccount>
+statefile_subscription=<statefile_subscription>
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                                  \
+        --parameter_file LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE/DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars           \
+        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                     \
+        --keyvault $keyvault                                                                                    \
+        --state_subscription $statefile_subscription                                                            \
+        --subscription $subscriptionID                                                                          \
+        --spn_id $appID                                                                                         \
+        --spn_secret "$spn_secret"                                                                              \ 
+        --tenant_id $tenant
+```
+
+> [!NOTE]
+> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace <keyvault> with the deployer key vault name
+> Replace <storageaccount> with the name of the storage account containing the Terraform state files
+> Replace <statefile_subscription> with the subscription ID for the storage account containing the Terraform state files
+
+
+# [Windows](#tab/windows)
+
+```powershell-interactive
+$subscription="<subscriptionID>"
+$appId="<appID>"
+$spn_secret="<password>"
+$tenant_id="<tenant>"
+$keyvault=<keyvault>
+$storageaccount=<storageaccount>
+$statefile_subscription=<statefile_subscription>
+
+cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
+
+New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+-Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
+-State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
+```
+
 
 ## Next steps
 
