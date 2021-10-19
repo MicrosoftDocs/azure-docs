@@ -13,7 +13,7 @@ ms.reviewer: laobri
 ms.custom: devplatv2
 ---
 
-# Deploy models with REST (preview) for batch scoring
+# Deploy models with REST (preview) for batch scoring 
 
 Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring (preview).
 
