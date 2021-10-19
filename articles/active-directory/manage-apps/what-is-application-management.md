@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/22/2021
+ms.date: 10/22/2021
 ms.author: davidmu
 ms.reviewer: sureshja, napuri
 ---
@@ -33,7 +33,7 @@ There are several ways that you might manage applications in Azure AD. The easie
 
 The following image shows how these applications interact with Azure AD.
 
-:::image type="content" source="media/what-is-application-management/app-management-overview.png" alt-text="Your own developed apps, pre-integrated apps, and on-premises apps can be used as enterprise apps.":::
+:::image type="content" source="media/what-is-application-management/app-management-overview.png" alt-text="Diagram showing how your own developed apps, pre-integrated apps, and on-premises apps can be used as enterprise apps.":::
 
 ### Pre-integrated applications
 
