@@ -99,7 +99,7 @@ The `activeRevisionsMode` property accepts two values:
 
 - `multiple`: Configures the container app to allow more than one active revision.
 
-- `single`: Automatically deactivates all other revisions when a revision is activated. This has the effect that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
+- `single`: Automatically deactivates all other revisions when a revision is activated. Enabling `single` mode makes it so that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
 
 ```json
 {
