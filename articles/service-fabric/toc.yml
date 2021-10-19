@@ -499,6 +499,8 @@
           href: service-fabric-cross-availability-zones.md
         - name: Deploy an Azure Service Fabric cluster with stateless node types
           href: service-fabric-stateless-node-types.md
+        - name: Deploy an Azure Service Fabric cluster with Managed data disks
+          href: service-fabric-managed-disk.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
         - name: Create a custom cluster template
