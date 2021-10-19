@@ -360,11 +360,11 @@ If you change the underlying workflow for a replication task, your changes affec
 
 As previously stated, behind a replication task is a stateless workflow that's in a **Logic App (Standard)** resource. This resource is powered by the single-tenant Azure Logic Apps runtime, which uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
 
-If you want your replication task to process more events or messages per second for faster replication, you can edit the default configuration for the trigger and actions in the task workflow.
+If you want your replication task to process more events or messages per second for faster replication, you can edit the default configuration for the trigger and actions in the task workflow. To find this configuration, follow these steps:
 
-- For Event Hubs, go to the `host.jon` file in the Event Hubs extension, and change the trigger's default configuration. For more information, review [Azure Event Hubs trigger and bindings](../azure-functions/functions-bindings-event-hubs.md#host-json)
+1. In the [Event Hubs `host.json` file settings](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) or [Service Bus `host.json` file settings](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).documentation, review the `prefetchCount` and `maxBatchSize` settings.
 
-- For Service Bus, go to the `host.json` file, and change the trigger's default configuration. For more information, review [Azure Service Bus bindings](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
+1. To edit these settings in the `host.json` file settings for the **Logic App (Standard)** resource behind the replication task, follow the Azure portal steps in the [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md#azure-portal---hostjson) documentation.
 
 <a name="failover"></a>
 
@@ -392,7 +392,8 @@ To force producers and consumers to use the secondary endpoint, you need to make
 
 For more information about geo-disaster recovery, review the following documentation:
 
-- [Azure Event Hubs - Geo-disaster recovery]()
+- [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md)
+- [Azure Service Bus - Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md)
 
 <a name="problems-failures"></a>
 
