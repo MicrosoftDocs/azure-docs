@@ -20,69 +20,31 @@ In this article, you'll learn how to create a hub and spoke network topology usi
 
 ## Prerequisites
 
-* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
-* Read about [Hub-and-spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology.md) network topology.
-
-## Create virtual networks
-
-This procedure walks you through creating three virtual networks, two of which will be in the *West US* region and one will be in the *East US* region. If you already have virtual networks set up in your environment, skip to [create a network group](#group).
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
-
-1. On the *Basics* tab, enter or select the following information.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Subscription | Select the subscription you want to deploy this virtual network into. |
-    | Resource group | Select or create a new resource group to store the virtual network. This quickstart will use a resource group named **myAVNMResourceGroup**.
-    | Name | Enter **VNet-A-WestUS** for the virtual network name. |
-    | Region | Select the **West US** region. |
-
- 1. On the *IP Addresses* tab, configure the following network address space:
-
-    | Setting | Value |
-    | -------- | ----- |
-    | IPv4 address space | Enter **10.3.0.0/16** as the address space. |
-    | Subnet name | Enter the name **default** for the subnet. |
-    | Subnet address space | Enter the subnet address space of **10.3.0.0/24**. |
-
-1. Select **Review + create** and then select **Create** to deploy the virtual network.
-
-1. Repeat steps 2-5 to create two more virtual networks into the same resource group. Enter the following information:
-
-    **Second virtual network**:
-    * Name: **VNet-B-WestUS**
-    * Region: **West US**
-    * IPv4 address space: **10.4.0.0/16**
-    * Subnet name: **default**
-    * Subnet address space: **10.4.0.0/24**
-
-    **Third virtual network**:
-    * Name: **VNet-A-EastUS**
-    * Region: **East US**
-    * IPv4 address space: **10.5.0.0/16**
-    * Subnet name: **default**
-    * Subnet address space: **10.5.0.0/24**
+* Read about [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) network topology.
+* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-virtual-network-manager).
+* Identify virtual networks you want to use in the hub-and-spokes configuration or create new [virtual networks](../virtual-network/quick-create-portal.md). 
 
 ## <a name="group"></a> Create a network group
 
-This section will help you create a network group containing the three virtual networks created in the previous section.
+This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 
 1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
 1. Select **Network groups** under *Settings*, and then select **+ Add** to create a new network group.
 
-1. Enter a *Name* and a *Description* about this network group.
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-network-group.png" alt-text="Screenshot of add a network group button.":::
 
-1. Select the *Static group members* tab, and then select **+ Add virtual networks**. 
+1. On the *Basics* tab, enter a **Name** and a **Description** for the network group.
 
-1. Select only **VNet-A-EastUS** and then select **Add**.
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/basics.png" alt-text="Screenshot of basics tab for add a network group.":::
 
-1. Select the *Conditional statements* tab to configure dynamic members.
+1. To add virtual network manually, select the **Static group members** tab. For more information, see [static members](concept-network-groups.md#static-membership).
 
-1. For *Parameter*, select **Name** from the drop-down. Then for the *Operator* select **Contains**. Lastly for *Condition*, enter **WestUS**. Select the **Evaluate** button to see which virtual networks match the conditional query. Then select **Close** to go back to the *Add network group* page. With this conditional statement, you've selected the two West US virtual networks as dynamic members. For more information about static and dynamic membership, see [network groups](concept-network-groups.md).
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/static-group.png" alt-text="Screenshot of static group members tab.":::
+
+1. To add virtual networks dynamically, select the **Conditional statements** tab. For more information, see [dynamic membership](concept-network-groups.md#dynamic-membership).
+
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/conditional-statements.png" alt-text="Screenshot of conditional statements tab.":::
 
 1. Once you're satisfied with the virtual networks selected for the network group, select **Review + create**. Then select **Create** once validation has passed.
  
@@ -91,12 +53,20 @@ This section will help you create a network group containing the three virtual n
 This section will guide you through how to create a hub-and-spoke configuration with the network group you created in the previous section.
 
 1. Select **Configuration** under *Settings*, then select **+ Add a configuration**.
+
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/configuration-list.png" alt-text="Screenshot of the configurations list.":::
+
 1. Select **Connectivity** from the drop-down menu.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-menu.png" alt-text="Screenshot of configuration drop-down menu.":::
+
 1. On the *Add a connectivity configuration* page, enter, or select the following information:
+
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter a *name* for this configuration. This example will use **HubA**. |
+    | Name | Enter a *name* for this configuration. |
     | Description | *Optional* Enter a description about what this configuration will do. |
     | Topology | Select the **Hub and spoke** topology. |
     | Hub | Select a virtual network that will act as the hub virtual network. |
@@ -104,39 +74,45 @@ This section will guide you through how to create a hub-and-spoke configuration 
 
 1. Then select **+ Add network groups**. 
 
-1. On the *Add network groups* page, select the checkbox next to the **GroupA_Hub** network group. Then select **Add** to add the network group to the configuration.
+1. On the *Add network groups* page, select the network groups you want to add to this configuration. Then select **Add** to save.
 
 1. You'll see the following three options appear next to the network group name under *Spoke network groups*:
     
-    * *Transitivity*: Select **Enable peering within network group** if you want to establish VNet peering between virtual networks in the network group of the same region.
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/spokes-settings.png" alt-text="Screenshot of spoke network groups settings." lightbox="./media/how-to-create-hub-and-spoke/spokes-settings-expanded.png":::
+
+    * *Direct connectivity*: Select **Enable peering within network group** if you want to establish VNet peering between virtual networks in the network group of the same region.
     * *Global Mesh*: Select **Enable mesh connectivity across regions** if you want to establish VNet peering for all virtual networks in the network group across regions.
     * *Gateway*: Select **Use hub as a gateway** if you have a virtual network gateway in the hub virtual network that you want this network group to use to pass traffic to on-premises.
 
-    For this example, select the checkbox for **Enable peering within network group** and **Enable mesh connectivity across regions**.
+    Select the settings you want to enable for each network group.
 
-1. Select **Add** to create the hub and spoke connectivity configuration.
+1. Finally, select **Add** to create the hub-and-spoke connectivity configuration.
 
 ## Deploy the hub and spoke configuration
+
+To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual network are created.
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
 
 1. On the *Deploy a configuration* select the following settings:
 
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/deploy.png" alt-text="Screenshot of deploy a configuration page.":::
+
     | Setting | Value |
     | ------- | ----- |
     | Configuration type | Select **Connectivity**. |
-    | Configurations | Select **HubA**. |
-    | Target regions | Select **West US** and **East US**. |
+    | Configurations | Select the name of the configuration you created in the previous section. |
+    | Target regions | Select all the regions that apply to virtual networks you select for the configuration. |
 
 1. Select **Deploy** and then select **OK** to commit the configuration to the selected regions.
 
-1. After a few minutes, select the **Refresh** button to check the status of the deployment.
+1. The deployment of the configuration can take up to 15-20 minutes, select the **Refresh** button to check on the status of the deployment.
 
 ## Confirm deployment
 
-1. Go to **VNet-A-WestUS** virtual network in the portal and select **Peerings** under *Settings*. You should see two peerings listed, one peering to *VNet-B-WestUS* and another peering to *VNet-A-EastUS*. 
+1. Go to one of the virtual networks in the portal and select **Peerings** under *Settings*. You should see a new peering connection create between the hub and the spokes virtual network with *AVNM* in the name.
 
-1. To test *transitivity* between **VNet-B-WestUS** and **VNet-A-EastUS**, deploy a virtual machine into each virtual network. Then start an ICMP request between the two virtual machines.
+1. To test *direct connectivity* between spokes, deploy a virtual machine into each spokes virtual network. Then initiate an ICMP request from one virtual machine to the other.
 
 ## Next steps
 
