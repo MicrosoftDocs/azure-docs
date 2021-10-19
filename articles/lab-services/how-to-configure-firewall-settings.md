@@ -4,7 +4,7 @@ description: Learn how to determine the public IP address and port number range 
 author: emaher
 ms.author: enewman
 ms.date: 06/26/2020
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Firewall settings for Azure Lab Services
