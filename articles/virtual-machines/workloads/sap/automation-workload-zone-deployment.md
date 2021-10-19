@@ -22,7 +22,7 @@ The following services are provided by the SAP workload zone:
 - Storage account for boot diagnostics
 - Storage account for cloud witnesses
 
-:::image type="content" source="./media/automation-deployment-framework/WorkloadZone.png" alt-text="Diagram SAP Workload Zone.":::
+:::image type="content" source="./media/automation-deployment-framework/workload-zone.png" alt-text="Diagram SAP Workload Zone.":::
 
 The workload zones are typically deployed in spokes in a hub and spoke architecture. They may be in their own subscriptions.
 
@@ -59,8 +59,6 @@ app_subnet_address_prefix="10.110.32.0/19"
 automation_username="azureadm"
 
 ```
-
-## Deploy SAP workload zone
 
 ## Preparing the Workload zone deployment credentials
 
@@ -151,8 +149,9 @@ New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV
 > Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
 > Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
+---
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [About SAP system deployment in automation framework](automation-system-deployment.md)
