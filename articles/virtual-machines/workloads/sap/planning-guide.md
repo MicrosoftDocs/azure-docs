@@ -744,7 +744,7 @@ For information about installation, configuration and how to use CLI commands to
 
 * [Install the Azure classic CLI][xplat-cli]
 * [Install the Azure CLI 2.0][azure-cli-install]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/azure/virtual-machines/linux/create-ssh-secured-vm-from-template)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
