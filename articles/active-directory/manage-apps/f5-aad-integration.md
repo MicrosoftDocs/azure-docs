@@ -2,7 +2,6 @@
 title: Secure hybrid access with F5
 titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
-services: active-directory
 author: davidmu1
 manager: martinco
 ms.service: active-directory
@@ -142,6 +141,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 - [F5 BIG-IP APM and Azure AD SSO to Header-based applications](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
+
+- [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
 ## Additional resources
 
