@@ -19,7 +19,7 @@ The configuration of the SAP workload zone is done via a Terraform tfvars variab
 
 ## Terraform Parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
+The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
 
 | Variable                | Type       | Description                           | 
 | ----------------------- | ---------- | ------------------------------------- | 
@@ -72,7 +72,7 @@ The table below contains the networking parameters.
 | `web_subnet_nsg_name`            | Optional	 | The name of the 'web' Network Security Group name | |
 | `web_subnet_nsg_arm_id`          | Mandatory * | The Azure resource identifier for the 'web' Network Security Group | Mandatory for brown field deployments |
 
-## ISCI Parameters
+## ISCSI Parameters
 
 | Variable                         | Type        | Description                           | Notes  |
 | -------------------------------- | ----------- | ------------------------------------- | ------ |
@@ -115,7 +115,7 @@ The table below defines the parameters used for defining the Key Vault informati
 | `dns_label`                        | Optional    | If specified, is the DNS name of the private DNS zone | 
 | `dns_resource_group_name`          | Optional    | The name of the resource group containing the Private DNS zone | 
 
-## Azure NetApp support
+## Azure NetApp Support
 
 | Variable                           | Type        | Description                           | Notes  |
 | ---------------------------------- | ----------- | ------------------------------------- | ------ |
@@ -129,17 +129,17 @@ The table below defines the parameters used for defining the Key Vault informati
 | `anf_subnet_address_prefix`        | Required *  | The address range for the 'ANF' subnet  | Mandatory for green field deployments |
 
 
-## Other parameters
+## Other Parameters
 
 | Variable                             | Type        | Description                           | Notes  |
 | ------------------------------------ | ----------- | ------------------------------------- | ------ |
 | `enable_purge_control_for_keyvaults` | Optional    | Boolean flag controlling if purge control is enabled on the Key Vault. Use only for test deployments | 
-| `use_private_endpoint`               | Optional    | Boolean flag controlling if private endpoints are used. | 
+| `use_private_endpoint`               | Optional    | Boolean flag controlling if private endpoints are used | 
 | `diagnostics_storage_account_arm_id` | Required *  | The Azure resource identifier for the diagnostics storage account | Mandatory for brown field deployments |
 | `witness_storage_account_arm_id`     | Required *  | The Azure resource identifier for the witness storage account | Mandatory for brown field deployments |
 
 
-## Next steps
+## Next Step
 
 > [!div class="nextstepaction"]
 > [About SAP system deployment in automation framework](automation-system-deployment.md)
