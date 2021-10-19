@@ -19,16 +19,16 @@ ms.custom: contperf-fy20q4
 ---
 # Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)
 
-Azure Active Directory Connect cloud sync can synchronize Azure AD password changes in real time between users in disconnected on-premises Active Directory Domain Services (AD DS) domains. The public preview of Azure AD Connect cloud sync can run side-by-side with [Azure Active Directory Connect](tutorial-enable-sspr-writeback.md) to simplify password writeback for additional scenarios, such as users who are in disconnected domains because of a company split or merge. You can configure each servce to target different sets of users depending on their needs. Azure Active Directory Connect cloud sync uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in the cloud back to an on-premises directory. 
+Azure Active Directory Connect cloud sync can synchronize Azure AD password changes in real time between users in disconnected on-premises Active Directory Domain Services (AD DS) domains. The public preview of Azure AD Connect cloud sync can run side-by-side with [Azure Active Directory Connect](tutorial-enable-sspr-writeback.md) at the domain level to simplify password writeback for additional scenarios, such as users who are in disconnected domains because of a company split or merge. You can configure each servce in different domains to target different sets of users depending on their needs. Azure Active Directory Connect cloud sync uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in the cloud back to an on-premises directory. 
 
 Azure Active Directory Connect cloud sync self-service password reset writeback is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites 
 
-- An Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled. If needed, create one for free. 
-- An account with global administrator privileges. 
+- An Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An account with *global administrator* privileges. 
 - Azure AD configured for self-service password reset. If needed, complete this tutorial to enable Azure AD SSPR. 
-- An on-premises AD DS environment configured with Azure AD Connect cloud sync version 1.1.587 or later. If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). [Not available in the portal right now] 
+- An on-premises AD DS environment configured with Azure AD Connect cloud sync version 1.1.587 or later. If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
 - Enabling password writeback in Azure AD Connect cloud sync requires executing signed PowerShell scripts.
   - Ensure that the PowerShell execution policy will allow running of scripts. 
   - The recommended execution policy during installation is "RemoteSigned". 
@@ -44,13 +44,15 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
 
 You need to configure Azure AD Connect cloud sync service account permissions by using the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](./cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
 
-<!---what is right syntax?--->
+<!---what is right syntax? I copied this from Set-ADSyncPasswordWritebackPermissions--->
 
 ```powershell
 Set-AADCloudSyncPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 You'll need to set the following permissions for password writeback:
+
+<!--- copied from Bill but doesnt match what we have in troubleshooting--->
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
@@ -61,9 +63,9 @@ You'll need to set the following permissions for password writeback:
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
-<!---Optional for preview, will be done automatically for GA--->
+<!---Optional for preview, will be done automatically for GA... how is optional?--->
 
-Enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
+For public preview, you can enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
 
 ```powershell
 Import-Module 'C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll' 
@@ -128,25 +130,14 @@ Passwords aren't written back in the following situations.
 
 Try the following operations to validate scenarios using password writeback. All validation scenarios require cloud sync is installed and the user is in scope for password writeback.  
 
-### Reset password from the login page 
 
-Have two users from disconnected domains and forests perform SSPR. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect and have those users reset their password. 
-
-### Force expired password change
-
-Have two users from disconnected domains and forests change expired passwords. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect.
-
-### Regular password change 
-
-Have two users from disconnected domains and forests perfrom routine password change. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect.  
-
-### Admin reset user password 
-
-Have two users disconnected domains and forests reset their password from the Azure Admin Portal or Frontline worker portal. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect  
-
-### Self-service account unlock
-
-Have two users from disconnected domains and forests unlock accounts in the SSPR portal resetting the password. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect. 
+|Scenario|Details |
+|--------|--------|
+| Reset password from the login page | Have two users from disconnected domains and forests perform SSPR. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect and have those users reset their password. |
+| Force expired password change | Have two users from disconnected domains and forests change expired passwords. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect. |
+| Regular password change | Have two users from disconnected domains and forests perfrom routine password change. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect.  |
+| Admin reset user password | Have two users disconnected domains and forests reset their password from the Azure Admin Portal or Frontline worker portal. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect  |
+| Self-service account unlock | Have two users from disconnected domains and forests unlock accounts in the SSPR portal resetting the password. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect. |
 
 ## Troubleshooting
 
@@ -178,7 +169,6 @@ For passwords to be changed immediately, Minimum password age must be set to 0. 
 
 For more information about how to validate or set up the appropriate permissions, see [Configure account permissions for Azure AD Connect](tutorial-enable-sspr-writeback.md#configure-account-permissions-for-azure-ad-connect). 
 
-## Next steps
 
 
 
