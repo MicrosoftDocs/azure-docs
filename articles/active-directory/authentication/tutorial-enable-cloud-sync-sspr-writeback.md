@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 10/11/2021
+ms.date: 10/19/2021
 
 ms.author: justinha
 author: justinha
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -19,9 +19,9 @@ ms.custom: contperf-fy20q4
 ---
 # Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)
 
-Password writeback can synchronize password changes in Azure AD back to an on-premises Active Directory Domain Services (AD DS) domain in real time. The public preview of Azure AD Connect cloud sync uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in thne cloud back to an on-premises directory. 
+Azure Active Directory Connect cloud sync is can synchronize Azure AD password changes in real time between users in disconnected on-premises Active Directory Domain Services (AD DS) domains. The public preview of Azure AD Connect cloud sync can run side-by-side with Azure Active Directory Connect. It uses the lightweight Azure AD cloud provisioning agent to simplify the setup for self-service password reset (SSPR) writeback and provide a secure way to send password changes in thne cloud back to an on-premises directory. 
 
-This is especially suited for disconnected domain sceanrios. 
+Azure Active Directory Connect cloud sync self-service password reset writeback is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites 
 
