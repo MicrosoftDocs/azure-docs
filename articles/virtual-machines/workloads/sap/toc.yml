@@ -288,6 +288,8 @@
     href: automation-deployment-framework.md
   - name: Get started with automation framework
     href: automation-get-started.md
+  - name: Deploy the Control Plane
+    href: automation-deploy-controlplane.md
   - name: About SAP system deployment
     href: automation-system-deployment.md
   - name: About workload zone deployment
