@@ -130,7 +130,7 @@ The following classes and interfaces handle some of the major features of the Az
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-call-composite) | The composite renders a call experience with participant gallery and controls. |
 | [CallCompositeOptions](#create-call-composite) | Includes options such as the theme configuration and the events handler. |
-| [CallCompositeEventsHandler](#subscribe-to-events-from-CallComposite) | Allows you to receive events from composite. |
+| [CallCompositeEventsHandler](#subscribe-to-events-from-callcomposite) | Allows you to receive events from composite. |
 | [GroupCallOptions](#group-call) | The options for joining a group call, such as groupId. |
 | [TeamsMeetingOptions](#teams-meeting) | The options for joining a Team's meeting, such as the meeting link. |
 | [ThemeConfiguration](#apply-theme-configuration) | Allows you to customize the theme. |
