@@ -24,8 +24,6 @@ Before you train your model you need:
     * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 
-:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
-
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
 ## Training a model 

@@ -25,8 +25,6 @@ Before you train your model you need:
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
 
-:::image type="content" source="../media/development-lifecycle/evaluate-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/evaluate-model.png":::
-
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
 ## Model evaluation

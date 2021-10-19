@@ -24,8 +24,6 @@ After you're satisfied with your model, and made any necessary improvements, you
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
     * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
 
-:::image type="content" source="../media/development-lifecycle/deploy-classify.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/deploy-classify.png":::
-
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
 ## Deploy your model
