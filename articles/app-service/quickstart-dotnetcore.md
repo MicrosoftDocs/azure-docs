@@ -38,7 +38,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 <!-- markdownlint-enable MD044 -->
 
 > [!NOTE]
-> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](?pivots=development-environment-cli)
+> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](#?pivots=development-environment-cli)
 
 :::zone-end
 
@@ -444,7 +444,7 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 <!-- markdownlint-enable MD044 -->
 
 > [!NOTE]
-> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](?pivots=development-environment-cli)
+> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](#?pivots=development-environment-cli)
 
 1. Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) command and following the prompt:
 
