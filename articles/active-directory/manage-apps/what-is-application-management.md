@@ -16,7 +16,7 @@ ms.reviewer: sureshja, napuri
 
 # What is application management in Azure Active Directory?
 
-Application management in Azure Active Directory (Azure AD) is the process of creating, configuring, managing, and monitoring applications in the cloud. When an application is registered in an Azure AD tenant, users who have been assigned to it can securely access it. Many types of applications can be registered in Azure AD. For more information, see [Application types for the Microsoft Identity Platform](../develop/v2-app-types.md).
+Application management in Azure Active Directory (Azure AD) is the process of creating, configuring, managing, and monitoring applications in the cloud. When an [application](../develop/app-objects-and-service-principals.md) is registered in an Azure AD tenant, users who have been assigned to it can securely access it. Many types of applications can be registered in Azure AD. For more information, see [Application types for the Microsoft Identity Platform](../develop/v2-app-types.md).
 
 In this article, you learn these important aspects of managing the lifecycle of an application:
 
