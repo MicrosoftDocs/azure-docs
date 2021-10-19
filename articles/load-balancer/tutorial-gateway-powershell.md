@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Create a gateway load balancer using Azure PowerShell
 
-Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
+Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs.
 
 In this tutorial, you learn how to:
 
@@ -252,7 +252,8 @@ New-AzLoadBalancer @lb
 
 ```
 
-The load balancer is ready for NVAs in the backend pool.
+
+Add NVAs to the backend of the Gateway Load Balancer through the Azure Martketplace.
 
 ## Chain load balancer frontend to gateway load balancer
 
