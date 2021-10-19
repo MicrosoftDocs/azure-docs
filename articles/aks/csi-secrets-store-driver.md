@@ -238,6 +238,8 @@ kubectl port-forward ds/csi-secrets-store-provider-azure 8898:8898 &
 curl localhost:8898/metrics
 ```
 
+The following table lists the metrics provided by the Secrets Store CSI driver:
+
 |Metric|Description|Tags|
 |----|----|----|
 |keyvault_request|Distribution of how long it took to get from keyvault|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
