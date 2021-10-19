@@ -50,15 +50,16 @@ performing forms-based SSO to the backend application.
 
 ![Screenshot shows the flow diagram](./media/f5-bigip-forms-advanced/flow-diagram.png)
 
-| Steps | Description|
+| Steps | Description |
 |:-------|:----------|
 | 1. | User connects to application's SAML SP endpoint (BIG-IP APM).|
-|2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
+| 2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
 | 3. | SAML IdP authenticates user and applies any enforced CA policies.|
 | 4. | Azure AD redirects user back to SAML SP with issued token and claims. |
 | 5. | APM prompts for application password and stores in cache. | 6. |  BIG-IP request to application receives login form.
 | 7. | APM scripting responds filling in username and password before submitting form.|
-| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking for cookie or redirect URI. |
+| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking 
+for cookie or redirect URI. |
 
 ## Prerequisites
 
@@ -323,7 +324,7 @@ Although optional, adding a LogonID_Mapping configuration enables the BIG-IP act
 
 5. Commit those settings by selecting **Apply Access Policy** in the top left-hand corner and close the visual policy editor.
 
-   ![Sceenshot shows add new entry field](./media/f5-bigip-forms-advanced/apply-access-policy.png)
+   ![Sceenshot shows apply access policy](./media/f5-bigip-forms-advanced/apply-access-policy.png)
 
 ### Backend pool configuration
 
@@ -355,7 +356,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 2. Provide the virtual server with a **Name,** an unused IP IPv4/IPv6 that can be assigned to the BIG-IP to receive client traffic, and set the **Service Port** to 443.
 
-   ![Sceenshot shows pool member](./media/f5-bigip-forms-advanced/virtual-server.png)
+   ![Sceenshot shows virtual server](./media/f5-bigip-forms-advanced/virtual-server.png)
 
 3. **HTTP Profile**: Set to http.
 
