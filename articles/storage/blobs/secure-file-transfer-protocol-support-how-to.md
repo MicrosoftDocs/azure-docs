@@ -100,11 +100,43 @@ This section helps you to configure a local user, choose an authentication metho
    >[!NOTE]
    > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Add a local user](#add-local-users) section of this article.
 
-## Connect to Azure Blob Storage and transfer data
+## Connect to Azure Blob Storage and upload a file
 
-Put any guidance here - if appropriate.
+You can use any SFTP client to securely transfer files to your SFTP-enabled storage account. This section shows how to use OpenSSH with password authentication. To learn more about this tool, see [OpenSSH in Windows](/windows-server/administration/openssh/openssh_overview).
 
-Put guidance for using password or key as part of the process.
+1. Open a Windows PowerShell command window.
+
+2. Connect to your storage account by using the following command. The prefix of this command is the storage account name followed by the name of the local user that you want to use with the connection.
+
+   ```console
+   sftp contoso.contosouser1@contoso.blob.core.windows.net/
+   ```
+   When prompted for the password, provide it to complete the connection. If your connection is successful, the `sftp` prompt appears in the console.
+
+3. View a list of commands and their parameters by using the `help` command.
+
+   ```console
+   help
+   ```
+
+4. Determine your current local directory by using the ``lpwd`` command.
+
+   ```console
+   lpwd
+   ```
+5. Navigate to the local directory that contains the file that you want to upload. This example navigates to a subdirectory named ``mylogfiles``.
+
+   ```console
+   cd mylogfiles
+   ```
+ 
+6. Upload a file to your account by using the ``put`` command. This example uploads a file named `logfile.txt` from the current local directory.
+
+   ```console
+   put logfile.txt
+   ```
+
+   After the transfer, this file appears in the default home directory that you specified for this local user.
 
 ---
 
