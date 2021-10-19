@@ -131,31 +131,7 @@ You need to create an Azure resource of type [Computer Vision](https://portal.az
 
 ## Set up your development environment
 
-1. Clone the repo from this location: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
-1. In Visual Studio Code, open the folder where the repo has been downloaded.
-1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it *appsettings.json*. This file will contain the settings needed to run the program.
-1. Copy the contents of the appsettings.json file from Azure portal. The text should look like the following code.
-   ```json
-   {
-     "IoThubConnectionString": "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
-     "deviceId": "<your Edge Device name>",
-     "moduleId": "avaedge"
-   }
-   ```
-
-1. Go to the src/edge folder and create a file named .env.
-1. Copy the contents of the env.txt file from Azure portal. The text should look like the following code.
-
-   ```env
-   SUBSCRIPTION_ID="<Subscription ID>"
-   RESOURCE_GROUP="<Resource Group>"
-   AVA_PROVISIONING_TOKEN="<The provisioning token>"
-   VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"
-   VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
-   APPDATA_FOLDER_ON_DEVICE="/var/lib/videoanalyzer"
-   CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
-   CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
-   ```
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ## Configure deployment template
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
@@ -249,7 +225,7 @@ Follow these steps to generate the manifest from the template file and then depl
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Spatial Analysis: connection string":::
 
-1. Pick the appropriate deployment template (`src/edge/deployment.spatialAnalysis.template.json` or `src/edge/deployment.spatialAnalysis.generic.template.json`) and select Generate IoT Edge Deployment Manifest.
+1. In your Folder explorer, pick the appropriate deployment template (`src/edge/deployment.spatialAnalysis.template.json` or `src/edge/deployment.spatialAnalysis.generic.template.json`) and select Generate IoT Edge Deployment Manifest.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/generate-deployment-manifest.png" alt-text="Spatial Analysis: deployment amd64 json":::
@@ -313,6 +289,10 @@ In operations.json:
       }
   },
   ```
+* Under `livePipelineSet`, edit the name of the topology to match the value in the preceding link:
+    * `"topologyName" : "PersonZoneCrossingTopology"`
+* Under `pipelineTopologyDelete`, edit the name:
+    * `"name" : "PersonZoneCrossingTopology"`
 
 > [!Important]
 > The topology used above has a hard-coded name for the VideoSink resource `videoSink`. If you decide to choose a different video source, remember to change this value.

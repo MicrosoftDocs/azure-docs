@@ -45,7 +45,11 @@
     - name: Get started 
       items:
         - name: Using portal
-          href: overview.md  
+          href: overview.md
+        - name: Get Started with live pipelines - Azure Portal
+          href: cloud/get-started-livepipelines-portal.md
+        - name: Monitoring & logging
+          href: cloud/monitor-log-cloud.md
 - name: Tutorials
   items:
   - name: Edge module
@@ -77,8 +81,10 @@
     items:
     - name: Connect camera to cloud using portal  #??
       href: overview.md
-    - name: Export a clip (batch pipeline)         #??
-      href: overview.md
+    - name: Export a clip (batch pipeline)
+      href: cloud/export-portion-of-video-as-mp4.md
+  - name: Visualize AI inference events
+    href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
   - name: C# sample repository

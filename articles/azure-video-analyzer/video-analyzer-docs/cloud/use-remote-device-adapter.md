@@ -3,7 +3,6 @@ title: Connect camera to cloud using a remote device adapter
 description: This article explains how to connect a camera to Azure Video Analyzer using a remote device adapter
 ms.topic: how-to
 ms.date: 11/01/2021
-
 ---
 
 # Connect cameras to the cloud using a remote device adapter
