@@ -24,7 +24,7 @@ Pipelines let you ingest, process, and publish video within Azure Video Analyzer
 
 A pipeline topology enables you to describe how live video or [recorded videos](terminology.md#recording) should be processed and analyzed for your custom needs through a set of interconnected nodes. Video analyzer supports two kinds of topologies: live and batch. Live topologies, as the name suggests, are used with live video from cameras. Batch topologies are used to process recorded videos.
 
-A pipeline supports different types of nodes:
+**Pipeline** supports different types of nodes:
 
 * **Source nodes** enable capturing of data into the pipeline. Data refers to audio, video, and/or metadata.
 * **Processor nodes** enable processing of media within the pipeline.
@@ -50,7 +50,8 @@ The lifecycle of a  pipeline is represented in the diagram below.
 Upon successful creation a pipeline is in the 'Inactive' state. Upon activation, a pipeline briefly enters the 'Activating' state before going to the 'Active' state.
 Data (live video) starts flowing through the pipeline when it is in the 'Active' state. Upon deactivation, an active pipeline enters the 'Deactivating' state and then 'Inactive' state. Only inactive pipelines can be deleted.
 
-Live pipelines are designed to remain active, once activated, and keep processing the live video from the source (camera). An explicit deactivate command is required in order to stop the processing. A pipeline can be active without data flowing through it (for example, the input video source goes offline). Your Azure subscription will be billed when the pipeline is in the active state.
+Live pipelines are designed to remain active, once activated, and keep processing the live video from the source (camera). An explicit deactivate command is required in order to stop the processing.
+A pipeline can be active without data flowing through it (for example, the input video source goes offline). Your Azure subscription will be billed when the pipeline is in the active state.
 
 ### Batch pipeline
 
