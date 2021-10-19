@@ -18,7 +18,7 @@ A single GraphQL API in API Management corresponds to a single GraphQL backend e
 
 You can secure GraphQL APIs by applying existing access control policies and new policies to secure and protect against GraphQL-specific attacks.
 
-[!INCLUDE [preview-callout-graphql.md](../includes/preview/preview-callout-graphql.md)]
+[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
 
 In this article, you'll:
 > [!div class="checklist"]
