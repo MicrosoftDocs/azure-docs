@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/19/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account for secure access.
 ---
 
