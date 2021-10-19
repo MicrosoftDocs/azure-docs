@@ -32,7 +32,9 @@ The overview page provides you with a way to filter across workspaces, time, and
 ## Application rule log statistics
 
 This page shows unique sources of IP address over time, application rule count usage, denied/allowed FQDN over time, and filtered data. You can filter data based on IP address. 
+
 The Web Categories view summarizes allow and deny access log actions based on severity as configured by the firewall administrator.
+
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Azure Firewall Workbook application rule log":::
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategory.png" alt-text="Azure Firewall Web Category Summary":::
