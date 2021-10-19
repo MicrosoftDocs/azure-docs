@@ -125,7 +125,10 @@ For a list of available options, please see [Dapr configuration][dapr-configurat
 
 ## Targeting a specific Dapr version
 
-The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension will install the latest version of Dapr. For example, to use Dapr 1.4.3: 
+> [!NOTE]
+> Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
+
+The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension will install the latest version of Dapr. For example, to use Dapr X.X.X: 
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -134,7 +137,7 @@ az k8s-extension create --cluster-type managedClusters \
 --name myDaprExtension \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
---version 1.4.3 \
+--version X.X.X \
 ```
 
 ## Show current configuration settings
@@ -151,8 +154,6 @@ az k8s-extension show --cluster-type managedClusters \
 ## Troubleshooting extension errors
 
 If the extension fails to create or update, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings, such as `global.ha=false` instead of `global.ha.enabled=false`: 
-
-<!-- TODO: add az k8s-extension list CLI reference -->
 
 ```azure-cli-interactive
 az k8s-extension list --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup
