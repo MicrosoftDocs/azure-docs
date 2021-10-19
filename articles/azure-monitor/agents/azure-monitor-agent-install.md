@@ -95,8 +95,8 @@ New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWind
 New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
 ```
 ---
-## Azure CLI
-You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers using the Azure CLI command for adding a virtual machine extension. 
+## Install with Azure CLI
+You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc enabled servers using the Azure CLI command for adding a virtual machine extension. 
 
 ### Azure virtual machines
 Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines.
@@ -121,6 +121,35 @@ az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher
 az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 ---
+
+
+## Install with Azure Policy
+Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule, every time you create a virtual machine.
+
+### Built-in policy initiatives
+[View prerequisites for agent installation](azure-monitor-agent-install.md#prerequisites). 
+
+Policy initiatives for Windows and Linux virtual machines consist of individual policies that:
+
+- Install the Azure Monitor agent extension on the virtual machine.
+- Create and deploy the association to link the virtual machine to a data collection rule.
+
+![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
+
+### Built-in policies 
+You can choose to use the individual policies from their respective policy initiatives, based on your needs. For example, if you only want to automatically install the agent, use the first policy from the initiative as shown in the following example.  
+
+![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
+
+### Remediation
+The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to *existing resources*, so you can configure the Azure Monitor agent for any resources that were already created. 
+
+When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
+
+![Screenshot that shows initiative remediation for the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
+
+## Diagnostic settings
+[Diagnostic settings](../essentials/diagnostic-settings.md) collect resource logs and metrics from Azure resources and route them to multiple locations. A typical location is a Log Analytics workspace, which allows you to analyze the data with [log queries](../logs/log-query-overview.md) and [log alerts](../alerts/alerts-log.md). Use Azure Policy to automatically create a diagnostic setting each time you create a resource.
 
 
 ## Next steps
