@@ -52,7 +52,7 @@ Use the SQL Server VM marketplace images with the storage configuration in the p
 
 The recommended minimum for a production OLTP environment is 4 vCore, 32 GB of memory, and a memory-to-vCore ratio of 8. For new environments, start with 4 vCore machines and scale to 8, 16, 32 vCores or more when your data and compute requirements change. For OLTP throughput, target SQL Server VMs that have at least 5000 IOPS for every vCore. Currently, the [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) provides the highest I/O throughput-to-vCore ratio available in Azure. If you do not know the I/O requirements for your SQL Server workload, this series is the one most likely to meet your needs.
 
-> ![NOTE]
+> [!NOTE]
 > If you are interested in participating in the [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) public preview, please sign up at [https://aka.ms/signupEbsv5Preview](https://aka.ms/signupEbsv5Preview).
 
 SQL Server data warehouse and mission critical environments will often need to scale beyond the 8 memory-to-vCore ratio. For medium environments, you may want to choose a 16 memory-to-vCore ratio, and a 32 memory-to-vCore ratio for larger data warehouse environments.
