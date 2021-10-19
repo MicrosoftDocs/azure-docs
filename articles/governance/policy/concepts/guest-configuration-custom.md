@@ -47,11 +47,11 @@ operating system of guest configuration extension. There's no need to configure
 When a configuration is
 [packaged using the available tools](../how-to/guest-configuration-create.md),
 the required dependencies for the configuration are included in a .zip file.
-Machines that request the configuration extract the contents into a unique
-folder for each configuration. The agent delivered by the guest configuration 
-extension creates a dedicated PowerShell session for each configuration, using a
-`$Env:PSModulePath` that limits automatic module loading to only the path where
-the package was extracted.
+Machines extract the contents into a unique folder for each configuration.
+The agent delivered by the guest configuration extension creates a dedicated
+PowerShell session for each configuration, using a `$Env:PSModulePath` that
+limits automatic module loading to only the path where the package was
+extracted.
 
 Multiple benefits result from this change.
 
