@@ -81,6 +81,7 @@ mkdir WORKSPACES
 
 xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
 ```
+---
 
 > [!TIP]
 > The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
