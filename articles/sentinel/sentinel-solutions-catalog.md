@@ -89,7 +89,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, hunting queries, custom Logic App connector |Security - Network Security, Networking | Community|
 |**Azure Sentinel 4 Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
 |**Azure Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
-|**Azure Sentinel for Teams**     | [Data connector](data-connectors-reference.md#microsoft-teams), analytics rules, playbooks, hunting queries      |   Application      |    Community     |
+|**Azure Sentinel for Teams**     | Data connector, analytics rules, playbooks, hunting queries      |   Application      |    Community     |
 | **Azure Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
 | **Azure SQL** | [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics, playbooks, hunting queries  | Application |Microsoft  |
 | | | | |
@@ -110,7 +110,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
-| **Box Solution**| [Data connector](data-connectors-reference.md#box-preview), workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
+| **Box Solution**| Data connector, workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
 | | | | |
 
 
@@ -126,15 +126,15 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Cisco ACI** |[Data connector](data-connectors-reference.md#cisco-aci-preview), parser |Security – Network |Microsoft |
+|**Cisco ACI** |Data connector, parser |Security – Network |Microsoft |
 |**Cisco ASA** |[Data connector](data-connectors-reference.md#cisco-asa), playbooks, custom Logic App connector |Security – Automation (SOAR) |Microsoft |
-|**Cisco Duo Security** |[Data connector](data-connectors-reference.md#cisco-duo-security-preview), parser | Identity|Microsoft |
-|**Cisco ISE**  |[Data connector](data-connectors-reference.md#cisco-ise-preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Networking, Security - Others | Microsoft |
+|**Cisco Duo Security** |Data connector, parser | Identity|Microsoft |
+|**Cisco ISE**  |Data connector, workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Networking, Security - Others | Microsoft |
 |**Cisco Meraki** |[Data connector](data-connectors-reference.md#cisco-meraki-preview), playbooks, custom Logic App connector |Security - Network |Microsoft |
-|**Cisco Secure Email Gateway / ESA** |[Data connector](data-connectors-reference.md#cisco-secure-email-gateway--esa-preview), parser |Security - Threat Protection |Microsoft |
-|**Cisco StealthWatch** |[Data connector](data-connectors-reference.md#cisco-stealthwatch-preview), parser |Security - Network | Microsoft|
+|**Cisco Secure Email Gateway / ESA** |Data connector, parser |Security - Threat Protection |Microsoft |
+|**Cisco StealthWatch** |Data connector, parser |Security - Network | Microsoft|
 |**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella-preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Security - Cloud Security |Microsoft |
-|**Cisco Web Security Appliance (WSA)** | [Data connector](data-connectors-reference.md#cisco-web-security-appliance-wsa-preview), parser|Security - Network |Microsoft |
+|**Cisco Web Security Appliance (WSA)** | Data connector, parser|Security - Network |Microsoft |
 | | | | |
 
 <!-- | **Cisco Secure Endpoint / Cisco Advanced Malware Protection** | Data connector | Security - Threat protection, Networking | | -->
@@ -156,7 +156,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Cloudflare Solution**|[Data connector](data-connectors-reference.md#cloudflare-preview), workbooks, analytics rules, hunting queries, parser| Security - Network, networking |Microsoft |
+| **Cloudflare Solution**|Data connector, workbooks, analytics rules, hunting queries, parser| Security - Network, networking |Microsoft |
 | | | | |
 
 
@@ -166,7 +166,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Contrast Protect Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#contrast-security-preview), workbooks, analytics rules |Security - Threat protection |Contrast Security |
+| **Contrast Protect Azure Sentinel Solution**|Data connector, workbooks, analytics rules |Security - Threat protection |Contrast Security |
 | | | | |
 
 ## Crowdstrike
@@ -175,7 +175,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **CrowdStrike Falcon Endpoint Protection Solution**| [Data connector](data-connectors-reference.md#crowdstrike-preview), workbooks, analytics rules, playbooks, parser| Security - Threat protection| Microsoft|
+| **CrowdStrike Falcon Endpoint Protection Solution**| Data connector, workbooks, analytics rules, playbooks, parser| Security - Threat protection| Microsoft|
 | | | | |
 
 ## Digital Guardian
@@ -184,7 +184,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Digital Guardian** |[Data connector](data-connectors-reference.md#digital-guardian-preview), parser |Security - Information Protection |Microsoft |
+|**Digital Guardian** |Data connector, parser |Security - Information Protection |Microsoft |
 | | | |
 
 
@@ -208,21 +208,21 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**FireEye NX (Network Security)** |[Data connector](data-connectors-reference.md#fireeye-nx-preview), parser |Security - Network| Microsoft|
+|**FireEye NX (Network Security)** |Data connector, parser |Security - Network| Microsoft|
 | | | |
 
 ## Flare Systems Firework
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Flare Systems Firework** |[Data connector](data-connectors-reference.md#flare-systems-firework-preview) |Security - Threat protection | Flare Systems|
+|**Flare Systems Firework** |Data connector |Security - Threat protection | Flare Systems|
 | | | |
 
 ## Forescout
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Forescout** |[Data connector](data-connectors-reference.md#forescout-preview), parser |Security - Network | Microsoft|
+|**Forescout** |Data connector, parser |Security - Network | Microsoft|
 | | | |
 
 ## Fortinet Fortigate
@@ -245,9 +245,9 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Google Cloud Platform DNS Solution** |[Data connector](data-connectors-reference.md#google-cloud-platform-dns-preview), parser |Cloud Provider, Networking |Microsoft |
-| **Google Cloud Platform Cloud Monitoring Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-cloud-monitoring-preview), parser |Cloud Provider | Microsoft|
-| **Google Cloud Platform Identity and Access Management Solution**|[Data connector](data-connectors-reference.md#google-cloud-platform-identity-and-access-management-preview), workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector|Cloud Provider, Identity |Microsoft |
+|**Google Cloud Platform DNS Solution** |Data connector, parser |Cloud Provider, Networking |Microsoft |
+| **Google Cloud Platform Cloud Monitoring Solution**|Data connector, parser |Cloud Provider | Microsoft|
+| **Google Cloud Platform Identity and Access Management Solution**|Data connector, workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector|Cloud Provider, Identity |Microsoft |
 | | | | |
 
 <!-- | **Google Apigee** | Data connector | DevOps | | -->
@@ -323,7 +323,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Juniper IDP** |[Data connector](data-connectors-reference.md#juniper-idp-preview), parser|Security - Network |Microsoft |
+|**Juniper IDP** |Data connector, parser|Security - Network |Microsoft |
 | | | | |
 
 
@@ -346,8 +346,8 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **McAfee ePolicy Orchestrator Solution**| [Data connector](data-connectors-reference.md#mcafee-epolicy-orchestrator-preview), workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector| Security - Threat protection| Microsoft |
-|**McAfee Network Security Platform Solution** (Intrushield) + AntiVirus Information (T1 minus Logic apps) |[Data connector](data-connectors-reference.md#mcafee-network-security-platform-preview), workbooks, analytics rules, hunting queries, parser |Security - Threat protection | Microsoft|
+| **McAfee ePolicy Orchestrator Solution**| Data connector, workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector| Security - Threat protection| Microsoft |
+|**McAfee Network Security Platform Solution** (Intrushield) + AntiVirus Information (T1 minus Logic apps) |Data connector, workbooks, analytics rules, hunting queries, parser |Security - Threat protection | Microsoft|
 
 
 <!-- Coming soon>
@@ -366,7 +366,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Oracle Cloud Infrastructure** |Data connector, parser | Cloud Provider | Microsoft|
-|**Oracle Database Audit Solution** | [Data connector](data-connectors-reference.md#oracle-database-audit), workbook, analytics rules, hunting queries, parser| Application|Microsoft |
+|**Oracle Database Audit Solution** | Data connector, workbook, analytics rules, hunting queries, parser| Application|Microsoft |
 | | | | |
 
 ## Palo Alto
@@ -382,7 +382,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**PingFederate Solution** |[Data connector](data-connectors-reference.md#ping-identity), workbooks, analytics rules, hunting queries, parser| Identity|Microsoft |
+|**PingFederate Solution** |Data connector, workbooks, analytics rules, hunting queries, parser| Identity|Microsoft |
 | | | | |
 
 ## Proofpoint
@@ -404,7 +404,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Rapid7 InsightVM CloudAPI Solution** |[Data connector](data-connectors-reference.md#rapid-7-insight-vm-cloudapi-preview), parser|Security - Vulnerability Management |Microsoft |
+|**Rapid7 InsightVM CloudAPI Solution** |Data connector, parser|Security - Vulnerability Management |Microsoft |
 | | | | |
 
 <!-- Coming soon>
@@ -435,7 +435,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**RSA SecurID** |[Data connector](data-connectors-reference.md#rsa-securid), parser |Security - Others, Identity |Microsoft |
+|**RSA SecurID** |Data connector, parser |Security - Others, Identity |Microsoft |
 | | | |
 
 
@@ -471,14 +471,14 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Semperis**|[Data connector](data-connectors-reference.md#semperis-preview), workbooks, analytics rules, parser | Security - Threat protection, Identity  |Semperis |
+| **Semperis**|Data connector, workbooks, analytics rules, parser | Security - Threat protection, Identity  |Semperis |
 | | | | |
 
 ## Senserva Pro
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Senserva Offer for Azure Sentinel** |[Data connector](data-connectors-reference.md#senserva-pro-preview), workbooks, analytics rules, hunting queries |Compliance |Senserva Pro |
+|**Senserva Offer for Azure Sentinel** |Data connector, workbooks, analytics rules, hunting queries |Compliance |Senserva Pro |
 | | | | |
 
 <!-->
@@ -493,7 +493,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Slack Audit Solution**| [Data connector](data-connectors-reference.md#slack-audit-preview), workbooks, analytics rules, hunting queries, parser |Application| Microsoft|
+| **Slack Audit Solution**|Data connector, workbooks, analytics rules, hunting queries, parser |Application| Microsoft|
 | | | | |
 
 
@@ -501,7 +501,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Sophos Endpoint Protection Solution** |[Data connector](data-connectors-reference.md#sophos-endpoint-protection-preview), parser| Security - Threat protection |Microsoft |
+|**Sophos Endpoint Protection Solution** |Data connector, parser| Security - Threat protection |Microsoft |
 | **Sophos XG Firewall Solution**| Workbooks, analytics rules, parser |Security - Network |Sophos |
 | | | | |
 
@@ -510,7 +510,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Symantec Endpoint**|[Data connector](data-connectors-reference.md#symantec-endpoint-preview), workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection|Microsoft |
+| **Symantec Endpoint**|Data connector, workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection|Microsoft |
 | **Symantec ProxySG  Solution**|Workbooks, analytics rules |Security - Network |Symantec |
 | | | | |
 
@@ -518,7 +518,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Tenable Nessus Scanner / IO VM reports for cloud**  | [Data connector](data-connectors-reference.md#tenable-preview), parser| Security - Vulnerability Management| Microsoft |
+|**Tenable Nessus Scanner / IO VM reports for cloud**  | Data connector, parser| Security - Vulnerability Management| Microsoft |
 | | | | |
 
 <!-- Coming soon>
@@ -535,7 +535,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Trend Micro Apex One Solution**  | [Data connector](data-connectors-reference.md#trend-micro-apex-one-preview), hunting queries, parser| Security - Threat protection|Microsoft |
+|**Trend Micro Apex One Solution**  | Data connector, hunting queries, parser| Security - Threat protection|Microsoft |
 | | | | |
 
 <!-- | **Trend Micro CAS** | Data connector | Security - Threat Protection | | -->
@@ -546,7 +546,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Ubiquiti UniFi Solution**|[Data connector](data-connectors-reference.md#ubiquti-unifi-preview), workbooks, analytics rules, hunting queries, parser |Security - Network |Microsoft |
+| **Ubiquiti UniFi Solution**|Data connector, workbooks, analytics rules, hunting queries, parser |Security - Network |Microsoft |
 | | | | |
 
 
@@ -554,14 +554,14 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **vArmour Application Controller and Azure Sentinel Solution**|[Data connector](data-connectors-reference.md#varmour-preview), workbook, analytics rules |IT Operations |vArmour |
+| **vArmour Application Controller and Azure Sentinel Solution**|Data connector, workbook, analytics rules |IT Operations |vArmour |
 | | | | |
 
 ## Vectra
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Vectra Stream Solution** |[Data connector](data-connectors-reference.md#vectra-stream-preview), hunting queries, parser |Security - Network |Microsoft |
+|**Vectra Stream Solution** |Data connector, hunting queries, parser |Security - Network |Microsoft |
 | | | |
 
 <!-- Coming soon>
@@ -585,7 +585,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-| **Corelight for Azure Sentinel**|[Data connector](data-connectors-reference.md#zeek-network-preview), workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | Zeek Network|
+| **Corelight for Azure Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | Zeek Network|
 | | | | |
 
 <!-- Coming soon>
