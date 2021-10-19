@@ -132,8 +132,7 @@ Steps to create a new policy in Purview
 
 4.  The new policy page will appear. Enter the policy **Name** and **Description**.
 
-5.  To add policy statements to the new policy, select the **New policy
-    statement** button. This will bring up the policy statement builder.
+5.  To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
     :::image type="content" source="./media/how-to-storage-access-policies/create-new-policy-storage.png" alt-text="Image shows how a Data Owner can create a new policy statement.":::
 
 6.  Select the **Action** button and choose Read or Modify from the drop-down list.
@@ -142,16 +141,13 @@ Steps to create a new policy in Purview
 
 8.  Select the **Data Resources** button to bring up the options to provide the data asset path
 
-9.  In the **Assets** box, enter the **Data Source Type** and select the
-    **Name** of a previously registered data source.
+9.  In the **Assets** box, enter the **Data Source Type** and select the **Name** of a previously registered data source.
     :::image type="content" source="./media/how-to-storage-access-policies/select-data-source-type-storage.png" alt-text="Image shows how a Data Owner can select a Data Resource when editing a policy statement.":::
 
-10. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will
-    take you back to the policy editor.
+10. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will take you back to the policy editor.
     :::image type="content" source="./media/how-to-storage-access-policies/select-asset-storage.png" alt-text="Image shows how a Data Owner can select the asset when creating or editing a policy statement.":::
 
-11. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will
-    take you back to the policy editor
+11. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
     :::image type="content" source="./media/how-to-storage-access-policies/select-subject.png" alt-text="Image shows how a Data Owner can select the subject when creating or editing a policy statement.":::
 
 12. Repeat the steps #5 to #11 to enter any additional policy statements.
@@ -189,4 +185,4 @@ The steps to publish a policy are as follows
     :::image type="content" source="./media/how-to-storage-access-policies/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a Data Owner can select the data source where the policy will be published.":::
 
 ## Next steps
-Check the concept guide for Azure Purview Data Policies linked [here](concept-data-policies.md)
+Check the [Concept guide for Azure Purview Data Policies](concept-data-policies.md)
