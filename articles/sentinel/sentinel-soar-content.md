@@ -88,22 +88,21 @@ You can find SOAR integrations and their components in the following places:
 
 ### alternate 1 layout
 
-| Product | Cisco ASA | Cisco FirePower | Cisco ISE | Cisco Meraki | Cisco Umbrella |
-| --- | --- | --- | --- | --- | --- |
-| **Integration components** | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks |
-| **Supported by** | Community | Community | Microsoft | Community | Microsoft |
-| **Solution name** |  |  | Cisco ISE Solution |  | Cisco Umbrella Solution |
-| **Scenarios** | Block IPs | Block IPs and URLs |  | Block IPs | Block domains, policies management, destination lists management, enrichment, and investigation |
+| Product | Cisco ASA,<br>Cisco Meraki | Cisco FirePower | Cisco ISE | Cisco Umbrella |
+| --- | --- | --- | --- | --- |
+| **Integration components** | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks |
+| **Supported by** | Community | Community | Microsoft | Microsoft |
+| **Solution name** |  |  | Cisco ISE Solution | Cisco Umbrella Solution |
+| **Scenarios** | Block IPs | Block IPs and URLs |  | Block domains, <br>policies management, <br>destination lists management, <br>enrichment, and <br>investigation |
 
 ### alternate 2 layout
 
 | Products | Integration components | Supported by | Solution name | Scenarios |
 | --- | --- | --- | --- | --- |
-| **Cisco ASA** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs | 
+| **Cisco ASA,<br>Cisco Meraki** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs | 
 | **Cisco FirePower** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs and URLs | 
 | **Cisco ISE** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco ISE Solution |  | 
-| **Cisco Meraki** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs | 
-| **Cisco Umbrella** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco Umbrella Solution | Block domains, policies management, destination lists management, enrichment, and investigation | 
+| **Cisco Umbrella** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco Umbrella Solution | Block domains, <br>policies management, <br>destination lists management, <br>enrichment, and <br>investigation | 
 
 
 ## F5
@@ -185,14 +184,14 @@ You can find SOAR integrations and their components in the following places:
 
 | Products | Integration components | Supported by | Solution name | Scenarios |
 | --- | --- | --- | --- | --- |
-| **Azure DevOps** | <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Sync incidents | 
-| **Azure Firewall** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Azure Sentinel solution for Azure Firewall | Block IPs | 
-| **Azure AD Identity Protection** | <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Users enrichment, Users remediation | 
-| **Azure AD** | <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Users enrichment, Users remediation | 
+| **Azure DevOps** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Sync incidents | 
+| **Azure Firewall** | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Azure Sentinel solution for Azure Firewall | Block IPs | 
+| **Azure AD Identity Protection** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Users enrichment, <br>Users remediation | 
+| **Azure AD** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Users enrichment, <br>Users remediation | 
 | **Azure Data Explorer** | Managed Logic Apps connector | Microsoft |  | Query and investigate | 
-| **Azure Log Analytics Data Collector** | Managed Logic Apps connector | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Query and investigate | 
-| **Microsoft Defender for Endpoint** |  <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Endpoints enrichment, isolate endpoints | 
-| **Microsoft Teams** |  <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Notifications, Collaboration, create human involved responses | 
+| **Azure Log Analytics Data Collector** | Managed Logic Apps connector | Microsoft<br><br>Community |  | Query and investigate | 
+| **Microsoft Defender for Endpoint** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Endpoints enrichment, <br>isolate endpoints | 
+| **Microsoft Teams** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Notifications, <br>Collaboration, <br>create human involved responses | 
 
 
 ## Okta
