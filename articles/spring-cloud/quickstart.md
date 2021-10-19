@@ -452,7 +452,7 @@ In order to deploy to Azure, you must sign in with your Azure account, then choo
 
 1. Right-click your project in IntelliJ project explorer, then select **Azure** -> **Deploy to Azure Spring Cloud**.
 
-    [![Where to deploy your project to Azure](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)(media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
+    [ ![Where to deploy your project to Azure](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png) ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. Users don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:com.example:hellospring-0.0.1-SNAPSHOT**.
