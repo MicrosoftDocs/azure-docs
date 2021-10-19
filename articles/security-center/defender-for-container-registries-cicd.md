@@ -1,6 +1,6 @@
 ---
-title: Azure Defender's vulnerability scanner for container images in CI/CD workflows
-description: Learn about using Microsoft Defender for container registries to scan container images in CI/CD workflows
+title: Defender for Cloud's vulnerability scanner for container images in CI/CD workflows
+description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries 
 author: memildin
 ms.author: memildin
 ms.date: 05/25/2021
@@ -16,7 +16,7 @@ This page explains how to scan your Azure Container Registry-based container ima
 
 To set up the scanner, you'll need to enable **Microsoft Defender for container registries** and the CI/CD integration. When your CI/CD workflows push images to your registries, you can view registry scan results and a summary of CI/CD scan results.
 
-The findings of the CI/CD scans are an enrichment to the existing registry scan findings by Qualys. Azure Defender's CI/CD scanning is powered by [Aqua Trivy](https://github.com/aquasecurity/trivy).
+The findings of the CI/CD scans are an enrichment to the existing registry scan findings by Qualys. Defender for Cloud's CI/CD scanning is powered by [Aqua Trivy](https://github.com/aquasecurity/trivy).
 
 You’ll get traceability information such as the GitHub workflow and the GitHub run URL, to help identify the workflows that are resulting in vulnerable images.
 

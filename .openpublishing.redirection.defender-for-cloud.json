@@ -55,5 +55,20 @@
             "redirect_url": "/azure/security-center/integration-defender-for-endpoint",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/security-center/recommendations-compute-and-apps.md",
+            "redirect_url": "/azure/security-center/recommendations-reference#compute-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/defender-for-dns-usage.md",
+            "redirect_url": "/azure/security-center/defender-for-dns-introduction#respond-to-microsoft-defender-for-dns-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/defender-for-key-vault-usage.md",
+            "redirect_url": "/azure/security-center/defender-for-key-vault-introduction#respond-to-microsoft-defender-for-key-vault-alerts",
+            "redirect_document_id": false
+        }
     ]
 }

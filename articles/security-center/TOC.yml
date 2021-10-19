@@ -244,7 +244,7 @@
       href: defender-for-key-vault-introduction.md
     - name: Handle Defender for Key Vault alerts
       displayName: akv, kv
-      href: defender-for-key-vault-usage.md
+      href: defender-for-key-vault-introduction.md#respond-to-microsoft-defender-for-key-vault-alerts
   - name: Monitor your resource management operations
     items:
     - name: Overview of Defender for Resource Manager
@@ -259,7 +259,7 @@
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-usage.md
+      href: defender-for-dns-introduction.md#respond-to-microsoft-defender-for-dns-alerts
   - name: Protect your Windows Admin Center servers
     href: windows-admin-center-integration.md
   - name: Integrate security solutions and data sources

@@ -16,7 +16,7 @@ This page explains how to use the built-in vulnerability scanner to scan the con
 
 When **Microsoft Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
 
-When the scanner reports vulnerabilities to Security Center, Security Center presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
+When the scanner reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
 > [!TIP]
 > You can also scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
@@ -26,24 +26,24 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
 
 To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
-1. Enable **Microsoft Defender for container registries** for your subscription. Security Center is now ready to scan images in your registries.
+1. Enable **Microsoft Defender for container registries** for your subscription. Defender for Cloud is now ready to scan images in your registries.
 
     >[!NOTE]
     > This feature is charged per image.
 
 1. Image scans are triggered on every push or import, and if the image has been pulled within the last 30 days. 
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Defender for Cloud recommendations.
 
 1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
 ## Identify vulnerabilities in images in other container registries 
 
-1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.	When the import completes, the imported images are scanned by Azure Defender. 
+1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.	When the import completes, the imported images are scanned by the built-in vulnerability assessment solution.
 
     Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md)
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Defender for Cloud recommendations.
 
 1. [View and remediate findings as explained below](#view-and-remediate-findings).
 

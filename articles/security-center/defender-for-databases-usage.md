@@ -26,27 +26,26 @@ Learn more about this Microsoft Defender plan in [Introduction to Microsoft Defe
 
 1. From the security menu on the left, select **Microsoft Defender for Cloud**.
 
-1. If enhanced security isn't enabled, you'll see a button as shown in the following screenshot. Select **Enable Azure Defender for [Database type]** (for example, "Azure Defender for MySQL") and select **Save**.
+1. If enhanced security isn't enabled, you'll see a button as shown in the following screenshot. Select **Enable Microsoft Defender for [Database type]** (for example, "Microsoft Defender for MySQL") and select **Save**.
 
-    :::image type="content" source="media/defender-for-databases-usage/enable-defender-for-mysql.png" alt-text="Enable Azure Defender for MySQL." lightbox="media/defender-for-databases-usage/enable-defender-for-mysql.png":::
+    :::image type="content" source="media/defender-for-databases-usage/enable-defender-for-mysql.png" alt-text="Enable Microsoft Defender for MySQL." lightbox="media/defender-for-databases-usage/enable-defender-for-mysql.png":::
 
     > [!TIP]
     > This page in the portal will be the same regardless of the database type (PostgreSQL, MySQL, or MariaDB).
 
 ## Respond to security alerts
 
-When Azure Defender is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
+When Microsoft Defender is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
 
 - In the Azure portal:
-    - **Microsoft Defender for Cloud's security alerts page** - Shows alerts for all resources protected by Azure Defender in the subscriptions you've got permissions to view.
+    - **Microsoft Defender for Cloud's security alerts page** - Shows alerts for all resources protected by Defender for Cloud in the subscriptions you've got permissions to view.
     - The resource's **Microsoft Defender for Cloud** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable enhanced security](#enable-enhanced-security).
 - In the inbox of whoever in your organization has been [designated to receive email alerts](security-center-provide-security-contact-details.md).  
 
 > [!TIP]
-> A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Azure Defender alerts page and get an overview of active threats detected on your databases.
+> A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Defender for Cloud alerts page and get an overview of active threats detected on your databases.
 >
 > For detailed steps and the recommended method to respond to security alerts, see [Respond to a security alert](tutorial-security-incident.md#respond-to-a-security-alert).
-
 
 ### Respond to email notifications of security alerts
 
