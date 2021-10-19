@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/13/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
 
 # Pay for your Azure subscription by invoice
 
-This article applies to customers with a Microsoft Customer Agreement (MCA) and who signed up for Azure through the Azure website. [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you signed up for Azure through a Microsoft representative, then your default payment method will already be set to *check or wire transfer*.
+This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for an Microsoft Online Services Program account also called pay-as-you-go account). [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you signed up for Azure through a Microsoft representative, then your default payment method will already be set to *check or wire transfer*.
 
 If you switch to pay by invoice, that means you pay your bill within 30 days of the invoice date by check/wire transfer. To become eligible to pay for your Azure subscription by invoice, submit a request to Azure support. Once your request is approved, you can switch to invoice pay (check/wire transfer) in the Azure portal.
 
@@ -63,7 +63,7 @@ If we need to run a credit check because of the amount of credit that you need, 
 
 Once you're approved to pay by invoice, you can switch to invoice pay (check/wire transfer) in the Azure portal.
 
-If you have a Microsoft Online Services Program account, you can switch your Azure subscription to check/wire transfer. With a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer.
+If you have a Microsoft Online Services Program (pay-as-you-go) account, you can switch your Azure subscription to check/wire transfer. With a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer.
 
 ### Switch Azure subscription to check/wire transfer
 

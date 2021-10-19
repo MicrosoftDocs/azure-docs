@@ -196,6 +196,7 @@ Classification | Regression | Time Series Forecasting
 ||| Average
 ||| SeasonalAverage
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
+||| Arimax
 
 ### Primary metric
 
