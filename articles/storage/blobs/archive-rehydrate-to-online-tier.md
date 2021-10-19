@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 10/18/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -21,7 +21,11 @@ To read a blob that is in the archive tier, you must first rehydrate the blob to
 - By copying it to a new blob in the hot or cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. Microsoft recommends this option for most scenarios.
 - By changing its tier from archive to hot or cool with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-A rehydration operation may take up to 15 hours to complete. You can configure Azure Event Grid to fire an event when rehydration is complete and run application code in response. To learn how to handle an event that runs an Azure Function when the blob rehydration operation is complete, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
+When you rehydrate a blob, you can specify the priority for the operation to either standard priority or high priority. A standard-priority rehydration operation may take up to 15 hours to complete. A high-priority operation is prioritized over standard-priority requests and may complete in less than one hour for objects under 10 GB in size. You can change the rehydration priority from standard to high while the operation is pending.
+
+You can configure Azure Event Grid to fire an event when rehydration is complete and run application code in response. To learn how to handle an event that runs an Azure Function when the blob rehydration operation is complete, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
+
+For more information about rehydrating a blob, see [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 ## Rehydrate a blob with a copy operation
 
@@ -117,7 +121,7 @@ $ctx = (Get-AzStorageAccount `
 
 # Change the blob's access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-$blob.BlobClient.SetAccessTier("Hot", $null, "High")
+$blob.BlobClient.SetAccessTier("Hot", $null, "Standard")
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -130,13 +134,13 @@ az storage blob set-tier \
     --name <archived-blob> \
     --tier Hot \
     --account-name <account-name> \
-    --rehydrate-priority High \
+    --rehydrate-priority Standard \
     --auth-mode login
 ```
 
 ---
 
-## Rehydrate a large number of blobs
+## Bulk rehydrate a set of blobs
 
 To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
@@ -181,6 +185,41 @@ az storage blob show \
 ```
 
 ---
+
+## Change the rehydration priority of a pending operation
+
+While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob to high to raise the rehydration priority of that blob. The rehydration priority setting cannot be lowered from high to standard for a pending operation.
+
+### [Azure portal](#tab/portal)
+
+N/A
+
+### [PowerShell](#tab/powershell)
+
+```azurepowershell
+# Get the blob's properties and check the status and priority of the rehydration operation.
+# In this case, the operation should be a standard-priority operation.
+$rehydratingBlobStandardPri = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+$rehydratingBlobStandardPri.BlobProperties.ArchiveStatus
+$rehydratingBlobStandardPri.BlobProperties.RehydratePriority
+
+# Get blob properties from service again.
+$rehydratingBlobHighPri = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+
+# Update the rehydration priority. Be sure to specify the same target tier as the original operation.
+$rehydratingBlobHighPri.BlobClient.SetAccessTier("Hot", $null, "High")
+
+# Note that the target tier is the same and the priority is now High.
+$rehydratingBlobHighPri.BlobProperties.ArchiveStatus
+$rehydratingBlobHighPri.BlobProperties.RehydratePriority
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
 
 ## See also
 
