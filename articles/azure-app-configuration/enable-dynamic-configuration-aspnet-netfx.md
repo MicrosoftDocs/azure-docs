@@ -40,6 +40,7 @@ In this tutorial, you learn how to:
     | *TestApp:Settings:FontColor*       | *Black*                             |
     | *TestApp:Settings:FontSize*        | *40*                                |
     | *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
+    | *TestApp:Settings:Sentinel*        | *v1*                                |
 
     Leave **Label** and **Content type** empty.
 
@@ -163,14 +164,14 @@ In this tutorial, you learn how to:
 
 ## Build and run the application
 
-1. Select **Access keys** of your App Configuration store, copy one of the read-only **Connection String**'s, and set it to an environment variable named **ConnectionString**. If you use the Windows command prompt, run the following command:
+1.Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation. 
 
+    If you use the Windows command prompt, run the following command:
     ```console
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     If you use Windows PowerShell, run the following command:
-
     ```powershell
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
@@ -181,7 +182,7 @@ In this tutorial, you learn how to:
 
     ![App launch local](./media/dotnet-fx-web-app-launch.png)
 
-1. Select **Configuration explorer** of your App Configuration store, and update the values of the following keys. Remember to add or update the sentinel key *TestApp:Settings:Sentinel* at last.
+1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. Remember to update the sentinel key *TestApp:Settings:Sentinel* at last.
 
     | Key                                | Value                                                        |
     |------------------------------------|--------------------------------------------------------------|

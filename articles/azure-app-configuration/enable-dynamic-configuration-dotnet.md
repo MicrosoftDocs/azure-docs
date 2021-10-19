@@ -114,15 +114,14 @@ In this tutorial, you learn how to:
 
 ## Build and run the app locally
 
-1. Select **Access keys** of your App Configuration store, copy one of the read-only **Connection String**'s, and set it to an environment variable named **ConnectionString**. If you use the Windows command prompt, run the following command:
+1. Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation. 
 
-
+    If you use the Windows command prompt, run the following command:
     ```console
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     If you use Windows PowerShell, run the following command:
-
     ```powershell
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
@@ -133,7 +132,7 @@ In this tutorial, you learn how to:
 
     ![App launch local](./media/dotnet-app-run.png)
 
-1. Select **Configuration explorer** of your App Configuration store, and update the value of the following key.
+1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
 
     | Key                        | Value                                         |
     |----------------------------|-----------------------------------------------|
