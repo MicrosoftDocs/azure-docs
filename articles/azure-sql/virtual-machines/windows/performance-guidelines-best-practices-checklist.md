@@ -15,7 +15,7 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2021
 ms.author: pamela
 ms.custom: contperf-fy21q3
-ms.reviewer: jroth
+ms.reviewer: mathoma
 ---
 # Checklist: Best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
