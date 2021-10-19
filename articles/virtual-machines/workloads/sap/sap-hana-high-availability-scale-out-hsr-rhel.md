@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/14/2021
+ms.date: 10/19/2021
 ms.author: radeltch
 
 ---
@@ -996,7 +996,7 @@ Include all virtual machines, including the majority maker in the cluster.
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically. 
+      > We recommend as a best practice that you set AUTOMATED_REGISTER to **false**, while performing fail-over tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice set AUTOMATED_REGISTER to **true**, so that after takeover system replication can resume automatically. 
 
    4. Create Virtual IP and associated resources.  
       ```bash
