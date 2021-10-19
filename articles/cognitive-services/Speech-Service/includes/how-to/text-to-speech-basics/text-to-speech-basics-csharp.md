@@ -76,6 +76,24 @@ public class Program
 }
 ```
 
+## Select synthesis language and voice
+
+The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
+You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Specify the language or voice of [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice.
+
+```csharp
+static async Task SynthesizeAudioAsync()
+{
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config.SpeechSynthesisLanguage = "<your-synthesis-language>"; // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config.SpeechSynthesisVoiceName = "<your-wanted-voice>";
+}
+```
+
 ## Synthesize speech to a file
 
 Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) accepts as params the [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) object created in the previous step, and an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled.
@@ -130,7 +148,7 @@ It's simple to make this change from the previous example. First, remove the `Au
 > [!NOTE]
 > Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) variable. The `AudioData` property contains a `byte []` of the output data. You can work with this `byte []` manually, or you can use the [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example you use the `AudioDataStream.FromResult()` static function to get a stream from the result.
+This time, you save the result to a [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) variable. The `AudioData` property contains a `byte []` of the output data. You can work with this `byte []` manually, or you can use the [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example, you use the `AudioDataStream.FromResult()` static function to get a stream from the result.
 
 ```csharp
 static async Task SynthesizeAudioAsync()
