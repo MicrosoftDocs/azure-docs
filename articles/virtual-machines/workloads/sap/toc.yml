@@ -292,10 +292,16 @@
     items:               
     - name: Deploy the control plane
       href: automation-deploy-control-plane.md
+  - name: Configuration
+    items:               
+    - name: Configure the control plane
+      href: automation-configure-control-plane.md
   - name: About SAP system deployment
     href: automation-system-deployment.md
   - name: About workload zone deployment
-    href: automation-workload-zone-deployment.md
+    href: automation-deploy-workload-zone.md
+  - name: Workload zone configuration
+    href: automation-configure-workload-zone.md
   - name: About manual deployment
     href: automation-manual-deployment.md
   - name: Plan deployment

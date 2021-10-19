@@ -15,7 +15,7 @@ The control plane consists of the following components:
  - Deployer
  - SAP library
 
-:::image type="content" source="./media/automation-deployment-framework/ControlPlane.png" alt-text="Diagram Control Plane.":::
+:::image type="content" source="./media/automation-deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
 
 ## Deployer
 

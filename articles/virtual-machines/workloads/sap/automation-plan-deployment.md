@@ -155,7 +155,7 @@ Before you design your workload zone layout, consider the following questions:
 * In which regions do you need to deploy workloads?
 * What's your [deployment scenario](#supported-deployment-scenarios)?
 
-For more information, see [how to configure a workload zone deployment for automation](automation-workload-zone-deployment.md).
+For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
 
 ## SAP system setup
 
