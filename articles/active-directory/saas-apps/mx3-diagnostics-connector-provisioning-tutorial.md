@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. If your MX3 account does not have single-sign-on feature enabled, setup Azure AD SSO as described in this documentation.
 
-1. Log in to [MX3 Portal](https://portal.mx3.app). Navigate to the SSO settings page by clicking on settings and then click on **Single sign-on** or [click here](https://portal.mx3.app/settings/sso).
+1. Log in to [MX3 Portal](https://portal.mx3.app). Navigate to the SSO settings page by clicking on settings and then click on **Single sign-on**.
 
     ![Screenshot for MX3 Diagnostics Connector Single sign-on settings.](media/mx3-provisioning/sso-settings.png)
 
