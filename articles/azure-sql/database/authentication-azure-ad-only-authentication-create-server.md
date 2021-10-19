@@ -8,7 +8,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/04/2021
+ms.date: 10/19/2021
 ---
 
 # Create server with Azure AD-only authentication enabled in Azure SQL
@@ -293,7 +293,27 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
 # [Portal](#tab/azure-portal)
 
-Managing or deploying a managed instance with Azure AD-only authentication using the Azure portal is currently not supported. You can deploy a managed instance with Azure AD-only authentication using the Azure CLI, PowerShell, Rest API, or with an ARM template.
+1. Browse to the [Select SQL deployment](https://portal.azure.com/#create/Microsoft.AzureSQL) option page in the Azure portal.
+
+1. If you aren't already signed in to Azure portal, sign in when prompted.
+
+1. Under **SQL managed instances**, leave **Resource type** set to **Single instance**, and select **Create**.
+
+1. Fill out the mandatory information required on the **Basics** tab for **Project details** and **Managed Instance details**. This is a minimum set of information required to provision a SQL Managed Instance.
+
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-mi-create-basic.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab ":::
+
+   For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+
+1. Under **Authentication**, select **Use only Azure Active Directory (Azure AD) authentication** for the **Authentication method**.
+
+1. Select **Set admin**, which brings up a menu to select an Azure AD principal as your managed instance Azure AD administrator. When you're finished, use the **Select** button to set your admin.
+
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-mi-create-basic-choose-authentication.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab and choosing Azure AD only authentication":::
+
+1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+
+1. Once you are done with configuring your settings, select **Review + create** to proceed. Select **Create** to start provisioning the managed instance.
 
 # [The Azure CLI](#tab/azure-cli)
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
+ms.date: 10/19/2021
 ---
 
 # Azure AD-only authentication with Azure SQL
@@ -23,9 +23,6 @@ Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-v
 Azure AD-only authentication can be enabled or disabled using the Azure portal, Azure CLI, PowerShell, or REST API. Azure AD-only authentication can also be configured during server creation with an ARM template.
 
 For more information on Azure SQL authentication, see [Authentication and authorization](logins-create-manage.md#authentication-and-authorization).
-
-> [!IMPORTANT]
-> Currently, you cannot manage Azure AD-only authentication in the Azure portal for Azure SQL Managed Instance. For a tutorial on different methods to enable Azure AD-only authentication, see [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
 
 ## Feature description
 
@@ -399,6 +396,13 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 
 - When Azure AD-only authentication is enabled, the server administrator password cannot be reset. Currently, the password resent operation succeeds in portal but fails in the SQL engine. The failure is indicated in the server activity log. In order to reset the server admin password, the Azure AD-only authentication feature must be disabled.
 
+### Limitations for Azure AD-only authentication in managed instance
+
+When Azure AD-only authentication is enabled for managed instance, the following features aren't supported:
+
+- Transactional replication 
+- EXEC AS statement for Azure AD group member accounts
+- SQL agent supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL agent jobs.
 
 ## Next steps
 

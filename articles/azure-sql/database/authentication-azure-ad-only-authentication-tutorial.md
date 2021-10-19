@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
+ms.date: 10/19/2021
 ---
 
 # Tutorial: Enable Azure Active Directory only authentication with Azure SQL
@@ -73,7 +73,14 @@ To enable Azure AD-only authentication auth in the Azure portal, see the steps b
 
 ## Azure SQL Managed Instance
 
-Managing Azure AD-only authentication for SQL Managed Instance in the portal is currently not supported.
+To enable Azure AD-only authentication auth in the Azure portal, see the steps below.
+
+1. Using the user with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role, go to the [Azure portal](https://portal.azure.com/).
+1. Go to your SQL managed instance resource, and select **Active Directory admin** under the **Settings** menu.
+
+1. If you haven't added an **Azure Active Directory admin**, you'll need to set this before you can enable Azure AD-only authentication.
+1. Select the **Support only Azure Active Directory authentication for this managed instance** checkbox.
+1. The **Enable Azure AD authentication only** popup will show. Click **Yes** to enable the feature and **Save** the setting.
 
 # [The Azure CLI](#tab/azure-cli)
 
