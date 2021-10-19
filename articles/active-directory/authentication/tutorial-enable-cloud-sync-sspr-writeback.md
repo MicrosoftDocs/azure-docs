@@ -44,30 +44,14 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
  
 ### Configure Azure AD Connect cloud sync service account permissions 
 
-You need to configure Azure AD Connect cloud sync service account permissions by using the Azure AD Connect cloud provisioning agent group managed service account (gMSA) PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](../cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
-
-<!---what is right syntax? I copied this from Set-ADSyncPasswordWritebackPermissions--->
-
-```powershell
-Set-AADCloudSyncPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
-```
-
-You'll need to set the following permissions for password writeback:
-
-<!---copied from Bill but doesn't match what we have in troubleshooting--->
-
-|Type |Name |Access |Applies To|
-|-----|-----|-----|-----| 
-|Allow |AD DS Connector Account |Reset Password |Descendant User objects| 
-|Allow |AD DS Connector Account |Write property lockoutTime |Descendant User objects| 
-|Allow |AD DS Connector Account |Write property pwdLastSet |Descendant User objects| 
+Permissions for cloud sync are configured by default. If permissions need to be reset, see [Troubleshooting](#troubleshooting) for more details about the specific permissions rewuired for password writeback and how to set them by using PowerShell. 
 
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
 <!---For preview, will be done automatically for GA... how is optional?--->
 
-For public preview, you can enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
+For public preview, you need to enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
 
 ```powershell
 Import-Module 'C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll' 
