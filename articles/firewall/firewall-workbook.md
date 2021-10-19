@@ -55,7 +55,7 @@ This page provides an overview of the IDPS actions count for all traffic that ma
 
 The web categories view  presents users's allow and deny access log information. The log summary provides insight based on web category severity as configured by the firewall administrator.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategorylogs.png" alt-text="Azure Firewall Web Category Summary":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategory.png" alt-text="Azure Firewall Web Category Summary":::
 
 ## Investigations
 
