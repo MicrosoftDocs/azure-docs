@@ -384,7 +384,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**PingFederate Solution** |[Data connector](data-connectors-reference.md#ping-identiy), workbooks, analytics rules, hunting queries, parser| Identity|Microsoft |
+|**PingFederate Solution** |[Data connector](data-connectors-reference.md#ping-identity), workbooks, analytics rules, hunting queries, parser| Identity|Microsoft |
 | | | | |
 
 ## Proofpoint
