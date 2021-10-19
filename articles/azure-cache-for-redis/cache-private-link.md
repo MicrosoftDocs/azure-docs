@@ -219,13 +219,13 @@ To create a private endpoint, follow these steps.
 ### Why can't I connect to a private endpoint?
 
 1. If your cache is already a VNet injected cache, private endpoints can't be used with your cache instance.
-1. You have a a limit of one private link for clustered caches. For all other caches, your limit is 100 private links.
-1. Trying to persist data to storage account where firewall rules are applied might prevent you from creating the Private Link.
-1. You might not be able to connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
+1. You have a limit of one private link for clustered caches. For all other caches, your limit is 100 private links.
+1. Trying to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
+1. You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
 ### What features aren't supported with private endpoints?
 
-Trying to connect from the Azure Portal console is an unsupported scenario where you'll see a connection failure.
+Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
 
 ### How do I verify if my private endpoint is configured correctly?
 
