@@ -18,12 +18,17 @@ ms.date: 09/01/2021
 
 When you deploy an Azure virtual machine (VM) with SQL Server installed on it, either manually, or through a built-in image, you can leverage Azure features to improve your experience. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/). To learn more about SQL Server on Azure VMs, see the [overview](sql-server-on-azure-vm-iaas-what-is-overview.md). 
 
+## November 2021
+
+| Changes | Details |
+| --- | --- |
+| **New I/O bandwidth-optimized Ebdsv5 VM series** | The [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure, making them ideal for SQL Server workloads. We [strongly recommend](performance-guidelines-best-practices-vm-size.md#memory-optimized) this new series for most of your production SQL Server workloads. |
+
 ## September 2021
 
 | Changes | Details |
 | --- | --- |
-| **SQL IaaS extension full mode no longer requires restart** | Restarting the SQL Server service is no longer necessary when registering your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! | 
-
+| **SQL IaaS extension full mode no longer requires restart** | Restarting the SQL Server service is no longer necessary when registering your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! |
 
 ## July 2021
 
