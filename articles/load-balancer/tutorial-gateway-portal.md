@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Create a gateway load balancer using the Azure portal
 
-Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
+Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs.
 
 In this tutorial, you learn how to:
 
@@ -275,7 +275,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 19. Select **Create**.
 
-The load balancer is ready for NVAs in the backend pool.
+Add NVAs to the backend of the Gateway Load Balancer through the Azure Martketplace.
 
 ## Chain load balancer frontend to gateway load balancer
 
