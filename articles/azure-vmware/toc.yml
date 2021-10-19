@@ -136,6 +136,8 @@
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
+    - name: Deploy Zerto disaster recovery
+      href: deploy-zerto-disaster-recovery.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
