@@ -17,6 +17,8 @@ ms.author: aahi
 
 Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
 
+:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::
+
 ## Prerequisites
 
 Before you train your model you need:
@@ -24,11 +26,13 @@ Before you train your model you need:
     * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
 ## Training a model 
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
-<!--:::image type="content" source="../media/development-lifecycle/train-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/train-model.png":::-->
+
 
 As you train your model, keep in mind:
 

@@ -14,9 +14,10 @@ ms.author: aahi
 
 # How to prepare data and define a schema
 
-In order to create a custom classification model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. A schema defines the classes that you need your model to classify your text into at runtime. 
+In order to create a custom classification model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. A schema defines the classes that you need your model to classify your text into at runtime, and is the first step of [developing a classification model](../overview.md#application-development-lifecycle).
 
 :::image type="content" source="../media/development-lifecycle/schema-design.png" alt-text="An image showing the schema definition portion of the development lifecycle" lightbox="../media/development-lifecycle/schema-design.png":::
+
 
 ## Data selection
 
