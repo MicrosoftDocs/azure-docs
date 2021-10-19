@@ -55,7 +55,7 @@ To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line o
 - Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 - Use a [public IP address assignment](../virtual-network/virtual-network-public-ip-address.md)
 
-If you're using other VPN types to connect to the Azure portal, we recommend using a User Datagram Protocol (UDP)-based VPN. While most Transmission Control Protocol (TCP)-based VPN solutions support nested UDP, they add inherited overhead of TCP congestion control, which slows down RDP performance.
+If you're using other VPN types to connect to the Azure, we recommend using a User Datagram Protocol (UDP)-based VPN. While most Transmission Control Protocol (TCP)-based VPN solutions support nested UDP, they add inherited overhead of TCP congestion control, which slows down RDP performance.
 
 Having a direct line of sight means that the client can connect directly to the session host without being blocked by firewalls.
 
@@ -78,9 +78,8 @@ To enable the RDP Shortpath listener:
    > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
    > For more information about Central Store for Group Policy Administrative Templates, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-7. Open the **"Enable RDP Shortpath for managed networks"** policy and set it to **"Enabled"**.
-8. If you enable this policy setting, you can also configure the port number that the Azure Virtual Desktop session host will use to listen for incoming connections. The default port is 3390.
-9. Restart  your session host to apply the changes.
+7. Open the **"Enable RDP Shortpath for managed networks"** policy and set it to **"Enabled"**. If you enable this policy setting, you can also configure the port number that the Azure Virtual Desktop session host will use to listen for incoming connections. The default port is 3390.
+8. Restart  your session host to apply the changes.
 
 ## Configure Windows Defender Firewall with Advanced Security
 
@@ -90,7 +89,7 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 2. In the navigation pane, select **Inbound Rules**.
 3. Select **Action**, and then select **New rule**.
 4. On the **Rule Type** page of the New Inbound Rule Wizard, select **Custom**, and then select **Next**.
-5. On the **Program** page, select **This program path**, and type "%SystemRoot%\system32\svchost.exe' then select **Next**.
+5. On the **Program** page, select **This program path**, and type "%SystemRoot%\s ystem32\svchost.exe' then select **Next**.
 6. On the **Protocol and Ports** page, select the UDP protocol type. In the **Local port**, select "Specific ports" and enter the configured UDP port. If you've left the default settings on, the port number will be 3390.
 7. On the **Scope** page, you can specify that the rule applies only to network traffic to or from the IP addresses entered on this page. Configure as appropriate for your design, and then select **Next**.
 8. On the **Action** page, select **Allow the connection**, and then select **Next**.
