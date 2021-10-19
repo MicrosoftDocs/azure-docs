@@ -392,17 +392,15 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 - Azure AD users with proper permissions can impersonate existing SQL users.
     - Impersonation continues working between SQL authentication users even when the Azure AD-only authentication feature is enabled.
 
-## Known issues
-
-- When Azure AD-only authentication is enabled, the server administrator password cannot be reset. Currently, the password resent operation succeeds in portal but fails in the SQL engine. The failure is indicated in the server activity log. In order to reset the server admin password, the Azure AD-only authentication feature must be disabled.
-
 ### Limitations for Azure AD-only authentication in managed instance
 
 When Azure AD-only authentication is enabled for managed instance, the following features aren't supported:
 
 - Transactional replication 
 - EXEC AS statement for Azure AD group member accounts
-- SQL Agent Jobs in Managed Instance supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL Agent Jobs.
+- [SQL Agent Jobs in Managed Instance](/azure/azure-sql/managed-instance/job-automation-managed-instance) supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL Agent Jobs.
+
+For additional limitations, see [T-SQL differences between SQL Server & Azure SQL Managed Instance](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#logins-and-users).
 
 ## Next steps
 
