@@ -60,7 +60,7 @@ Execute the below code.
    > Update the file URL in this script before running it.
 
    ```PYSPARK
-   # Read data file using URI of default Azure Data Lake Storage Gen2
+   # Read data file from URI of default Azure Data Lake Storage Gen2
 
    import pandas
 
@@ -74,7 +74,7 @@ Execute the below code.
    ```
 
    ```PYSPARK
-   # Read data file using FSSPEC short URL of default Azure Data Lake Storage Gen2
+   # Read data file from FSSPEC short URL of default Azure Data Lake Storage Gen2
 
    import pandas
 
@@ -101,7 +101,7 @@ Execute the below code.
    > Update the file URL and linked service name in this script before running it.
 
    ```PYSPARK
-   # Read data file using URI of secondary Azure Data Lake Storage Gen2
+   # Read data file from URI of secondary Azure Data Lake Storage Gen2
 
    import pandas
    
@@ -115,7 +115,7 @@ Execute the below code.
    ```
 
    ```PYSPARK
-   # Read data file using FSSPEC short URL of default Azure Data Lake Storage Gen2
+   # Read data file from FSSPEC short URL of default Azure Data Lake Storage Gen2
 
    import pandas
    
@@ -134,81 +134,56 @@ b) Using storage options to directly pass client ID & Secret, SAS key, storage a
 Execute the below code.
 
    > [!NOTE]
-   > Update the file URL in this script before running it.
+   > Update the file URL and storage_options in this script before running it.
 
    ```PYSPARK
-   # Read data file using URI of default Azure Data Lake Storage Gen2
+   # Read data file from URI of secondary Azure Data Lake Storage Gen2
 
    import pandas
+   
+   # read data file
+   df = pandas.read_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path', storage_options = {'account_key' : 'account_key_value'})
+ 
+   ## or storage_options = {'sas_token' : 'sas_token_value'}
+   ## or storage_options = {'connection_string' : 'connection_string_value'}
+   ## or storage_options = {'tenant_id': 'tenant_id_value', 'client_id' : 'client_id_value', 'client_secret': 'client_secret_value'}
 
-   # read csv file
-   df = pandas.read_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path')
    print(df)
-
-   # write csv file
+   
+   # write data file
    data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
-   data.to_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path')
+   data.to_csv('abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path', storage_options = {'account_key' : 'account_key_value'})
+ 
+   ## or storage_options = {'sas_token' : 'sas_token_value'}
+   ## or storage_options = {'connection_string' : 'connection_string_value'}
+   ## or storage_options = {'tenant_id': 'tenant_id_value', 'client_id' : 'client_id_value', 'client_secret': 'client_secret_value'}
    ```
 
    ```PYSPARK
-   # Read data file using FSSPEC short URL of default Azure Data Lake Storage Gen2
+   # Read data file from FSSPEC short URL of default Azure Data Lake Storage Gen2
 
    import pandas
+   
+   # read data file
+   df = pandas.read_csv('abfs[s]://container_name/file_path', storage_options = {'account_key' : 'account_key_value'})
+ 
+   ## or storage_options = {'sas_token' : 'sas_token_value'}
+   ## or storage_options = {'connection_string' : 'connection_string_value'}
+   ## or storage_options = {'tenant_id': 'tenant_id_value', 'client_id' : 'client_id_value', 'client_secret': 'client_secret_value'}
 
-   # read csv file
-   df = pandas.read_csv('abfs[s]://container_name/file_path')
    print(df)
-
-   # write csv file
+   
+   # write data file
    data = pandas.DataFrame({'Name':['A', 'B', 'C', 'D'], 'ID':[20, 21, 19, 18]})
-   data.to_csv('abfs[s]://container_name/file_path')
+   data.to_csv('abfs[s]://container_name/file_path', storage_options = {'account_key' : 'account_key_value'})
+ 
+   ## or storage_options = {'sas_token' : 'sas_token_value'}
+   ## or storage_options = {'connection_string' : 'connection_string_value'}
+   ## or storage_options = {'tenant_id': 'tenant_id_value', 'client_id' : 'client_id_value', 'client_secret': 'client_secret_value'}
    ```
 
 
-## Read/Write data using linked service
-
-FSSPEC can read/write ADLS data by specifying the linked service name.
-
-
-1. In Synapse studio, open **Data** > **Linked** > **Azure Data Lake Storage Gen2**. Upload data to the default storage account.
-
-1. Run the following code.
-
-   > [!NOTE]
-   > Update the file URL, Linked Service Name and ADLS Gen2 storage name in this script before running it.
-
-   ```PYSPARK
-   # To read data
-   import fsspec
-   import pandas
-   
-   adls_account_name = '' #Provide exact ADLS account name
-   sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>)
-   
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
-   
-   with fsspec_handle.open() as f:
-       df = pandas.read_csv(f)
-
-   # To write data
-   import fsspec
-   import pandas
-   
-   adls_account_name = '' #Provide exact ADLS account name
-   
-   data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
-   sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>) 
-   
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
-   
-   with fsspec_handle.open() as f:
-       data.to_csv(f) 
-   ```
-
-## Upload file from local file system to Synapse workspace default ADLS storage account 
-
-FSSPEC can upload file from local file system to Synapse workspace default ADLS storage account.
-
+## Example to read/write parquet file 
 
 Run the below code.
 
@@ -216,23 +191,14 @@ Run the below code.
    > Update the file URL in this script before running it.
 
    ```PYSPARK
-   # Import libraries
-   import fsspec
-   import os
+   import pandas
    
-   # Set variables
-   local_file_name = "<local_file_name>"
-   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.cor.net/"+local_file_name
+   # read parquet file
+   df = pandas.read_parquet('abfss://synapsemlfs@synapsemladlsgen2.dfs.core.windows.net/experiment/   mr/128mb/part-00001-3b6ab1ba-c265-48fc-af6d-fdaa073934fb-c000.snappy.parquet')
+   print(df)
    
-   # Generate local file for testing 
-   with open(local_file_name, mode='w') as f:
-       for i in range(1000):
-           f.write("Testing local file functionality\n")
-   print("Created: " + local_file_name)
-
-   # Upload local file to ADLS 
-   fs = fsspec.filesystem('abfs[s]')
-   fs.upload(local_file_name, ADLS_Store_Path)
+   # write parquet file
+   df.to_parquet('abfss://synapsemlfs@synapsemladlsgen2.dfs.core.windows.net/pandas/write/test_20.   parquet')
    ```
 
 ## Next steps
