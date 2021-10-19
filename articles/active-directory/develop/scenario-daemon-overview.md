@@ -41,10 +41,9 @@ Applications that acquire a token for their own identities:
 
 ## Specifics
 
-> [!IMPORTANT]
->
-> - Users can't interact with a daemon application. A daemon application requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform. This token is then used to call the web API (and is refreshed as needed).
-> - Because users can't interact with daemon applications, incremental consent isn't possible. All the required API permissions need to be configured at application registration. The code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent.
+Users can't interact with a daemon application. A daemon application requires its own identity. This type of application requests an access token by using its application identity and presenting its application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform. This token is then used to call the web API (and is refreshed as needed).
+
+Because users can't interact with daemon applications, incremental consent isn't possible. All the required API permissions need to be configured at application registration. The code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent.
 
 For developers, the end-to-end experience for this scenario has the following aspects:
 
