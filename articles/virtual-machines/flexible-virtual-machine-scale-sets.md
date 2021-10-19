@@ -135,7 +135,6 @@ The following tables list the Flexible orchestration mode features and links to 
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
-| Perform Maintenance | Trigger maintenance on each instance using VM API |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) |
 
 ### High availability 
@@ -149,7 +148,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments |
 | Assign VM to a Specific Fault Domain | Yes |
 | Update Domains | Depreciated (platform maintenance performed FD by FD) |
-| Perform Maintenance | Trigger maintenance on each instance using VM API | Yes | N/A |
+| Perform Maintenance | Trigger maintenance on each instance using VM API |
 
 ### Networking 
 

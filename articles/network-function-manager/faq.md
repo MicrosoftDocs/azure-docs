@@ -2,12 +2,12 @@
 title: Network Function Manager FAQ
 titleSuffix: Azure Network Function Manager
 description: Learn FAQs about Network Function Manager.
-author: cherylmc
+author: prmitt
 
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: cherylmc
+ms.author: prmitt
 ms.custom: references_regions
 
 ---
