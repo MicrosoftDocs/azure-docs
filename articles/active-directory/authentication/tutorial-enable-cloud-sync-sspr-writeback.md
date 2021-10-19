@@ -57,7 +57,7 @@ Set-AADCloudSyncPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>
 
 You'll need to set the following permissions for password writeback:
 
-<!--- copied from Bill but doesnt match what we have in troubleshooting--->
+<!---copied from Bill but doesn't match what we have in troubleshooting--->
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
@@ -119,8 +119,8 @@ Passwords are written back in the following situations for end-users and adminis
 
 | Account        | Supported operations | 
 |----------------|------------------------|
-| end users      |  Any end-user self-service voluntary change password operation.<br>Any end-user self-service force change password operation, for example, password expiration.<br>Any end-user self-service password reset that originates from the password reset portal. |
-| Adminitsrators |  Any administrator self-service voluntary change password operation.<br>Any administrator self-service force change password operation, for example, password expiration.<br>Any administrator self-service password reset that originates from the password reset portal.<br> Any administrator-initiated end-user password reset from the Azure portal.<br>Any administrator-initiated end-user password reset from the Microsoft Graph API.                       |
+| End users      |  Any end-user self-service voluntary change password operation.<br>Any end-user self-service force change password operation, for example, password expiration.<br>Any end-user self-service password reset that originates from the password reset portal. |
+| Administrators |  Any administrator self-service voluntary change password operation.<br>Any administrator self-service force change password operation, for example, password expiration.<br>Any administrator self-service password reset that originates from the password reset portal.<br> Any administrator-initiated end-user password reset from the Azure portal.<br>Any administrator-initiated end-user password reset from the Microsoft Graph API.                       |
 
 ## Unsupported operations
 
@@ -128,8 +128,8 @@ Passwords aren't written back in the following situations.
 
 | Account        | Unsupported operations | 
 |----------------|------------------------|
-| end users      | Any end user resetting their own password by using PowerShell cmdlets or the Microsoft Graph API.                        |
-| Adminitsrators | Any administrator-initiated end-user password reset by using PowerShell cmdlets.<br>Any administrator-initiated end-user password reset from the Microsoft 365 admin center.<br>Any administrator cannot use password reset tool to reset their own password, or any other Administrator in Azure AD for password writeback.                        |
+| End users      | Any end user resetting their own password by using PowerShell cmdlets or the Microsoft Graph API.                        |
+| Administrators | Any administrator-initiated end-user password reset by using PowerShell cmdlets.<br>Any administrator-initiated end-user password reset from the Microsoft 365 admin center.<br>Any administrator cannot use password reset tool to reset their own password, or any other Administrator in Azure AD for password writeback.                        |
 
 ## Validation scenarios
 
@@ -140,7 +140,7 @@ Try the following operations to validate scenarios using password writeback. All
 |--------|--------|
 | Reset password from the login page | Have two users from disconnected domains and forests perform SSPR. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect and have those users reset their password. |
 | Force expired password change | Have two users from disconnected domains and forests change expired passwords. You could also have Azure AD Connect and cloud sync deployed side-by-side and have one user in the scope of cloud sync configuration and another in scope of Azure AD Connect. |
-| Regular password change | Have two users from disconnected domains and forests perfrom routine password change. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect.  |
+| Regular password change | Have two users from disconnected domains and forests perform routine password change. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect.  |
 | Admin reset user password | Have two users disconnected domains and forests reset their password from the Azure Admin Portal or Frontline worker portal. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect  |
 | Self-service account unlock | Have two users from disconnected domains and forests unlock accounts in the SSPR portal resetting the password. You could also have Azure AD Connect and cloud sync side by side and have one user in the scope of cloud sync config and another in scope of Azure AD Connect. |
 
