@@ -1290,7 +1290,7 @@ items:
       items:
       - name: Read/write ADLS with Pandas
         displayName: data prep, data preparation
-        href: ./spark/tutorial-spark-pool-pandas-usage.md
+        href: ./spark/tutorial-use-pandas-spark-pool.md
       - name: Read/write ADLS with filesystem spec
         displayName: data prep, data preparation
         href: ./spark/tutorial-spark-pool-filesystem-spec.md
@@ -1317,7 +1317,7 @@ items:
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       - name: predict score in Synapse spark using model registered in AML/ADLS
         displayName: predict score, Synapse spark, model registered in AML/ADLS
-        href: ./machine-learning/tutorial-spark-pool-predict-model-scoring.md
+        href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
       - name: With Cognitive Services
         items:
         - name: Overview

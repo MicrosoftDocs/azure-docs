@@ -156,6 +156,6 @@ Run the below code.
 
 ## Next steps
 
-- [Pandas in Synapse Analytics using serverless Apache Spark pool](tutorial-spark-pool-pandas-usage.md)
+- [Pandas in Synapse Analytics using serverless Apache Spark pool](tutorial-use-pandas-spark-pool.md)
 - [Azure Synapse Analytics](../index.yml)
 - [FSSPEC official documentation](https://filesystem-spec.readthedocs.io/en/latest/)

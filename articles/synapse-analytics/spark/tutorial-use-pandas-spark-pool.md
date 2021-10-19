@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account before you begin
   1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
   1. Enter your authentication credentials. Account key, service principal (SP), Credentials and   Manged service identity (MSI) are currently supported authentication types. Please make sure   that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it   for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
 
-   :::image type="content" source="media/tutorial-spark-pool-pandas-usage/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
+   :::image type="content" source="media/tutorial-use-pandas-spark-pool/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
 
 
 > [!NOTE]
