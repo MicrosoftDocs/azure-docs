@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure Sentinel notebooks with Azure Synapse Analytics for big data analytics
+title: Large-scale security analytics using Azure Sentinel notebooks and Azure Synapse integration
 description: This article describes how run big data queries in Azure Synapse Analytics with Azure Sentinel notebooks.
 services: sentinel
 author: batamig
@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 10/06/2021
 ---
 
-# Integrate notebooks with Azure Synapse Analytics (Public preview)
+# Large-scale security analytics using Azure Sentinel notebooks and Azure Synapse integration (Public preview)
 
 > [!IMPORTANT]
 > Azure Sentinel notebook integration with Azure Synapse Analytics is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

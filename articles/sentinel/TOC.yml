@@ -208,7 +208,7 @@
         href: notebooks.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
-      - name: Hunt with Azure Synapse Analytics
+      - name: Large-scale security analytics with Azure Synapse
         href: notebooks-with-synapse.md
     - name: Hunt with bookmarks
       href: bookmarks.md
