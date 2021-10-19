@@ -16,7 +16,7 @@ ms.date: 10/08/2020
 # Use Server Trust Groups to set up and manage trust between SQL Managed Instances
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Server trust group (also refered as SQL trust group) is a concept used for managing trust between Azure SQL Managed Instances. By creating a group, a certificate-based trust is established between its members. This trust can be used for different cross-instance scenarios. Removing servers from the group or deleting the group removes the trust between the servers. To create or delete Server Trust Group user needs to have write permissions on Managed Instance.
+Server trust group (also refered as SQL trust group) is a concept used for managing trust between Azure SQL Managed Instances. By creating a group, a certificate-based trust is established between its members. This trust can be used for different cross-instance scenarios. Removing servers from the group or deleting the group removes the trust between the servers. To create or delete Server trust group user needs to have write permissions on Managed Instance.
 [Server Trust Group](/azure/templates/microsoft.sql/allversions) is an Azure Resource Manager object which has been labeled as **SQL trust group** in Azure portal.
 
 
