@@ -91,15 +91,10 @@ At most 1 concurrent playback session is supported for a single Live Pipeline.
 Following are the different nodes that can be connected together in a pipeline topology and their limitations: 
 
 * RTSP source 
-
-   * Only one RTSP source is allowed per pipeline topology. 
-
-* Video Source Node 
-
-   * Used for batch video export to mp4, allows only Video Analyzer video resource to be used as a source.  
-
-* Encoder Processor 
-
+   * Only one RTSP source is allowed per pipeline topology.
+* Video source
+   * Used for batch video export to mp4, allows only Video Analyzer video recording to be used as a source. 
+* Encoder pocessor 
 * Video sink 
 
 ### Supported cameras 
@@ -115,17 +110,14 @@ Bitrate Kbps must be between 500 and 3000 (0.5 Mbps and 3.0 Mbps). If true i
 ### Support for batch video export 
 
 * Segment Selection 
-
    * Video portion to be exported can selected through UTC time 
    * The maximum duration of segment selection supported is 24hrs 
 
-* Media Input  
-
+* Media Input 
    * Input is a Video Analyzer Video resource of type ‘archive’ (segmented archive format)  
    * Supported codecs: video - H.264, audio - AAC
 
-* Media Output   
-
+* Media Output
    * Video is exported as a single Mp4 file 
 
 ### Support for video AI 
