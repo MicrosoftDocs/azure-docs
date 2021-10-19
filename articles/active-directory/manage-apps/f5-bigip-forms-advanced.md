@@ -1,5 +1,5 @@
-----
-title: Tutorial: Azure Active Directory integration with F5 BIG-IP for forms based authentication Single Sign-on 
+---
+title: Azure Active Directory integration with F5 BIG-IP for forms based authentication Single Sign-on 
 description: Learn how to integrate F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory for secure hybrid access to forms-based applications.
 services: active-directory
 author: gargi-sinha
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 10/20/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-----
+---
 
 # Tutorial: Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication Single sign-on
 
