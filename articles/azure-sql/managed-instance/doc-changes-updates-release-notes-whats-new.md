@@ -66,8 +66,15 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 | Changes | Details |
 | --- | --- |
 |**New premium service tiers** | There are now two new service tiers for SQL Managed Instance - premium, and premium memory-optimized. Both service tiers take advantage of a new generation of hardware, and the memory-optimized service tier enables a greater a higher memory to vCore ratio to support larger instances. As part of this deployment, the Gen5 service tier has been renamed to the Standard service tier. The two new premium service tiers are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
-| **16 TB support for Business Critical** | Support has been added for up to of up to 16 TB of space for SQL Managed Instance in the Business Critical service tier. This instance offer is currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
+| **16 TB support for Business Critical** | Support has been added for up to of up to 16 TB of space for SQL Managed Instance in the Business Critical service tier on the premium memory optimized series. This instance offer is currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
 | | | 
+
+
+### October 2021
+
+| Changes | Details |
+| --- | --- |
+|**Split what's new** | The previously-combined **What's new** article has been split by product - [Whats new in SQL Database](../database/doc-changes-updates-release-notes-whats-new.md) and [What's new in SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md), making it easier to identify what features are currently in preview, generally available, and significant documentation changes. Additionally, the [Known Issues in SQL Managed Instance](doc-changes-updates-known-issues.md) content has moved to its own page.  | 
 
 
 ### June 2021
