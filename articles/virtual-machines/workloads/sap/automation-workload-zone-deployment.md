@@ -146,8 +146,8 @@ The table below defines the parameters used for defining the Key Vault informati
 
 ### Other parameters
 
-| Variable                             | Type        | Description                           | 
-| ------------------------------------ | ----------- | ------------------------------------- | 
+| Variable                             | Type        | Description                           | Notes  |
+| ------------------------------------ | ----------- | ------------------------------------- | ------ |
 | `enable_purge_control_for_keyvaults` | Optional    | Boolean flag controlling if purge control is enabled on the Key Vault. Use only for test deployments | 
 | `use_private_endpoint`               | Optional    | Boolean flag controlling if private endpoints are used. | 
 | `diagnostics_storage_account_arm_id` | Required *  | The Azure resource identifier for the diagnostics storage account | Mandatory for brown field deployments |
@@ -234,8 +234,8 @@ subscriptionID=<subscriptionID>
 appId=<appID>
 spn_secret=<password>
 tenant_id=<tenant>
-keyvault=<keyvault>
-storageaccount=<storageaccount>
+keyvault=<keyvaultName>
+storageaccount=<storageaccountName>
 statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                                  \
@@ -252,8 +252,8 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                  
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace <keyvault> with the deployer key vault name
-> Replace <storageaccount> with the name of the storage account containing the Terraform state files
+> Replace <keyvaultName> with the deployer key vault name
+> Replace <storageaccountName> with the name of the storage account containing the Terraform state files
 > Replace <statefile_subscription> with the subscription ID for the storage account containing the Terraform state files
 
 
@@ -264,8 +264,8 @@ $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"
 $tenant_id="<tenant>"
-$keyvault=<keyvault>
-$storageaccount=<storageaccount>
+$keyvault=<keyvaultName>
+$storageaccount=<storageaccountName>
 $statefile_subscription=<statefile_subscription>
 
 cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
@@ -274,6 +274,12 @@ New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV
 -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
+> [!NOTE]
+> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace <keyvaultName> with the deployer key vault name
+> Replace <storageaccountName> with the name of the storage account containing the Terraform state files
+> Replace <statefile_subscription> with the subscription ID for the storage account containing the Terraform state files
 
 
 ## Next steps
