@@ -103,24 +103,24 @@ Before you start configuring security rules, confirm the following steps:
 
 1. Create a security rule with **New-AzNetworkManagerSecurityConfigurationRule**:
 
-```azurepowershell-interactive
-$rule = @{
-    Name = 'Block_HTTP_HTTPS'
-    ResourceGroupName = 'myAVNMResourceGroup'
-    NetworkManagerName = 'myAVNM'
-    SecurityAdminConfigurationName = 'SecurityConfig'
-    RuleCollectionName = 'myRuleCollection'
-    Protocol = 'TCP'
-    Access = 'Deny'
-    Priority = '100'
-    Direction = 'Outbound'
-    Source = $sourceprefix
-    SourcePortRange = $sourcePortList
-    Destination = $destinationprefix
-    DestinationPortRange = $destinationPortList
-}
-$securityrule = New-AzNetworkManagerSecurityAdminRule @rule
-```
+    ```azurepowershell-interactive
+    $rule = @{
+        Name = 'Block_HTTP_HTTPS'
+        ResourceGroupName = 'myAVNMResourceGroup'
+        NetworkManagerName = 'myAVNM'
+        SecurityAdminConfigurationName = 'SecurityConfig'
+        RuleCollectionName = 'myRuleCollection'
+        Protocol = 'TCP'
+        Access = 'Deny'
+        Priority = '100'
+        Direction = 'Outbound'
+        Source = $sourceprefix
+        SourcePortRange = $sourcePortList
+        Destination = $destinationprefix
+        DestinationPortRange = $destinationPortList
+    }
+    $securityrule = New-AzNetworkManagerSecurityAdminRule @rule
+    ```
 
 ## Commit deployment
 
