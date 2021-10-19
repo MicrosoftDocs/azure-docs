@@ -117,7 +117,7 @@ The Secrets Store CSI Driver allows for the following methods to access an Azure
 
 Follow the steps to [provide an identity to access Azure Key Vault][csi-secrets-store-identity-access] for your chosen method.
 
-### Validate the secrets
+## Validate the secrets
 
 After the pod starts, the mounted content at the volume path specified in your deployment YAML is available.
 
@@ -129,7 +129,17 @@ kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
 ```
 
-### Disable Secrets Store CSI Driver on an existing AKS Cluster
+## Obtaining certificates and keys
+
+Azure Key Vault's design makes sharp distinctions between keys, secrets, and certificates. The Key Vault service’s certificates features were designed making use of its key and secret capabilities. When a Key Vault certificate is created, an addressable key and secret are also created with the same name. The key allows key operations and the secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata. Azure Key Vault stores both the public and the private parts of your certificate in a secret. Each individual component can be obtained by specifying the `objectType` in your SecretProviderClass. The following table shows what object maps to the different resources associated with your certificate:
+
+|Object|Return value|Returns entire certificate chain|
+|---|---|---|
+|`key`|The public key in PEM format|N/A|
+|`cert`|The certificate in PEM format|No|
+|`secret`|The private key and certificate in PEM format|Yes|
+
+## Disable Secrets Store CSI Driver on an existing AKS Cluster
 
 To disable the Secrets Store CSI Driver capability in an existing cluster, use the [az aks disable-addons][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` flag:
 
