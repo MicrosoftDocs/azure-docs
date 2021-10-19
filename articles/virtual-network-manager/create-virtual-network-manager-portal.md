@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 10/13/2021
+ms.date: 11/02/2021
 ms.custom: template-quickstart
 ---
 
@@ -23,6 +23,28 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## Create Virtual Network Manager
+
+1. Select **+ Create a resource** and search for **Network Manager**. Then select **Create** to begin setting up Azure Virtual Network Manager.
+
+1. On the *Basics* tab, enter or select the following information:
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics.png" alt-text="Screenshot of create a Network Manager basics page.":::
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select the subscription you want to deploy Azure Virtual Network Manager to. |
+    | Resource group | Select or create a resource group to store Azure Virtual Network Manager. This example will use the **myAVNMResourceGroup** previously created.
+    | Name | Enter a name for this Azure Virtual Network Manager instance. This example will use the name **myAVNM**. |
+    | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
+    | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it will be managing. |
+    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage.
+    | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity*, *SecurityAdmin*, or *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
+
+1. Select **Review + create** and then select **Create** once validation has passed.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-validation.png" alt-text="Screenshot of validation page for create a Network Manager resource.":::
 
 ## Create three virtual networks
 
@@ -68,28 +90,6 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | VNetB IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
     | VNetC IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
 
-## Create Virtual Network Manager
-
-1. Select **+ Create a resource** and search for **Network Manager**. Then select **Create** to begin setting up Azure Virtual Network Manager.
-
-1. On the *Basics* tab, enter or select the following information:
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics.png" alt-text="Screenshot of create a Network Manager basics page.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Subscription | Select the subscription you want to deploy Azure Virtual Network Manager to. |
-    | Resource group | Select or create a resource group to store Azure Virtual Network Manager. This example will use the **myAVNMResourceGroup** previously created.
-    | Name | Enter a name for this Azure Virtual Network Manager instance. This example will use the name **myAVNM**. |
-    | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
-    | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it will be managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage.
-    | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity*, *SecurityAdmin*, or *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
-
-1. Select **Review + create** and then select **Create** once validation has passed.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-validation.png" alt-text="Screenshot of validation page for create a Network Manager resource.":::
-    
 ## Create a network group
 
 1. Go to Azure Virtual Network Manager instance you created.
