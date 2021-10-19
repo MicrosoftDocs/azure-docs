@@ -18,7 +18,7 @@ While maximum availability and reliability are top operational priorities for Az
 
 To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over.
 
-Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource where you can add multiple workflows. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource that can include multiple workflows for replication tasks. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
 
 > [!NOTE]
 > Currently, [replication task templates](#replication-task-templates) are available for 
@@ -109,11 +109,23 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 - The source and target resources or entities, which should exist in different Azure regions and vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
-- Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource, especially if you want to follow the active-passive replication pattern. Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+- Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource that *contains only replication task workflows*, especially if you want to follow the active-passive replication pattern. Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
   Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new primary source, formerly the target or secondary entity, which is what the active-passive replication pattern tries to achieve.
 
-- Optional: The connection string for the target namespace of the replication destination. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
+- Optional: The connection string for the target namespace. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
+
+   To find the connection string for the target entity, follow these steps:
+
+   1. In the [Azure portal](https://portal.azure.com), go to the target namespace.
+
+   1. On the namespace navigation menu, under **Settings**, select **Shared access policies**.
+
+   1. On the **Shared access policies** pane that opens, under **Policy**, select **RootManageSharedAccessKey**.
+
+   1. On the **SAS Policy: RootManageSharedAccessKey** pane that opens, copy the **Primary Connection String** value.
+
+   1. Save the connection string somewhere so that you can later use the string to connect to the target namespace.
 
 <a name="naming"></a>
 
