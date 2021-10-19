@@ -20,6 +20,7 @@ To complete the steps in this article, you need to:
   - [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
+- If using a [Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt169373(v=ws.11)) Virtual Machine or [EFLOW](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter) an [external switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) is required to perform the onvifDeviceDiscover direct method call.  This requirement is due to [multicast](https://en.wikipedia.org/wiki/Multicast) call used for ONVIF device discovery.
 
     The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in [Enable ONVIF discovery feature](#enable-onvif-discovery-feature).
   
@@ -115,10 +116,6 @@ This direct method lists all the discoverable ONVIF devices on the same network 
                 {
                     "serviceIdentifier": "{urn:uuid}",
                     "remoteIPAddress": "{IP_ADDRESS}",
-                    "transportAddresses": [
-                        "http://10.0.1.79/onvif/device_service",
-                        "https://10.0.1.79/onvif/device_service"
-                    ],
                     "scopes": [
                         "onvif://www.onvif.org/type/Network_Video_Transmitter",
                         "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
@@ -127,7 +124,12 @@ This direct method lists all the discoverable ONVIF devices on the same network 
                         "onvif://www.onvif.org/Profile/Streaming",
                         "onvif://www.onvif.org/Profile/G",
                         "onvif://www.onvif.org/Profile/T"
-                    ]
+                    ],
+                    "endpoints": [
+                        "http://<IP_ADDRESS>/onvif/device_service",
+                        "https://<IP_ADDRESS>/onvif/device_service"
+                    ],
+                    
                 }
             ]
         }
@@ -139,7 +141,12 @@ This direct method lists all the discoverable ONVIF devices on the same network 
 
 ### onvifDeviceGet
 
-This direct method helps you retrieve detailed information about a specific ONVIF device.
+The onvifDeviceGet call supports both unsecured and TLS enabled endpoints.  This direct method call retrieves detailed information about a specific ONVIF device.
+
+# [UnsecuredEndpoint](#tag/unsecuredendpoint)
+
+>[!NOTE]
+>When the onvifDeviceGet call is made to an unsecured endpoint on an ONVIF enabled camera it is required to set the Video Edge module Identity Twin setting `"AllowUnsecuredEndpoints"` to `"True"`.  For more information see article [Module twin properties](./module-twin-configuration-schema.md).
 
 1. In the method name enter:
 
@@ -151,18 +158,50 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
     ```JSON
     {
-        "@apiVersion": "1.1",
-        "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}",
-        "username": "{USER_NAME}",
-        "password": "{PASSWORD}"
+        "endpoint": {
+            "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+            "credentials": {
+                "username": "<USER_NAME>",
+                "password": "<PASSWORD>",
+                "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials"
+            },
+            "url": "https://<IP_ADDRESS>/onvif/device_service"
+        },
+        "@apiVersion": "1.1"
     }
     ```
 
-    In the above payload:
+# [TlsEndpoint](#tab/tlsendpoint)
 
-    - `remoteIPAddress` is the IP address of the camera you wish to get additional details from.
-    - `username` is the user name that is used to authenticate with the ONVIF device.
-    - `password` is the user accounts password.
+1. In the method name enter:
+
+    ```JSON
+    onvifDeviceGet
+    ```
+
+1. In the payload enter:
+
+    ```JSON
+    {
+        "endpoint": {
+            "@type": "#Microsoft.VideoAnalyzer.TlsEndpoint",
+            "credentials": {
+                "username": "<USER_NAME>",
+                "password": "<PASSWORD>",
+                "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials"
+            },
+            "url": "https://<IP_ADDRESS>/onvif/device_service"
+        },
+        "@apiVersion": "1.1"
+    }
+    ```
+
+---
+In the above payload:
+
+- `url` is the IP address of the camera you wish to get additional details from.
+- `username` is the user name that is used to authenticate with the ONVIF device.
+- `password` is the user accounts password.
 
     Within a few seconds you see the following result:
 
@@ -171,7 +210,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
         "status": 200,
         "payload": {
             "hostname": {
-                "fromDHCP": true,
+                "fromDhcp": true,
                 "hostname": "{NAME_OF_THE_ONVIF_DEVICE}"
             },
             "systemDateTime": {
@@ -245,15 +284,17 @@ This direct method helps you retrieve detailed information about a specific ONVI
 | Status | Code      | Meaning / solution                                                                                                                                                                                                            |
 | ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 200    | Success   | The direct method call completed successfully.                                                                                                                                                                                |
+| 400    | Bad Request  | The request was malformed   |
 | 403    | Forbidden | The direct method call could not successfully retrieve the requested information from the ONVIF device due to a authentication failure.  Check to ensure that the username and / or password in the message body was correct. |
-| 504    | Timeout   | The direct method call expired before the response of the ONVIF device was received.                                                                                                                                          |
-| 500    | Error     | If an error occurred that is unknown.                                                                                                                                                                                         |
+| 500 | Error | An unknown error occurred.  |
+| 502    | Bad Gateway | Received an invalid response from an upstream service.  |
+| 504    | Timeout   | The direct method call expired before the response of the ONVIF device was received.  |
 
 ## Troubleshooting
 
 This section covers some troubleshooting steps:
 
-- If you receive the error "An error prevented the operation from successfully completing. The request failed with status code 504.":
+- In the Azure portal on the IoT Edge module direct method blade if you receive the error "An error prevented the operation from successfully completing. The request failed with status code 504." (See image below):
 
     :::image type="content" source="./media/camera-discovery/five-zero-four-error.png" alt-text="Screenshot that shows the 504 error.":::
 
