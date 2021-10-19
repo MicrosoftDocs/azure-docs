@@ -123,6 +123,8 @@ Developers are encouraged to do the following:
 ##### Possible causes
 In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  
 
+#### Support for Simulcast
+Simulcast is a technique by which a client encodes the same video stream twice in different resolutions and bitrates and letting the ACS intrastrucutre decide which stream a client should receive. The ACS calling library SDK for Windows, Android, or iOS support sending simulcast streams. The ACS Web SDK does not currently support sending simulcast streams out.
 
 ## Azure Communication Services Call Automation APIs
 

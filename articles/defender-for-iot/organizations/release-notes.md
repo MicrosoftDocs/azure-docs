@@ -26,6 +26,62 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 02/2022 |
 
+## October 2021
+
+The following feature enhancements are available with version 10.5.2 of Azure Defender for IoT.
+
+- [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
+
+- [PCAP API](#pcap-api)
+
+- [On-premises Management Console Audit](#on-premises-management-console-audit)
+
+- [Webhook Extended](#webhook-extended)
+
+- [Unicode support for certificate passphrases](#unicode-support-for-certificate-passphrases) 
+
+### PLC operating mode detections (Public Preview)
+
+Users can now view PLC operating mode states, changes, and risks. The PLC Operating mode consists of the PLC logical Run state and the physical Key state, if a physical key switch exists on the PLC.
+This new capability helps improve security by detecting *unsecure* PLCs, and as a result prevents malicious attacks such as PLC Program Downloads. The 2017 Triton attack on a petrochemical plant illustrates the impact of such risks.
+This information also provides operational engineers with critical visibility into the operational mode of enterprise PLCs.
+
+#### What is an unsecure mode?
+
+If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*.
+
+#### Visibility and risk assessment
+
+- Use the Device Inventory to view the PLC state of organizational PLCs as well as contextual device information. Use the Device Inventory Settings dialog box to add this column to the Inventory.
+
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Device inventory showing plc operating mode.":::
+
+- View PLC secure status and last change information per PLC in the Attributes section of the Device Properties screen. If the Key state is detected as Program or the Run state is detected as either Remote or Program the PLC is defined by Defender for IoT as *unsecure*. The Device Properties PLC Secured option will read false. For more information, see [View and manage device properties](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
+
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Attributes screen showing plc information.":::
+
+- View all network PLC Run and Key State statuses by creating a Data Mining with PLC operating mode information.
+
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Data inventory screen showing plc option.":::
+
+- Use the Risk Assessment Report to review the number of network PLCs in the unsecure mode, and additional information you can use to mitigate unsecure PLC risks.
+
+### PCAP API
+
+The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself. This is accomplished by using the management console as a proxy.
+
+### On-premises Management Console audit
+
+Audit logs for your sensor’s deployment are now available from the On-premises management console.
+
+### Webhook extended
+
+Webhook extended can be used to send all of the information in the Webhook alert, as well as  extra data to the endpoint.
+
+### Unicode support for certificate passphrases 
+
+Unicode characters are now supported when working with sensor certificate passphrases. For more information see, [About certificates](how-to-deploy-certificates.md#about-certificates)
+
 ## April 2021
 
 ### Work with automatic threat Intelligence updates (Public Preview)
@@ -99,20 +155,6 @@ This feature is available on the on-premises management console with the release
 You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have its connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
 
 This feature is available on the on-premises management console with the release of version 10.2.
-
-### Device builder - new micro agent (Public preview)
-
-A new device builder module is available. The module, referred to as a micro-agent, allows:
-
-- **Integration with Azure IoT Hub and Azure Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Azure Defender for IoT.
-- **Flexible deployment options with support for standard IoT operating systems** - can be deployed either as a binary package or as modifiable source code, with support for standard IoT operating systems like Linux and Azure RTOS.
-- **Minimal resource requirements with no OS kernel dependencies** - small footprint, low CPU consumption, and no OS kernel dependencies.
-- **Security posture management** – proactively monitor the security posture of your IoT devices.
-- **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
-
-The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
-
-This feature set is available with the current public preview cloud release.
 
 ## January 2021
 
