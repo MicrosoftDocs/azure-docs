@@ -248,7 +248,7 @@ Get-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGro
 To remove a private endpoint, use the following PowerShell command:
 
 ```azurepowershell-interactive
-    Remove-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+Remove-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
 ```
 
 ## Create a private endpoint using Azure CLI
@@ -256,46 +256,46 @@ To remove a private endpoint, use the following PowerShell command:
 To create a private endpoint named *myPrivateEndpoint* for an existing Azure Cache for Redis instance, run the following Azure CLI script. Replace the variable values with the details for your environment:
 
 ```azurecli-interactive
-    # Resource group where the Azure Cache for Redis and virtual network resources are located
-    ResourceGroupName="myResourceGroup"
-    
-    # Subscription ID where the Azure Cache for Redis and virtual network resources are located
-    SubscriptionId="<your Azure subscription ID>"
-    
-    # Name of the existing Azure Cache for Redis instance
-    redisCacheName="mycacheInstance"
-    
-    # Name of the virtual network to create
-    VNetName="myVnet"
-    
-    # Name of the subnet to create
-    SubnetName="mySubnet"
-    
-    # Name of the private endpoint to create
-    PrivateEndpointName="myPrivateEndpoint"
-    
-    # Name of the private endpoint connection to create
-    PrivateConnectionName="myConnection"
-    
-    az network vnet create \
-     --name $VNetName \
-     --resource-group $ResourceGroupName \
-     --subnet-name $SubnetName
-    
-    az network vnet subnet update \
-     --name $SubnetName \
-     --resource-group $ResourceGroupName \
-     --vnet-name $VNetName \
-     --disable-private-endpoint-network-policies true
-    
-    az network private-endpoint create \
-        --name $PrivateEndpointName \
-        --resource-group $ResourceGroupName \
-        --vnet-name $VNetName  \
-        --subnet $SubnetName \
-        --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/Redis/$redisCacheName" \
-        --group-ids "redisCache" \
-        --connection-name $PrivateConnectionName
+# Resource group where the Azure Cache for Redis and virtual network resources are located
+ResourceGroupName="myResourceGroup"
+
+# Subscription ID where the Azure Cache for Redis and virtual network resources are located
+SubscriptionId="<your Azure subscription ID>"
+
+# Name of the existing Azure Cache for Redis instance
+redisCacheName="mycacheInstance"
+
+# Name of the virtual network to create
+VNetName="myVnet"
+
+# Name of the subnet to create
+SubnetName="mySubnet"
+
+# Name of the private endpoint to create
+PrivateEndpointName="myPrivateEndpoint"
+
+# Name of the private endpoint connection to create
+PrivateConnectionName="myConnection"
+
+az network vnet create \
+    --name $VNetName \
+    --resource-group $ResourceGroupName \
+    --subnet-name $SubnetName
+
+az network vnet subnet update \
+    --name $SubnetName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName \
+    --disable-private-endpoint-network-policies true
+
+az network private-endpoint create \
+    --name $PrivateEndpointName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName  \
+    --subnet $SubnetName \
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/Redis/$redisCacheName" \
+    --group-ids "redisCache" \
+    --connection-name $PrivateConnectionName
 ```
 
 ## Retrieve a private endpoint using Azure CLI
@@ -303,7 +303,7 @@ To create a private endpoint named *myPrivateEndpoint* for an existing Azure Cac
 To get the details of a private endpoint, use the following CLI command:
 
 ```azurecli-interactive
-    az network private-endpoint show --name MyPrivateEndpoint --resource-group MyResourceGroup
+az network private-endpoint show --name MyPrivateEndpoint --resource-group MyResourceGroup
 ```
 
 ## Remove a private endpoint using Azure CLI
@@ -311,7 +311,7 @@ To get the details of a private endpoint, use the following CLI command:
 To remove a private endpoint, use the following CLI command:
 
 ```azurecli-interactive
-    az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
+az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
 ```
 
 ## FAQ
