@@ -127,11 +127,11 @@ It includes the following inputs:
 
 The following are the supported values:  
 
-|Aggregate function  |client metric  |condition  |
+|Aggregate function  |Client metric  |Condition  |
 |---------|---------|---------|
-|Average (avg)     | Response Time (response_time) </br>Integer values Units: milliseconds (ms). Only Integer values are allowed  |    greater than (>)      |
-|Average (avg)     | Latency (latency) </br>  Units: milliseconds (ms). Only Integer values are allowed          |    greater than (>)      |
-|Rate (rate)       | Error (error) </br> Enter percentage values. Float values are allowed                |    greater than (>)      |
+|Average (avg)     | Response Time (response_time) </br>Integer values Units: milliseconds (ms). Only Integer values are allowed.  |    Greater than (>)      |
+|Average (avg)     | Latency (latency) </br>  Units: milliseconds (ms). Only Integer values are allowed.         |    Greater than (>)      |
+|Rate (rate)       | Error (error) </br> Enter percentage values. Float values are allowed.                |    Greater than (>)      |
 
 Add the test criteria to your pipeline load test as shown below:  
 
