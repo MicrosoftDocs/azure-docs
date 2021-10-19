@@ -9,9 +9,7 @@ ms.date: 10/19/2021
 
 This document walks through the structure of an Azure dashboard, using the following dashboard as an example:
 
-:::image type="content" source="media/azure-portal-dashboards-structure/sample-dashboard.png" alt-text="Screenshot of a sample dashbaord in the Azure portal.":::
-
-![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
+:::image type="content" source="media/azure-portal-dashboards-structure/sample-dashboard.png" alt-text="Screenshot of a sample dashboard in the Azure portal.":::
 
 Since shared [Azure dashboards are resources](../azure-resource-manager/management/overview.md), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
 
@@ -283,11 +281,11 @@ Let’s break down the relevant sections of the JSON.  The top-level properties,
 
 ### ID
 
-The Azure resource ID, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard it generally chooses an ID in the form of a guid, but you are free to use any valid name when you create them programmatically.
+The Azure resource ID, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard, it generally chooses an ID in the form of a guid, but you can use any valid name when you create them programmatically.
 
 ### name
 
-The name is the segment of the resource ID that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource ID.
+The name is the segment of the resource ID that does not include the subscription, resource type, or resource group information. Essentially, it's the last segment of the resource ID.
 
 ### type
 
@@ -299,7 +297,7 @@ Unlike other resources, dashboards don’t have a runtime component.  For dashbo
 
 ### tags
 
-Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.
+Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. Dashboards include one special tag called __hidden-title__. If your dashboard has this property populated, then that value is used as the display name for your dashboard in the portal. Azure resource IDs cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.
 
 `"tags": { "hidden-title": "Created via API" }`
 
@@ -309,13 +307,13 @@ The properties object contains two properties, __lenses__ and __metadata__. The 
 
 ### lenses
 
-The __lenses__ property contains the dashboard. Note that the lens object in this example contains a single property called “0”. Lenses are a grouping concept that is not currently implemented in dashboards. For now, all of your dashboards have this single property on the lens object, again, called “0”.
+The __lenses__ property contains the dashboard. The lens object in this example contains a single property called “0”. Lenses are a grouping concept that isn't currently implemented. For now, all of your dashboards have this single property on the lens object, again, called "0".
 
 ### parts
 
 The object underneath the “0” contains two properties, __order__ and __parts__.  In the current version of dashboards, __order__ is always 0. The __parts__ property contains an object that defines the individual parts (also referred to as tiles) on the dashboard.
 
-The __parts__ object contains a property for each part, where the name of the property is a number. This number is not significant.
+The __parts__ object contains a property for each part, where the name of the property is a number. The number isn't significant.
 
 Each individual part object has a __position__, and __metadata__.
 
@@ -353,7 +351,7 @@ The inputs object generally contains information that binds a tile to a resource
 
 ```
 
-The metrics chart part has a single input that expresses the resource to bind to, as well as information about the metric(s) being displayed. Here is the input for the tile that’s showing the Network In and Network Out metrics.
+The metrics chart part has a single input that expresses the resource to bind to, along with information about the metric(s) being displayed. Here is the input for the tile that shows the Network In and Network Out metrics.
 
 ```json
 "inputs":
@@ -389,7 +387,7 @@ The metrics chart part has a single input that expresses the resource to bind to
 
 ### settings
 
-The settings object contains the configurable elements of a part.  In our sample dashboard, the Markdown part uses settings to store the custom markdown content as well as a configurable title and subtitle.
+The settings object contains the configurable elements of a part.  In our sample dashboard, the Markdown part uses settings to store the custom markdown content along with a configurable title and subtitle.
 
 ```json
 "settings": 
