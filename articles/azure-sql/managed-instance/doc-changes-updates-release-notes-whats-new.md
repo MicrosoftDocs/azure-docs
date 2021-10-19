@@ -28,6 +28,7 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 
 | Feature | Details |
 | ---| --- |
+| [16 TB support for SQL Managed Instance Business Critical](resource-limits.md#service-tier-characteristics) | Support for allocation up to 16 TB of space on SQL Managed Instance in the Business Critical service tier. | 
 | [16 TB support for SQL Managed Instance General Purpose](resource-limits.md)| Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
 | [Azure Active Directory-only authentication for Azure SQL](../database/authentication-azure-ad-only-authentication.md) |  It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. |
 | [Elastic transactions](../database/elastic-transactions-overview.md) | Elastic transactions let you execute distributed transactions across cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
@@ -37,6 +38,8 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | [Long-term backup retention](long-term-backup-retention-configure.md) | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. |
 | [Service Broker cross-instance message exchange](/sql/database-engine/configure-windows/sql-server-service-broker) | Support for cross-instance message exchange using Service Broker on Azure SQL Managed Instance. |
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. |
+| [ Premium series service tier](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium series service tier to take advantage of the new generation of hardware.  | 
+| [Premium series - memory optimized service tier](resource-limits.md#service-tier-characteristics) | Deploy your SQL Managed Instance to the new premium series - memory optimized service tier to take advantage higher memory to vCore ratios. | 
 | [Transactional Replication](replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](replication-between-two-instances-configure-tutorial.md). |
 | [Threat detection](threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
@@ -57,12 +60,21 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 Learn about significant changes to the Azure SQL Managed Instance documentation.
 
+### November 2021
+
+
+| Changes | Details |
+| --- | --- |
+|**New premium service tiers** | There are now two new service tiers for SQL Managed Instance - premium, and premium memory-optimized. Both service tiers take advantage of a new generation of hardware, and the memory-optimized service tier enables a greater a higher memory to vCore ratio to support larger instances. As part of this deployment, the Gen5 service tier has been renamed to the Standard service tier. The two new premium service tiers are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
+| **16 TB support for Business Critical** | Support has been added for up to of up to 16 TB of space for SQL Managed Instance in the Business Critical service tier. This instance offer is currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
+| | | 
+
 
 ### June 2021
 
 | Changes | Details |
 | --- | --- |
-|**16 TB support for General Purpose** | Support has been added for allocation of up to 16 TB of space for SQL Managed Instance General Purpose. See [resource limits](resource-limits.md) to learn more. This instance offer is currently in preview. | 
+|**16 TB support for General Purpose** | Support has been added for allocation of up to 16 TB of space for SQL Managed Instance in the General Purpose service tier. See [resource limits](resource-limits.md) to learn more. This instance offer is currently in preview. | 
 | **Parallel backup** | It's now possible to take backups in parallel for SQL Managed Instance in the general purpose tier, enabling faster backups. See the [Parallel backup for better performance](https://techcommunity.microsoft.com/t5/azure-sql/parallel-backup-for-better-performance-in-sql-managed-instance/ba-p/2421762) blog entry to learn more. |
 | **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. This feature is currently in preview. To learn more, see [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). | 
 | **Resource Health monitor** | Use Resource Health to  monitor the health status of your Azure SQL Managed Instance. See [Resource health](../database/resource-health-to-troubleshoot-connectivity.md) to learn more. |
