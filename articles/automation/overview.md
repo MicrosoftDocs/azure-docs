@@ -3,19 +3,21 @@ title: Azure Automation Overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
-ms.date: 10/12/2021
+ms.date: 10/19/2021
 ms.topic: overview
 ---
 
 # What is Azure Automation?
 
-Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of enterprise workloads and resources.
-
-Azure Automation supports three operational categories:
+Automation is needed in three broad areas of cloud operations:
 
 * Deploy and manage - Deliver repeatable and consistent infrastructure as code.
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
+
+There are several Azure services that can deliver the above requirements. While each service has its own pros and cons, you can use multiple services together to accomplish meet your requirements. Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
+
+Automation gives you complete control during deployment, operations, and decommissioning of enterprise workloads and resources.
 
 :::image type="content" source="./media/overview/automation-overview.png" alt-text="Diagram of Automation capabilities" border="true":::
 
@@ -42,13 +44,13 @@ Change Tracking and Inventory combines functions to allow you to track Linux and
 
 [Azure Automation State Configuration](automation-dsc-overview.md) is a cloud-based feature for PowerShell desired state configuration (DSC) that provides services for enterprise environments. Using this feature, you can manage your DSC resources in Azure Automation and apply configurations to virtual or physical machines from a DSC pull server in the Azure cloud.
 
-## Update management
+## Update Management
 
 Azure Automation includes the [Update Management](./update-management/overview.md) feature for Windows and Linux systems across hybrid environments. Update Management gives you visibility into update compliance across Azure and other clouds, and on-premises. The feature allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use Update Management functionality to exclude it from a deployment.
 
 ## Shared capabilities
 
-Azure Automation offers a number of shared capabilities, including shared resources, role-based access control, flexible scheduling, source control integration, auditing, and tagging.
+Azure Automation provides a number of shared capabilities, including shared resources, role-based access control, flexible scheduling, source control integration, auditing, and tagging.
 
 ### <a name="shared-resources"></a>Shared resources
 
@@ -60,7 +62,7 @@ Azure Automation consists of a set of shared resources that make it easier to au
 * **[Python 2 packages](python-packages.md)** - Support Python 2 runbooks for your Automation account.
 * **[Credentials](./shared-resources/credentials.md)** - Securely store sensitive information that runbooks and configurations can use at runtime.
 * **[Connections](automation-connections.md)** - Store name-value pairs of common information for connections to systems. The module author defines connections in runbooks and configurations for use at runtime.
-* **[Certificates](./shared-resources/certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime. 
+* **[Certificates](./shared-resources/certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime.
 * **[Variables](./shared-resources/variables.md)** - Hold content that can be used across runbooks and configurations. You can change variable values without having to modify any of the runbooks or configurations that reference them.
 
 ### Role-based access control
@@ -73,21 +75,20 @@ Azure Automation supports [source control integration](source-control-integratio
 
 ## Heterogeneous support (Windows and Linux)
 
-Automation is designed to work across your hybrid cloud environment and also your Windows and Linux systems. It delivers a consistent way to automate and configure deployed workloads and the operating systems that run them.
+Automation is designed to work across Windows and Linux physical servers and virtual machines outside of Azure, on your corporate network, or other cloud provider. It delivers a consistent way to automate and configure deployed workloads and the operating systems that run them. The Hybrid Runbook Worker feature of Azure Automation enables running runbooks directly on the non-Azure physical server or virtual machine hosting the role, and against resources in the environment to manage those local resources.
 
-## Common scenarios 
+Through [Arc-enabled servers](../azure-arc/servers/overview.md), it provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
+
+## Common scenarios
 
 Azure Automation supports management throughout the lifecycle of your infrastructure and applications. Common scenarios include:
 
-* **Write runbooks** - Author PowerShell, PowerShell Workflow, graphical, Python 2, and DSC runbooks in common languages. 
+* **Write runbooks** - Author PowerShell, PowerShell Workflow, graphical, Python 2 and 3, and DSC runbooks in common languages.
 * **Build and deploy resources** - Deploy virtual machines across a hybrid environment using runbooks and Azure Resource Manager templates. Integrate into development tools, such as Jenkins and Azure DevOps.
 * **Configure VMs** - Assess and configure Windows and Linux machines with configurations for the infrastructure and application.
-* **Share knowledge** - Transfer knowledge into the system on how your organization delivers and maintains workloads. 
-* **Retrieve inventory** - Get a complete inventory of deployed resources for targeting, reporting, and compliance. 
-* **Find changes** - Identify changes that can cause misconfiguration and improve operational compliance.
-* **Monitor** - Isolate machine changes that are causing issues and remediate or escalate them to management systems.
-* **Protect** - Quarantine machines if security alerts are raised. Set in-guest requirements.
-* **Govern** - Set up Azure RBAC for teams. Recover unused resources.
+* **Share knowledge** - Transfer knowledge into the system on how your organization delivers and maintains workloads.
+* **Retrieve inventory** - Get a complete inventory of deployed resources for targeting, reporting, and compliance.
+* **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
