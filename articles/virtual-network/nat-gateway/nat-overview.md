@@ -78,9 +78,9 @@ The public side of NAT doesn't generate TCP Reset packets or any other traffic. 
 
 A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
-## Regional or zone isolation with availability zones
+## Non-zonal or zonal with availability zones
 
-NAT is regional by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone (zonal deployment).
+NAT has no zonses by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This is known as a zonal deployment.
 
 :::image type="content" source="./media/nat-overview/az-directions.png" alt-text="Figure shows three zonal stacks, each of which contains a NAT gateway and a subnet.":::
 
