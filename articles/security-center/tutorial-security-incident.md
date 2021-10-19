@@ -40,7 +40,7 @@ Use this page to review the active security alerts in your environment to decide
 When triaging security alerts, prioritize alerts based on the alert severity by addressing alerts with higher severity first. Learn more about alerts severity in [How are alerts classified?](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> You can connect Microsoft Defender for Cloud to most popular SIEM solutions including Azure Sentinel and consume the alerts from your tool of choice. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
+> You can connect Microsoft Defender for Cloud to most popular SIEM solutions including Microsoft Sentinel and consume the alerts from your tool of choice. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 
 ## Investigate a security alert

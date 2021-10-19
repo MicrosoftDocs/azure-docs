@@ -94,9 +94,9 @@ Microsoft Defender for SQL alerts are available in Security Center's alerts page
 
 1. To view alerts, select **Security alerts** from Security Center's menu and select an alert.
 
-1. Alerts are designed to be self-contained, with detailed remediation steps and investigation information in each one. You can investigate further by using other Microsoft Defender for Cloud and Azure Sentinel capabilities for a broader view:
+1. Alerts are designed to be self-contained, with detailed remediation steps and investigation information in each one. You can investigate further by using other Microsoft Defender for Cloud and Microsoft Sentinel capabilities for a broader view:
 
-    * Enable SQL Server's auditing feature for further investigations. If you're an Azure Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
+    * Enable SQL Server's auditing feature for further investigations. If you're an Microsoft Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * To improve your security posture, use Security Center's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 
 
     [Learn more about managing and responding to alerts](security-center-managing-and-responding-alerts.md).
@@ -122,4 +122,4 @@ For related material, see the following article:
 
 - [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Set up email notifications for security alerts](security-center-provide-security-contact-details.md)
-- [Learn more about Azure Sentinel](../sentinel/index.yml)
+- [Learn more about Microsoft Sentinel](../sentinel/index.yml)

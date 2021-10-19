@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To step through the features covered in this tutorial:
 
-- [The Microsoft Defender plans](defender-for-cloud-introduction.md) must be enabled. You can try Azure Defender for free for 30 days.
+- [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
 - You must be signed in with an account that has reader access to the policy compliance data (**Security Reader** is insufficient). The role of **Global reader** for the subscription will work. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance

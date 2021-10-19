@@ -43,7 +43,7 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 - details of the suspicious activity that triggered them
 - the associated MITRE ATT&CK tactic
 - recommended actions for how to investigate and mitigate the threat
-- options for continuing your investigations with Azure Sentinel
+- options for continuing your investigations with Microsoft Sentinel
 
 :::image type="content" source="media/defender-for-databases-introduction/defender-alerts.png" alt-text="Some of the security alerts you might see with your databases protected by Microsoft Defender for open-source relational databases." lightbox="./media/defender-for-databases-introduction/defender-alerts.png":::
 

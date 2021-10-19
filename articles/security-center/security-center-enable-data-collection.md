@@ -147,11 +147,11 @@ The enhanced security protections of Defender for Cloud are required for storing
 
 Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-### Information for Azure Sentinel users 
-Users of Azure Sentinel: note that security events collection within the context of a single workspace can be configured from either Microsoft Defender for Cloud or Azure Sentinel, but not both. If you're planning to add Azure Sentinel to a workspace that is already getting alerts from Microsoft Defender for Cloud, and is set to collect Security Events, you have two options:
-- Leave the Security Events collection in Microsoft Defender for Cloud as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
+### Information for Microsoft Sentinel users 
+Users of Microsoft Sentinel: note that security events collection within the context of a single workspace can be configured from either Microsoft Defender for Cloud or Microsoft Sentinel, but not both. If you're planning to add Microsoft Sentinel to a workspace that is already getting alerts from Microsoft Defender for Cloud, and is set to collect Security Events, you have two options:
+- Leave the Security Events collection in Microsoft Defender for Cloud as is. You will be able to query and analyze these events in Microsoft Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Microsoft Sentinel. If this is important to you, consider the second option.
 - Disable Security Events collection in Microsoft Defender for Cloud (by setting **Windows security events** to
-**None** in the configuration of your Log Analytics agent). Then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
+**None** in the configuration of your Log Analytics agent). Then add the Security Events connector in Microsoft Sentinel. As with the first option, you will be able to query and analyze events in both Microsoft Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Microsoft Sentinel.
 
 ### What event types are stored for "Common" and "Minimal"?
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.

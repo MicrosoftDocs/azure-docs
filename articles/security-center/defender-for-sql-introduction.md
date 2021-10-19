@@ -19,7 +19,7 @@ Microsoft Defender for SQL includes two Azure Defender plans that extend Microso
 
 |Aspect|Details|
 |----|:----|
-|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Microsoft Defender for SQL servers on machines** - Generally available (GA) |
+|Release state:|**Microsoft Defender for Azure SQL database servers** - Generally available (GA)<br>**Microsoft Defender for SQL servers on machines** - Generally available (GA) |
 |Pricing:|The two plans that form **Microsoft Defender for SQL** are billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|[SQL on Azure virtual machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc-enabled SQL servers](/sql/sql-server/azure-arc/overview)<br>On-premises SQL servers on Windows machines without Azure Arc<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
@@ -29,7 +29,7 @@ Microsoft Defender for SQL includes two Azure Defender plans that extend Microso
 
 **Microsoft Defender for SQL** comprises two separate Azure Defender plans:
 
-- **Azure Defender for Azure SQL database servers** protects:
+- **Microsoft Defender for Azure SQL database servers** protects:
     - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
     - [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
     - [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
@@ -50,7 +50,7 @@ A vulnerability assessment service discovers, tracks, and helps you remediate po
 - Learn more about [vulnerability assessment for Azure SQL Database](../azure-sql/database/sql-vulnerability-assessment.md).
 - Learn more about [vulnerability assessment for Azure SQL servers on machines](defender-for-sql-on-machines-vulnerability-assessment.md).
 
-An advanced threat protection service continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Microsoft Defender for Cloud with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. Learn more about [advanced threat protection](../azure-sql/database/threat-detection-overview.md).
+An advanced threat protection service continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Microsoft Defender for Cloud with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Microsoft Sentinel. Learn more about [advanced threat protection](../azure-sql/database/threat-detection-overview.md).
 
  > [!TIP]
  > View the list of security alerts for SQL servers [in the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).

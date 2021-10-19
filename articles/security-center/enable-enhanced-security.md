@@ -9,9 +9,9 @@ ms.topic: quickstart
 ms.date: 06/07/2021
 ---
 
-# Quickstart: Enable Azure Defender
+# Quickstart: Enable enhanced security features
 
-To learn about the benefits of Azure Defender, see [Security Center free vs Azure Defender enabled](security-center-pricing.md).
+To learn about the benefits of enhanced security features, see [Security Center free vs Azure Defender enabled](security-center-pricing.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To enable all Security Center features including threat protection capabilities,
 
 - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level
 - You can enable **Microsoft Defender for SQL** at either the subscription level or resource level
-- You can enable **Azure Defender for open-source relational databases** at the resource level only
+- You can enable **Microsoft Defender for open-source relational databases** at the resource level only
 
 ### To enable Azure Defender on your subscriptions and workspaces:
 
@@ -59,9 +59,9 @@ To enable all Security Center features including threat protection capabilities,
         :::image type="content" source="./media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Upgrade all selected workspaces and subscriptions from the getting started page.":::
 
 
-## Disable Azure Defender
+## Disable enhanced security features
 
-If you need to disable Azure Defender for a subscription, the procedure is the same but you select **Azure Defender off**:
+If you need to disable enhanced security features for a subscription, the procedure is the same but you select **Enhanced security off**:
  
 1. From Defender for Cloud's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
@@ -72,8 +72,8 @@ If you need to disable Azure Defender for a subscription, the procedure is the s
 1. Select **Save**.
 
 > [!NOTE]
-> After you disable Azure Defender - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
+> After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
 
 ## Next steps
 
-Now that you've enabled Azure Defender, enable automatic data collection by the necessary agents and extensions described in [auto provisioning agents and extensions](security-center-enable-data-collection.md).
+Now that you've enabled enhanced security features, enable the necessary agents and extensions to perform automatic data collection as described in [auto provisioning agents and extensions](security-center-enable-data-collection.md).

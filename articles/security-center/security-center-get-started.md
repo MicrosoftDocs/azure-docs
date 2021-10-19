@@ -1,6 +1,6 @@
 ---
-title: Upgrade to Azure Defender - Azure Security Center
-description: This quickstart shows you how to upgrade to Security Center's Azure Defender for additional security.
+title: Microsoft Defender for Cloud's enhanced security features
+description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,28 +10,28 @@ ms.author: memildin
 
 ---
 
-# Quickstart: Set up Azure Security Center
+# Quickstart: Set up Microsoft Defender for Cloud
 
-Azure Security Center provides unified security management and threat protection across your hybrid and multi-cloud workloads. While the free features offer limited security for your Azure resources only, enabling Azure Defender extends these capabilities to on-premises and other clouds. Azure Defender helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+Defender for Cloud provides unified security management and threat protection across your hybrid and multi-cloud workloads. While the free features offer limited security for your Azure resources only, enabling enhanced security features extends these capabilities to on-premises and other clouds. Defender for Cloud helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try the enhanced security features at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-This quickstart section will walk you through all the recommended steps to enable Azure Security Center and Azure Defender. When you've completed all the quickstart steps, you'll have:
+This quickstart section will walk you through all the recommended steps to enable Microsoft Defender for Cloud and the enhanced security features. When you've completed all the quickstart steps, you'll have:
 
 > [!div class="checklist"]
-> * Security Center enabled on your Azure subscriptions
-> * Azure Defender enabled on your Azure subscriptions
+> * Defender for Cloud enabled on your Azure subscriptions
+> * Enhanced security features enabled on your Azure subscriptions
 > * Automatic data collection set up
 > * Email notifications set up for security alerts
 > * Your hybrid and multi-cloud machines connected to Azure
 
 ## Prerequisites
-To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-To enable Azure Defender on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
+To enable enhanced security features on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
-## Enable Security Center on your Azure subscription
+## Enable Defender for Cloud on your Azure subscription
 
 > [!TIP]
-> To enable Security Center on all subscriptions within a management group, see [Enable Security Center on multiple Azure subscriptions](onboard-management-group.md).
+> To enable Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 
@@ -58,4 +58,4 @@ To take full advantage of Security Center, continue with the next steps of the q
 In this quickstart you enabled Azure Security Center. The next step is to enable Azure Defender for unified security management and threat protection across your hybrid cloud workloads.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Enable enhanced protections](enable-enhanced-security.md)
+> [Quickstart: Enable enhanced security features](enable-enhanced-security.md)

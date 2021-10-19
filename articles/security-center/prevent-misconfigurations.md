@@ -64,17 +64,17 @@ These recommendations can be used with the **enforce** option:
 - Auditing on SQL server should be enabled
 - Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed
 - Azure Backup should be enabled for virtual machines
-- Azure Defender for App Service should be enabled
-- Azure Defender for container registries should be enabled
-- Azure Defender for DNS should be enabled
-- Azure Defender for Key Vault should be enabled
-- Azure Defender for Kubernetes should be enabled
-- Azure Defender for Resource Manager should be enabled
-- Azure Defender for servers should be enabled
-- Azure Defender for Azure SQL Database servers should be enabled
-- Azure Defender for SQL servers on machines should be enabled
-- Azure Defender for SQL should be enabled for unprotected Azure SQL servers
-- Azure Defender for Storage should be enabled
+- Microsoft Defender for App Service should be enabled
+- Microsoft Defender for container registries should be enabled
+- Microsoft Defender for DNS should be enabled
+- Microsoft Defender for Key Vault should be enabled
+- Microsoft Defender for Kubernetes should be enabled
+- Microsoft Defender for Resource Manager should be enabled
+- Microsoft Defender for servers should be enabled
+- Microsoft Defender for Azure SQL Database servers should be enabled
+- Microsoft Defender for SQL servers on machines should be enabled
+- Microsoft Defender for SQL should be enabled for unprotected Azure SQL servers
+- Microsoft Defender for Storage should be enabled
 - Azure Policy Add-on for Kubernetes should be installed and enabled on your clusters
 - Diagnostic logs in Azure Stream Analytics should be enabled
 - Diagnostic logs in Batch accounts should be enabled

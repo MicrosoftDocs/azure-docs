@@ -20,7 +20,7 @@ To protect your Azure App Service plan with Microsoft Defender for App Service, 
 
 - A supported App Service plan associated with dedicated machines. Supported plans are listed in [Availability](#availability).
 
-- Defender for Cloud's enhanced protections enabled on your subscription as described in [Quickstart: Enable enhanced protections](enable-enhanced-security.md).
+- Defender for Cloud's enhanced protections enabled on your subscription as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md).
 
     > [!TIP]
     > You can optionally enable individual Microsoft Defender plans, like Microsoft Defender for App Service.

@@ -34,14 +34,14 @@ For more information, see:
 * [Advanced threat protection for Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [The list of threat protection alerts for Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
 
-## Display Defender for Cloud recommendations in Microsoft Cloud App Security <a name="azure-mcas"></a>
+## Display Defender for Cloud recommendations in Microsoft Defender for Cloud Apps <a name="azure-mcas"></a>
 
-Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
+Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security) is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
-If you've enabled Microsoft Cloud App Security, and selected the integration from within Security Center's settings, your hardening recommendations from Security Center will appear in Cloud App Security with no additional configuration needed.
+If you've enabled Microsoft Defender for Cloud Apps, and selected the integration from within Security Center's settings, your hardening recommendations from Security Center will appear in Microsoft Defender for Cloud Apps with no additional configuration needed.
 
 > [!NOTE]
-> Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Microsoft Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
+> Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Defender for Cloud Apps is enabled, this information is stored in accordance with the geo location rules of Microsoft Defender for Cloud Apps. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
 
 ## Stream security alerts from other Microsoft services <a name="alerts-other"></a>
