@@ -73,6 +73,10 @@ landingContent:
             url: concepts/ui-library/ui-library-overview.md
           - text: UI Library use cases
             url: concepts/ui-library/ui-library-use-cases.md
+          - text: Mobile UI Library overview
+            url: concepts/ui-library/mobile-ui-library.md
+          - text: Mobile UI Library use cases
+            url: concepts/ui-library/mobile-ui-use-cases.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
