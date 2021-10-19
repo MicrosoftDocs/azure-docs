@@ -85,9 +85,9 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
     * The Functions Premium Plan only supports regional VNet integration. If the VNet is in the same region, either create a new subnet or select an empty pre-existing subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled. VNet integration across regions is only supported for Dedicated plans.
 
-During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with.
+During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with. By default, Route All will be enabled, and all traffic will be routed into your VNet.
 
-When initially integrated with a VNet, all traffic will be routed into your VNet. If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet#application-routing).
+If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet#application-routing).
 
 ## Regional virtual network integration
 
@@ -251,7 +251,7 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By integrating your function app with a VNet, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By integrating your function app with a VNet with Route All enabled, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
 
 To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
 
