@@ -16,7 +16,7 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP protocol support in Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP protocol support is currently in PREVIEW and is available in the following regions: Central US, East US, Canada, West Europe, Australia, East Asia, and North Europe.
+> SFTP protocol support is currently in PREVIEW and is available in the following regions: North US, Central US, East US, Canada, West Europe, North Europe, Australia, Switzerland, Germany West Central, and East Asia.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >

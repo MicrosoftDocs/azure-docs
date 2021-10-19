@@ -16,7 +16,7 @@ ms.reviewer: ylunagaria
 You can securely connect to an Azure Storage account by using an SFTP client, and then manage your objects by using file system semantics. This article provides step-by-step guidance that helps you use SFTP to interact with Azure Blob Storage. To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP protocol support is currently in PREVIEW and is available in the following regions: Central US, East US, Canada, West Europe, Australia, East Asia, and North Europe.
+> SFTP protocol support is currently in PREVIEW and is available in the following regions: North US, Central US, East US, Canada, West Europe, North Europe, Australia, Switzerland, Germany West Central, and East Asia.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -28,13 +28,11 @@ You can securely connect to an Azure Storage account by using an SFTP client, an
 
 - Account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
 
-- The hierarchical namespace feature of the account must be enabled.
+- The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 - If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP protocol uses that port.
 
 ## Register the SFTP feature
-
-### [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -42,116 +40,76 @@ You can securely connect to an Azure Storage account by using an SFTP client, an
 
 3. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
 
-### [PowerShell](#tab/powershell)
+4. Make sure to verify that the feature is registered before continuing.
+    
+   In the **Preview features** page of your subscription, locate the **AllowSFTP** feature, and then make sure that **Registered** appears in the **State** column.
 
-1. Open a Windows PowerShell command window.
+## Add a local user
 
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+A local user is a blah. To learn more about local users, see [Local users](secure-file-transfer-protocol-support.md#local-users). 
 
-   ```powershell
-   Connect-AzAccount
-   ```
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
-2. If your identity is associated with more than one subscription, then set your active subscription.
+2. Select **SFTP**.
 
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
+   > [!div class="mx-imgBorder"]
+   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-option.png)
 
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+   The SFTP configuration page appears.
 
-3. Register the `AllowSFTP` feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
+2. To add a local user, select **Add local user**.
 
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFTP
-   ```
+   > [!div class="mx-imgBorder"]
+   > ![Add local user](./media/secure-file-transfer-protocol-support-how-to/add-local-user.png)
 
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
+3. In the **Add local user** configuration page, add the name of a user. Then, in the **SFTP endpoint secure access method** section, select which methods of authentication you'd like associate with this local user. 
 
-### [Azure CLI](#tab/azure-cli)
+   > [!div class="mx-imgBorder"]
+   > ![Local user configuration page](./media/secure-file-transfer-protocol-support-how-to/add-local-user-configuration-page.png)
 
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+   If you select **Secure with a password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration page.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+   If you select **Secure with SSH public key**, then select **Add key source** to specify a key. You can generate a new key pair, use an existing key stored in Azure, or specify an existing public key.  To learn more about these options, see [Authentication methods](secure-file-transfer-protocol-support.md#authentication-methods).
 
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
+4. Select **Next** to move to the **Container permissions** tab of the configuration page.
 
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+5. In the **Container permissions** section, choose the containers that you want to make available to this local user. Then, choose which types of operations you want to enable this local user to perform.
 
-3. Register the `HnsOnMigration` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+   > [!div class="mx-imgBorder"]
+   > ![Container permissions page](./media/secure-file-transfer-protocol-support-how-to/container-permissions-tab.png)
 
-   ```azurecli
-   az feature register --namespace Microsoft.Storage --name AllowSFTP
-   ```
+6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this this local user. If the connecting SFTP client doesn't reference a specific directory, the request will operate on data in the **Home directory**. 
 
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
+   To learn more about the home directory, see [Directory permissions](secure-file-transfer-protocol-support.md#directory-permissions).
 
----
+7. Choose the **Add button** to add the local user.
 
-## Verify that the feature is registered
+   If you chose to secure data with a password, then your password appears in a dialog box. This password can't be generated again, so make sure to copy the password, and then store it in a place where you can find it. 
 
-### [Portal](#tab/azure-portal)
+   If you choose to generate a new key pair, then you'll be prompted to download the private key of that key pair.
 
-In the **Preview features** page of your subscription, locate the **AllowSFTP** feature, and then make sure that **Registered** appears in the **State** column.
-
-### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFTP
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowSFTP
-```
-
----
-
-## Enable SFTP support
-
-### [Portal](#tab/azure-portal)
+## Enable SFTP
 
 To enable SFTP support for your storage account by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
-2. Put steps here.
+2. Select **SFTP**.
 
-### [PowerShell](#tab/powershell)
+   > [!div class="mx-imgBorder"]
+   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-option.png)
 
-To enable SFTP support with PowerShell, use the [Need command](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command.
+   The SFTP configuration page appears.
 
-The following example enables SFTP support. Remember to replace the placeholder values in brackets with your own values:
+3. If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Add a local user](#add-a-local-user) section of this article.
 
-```azurepowershell
-command-goes-here <parameter-goes-here>
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-To enable SFTP support with Azure CLI, use the [Need command](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command. 
-
-The following example enables SFTP support. Remember to replace the placeholder values in brackets with your own values:
-
-```azurecli
-command-goes-here --parameter-name-goes-here <parameter-value-goes-here>
-```
-
----
+4. Select **Enable SFTP**.
 
 ## Connect to Azure Blob Storage and transfer data
 
 Put any guidance here - if appropriate.
+
+Put guidance for using password or key as part of the process.
 
 ---
 
