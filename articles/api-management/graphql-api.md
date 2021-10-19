@@ -14,11 +14,11 @@ ms.custom:
 
 GraphQL is an open-source, industry-standard query language for APIs. Unlike endpoint-based (or REST-style) APIs designed around actions over resources, GraphQL APIs support a broader set of use cases and focus on data types, schemas, and queries.
 
-You can secure GraphQL APIs by applying existing access control policies and new policies to secure and protect against GraphQL-specific attacks.
-
 A single GraphQL API in API Management corresponds to a single GraphQL backend endpoint. 
 
-[!INCLUDE [preview-callout-graphql.md](../../includes/preview/preview-callout-graphql.md)]
+You can secure GraphQL APIs by applying existing access control policies and new policies to secure and protect against GraphQL-specific attacks.
+
+[!INCLUDE [/includes/preview/preview-callout-graphql.md](../../includes/preview/preview-callout-graphql.md)]
 
 In this article, you'll:
 > [!div class="checklist"]
@@ -79,6 +79,13 @@ In this article, you'll:
 
 ## Limitations
 
+### Can I use API Management to create a GraphQL from existing REST APIs?
+
+No. Only GraphQL pass through is supported.  
+
+### Can I use API Management to compose a GraphQL API from two or more GraphQL services? 
+
+No. A single GraphQL API in API Management corresponds to a single GraphQL backend endpoint. 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
