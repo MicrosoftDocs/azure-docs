@@ -641,7 +641,7 @@ Known issues on Linux:
 |-|-|
 | Capability Name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region in order to simulate a [write region outage](https://docs.microsoft.com/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage) |
+| Description | Causes a Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage) |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:cosmosDB:failover/1.0 |
 | Parameters (key, value) |  |
@@ -676,7 +676,7 @@ Known issues on Linux:
 | Capability Name | NetworkChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Description | Causes a network fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/networkchaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents resulting from network outages, delays, duplications, loss, and corruption. |
-| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
+| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](chaos-studio-tutorial-aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/1.0 |
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/networkchaos_experiment). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
@@ -710,7 +710,7 @@ Known issues on Linux:
 | Capability Name | PodChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Description | Causes a pod fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/podchaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents that are a result of pod failures or container issues. |
-| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
+| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](chaos-studio-tutorial-aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/1.0 |
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [PodChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/podchaos_experiment#pod-failure-configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
@@ -744,7 +744,7 @@ Known issues on Linux:
 | Capability Name | StressChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Description | Causes a stress fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/stresschaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents due to stresses over a collection of pods, for example, due to high CPU or memory consumption. |
-| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
+| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](chaos-studio-tutorial-aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/1.0 |
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [StressChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/stresschaos_experiment#configuration). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
@@ -778,7 +778,7 @@ Known issues on Linux:
 | Capability Name | IOChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Description | Causes an IO fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/iochaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents due to IO delays and read/write failures when using IO system calls such as `open`, `read`, and `write`. |
-| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
+| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](chaos-studio-tutorial-aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/1.0 |
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [IOChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/iochaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
@@ -812,7 +812,7 @@ Known issues on Linux:
 | Capability Name | TimeChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Description | Causes a change in the system clock on your AKS cluster using  [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/timechaos_experiment). Useful for recreating AKS incidents that result from distributed systems falling out of sync, missing/incorrect leap year/leap second logic, and more. |
-| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
+| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](chaos-studio-tutorial-aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/1.0 |
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [TimeChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/timechaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
@@ -846,7 +846,7 @@ Known issues on Linux:
 | Capability Name | KernelChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
 | Description | Causes a kernel fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/kernelchaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents due to Linux kernel-level errors such as a mount failing or memory not being allocated. |
-| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
+| Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](chaos-studio-tutorial-aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/1.0 |
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [KernelChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/kernelchaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
