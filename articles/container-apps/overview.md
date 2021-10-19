@@ -55,7 +55,7 @@ With Azure Container Apps, you can:
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 
-## Next steps
+### Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy your first container app](get-started.md)
