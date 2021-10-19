@@ -215,7 +215,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * **LDAP over TLS**   
         See [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md) for information about this option.
 
-    * **User DN**, **Group DN**, and **Group Membership Filter**   
+    * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**   
         See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
     * **Security privilege users**   <!-- SMB CA share feature -->   
