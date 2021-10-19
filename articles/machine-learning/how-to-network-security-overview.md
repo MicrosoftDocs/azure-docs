@@ -158,7 +158,8 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 ![Architecture diagram showing how to attach a private AKS cluster to the virtual network. The AKS control plane is placed outside of the customer VNet](./media/how-to-network-security-overview/secure-inferencing-environment.png)
 
 ### Limitations
-- AKS clusters must belong to the same VNet as the workspace and its associated resources. 
+
+- The workspace must have a private endpoint in the same VNet as the AKS cluster. For example, when using multiple private endpoints with the workspace, one private endpoint can be in the AKS VNet and another in the VNet that contains dependency services for the workspace.
 
 ## Optional: Enable public access
 
