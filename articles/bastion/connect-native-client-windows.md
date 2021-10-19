@@ -46,13 +46,9 @@ If you have already configured Bastion for your VNet, modify the following setti
 1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU is **Standard**. If it isn't, change it to **Standard** from the dropdown.
 1. Check the box for **Native Client Support** and apply your changes.
 
-    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for a updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
+    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
 
-#### For SSH sessions
-
-If you are only planning to use this feature for SSH sessions with your target VM, see [Prerequsites](#prereq) for steps to install the latest version of the CLI commands.
-
-#### For RDP sessions
+If you are only planning to use this feature for SSH sessions with your target VM, see [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
 
 If you are planning to use this feature for RDP sessions with your target VM, install the 64-bit version of Azure CLI using the following steps:
 
@@ -71,11 +67,7 @@ If you don't already have a bastion host configured, see [Create a bastion host]
 
    :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host-expand.png":::
 
-#### For SSH sessions
-
-If you are only planning to use this feature for SSH sessions with your target VM, see [Prerequsites](#prereq) for steps to install the latest version of the CLI commands.
-
-#### For RDP sessions
+If you are only planning to use this feature for SSH sessions with your target VM, see [Prerequisites](#prereq) for steps to install the latest version of the CLI commands.
 
 If you are planning to use this feature for RDP sessions with your target VM, install the 64-bit version of Azure CLI using the following steps:
 
@@ -153,13 +145,13 @@ This section helps you connect to your virtual machine. Use the steps that corre
    * If you are logging into an Azure AD-joined (AADJ) VM, use the following command. To learn more about how to use Azure AD to log into your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
       ```azurecli-interactive
-      <full_path_to_python.exe> az network bastion rdp --name “<BastionName>” --resource-group “<ResourceGroupName>” --target-resource-id “<VMResourceId>” --auth-type “AAD”
+      <full_path_to_python.exe> az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "AAD"
       ```
 
    * If you are logging in using a local username and password:
 
       ```azurecli-interactive
-      <full_path_to_python.exe> az network bastion rdp “<BastionName>” --resource-group “<ResourceGroupName>” --target-resource-id “<VMResourceId>” --auth-type “password” --username “<Username>” --password “<Password>” 
+      <full_path_to_python.exe> az network bastion rdp "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "password" --username "<Username>" --password "<Password>" 
       ```
 
 1. Once you log into your target VM, the native client on your local computer will open up with your VM session (**mstc** for RDP sessions and **az ssh** for SSH sessions).
