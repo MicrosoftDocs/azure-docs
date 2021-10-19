@@ -9,7 +9,7 @@ ms.custom: seo-lt-2021
 ms.date: 10/18/2021
 ---
 
-# AdventureWorks Template Documentation
+# AdventureWorks template documentation
 
 This document explains how to setup and use Microsoft's AdventureWorks pipeline template to jump start the exploration of the AdventureWorks dataset using Azure Synapse Analytics and the Retail database template.
 
@@ -21,16 +21,19 @@ AdventureWorks is a fictional sports equipment retailer that is used to demo Mic
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../storage/common/storage-account-create.md) if you don't have one already.
 
-## Finding the Template
-Navigate to your Synapse workspace. From the home page, click "Learn" and then select "Browse gallery". This will open the Synapse gallery where you can search for datasets, scripts, pipelines and more to install in your workspace. 
+## Find the template
 
-Click "Pipelines" and filter the results with the keyword "AdventureWorks".
+Follow these steps to locate the template.
 
-Click the AdventureWorks template, and then "Continue".
+1. Navigate to your Synapse workspace. From the home page, select **Learn** and then select **Browse gallery**. The Synapse gallery opens. You can search for datasets, scripts, pipelines, and more to install in your workspace. 
 
-This will open the template overview page.
+1. Select **Pipelines**, and filter the results with the keyword "AdventureWorks."
 
-## Configuring the Template
+1. Select the **AdventureWorks** template, and then select **Continue**.
+
+These steps open the template overview page.
+
+## Configure the template
 The template is designed to require minimal configuration. From the template overview page you can see a preview of the initial starting configuration of the pipeline, and click **Open pipeline** to create the resources in your own workspace. You will get a notification that all 31 resources in the template have been created, and can review these before committing or publishing them. You will find the below components of the template:
 
 * 17 pipelines: These are scheduled to ensure the data loads into the target tables correctly, and include one pipeline per source table plus the scheduling ones.
@@ -40,11 +43,11 @@ If you have the AdventureWorks dataset loaded into a different database, you can
 
 
 ## Dataset and source/target models
-The AdventureWorks dataset in Excel format can be downloaded from [here.](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip) In addition, you can access the schema definition for both the source and target databases [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Using the database designer in Synapse, recreate the source and target databases using the schema in the Excel you downloaded earlier. [See here for more details on the database designer.](https://aka.ms/SynapseDatabaseDesignerDocumentation) 
+The AdventureWorks dataset in Excel format can be downloaded from this [GitHub site](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip). In addition, you can access the [schema definition for both the source and target databases](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Using the database designer in Synapse, recreate the source and target databases with the schema in the Excel you downloaded earlier. For more details on the database designer, see this [documentation](https://aka.ms/SynapseDatabaseDesignerDocumentation).
 
 With the databases created, ensure the dataflows are pointing to the correct tables by editing the dropdowns in the Workspace DB source and sink settings. You can load the data into the source model by placing the CSV files provided in the example dataset in the correct folders specified by the tables. Once that is done, all that's required is to run the pipelines.
 
-## Troubleshooting the pipelines
+## Troubleshoot the pipelines
 If the pipeline fails to run successfully, there's a few main things to check for errors.
 
 * Dataset schema. Make sure the data settings for the CSV files are accurate. If you included row headers, make sure the how headers option is checked on the database table.
