@@ -859,14 +859,16 @@ groups:
 # Owner: msangapu
 - id: app-service-ide
   title: Development environment
-  prompt: Choose a development environment
+  prompt: Choose a deployment environment
   pivots:
   - id: development-environment-vs
     title: Visual Studio
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: Command-line interface
+    title: Azure CLI
+  - id: development-environment-ps
+    title: Azure PowerShell
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
