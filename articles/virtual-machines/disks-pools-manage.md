@@ -4,7 +4,7 @@ description: Learn how to add managed disks to an Azure disk pool or disable iSC
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -20,10 +20,21 @@ Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0
 ## Add a disk to a pool
 
 Your disk must meet the following requirements in order to be added to the disk pool:
-- Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool.
+- Must be either a premium SSD, standard SSD, or an ultra disk in the same region and availability zone as the disk pool.
     - Ultra disks must have a disk sector size of 512 bytes.
 - Must be a shared disk, with a maxShares value of two or greater.
 - You must [provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool](disks-pools-deploy.md#assign-storagepool-resource-provider-permissions).
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal.
+1. Navigate to your disk pool, and select **Disks** under **Settings**.
+1. Select **Attach existing disk** and select your disks.
+1. When you have chosen all the disks you'd like to attach, select **Save**.
+
+
+
+# [PowerShell](#tab/azure-powershell)
 
 The following script adds an additional disk to the disk pool and exposes it over iSCSI. It keeps the existing disks in the disk pool without any change.
 
@@ -65,9 +76,65 @@ $luns += ,($newlun)
 Update-AzDiskPoolIscsiTarget -Name $iscsiTargetName -DiskPoolName $diskPoolName -ResourceGroupName $resourceGroupName -Lun $luns
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+The following script adds an additional disk to the disk pool and exposes it over iSCSI. It keeps the existing disks in the disk pool without any change.
+
+```azurecli
+# Add a disk to a disk pool
+
+# Initialize parameters
+resourceGroupName="<yourResourceGroupName>"
+diskPoolName="<yourDiskPoolName>"
+iscsiTargetName="<youriSCSITargetName>"
+diskName="<yourDiskName>"
+lunName="<LunName>"
+
+diskPoolUpdateArgs=("$@")
+diskPoolUpdateArgs+=(--resource-group $resourceGroupName --Name $diskPoolName)
+
+diskIds=$(echo $(az disk-pool show --name $diskPoolName --resource-group $resourceGroupName --query disks[].id -o json) | sed -e 's/\[ //g' -e 's/\ ]//g' -e 's/\,//g')
+for disk in $diskIds; do
+    diskPoolUpdateArgs+=(--disks $(echo $disk | sed 's/"//g'))
+done
+
+diskId=$(az disk show --resource-group $resourceGroupName --name $diskName --query id | sed 's/"//g')
+diskPoolUpdateArgs+=(--disks $diskId)
+
+az disk-pool update "${diskPoolUpdateArgs[@]}"
+
+# Get existing iSCSI LUNs and expose added disk as a new LUN
+targetUpdateArgs=("$@")
+targetUpdateArgs+=(--resource-group $resourceGroupName --disk-pool-name $diskPoolName --name $iscsiTargetName)
+
+luns=$(az disk-pool iscsi-target show --name $iscsiTargetName --disk-pool-name $diskPoolName --resource-group $resourceGroupName --query luns)
+lunsCounts=$(echo $luns | jq length)
+
+for (( i=0; i < $lunCounts; i++ )); do
+    tmpLunName=$(echo $luns | jq .[$i].name | sed 's/"//g')
+    tmpLunId=$(echo $luns | jq .[$i].managedDiskAzureResourceId | sed 's/"//g')
+    targetUpdateArgs+=(--luns name=$tmpLunName managed-disk-azure-resource-id=$tmpLunId)
+done
+
+targetUpdateArgs+=(--luns name=$lunName managed-disk-azure-resource-id=$diskId)
+
+az disk-pool iscsi-target update "${targetUpdateArgs[@]}"
+```
+
+---
+
 ## Disable iSCSI on a disk and remove it from the pool
 
 Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connections to the iSCSI LUN the disk is exposed as. When a disk is removed from the disk pool, it isn't automatically deleted. This prevents any data loss but you will still be billed for storing data. If you don't need the data stored in a disk, you can manually delete the disk. This will delete the disk and all data stored on it and will prevent further charges.
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal.
+1. Navigate to your disk pool, and select **Disks** under **Settings**.
+1. Select **Remove disk from disk pool** and select your disks.
+1. When you have chosen all the disks you'd like to remove, select **Save**.
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 #Initialize input parameters
@@ -110,6 +177,56 @@ $diskIds += ($Id)
 Update-AzDiskPool -ResourceGroupName $resourceGroupName -Name $diskPoolName -DiskId $diskIds
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+# Disable iSCSI on a disk and remove it from the pool
+
+# Initialize parameters
+resourceGroupName="<yourResourceGroupName>"
+diskPoolName="<yourDiskPoolName>"
+iscsiTargetName="<youriSCSITargetName>"
+diskName="<yourDiskName>"
+lunName="<LunName>"
+
+# Get existing iSCSI LUNs and remove it from iSCSI target
+targetUpdateArgs=("$@")
+targetUpdateArgs+=(--resource-group $resourceGroupName --disk-pool-name $diskPoolName --name $iscsiTargetName)
+
+luns=$(az disk-pool iscsi-target show --name $iscsiTargetName --disk-pool-name $diskPoolName --resource-group $resourceGroupName --query luns)
+lunCounts=$(echo $luns | jq length)
+
+for (( i=0; i < $lunCounts; i++ )); do
+    tmpLunName=$(echo $luns | jq .[$i].name | sed 's/"//g')
+    if [ $tmpLunName != $lunName ]; then
+        tmpLunId=$(echo $luns | jq .[$i].managedDiskAzureResourceId | sed 's/"//g')
+        targetUpdateArgs+=(--luns name=$tmpLunName managed-disk-azure-resource-id=$tmpLunId)
+    fi
+done
+
+az disk-pool iscsi-target update "${targetUpdateArgs[@]}"
+
+# Remove disk from pool
+diskId=$(az disk show --resource-group $resourceGroupName --name $diskName -- query id | sed 's/"//g')
+
+diskPoolUpdateArgs=("$@")
+diskPoolUpdateArgs+=(--resource-group $resourceGroupName --name $diskPoolName)
+
+diskIds=$(az disk-pool show --name $diskPoolName --resource-group $resourceGroupName --query disks[].id -o json)
+diskLength=$(echo diskIds | jq length)
+
+for (( i=0; i < $diskLength; i++ )); do
+    tmpDiskId=$(echo $diskIds | jq .[$i] | sed 's/"//g')
+
+    if [ $tmpDiskId != $diskId ]; then
+        diskPoolUpdateArgs+=(--disks $tmpDiskId)
+    fi
+done
+
+az disk-pool update "${diskPoolUpdateArgs[@]}"
+```
+
+---
 ## Next steps
 
 - To learn how to move a disk pool to another subscription, see [Move a disk pool to a different subscription](disks-pools-move-resource.md).

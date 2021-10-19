@@ -46,6 +46,9 @@ When you delete a disk pool, all the resources in the managed resource group are
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+Stop-AzDiskPool -Name "<yourDiskPoolName>" -ResourceGroupName "<yourResourceGroup>"
+
+Remove-AzDiskPool -Name "<yourDiskPoolName>" -ResourceGroupName "<yourResourceGroup>
 Remove-AzDiskPool -Name "<yourDiskpoolName>" -ResourceGroupName "<yourResourceGroup>"
 ```
 

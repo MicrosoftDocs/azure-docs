@@ -153,7 +153,7 @@ First, register your subscription to the Microsoft.AVS and CloudSanExperience.
 Now that your subscription has been properly registered, you can connect your disk pool to your Azure VMware Solution private cloud cluster.
 
 > [!IMPORTANT]
-> Your disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool resource provider. If the subnet isn't delegated, the deployment fails. See blank for details.
+> Your disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool resource provider. If the subnet isn't delegated, the deployment fails. See [Delegate subnet permission](../virtual-machines/disks-pools-deploy.md#delegate-subnet-permission) for details.
 
 1. Navigate to your Azure VMware Solution.
 1. Select **Storage (preview)** under **Manage**.
