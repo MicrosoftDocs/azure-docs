@@ -32,7 +32,7 @@ sections:
 
           **How do I operate cloud pipelines?**
 
-          You can either use portal or rest APIs. Please refer <ToDo: How to operate cloud pipelines> link for details
+          You can either use portal or rest APIs. <!--- Please refer to (ToDo: How to operate cloud pipelines) link for details --->
 
           **What is the privacy policy for Video Analyzer?**
 
@@ -69,11 +69,11 @@ sections:
 
           **Can I reset or update the RTSP source URL in a live pipelines?**
 
-          Yes, when the live pipeline is in 'deactived' state.
+          Yes, when the live pipeline is in a "deactivated" state.
 
           **Is an RTSP simulator available to use during testing and development for Live pipelines?**
 
-          Yes, you can use [RTSP camera simulator[(./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator) for quickstarts and tutorials to support the learning process. We recommend strongly that you solely not rely on simulator for your projects. You should invest in testing with your actual RTSP source before you plan a production deployment.
+          Yes, you can use [RTSP camera simulator](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator) for quickstarts and tutorials to support the learning process. We recommend strongly that you solely not rely on simulator for your projects. You should invest in testing with your actual RTSP source before you plan a production deployment.
 
       - question: Monitoring and metrics
         answer: |
