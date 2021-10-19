@@ -15,7 +15,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 
 ## Time delay
 
-|  |  |
+| Property | Value |
 |-|-|
 | Fault Provider | N/A |
 | Supported OS Types | N/A |
@@ -41,7 +41,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 
 ## CPU pressure
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
@@ -82,7 +82,7 @@ Known issues on Linux:
 
 ## Physical memory pressure
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | PhysicalMemoryPressure-1.0 |
 | Target type | Microsoft-Agent |
@@ -119,7 +119,7 @@ Known issues on Linux:
 
 ## Virtual memory pressure
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | VirtualMemoryPressure-1.0 |
 | Target type | Microsoft-Agent |
@@ -155,7 +155,7 @@ Known issues on Linux:
 
 ## Disk I/O pressure (Windows)
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | DiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
@@ -201,7 +201,7 @@ Known issues on Linux:
 
 ## Disk I/O pressure (Linux)
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | LinuxDiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
@@ -246,7 +246,7 @@ Known issues on Linux:
 
 ## Arbitrary Stress-ng stressor
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | StressNg-1.0 |
 | Target type | Microsoft-Agent |
@@ -281,7 +281,7 @@ Known issues on Linux:
 
 ## Stop Windows service
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | StopService-1.0 |
 | Target type | Microsoft-Agent |
@@ -317,7 +317,7 @@ Known issues on Linux:
 
 ## Time change
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | TimeChange-1.0 |
 | Target type | Microsoft-Agent |
@@ -353,7 +353,7 @@ Known issues on Linux:
 
 ## Kill process
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | KillProcess-1.0 |
 | Target type | Microsoft-Agent |
@@ -394,7 +394,7 @@ Known issues on Linux:
 
 ## DNS failure
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | DnsFailure-1.0 |
 | Target type | Microsoft-Agent |
@@ -441,7 +441,7 @@ Known issues on Linux:
 
 ## Network latency
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | NetworkLatency-1.0 |
 | Target type | Microsoft-Agent |
@@ -486,7 +486,7 @@ Known issues on Linux:
 
 ## Network disconnect
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | NetworkDisconnect-1.0 |
 | Target type | Microsoft-Agent |
@@ -529,7 +529,7 @@ Known issues on Linux:
 
 ## Network disconnect with firewall rule
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | NetworkDisconnectViaFirewall-1.0 |
 | Target type | Microsoft-Agent |
@@ -568,7 +568,7 @@ Known issues on Linux:
 ```
 
 ## ARM virtual machine shutdown
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachine |
@@ -603,7 +603,7 @@ Known issues on Linux:
 
 ## ARM virtual machine scale set instance shutdown
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
@@ -639,7 +639,7 @@ Known issues on Linux:
 
 ## Cosmos DB failover
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
@@ -673,7 +673,7 @@ Known issues on Linux:
 
 ## AKS Chaos Mesh network faults
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | NetworkChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
@@ -707,7 +707,7 @@ Known issues on Linux:
 
 ## AKS Chaos Mesh pod faults
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | PodChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
@@ -741,7 +741,7 @@ Known issues on Linux:
 
 ## AKS Chaos Mesh stress faults
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | StressChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
@@ -775,7 +775,7 @@ Known issues on Linux:
 
 ## AKS Chaos Mesh IO faults
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | IOChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
@@ -809,7 +809,7 @@ Known issues on Linux:
 
 ## AKS Chaos Mesh time faults
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | TimeChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
@@ -843,7 +843,7 @@ Known issues on Linux:
 
 ## AKS Chaos Mesh kernel faults
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | KernelChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
@@ -877,7 +877,7 @@ Known issues on Linux:
 
 ## Network security group (set rules)
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | SecurityRule-1.0 |
 | Target type | Microsoft-NetworkSecurityGroup |
@@ -960,7 +960,7 @@ Known issues on Linux:
 
 ## Azure Cache for Redis reboot
 
-|  |  |
+| Property | Value |
 |-|-|
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
