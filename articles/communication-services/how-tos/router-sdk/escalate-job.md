@@ -60,7 +60,7 @@ await client.SetExceptionPolicyAsync(
 
 ## Classification policy configuration
 
-Create a Classification Policy to handle the new label added to the Job. This policy will evaluate the `Escalated` label and assign the Job to either Queue. The policy will also use the [RulesEngine](../../concepts/router/router-rule.concepts.md) to increase the priority of the Job from `1` to `10`.
+Create a Classification Policy to handle the new label added to the Job. This policy will evaluate the `Escalated` label and assign the Job to either Queue. The policy will also use the [RulesEngine](../../concepts/router/router-rule-concepts.md) to increase the priority of the Job from `1` to `10`.
 
 ```csharp
 await client.SetClassificationPolicyAsync(
