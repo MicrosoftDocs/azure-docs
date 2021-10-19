@@ -12,9 +12,9 @@ ms.date: 10/01/2021
 ---
 # Save costs for resources with reserved capacity - Azure Arc-enabled SQL Managed Instance
 
-Save money with Azure Arc-enabled SQL Managed Instance by committing to a reservation for Azure Arc services compared to pay-as-you-go prices. With reserved capacity, you make a commitment for Azure Arc-enabled SQL Managed Instance use for a period of one or three years to get a significant discount on the service fee. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
+Save money with Azure Arc-enabled SQL Managed Instance by committing to a reservation for Azure Arc services compared to pay-as-you-go prices. With reserved capacity, you make a commitment for Azure Arc-enabled SQL Managed Instance use for one or three years to get a significant discount on the service fee. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 
-You do not need to assign the reservation to a specific database or managed instance. Matching existing deployments that are already running or ones that are newly deployed automatically get the benefit. By purchasing a reservation, you commit to usage for the Azure Arc-enabled service costs for a period of one or three years. As soon as you buy a reservation, the service charges that match the reservation attributes are no longer charged at the pay-as-you go rates. 
+You do not need to assign the reservation to a specific database or managed instance. Matching existing deployments that are already running or ones that are newly deployed automatically get the benefit. By purchasing a reservation, you commit to usage for the Azure Arc-enabled service costs for one or three years. As soon as you buy a reservation, the service charges that match the reservation attributes are no longer charged at the pay-as-you go rates. 
 
 A reservation applies to Azure Arc-enabled service costs only and does not cover SQL IP costs or any other charges. At the end of the reservation term, the billing benefit expires and the managed instance is billed at the pay-as-you go price. Reservations do not automatically renew. For pricing information, see the [reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
@@ -31,15 +31,15 @@ The size of reservation should be based on the total amount of compute resources
 
 The following list demonstrates a scenario to project how you would reserve resources: 
 
-* **Current**: 1 general purpose, 16 vCore managed instance
+* **Current**: one general purpose, 16 vCore managed instance
 
 * **In the next year you will add**: 
-  - 1 additional general purpose, 16 vCore managed instance
-  - 1 additional business critical, 32 vCore managed instance
+  - One more general purpose, 16 vCore managed instance
+  - One more business critical, 32 vCore managed instance
 
 * **Purchase a reservations for**:
-  - 32 (2x16) vCore 1-year reservation for general purpose managed instance
-  - 48 (2x8 + 32) vCore 1 year reservation for business critical managed instance 
+  - 32 (2x16) vCore one year reservation for general purpose managed instance
+  - 48 (2x8 + 32) vCore one year reservation for business critical managed instance 
 
 ## Buy reserved capacity
 
@@ -58,7 +58,7 @@ The following list demonstrates a scenario to project how you would reserve reso
     |Deployment Type|The SQL resource type that you want to buy the reservation for.|
     |Performance Tier|The service tier for the databases or managed instances. |
     |Term        |One year or three years.|
-    |Quantity    |The amount of compute resources being purchased within the capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you run or plan to run multiple databases with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify the quantity as 16 to maximize the benefit for all the databases. |
+    |Quantity    |The amount of compute resources being purchased within the capacity reservation. The quantity is the number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you run or plan to run multiple databases with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify the quantity as 16 to maximize the benefit for all the databases. |
 
 1. Review the cost of the capacity reservation in the **Costs** section.
 1. Select **Purchase**.
