@@ -387,7 +387,7 @@ Consider a scenario where a BIG-IP web portal isn't used, the user has no way of
 One way of achieving this would be to add an SLO function to your
 applications sign out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. The SAML sign-out endpoint for your tenant can be found in **App Registrations** > **Endpoints**.
 
-If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in [article K42052145](https://support.f5.com/csp/article/) and [article K12056](https://support.f5.com/csp/article/) from F5.
+If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in [article K42052145](https://support.f5.com/csp/article/K42052145) and [article K12056](https://support.f5.com/csp/article/K12056) from F5.
 
 ## Summary
 
