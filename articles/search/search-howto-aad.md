@@ -41,7 +41,7 @@ To enable role-based access control:
 1. On the left navigation pane, select **Keys**
 1. Determine if you'd like to allow both key-based and role-based access control, or only role-based access control.
 
-![authentication options for azure cognitive search in the portal](media/search-howto-Azure AD/portal-api-access-control.png)
+![authentication options for azure cognitive search in the portal](media/search-howto-aad/portal-api-access-control.png)
 
 You can also change these settings programatically as described in the [Azure Cognitive Search RBAC Documentation](/azure/search/search-security-rbac?tabs=config-svc-rest%2Croles-powershell%2Ctest-rest#step-2-preview-configuration).
 
