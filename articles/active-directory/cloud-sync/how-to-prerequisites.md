@@ -54,7 +54,7 @@ For steps on how to upgrade an existing agent to use a gMSA account see [Group M
 You can use the following PowerShell script to create a custom gMSA account.  Then you can use the [cloud sync gMSA cmdlets](how-to-gmsa-cmdlets.md) to apply more granular permissions.
  ```powershell
 # Filename:    1_SetupgMSA.ps1
-# Description: Creates a certificate that will be used for SSL and installs Active Directory Lighetweight Directory Services.
+# Description: Creates and installs a custom gMSA account for use with Azure AD Connect cloud sync.
 #
 # DISCLAIMER:
 # Copyright (c) Microsoft Corporation. All rights reserved. This 
