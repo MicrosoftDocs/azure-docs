@@ -34,6 +34,11 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
   - The recommended execution policy during installation is "RemoteSigned". 
   - For more information about setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy.md?view=powershell-7.1). 
 
+<!---Is this note right? From Jessan demo--->  
+
+>[!NOTE]
+>Cloud sync only supports password hash synchronizion for new customers. Pass-through authentication isn't supported.  
+
 ## Deployment steps
 
 1. [Configure Azure AD Connect cloud sync service account permissions](#configure-azure-ad-connect-cloud-sync-service-account-permissions)
@@ -42,7 +47,7 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
  
 ### Configure Azure AD Connect cloud sync service account permissions 
 
-You need to configure Azure AD Connect cloud sync service account permissions by using the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](./cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
+You need to configure Azure AD Connect cloud sync service account permissions by using the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlet `Set-AADCloudSyncPermissions`. For more information, see [Using Set-AADCloudSyncPermissions](../cloud-sync/how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions). 
 
 <!---what is right syntax? I copied this from Set-ADSyncPasswordWritebackPermissions--->
 
@@ -169,10 +174,7 @@ For passwords to be changed immediately, Minimum password age must be set to 0. 
 
 For more information about how to validate or set up the appropriate permissions, see [Configure account permissions for Azure AD Connect](tutorial-enable-sspr-writeback.md#configure-account-permissions-for-azure-ad-connect). 
 
+## Next steps
 
-
-
-
-
-
-
+- For more information about cloud sync and a comparison between Azure AD Connect and cloud sync, see [What is Azure AD Connect cloud sync?](../cloud-sync/what-is-cloud-sync.md)
+- For a tutorial about setting up password writeback by using Azure AD Connect, see [Tutorial: Enable Azure Active Directory self-service password reset writeback to an on-premises environment](tutorial-enable-sspr-writeback.md).
