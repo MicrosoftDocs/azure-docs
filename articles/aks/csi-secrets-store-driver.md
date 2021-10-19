@@ -178,7 +178,7 @@ When creating a SecretProviderClass, use the `secretObjects` field to define the
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:
-  name: my-provider
+  name: azure-sync
 spec:
   provider: azure                             
   secretObjects:                              # [OPTIONAL] SecretObject defines the desired state of synced K8s secret objects
@@ -189,7 +189,43 @@ spec:
     type: Opaque                              # type of the Kubernetes Secret object e.g. Opaque, kubernetes.io/tls
 ```
 
-### Set environment variables to reference Kubernetes secrets
+#### Set environment variables to reference Kubernetes secrets
+
+Once the Kubernetes secret has been created, you reference it by setting an environment variable in your pod:
+
+> [!NOTE]
+> This is not a complete example. You will need to make modifications to this example to support your chosen method of Azure Key Vault identity access.
+
+```yml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: busybox-secrets-store-inline
+spec:
+  containers:
+    - name: busybox
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29
+      command:
+        - "/bin/sleep"
+        - "10000"
+      volumeMounts:
+      - name: secrets-store01-inline
+        mountPath: "/mnt/secrets-store"
+        readOnly: true
+      env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: foosecret
+            key: username
+  volumes:
+    - name: secrets-store01-inline
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: "azure-sync"
+```
 
 ### Enable NGINX Ingress Controller with TLS
 
@@ -218,8 +254,8 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [create-key-vault]: ../key-vault/general/quick-create-cli.md
 [set-secret-key-vault]: ../key-vault/secrets/quick-create-portal.md
 [aks-managed-identity]: ./use-managed-identity.md
-[identity-access-methods]: ./csi-secrets-store-identity-access
-[aad-pod-identity]: ./use-azure-ad-pod-identity
+[identity-access-methods]: ./csi-secrets-store-identity-access.md
+[aad-pod-identity]: ./use-azure-ad-pod-identity.md
 
 <!-- External -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
