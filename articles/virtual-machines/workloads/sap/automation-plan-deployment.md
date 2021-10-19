@@ -75,7 +75,7 @@ The following sample folder hierarchy shows how to structure your configuration 
 | CONFIGURATION | Shared configuration files | A shared folder for referring to custom configuration files from multiple places. For example, custom disk sizing configuration files. |
 | DEPLOYER | Configuration files for the deployer | A folder with [deployer configuration files](automation-configure-deployer.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-DEP00-INFRASTRUCTURE**. |
 | LIBRARY | Configuration files for SAP Library | A folder with [SAP Library configuration files](automation-configure-library.md) for all deployments that the environment manages. Name each subfolder by the naming convention of **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP-LIBRARY**. |
-| LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](automation-workload-zone-deployment.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
+| LANDSCAPE | Configuration files for landscape deployments | A folder with [configuration files for all workload zones](automation-deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**. |
 | SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](automation-configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. for example, **PROD-WEEU-SAPO00-ABC**. |
 
 :::image type="content" source="./media/automation-plan-deployment/folder-structure.png" alt-text="Screenshot of example folder structure, showing separate folders for SAP HANA and multiple workload environments.":::
@@ -155,7 +155,7 @@ Before you design your workload zone layout, consider the following questions:
 * In which regions do you need to deploy workloads?
 * What's your [deployment scenario](#supported-deployment-scenarios)?
 
-For more information, see [how to configure a workload zone deployment for automation](automation-workload-zone-deployment.md).
+For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone).
 
 ## SAP system setup
 
