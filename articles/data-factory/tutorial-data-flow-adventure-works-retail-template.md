@@ -6,7 +6,7 @@ ms.author: aamerril
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 10/14/2021
+ms.date: 10/18/2021
 ---
 
 # AdventureWorks Template Documentation
@@ -19,7 +19,7 @@ AdventureWorks is a fictional sports equipment retailer that is used to demo Mic
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../../synapse-analytics/quickstart-create-workspace.md) if you don't have one already.
+* **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../synapse-analytics/quickstart-create-workspace.md) if you don't have one already.
 
 ## Finding the Template
 Navigate to your Synapse workspace. From the home page, click "Learn" and then select "Browse gallery". This will open the Synapse gallery where you can search for datasets, scripts, pipelines and more to install in your workspace. 
