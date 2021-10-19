@@ -156,7 +156,7 @@ You must be assigned one of the following roles to view or manage device setting
 
 - **Additional local administrators on Azure AD joined devices**: This setting allows you to select the users who are granted local administrator rights on a device. These users are added to the Device Administrators role in Azure AD. Global Administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products like Azure AD Premium and Enterprise Mobility + Security.
-- **Users may register their devices with Azure AD**: You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOS devices to be registered with Azure AD. If you select **None**, devices aren't allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Microsoft 365 requires registration. If you've configured either of these services, **ALL** is selected and **NONE** is unavailable.
+- **Users may register their devices with Azure AD**: You need to configure this setting to allow users to register Windows 10 personal, iOS, Android, and macOS devices with Azure AD. If you select **None**, devices aren't allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Microsoft 365 requires registration. If you've configured either of these services, **ALL** is selected and **NONE** is unavailable.
 - **Require Multi-Factor Authentication to register or join devices with Azure AD**: This setting allows you to specify whether users are required to provide another authentication factor to join or register their devices to Azure AD. The default is **No**. We recommend that you require multifactor authentication when a device is registered or joined. Before you enable multifactor authentication for this service, you must ensure that multifactor authentication is configured for users that register their devices. For more information on Azure AD Multi-Factor Authentication services, see [getting started with Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
    > [!NOTE]
@@ -207,7 +207,7 @@ To reduce the reported data to a level that works for you, you can filter it by 
 
 You can also search for specific entries.
 
-:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot that shows audit data filter controls, with category, activity resource type, activity, date range, target, and actor fields and a search field." border="false":::
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot that shows audit data filtering controls." border="false":::
 
 ## Next steps
 
