@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 10/18/2021
 ms.author: alkohli
 ---
 
@@ -46,7 +46,7 @@ For more information on cluster witness, see [Cluster witness on Azure Stack Edg
     1. Non-containerized workloads such as VMs can be directly deployed on top of the Storage Spaces Direct layer.
     1. Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster. 
     
-        The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
+    The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
 
 
 ## Supported networking topologies
@@ -81,9 +81,9 @@ For more information, see [Choosing network topology when configuring the networ
 
 Before you configure clustering, make sure the devices are cabled as per the network topolgoy that you intend to configure. To deploy a two-node infrastructure cluster on your Azure Stack Edge devices, follow these steps:
 
-<!-- insert a high level diagram indicating the deployment steps-->
+![Azure Stack Edge clustering deployment](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
-1. Order two independent Azure Stack Edge devices. 
+1. Order two independent Azure Stack Edge devices. For more information, see Order an Azure Stack Edge device.
 1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, connect the network interfaces on these devices via cables, and with or without switches. 
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes.
 1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
@@ -93,6 +93,13 @@ Before you configure clustering, make sure the devices are cabled as per the net
 
 For more information, see the 2-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
 
+## Clustering workloads
+
+On your two-node cluster, you can deploy non-containerized workloads or containerized workloads.
+
+- **Non-containerized workloads such as VMs**: Active capacity management to ensure successful failover of VMs. No live migration.
+
+- **Containerized workloads such as Kubernetes or IoT Edge**: A Kubernetes worker VM is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
 
 
 ## Cluster management
@@ -107,7 +114,15 @@ You can manage the Azure Stack Edge cluster via the PowerShell interface of the 
 - [Update the cluster]().
 - [Configure virtual IP settings for the cluster]()
 
- 
+
+## Cluster upgrades
+
+A two-node clustered device upgrades will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates will ensure minimal downtime of workloads.
+
+## Billing
+
+If you deploy an Azure Stack Edge two-node cluster, each node is billed separately. For more information, see [Pricing page for Azure Stack Edge](https://azure.microsoft.com/pricing/details/azure-stack/edge/#pricing).
+
 ## Next steps
 
 - Learn about [VM sizes and types for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-virtual-machine-sizes.md).

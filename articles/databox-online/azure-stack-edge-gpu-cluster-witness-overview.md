@@ -1,6 +1,6 @@
 ---
-title: Overview of clustering on your Azure Stack Edge device
-description: Describes clustering on your Azure Stack Edge device.
+title: Overview of cluster witness on your Azure Stack Edge device
+description: Describes a high level overview of a cluster witness on your Azure Stack Edge device.
 services: databox
 author: alkohli
 
@@ -11,11 +11,11 @@ ms.date: 10/13/2021
 ms.author: alkohli
 ---
 
-# Clustering on your Azure Stack Edge Pro GPU device
+# Cluster witness on your Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article provides a brief overview of clustering on your Azure Stack Edge device. 
+This article provides a brief overview of cluster witness on your Azure Stack Edge device including cluster witness requirements, setup, and management. 
 
 ## About clustering
 
@@ -29,10 +29,9 @@ Windows Server Failover Clustering is implemented on the Azure Stack Edge device
 
 A quorum is always maintained on your Azure Stack Edge cluster to remain online in the event of a failure. If one of the nodes fails, then the majority of the surviving nodes must verify that the cluster remains online. The concept of majority only exists for clusters with an odd number of nodes. 
 
-For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with 2/3 votes - a majority). For more information on cluster quorum, see []().
+For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with 2/3 votes - a majority). For more information on cluster quorum, see [Understand cluster quorum](/windows-server/storage/storage-spaces/understand-quorum).
 
- 
-For more information on cluster witness, see [Cluster witness on Azure Stack Edge]().
+## Cluster witness on Azure Stack Edge
 
 ASE (2-node) clusters require a cluster witness, so that in the event of a single ASE node failure the cluster witness accounts for the third vote, and the cluster stays online (since the cluster is left with 2/3 votes - a majority). On the other hand, if both ASE nodes fail simultaneously, or a second ASE node fails after the first has failed, there is no majority vote, and the ASE cluster goes offline. 
 
