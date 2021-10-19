@@ -10,6 +10,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Repair an Automanage Account
+
+    > [!NOTE]
+    > This article is only relevant for machines that were onboarded to the earlier version of Automanage (API version 2020-06-30-preview). The status for these machines will be **Needs upgrade**. 
+
 Your [Azure Automanage Account](./automanage-virtual-machines.md#automanage-account) is the security context or identity under which the automated operations occur. If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure the account. To reconfigure it, you need to reset the identity type and assign the appropriate roles for the account.
 
 ## Step 1: Reset the Automanage Account identity type

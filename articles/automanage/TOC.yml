@@ -20,12 +20,11 @@
   - name: Automanage for Azure Arc-enabled servers
     href: automanage-arc.md
   - name: Automanage account
-    href: automanage-account.md
 - name: How to
   expanded: true
   items:
-  - name: Create custom preferences
-    href: virtual-machines-custom-preferences.md
+  - name: Create custom profile
+    href: virtual-machines-custom-profile.md
   - name: Enable on VMs through Azure Policy
     href: virtual-machines-policy-enable.md
   - name: Enable on VMs through an ARM template
