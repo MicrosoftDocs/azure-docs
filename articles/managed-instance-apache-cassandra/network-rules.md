@@ -24,13 +24,24 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 | EventHub | HTTPS | 443 | Required to forward logs to Azure |
 | AzureMonitor | HTTPS | 443 | Required to forward metrics to Azure |
 | AzureActiveDirectory| HTTPS | 443 | Required for Azure Active Directory authentication.|
-| GuestandHybridManagement | HTTPS | 443 |  Required to gather information about and manage Cassandra nodes (for example, reboot) |
+| AzureResourceManager| HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot)|
+| AzureFrontDoor.Firstparty| HTTPS | 443 | Required for logging operations.|
+| GuestAndHybridManagement | HTTPS | 443 |  Required to gather information about and manage Cassandra nodes (for example, reboot) |
 | ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
-| Storage.\<Region\>  | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration. **You need an entry for each region where you have deployed a datacenter.** |
+
+> [!NOTE]
+> In addition to the above, you will also need to add the following address prefixes, as a service tag does not exist for the relevant service:
+> 104.40.0.0/13
+> 13.104.0.0/14
+> 40.64.0.0/10
+
+## User-defined routes
+
+If you are using a 3rd party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See sample [bash script](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) to add the required address prefixes in user-defined routes.
 
 ## Azure Global required network rules
 
-If you are not using Azure Firewall, the required network rules and IP address dependencies are:
+The required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|

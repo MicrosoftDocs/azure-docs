@@ -1,12 +1,12 @@
 ---
 title: Azure Network Function Manager partners
 description: Learn about partners offering their network functions for use with this service.
-author: cherylmc
+author: prmitt
 
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: cherylmc
+ms.author: prmitt
 
 ---
 # Network Function Manager partners (Preview)
