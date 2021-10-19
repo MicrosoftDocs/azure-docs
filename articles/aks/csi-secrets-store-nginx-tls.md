@@ -217,7 +217,7 @@ spec:
     app: busybox-one
 ```
 
-and apply it to your cluster:
+And apply it to your cluster:
 
 ```bash
 kubectl apply -f deployment.yaml -n $NAMESPACE
@@ -272,7 +272,7 @@ spec:
     app: busybox-one
 ```
 
-and apply it to your cluster:
+And apply it to your cluster:
 
 ```bash
 kubectl apply -f deployment.yaml -n $NAMESPACE

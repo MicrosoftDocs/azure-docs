@@ -1,6 +1,6 @@
 ---
 title: Provide an access identity to the Secrets Store CSI driver for Azure Kubernetes Service (AKS) secrets
-description: Learn about the various methods that can be used to allow the Secrets Store CSI driver to integrate with Azure Key Vault (AKV)
+description: Learn about the various methods that can be used to allow the Secrets Store CSI driver to integrate with Azure Key Vault (AKV).
 author: nickomang 
 ms.author: nickoman
 ms.service: container-service
@@ -115,7 +115,7 @@ kubectl apply -f pod.yaml
 az aks show -g <resource-group> -n <cluster-name> --query identityProfile.kubeletidentity.clientId -o tsv
 ```
 
-or you can create a new one and assign it to your VMSS, or each VM instance in your availability set:
+or you can create a new one and assign it to your virtual machine scale set, or each VM instance in your availability set:
 
 ```azurecli-interactive
 az identity create -g <resource-group> -n <identity-name> 
@@ -211,7 +211,7 @@ kubectl apply -f pod.yaml
 
 ### Usage
 
-1. Verify your VMSS or availability set nodes have their own system-assigned identity:
+1. Verify your virtual machine scale set or availability set nodes have their own system-assigned identity:
 
 ```azurecli-interactive
 az vmss identity show -g <resource group>  -n <vmss scalset name> -o yaml
