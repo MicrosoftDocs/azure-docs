@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a Python Django app with Postgres with Service Connector'
+title: 'Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
 author: shizn
@@ -9,7 +9,10 @@ ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
 ---
-# Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service with Service Connector
+# Tutorial: Using Service Connector (Preview) to build a Django app with Postgres on Azure App Service
+
+> [!NOTE]
+> You are using Service Connector (preview) that makes it easier to connect your web app to database service in this tutorial. The tutorial here is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md) to use this preview feature so you will see similarities. Look into section [4.2 Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database) in this tutorial to see where service connector comes into play and simplifies the connection process given in the App Service tutorial.
 
 ::: zone pivot="postgres-single-server"
 
@@ -24,8 +27,6 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * Update your code and redeploy
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
-
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal?pivots=postgres-single-server).
 
 :::zone-end
 
@@ -43,7 +44,6 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal?pivots=postgres-flexible-server).
 
 :::zone-end
 
