@@ -19,18 +19,18 @@ These same steps can be used to set up and run an experiment for any agent-based
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- A Linux virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](..//virtual-machines/linux/quick-create-portal.md).
-- A network setup that permits you to [SSH into your virtual machine](../virtual-machines/linux/mac-create-ssh-key.md)
+- A Linux virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
+- A network setup that permits you to [SSH into your virtual machine](../virtual-machines/ssh-keys-portal.md)
 - A user-assigned managed identity. If you do not have a user-assigned managed identity, you can [follow these steps to create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 
 ## Enable Chaos Studio on your virtual machine
 
-Chaos Studio cannot inject faults against a virtual machine unless that virtual machine has been onboarded to Chaos Studio first. You onboard a virtual machine to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource, then installing the chaos agent. Virtual machines have two target types - one that enables service-direct faults (where no agent is required), and one that enabled agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your virtual machine as a [virtual machine extension](todo) that allows you to inject faults in the guest operating system.
+Chaos Studio cannot inject faults against a virtual machine unless that virtual machine has been onboarded to Chaos Studio first. You onboard a virtual machine to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource, then installing the chaos agent. Virtual machines have two target types - one that enables service-direct faults (where no agent is required), and one that enabled agent-based faults (which requires the installation of an agent). The chaos agent is an application installed on your virtual machine as a [virtual machine extension](../virtual-machines/extensions/overview.md) that allows you to inject faults in the guest operating system.
 
 ### Install stress-ng
 
-The Chaos Studio agent for Linux requires stress-ng, an open-source application that can cause a variety of stress events on a virtual machine. You can install stress-ng by [connecting to your Linux virtual machine](../virtual-machines/linux/mac-create-ssh-key.md) and running the appropriate installation command for your package manager, for example:
+The Chaos Studio agent for Linux requires stress-ng, an open-source application that can cause various stress events on a virtual machine. You can install stress-ng by [connecting to your Linux virtual machine](../virtual-machines/ssh-keys-portal.md) and running the appropriate installation command for your package manager, for example:
 
 ```bash
 sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng
