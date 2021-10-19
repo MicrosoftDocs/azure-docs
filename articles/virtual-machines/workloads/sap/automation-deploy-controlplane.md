@@ -19,7 +19,7 @@ The control plane deployment consists of the following components:
 
 ## Preparing the deployment credentials
 
-The SAP Deployment Frameworks uses Service Principals to perform the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
+The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
 
 
 ```azurecli-interactive
@@ -43,9 +43,9 @@ az role assignment create --assignee <appId> --role "User Access Administrator"
 
 ## Deploying the control plane
    
-The sample Deployer configuration file 'MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars' is located in the '~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' folder.
+The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
 
-The sample SAP Library configuration file 'MGMT-WEEU-SAP_LIBRARY.tfvars' is located in the '~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folder.
+The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
 Running the command below will create the Deployer, the SAP Library and add the Service Principal details to the deployment key vault.
 
