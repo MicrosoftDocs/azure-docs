@@ -21,7 +21,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -30,7 +30,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how ID document data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -43,7 +43,7 @@ You can see how ID document data is extracted by trying our Sample Labeling tool
 * An ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 In the Form Recognizer UI:
 

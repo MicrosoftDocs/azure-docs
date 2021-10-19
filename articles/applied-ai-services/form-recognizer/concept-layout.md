@@ -26,7 +26,7 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -35,7 +35,7 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how layout data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -48,7 +48,7 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
 * A form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
   In the Form Recognizer UI:
 

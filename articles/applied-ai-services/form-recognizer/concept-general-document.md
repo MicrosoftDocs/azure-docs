@@ -19,7 +19,7 @@ The General document preview model combines powerful Optical Character Recogniti
 
 * The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio and the general document model are available with the preview (v3.0) API.
 

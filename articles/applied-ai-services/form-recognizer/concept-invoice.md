@@ -21,7 +21,7 @@ recommendations: false
 
 :::image type="content" source="media/overview-invoices.jpg" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -30,7 +30,7 @@ recommendations: false
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how invoice data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -43,7 +43,7 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 * An invoice document. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
   In the Form Recognizer UI:
 

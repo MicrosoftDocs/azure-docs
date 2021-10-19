@@ -21,7 +21,7 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -30,7 +30,7 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how receipt data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -43,7 +43,7 @@ You can see how receipt data is extracted by trying our Sample Labeling tool. Yo
 * A receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 In the Form Recognizer UI:
 

@@ -22,7 +22,6 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
-
 ## What is a custom model?
 
 A custom model is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
@@ -31,7 +30,7 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -40,7 +39,7 @@ With composed models, you can assign multiple custom models to a composed model 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
 
