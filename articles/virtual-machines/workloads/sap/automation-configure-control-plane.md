@@ -11,8 +11,6 @@ ms.service: virtual-machines-sap
 
 # Configure the control plane
 
-## Overview
-
 The control plane consists of the following components:
  - Deployer
  - SAP library
@@ -25,7 +23,7 @@ The [deployer](automation-deployment-framework.md#deployment-components) is the 
 
 The configuration of the deployer is performed in a Terraform tfvars variable file.
 
-### Terraform Parameters
+## Terraform Parameters
 
 The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
 
