@@ -78,11 +78,11 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
 
     :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Select VNet Integration":::
 
-1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Underneath that is a list of the Resource Manager virtual networks in all other regions. Select the VNet you want to integrate with.
+1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Select the VNet you want to integrate with.
 
     :::image type="content" source="./media/functions-networking-options/vnet-int-add-vnet-function-app.png" alt-text="Select the VNet":::
 
-    * The Functions Premium Plan only supports regional VNet integration. If the VNet is in the same region, either create a new subnet or select an empty pre-existing subnet.
+    * The Functions Premium Plan only supports regional VNet integration. If the VNet is in the same region, either create a new subnet or select an empty, pre-existing subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled. VNet integration across regions is only supported for Dedicated plans.
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with. By default, Route All will be enabled, and all traffic will be routed into your VNet.
@@ -138,7 +138,7 @@ When you scale up or down in size, the required address space is doubled for a s
 
 <sup>*</sup>Assumes that you'll need to scale up or down in either size or SKU at some point. 
 
-Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Elastic Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. 
+Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. 
 
 When you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing VNet Integration.
 
@@ -155,7 +155,7 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 ### Network security groups
 
-You can use network security groups to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must enable VNet integration. The inbound rules in an NSG don't apply to your app because VNet Integration affects only outbound traffic from your app.
+You can use network security groups to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must enable VNet integration with Route All enabled. The inbound rules in an NSG don't apply to your app because VNet Integration affects only outbound traffic from your app.
 
 To control inbound traffic to your app, use the Access Restrictions feature. An NSG that's applied to your integration subnet is in effect regardless of any routes applied to your integration subnet. If your function app is VNet integrated, and you don't have any routes that affect public address traffic on your integration subnet, all of your outbound traffic is still subject to NSGs assigned to your integration subnet. When your function app isn't VNet integrated, NSGs are only applied to RFC1918 traffic.
 
@@ -173,7 +173,7 @@ After your app integrates with your VNet, it uses the same DNS server that your 
 
 1. `WEBSITE_VNET_ROUTE_ALL` with value `1`
 
-These settings send all of your outbound calls from your app into your VNet and enables your app to access an Azure DNS private zone. With these settings, your app can use Azure DNS by querying the DNS private zone at the worker level.  
+This setting sends all of your outbound calls from your app into your VNet and enables your app to access an Azure DNS private zone. With these settings, your app can use Azure DNS by querying the DNS private zone at the worker level.  
 
 ### Private Endpoints
 
