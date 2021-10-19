@@ -294,4 +294,4 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 After you've created the Azure Virtual Network Manager, continue on to learn how to block network traffic by using the security admin configuration:
 
 > [!div class="nextstepaction"]
-> [Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
+> [Block network traffic with security admin rules](how-to-block-network-traffic-powershell.md)
