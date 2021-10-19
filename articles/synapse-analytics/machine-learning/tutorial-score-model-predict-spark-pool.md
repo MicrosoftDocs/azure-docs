@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pool'
-description: Tutorial for how to use PREDICT functionality for predicting scores through machine learning models in serverless Apache Spark pools.
+title: 'Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pools'
+description: Learn how to use PREDICT functionality in serverless Apache Spark pools for predicting scores through machine learning models.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
@@ -14,15 +14,15 @@ ms.author: ajagarw
 
 # Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pools
 
-Learn how to use PREDICT functionality in serverless Apache Spark pool in Azure Synapse Analytics, for score prediction if trained model is registered in Azure Machine Learning (AML) Or Synapse workspace default Azure Data Lake Storage (ADLS).
+Learn how to use PREDICT functionality in serverless Apache Spark pools in Azure Synapse Analytics for score prediction. You can use a trained model registered in Azure Machine Learning (AML) or in the default Azure Data Lake Storage (ADLS) in your Synapse workspace.
 
-PREDICT in Synapse PySpark notebook provides you the capability to score machine learning models using the  SQL language, user defined functions (UDF) or Transformers. With PREDICT, you can bring your existing machine learning models trained outside Synapse on top of historical data and registered in Azure Data Lake Storage Gen2 or Azure Machine Learning to further score them within the secure boundaries of Azure Synapse Analytics. PREDICT function takes a model and data as inputs. This feature eliminates the step of moving valuable data outside Synapse for scoring. It aims to empower model consumers to easily infer machine learning models in Synapse as well as collaborate seamlessly with model producer working with the right framework for their task.
+PREDICT in a Synapse PySpark notebook provides you the capability to score machine learning models using the SQL language, user defined functions (UDF), or Transformers. With PREDICT, you can bring your existing machine learning models trained outside Synapse and registered in Azure Data Lake Storage Gen2 or Azure Machine Learning, to score historical data within the secure boundaries of Azure Synapse Analytics. The PREDICT function takes a model and data as inputs. This feature eliminates the step of moving valuable data outside of Synapse for scoring. The goal is to empower model consumers to easily infer machine learning models in Synapse as well as collaborate seamlessly with model producers working with the right framework for their task.
 
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> - predict scores for data in serverless Apache Spark pool using machine learning models which are trained outside Synapse and registered in Azure Machine Learning or Azure Data Lake Storage Gen2.
+> - Predict scores for data in a serverless Apache Spark pool using machine learning models which are trained outside Synapse and registered in Azure Machine Learning or Azure Data Lake Storage Gen2.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -31,14 +31,13 @@ If you don't have an Azure subscription, [create a free account before you begin
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
 - Azure Machine Learning workspace is needed if you want to train or register model in Azure Machine Learning. For details, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](../../machine-learning/how-to-manage-workspace.md).
-- If your model is registered in Azure Machine Learning then you need a linked service. In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Machine Learning linked service. To learn more, see [Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
-- The functionality requires that you already have trained model which is either registered in Azure Machine Learning or uploaded in Azure Data Lake Storage Gen2.
+- If your model is registered in Azure Machine Learning then you need a linked service. In Azure Synapse Analytics, a linked service defines your connection information to the service. In this tutorial, you'll add an Azure Synapse Analytics and Azure Machine Learning linked service. To learn more, see [Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
+- The PREDICT functionality requires that you already have a trained model which is either registered in Azure Machine Learning or uploaded in Azure Data Lake Storage Gen2.
 
 > [!NOTE]
 > - PREDICT feature is supported on **Spark3** serverless Apache Spark pool in Azure Synapse Analytics. **Python 3.8** is recommended version for model creation and training. 
 > - PREDICT supports most machine learning models packages in **MLflow** format: **TensorFlow, ONNX, PyTorch, SkLearn and pyfunc** are supported in this preview.
 > - PREDICT supports **AML and ADLS** model source. Here ADLS account refers to **default Synapse workspace ADLS account**. 
-Let us know if your favorite model flavor or model registry is not on the list.
 
 
 ## Sign in to the Azure portal
@@ -48,9 +47,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Use PREDICT in Synapse PySpark notebook for MLFLOW packaged models
 
-Please make sure all prerequisites are in place before following below steps for using PREDICT.
+Make sure all prerequisites are in place before following these steps for using PREDICT.
 
-1. **Import libraries:** Import below libraries to use PREDICT in spark session.
+1. **Import libraries:** Import the following libraries to use PREDICT in spark session.
 
    ```PYSPARK
       #Import libraries
@@ -64,7 +63,7 @@ Please make sure all prerequisites are in place before following below steps for
 2. **Set parameters using variables:** Synapse ADLS data path and model URI need to be set using input variables. You also need to define runtime which is "mlflow" and the data type of model output return. Please note that all data types which are supported in PySpark are supported through PREDICT also.
 
    > [!NOTE]
-   > Update the URI for ADLS Gen2 data file along with model output return data type and ADLS/AML URI for model file in this script before running it.
+   > Before running this script, update it with the URI for ADLS Gen2 data file along with model output return data type and ADLS/AML URI for the model file.
 
    ```PYSPARK
       #Set input data path
@@ -84,12 +83,12 @@ Please make sure all prerequisites are in place before following below steps for
       RUNTIME = "mlflow"
    ```
 
-3. **Ways to authenticate AML workspace:** If model is stored in default ADLS account of Synapse workspace then you do not need any further auth setup. In case model is registered in AML, then you can choose any of the 2 supported ways of authentication mentioned below.
+3. **Ways to authenticate AML workspace:** If the model is stored in the default ADLS account of Synapse workspace, then you do not need any further authentication setup. If the model is registered in Azure Machine Learning, then you can choose either of the following two supported ways of authentication.
 
    > [!NOTE]
    > Update tenant, client, subscription, resource group, AML workspace and linked service details in this script before running it.
 
-   3.1. **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. service principal must have "Contributor" access at AML workspace.
+   1. **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. Service principal must have "Contributor" access to the AML workspace.
 
       ```PYSPARK
          #AML workspace authentication using service principal
@@ -115,7 +114,7 @@ Please make sure all prerequisites are in place before following below steps for
          )
       ```
 
-   3.2. **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "service principal" or "Managed Service Identity (MSI)" must have "Contributor" access at AML workspace.
+   1. **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service principal" or "Managed Service Identity (MSI)" must have "Contributor" access to the AML workspace.
 
       ```PYSPARK
          #AML workspace authentication using linked service
@@ -123,14 +122,14 @@ Please make sure all prerequisites are in place before following below steps for
          ws = azureML.getWorkspace("<linked_service_name>") #   "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked   service supports MSI and service principal both
       ```
 
-4. **Enable PREDICT in spark session:** Set the spark conf spark.synapse.ml.predict.enabled as true to enable the library.
+4. **Enable PREDICT in spark session:** Set the spark configuration `spark.synapse.ml.predict.enabled` to `true` to enable the library.
 
    ```PYSPARK
       #Enable SynapseML predict
       spark.conf.set("spark.synapse.ml.predict.enabled","true")
    ```
 
-5. **Bind model in spark session:** Bind model with required inputs so that model can be referred in spark session and define alias so that while PREDICT call you can use same alias..
+5. **Bind model in spark session:** Bind model with required inputs so that the model can be referred in the spark session. Also define alias so that you can use same alias in the PREDICT call.
 
    > [!NOTE]
    > Update model alias and model uri in this script before running it.
@@ -160,10 +159,11 @@ Please make sure all prerequisites are in place before following below steps for
            inferSchema=True)
       df.createOrReplaceTempView('<view_name>')
    ```
-7. **Generate score using PREDICT:** You can call PREDICT 3 ways viz. using Spark SQL API, using User define function (UDF) and using Transformer API. Below are examples.
+
+7. **Generate score using PREDICT:** You can call PREDICT three ways, using Spark SQL API, using User define function (UDF), and using Transformer API. Following are examples.
 
    > [!NOTE]
-   > Update the model alias name, view name and comma separated model input column name in this script before running it. Comma separated model input columns are same which are used while training the model.
+   > Update the model alias name, view name, and comma separated model input column name in this script before running it. Comma separated model input columns are the same as those used while training the model.
 
    ```PYSPARK
       #Call PREDICT using Spark SQL API
@@ -197,10 +197,10 @@ Please make sure all prerequisites are in place before following below steps for
 
 ## Sklearn linear regression end to end example for using PREDICT
 
-1. Import libraries and read train dataset from ADLS.
+1. Import libraries and read the training dataset from ADLS.
 
    ```PYSPARK
-      # Import libraries and read train dataset from ADLS
+      # Import libraries and read training dataset from ADLS
       
       import fsspec
       import pandas
@@ -214,6 +214,7 @@ Please make sure all prerequisites are in place before following below steps for
       with fsspec_handle.open() as f:
           train_df = pandas.read_csv(f)
    ```
+
 1. Train model and generate mlflow artifacts.
 
    ```PYSPARK
@@ -439,7 +440,7 @@ Please make sure all prerequisites are in place before following below steps for
       df.show(10)
    ```
 
-1. Call PREDICT to generate score.
+1. Call PREDICT to generate the score.
 
    ```PYSPARK
       # Call PREDICT

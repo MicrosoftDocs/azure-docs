@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use Pandas to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics'
-description: Tutorial for how to use Pandas in PySpark notebook to read/write ADLS data in serverless Apache Spark pool.
+description: Tutorial for how to use Pandas in a PySpark notebook to read/write ADLS data in a serverless Apache Spark pool.
 services: synapse-analytics
 ms.service: synapse-analytics 
 ms.subservice: spark
@@ -28,13 +28,13 @@ If you don't have an Azure subscription, [create a free account before you begin
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage (or primary storage). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
 - Configure [Secondary Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md) account (which is not default to Synapse workspace). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
-- Create linked services - In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
+- Create linked services - In Azure Synapse Analytics, a linked service defines your connection information to the service. In this tutorial, you'll add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
 
    1. Open the Azure Synapse Studio and select the **Manage** tab.
    1. Under **External connections**, select **Linked services**.
    1. To add a linked service, select **New**.
    1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
-   1. Enter your authentication credentials. Account key, service principal (SP), Credentials and   Manged service identity (MSI) are currently supported authentication types. Please make sure   that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it   for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
+   1. Enter your authentication credentials. Account key, service principal (SP), Credentials and   Manged service identity (MSI) are currently supported authentication types. Make sure that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
 
    :::image type="content" source="media/tutorial-use-pandas-spark-pool/create-adls-linked-service.png" alt-text="Screenshot of creating a linked service using an ADLS Gen2 storage access key.":::
 
@@ -52,9 +52,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Read/Write data using default Azure Data Lake Storage Gen2 of Synapse workspace
 
-Pandas can read/write ADLS data by just specifying the file path directly.
+Pandas can read/write ADLS data by specifying the file path directly.
 
-Execute the below code.
+Run the following code.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
@@ -89,13 +89,13 @@ Execute the below code.
 
 ## Read/Write data using secondary Azure Data Lake Storage Gen2 account
 
-Pandas can read/write secondary ADLS account data 
-   - using linked service (having auth options - storage account key, service principal, manages service identity and credentials).
+Pandas can read/write secondary ADLS account data:
+   - using linked service (with authentication options - storage account key, service principal, manages service identity and credentials).
    - using storage options to directly pass client ID & Secret, SAS key, storage account key and connection string.
 
 **Using linked service**
 
-Execute the below code.
+Run the following code.
 
    > [!NOTE]
    > Update the file URL and linked service name in this script before running it.
@@ -129,9 +129,9 @@ Execute the below code.
    ```
 
 
-**Using storage options** to directly pass client ID & Secret, SAS key, storage account key and connection string.
+**Using storage options** to directly pass client ID & Secret, SAS key, storage account key, and connection string.
 
-Execute the below code.
+Run the following code.
 
    > [!NOTE]
    > Update the file URL and storage_options in this script before running it.
@@ -185,7 +185,7 @@ Execute the below code.
 
 ## Example to read/write parquet file 
 
-Run the below code.
+Run the following code.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
@@ -203,7 +203,7 @@ Run the below code.
 
 ## Example to read/write excel file 
 
-Run the below code.
+Run the following code.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
