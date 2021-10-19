@@ -1,4 +1,4 @@
-- name: Azure Static Web Apps documentation
+- name: Azure Container Apps documentation
   href: index.yml
 - name: Overview
   items:
