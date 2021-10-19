@@ -25,7 +25,7 @@ Learn how to access Azure Storage for a web app (not a signed-in user) running o
 
 Check that your Azure CLI version is 2.18.0 or higher:
 
-```azurecli
+```Azure CLI
 az --version
 ```
 
@@ -33,7 +33,7 @@ If you need to upgrade, try the `az upgrade` command (requires version 2.11+) or
 
 Then sign in to Azure through the CLI:
 
-```azurecli
+```Azure CLI
 az login
 ```
 
@@ -44,12 +44,12 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 ## 2. Clone or download the sample app
 
 Clone the sample repository:
-```terminal
+```Bash
 git clone https://github.com/LianwMS/WebAppStorageMISample.git
 ```
 
 and go to the root folder of repository:
-```terminal
+```Bash
 cd WebAppStorageMISample
 ```
 
@@ -59,7 +59,7 @@ In the terminal, make sure you're in the *WebAppStorageMISample* repository fold
 
 Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
-```terminal
+```Azure CLI
 az webapp up --name <app-name> --sku B1 --location eastus --resource-group ServiceConnector-tutorial-rg
 ```
 
@@ -70,7 +70,7 @@ az webapp up --name <app-name> --sku B1 --location eastus --resource-group Servi
 
 In the terminal, run the following command to create general-purpose v2 storage account and Blob Storage container. **Replace** *\<storage-name>* with a unique name. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
 
-```terminal
+```Azure CLI
 az storage account create --name <storage-name> --resource-group ServiceConnector-tutorial-rg --sku Standard_RAGRS --https-only
 ```
 
@@ -79,7 +79,7 @@ az storage account create --name <storage-name> --resource-group ServiceConnecto
 
 In the terminal, run the following command to connect your web app to blob storage with managed identity.
 
-```terminal
+```Azure CLI
 az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app-name> --tg ServiceConnector-tutorial-rg --account <storage-name> --system-identity
 ```
 
@@ -91,7 +91,7 @@ az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app
 
 In the terminal, run the following command to open the sample application in your browser. Replace *\<app-name>* with your web app name you used in step 3.
 
-```terminal
+```Azure CLI
 az webapp browse --name <app-name> 
 ```
 

@@ -30,13 +30,13 @@ Learn how to access Apache Kafka on Confluent Cloud for a spring boot applicatio
 
 Clone the sample repository:
 
-```terminal
+```Bash
 git clone https://github.com/xfz11/ConnectorSampleCode/tree/master/Confluent
 ```
 
 Then navigate into that folder:
 
-```terminal
+```Bash
 cd java-springboot
 ```
 
@@ -83,7 +83,7 @@ Create an instance of Azure Spring Cloud by following [this guidance](../spring-
 
 Azure CLI
 
-```terminal
+```Azure CLI
 az login
 
 az account set --subscription <Name or ID of your subscription>
@@ -92,13 +92,13 @@ az account set --subscription <Name or ID of your subscription>
 
 2. Build the project using gradle
 
-```terminal
+```Bash
 ./gradlew build
 ```
 
 3. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
 
-```terminal
+```Azure CLI
 az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
 ```
 
@@ -125,7 +125,7 @@ Select **Review + Create** to review the connection settings. Then select **Crea
 
 Run the following command to upload the jar file (`build/libs/java-springboot-0.0.1-SNAPSHOT.jar`) to your Spring Cloud app
 
-```terminal
+```Azure CLI
 az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name>  --artifact-path build/libs/java-springboot-0.0.1-SNAPSHOT.jar
 ```
 
