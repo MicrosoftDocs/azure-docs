@@ -60,7 +60,8 @@ Synapse roles can be assigned at the workspace scope or at finer-grained scopes 
 
 ### Git permissions
 
-When using Git-enabled development in Git mode, your Git permissions control whether you can read and commit changes to code artifacts, including linked service and credential definitions.   
+When using Git-enabled development in Git mode, you need Git permissions in addition to the Synapse User (Synapse RBAC) role to read code artifacts, including linked service and credential definitions. To commit changes to code artifacts in Git mode, you need Git permissions and the Synapse Artifact Publisher (Synapse RBAC) role.
+
    
 ### Accessing data in SQL
 
