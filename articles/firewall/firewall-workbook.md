@@ -31,9 +31,11 @@ The overview page provides you with a way to filter across workspaces, time, and
 
 ## Application rule log statistics
 
-This page shows unique sources of IP address over time, application rule count usage, denied/allowed FQDN over time, and filtered data. You can filter data based on IP address.
-
+This page shows unique sources of IP address over time, application rule count usage, denied/allowed FQDN over time, and filtered data. You can filter data based on IP address. 
+The Web Categories view summarizes allow and deny access log actions based on severity as configured by the firewall administrator.
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Azure Firewall Workbook application rule log":::
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategory.png" alt-text="Azure Firewall Web Category Summary":::
 
 ## Network rule log statistics
 
@@ -50,12 +52,6 @@ You can also filter logs based on time window:
 This page provides an overview of the IDPS actions count for all traffic that match the IDPS rules: Protocol, Signature ID, Source IP.
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-idps.png" alt-text="Azure Firewall Workbook idps log":::
-
-## Web Categories
-
-The web categories view  presents users's allow and deny access log information. The log summary provides insight based on web category severity as configured by the firewall administrator.
-
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategory.png" alt-text="Azure Firewall Web Category Summary":::
 
 ## Investigations
 
