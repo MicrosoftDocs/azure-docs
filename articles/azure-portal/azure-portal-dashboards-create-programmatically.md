@@ -33,7 +33,7 @@ After you configure the dashboard, the next step is to publish the dashboard usi
 
 When you share a dashboard, you'll need to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-For detailed instructions, see [Share Azure dashboards by using Azure role-based access control](azure-portal-share-dashboard-access.md).
+For detailed instructions, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
 ## Fetch the JSON representation of the dashboard
 
