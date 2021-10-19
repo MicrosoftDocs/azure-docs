@@ -28,7 +28,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 A new version of the Event Hubs bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](../articles/azure-functions/functions-managed-identity-tutorial.md). For .NET applications, it also changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventHubs` with newer types from [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
 
-This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following in your `host.json` file:
+This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following configuration to your `host.json` file:
 
 ```json
 {
@@ -56,6 +56,6 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 ## host.json settings
 <a name="host-json"></a>
 
-The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. The configuration is different depending on the Azure Functions version.
+The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control behavior for the Event Hubs trigger. The configuration is different depending on the Azure Functions version.
 
 [!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
