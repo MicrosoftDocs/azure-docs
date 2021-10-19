@@ -413,7 +413,7 @@ FROM
 
 ### Incorrect syntax near 'NOT'
 
-This error indicates that there are some external tables with the columns containing `NOT NULL` constaint in the column definition. Update the table to remove `NOT NULL` from the column definition.
+This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition.
 
 ## Configuration
 
