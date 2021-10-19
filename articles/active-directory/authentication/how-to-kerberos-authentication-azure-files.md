@@ -200,57 +200,58 @@ Follow these instructions to set up Azure files.
             -ServicePrincipalType "Application”;
         ```    
 
+     1. Set the password of the Service Principal for the storage account. (The value of $password can be taken from step 2).
+        
+        ```powershell
+        <# 7. Set the password of the Service Principal for the storage account. #>
+        
+        $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken
+        
+        $apiVersion = '1.6'
+        $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version={3}' `
+            -f $azureAdPrimaryDomain, 'servicePrincipals', 
+            $servicePrincipal.ObjectId, $apiVersion)
 
-vii)	Set the password of the Service Principal for the storage account.
-(The value of $password can be taken from step ii).
+        $json = @'
+        {
+            "passwordCredentials": [
+            {
+                "customKeyIdentifier": null,
+                "endDate": "2022-07-30T19:12:51.3058279Z",
+                "value": "<STORAGEACCOUNTPASSWORD>",
+                "startDate": "2020-07-30T19:15:51.3058279Z"
+            }]
+        }
+        '@ 
 
+        $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
 
-<# 7. Set the password of the Service Principal for the storage account. #>
+        $Headers = @{
+                'authorization' = "Bearer $($Token)"
+            }
 
-$Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken
+       try {
+           Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json
+           Write-Host "Success: Password is set for $storageAccountName"
+       } catch {
+           Write-Host $_.Exception.ToString()
+           Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value
+           Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+       }
+       ```
 
-$apiVersion = '1.6'
-$Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version={3}' `
-    -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId, $apiVersion)
+     1. Set the API permissions on the newly created application.
+        1. Go to Azure Portal -> Azure Active Directory -> App registrations -> All Applications
+        1. Find the application with the name matching your storage account.
+        1. Add three permissions:
+           - OpenId
+             - OpenId
+             - Profile
+           - User
+             - User.Read
+        1. Also select **Grant Admin consent**:
 
-$json = @'
-{
-    "passwordCredentials": [
-    {
-        "customKeyIdentifier": null,
-        "endDate": "2022-07-30T19:12:51.3058279Z",
-        "value": "<STORAGEACCOUNTPASSWORD>",
-        "startDate": "2020-07-30T19:15:51.3058279Z"
-    }]
-}
-'@ 
-
-$json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
-
-$Headers = @{
-        'authorization' = "Bearer $($Token)"
-    }
-
-try {
-    Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json
-    Write-Host "Success: Password is set for $storageAccountName"
-} catch {
-    Write-Host $_.Exception.ToString()
-    Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value
-    Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
-}
-
-
-viii)	 Set the API permissions on the newly created application.
-1.	Go to Azure Portal -> Azure Active Directory -> App registrations -> All Applications
-2.	Find the application with the name matching your storage account.
-3.	Add three permissions:
-a.	OpenId
-i.	OpenId
-ii.	Profile
-b.	User
-i.	User.Read
-4.	Also select “Grant Admin consent” as seen below.
+           ![Screenshot showing how to grant Admin consent](media\how-to-kerberos-authentication-azure-files\consent.png)
  
 2.	Create a file share under the storage account
 You can create a file share under the storage account through Portal or PSH below. 
