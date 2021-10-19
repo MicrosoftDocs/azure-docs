@@ -1315,8 +1315,8 @@ items:
       - name: Use the scoring wizard for dedicated SQL pools
         displayName: score model
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-      - name: PREDICT score in Synapse spark using model registered in AML/ADLS
-        displayName: predict score, Synapse spark, model registered in AML/ADLS
+      - name: PREDICT score in Synapse spark using model registered in AML or ADLS
+        displayName: predict score, Synapse spark, model registered in AML or ADLS
         href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
       - name: With Cognitive Services
         items:
