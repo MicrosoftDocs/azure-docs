@@ -35,10 +35,10 @@ The following table describes the different device properties in the device inve
 | **Device name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
 | **Device subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
 | **Device Type** | The type of device, such as communication, and industrial. | Miscellaneous |
-| **First seen** | The date and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
 | **IP Address** | The IP address of the device. | - |
-| **Last Activity** | The date and time the device was last seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **Last update time** | The date and time the device was last updated. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **Last Activity** | The date, and time the device last sent an event to the cloud.. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
+| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
 | **MAC Address** | The MAC address of the device. | - |
 | **OS architecture** | The architecture of the operating system. | - |
 | **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
