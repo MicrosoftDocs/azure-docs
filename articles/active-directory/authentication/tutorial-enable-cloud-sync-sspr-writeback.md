@@ -34,10 +34,7 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
   - The recommended execution policy during installation is "RemoteSigned". 
   - For more information about setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy.md?view=powershell-7.1). 
 
-<!---Is this note right? From Jessan demo--->  
 
->[!NOTE]
->Cloud sync only supports password hash synchronizion for new customers. Pass-through authentication isn't supported.  
 
 ## Deployment steps
 
@@ -68,7 +65,7 @@ You'll need to set the following permissions for password writeback:
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
-<!---Optional for preview, will be done automatically for GA... how is optional?--->
+<!---For preview, will be done automatically for GA... how is optional?--->
 
 For public preview, you can enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
 
