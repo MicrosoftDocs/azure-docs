@@ -292,6 +292,10 @@
     items:               
     - name: Deploy the control plane
       href: automation-deploy-control-plane.md
+  - name: Configuration
+    items:               
+    - name: Configure the control plane
+      href: automation-configure-control-plane.md
   - name: About SAP system deployment
     href: automation-system-deployment.md
   - name: About workload zone deployment
@@ -310,12 +314,8 @@
     href: automation-run-from-linux.md
   - name: Run automation framework on Windows
     href: automation-run-from-windows.md
-  - name: Configure deployer
-    href: automation-configure-deployer.md
   - name: Configure SAP system
     href: automation-configure-system.md
-  - name: Configure SAP Library
-    href: automation-configure-library.md
   - name: About naming conventions
     href: automation-naming.md
   - name: Configure custom naming
