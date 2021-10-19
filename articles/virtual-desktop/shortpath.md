@@ -51,7 +51,7 @@ To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line o
 
 - Make sure the remote client machines must be running either Windows 10 or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, non-Windows clients aren't supported.
 - Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
-* [Site-to-Site VPN (IPsec based)](../vpn-gateway/tutorial-site-to-site-portal.md)
+- Use a [Site-to-Site virtual private network (VPN) (IPsec-based)](../vpn-gateway/tutorial-site-to-site-portal.md)
 - Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Public IP address assignment](../virtual-network/virtual-network-public-ip-address.md)
 
