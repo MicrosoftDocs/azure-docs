@@ -19,7 +19,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 |-|-|
 | Fault Provider | N/A |
 | Supported OS Types | N/A |
-| Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (e.g. waiting for auto-healing to occur before injecting another fault). |
+| Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example, waiting for auto-healing to occur before injecting another fault). |
 | Prerequisites | N/A |
 | Urn | urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed |
 | duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
@@ -52,7 +52,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
 | pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 ```json
@@ -93,7 +93,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -129,7 +129,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:virtualMemoryPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -160,12 +160,12 @@ Known issues on Linux:
 | Capability Name | DiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
-| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it is injected for the duration of the fault action. This fault has 5 different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it is injected for the duration of the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the PressureModes in the table below. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Pressure modes
 
@@ -206,13 +206,13 @@ Known issues on Linux:
 | Capability Name | LinuxDiskIOPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Linux |
-| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For details on how pressure is applied please see https://wiki.ubuntu.com/Kernel/Reference/stress-ng . |
+| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For details on how pressure is applied see https://wiki.ubuntu.com/Kernel/Reference/stress-ng. |
 | Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng* |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting this to 0 will generate as many worker processes as there are number of processors. |
-| fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in (b)ytes, (k)ilobytes, (m)egabytes, or (g)igabytes (e.g. 4m for 4 megabytes, 256g for 256 gigabytes) |
-| blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in (b)ytes, (k)ilobytes, or (m)egabytes (e.g. 512k for 512 kilobytes) |
+| fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4m for 4 megabytes, 256g for 256 gigabytes) |
+| blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example, 512k for 512 kilobytes) |
 
 ### Sample JSON
 
@@ -244,7 +244,7 @@ Known issues on Linux:
 }
 ```
 
-## Arbitrary Stress-ng stressor
+## Arbitrary Stress-ng stress
 
 | Property | Value |
 |-|-|
@@ -291,7 +291,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
 | serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names are not supported. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -326,8 +326,8 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
 | Parameters (key, value) |  |
-| dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, these are defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY) it is converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it is defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missingm they are defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it is converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it is defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -364,7 +364,7 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | processName | Name of a process running on a VM (without the .exe) |
 | killIntervalInMilliseconds | Amount of time the fault will wait in between successive kill attempts in milliseconds. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -404,7 +404,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
 | Parameters (key, value) |  |
 | hosts | Delimited JSON array of host names to fail DNS lookup request for. |
-| dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For additional details on DNS return codes please visit [here](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
+| dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
 
 ### Sample JSON
 
@@ -434,10 +434,8 @@ Known issues on Linux:
 
 ### Limitations
 
-* The Windows Chaos Studio Agent must be 1.0.01685.227 (released on 08/12/21) or *newer*.
-  * To update the Chaos Studio Agent simply re-run the [Install the Chaos Agent](https://pppdocs.azurewebsites.net/ChaosEngineering/Onboarding/create_experiment_agent_fault.html#install-the-chaos-agent) adding **--force-update** at the end of the **az vm extension set** command.
 * The DNS Failure fault requires Windows 2019 RS5 or newer.
-* DNS Cache will be ignored during the duration of the fault for the host names defined in the fault. *NOTE: Ignoring the DNS cache will be a optional feature in a future release*
+* DNS Cache will be ignored during the duration of the fault for the host names defined in the fault.
 
 ## Network latency
 
@@ -447,7 +445,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
 | Description | Increases network latency for a specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
@@ -456,7 +454,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -492,7 +490,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
 | Description | Blocks outbound network traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 3. |
@@ -500,7 +498,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -534,8 +532,8 @@ Known issues on Linux:
 | Capability Name | NetworkDisconnectViaFirewall-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows |
-| Description | Applies a Windows firewall rule to block outbound traffic for specified port range range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension it is run as administrator by default. |
+| Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 3. |
@@ -543,7 +541,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a VMSS |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -577,7 +575,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the VM should be shutdown gracefully or abruptly (destructive). |
+| abruptShutdown | (Optional) Boolean indicating if the VM should be shut down gracefully or abruptly (destructive). |
 
 ### Sample JSON
 
@@ -608,12 +606,12 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a VMSS VM for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. VMSS VMs are supported as are Service Fabric VMs. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the VMSS instance should be shutdown gracefully or abruptly (destructive). |
-| instances | An array of VMSS instance IDs to which the fault will be applied. |
+| abruptShutdown | (Optional) Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
+| instances | An array of virtual machine scale set instance IDs to which the fault will be applied. |
 
 ### Sample JSON
 
@@ -647,7 +645,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:cosmosDB:failover/1.0 |
 | Parameters (key, value) |  |
-| readRegion | The read region that should be promoted to write region during the failover, e.g. "East US 2" |
+| readRegion | The read region that should be promoted to write region during the failover, for example, "East US 2" |
 
 ### Sample JSON
 
@@ -681,7 +679,7 @@ Known issues on Linux:
 | Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/1.0 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/networkchaos_experiment). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc). |
+| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/networkchaos_experiment). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
 
 ### Sample JSON
 
@@ -715,7 +713,7 @@ Known issues on Linux:
 | Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/1.0 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [PodChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/podchaos_experiment#pod-failure-configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc). |
+| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [PodChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/podchaos_experiment#pod-failure-configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
 
 ### Sample JSON
 
@@ -745,11 +743,11 @@ Known issues on Linux:
 |-|-|
 | Capability Name | StressChaos-1.0 |
 | Target type | Microsoft-AzureKubernetesServiceChaosMesh |
-| Description | Causes a stress fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/stresschaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents due to stresses over a collection of pods, e.g. due to high CPU or memory consumption. |
+| Description | Causes a stress fault available through [Chaos Mesh](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/stresschaos_experiment) to run against your AKS cluster. Useful for recreating AKS incidents due to stresses over a collection of pods, for example, due to high CPU or memory consumption. |
 | Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/1.0 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [StressChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/stresschaos_experiment#configuration). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc). |
+| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [StressChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/stresschaos_experiment#configuration). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
 
 ### Sample JSON
 
@@ -783,7 +781,7 @@ Known issues on Linux:
 | Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/1.0 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [IOChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/iochaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc). |
+| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [IOChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/iochaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
 
 ### Sample JSON
 
@@ -817,7 +815,7 @@ Known issues on Linux:
 | Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/1.0 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [TimeChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/timechaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc). |
+| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [TimeChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/timechaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
 
 ### Sample JSON
 
@@ -851,7 +849,7 @@ Known issues on Linux:
 | Prerequisites | The AKS cluster must [have version 1.2.3 or earlier of Chaos Mesh deployed and have AKS-managed AAD disabled](./Onboarding/create_experiment_aks.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/1.0 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [KernelChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/kernelchaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc). |
+| jsonSpec | A JSON-formatted and escaped [Chaos Mesh spec](https://chaos-mesh.org/docs/user_guides/run_chaos_experiment#step-2-define-the-experiment-configuration-file) that uses the [KernelChaos kind](https://chaos-mesh.org/docs/1.2.3/chaos_experiments/kernelchaos_experiment#configuration-file). You can use a [YAML-to-JSON converter like this one](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it, and use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the "jsonSpec" property (do not include metadata, kind, etc.). |
 
 ### Sample JSON
 
@@ -881,14 +879,14 @@ Known issues on Linux:
 |-|-|
 | Capability Name | SecurityRule-1.0 |
 | Target type | Microsoft-NetworkSecurityGroup |
-| Description | Enables manipulation or creation of a rule in an existing Azure Network Security Group or set of Azure Network Security Groups (assuming the rule definition is applicable cross security groups). Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that is expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking, or allowing, network traffic where Chaos Agent can not be deployed. |
+| Description | Enables manipulation or creation of a rule in an existing Azure Network Security Group or set of Azure Network Security Groups (assuming the rule definition is applicable cross security groups). Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that is expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking, or allowing, network traffic where Chaos Agent cannot be deployed. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that will be created. The fault will fail if another rule already exists on the NSG with the same name. Must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | An array of CIDR formatted IP addresses. Can also be a service tag name for an inbound rule, e.g. "AppService". Asterisk '*' can also be used to match all source IPs. |
-| destinationAddresses | An array of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, e.g. "AppService". Asterisk '*' can also be used to match all destination IPs. |
+| sourceAddresses | An array of CIDR formatted IP addresses. Can also be a service tag name for an inbound rule, for example, "AppService". Asterisk '*' can also be used to match all source IPs. |
+| destinationAddresses | An array of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, for example, "AppService". Asterisk '*' can also be used to match all destination IPs. |
 | action | Security group access type. Must be either Allow or Deny |
 | destinationPortRanges | An array of single ports and/or port ranges, such as 80, 1024-65535, or an asterisk (*) to allow traffic on any port. |
 | sourcePortRanges | An array single ports and/or port ranges, such as 80, 1024-65535, or an asterisk (*) to allow traffic on any port. |
@@ -953,7 +951,7 @@ Known issues on Linux:
 ### Limitations
 
 * The fault can only be applied to an existing Network Security Group.
-* When an NSG rule that is intended to deny traffic is applied existing connections will not be broken until they have been **idle** for 4 minutes. One way to work around this is by adding another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
+* When an NSG rule that is intended to deny traffic is applied existing connections will not be broken until they have been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
 * Rules are applied at the start of the action. Any external changes to the rule during the duration of the action will cause the experiment to fail.
 * Creating or modifying Application Security Group rules is not supported.
 * Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another will cause the experiment to fail.
@@ -964,13 +962,13 @@ Known issues on Linux:
 |-|-|
 | Capability Name | Reboot-1.0 |
 | Target type | Microsoft-AzureClusteredCacheForRedis |
-| Description | Causes a forced reboot operation to occur on the target to simulate an brief outage. |
+| Description | Causes a forced reboot operation to occur on the target to simulate a brief outage. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0 |
 | Fault type | Discrete |
 | Parameters (key, value) |  |
 | rebootType | The node types where the reboot action is to be performed which can be specified as PrimaryNode, SecondaryNode or AllNodes.  |
-| shardId | The Id of the shard to be rebooted.  |
+| shardId | The ID of the shard to be rebooted.  |
 
 ### Sample JSON
 
@@ -999,5 +997,5 @@ Known issues on Linux:
 
 ### Limitations
 
-* As this is fault causes a forced reboot to better simulate an outage event there is the potential for data loss to occur.
-* This is the first **discrete** fault type - this means it is a one-time action and therefore has no duration.
+* The reboot fault causes a forced reboot to better simulate an outage event, which means there is the potential for data loss to occur.
+* The reboot fault is a **discrete** fault type. Unlike continuous faults, it is a one-time action and therefore has no duration.
