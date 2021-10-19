@@ -57,7 +57,7 @@ Following steps describe Server trust group edit process.
 
 Following section describes Server trust group deletion process. 
 1. Go to the Azure portal.
-2. Navigate to a Managed Instance that belongs to the trust group.
+2. Navigate to a Managed Instance that belongs to the SQL trust group.
 3. On the **Security** settings select the **SQL trust groups** tab.
 4. Select the trust group you want to delete.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Select SQL trust group":::
