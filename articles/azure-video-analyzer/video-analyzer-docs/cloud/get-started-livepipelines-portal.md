@@ -25,7 +25,7 @@ The steps outlined in this document apply to cameras that are made accessible ov
 
 ## Sample Architecture - Recording video from a camera over the internet
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/public-camera-to-cloud-livepipeline-arch.png" alt-text="Diagram of a sample architecture of a public camera video feed integrating with Video Analyzer's live pipeline that captures videos on the cloud.":::
+> :::image type="content" source="./media/public-camera-to-cloud-live-pipeline-arch.png" alt-text="Diagram of a sample architecture of a public camera video feed integrating with Video Analyzer's live pipeline that captures videos on the cloud.":::
 
 ## RTSP camera
 
@@ -42,24 +42,25 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 > Please note that this RTSP camera simulator endpoint is exposed over the internet, and hence will be accessible to anyone who knows the RTSP URL.
 
 **Deployment steps:**
-1. Deploy a standard D2 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
+1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, dont have to install web server in linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
 1. Enable inbound connections for RTSP protocol. In the Azure portal, open the management pane for the Linux VM you created above.
-1. Click on Networking - you will see the blade open to the inbound port rules for the network security group (NSG) that was created for you to support inbound SSH connections.
-1. Click on Add inbound port rule to add a new one
-1. In the pane that opens up, change Destination port ranges to 554. Choose a Name for the rule, such as "RTSP". Keep all other values as default. See [here](../../../virtual-machines/windows/nsg-quickstart-portal.md) for more details.
-1. Install docker on the VM using instructions [here](https://docs.docker.com/engine/install/ubuntu/)
+    1. Click on Networking - you will see the blade open to the inbound port rules for the network security group (NSG) that was created for you to support inbound SSH connections.
+    1. Click on Add inbound port rule to add a new one
+    1. In the pane that opens up, change Destination port ranges to 554. Choose a Name for the rule, such as "RTSP". Keep all other values as default. See [here](../../../virtual-machines/windows/nsg-quickstart-portal.md) for more details.
+1. Install docker on the VM using instructions [here](https://docs.docker.com/engine/install/ubuntu/), only follow the steps till verifying the Docker installation by running the ‘hello-world’ image.
 1. Connect to your VM, for example using SSH. From the terminal window, create a local folder such as 'localmedia' to host media files, this VM local folder will be used to map to RTSP mediaserver container.
 1. Copy an MKV file used to simulate the camera feed as follows:
 ```
 cd localmedia
 wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
 ```
-1. Download MKV file by using `wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv` command
-1. Start the RTSP server on the VM using the pre-built container image as follow
-    - `sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2`
+1. From the root directory, start the RTSP server on the VM using the pre-built container image as follow
+```    
+sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
+```
 1. Once the RSTP server is running, clients can now connect to it via an RTSP URL:
     - Go the 'Overview' page of your VM in Azure portal, and note down the value of 'Public IP address'
-    - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv
+    - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
 
 ## Create Azure resources
 
@@ -107,7 +108,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Is in use** as pipeline is active and recording.
 1. After a few seconds, select the video, and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/camera1800smkv.PNG" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+> :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
 
 > [!NOTE]
 > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect, and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.

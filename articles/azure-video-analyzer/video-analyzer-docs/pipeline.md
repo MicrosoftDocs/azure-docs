@@ -24,7 +24,7 @@ Pipelines let you ingest, process, and publish video within Azure Video Analyzer
 
 A pipeline topology enables you to describe how live video or [recorded videos](terminology.md#recording) should be processed and analyzed for your custom needs through a set of interconnected nodes. Video analyzer supports two kinds of topologies: live and batch. Live topologies, as the name suggests, are used with live video from cameras. Batch topologies are used to process recorded videos.
 
-A pipeline supports different types of nodes:
+**Pipeline** supports different types of nodes:
 
 * **Source nodes** enable capturing of data into the pipeline. Data refers to audio, video, and/or metadata.
 * **Processor nodes** enable processing of media within the pipeline.
