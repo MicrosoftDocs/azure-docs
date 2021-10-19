@@ -63,6 +63,7 @@ You can look at the logs and understand more about the resource based on the sou
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Azure Firewall Workbook investigation":::
 
+
 ## Next steps
 
 - Learn more about [Azure Firewall Diagnostics](firewall-diagnostics.md)
