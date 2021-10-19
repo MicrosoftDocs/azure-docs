@@ -10,6 +10,8 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom:
   - devx-track-java
   - devx-track-javaee
+  - devx-track-javaee-liberty
+  - devx-track-javaee-liberty-aro
 ---
 
 # Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster

@@ -3,7 +3,7 @@ title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your domain to your Decentralized Identifier (DID)
+# Link your domain to your Decentralized Identifier (DID) (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.

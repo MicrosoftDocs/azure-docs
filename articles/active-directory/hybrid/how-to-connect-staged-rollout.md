@@ -93,6 +93,8 @@ The following scenarios are not supported for staged rollout:
 
 - If you have a Windows Hello for Business hybrid certificate trust with certs that are issued via your federation server acting as Registration Authority or smartcard users, the scenario isn't supported on a staged rollout. 
 
+- Autopilot enrollment is not supported in Staged rollout. Users enabled for Staged rollout will continue using federated authentication at autopilot enrollment time. If your device has Windows 10 version 1903 or later, after autopilot enrollment, all auth requests will go through Staged rollout. 
+
   >[!NOTE]
   >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md) and [Migrate from federation to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md).
   

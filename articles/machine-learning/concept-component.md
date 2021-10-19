@@ -13,7 +13,7 @@ ms.topic: conceptual
 ---
 # What is an Azure Machine Learning component (preview)?
 
-An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see Create and run machine learning pipelines with the Azure Machine Learning CLI). Components can do tasks such as data processing, model training, model scoring, and so on.
+An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see [Create and run machine learning pipelines with the Azure Machine Learning CLI](how-to-create-component-pipelines-cli.md)). Components can do tasks such as data processing, model training, model scoring, and so on.
 
 A component is analogous to a function - it has a name, parameters, expects input, and returns output. For more information on creating a component, see [create a component](#define-a-component-preview).
 
@@ -25,7 +25,7 @@ Components let you manage and reuse common logic across pipelines.
 
 - **Share and reuse**: Components are automatically shared with users in the same workspace. You can reuse components across pipelines, environments, workspaces, and subscriptions. Built-in version-tracking lets you keep track of changes and reproduce results.
 
-- **CLI support**: Use components to create pipelines in either the CLI 2.0.
+- **CLI support**: Use components to create pipelines in the CLI (v2).
 
 
 ## Define a component (preview)
@@ -157,9 +157,9 @@ model = f"This is a dummy model with id: {str(uuid4())} generated at: {curtime}\
 
 ## Create a component
 
-### Create a component using CLI 2.0
+### Create a component using CLI (v2)
 
-After you define your component specification and Python script files, and [install CLI 2.0 successfully](how-to-configure-cli.md) successfully, you can create the component in your workspaces using:
+After you define your component specification and Python script files, and [install CLI (v2) successfully](how-to-configure-cli.md) successfully, you can create the component in your workspaces using:
 
 ```azurecli
 az ml component create --file my_component.yml --version 1 --resource-group my-resource-group --workspace-name my-workspace
@@ -179,11 +179,11 @@ You can create a component in **Components** page in the studio UI.
 
 ## Use components to build ML pipelines
 
-You can use the Azure CLI 2.0 to create a pipeline job. See Create and run ML pipelines (CLI).
+You can use the Azure CLI (v2) to create a pipeline job. See [Create and run ML pipelines (CLI)](how-to-create-component-pipelines-cli.md).
 
 ## Manage components
 
-You can check component details and manage the component using CLI 2.0. Use `az ml component -h` to get detailed instructions on component command.
+You can check component details and manage the component using CLI (v2). Use `az ml component -h` to get detailed instructions on component command.
 
 ### List components
 
@@ -217,5 +217,5 @@ You can also select a component and archive it.
 ## Next steps
 
 - [Component YAML reference](reference-yaml-component-command.md)
-- Create and run ML pipelines (CLI)
+- [Create and run ML pipelines (CLI)](how-to-create-component-pipelines-cli.md)
 - [Build machine learning pipelines in the designer](tutorial-designer-automobile-price-train-score.md)

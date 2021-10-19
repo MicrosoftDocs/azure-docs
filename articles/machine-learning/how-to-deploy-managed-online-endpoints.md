@@ -299,7 +299,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 > The above is an example of inplace rolling update: i.e. the same deployment is updated with the new configuration, with 20% nodes at a time. If the deployment has 10 nodes, 2 nodes at a time will be updated. For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
 ### (Optional) Configure autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see "How to autoscale online endpoints."
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [How to autoscale online endpoints](how-to-autoscale-endpoints.md).
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
@@ -341,7 +341,7 @@ To learn more, review these articles:
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- How to autoscale managed online endpoints
+- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
