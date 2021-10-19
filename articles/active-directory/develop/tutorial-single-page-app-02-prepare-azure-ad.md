@@ -29,8 +29,7 @@ Follow the steps in this tutorial to:
 
  ## Prerequisites 
 
-
-
+[!INCLUDE [prepare azure AD](includes/single-page-app/tutorials/02-prepare-azure-ad.md)]
 
 ## Next steps
 

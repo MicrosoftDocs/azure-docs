@@ -32,6 +32,9 @@ Follow the steps in this tutorial to:
 
 
 
+[!INCLUDE [prepare app](includes/single-page-app/tutorials/01-prepare-app.md)]
+
+
 ## Next steps
 
 Move on to the next article in this tutorial series: 

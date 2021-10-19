@@ -31,7 +31,7 @@ Follow the steps in this tutorial to:
  
 ## Prerequisites 
  
-
+[!INCLUDE [Sign in users](includes/single-page-app/tutorials/03-sign-in-users.md)]
 
 
 

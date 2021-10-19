@@ -30,6 +30,7 @@ Follow the steps in this tutorial to:
 ## Prerequisites 
 
 
+[!INCLUDE [sign out users](includes/single-page-app/tutorials/06-sign-out-users.md)]
 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

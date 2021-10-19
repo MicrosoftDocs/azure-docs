@@ -31,7 +31,7 @@ Want to call your API instead? skip to the [call a Web API](tutorial-single-page
 ## Prerequisites
 
 
-
+[!INCLUDE [Call MS Graph API](includes/single-page-app/tutorials/04-call-graph-api.md)]
 
 ## Next steps
 
