@@ -39,6 +39,11 @@ If you don't have an Azure subscription, [create a free account before you begin
    :::image type="content" source="media/tutorial-spark-pool-pandas-usage/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
 
 
+> [!NOTE]
+> - Pandas feature is supported on **Python 3.8** and **Spark3** serverless Apache Spark pool in Azure Synapse Analytics. 
+> - Support available for following versions: Pandas 1.2.3, FSSPEC 2021.10.0, ADLFS 0.7.7
+> - Have capabilities to support both Azure Data Lake Storage Gen2 URI (abfs[s]://file_system_name@account_name.dfs.core.windows.net/file_path) and FSSPEC short URL (abfs[s]://container_name/file_path)
+
 
 ## Sign in to the Azure portal
 

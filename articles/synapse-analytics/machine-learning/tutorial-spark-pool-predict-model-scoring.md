@@ -68,14 +68,14 @@ Please make sure all prerequisites are in place before following below steps for
 
 ```PYSPARK
    # Set input data path
-   DATA_FILE = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<file path>"
+   DATA_FILE = "abfss://<filesystemname>@<account name>.dfs.core.windows.net/<file path>"
 
    # Set model URI
        # Set AML URI, if trained model is registered in AML
           AML_MODEL_URI = "<aml model uri>" #In URI ":x" signifies model version in AML. You can choose which model version you want to run. If ":x" is not provided then by default latest version will be picked.
 
        # Set ADLS URI, if trained model is uploaded in ADLS
-          ADLS_MODEL_URI = "abfss://<filesystemname>@<account name>.dfs.windows.cor.net/<model mlflow folder path>"
+          ADLS_MODEL_URI = "abfss://<filesystemname>@<account name>.dfs.core.windows.net/<model mlflow folder path>"
 
    # Define model return type
    RETURN_TYPES = "<data_type>" # for ex: int, float etc. PySpark data types are supported
