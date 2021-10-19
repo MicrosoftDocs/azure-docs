@@ -57,7 +57,7 @@ The provided sample dataset contains TBD
 
 ## Create a conversational NER project
 
-Once your resource and storage container are configured, create a new conversational NER project. A project is a work area for building your conversational AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+Once your resource and storage container are configured, create a new conversational NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
 > [!NOTE]
 > The project name is case sensitive for all operations.
@@ -329,7 +329,7 @@ Once you send the request, you will get the following response.
 }
 ```
 
-## Start custom entity recognition task
+## Send an entity recognition request to the runtime API
 
 Now that your model is deployed, you can begin sending entity recognition tasks to it 
 

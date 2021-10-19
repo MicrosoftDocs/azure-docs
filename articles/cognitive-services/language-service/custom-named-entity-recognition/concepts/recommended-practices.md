@@ -39,7 +39,7 @@ As a prerequisite for creating a conversational NER project, your training data 
 * [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
 
-You can only use `.txt`. files for conversational text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
+You can only use `.txt`. files this feature. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
 
 You can upload an annotated dataset, or you can upload an unannotated dataset and [tag your data](../how-to/tag-data.md) in Language studio.
 
