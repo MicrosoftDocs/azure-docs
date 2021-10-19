@@ -80,7 +80,7 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
 
 1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Underneath that is a list of the Resource Manager virtual networks in all other regions. Select the VNet you want to integrate with.
 
-    :::image type="content" source="./media/functions-networking-options/vnet-int-add-function-app.png" alt-text="Select the VNet":::
+    :::image type="content" source="./media/functions-networking-options/vnet-int-add-vnet-function-app.png" alt-text="Select the VNet":::
 
     * The Functions Premium Plan only supports regional VNet integration. If the VNet is in the same region, either create a new subnet or select an empty pre-existing subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled. This is only supported for Dedicated plans.
@@ -140,7 +140,7 @@ Since subnet size can't be changed after assignment, use a subnet that's large e
 
 When you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing VNet Integration.
 
-The feature is fully supported for both Windows and Linux apps, including [custom containers](../articles/app-service/quickstart-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
+The feature is fully supported for both Windows and Linux apps, including [custom containers](../app-service/configure-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
 ### Service endpoints
 
@@ -277,5 +277,5 @@ To learn more about networking and Azure Functions:
 
 
 <!--Links-->
-[VNETnsg]: ../virtual-network/network-security-groups-overview.md/
+[VNETnsg]: ../virtual-network/network-security-groups-overview.md
 [privateendpoints]: ../app-service/networking/private-endpoint.md
