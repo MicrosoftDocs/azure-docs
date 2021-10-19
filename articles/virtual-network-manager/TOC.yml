@@ -8,6 +8,8 @@
   items:
   - name: Create Virtual Network Manager - Portal
     href: create-virtual-network-manager-portal.md
+  - name: Create Virtual Network Manager - PowerShell
+    href: create-virtual-network-manager-powershell.md
   expanded: true
 - name: Tutorials
   items:
