@@ -21,7 +21,7 @@ The prefix and suffix filter (if supplied) are used to filter folders. The prefi
 
 Glossaries / Translation memory can be included in the request and are applied by the service when the document is translated.
 
-If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists at the destination, it will be overwritten. The targetUrl for each target language must be unique.
+If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists in the destination, the job will fail. The targetUrl for each target language must be unique.
 
 ## Request URL
 

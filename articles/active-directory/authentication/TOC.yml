@@ -60,6 +60,8 @@
       href: multi-factor-authentication-faq.yml
   - name: Password protection
     items:
+    - name: Combined password policy check 
+      href: concept-password-ban-bad-combined-policy.md
     - name: Eliminate weak passwords in the cloud
       href: concept-password-ban-bad.md
     - name: Eliminate weak passwords on-premises

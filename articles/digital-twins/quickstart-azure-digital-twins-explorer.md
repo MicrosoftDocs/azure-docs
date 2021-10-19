@@ -40,10 +40,10 @@ The sample graph you'll be working with represents a building with two floors an
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer).
-* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name **Room.json**.
-* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
-* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): Navigate to the link and select the **Download** button. This will download the file to your default download location.
+You'll also need to download the materials for the sample graph used in the quickstart. Use the links and instructions below to download the three required files from the [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer). Later, you'll follow more instructions to upload them to Azure Digital Twins.
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): This is a model file representing a room in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file somewhere on your machine with the name **Room.json**.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): This is a model file representing a floor in a building. Navigate to the link, right-click anywhere on the screen, and select **Save as** in your browser's right-click menu. Use the following Save As window to save the file to the same location as **Room.json**, under the name **Floor.json**.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): This file contains a graph of room and floor twins, and relationships between them. Navigate to the link and select the **Download** button. This will download the file to your default download location.
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Screenshot of the digital-twins-explorer/client/examples/buildingScenario.xlsx file in GitHub. The Download button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
@@ -86,9 +86,9 @@ This will open an Azure Digital Twins Explorer window connected to your instance
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Screenshot of Azure Digital Twins Explorer in an internet browser." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-## Add the sample data
+## Upload the sample materials
 
-Next, you'll import the sample scenario and graph into Azure Digital Twins Explorer. The sample scenario is located in the **digital-twins-explorer-main** folder you downloaded in the [Prerequisites](#prerequisites) section.
+Next, you'll import the sample models and graph into Azure Digital Twins Explorer. You'll use the model files and the graph file that you downloaded to your machine in the [Prerequisites](#prerequisites) section.
 
 ### Models
 
@@ -107,9 +107,9 @@ For this quickstart, the model files are already written and validated for you. 
 * Floor
 * Room
 
-#### Upload models
+#### Upload the models (.json files)
 
-Follow these steps to upload models.
+Follow these steps to upload models (the *.json* files you downloaded earlier).
 
 1. In the **Models** panel, select the **Upload a Model** icon that shows an arrow pointing into a cloud.
 
@@ -143,9 +143,9 @@ In this section, you'll upload pre-created twins that are connected into a pre-c
 * Floor1
     - Contains Room1
 
-#### Import the graph
+#### Import the graph (.xlsx file)
 
-Follow these steps to import the graph.
+Follow these steps to import the graph (the *.xlsx* file you downloaded earlier).
 
 1. In the **Twin Graph** panel, select the **Import Graph** icon that shows an arrow pointing into a cloud.
 
@@ -157,13 +157,7 @@ Follow these steps to import the graph.
 
 3. To confirm the graph upload, select the **Save** icon in the upper-right corner of the graph preview panel.
 
-   :::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-   :::row-end:::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Save icon in the Graph Preview pane." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
 
 4. Azure Digital Twins Explorer will use the uploaded file to create the requested twins and relationships between them. A dialog box appears when it's finished. Select **Close**.
 

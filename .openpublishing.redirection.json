@@ -399,6 +399,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -1460,7 +1470,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-reference-sspr.md",
-      "redirect_url": "/azure/active-directory-b2c/user-flow-self-service-password-reset",
+      "redirect_url": "/azure/active-directory-b2c/add-password-reset-policy",
       "redirect_document_id": true
     },
     {
@@ -5899,6 +5909,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
+      "redirect_url": "/azure/storage/common/storage-account-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
@@ -6676,11 +6691,6 @@
     {
       "source_path_from_root": "/articles/mobile-apps/concepts/azure-maps.md",
       "redirect_url": "/azure/developer/mobile-apps/azure-maps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
-      "redirect_url": "/azure/azure-maps/quick-demo-map-app",
       "redirect_document_id": false
     },
     {
@@ -46491,6 +46501,11 @@
     {
       "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md",
       "redirect_url": "/azure/app-service/environment/using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
+      "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
       "redirect_document_id": false
     }
   ]

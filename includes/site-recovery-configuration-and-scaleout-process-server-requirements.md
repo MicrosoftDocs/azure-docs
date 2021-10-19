@@ -71,6 +71,9 @@ VMware vSphere PowerCLI | Not required for versions 9.14 and higher
 MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
 |
 
+> [!NOTE]
+> Upgrading MySql on the configuration server is not supported.
+
 ## Sizing and capacity requirements
 
 The following table summarizes capacity requirements for the configuration server. If you're replicating multiple VMware VMs, review the [capacity planning considerations](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) and run the [Azure Site Recovery Deployment Planner tool](../articles/site-recovery/site-recovery-deployment-planner.md).

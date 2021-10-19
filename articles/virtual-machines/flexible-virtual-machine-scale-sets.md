@@ -6,12 +6,12 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 08/11/2021
+ms.date: 10/13/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Flexible orchestration for virtual machine scale sets in Azure
+# Preview: Flexible orchestration for virtual machine scale sets in Azure
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
@@ -33,6 +33,10 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
+> [!IMPORTANT]
+> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below. 
+> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.

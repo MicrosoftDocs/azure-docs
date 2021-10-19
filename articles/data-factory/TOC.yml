@@ -981,6 +981,8 @@ items:
         href: connector-troubleshoot-dynamics-dataverse.md
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Hive
+        href: connector-troubleshoot-hive.md  
       - name: Oracle
         href: connector-troubleshoot-oracle.md
       - name: ORC format
