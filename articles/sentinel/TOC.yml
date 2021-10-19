@@ -117,7 +117,7 @@
       expanded: true
       items:
       - name: Amazon Web Services CloudTrail
-        href: connect-aws.md
+        href: connect-aws-s3.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Azure Defender

@@ -50,6 +50,11 @@ This graphic and the following text shows how the parts of this connector soluti
 
 To simplify the onboarding process, Azure Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3/ConfigAwsConnector.ps1) of the AWS S3 connector and the required AWS resources, credentials, and permissions.
 
+The script takes the following actions:
+- Creates an *Assumed Role* with minimal permissions, to grant Azure Sentinel access to your logs in a designated S3 bucket & SQS of your choice
+- Enables VPC Flow logs on virtual private clouds (VPCs) of your choice to a specified S3 bucket and messages to a specified SQS Queue
+- Configures and applies some mandatory IAM policies.
+
 1. In Azure Sentinel, select **Data connectors** and then select the **Amazon Web Services S3** line in the table and in the AWS pane to the right,  select **Open connector page**.
 
 1. In the **Configuration** section, under **1. Setup AWS Environment**, expand **Enable by PowerShell script** and download and run the appropriate scripts from the connector page.
@@ -61,11 +66,37 @@ To simplify the onboarding process, Azure Sentinel has provided a [PowerShell sc
 
 ## Manual setup
 
+
+
 ### Publishing AWS service logs to an S3 bucket
 
-#### VPC
 
-#### GuardDuty
+
+#### AWS Virtual Private Cloud (VPC)
+
+VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your virtual private cloud.
+
+1. [Create a flow log that publishes to Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html#flow-logs-s3-create-flow-log).
+
+    > [!NOTE]
+    > If you choose to customize the logs format, include the *start* attribute as it defines the time generated field in the Log Analytics workspace. Otherwise, we will fill the time generated field value with the record ingested time which isn’t the right time of the log.
+
+1. [Give your IAM user sufficient permissions to publish flow logs to the Amazon S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html#flow-logs-s3-permissions).
+
+1. Verify that logs are being sent to the S3 bucket and that you have messages in the designated SQS, then [configure the connector](#connector-configuration).
+
+
+#### AWS GuardDuty
+
+1. [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
+
+#### AWS CloudTrail
+
+
+
+### Create a Simple Queue Service (SQS) in AWS
+
+
 
 ### Enable SQS notification
 
