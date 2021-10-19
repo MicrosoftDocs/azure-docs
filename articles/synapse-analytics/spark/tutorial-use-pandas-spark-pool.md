@@ -50,7 +50,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 
-## Read/Write data using default Azure Data Lake Storage Gen2 of Synapse workspace
+## Read/Write ADLS data
 
 Pandas can read/write ADLS data by specifying the file path directly.
 
@@ -87,7 +87,7 @@ Run the following code.
       data.to_csv('abfs[s]://container_name/file_path')
    ```
 
-## Read/Write data using secondary Azure Data Lake Storage Gen2 account
+## Read/Write data using secondary ADLS account
 
 Pandas can read/write secondary ADLS account data:
    - using linked service (with authentication options - storage account key, service principal, manages service identity and credentials).

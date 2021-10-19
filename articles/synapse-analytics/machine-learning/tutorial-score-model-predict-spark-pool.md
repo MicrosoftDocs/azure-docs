@@ -45,7 +45,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 
-## Use PREDICT in Synapse PySpark notebook for MLFLOW packaged models
+## Use PREDICT for MLFLOW packaged models
 
 Make sure all prerequisites are in place before following these steps for using PREDICT.
 
@@ -195,7 +195,7 @@ Make sure all prerequisites are in place before following these steps for using 
       tranformer.transform(df).show()
    ```
 
-## Sklearn linear regression end to end example for using PREDICT
+## Sklearn example using PREDICT
 
 1. Import libraries and read the training dataset from ADLS.
 
