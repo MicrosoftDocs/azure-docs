@@ -253,52 +253,48 @@ Follow these instructions to set up Azure files.
 
            ![Screenshot showing how to grant Admin consent](media\how-to-kerberos-authentication-azure-files\consent.png)
  
-2.	Create a file share under the storage account
-You can create a file share under the storage account through Portal or PSH below. 
+1. Create a file share under the storage account. You can create a file share under the storage account by using the Azure portal or Powershell. 
 
+   ```powershell
+   New-AzRmStorageShare -StorageAccount $storageAccountName -Name “<your-share-name-here>” -QuotaGiB 1024 | Out-Null
+   ```
 
- New-AzRmStorageShare -StorageAccount $storageAccountName -Name “<your-share-name-here>” -QuotaGiB 1024 | Out-Null
+1. Configure RBAC permissions on the file share:
+   1. There are three Azure built-in roles for granting share-level permissions to users:
+      - Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB.
+      - Storage File Data SMB Share Contributor allows read, write, and delete access in Azure Storage file shares over SMB.
+      - Storage File Data SMB Share Elevated Contributor allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
+   1. To assign an Azure role to an Azure AD identity, using the Azure portal, follow these steps:
+      1. In the Azure portal, go to your file share.
+      1. Select **Access Control (IAM)**.
+      1. Select **Add a role assignment**.
+      1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the Role list. Leave Assign access to the default setting: Azure AD user, group, or service principal. Select the target Azure AD identity by name or email address. **The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity.** This means that the same identity is also represented in AD DS.
+      1. Select Save to complete the role assignment operation.
+   1. Detailed information (including PowerShell and CLI options) located here: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-assign-permissions
 
+1. Mount the file share. From a command-line window, mount as the user:
 
+   ```cmd
+   net use <DriveLetter>: \\<your-storage-account-name>.file.core.windows.net\<your-share-name>
+   ```
 
-3.	Configure RBAC permissions on the file share:
-a)	There are three Azure built-in roles for granting share-level permissions to users:
-i)	Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB.
-ii)	Storage File Data SMB Share Contributor allows read, write, and delete access in Azure Storage file shares over SMB.
-iii)	Storage File Data SMB Share Elevated Contributor allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
-b)	To assign an Azure role to an Azure AD identity, using the Azure portal, follow these steps:
-i)	In the Azure portal, go to your file share.
-ii)	Select Access Control (IAM).
-iii)	Select Add a role assignment.
-iv)	In the Add role assignment blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the Role list. Leave Assign access to the default setting: Azure AD user, group, or service principal. Select the target Azure AD identity by name or email address. The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity. This means that the same identity is also represented in AD DS.
-v)	Select Save to complete the role assignment operation.
-c)	Detailed information (including PowerShell and CLI options) located here: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-assign-permissions
+1. Configure Windows File and Directory ACLs (permissions)
+   1. Using Windows Explorer
+      1. To use Windows Explorer for permission management, your client should allow RPC call over the internet, and support LDAP to Active Directory Domain Controller. If not, you can consider option b with icacls.
+      1. Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
+      1. Open Windows File Explorer and right click on the file/directory and select Properties.
+      1. Select the Security tab.
+      1. Select “Edit..” to change permissions.
+      1. You can change the permissions of existing users or select Add... to grant permissions to new users.
+      1. In the prompt window for adding new users, enter the target username you want to grant permissions to in the Enter the object names to select box, and select Check Names to find the full UPN name of the target user.
+      1. Select OK.
+      1. In the Security tab, select all permissions you want to grant your new user.
+      1. Select Apply.
 
-4.	Mount the file share
-a)	From a command-line window, mount as the user:
+    For more information, including instructions for using icacls cmd-line utility, see [Part three: configure directory and file level permissions over SMB](/storage/files/storage-files-identity-ad-ds-configure-permissions.md).
 
+## Validation Scenarios
 
-net use <DriveLetter>: \\<your-storage-account-name>.file.core.windows.net\<your-share-name>
-
-           
-
-5.	Configure Windows File and Directory ACLs (permissions)
-a)	Using Windows Explorer
-i)	To use Windows Explorer for permission management, your client should allow RPC call over the internet, and support LDAP to Active Directory Domain Controller. If not, you can consider option b with icacls.
-ii)	Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
-iii)	Open Windows File Explorer and right click on the file/directory and select Properties.
-iv)	Select the Security tab.
-v)	Select “Edit..” to change permissions.
-vi)	You can change the permissions of existing users or select Add... to grant permissions to new users.
-vii)	In the prompt window for adding new users, enter the target username you want to grant permissions to in the Enter the object names to select box, and select Check Names to find the full UPN name of the target user.
-viii)	Select OK.
-ix)	In the Security tab, select all permissions you want to grant your new user.
-x)	Select Apply.
-
- 
-b)	More information (including instructions for using icacls cmd-line utility): https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-configure-permissions
-
-8.	Validation Scenarios
 Validation Process
 Part 1: Validating share mount
 1.	The validation process will be to execute the following command from a command line
@@ -325,7 +321,8 @@ In section 7.2.7, there is a guide on how to configure file-level permissions to
 4.	Mount the share as the denied user.
 5.	Verify that they cannot access the file.  
 
-9.	Troubleshooting 
+## Troubleshooting 
+
 9.1.	Verify tickets are getting cached
 1.	klist get krbtgt/kerberos.microsoftonline.com <-- should return a ticket from on-prem realm.
 
@@ -348,12 +345,15 @@ Log collection for troubleshooting.
 2.	Use aka.ms/logsminer to search for traces.
 3.	Collect Windows ETL traces from client.
 
-10.	Feedback 
-Please collect Logs using FeedBack Hub to share any feedback or report any issues while logging into the client:
-1.	Open feedback hub and create a new feedback item.
-2.	Select the “Security and Privacy” category, and then the “Logging into Your PC” subcategory.
-3.	Click “Start capture” and reproduce the issue.  Monitoring persists across Logon/Logoff and reboots.
-4.	Return to Feedback Hub, click “Stop capture”, and submit your feedback.  If you already filed a ug and were asked to collect additional logs, please parent your new feedback to the existing bug.
+## Feedback 
 
-11.	Other References
+Please collect Logs using FeedBack Hub to share any feedback or report any issues while logging into the client:
+
+1. Open feedback hub and create a new feedback item.
+1. Select the **Security and Privacy** category, and then the **Logging into Your PC** subcategory.
+1. Click **Start capture** and reproduce the issue. Monitoring persists across Logon/Logoff and reboots.
+1. Return to Feedback Hub, click **Stop capture**, and submit your feedback. If you already filed a ug and were asked to collect additional logs, please parent your new feedback to the existing bug.
+
+## Next steps
+
 Migrate to Azure file shares | Microsoft Docs
