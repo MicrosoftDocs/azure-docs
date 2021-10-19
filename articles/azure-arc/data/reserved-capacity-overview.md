@@ -12,7 +12,7 @@ ms.date: 10/01/2021
 ---
 # Save costs for resources with reserved capacity - Azure Arc-enabled SQL Managed Instance
 
-Save money with Azure Arc-enabledSQL Managed Instance by committing to a reservation for compute resources compared to pay-as-you-go prices. With reserved capacity, you make a commitment for Azure Arc-enabled SQL Managed Instance use for a period of one or three years to get a significant discount on the compute costs. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
+Save money with Azure Arc-enabled SQL Managed Instance by committing to a reservation compared to pay-as-you-go prices. With reserved capacity, you make a commitment for Azure Arc-enabled SQL Managed Instance use for a period of one or three years to get a significant discount on the service fee. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 
 You do not need to assign the reservation to a specific database or managed instance. Matching existing deployments that are already running or ones that are newly deployed automatically get the benefit. By purchasing a reservation, you commit to usage for the compute costs for a period of one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. 
 
@@ -42,8 +42,6 @@ For example, **REPLACE EXAMPLE** let's suppose that you are running one general 
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the **Purchase Reservations** pane, select **SQL Database** to purchase a new reservation for SQL Database.
 4. Fill in the required fields. Existing databases in SQL Database and SQL Managed Instance that match the attributes you select qualify to get the reserved capacity discount. The actual number of databases or managed instances that get the discount depends on the scope and quantity selected.
-
-    ![Screenshot before submitting the reserved capacity purchase](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
 
     The following table describes required fields.
     
@@ -83,7 +81,7 @@ If you have questions or need help, [create a support request](https://portal.az
 
 The vCore reservation discount is applied automatically to the number of managed instances that match the capacity reservation scope and attributes. You can update the scope of the capacity reservation through the [Azure portal](https://portal.azure.com), PowerShell, Azure CLI, or the API.
 
-- For information on Azure SQL Managed Instance service tiers for the vCore model, see [vCore model overview - Azure SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md).
+- For information on Azure SQL Managed Instance service tiers for the vCore model, see [Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier](../../azure-sql/managed-instance/service-tiers-managed-instance-vcore.md)
 
 To learn how to manage the capacity reservation, see [manage reserved capacity](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
