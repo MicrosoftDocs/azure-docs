@@ -61,13 +61,11 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
             }
         },
         ```
-
     - In the `HostConfig` JSON object:
 
         ```JSON
         "NetworkMode": "host",
         ```
-
 1. Click **Update** at the bottom.
 1. Click **Review + create**.
 1. Click **Create**.
@@ -93,7 +91,6 @@ This direct method lists all the discoverable ONVIF devices on the same network 
     ```JSON
     onvifDeviceDiscover
     ```
-
 1. In the payload enter:
 
     ```JSON
@@ -145,15 +142,14 @@ The onvifDeviceGet call supports both unsecured and TLS enabled endpoints.  This
 
 # [UnsecuredEndpoint](#tab/unsecuredendpoint)
 
->[!NOTE]
->When the onvifDeviceGet call is made to an unsecured endpoint on an ONVIF enabled camera it is required to set the Video Edge module Identity Twin setting `"AllowUnsecuredEndpoints"` to `"True"`.  For more information see article [Module twin properties](./module-twin-configuration-schema.md).
+> [!NOTE]
+> When the onvifDeviceGet call is made to an unsecured endpoint on an ONVIF enabled camera it is required to set the Video Edge module Identity Twin setting `"AllowUnsecuredEndpoints"` to `"True"`.  For more information see article [Module twin properties](./module-twin-configuration-schema.md).
 
 1. In the method name enter:
 
     ```JSON
     onvifDeviceGet
     ```
-
 1. In the payload enter:
 
     ```JSON
@@ -178,7 +174,6 @@ The onvifDeviceGet call supports both unsecured and TLS enabled endpoints.  This
     ```JSON
     onvifDeviceGet
     ```
-
 1. In the payload enter:
 
     ```JSON
@@ -194,9 +189,9 @@ The onvifDeviceGet call supports both unsecured and TLS enabled endpoints.  This
         },
         "@apiVersion": "1.1"
     }
-    ```
 
 ---
+
 In the above payload:
 
 - `url` is the IP address of the camera you wish to get additional details from.
