@@ -3,7 +3,7 @@ title: "Storage: Performance best practices & guidelines"
 description: Provides storage best practices and guidelines to optimize the performance of your SQL Server on Azure Virtual Machine (VM).
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: dpless
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ---
 # Storage: Performance best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
