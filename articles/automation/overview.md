@@ -15,6 +15,8 @@ Automation is needed in three broad areas of cloud operations:
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
 
+There are several Azure services that can deliver the above requirements, where each service delivers a set of capabilities and serves a role as a programmable platform to build cloud solutions. For example, Azure Bicep and Resource Manager provide a language to develop repeatable and consistent deployment templates for Azure resources. Automation can process that template to deploy an Azure resource and then process a set of post-deployment configuration tasks.
+
 Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
 Automation gives you complete control during deployment, operations, and decommissioning of enterprise workloads and resources.
@@ -59,7 +61,7 @@ Azure Automation consists of a set of shared resources that make it easier to au
 * **[Schedules](./shared-resources/schedules.md)** - Trigger Automation operations at predefined times.
 * **[Modules](./shared-resources/modules.md)** - Manage Azure and other systems. You can import modules into the Automation account for Microsoft, third-party, community, and custom-defined cmdlets and DSC resources.
 * **[Modules gallery](automation-runbook-gallery.md)** - Supports native integration with the PowerShell Gallery to let you view runbooks and import them into the Automation account. The gallery allows you to quickly get started integrating and authoring your processes from PowerShell gallery and Microsoft Script Center.
-* **[Python 2 packages](python-packages.md)** - Support Python 2 runbooks for your Automation account.
+* **[Python 2 and 3 packages](python-packages.md)** - Support Python 2 and 3 runbooks for your Automation account.
 * **[Credentials](./shared-resources/credentials.md)** - Securely store sensitive information that runbooks and configurations can use at runtime.
 * **[Connections](automation-connections.md)** - Store name-value pairs of common information for connections to systems. The module author defines connections in runbooks and configurations for use at runtime.
 * **[Certificates](./shared-resources/certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime.
@@ -89,6 +91,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Share knowledge** - Transfer knowledge into the system on how your organization delivers and maintains workloads.
 * **Retrieve inventory** - Get a complete inventory of deployed resources for targeting, reporting, and compliance.
 * **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
+* **Respond to alerts** - Orchestrate a response when cost-based, system-based, service-based, and/or resource utilization alerts are generated.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
