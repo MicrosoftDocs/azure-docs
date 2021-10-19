@@ -44,32 +44,29 @@ You can securely connect to an Azure Storage account by using an SFTP client, an
     
    In the **Preview features** page of your subscription, locate the **AllowSFTP** feature, and then make sure that **Registered** appears in the **State** column.
 
-## Add a local user
+## Add local users
 
-A local user is a blah. To learn more about local users, see [Local users](secure-file-transfer-protocol-support.md#local-users). 
+Local users are a new form of identity management designed to secure connections from SFTP clients. To connect an SFTP client to an Azure Storage endpoint, the client must provide the password or SSH public key associated with a local user. To learn more about local users, see [Local users](secure-file-transfer-protocol-support.md#local-users). 
+
+This section helps you to configure a local user, choose an authentication method, and set permissions on containers and directories. Repeat the steps in this section for each local user that you want to add.
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
-2. Select **SFTP**.
+2. Select **SFTP**, and then in the SFTP configuration page, select **Add local user**. 
 
    > [!div class="mx-imgBorder"]
-   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-option.png)
+   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-local-user-config.png)
 
-   The SFTP configuration page appears.
-
-2. To add a local user, select **Add local user**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Add local user](./media/secure-file-transfer-protocol-support-how-to/add-local-user.png)
-
-3. In the **Add local user** configuration page, add the name of a user. Then, in the **SFTP endpoint secure access method** section, select which methods of authentication you'd like associate with this local user. 
+3. In the **Add local user** configuration page, add the name of a user, and then select which methods of authentication you'd like associate with this local user. 
 
    > [!div class="mx-imgBorder"]
    > ![Local user configuration page](./media/secure-file-transfer-protocol-support-how-to/add-local-user-configuration-page.png)
 
    If you select **Secure with a password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration page.
 
-   If you select **Secure with SSH public key**, then select **Add key source** to specify a key. You can generate a new key pair, use an existing key stored in Azure, or specify an existing public key.  To learn more about these options, see [Authentication methods](secure-file-transfer-protocol-support.md#authentication-methods).
+   If you select **Secure with SSH public key**, then select **Add key source** to specify a key. 
+
+   You can generate a new key pair, use an existing key stored in Azure, or specify an existing public key.  To learn more about these options, see [Authentication methods](secure-file-transfer-protocol-support.md#authentication-methods).
 
 4. Select **Next** to move to the **Container permissions** tab of the configuration page.
 
@@ -88,22 +85,17 @@ A local user is a blah. To learn more about local users, see [Local users](secur
 
    If you choose to generate a new key pair, then you'll be prompted to download the private key of that key pair.
 
-## Enable SFTP
-
-To enable SFTP support for your storage account by using the Azure portal, follow these steps:
+## Enable SFTP support
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
-2. Select **SFTP**.
+2. Select **SFTP**, and then select **Enable SFTP**.
 
    > [!div class="mx-imgBorder"]
-   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-option.png)
+   > ![SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable.png)
 
-   The SFTP configuration page appears.
-
-3. If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Add a local user](#add-a-local-user) section of this article.
-
-4. Select **Enable SFTP**.
+   >[!NOTE]
+   > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Add a local user](#add-local-users) section of this article.
 
 ## Connect to Azure Blob Storage and transfer data
 
