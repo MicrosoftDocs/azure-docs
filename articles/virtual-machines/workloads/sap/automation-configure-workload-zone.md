@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Workload zone deployment in SAP automation framework
 
-# Workload zone deployment configuration
+## Workload zone deployment configuration
 
 The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 

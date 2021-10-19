@@ -29,7 +29,7 @@ The workload zones are typically deployed in spokes in a hub and spoke architect
 Supports the Private DNS from the Control Plane.
 
 
-### Minimal configuration
+## Core configuration
 
 The following example parameter file shows only required parameters.
 
@@ -59,10 +59,6 @@ app_subnet_address_prefix="10.110.32.0/19"
 automation_username="azureadm"
 
 ```
-
-### Comprehensive example
-
-A comprehensive sample can be found in the ´sap-hana/deploy/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE´ folder
 
 ## Deploy SAP workload zone
 
