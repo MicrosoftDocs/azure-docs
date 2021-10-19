@@ -21,13 +21,13 @@ Across Microsoft, we're focused on empowering developers to build better apps, f
 
 We're centered around developers, both as individuals working in teams and organizations, and as members of developer communities.  
 
-GitHub is one of the largest developer communities. For millions of developers around the world, their GitHub identity has become a critical aspect of their digital life. Recognizing that, we’re excited to announce improvements that help GitHub users get started more easily with our developer services, including Monthly Azure Credits for Visual Studio Subscribers.  
+GitHub is one of the largest developer communities. For millions of developers around the world, their GitHub identity is a critical aspect of their digital life. Recognizing that, we’re excited to announce improvements that help GitHub users get started with our developer services, including Monthly Azure Credits for Visual Studio Subscribers.  
 
 ## Your GitHub credentials can now log you in to Microsoft services  
 
 We're enabling developers to sign in with their existing GitHub account to Microsoft online services. Using your GitHub credentials, you can sign in via OAuth anywhere a personal Microsoft account does, including Azure Credit Subscriptions and Visual Studio.  
 
-After signing into GitHub and authorizing the Microsoft application, you'll get a new Microsoft account that is linked to your GitHub identity. During this process, you'll also be able to link to an existing Microsoft account if you have one.  
+After signing into GitHub and authorizing the Microsoft application, you'll get a new Microsoft account that is linked to your GitHub identity. During this process, you can also link to an existing Microsoft account if you have one.  
 
 ## Sign in to Azure Credit Subscription  
 
@@ -59,7 +59,7 @@ When authenticating with those services, you can find your GitHub account after 
 
 When you first use your GitHub account to sign in with Microsoft, GitHub will ask for permission to release your profile information.  
 
-If you agree, GitHub will share the email addresses on your GitHub account and profile information. We’ll use this data to check whether you have an account with us. We'll create an account if you don’t. Connecting your GitHub identity to a Microsoft identity does not give Microsoft access to your repositories in GitHub. Apps like Visual Studio will request access to your repositories if they need to work with your code. You’ll need to consent to that request separately.  
+If you agree, GitHub shares the email addresses on your GitHub account and profile information. We’ll use this data to check whether you have an account with us. We'll create an account if you don’t. Connecting your GitHub identity to a Microsoft identity doesn't give Microsoft access to your repositories in GitHub. Apps like Visual Studio will request access to your repositories if they need to work with your code. You’ll need to consent to that request separately.  
 
 While your GitHub account is used to log into your Microsoft account, they’re separate accounts. One account just uses the other as a login method. Changes you make to your GitHub account (like changing the password or enabling two-factor authentication) won’t change your Microsoft account or the other way around. Manage your GitHub and Microsoft identities in your [account management page](https://account.live.com/proofs/manage/). Just look under the Security tab.  
 
