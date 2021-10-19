@@ -16,7 +16,7 @@ ms.date: 10/06/2021
 The Purview policy authoring supports following capabilities:
 -   Data policy for Azure Storage to control access to data stored in Blob or ADLS Gen2 files
 
-\[**IMPORTANT**\] These capabilities are currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might
+> [!IMPORTANT] These capabilities are currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might
 not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -24,7 +24,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ### Using isolated subscription for preview
 
-\[**IMPORTANT**\] Given the sensitive nature of the functionality (centrally defined data access control), we require the preview to be evaluated in an isolated subscription. Microsoft will explicitly approve that subscription to enable the data policy functionality in Azure Purview and Azure Storage accounts.
+> [!IMPORTANT] Given the sensitive nature of the functionality (centrally defined data access control), we require the preview to be evaluated in an isolated subscription. Microsoft will explicitly approve that subscription to enable the data policy functionality in Azure Purview and Azure Storage accounts.
 
 ### Provision new accounts in the isolated subscriptions
 
