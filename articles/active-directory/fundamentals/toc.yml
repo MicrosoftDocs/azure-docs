@@ -116,13 +116,13 @@
     - name: Multi-tenant user management
       items:
       - name: Multi-tenant user management introduction
-      - href: multi-tenant-user-management-introduction.md
+        href: multi-tenant-user-management-introduction.md
       - name: Common scenarios
-      - href: multi-tenant-user-management-scenarios.md
+        href: multi-tenant-user-management-scenarios.md
       - name: Common considerations
-      - href: multi-tenant-common-considerations.md
+        href: multi-tenant-common-considerations.md
       - name: Common solutions
-      - href: multi-tenant-common-solutions.md
+        href: multi-tenant-common-solutions.md
     - name: Authentication and provisioning protocols
       items:
       - name: Overview
