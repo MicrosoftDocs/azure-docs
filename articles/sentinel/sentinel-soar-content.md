@@ -50,8 +50,284 @@ You can find SOAR integrations and their components in the following places:
 >    - Azure functions
 >    - Logic Apps HTTP calls
 
-##  Currently available SOAR content
+## Trying something here, instead of one big crowded table
 
+## Atlassian
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+## Crowdstrike
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Check Point
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Cisco
+
+### alternate 1 layout
+
+| Product | Cisco ASA | Cisco FirePower | Cisco ISE | Cisco Meraki | Cisco Umbrella |
+| --- | --- | --- | --- | --- | --- |
+| **Integration components** | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks |
+| **Supported by** | Community | Community | Microsoft | Community | Microsoft |
+| **Solution name** |  |  | Cisco ISE Solution |  | Cisco Umbrella Solution |
+| **Scenarios** | Block IPs | Block IPs and URLs |  | Block IPs | Block domains, policies management, destination lists management, enrichment, and investigation |
+
+### alternate 2 layout
+
+| Products | Integration components | Supported by | Solution name | Scenarios |
+| --- | --- | --- | --- | --- |
+| **Cisco ASA** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs | 
+| **Cisco FirePower** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs and URLs | 
+| **Cisco ISE** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco ISE Solution |  | 
+| **Cisco Meraki** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs | 
+| **Cisco Umbrella** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco Umbrella Solution | Block domains, policies management, destination lists management, enrichment, and investigation | 
+
+
+## F5
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Forcepoint
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Fortinet
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Freshdesk
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## HYAS
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## IBM
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Microsoft
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+| Products | Integration components | Supported by | Solution name | Scenarios |
+| --- | --- | --- | --- | --- |
+| **Azure DevOps** | <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Sync incidents | 
+| **Azure Firewall** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Azure Sentinel solution for Azure Firewall | Block IPs | 
+| **Azure AD Identity Protection** | <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Users enrichment, Users remediation | 
+| **Azure AD** | <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Users enrichment, Users remediation | 
+| **Azure Data Explorer** | Managed Logic Apps connector | Microsoft |  | Query and investigate | 
+| **Azure Log Analytics Data Collector** | Managed Logic Apps connector | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Query and investigate | 
+| **Microsoft Defender for Endpoint** |  <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Endpoints enrichment, isolate endpoints | 
+| **Microsoft Teams** |  <ul><li>Managed Logic Apps connector<li>Playbooks | <ul><li>Microsoft (connector)<li>Community (playbooks) |  | Notifications, Collaboration, create human involved responses | 
+
+
+## Okta
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Palo Alto
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Proofpoint
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Recorded Future
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## ReversingLabs
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## RiskIQ
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## ServiceNow
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Slack
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Virus Total
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## VMware
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Zendesk
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+## Zscaler
+
+| Attribute | Value | 
+| --- | --- | 
+| **Products** |  |
+| **Integration components** |  |
+| **Supported by** |  |
+| **Solution name** |  |
+| **Scenarios** |  |
+
+
+##  Currently available SOAR content
 
  | Vendor | Products | Integration components | Supported by | Solution name | Scenarios | 
  | --- | --- | --- | --- | --- | --- | 
