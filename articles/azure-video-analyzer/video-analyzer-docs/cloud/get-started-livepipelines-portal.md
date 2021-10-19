@@ -104,7 +104,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
         - **videoName** - Unique name for the target video resource to be recorded. Note: use a unique video resource for each camera (or MKV file)
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
     - Select live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
-1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. It’s status will indicate **Is in use** as pipeline is active and recording.
+1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Is in use** as pipeline is active and recording.
 1. After a few seconds, select the video, and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/camera1800smkv.PNG" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
