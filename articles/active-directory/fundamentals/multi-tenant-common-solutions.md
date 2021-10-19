@@ -106,7 +106,7 @@ To enable their guest users to access the same on-premises applications Admins i
 
 2. [Configure access to other applications](../external-identities/hybrid-cloud-to-on-premises.md#access-to-iwa-and-kcd-apps).
 
-3. Create on-premises guest users through [MIM](../external-identities/hybrid-cloud-to-on-premises.md#create-b2b-guest-user-objects-through-mim.) or [PowerShell](https://www.microsoft.com/en-us/download/details.aspx?id=51495).
+3. Create on-premises guest users through [MIM](../external-identities/hybrid-cloud-to-on-premises.md#create-b2b-guest-user-objects-through-mim) or [PowerShell](https://www.microsoft.com/en-us/download/details.aspx?id=51495).
 
 For more information about B2B collaboration, see
 
