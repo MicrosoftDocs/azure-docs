@@ -57,7 +57,7 @@ From the main question answering page in Language Studio you can:
        |Goal|Action|
        |--|--|
        |Add Source|You can add new sources and FAQ content to your project by selecting **Add source** > and choosing **URLs**, **Files**, or **Chitchat**|
-       |Delete Source|You can delete existing URLs selecting to the left of the source, which will cause a blue circle with a checkmark to appear > select the trash can icon. |
+       |Delete Source|You can delete existing sources by selecting to the left of the source, which will cause a blue circle with a checkmark to appear > select the trash can icon. |
        |Mark content as unstructured|If you want to mark the uploaded file content as unstructured select **Unstructured content** from the dropdown when adding the source.|
        |Auto-detect| Allow question and answering to attempt to determine if content is structured versus unstructured.|
 
