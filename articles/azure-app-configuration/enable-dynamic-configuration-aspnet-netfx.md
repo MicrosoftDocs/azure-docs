@@ -164,7 +164,7 @@ In this tutorial, you learn how to:
 
 ## Build and run the application
 
-1.Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation. 
+1. Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation.
 
     If you use the Windows command prompt, run the following command:
     ```console
