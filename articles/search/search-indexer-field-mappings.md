@@ -83,7 +83,7 @@ A source field can be referenced in multiple field mappings. The following examp
 
 You can define field mappings in the .NET SDK using the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class, which has the properties "SourceFieldName" and "TargetFieldName", and an optional "MappingFunction" reference.
 
-You can specify field mappings when constructing the indexer, or later by directly setting the `Indexer.FieldMappings` property.
+You can specify field mappings when constructing the indexer, or later by directly setting [SearchIndexer.FieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.fieldmappings).
 
 The following C# example sets the field mappings when constructing an indexer.
 
