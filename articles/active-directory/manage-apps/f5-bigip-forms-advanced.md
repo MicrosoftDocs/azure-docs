@@ -56,7 +56,8 @@ performing forms-based SSO to the backend application.
 | 2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
 | 3. | SAML IdP authenticates user and applies any enforced CA policies.|
 | 4. | Azure AD redirects user back to SAML SP with issued token and claims. |
-| 5. | APM prompts for application password and stores in cache. | 6. |  BIG-IP request to application receives login form.
+| 5. | APM prompts for application password and stores in cache. | 
+| 6. |  BIG-IP request to application receives login form.|
 | 7. | APM scripting responds filling in username and password before submitting form.|
 | 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking for cookie or redirect  URI. |
 
@@ -221,7 +222,7 @@ Select **Access** > **Single Sign-on** > **Forms Based** > **Create** and provid
  |:-----|:-------|
  |Name | An SSO APM object can be reused by other published applications, so use a descriptive name for the config. For example, `Contoso\FBA\sso`|
  | Use SSO Template | None |
- |Username Source | The preferred username source for pre-filling the password collection form. Any APM session variable can be used but the default `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN |
+ |Username Source | The preferred username source for pre-filling the password collection form. Any APM session variable can be used but the default  `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN |
  | Password Source | Leave the default `session.sso.token.last.password` as that's the APM variable the BIG-IP will use to cache the password provided by users |
 
  ![Sceenshot shows new sso configuration](./media/f5-bigip-forms-advanced/new-sso-configuration.png)
