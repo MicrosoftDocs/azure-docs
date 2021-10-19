@@ -62,8 +62,11 @@ The following example configuration shows the options available when setting up 
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | |
-| `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1` or `2`. |
-| `resources.memory` | The amount of RAM allocated to the container. | During preview, this value is `500mb`. Each [replica](overview.md) is assigned the amount of memory defined here. |
+| `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: any decimal number (with no more than one decimal place), greater than zero, and up to `2`. For example, `1.1` is valid, but `1.55` is invalid. (default: 1 cpu per container)|
+| `resources.memory` | The amount of RAM allocated to the container. | During preview, this value is up to `4Gi`. The only allowed united are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Each [replica](overview.md) is assigned the amount of memory defined here. (default: 2) |
+
+Total amount of CPUs allocated for all the containers in a container app must add up to one of...
+
 
 ## Multiple containers
 
