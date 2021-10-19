@@ -100,7 +100,7 @@ Depending on your requirements, one or more of the following Azure services inte
 * [Azure Monitor](../azure-monitor/overview.md) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
 * [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
 
-These Azure services can invoke an Automation runbook using the HTTP webhook trigger:
+These Azure services can invoke an Automation runbook using an HTTP webhook or API method:
 
 * [Azure Logic Apps](/connectors/built-in.md)
 * [Azure Power Apps](/connectors/azureautomation.md)
