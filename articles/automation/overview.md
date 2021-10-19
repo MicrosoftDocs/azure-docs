@@ -15,13 +15,13 @@ Automation is needed in three broad areas of cloud operations:
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
 
-There are several Azure services that can deliver the above requirements, where each service delivers a set of capabilities and serves a role as a programmable platform to build cloud solutions. For example, Azure Bicep and Resource Manager provide a language to develop repeatable and consistent deployment templates for Azure resources. Automation can process that template to deploy an Azure resource and then process a set of post-deployment configuration tasks.
-
 Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, update management, shared capabilities, and heterogeneous features.
 
-Automation gives you complete control during deployment, operations, and decommissioning of enterprise workloads and resources.
-
 :::image type="content" source="./media/overview/automation-overview.png" alt-text="Diagram of Automation capabilities" border="true":::
+
+There are several Azure services that can deliver the above requirements, where each service includes a set of capabilities and serves a role as a programmable platform to build cloud solutions. For example, Azure Bicep and Resource Manager provide a language to develop repeatable and consistent deployment templates for Azure resources. Azure Automation can process that template to deploy an Azure resource and then process a set of post-deployment configuration tasks.
+
+Automation gives you complete control during deployment, operations, and decommissioning of enterprise workloads and resources.
 
 ## Process Automation
 
