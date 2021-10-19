@@ -96,7 +96,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | third-party Javascripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
+| **Steps** | Third-party Javascripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
 
 ## <a id="ui-defenses"></a>Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses
 
@@ -107,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combating click-jacking With X-Frame-Options](/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) |
-| **Steps** | <p>click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
+| **Steps** | <p>Click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
 
 ### Example
 The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippet for sites that should never be framed: 
