@@ -63,8 +63,9 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
     ```
 1. Once the RSTP server is running, clients can now connect to it via an RTSP URL:
 
-- Go the 'Overview' page of your VM in Azure portal, and note down the value of 'Public IP address'
-    - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
+    - Go the 'Overview' page of your VM in Azure portal, and note down the value of 'Public IP address'
+    
+        - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
 
 ## Create Azure resources
 
