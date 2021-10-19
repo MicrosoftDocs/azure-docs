@@ -11,7 +11,12 @@ ms.author: cshoe
 
 # Azure Container Apps overview
 
-Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices.
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
+
+- Deploying API endpoints
+- Hosting background processing applications
+- Handling event-driven processing
+- Running microservices
 
 Applications built on Azure Container Apps can dynamically scale based on the following characteristics:
 
@@ -22,7 +27,7 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 
 :::image type="content" source="media/overview/azure-container-apps-example-scenarios.png" alt-text="Azure Container Apps: Example scenarios":::
 
-Azure Container Apps is an unopinionated service that allows you to develop applications based on your own programming model. Your containers are not required to use any specific base container image or reference specific libraries or SDKs. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps is an unopinionated service that allows you to develop applications based on your own programming model. Your containers are not required to use any specific base container image, or reference any specific libraries or SDKs. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 With Azure Container Apps, you can:
 
