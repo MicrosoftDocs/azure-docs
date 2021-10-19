@@ -79,14 +79,9 @@ items:
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
-      href: how-to-troubleshoot-front-error.md
+      href: how-to-troubleshoot-front-end-error.md
 - name: Reference
   expanded: true
   items:
   - name: Rest API reference
-    href: overview.md
-- name: Resources
-  expanded: true
-  items:
-  - name: Samples
-    href: overview.md
+    href: /rest/api/servicelinker

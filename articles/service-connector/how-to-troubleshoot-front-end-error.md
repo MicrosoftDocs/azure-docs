@@ -17,7 +17,7 @@ If you come across an issue, you can refer to the error message to find suggeste
 | Error message | Suggested Action |
 | --- | --- |
 | Unknown resource type | <ul><li>Check source and target resource to verify whether the service types are supported by Service Connector.</li><li>Check whether the specified source-target connection combination is supported by Service Connector.</li></ul> |
-| Unknown resource type | <ul><li>Check whether the target resource exists.</li><li>Check the correctness of the target resource id.</li></ul> |
+| Unknown resource type | <ul><li>Check whether the target resource exists.</li><li>Check the correctness of the target resource ID.</li></ul> |
 | Unsupported resource | <ul><li>Check whether the authentication type is supported by the specified source-target connection combination.</li></ul> |
 
 ### Error type，Error message and suggested actions using Azure CLI
@@ -27,9 +27,9 @@ If you come across an issue, you can refer to the error message to find suggeste
 
 | Error message | Suggested Action |
 | --- | --- |
-| The source resource id is invalid: `{SourceId}` | <ul><li>Check whether the source resource id supported by Service Connector.</li><li>Check the correctness of source resource id.</li></ul> |
-| Target resource id is invalid: `{TargetId}` | <ul><li>Check whether the target service type is supported by Service Connector.</li><li>Check the correctness of target resource id.</li></ul> |
-| Connection id is invalid: `{ConnectionId}` | <ul><li>Check the correctness of the connection id.</li></ul> |
+| The source resource ID is invalid: `{SourceId}` | <ul><li>Check whether the source resource ID supported by Service Connector.</li><li>Check the correctness of source resource ID.</li></ul> |
+| Target resource ID is invalid: `{TargetId}` | <ul><li>Check whether the target service type is supported by Service Connector.</li><li>Check the correctness of target resource ID.</li></ul> |
+| Connection ID is invalid: `{ConnectionId}` | <ul><li>Check the correctness of the connection ID.</li></ul> |
 
 
 ### RequiredArgumentMissingError

@@ -25,7 +25,7 @@ landingContent:
           - text: What is Service Connector?
             url: overview.md
           - text: Key concepts in Service Connector
-            url: overview.md
+            url: concept-service-connector-internals.md
 
   # Card
   - title: Get started
@@ -33,24 +33,24 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create new service connection in App Service
-            url: overview.md
+            url: quickstart-portal-app-service-connection.md 
           - text: Create new service connection in Spring Cloud
-            url: overview.md
+            url: quickstart-portal-spring-cloud-connection.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
         links:
           - text: Python (Django) app with PostgreSQL
-            url: overview.md
-          - text: Spring Cloud app with Cosmos DB
-            url: overview.md
-          - text: PLACEHOLDER
-            url: overview.md
-          - text: PLACEHOLDER
-            url: overview.md
+            url: tutorial-django-webapp-postgres-cli.md
+          - text: Spring Cloud app with MySQL
+            url: Spring Cloud app with MySQL
+          - text: ASP.NET app with Blob Storage
+            url: tutorial-csharp-webapp-storage-cli.md
+          - text: Spring Cloud app with Kafka on Confluent Cloud
+            url: tutorial-java-spring-confluent-kafka.md
       - linkListType: how-to-guide
         links:
-          - text: Manage a service connection
-            url: overview.md
-          - text: Supported service types
-            url: overview.md
+          - text: Troubleshooting guide
+            url: how-to-troubleshoot-front-end-error.md
+          - text: Region support
+            url: concept-region-support.md
