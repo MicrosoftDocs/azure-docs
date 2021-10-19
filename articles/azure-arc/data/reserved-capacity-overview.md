@@ -29,7 +29,7 @@ For more information about how enterprise customers and pay-as-you-go customers 
 
 The size of reservation should be based on the total amount of compute resources measured in vCores used by the existing or soon-to-be-deployed managed instances within a specific region reservation scope.
 
-For example, you run one general purpose, 16 vCore managed instance. Further, you plan to deploy within the next month an additional general purpose 16 vCore managed instance and one business critical 32 - vCore. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case, you should purchase a 32 (2x16) vCores 1-year reservation for general purpose managed instance and 48 ( 2x8 + 32 ) vCore 1 year reservation for business critical.
+The following list demonstrates a scenario to project how you would reserve resources: 
 
 * **Current**: 1 general purpose, 16 vCore managed instance
 
@@ -37,7 +37,7 @@ For example, you run one general purpose, 16 vCore managed instance. Further, yo
   - 1 additional general purpose, 16 vCore managed instance
   - 1 additional business critical, 32 vCore managed instance
 
-* **Purchase a reservations for:
+* **Purchase a reservations for**:
   - 32 (2x16) vCore 1-year reservation for general purpose managed instance
   - 48 (2x8 + 32) vCore 1 year reservation for business critical managed instance 
 
