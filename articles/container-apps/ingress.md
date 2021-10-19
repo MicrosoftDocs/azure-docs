@@ -44,10 +44,10 @@ The following settings are available when configuring ingress:
 
 | Property | Description | Values | Required |
 |---|---|---|---|
-| `external` | Your ingress IP and fully qualified domain name can either be visible externally to the internet, or internally within a VNET. |<li>`true` for external visibility<li>`false` for internal visibility | Yes |
+| `external` | Your ingress IP and fully qualified domain name can either be visible externally to the internet, or internally within a VNET. |`true` for external visibility, `false` for internal visibility (default) | Yes |
 | `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
-| `transport` | You can use either HTTP/1.1 or HTTP/2, or you can set it to automatically detect the transport type. | <li>`http` for HTTP/1<li>`http2` for HTTP/2<li>`auto` to automatically detect the transport type (default) | No |
-| `allowInsecure` | If set to true, HTTP requests to port 80 are not automatically redirected to port 443 using HTTPS, allowing insecure connections. | `false` (default), `true` | No |
+| `transport` | You can use either HTTP/1.1 or HTTP/2, or you can set it to automatically detect the transport type. | `http` for HTTP/1, `http2` for HTTP/2, `auto` to automatically detect the transport type (default) | No |
+| `allowInsecure` | Allows insecure traffic to your container app. | `false` (default), `true`<br><br>If set to `true`, HTTP requests to port 80 are not automatically redirected to port 443 using HTTPS, allowing insecure connections. | No |
 
 > [!NOTE]
 > To disable ingress for your application, you can omit the `ingress` configuration property entirely.
@@ -67,7 +67,7 @@ You can get access to the environment's unique identifier by querying the enviro
 
 ### Get fully qualified domain name
 
-The `az containerapp show` command returns the fully qualified domain name of an application.
+The `az containerapp show` command returns the fully qualified domain name of a container app.
 
 ```azurecli
 az containerapp show \
