@@ -3,14 +3,14 @@ title: Single sign-on session management using custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to manage SSO sessions using custom policies in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/07/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

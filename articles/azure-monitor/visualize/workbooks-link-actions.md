@@ -3,9 +3,6 @@ title: Azure Monitor Workbooks link actions
 description: How to use link actions in Azure Monitor Workbooks
 ms.topic: conceptual
 ms.date: 01/07/2021
-
-author: lgayhardt
-ms.author: lagayhar
 ---
 
 # Link actions

@@ -112,7 +112,7 @@ The following headers are included with each Document Translator API request:
 * The `targetUrl` for each target language must be unique.
 
 >[!NOTE]
-> If a file with the same name already exists in the destination, it will be overwritten.
+> If a file with the same name already exists in the destination, the job will fail.
 
 <!-- markdownlint-disable MD024 -->
 ### Translate all documents in a container
