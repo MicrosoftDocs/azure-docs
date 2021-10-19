@@ -25,6 +25,7 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 02/2022 |
+| 10.5.2 | 10/2021 | 07/2022 |
 
 ## October 2021
 
