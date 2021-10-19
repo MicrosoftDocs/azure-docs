@@ -42,7 +42,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
 1. Enter your authentication credentials. Account key is currently supported authentication type. Select **Test connection** to verify your credentials are correct. Select **Create**.
 
-   :::image type="content" source="media/tutorial-spark-pool-filesystem-spec/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
+   :::image type="content" source="media/tutorial-spark-pool-filesystem-spec/create-adls-linked-service.png" alt-text="Screenshot of creating a linked service using an ADLS Gen2 storage access key.":::
 
 
 ## Read/Write data using storage account name and key
