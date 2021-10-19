@@ -22,7 +22,7 @@ This article explains the Azure Dev/Test offer.
 
 The offer is for individuals and enterprises implementing MLOps within their organization. Bring machine learning models into production in a secure and auditable production environment.
 
-Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Tools for application developers, integrate models into applications or services. Platform developers can build advaced ML tooling with a robust set of tools, backed by durable Azure Resource Manager APIs.
+Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Tools for application developers, integrate models into applications or services. Platform developers can build advanced ML tooling with a robust set of tools, backed by durable Azure Resource Manager APIs.
 
 Familiar security and role-based access control (RBAC) for infrastructure help Enterprises working in the Microsoft Azure cloud. You can set up a project to deny access to protected data and select operations.
 
