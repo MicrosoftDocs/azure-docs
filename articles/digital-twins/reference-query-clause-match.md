@@ -29,7 +29,7 @@ This clause is optional while querying.
 
 The **relationship condition** can include one or more of the following details:
 * [Relationship direction](#specify-relationship-direction) (left-to-right, right-to-left, or non-directional)
-* [Relationship type](#specify-relationship-type) (single type or a list of possibilities)
+* [relationship name](#specify-relationship-name) (single name or a list of possibilities)
 * [Number of "hops"](#specify-number-of-hops) from one twin to another (exact number or range)
 * [A query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties) to represent the relationship within the query text. This will also allow you to filter on relationship properties.
 
@@ -77,9 +77,9 @@ Use the relationship condition in the `MATCH` clause to specify a relationship d
 ### Syntax
 
 >[!NOTE]
-> The examples in this section focus on relationship direction. They don't specify relationship types, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship type](#specify-relationship-type), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
+> The examples in this section focus on relationship direction. They don't specify relationship names, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship name](#specify-relationship-name), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
-Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship type](#specify-number-of-hops). 
+Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship name](#specify-number-of-hops). 
 
 This section shows the syntax for different directions of relationships. The placeholder values that should be replaced with your values are `source_twin` and `target_twin`.
 
@@ -101,73 +101,73 @@ For a **non-directional** relationship, use the following syntax. This will not 
 ### Examples
 
 The first example shows a **left-to-right** directional traversal. This query finds twins *room* and *factory* where...
-* *room* targets *factory* (with any type of relationship)
+* *room* targets *factory* (with any name of relationship)
 * *room* has a temperature value that's greater than 50
 * *factory* has a `$dtId` of 'ABC'
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionLRExample":::
 
 The following example shows a **right-to-left** directional traversal. This query looks similar to the one above, but the direction of the relationship between *room* and *factory* is reversed. This query finds twins *room* and *factory* where...
-* *factory* targets *room* (with any type of relationship)
+* *factory* targets *room* (with any name of relationship)
 * *factory* has a `$dtId` of 'ABC'
 * *room* has a temperature value that's greater than 50
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionRLExample":::
 
 The following example shows a **non-directional** traversal. This query finds twins *room* and *factory* where...
-* *room* and *factory* share any type of relationship, going in either direction
+* *room* and *factory* share any name of relationship, going in either direction
 * *factory* has a `$dtId` of 'ABC'
 * *room* has a humidity value that's greater than 70
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionNDExample":::
 
-## Specify relationship type
+## Specify relationship name
 
-Optionally, you can use the relationship condition in the `MATCH` clause to specify types for the relationships between the twins. You can specify a single type, or a list of possible types. The optional relationship type is included as part of the [arrow syntax to specify relationship direction](#specify-relationship-direction).
+Optionally, you can use the relationship condition in the `MATCH` clause to specify names for the relationships between the twins. You can specify a single name, or a list of possible names. The optional relationship name is included as part of the [arrow syntax to specify relationship direction](#specify-relationship-direction).
 
-If you don't provide a relationship type, the query will include all relationship types by default.
+If you don't provide a relationship name, the query will include all relationship names by default.
 
 >[!TIP]
->Specifying relationship types in the query can improve performance and make results more predictable.
+>Specifying relationship names in the query can improve performance and make results more predictable.
 
 ### Syntax
 
 >[!NOTE]
-> The examples in this section focus on relationship type. They all show non-directional relationships, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
+> The examples in this section focus on relationship name. They all show non-directional relationships, they default to a single hop, and they don't assign query variables to the relationships. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction), [Specify number of hops](#specify-number-of-hops), and [Assign query variable to relationship](#assign-query-variable-to-relationship-and-specify-relationship-properties). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
-Specify the type of a relationship to traverse in the `MATCH` clause within square brackets (`[]`). This section shows the syntax of specifying typed relationships.
+Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`). This section shows the syntax of specifying named relationships.
 
-For a **single type**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_type`, and `twin_2`.
+For a **single name**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name`, and `twin_2`.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeSingleSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameSingleSyntax":::
 
-For **multiple possible types**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_type_option_1`, `relationship_type_option_2`, `twin_2`, and the note to continue the pattern as needed for the number of relationship types you want to enter.
+For **multiple possible names**, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name_option_1`, `relationship_name_option_2`, `twin_2`, and the note to continue the pattern as needed for the number of relationship names you want to enter.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeMultiSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameMultiSyntax":::
 
-(Default) To leave type **unspecified**, leave the brackets empty of type information, like this:
+(Default) To leave name **unspecified**, leave the brackets empty of name information, like this:
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeAllSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameAllSyntax":::
 
 ### Examples
 
-The following example shows a **single relationship type**. This query finds twins *building* and *sensor* where...
+The following example shows a **single relationship name**. This query finds twins *building* and *sensor* where...
 * *building* has a 'contains' relationship to *sensor* (going in either direction)
 * *building* has a `$dtId` of 'Seattle21'
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeSingleExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameSingleExample":::
 
-The following example shows **multiple possible relationship types**. This query looks similar to the one above, but there are multiple possible relationship types that are included in the result. This query finds twins *building* and *sensor* where...
+The following example shows **multiple possible relationship names**. This query looks similar to the one above, but there are multiple possible relationship names that are included in the result. This query finds twins *building* and *sensor* where...
 * *building* has either a 'contains' or 'isAssociatedWith' relationship to *sensor* (going in either direction)
 * *building* has a `$dtId` of 'Seattle21'
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeMultiExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameMultiExample":::
 
-The following example has **no specified relationship type**. As a result, relationships with any type will be included in the query result. This query finds twins *building* and *sensor* where...
-* *building* has a relationship to *sensor* with any type (and going in either direction)
+The following example has **no specified relationship name**. As a result, relationships with any name will be included in the query result. This query finds twins *building* and *sensor* where...
+* *building* has a relationship to *sensor* with any name (and going in either direction)
 * *building* has a `$dtId` of 'Seattle21'
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchTypeAllExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameAllExample":::
 
 ## Specify number of hops
 
@@ -181,7 +181,7 @@ If you don't provide a number of hops, the query will default to one hop.
 ### Syntax
 
 >[!NOTE]
->The examples in this section focus on number of hops. They all show non-directional relationships without specifying types. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship type](#specify-relationship-type). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
+>The examples in this section focus on number of hops. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-relationship-name). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
 Specify the number of hops to traverse in the `MATCH` clause within the square brackets (`[]`).
 
@@ -231,7 +231,7 @@ A useful result of doing this is the ability to filter on relationship propertie
 ### Syntax
 
 >[!NOTE]
->The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying types. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship type](#specify-relationship-type). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
+>The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-relationship-name). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
 To assign a query variable to the relationship, put the variable name in the square brackets (`[]`). The placeholder values shown below that should be replaced with your values are `twin_1`, `relationship_variable`, and `twin_2`.
 
@@ -249,15 +249,15 @@ You can combine multiple relationship conditions in the same query. You can also
 
 ### Syntax
 
-In a single query, you can combine [relationship direction](#specify-relationship-direction), [relationship type](#specify-number-of-hops), and **one** of either [number of hops](#specify-number-of-hops) or [a query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties).
+In a single query, you can combine [relationship direction](#specify-relationship-direction), [relationship name](#specify-number-of-hops), and **one** of either [number of hops](#specify-number-of-hops) or [a query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties).
 
 These syntax examples show how these attributes can be combined. You can also leave out any of the optional details shown in placeholders to omit that part of the condition.
 
-To specify **relationship direction, relationship type, and number of hops** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_type(s)`, and `number_of_hops`.
+To specify **relationship direction, relationship name, and number of hops** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_name(s)`, and `number_of_hops`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedHopsSyntax":::
 
-To specify **relationship direction, relationship type, and a query variable for the relationship** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_type(s)`.
+To specify **relationship direction, relationship name, and a query variable for the relationship** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_name(s)`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedVariableSyntax":::
 
@@ -270,18 +270,18 @@ You can **chain** multiple relationship conditions together, like this. The plac
 
 ### Examples
 
-Here's an example that combines **relationship direction, relationship type, and number of hops**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* meets these conditions:
+Here's an example that combines **relationship direction, relationship name, and number of hops**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* meets these conditions:
 * the relationship is left-to-right, with *floor* as the source and *room* as the target
-* the relationship has a type of either 'contains' or 'isAssociatedWith'
+* the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedHopsExample":::
 
-Here is an example that combines **relationship direction, relationship type, and a named query variable for the relationship**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
+Here is an example that combines **relationship direction, relationship name, and a named query variable for the relationship**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
 * the relationship is left-to-right, with *floor* as the source and *room* as the target
-* the relationship has a type of either 'contains' or 'isAssociatedWith'
+* the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship, which is given a query variable *r*, has a length property equal to 10
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
@@ -291,11 +291,11 @@ The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
 The following example illustrates **chained** relationship conditions. The query finds twins *floor*, *cafe*, and *room*, where...
 * the relationship between *floor* and *room* meets these conditions:
     - the relationship is left-to-right, with *floor* as the source and *cafe* as the target
-    - the relationship has a type of either 'contains' or 'isAssociatedWith'
+    - the relationship has a name of either 'contains' or 'isAssociatedWith'
     - the relationship, which is given query variable *r*, has a length property equal to 10
 * the relationship between *cafe* and *room* meets these conditions:
     - the relationship is right-to-left, with *room* as the source and *cafe* as the target
-    - the relationship has a type of either 'has' or 'includes'
+    - the relationship has a name of either 'has' or 'includes'
     - the relationship has up to 3 (so 1, 2, or 3) hops
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15' and twin *cafe* has a temperature of 55.
@@ -304,7 +304,7 @@ The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15' and 
 
 You can also use chained relationship conditions to express **bi-directional relationships**. The following query finds twins *floor* and *room*, where the relationship between *floor* and *room* is assigned to a query variable *r* and meets these conditions:
 * the relationship is bi-directional, so it goes from *floor* to *room* and also from *room* to *floor*
-* the relationship has a type of 'isAssociatedWith'
+* the relationship has a name of 'isAssociatedWith'
 * the relationship, given a variable name of *r*, has a length property of 10
 
 The query also specifies that twin *floor* has a `$dtId` of 'thermostat-15'.
