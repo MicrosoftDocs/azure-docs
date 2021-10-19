@@ -217,29 +217,27 @@ This covers the APM approach, which handles SSO directly to the backend applicat
 
 Select **Access** > **Single Sign-on** > **Forms Based** > **Create** and provide the following:
 
-- **Name** - An SSO APM object can be reused by other published applications, so use a descriptive name for the config. For example, `Contoso\FBA\sso`
-
-- **Use SSO Template**: None
-
-- **Username Source:** The preferred username source for
+ | Property | Description |
+ |:-----|:-------|
+ |Name | An SSO APM object can be reused by other published applications, so use a descriptive name for the config. For example, `Contoso\FBA\sso`|
+ | Use SSO Template | None |
+ |Username Source | The preferred username source for
      pre-filling the password collection form. Any APM session
-     variable can be used but the default `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN
+     variable can be used but the default `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN|
+ | Password Source | Leave the default `session.sso.token.last.password` as that's the APM variable the BIG-IP will use to cache the password provided by users |
 
-- **Password Source**: Leave the default `session.sso.token.last.password` as that's the APM variable the BIG-IP will use to cache the password provided by users
+ ![Sceenshot shows new sso configuration](./media/f5-bigip-forms-advanced/new-sso-configuration.png)
 
-  ![Sceenshot shows new sso configuration](./media/f5-bigip-forms-advanced/new-sso-configuration.png)
+| Property | Description |
+|:-----|:-------|
+| Start URI | The login URI of your FBA application. The APM form-based authentication will execute SSO when the request URI matches this URI value |
+| Form Actions | Leave blank so the original request URL is used for SSO |
+| Form Parameter for Username | The element name of your login forms' username field. User your browser's dev tools to determine this|
+| Form Parameter for Password | The element name of your login forms' password field. Same, use dev tools |
 
-- **Start URI:** The login URI of your FBA application. The APM form-based authentication will execute SSO when the request URI matches this URI value.
+ ![Sceenshot shows sso method configuration](./media/f5-bigip-forms-advanced/sso-method-configuration.png)
 
-- **Form Actions**: Leave blank so the original request URL is used for SSO
-
-- **Form Parameter for Username**: The element name of your login forms' username field. User your browser's dev tools to determine this.
-
-- **Form Parameter for Password**: The element name of your login forms' password field. Same, use dev tools.
-
-  ![Sceenshot shows sso method configuration](./media/f5-bigip-forms-advanced/sso-method-configuration.png)
-
-  ![Sceenshot shows contoso myvacation example](./media/f5-bigip-forms-advanced/contoso-example.png)
+ ![Sceenshot shows contoso myvacation example](./media/f5-bigip-forms-advanced/contoso-example.png)
 
 More details on configuring an APM for FBA SSO are available
 [here](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449).
@@ -314,12 +312,14 @@ Although optional, adding a LogonID_Mapping configuration enables the BIG-IP act
 
    ![Sceenshot shows add new entry field](./media/f5-bigip-forms-advanced/add-new-entry.png)
 
-4. Set both variables to use the following, then **Finished** >
-   **Save**.
+4. Set both variables to use the following: 
 
-   - **Custom Variable**: `session.logon.last.username`
+   | Property | Description |
+   |:-----|:-------|
+   |**Custom Variable**| `session.logon.last.username`|
+   |**Session Variable** |`session.saml.last.identity`|
 
-   - **Session Variable**: `session.saml.last.identity`
+   Then select **Finished** > **Save**.
 
 5. Commit those settings by selecting **Apply Access Policy** in the top left-hand corner and close the visual policy editor.
 
@@ -388,7 +388,7 @@ Consider a scenario where a BIG-IP web portal isn't used, the user has no way of
 One way of achieving this would be to add an SLO function to your
 applications sign out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. The SAML sign-out endpoint for your tenant can be found in **App Registrations** > **Endpoints**.
 
-If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in [article 1](https://support.f5.com/csp/article/K42052145) and [article 2]((https://support.f5.com/csp/article/K12056)) from F5.
+If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in [article K42052145](https://support.f5.com/csp/article/) and [article K12056](https://support.f5.com/csp/article/) from F5.
 
 ## Summary
 
