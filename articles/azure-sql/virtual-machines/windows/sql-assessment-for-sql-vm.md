@@ -2,7 +2,7 @@
 title: SQL Assessment for SQL Server VMs
 description: "Assess that your SQL Server VM is configured to follow best practices by using the SQL Assessments feature in the Azure portal." 
 author: ebruersan
-ms.author: ebru
+ms.author: ebrue
 ms.service: virtual-machines
 ms.topic: how-to 
 ms.date: 11/02/2021
@@ -13,7 +13,7 @@ ms.reviewer: mathoma
 # SQL Assessment for Azure SQL VM (Preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-The SQL Assessment feature of the Azure portal identifies possible performance issues and evaluates that your SQL Server on Azure Virtual Machines (VMs) is configured to follow best practices using the [rich ruleset](https://github.com/microsoft/sql-server-samples/blob/master/samples/manage/sql-assessment-api/DefaultRuleset.csv) provided by the [SQL Assessment API](sql/sql-assessment-api/sql-assessment-api-overview). 
+The SQL Assessment feature of the Azure portal identifies possible performance issues and evaluates that your SQL Server on Azure Virtual Machines (VMs) is configured to follow best practices using the [rich ruleset](https://github.com/microsoft/sql-server-samples/blob/master/samples/manage/sql-assessment-api/DefaultRuleset.csv) provided by the [SQL Assessment API](/sql/sql-assessment-api/sql-assessment-api-overview). 
 
 This feature is currently in preview.
 
@@ -44,7 +44,7 @@ To enable SQL Assessments, follow these steps:
 1. Select **Enable SQL Assessments** or **Configuration** to navigate to the **Configuration** page. 
 1. Check the **Enable SQL Assessments** box and provide the following:
     1. The [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) that assessments will be uploaded to. If the SQL Server VM has not been associated with a workspace previously, then choose an existing workspace in the subscription from the drop-down. Otherwise, the previously-associated workspace is already populated.  
-    1. The **Run schedule**. Choose either automatically, or on a schedule. If you choose a schedule, provide the frequency (weekly or monthly), day of week, recurrence (every 1-6 weeks), and the time of day your should assessments start (local to VM time). 
+    1. The **Run schedule**. Choose either automatically, or on a schedule. If you choose a schedule, provide the frequency (weekly or monthly), day of week, recurrence (every 1-6 weeks), and the time of day your assessments should start (local to VM time). 
 1. Select **Apply** to save your changes and deploy the Microsoft Monitoring Agent to your SQL Server VM if it's not deployed already. An Azure portal notification will tell you once the SQL Assessment feature is ready for your SQL Server VM. 
     
 
@@ -67,19 +67,7 @@ Once you click the Apply button, SQL Assessment and Microsoft Monitoring Agent w
 
 ## Assess SQL Server VM
 
-SQL Server assessments run during the scheduled interval, but can also be executed manually on demand. 
-
-**Run scheduled assessment**
-
-If you set a schedule in the configuration blade, an assessment runs automatically at the specified date and time. Choose **Configuration** to modify your assessment schedule. 
-
-**Run on demand assessment**
-
-After the SQL Assessment feature is enabled for your SQL Server VM, it's possible to run an assessment on demand. To do so, select **Run assessment** from the SQL Assessment blade of the [Azure portal SQL Server VM resource](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) page.
-
-## Assess SQL Server VM
-
-SQL assessments urn:
+Assessments run:
 - On a schedule
 - On demand
 
