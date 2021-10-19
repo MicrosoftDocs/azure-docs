@@ -152,8 +152,8 @@ The following example shows how to split traffic between three revisions.
 
 Each revision gets traffic based on the following rules:
 
-- 50% of the requests go REVISION1
-- 30% of the requests go REVISION2
+- 50% of the requests go to REVISION1
+- 30% of the requests go to REVISION2
 - 20% of the requests go to the latest revision
 
 The sum total of all revision weights must equal 100.
