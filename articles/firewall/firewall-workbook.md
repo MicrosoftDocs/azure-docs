@@ -51,6 +51,12 @@ This page provides an overview of the IDPS actions count for all traffic that ma
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-idps.png" alt-text="Azure Firewall Workbook idps log":::
 
+## Web Categories
+
+The web categories view  presents users's allow and deny access log information. The log summary provides insight based on web category severity as configured by the firewall administrator.
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategorylogs.png" alt-text="Azure Firewall Web Category Summary":::
+
 ## Investigations
 
 You can look at the logs and understand more about the resource based on the source IP address. You can get information like virtual machine name and network interface name. It's simple to filter to the resource from the logs.
