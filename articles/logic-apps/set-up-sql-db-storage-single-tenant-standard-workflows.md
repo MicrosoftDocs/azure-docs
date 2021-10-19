@@ -26,7 +26,7 @@ If you're new to logic apps, review the following documentation:
 
 ## Why use SQL
 
-As the first additional storage option for Azure Logic Apps, SQL provides the following benefits:
+As the first primary storage option for single-tenant Azure Logic Apps, SQL provides the following benefits:
 
 | Benefit | Description |
 |---------|-------------|

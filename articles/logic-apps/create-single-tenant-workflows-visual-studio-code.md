@@ -559,7 +559,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
-   1. Return to Visual Studio Code. from the workflow's overview page, copy the **Callback URL** property value.
+   1. Return to Visual Studio Code. From the workflow's overview page, copy the **Callback URL** property value.
 
    1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
 
@@ -947,7 +947,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. To view all the workflows in the logic app, expand your logic app, and then expand the node that's named **Workflows**.
+1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
 1. To view a specific workflow, open the workflow's shortcut menu, and select **Open in Designer**, which opens the workflow in read-only mode.
 
