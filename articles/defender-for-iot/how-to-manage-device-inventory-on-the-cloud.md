@@ -5,7 +5,7 @@ ms.date: 10/19/2021
 ms.topic: how-to
 ---
 
-# Manage the device inventory on the cloud
+# Manage your IoT devices with the device inventory
 
 The device inventory can be used to view device systems, and network information. The search, filter, edit columns, and export tools can be used to manage this information.
 
