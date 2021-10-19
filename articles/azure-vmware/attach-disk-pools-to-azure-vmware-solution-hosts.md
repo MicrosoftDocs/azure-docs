@@ -158,18 +158,21 @@ Now that your subscription has been properly registered, you can connect your di
 1. Navigate to your Azure VMware Solution.
 1. Select **Storage (preview)** under **Manage**.
 1. Select **Connect a disk pool**.
-1. Select your disk pool, as well as your client cluster.
-1. Enable your LUNs (if any) and select **Connect**.
+1. Select the subscription you'd like to use.
+1. Select your disk pool, as well as the client cluster you'd like to connect it to.
+1. Enable your LUNs (if any), provide a datastore name (by default, the LUN is used), and select **Connect**.
 
-:::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool.png" alt-text="Screenshot of the connect a disk pool experience." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool.png":::
+:::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool-temp.png" alt-text="Screenshot of the connect a disk pool experience." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool-temp.png":::
+
+When the connection succeeds, you will see the datastores added in vCenter.
 
 ---
 
-## Delete an iSCSI datastore from your private cloud
+## Disconnect a disk pool from your private cloud
 
-When you delete a private cloud datastore, the disk pool resources don't get deleted. There's no maintenance window required for this operation.
+When you disconnect a disk pool, the disk pool resources aren't deleted. There's no maintenance window required for this operation. But, be careful when you do it.
 
-1. Power off the VMs and remove all objects associated with the iSCSI datastores, which includes:
+1. Power off the VMs and remove all objects associated with the disk pool datastores, which includes:
 
    - VMs (remove from inventory)
 
