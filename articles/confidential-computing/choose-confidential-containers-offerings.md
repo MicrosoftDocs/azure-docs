@@ -36,7 +36,7 @@ Below are the isolation and security boundaries of enclave confidential containe
 
 ## Learn more
 
-[ Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)
+[Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)
 
 <!-- LINKS - internal -->
 

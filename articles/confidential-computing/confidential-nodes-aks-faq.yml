@@ -16,9 +16,9 @@ summary: |
 sections:
   - name: Product
     questions:
-      - question: Are the confidential computing nodes on AKS in GA?
+      - question: Are the confidential computing nodes on AKS available for production use?
         answer: |
-            Yes
+            Yes, for Intel SGX enclave nodes.
       - question: Can I enable Accelerated Networking with Azure confidential computing AKS Clusters?
         answer: |
           No. Accelerated Networking is not supported on DCSv2 Virtual machines that makeup confidential computing nodes on AKS.

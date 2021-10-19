@@ -20,6 +20,10 @@
             href: quick-create-portal.md
           - name: Create Intel SGX VM with Marketplace
             href: quick-create-marketplace.md
+  - name: Confidential containers with enclaves
+    items:
+      - name: Create Intel SGX AKS with CLI
+        href: confidential-enclave-nodes-aks-get-started.md
 - name: Concepts
   expanded: true
   items:
@@ -29,10 +33,6 @@
     href: confidential-computing-deployment-models.md
   - name: Confidential virtual machines
     items:
-    - name: Overview
-      href: confidential-computing-vm-overview.md
-    - name: Choosing the right VM offering
-      href: choose-confidential-vm-offerings.md
     - name: Build with enclaves
       items:
       - name: Enclaves overview
@@ -43,6 +43,8 @@
           href: application-development.md
         - name: Open-source projects for development
           href: enclave-development-oss.md
+        - name: Attesting application enclaves
+          href: attestation.md
       - name: Deploying Intel SGX virtual machines
         href: virtual-machine-solutions-sgx.md
       - name: Application enclave VM FAQ
@@ -53,14 +55,16 @@
       href: confidential-containers.md
     - name: Choosing the right container offering
       href: choose-confidential-containers-offerings.md
-    - name: Deploy Containers
+    - name: Deploy containers
       items:
-        - name: Using open-source and partners (ISV, OSS)
-          href: open-source-for-container-deployment.md
-    - name: Build with enclaves
-      items:
-        - name: Using open-source projects (OSS)
-          href: open-source-for-building-container-enclaves.md
+      - name: Enclave-aware containers
+        href: enclave-aware-containers.md
+      - name: Confidential enclave nodes on AKS
+        href: confidential-nodes-aks-overview.md
+      - name: AKS Add-on
+        href: confidential-nodes-aks-addon.md
+      - name: Confidential enclave nodes FAQ
+        href: confidential-nodes-aks-faq.yml
 - name: How To
   items:
   - name: Partner Solutions
