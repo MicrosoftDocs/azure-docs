@@ -16,7 +16,18 @@ ms.author: aahi
 
 After you're satisfied with your model, and made any necessary improvements, you can deploy it and start classifying text. Deploying a model makes it available for use through the runtime API.
 
-:::image type="content" source="../media/development-lifecycle/deploy-classify.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/deploy-classify.png":::
+<!--:::image type="content" source="../media/development-lifecycle/deploy-classify.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/deploy-classify.png":::-->
+
+## Prerequisites
+
+* [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
+    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md) to successfully [train a model](train-model.md)
+* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
+    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
+
+
+## Deploy your model
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
@@ -25,8 +36,6 @@ After you're satisfied with your model, and made any necessary improvements, you
 > 3. Add your text to the textbox, you can also upload a `.txt` file. 
 > 4. Click on **Run the test**.
 > 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
-
-## Deploy your model
 
 You can deploy your model by navigating to your project in [Language Studio](https://language.azure.com/customText/projects/classification), and selecting **Deploy model** from the menu on the left part of the screen.
 

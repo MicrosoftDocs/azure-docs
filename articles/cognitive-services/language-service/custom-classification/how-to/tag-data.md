@@ -16,8 +16,21 @@ ms.author: aahi
 
 Before creating a custom text classification model, you need to have tagged data first. If your data is not tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
 
-Before you can tag data, you need [a successfully created project](../quickstart.md) with a valid resource and storage account.
-You will then need to [upload training data](project-requirements.md#prepare-training-data) for your model to learn from. Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).
+## Prerequisites
+
+Before you can tag data, you need:
+* [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
+    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+
+
+<!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).
+
+:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
+-->
+
+## Tag your data
+
+After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
 
 As you tag your data, keep in mind:
 
@@ -25,12 +38,7 @@ As you tag your data, keep in mind:
 
 * Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
 
-
-:::image type="content" source="../media/development-lifecycle/tag-data.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/tag-data.png":::
-
-## Tag your data
-
-After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
+Use the following steps to tag your data
 
 1. Go to your projects page in [Language Studio](https://language.azure.com/customText/projects/classifciation) and select your project.
 

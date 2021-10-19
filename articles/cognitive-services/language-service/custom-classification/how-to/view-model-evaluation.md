@@ -16,10 +16,20 @@ ms.author: aahi
 
 Reviewing model evaluation is an important step in developing a custom classification model. It helps you learn how well your model is performing, and gives you an idea about how it will perform when used in production. 
 
-Model evaluation comes after you've [created a text classification project](../quickstart.md), and finished [training your model](train-model.md) successfully. The evaluation process uses the trained model to predict user-defined classes for files in the test set, and compares them with the provided data tags. The test set consists of data that was not introduced to the model during the training process. 
+## Prerequisites
 
-:::image type="content" source="../media/development-lifecycle/evaluate-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/evaluate-model.png":::
+Before you train your model you need:
+* [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
+    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+* A successfully [trained model](train-model.md)
 
+## Model evaluation
+
+The evaluation process uses the trained model to predict user-defined classes for files in the test set, and compares them with the provided data tags. The test set consists of data that was not introduced to the model during the training process. 
+
+<!--:::image type="content" source="../media/development-lifecycle/evaluate-model.png" alt-text="An image showing the data tagging and model training portion of the development lifecycle" lightbox="../media/development-lifecycle/evaluate-model.png":::
+-->
 ## View the model details using Language Studio
 
 1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
