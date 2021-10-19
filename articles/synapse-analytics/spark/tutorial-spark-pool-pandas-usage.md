@@ -25,24 +25,24 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
-- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
+- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage (or primary storage). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
+- Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
+- Configure [Secondary Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account) account (which is not default to Synapse workspace). You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
+- Create linked services - In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
+
+  1. Open the Azure Synapse Studio and select the **Manage** tab.
+  1. Under **External connections**, select **Linked services**.
+  1. To add a linked service, select **New**.
+  1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
+  1. Enter your authentication credentials. Account key, Service Principle (SP), Credentials and   Manged service identity (MSI) are currently supported authentication types. Please make sure   that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it   for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
+
+   :::image type="content" source="media/tutorial-spark-pool-pandas-usage/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
+
+
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
-
-## Create linked services
-
-In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add an Azure Synapse Analytics and Azure Data Lake Storage Gen2 linked service.
-
-1. Open the Azure Synapse Studio and select the **Manage** tab.
-1. Under **External connections**, select **Linked services**.
-1. To add a linked service, select **New**.
-1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
-1. Enter your authentication credentials. Account key is currently supported authentication type. Select **Test connection** to verify your credentials are correct. Select **Create**.
-
-   :::image type="content" source="media/tutorial-spark-pool-pandas-usage/create-adls-linked-service.png" alt-text="Create Linked Service Using ADLS Gen2 Storage Access Key.":::
 
 
 ## Read/Write data using storage account name and key
