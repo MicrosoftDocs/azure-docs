@@ -35,8 +35,12 @@
   items:
   - name: Block network traffic
     href: how-to-block-network-traffic-portal.md
-  - name: Create a hub and spoke topology
-    href: how-to-create-hub-and-spoke.md
+  - name: Create a network topology
+    items:
+    - name: Mesh
+      href: how-to-create-mesh-network.md
+    - name: Hub-and-spoke
+      href: how-to-create-hub-and-spoke.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Exclude elements from dynamic membership
