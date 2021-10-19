@@ -15,7 +15,7 @@ This article helps you understand Azure Purview Data Policies.
 ## Overview
 
 Azure Purview now enables you to manage access to different data systems across your entire data estate. This is done by creating data policies through the **Policy management** app in Purview Studio. These policies are then enforced on data systems that have been registered with Azure Purview Data Policies.
-Note: this is different from access control in Azure Purview itself, which is described in [Access control in Azure Purview](../catalog-permissions.md).
+> [!Note] This capability is different from access control in Azure Purview itself, which is described in [Access control in Azure Purview](../catalog-permissions.md).
 
 ## Azure Purview policy concepts
 
