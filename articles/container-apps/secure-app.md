@@ -83,33 +83,13 @@ The following example shows an application that declares a connection string at 
 
 # [ARM template](#tab/arm-template)
 
-```json
-"resources": [
-{
-    "name": "myapp",
-    "type": "Microsoft.Web/containerApps",
-    "apiVersion": "2021-02-01",
-    "kind": "containerapp",
-    "location": "eastus",
-    "properties": {
-        "configuration": {
-            "secrets": [
-            {
-                "name": "queue-connection-string",
-                "value": "<MY-CONNECTION-STRING-VALUE>"
-            }],
-        }
-    }
-}
-```
-
 In this example, the application connection string is declared as `queue-connection-string` and becomes available elsewhere in the configuration sections.
 
-:::code language="json" source="code/secure-app-arm-template.json" highlight="47,48,64,65":::
+:::code language="json" source="code/secure-app-arm-template.json" highlight="11,12,13,27,28,29,30,31,44,45,61,62":::
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authorization configuration uses the `queue-connection-string` as a connection is established.
 
-We recommend passing the secret value as an ARM parameter as shown in this example so that your secrets aren't committed to source control with your ARM template.
+To avoid committing secret values to source control with your ARM template, pass secret values as ARM template parameters.
 
 # [Azure CLI](#tab/azure-cli)
 
