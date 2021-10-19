@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to block network traffic with Azure Virtual Network Manager (Preview) - Azure PowerShell
 
-This article shows you how to create security rules to block outbound network traffic to port 80 and 443 that you can add to your rule collections. For more information, see [Security admin rules](concept-security-admins.md).
+This article shows you how to create a security rule to block outbound network traffic to port 80 and 443 that you can add to your rule collections. For more information, see [Security admin rules](concept-security-admins.md).
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -20,7 +20,7 @@ This article shows you how to create security rules to block outbound network tr
 
 ## Prerequisites
 
-Before you start configuring security rules, confirm the following:
+Before you start configuring security rules, confirm the following steps:
 
 * You understand each element in a [Security admin rule](concept-security-admins.md).
 * You've created an [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md).
@@ -144,14 +144,14 @@ Deploy-AzNetworkManagerCommit @deployment
 
 ## Delete security configuration
 
-If you no longer need the security configuration, you'll need to make sure the following is true before you can delete the security configuration itself:
+If you no longer need the security configuration, you'll need to make sure the following criteria is true before you can delete the security configuration itself:
 
 * There are no deployments of configurations to any region.
 * Delete all security rules in a rule collection associated to the security configuration.
 
 ### Remove security configuration deployment
 
-Remove the security deployment by deploying an configuration with **Deploy-AzNetworkManagerCommit**:
+Remove the security deployment by deploying a configuration with **Deploy-AzNetworkManagerCommit**:
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()
