@@ -29,6 +29,10 @@ Get started with Azure Communication Services by connecting your chat solution t
 [!INCLUDE [Teams interop with Android SDK](./includes/meeting-interop-android.md)]
 ::: zone-end
 
+::: zone pivot="platform-windows"
+[!INCLUDE [Teams interop with CSharp SDK](./includes/meeting-interop-windows.md)]
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
