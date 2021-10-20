@@ -12,7 +12,7 @@ ms.date: 04/09/2021
 
 
 ## Overview
-Follow the steps below to onboard a machine to Automanage Best Practices. The ARM template below will create a `configurationProfileAssignment` object, which is the Azure resource that represents a machine that has been onboarded to Automanage.
+Follow the steps below to onboard a machine to Automanage Best Practices using an ARM template.
 
 ## Prerequisites
 * You must have necessary [RBAC permissions](./automanage-virtual-machines.md#required-rbac-permissions)
@@ -29,7 +29,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
         "machineName": {
             "type": "String"
         },
-        "configurationProfileAssignment": {
+        "configurationProfile": {
             "type": "String"
         }
     },
@@ -37,9 +37,9 @@ The following ARM template will onboard your specified machine onto Azure Automa
         {
             "type": "Microsoft.Compute/virtualMachines/providers/configurationProfileAssignments",
             "apiVersion": "2021-04-30-preview",
-            "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/', 'default')]",
+            "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
-                "configurationProfile": "[parameters('configurationProfileAssignment')]",
+                "configurationProfile": "[parameters('configurationProfile')]",
             }
         }
     ]
@@ -49,7 +49,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
 ## ARM template deployment
 The ARM template above will create a configuration profile assignment for your specified machine. 
 
-The `configurationProfileAssignment` value can be one of the following values:
+The `configurationProfile` value can be one of the following values:
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction"
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesDevTest"
 
