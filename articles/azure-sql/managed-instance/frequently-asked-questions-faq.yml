@@ -157,13 +157,13 @@ sections:
       - question: |
           Switch hardware generation 
         answer: |
-          ### Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online?
+          ### Can I switch my managed instance hardware generation between Gen4 and Gen5 online?
           
           Automated online switching from Gen4 to Gen5 is possible if Gen5 hardware is available in the region where your managed instance is provisioned. In this case, you can check [vCore model overview page](../database/service-tiers-vcore.md) explaining how to switch between hardware generations.
           
           This is a long-running operation as a new managed instance will be provisioned in the background and databases automatically transferred between the old and new instance with a quick failover at the end of the process.
           
-          Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware. Switching from Gen5 to Gen4 is also not available.
+          Note: Gen4 hardware is being phased out and is no longer available for new deployments. All new databases must be deployed on later hardware generations. Switching from Gen5 to Gen4 is also not available.
           
       - question: |
           Performance 
