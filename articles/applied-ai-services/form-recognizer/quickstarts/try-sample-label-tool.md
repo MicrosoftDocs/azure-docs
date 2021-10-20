@@ -17,10 +17,11 @@ keywords: document processing
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD029 -->
-# Use the Form Recognizer Sample Labeling tool
+# Get started with the Sample Labeling tool
 
+Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning models to extract and analyze form fields, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. 
 
-Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning models to extract and analyze form fields, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
+The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
 * [Analyze documents with the Layout API](#analyze-layout). Try the Layout API to extract text, tables, selection marks, and structure from documents.
 

@@ -46492,6 +46492,31 @@
     "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/includes/quickstarts/csharp-sdk.md",
+        "redirect_url": "/azure/applied-ai-services/form-recognizer/includes/how-to-guides/csharp-sdk",
+        "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/includes/quickstarts/javascript-sdk.md",
+        "redirect_url": "/azure/applied-ai-services/form-recognizer/includes/how-to-guides/javascript-sdk",
+        "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/includes/quickstarts/java-sdk.md",
+        "redirect_url": "/azure/applied-ai-services/form-recognizer/includes/how-to-guides/java-sdk",
+        "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/applied-ai-services/form-recognizer/includes/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/includes/how-to-guides/python-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/includes/quickstarts/rest-api.md",
+        "redirect_url": "/azure/applied-ai-services/form-recognizer/includes/how-to-guides/rest-api-sdk",
+        "redirect_document_id": false
     }
   ]
 }
