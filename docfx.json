@@ -661,7 +661,7 @@
         "articles/notebooks/*.md": "joshuapa",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyas",
-        "articles/service-health/*.md": "rboucher",
+        "articles/service-health/*.md": "robb",
         "articles/site-recovery/*.md": "v-jysur",
         "articles/stream-analytics/*.md": "jasonh",
         "articles/terraform/**/*.md": "tarcher",
