@@ -44,13 +44,13 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Select an existing custom profile from the dropdown if one exists or create a new custom profile by clicking **Create new**.
 
-5. On the **Create new profile** blade, fill out the details
-        1. Profile Name
-        1. Subscription
-        1. Resource group
-        1. Region
+5. On the **Create new profile** blade, fill out the details:
+    1. Profile Name
+    1. Subscription
+    1. Resource Group
+    1. Region
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-custom-profile.png" alt-text="Fill out custom profile details.":::
+    :::image type="content" source="media\virtual-machine-custom-profile\create-custom-profile.png" alt-text="Fill out custom profile details.":::
 
 6. Adjust the profile with the desired services and settings and click **Create**.
 

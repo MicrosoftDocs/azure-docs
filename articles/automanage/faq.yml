@@ -63,7 +63,7 @@ sections:
       - question: |
           Can I customize configurations on Azure Automanage?
         answer: |
-          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#custom-profile).
+          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#custom-profiles).
           
           
       - question: |
