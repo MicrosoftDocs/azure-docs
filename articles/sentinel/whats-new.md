@@ -122,11 +122,11 @@ For more information, see [Enable continuous deployment from your content reposi
 
 Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is automatically enriched with GeoLocation and WhoIs information.
 
-GeoLocation and WhoIs data can provide more context for investigations where the selected indicator of compromise is found.
+GeoLocation and WhoIs data can provide more context for investigations where the selected indicator of compromise (IOC) is found.
 
 For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
 
-You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise (IOC) that you've imported into Azure Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Azure Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
 
 For example:
 
