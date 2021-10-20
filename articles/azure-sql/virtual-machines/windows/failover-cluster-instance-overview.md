@@ -50,7 +50,7 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
-|**Supported VM availability** |Availability sets with proximity placement groups (For Premium SSD) </br> Same availability zone (For Ultra SSD) |Availability sets and availability zones|Availability sets |
+|**Supported VM availability** |Availability Sets with or with out proximity placement groups - For Premium SSD LRS (Locally Redundant Storage)</br> Availability Zones - For Premium SSD Zone Redundant Storage (ZRS)</br> Same availability zone - For Ultra SSD |Availability sets and availability zones|Availability sets |
 |**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
