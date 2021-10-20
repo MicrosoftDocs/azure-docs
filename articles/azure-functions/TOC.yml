@@ -463,6 +463,8 @@
               href: functions-add-output-binding-storage-queue-vs-code.md
             - name: Storage - Visual Studio
               href: functions-add-output-binding-storage-queue-vs.md
+            - name: Work with Event Grid
+              href: event-grid-how-tos.md  
         - name: Start/Stop VMs
           items:
             - name: Overview

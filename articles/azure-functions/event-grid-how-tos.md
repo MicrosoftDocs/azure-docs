@@ -225,7 +225,7 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Next steps
 
-TO learn more about Event Grid with Functions, see the following articleS:
+To learn more about Event Grid with Functions, see the following articles:
 
 + [Azure Event Grid bindings for Azure Functions](functions-bindings-event-grid.md)
 + [Tutorial: Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json)
