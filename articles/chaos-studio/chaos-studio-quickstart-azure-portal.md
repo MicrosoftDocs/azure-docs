@@ -5,12 +5,6 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 - Open the [Azure portal](https://portal.azure.com).
 - A virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
 
-
-
-
-
-
-
 ## Enable Chaos Studio on the Virtual Machine you created
 1. Open the [Azure portal](https://portal.azure.com).
 2. Search for **Chaos Studio (preview)** in the search bar.
