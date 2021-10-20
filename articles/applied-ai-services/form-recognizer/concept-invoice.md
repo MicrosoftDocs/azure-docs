@@ -17,9 +17,9 @@ recommendations: false
 
  The invoice model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key fields and line items from sales invoices.  Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation.
 
-##### Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+**Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
-:::image type="content" source="media/overview-invoices.jpg" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
+:::image type="content" source="media/overview-invoices-studio.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
 ## Form Recognizer Studio (Preview)
 
