@@ -90,8 +90,8 @@ For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/p
 
 ## Limitations
 
-* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as basic load balancer, and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-* IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
+* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as Basic Load Balancer or Basic Public IP aren't compatible with NAT.  Basic resources must be placed on a subnet associated to a NAT Gateway.
+* NAT cannot be associated to an IPv6 sPublic IP address or IPv6 Public IP Prefix t. However, it can be associated to a dual stack subnet.
 * NAT can't span multiple virtual networks.
 * NAT cannot be deployed in a [Gateway Subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 
