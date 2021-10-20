@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes how to customize configuration values for your Bicep deployments
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/15/2021
 ---
 
 # Add custom settings in the Bicep config file
@@ -15,15 +15,18 @@ This article describes the properties that are available in the configuration fi
 
 :::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
 
-## Aliases for module registry
+## Aliases for modules
 
-To simplify the path for linking to modules in a registry, you can create aliases in the config file. The config file has a property for `moduleAliases`. To create a Bicep registry alias, add a `br` property under the `moduleAliases` property.
+To simplify the path for linking to modules, you can create aliases in the config file. An alias can refer to a module registry or a resource group that contains template specs. The config file has a property for `moduleAliases`. To create an alias for a Bicep registry, add a `br` property under the `moduleAliases` property. To add an alias for a template spec, use the `ts` property.
 
 ```json
 {
   "moduleAliases": {
     "br": {
-      <add-aliases>
+      <add-registry-aliases>
+    },
+    "ts": {
+      <add-template-specs-aliases>
     }
   }
 }
@@ -34,7 +37,12 @@ Within the `br` property, add as many aliases as you need. For each alias, give 
 - **registry** (required): registry login server name
 - **modulePath** (optional): registry repository where the modules are stored
 
-The following example shows a sample config file that defines two module aliases.
+Within the `ts` property, add as many aliases as you need. For each alias, give it a name and the following properties:
+
+- **subscription** (required): the subscription ID that hosts the template specs
+- **resourceGroup** (required): the name of the resource group that contains the template specs
+
+The following example shows a config file that defines two aliases for a module registry, and one alias for a resource group that contains template specs.
 
 ```json
 {
@@ -47,12 +55,27 @@ The following example shows a sample config file that defines two module aliases
         "registry": "contosoregistry.azurecr.io",
         "modulePath": "bicep/modules/core"
       }
+    },
+    "ts": {
+      "CoreSpecs": {
+        "subscription": "00000000-0000-0000-0000-000000000000",
+        "resourceGroup": "CoreSpecsRG"
+      }
     }
   }
 }
 ```
 
-**Without the aliases**, you would link to the module with the full path.
+When using an alias in the module reference, you must use the formats:
+
+```bicep
+br/<alias>:<file>:<tag>
+ts/<alias>:<file>:<tag>
+```
+
+Define your aliases to the folder or resource group that contains modules, not the file itself. The file name must be included in the reference to the module.
+
+**Without the aliases**, you would link to a module in a registry with the full path.
 
 ```bicep
 module stgModule 'br:contosoregistry.azurecr.io/bicep/modules/core/storage:v1' = {
@@ -70,13 +93,11 @@ Or, you can simplify the link by using the alias that specifies the registry and
 module stgModule  'br/CoreModules:storage:v1' = {
 ```
 
-When using an alias in the module reference, you must use the format:
+For a template spec, use:
 
 ```bicep
-br/<alias>:<file>:<tag>
+module stgModule  'ts/CoreSpecs:storage:v1' = {
 ```
-
-Define your aliases to the folder that contains modules, not the file itself. The file name must be included in the reference to the module.
 
 ## Credentials for restoring modules
 

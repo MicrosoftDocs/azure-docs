@@ -37,7 +37,6 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Drag and drop to move a cell| Not supported |&#9745;|
 |Outline (Table of Content)| Not supported |&#9745;|
 |Variable explorer| Not supported |&#9745;|
-|Format text cell with toolbar buttons|&#9745;| Not supported|
 |Code cell commenting| Not supported | &#9745;|
 
 > [!NOTE]
@@ -185,7 +184,9 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 
 # [Preview Notebook](#tab/preview)
 
-Format button toolbar is not available for the preview notebook experience yet. 
+You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text,  paragraph/headers through a dropdown, inserting code, inserting unordered list, inserting ordered list, inserting hyperlink and inserting image from URL.
+
+  ![Screenshot of Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
 
 ---
 

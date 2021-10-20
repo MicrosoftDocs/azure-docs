@@ -1,7 +1,7 @@
 ---
 title: PowerShell module for Azure Lab Services | Microsoft Docs
 description: This article provides information about a PowerShell module that helps with managing artifacts in Azure Lab Services. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

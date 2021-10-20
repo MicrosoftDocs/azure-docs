@@ -15,17 +15,23 @@ ms.date: 10/15/2021
 
 This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by walking you through the shaping and projection steps required for fully expressing the output of a rich skillset in a [knowledge store](knowledge-store-concept-intro.md).
 
-If your application requirements call for multiple skills and projections, this example can give you a better understanding of how to shape and project your content.
+If your application requirements call for multiple skills and projections, this example can give you a better understanding of how shapes and projections intersect.
+
+## Download sample definitions
+
+Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
+
+Sample documents aren't specifically included with the collection, but the [mixed media files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) have both text and images to support the projections described in this example.
 
 ## Example skillset
 
-To understand the intersection between shapes and projections, review the following skillset that creates enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
+To understand the dependency between shapes and projections, review the following skillset that creates enriched content. This skillset processes both raw images and text, producing outputs that will be referenced in shapes and projections.
 
-Pay close attention to skill outputs (targetNames). Outputs written to the enriched document tree are referenced in projections and Shaper skills.
+Pay close attention to skill outputs (targetNames). Outputs written to the enriched document tree are referenced in projections and in shapes (via Shaper skills).
 
 ```json
 {
-    "name": "azureblob-skillset",
+    "name": "projections-demo-ss",
     "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
     "skills": [
         {
@@ -44,7 +50,6 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
             ],
             "defaultLanguageCode": "en",
             "minimumPrecision": null,
-            "includeTypelessEntities": null,
             "inputs": [
                 {
                     "name": "text",
@@ -67,10 +72,6 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
                 {
                     "name": "locations",
                     "targetName": "locations"
-                },
-                {
-                    "name": "entities",
-                    "targetName": "entities"
                 }
             ]
         },
@@ -262,8 +263,7 @@ The example skillset introduced at the start of this article did not include the
 Within a skillset, a Shaper skill might look like this:
 
 ```json
-    "name": "azureblob-skillset",
-    "description": "A friendly description of the skillset goes here.",
+    "name": "projections-demo-ss",
     "skills": [
         {
             <Shaper skill goes here>
@@ -644,10 +644,9 @@ When building projections of different types, file and object projections are ge
 }
 ```
 
-
 ## Next steps
 
 The example in this article demonstrates common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
 
 > [!div class="nextstepaction"]
-> [Configure caching for incremental enrichment i](search-howto-incremental-index.md)
+> [Configure caching for incremental enrichment](search-howto-incremental-index.md)
