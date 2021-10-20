@@ -6,7 +6,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 10/05/2021
 ms.author: aersoy
 ---
 
@@ -356,7 +356,7 @@ The response will be an array of DICOM datasets. Depending on the resource, by *
 | (0008, 0030) | StudyTime |
 | (0008, 0050) | AccessionNumber |
 | (0008, 0056) | InstanceAvailability |
-| (0009, 0090) | ReferringPhysicianName |
+| (0008, 0090) | ReferringPhysicianName |
 | (0008, 0201) | TimezoneOffsetFromUTC |
 | (0010, 0010) | PatientName |
 | (0010, 0020) | PatientID |

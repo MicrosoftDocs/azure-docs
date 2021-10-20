@@ -89,7 +89,9 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Set up the SQL data source.":::
 
-5. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
+1. Provide a friendly name, which will be a short name you can use to identify your server, and the server endpoint. 
+ 
+1. Select **Finish** to register the data source.
 
 ## Creating and running a scan
 

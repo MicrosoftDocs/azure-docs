@@ -36,7 +36,7 @@ You must have sufficient permissions to register an application with your Azure 
 1. Select **Azure Active Directory**.
 1. Find your role under **Overview**->**My feed**. If you have the **User** role, you must make sure that non-administrators can register applications.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Find your role. If you're a User, ensure non-admins can register apps":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Screenshot showing how to find your role.":::
 
 1. In the left pane, select **Users** and then **User settings**.
 1. Check the **App registrations** setting. This value can only be set by an administrator. If set to **Yes**, any user in the Azure AD tenant can register an app.
@@ -65,7 +65,7 @@ To check your subscription permissions:
 
 1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign a role to an AD app. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned the Owner role, which means that user has adequate permissions.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="This example shows the user is assigned the Owner role":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="Screenshot showing the user is assigned the Owner role.":::
 
 ## Register an application with Azure AD and create a service principal
 

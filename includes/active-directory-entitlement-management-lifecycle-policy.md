@@ -14,11 +14,13 @@ ms.custom: include file
 
 On the **Lifecycle** tab, you specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
 
-1. In the **Expiration** section, set **Access package assignments expires** to **On date**, **Number of days**, or **Never**.
+1. In the **Expiration** section, set **Access package assignments expires** to **On date**, **Number of days**, **Number of hours**, or **Never**.
 
     For **On date**, select an expiration date in the future.
 
     For **Number of days**, specify a number between 0 and 3660 days.
+
+    For **Number of hours**, specify a number of hours.
 
     Based on your selection, a user's assignment to the access package expires on a certain date, a certain number of days after they are approved, or never.
 
