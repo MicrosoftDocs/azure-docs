@@ -56,7 +56,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can only connect 1 storage container for each project. This process is irreversible. If you connect a container to your project, you cannot disconnect it later.
 
-* You can only have 1 [tags file](../how-to/tag-data.md) per project. You cannot change to a different tags file later. You can only update the tags within your project.
+* You can only have 1 [tags file](how-to/tag-data.md) per project. You cannot change to a different tags file later. You can only update the tags within your project.
 
 * You cannot rename your project after creation.
 
