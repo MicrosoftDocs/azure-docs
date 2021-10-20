@@ -2,7 +2,7 @@
 title: Use simplified compute node communication 
 description: Learn how the Azure Batch service is simplifying the way Batch pool infrastructure is managed and how to opt in or out of the . 
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 10/21/2021
 ---
 
 # Use simplified compute node communication
