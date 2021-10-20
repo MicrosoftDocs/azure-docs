@@ -1,7 +1,6 @@
 ---
 title: Generate Azure Video Analyzer for Media access token 
 description: This topic explains how to generate Azure Video Analyzer for Media access token 
-ms.service: azure-video-analyzer-for-media
 ms.topic: how-to
 ms.date: 10/13/2021
 ---
