@@ -13,7 +13,6 @@ For some resource types, you need to contact support to have the 800 instance li
 
 Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md).
 
-
 ## Microsoft.AlertsManagement
 
 * resourceHealthAlertRules
@@ -115,9 +114,6 @@ Some resources have a limit on the number instances per region. This limit is di
 ## microsoft.insights
 
 * metricalerts
-
-## microsoft.insights
-
 * scheduledqueryrules
 
 ## Microsoft.Logic
@@ -174,6 +170,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
+* publicIPAddresses
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
