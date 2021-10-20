@@ -38,7 +38,7 @@ To complete a successful transition to Conditional Access, evaluate the existing
 
    ![Screenshot that shows global sign-on policies enforcing MFA.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
 
-2. Go to **Applications**, and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
+2. Go to **Applications** and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
 
 3. Select **Sign On** and scroll to the bottom of the page.
 
@@ -61,7 +61,7 @@ In some scenarios, you might need more setup before you configure the Conditiona
 - **Okta device trust to device-based CA**: Conditional Access offers two possible options when you evaluate a user's device:
 
   - [Use Hybrid Azure AD Join](#hybrid-azure-ad-join-configuration), which is a feature enabled within the Azure AD Connect server that synchronizes Windows current devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD.
-  - [Enroll the device in Endpoint Manager](#configure-device-compliance), and assign a compliance policy.
+  - [Enroll the device in Endpoint Manager](#configure-device-compliance) and assign a compliance policy.
 
 ### Hybrid Azure AD join configuration
 
@@ -72,7 +72,7 @@ To enable Hybrid Azure AD Join on your Azure AD Connect server, run the configur
 
 1. To enable Hybrid Azure AD Join, follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
-1. On the **SCP configuration** page, select the **Authentication Service** dropdown. Choose your Okta federation provider URL, and select **Add**. Enter your on-premises enterprise administrator credentials, and then select **Next**.
+1. On the **SCP configuration** page, select the **Authentication Service** dropdown. Choose your Okta federation provider URL and select **Add**. Enter your on-premises enterprise administrator credentials and then select **Next**.
 
    ![Screenshot that shows SCP configuration.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
 
@@ -94,7 +94,7 @@ Hybrid Azure AD Join is a direct replacement for Okta device trust on Windows. C
 
 Before you convert to Conditional Access, confirm the base Azure AD Multi-Factor Authentication tenant settings for your organization.
 
-1. Go to the [Azure portal](https://portal.azure.com), and sign in with a global administrator account.
+1. Go to the [Azure portal](https://portal.azure.com) and sign in with a global administrator account.
 
 1. Select **Azure Active Directory** > **Users** > **Multi-Factor Authentication** to go to the legacy Azure AD Multi-Factor Authentication portal.
 
