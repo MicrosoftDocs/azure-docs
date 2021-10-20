@@ -1,7 +1,7 @@
 ---
 title: Moving a Classic account to an Azure Video Analyzer for Media account 
 description: This topic explains how to move a classic account to an Azure Video Analyzer for Media. 
-ms.service: azure-video-analyzer-for-media
+
 ms.topic: how-to
 ms.date: 10/13/2021
 ---
@@ -60,5 +60,5 @@ Learn how to [add contributor role on the media service][docs-contributor-on-ms]
 <!-- links -->
 [docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
 [docs-ms]: ../../media-services/latest/media-services-overview.md
-[docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contibutor
+[docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contributor
 [docs-contributor-on-ms]: ./add-contributor-role-on-the-media-service.md
