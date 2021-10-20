@@ -1,15 +1,15 @@
 ---
 title: Use direct methods in Azure Video Analyzer - Azure
-description: Azure Video Analyzer exposes several direct methods. The direct methods are based on the conventions described in this topic.
+description: Azure Video Analyzer edge module exposes several direct methods which are described in this topic.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 
 ---
 # Azure Video Analyzer Direct methods
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-Azure Video Analyzer IoT edge module `avaedge` exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../../iot-hub/iot-hub-devguide-direct-methods.md).
+Azure Video Analyzer edge module `avaedge` exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 This topic describes these methods, conventions, and the schema of the methods.
 
@@ -32,14 +32,13 @@ The direct methods are based on the following conventions:
   }
 ```
 
-2. A given version of Video Analyzer module supports all minor versions of a direct method call up-to its current version. Support across major versions is not guaranteed.
-3. All direct methods are synchronous.
-4. Error results are based on the [OData error schema](http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse).
-5. Names should observe the following constraints:
-    
+1. A given version of Video Analyzer module supports all minor versions of a direct method call up-to its current version. Support across major versions is not guaranteed.
+1. All direct methods are synchronous.
+1. Error results are based on the [OData error schema](http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse).
+1. Names should observe the following constraints:
     * Only alphanumeric characters and dashes as long as it doesn't start and end with a dash
     * No spaces
-    * Max of 32 characters
+    * Maximum of 32 characters
 
 ### Example of response from a direct method
 
@@ -72,7 +71,7 @@ As shown in the example below, when you get an error response from a direct meth
       "details": [
         {
           "code": "ApiVersionNotSupported",
-          "message": "The API version '1.1' is not supported. Supported version(s): 1.0."
+          "message": "The API version '1.4' is not supported. Supported version(s): 1.0, 1.1"
         }
       ]
     }
@@ -104,7 +103,7 @@ Following are some of the error codes used at the detail level.
 |409|	ResourceValidationError|	Referenced resource (example: video resource) is not in a valid state.|
 
 ## Supported direct methods  
-Following are the direct methods exposed by the Video Analyzer edge module. The schema for the direct methods can be found [here](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json).
+Following are the direct methods exposed by the Video Analyzer edge module. The schema for the direct methods can be found [here](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.1.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### pipelineTopologyList
 
@@ -412,7 +411,7 @@ Key aspects:
 
 ### livePipelineGet
 
-This is similar to liveTopologyGet. It retrieves a live pipeline with the specified name, if it exists.
+This is similar to livePipelineTopologyGet. It retrieves a live pipeline with the specified name, if it exists.
 
 #### Request
 
@@ -506,7 +505,6 @@ Key aspects:
     * Calling `livePipelineDeactivate` on a live pipeline which is already in "Deactivating" state behaves the same way as if the live pipeline was in "Active" state.
     * Deactivating a pipeline which is in "Inactive" state returns a success code immediately.
 
-
 #### Request
 
 ```
@@ -530,6 +528,165 @@ Key aspects:
 | General user errors | 400 range |  |
 | Pipeline is in activating state | 409 | OperationNotAllowedInState |
 | General server errors | 500 range |  |
+
+### remoteDeviceAdapterList
+
+Lists all remote device adapters. The Video Analyzer edge module can act as a transparent gateway for video, enabling IoT devices to send video to the cloud from behind a firewall. A remote device adapter should be created for each such IoT device. Communication between the cloud and IoT device would then flow via the Video Analyzer edge module.
+
+#### Request
+
+```
+  {
+        "@apiVersion": "1.1"
+  }
+```
+#### Response
+
+```
+{
+  "status": 200,
+  "value": [
+    {
+      "systemData": {
+        "createdAt": "2021-10-05T14:19:22.16Z",
+        "lastModifiedAt": "2021-10-05T16:20:41.505Z"
+      },      
+      // first remote device adapter payload
+    },
+      "systemData": {
+        "createdAt": "2021-10-06T14:19:22.16Z",
+        "lastModifiedAt": "2021-10-06T16:20:41.505Z"
+      },
+      // next remote device adapter  payload
+    }    
+  ]
+}
+```
+#### Status codes
+
+| Condition | Status code |
+|--|--|
+| Entity found | 200 |
+| General user errors | 400 range |
+| Entity not found | 404 |
+| General server errors | 500 range |
+
+### remoteDeviceAdapterSet
+
+Creates a remote device adapter with the given name if no such adapter exists, or updates an existing adapter with that name. In the response payload, and in `remoteDeviceAdapterList` or `remoteDeviceAdapterGet` calls, any credentials or secrets are omitted.
+
+
+#### Request
+
+```
+  {
+        "@apiVersion": "1.1",
+        "name": "{remoteDeviceAdapterName}",
+        "properties": {
+            // Desired remote device adapter properties
+        }
+  }
+```
+#### Response
+
+````
+  {
+    "status": 201,
+    "payload": {
+        "systemData": {
+           "createdAt": "2021-10-11T18:16:46.491Z",
+           "lastModifiedAt": "2021-10-11T18:16:46.491Z"
+        },
+        "name": "{remoteDeviceAdapterName}",
+        "properties": {
+            // Remote device adapter properties, except the credentials
+        }
+    }
+  }
+````
+#### Status codes
+
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Existing entity updated | 200 | N/A |
+| New entity created | 201 | N/A |
+| General user errors | 400 range | N/A |
+| Remote device adapter validation errors | 400 | RemoteDeviceAdapterValidationError |
+| Module validation errors | 400 | ModuleValidationError |
+| Resource validation errors | 409 | ResourceValidationError |
+| General server errors | 500 range | N/A |
+
+### remoteDeviceAdapterGet
+
+This is similar to `livePipelineTopologyGet`. It retrieves a remote device adapter with the specified name, if it exists (any credentials or secrets are omitted).
+
+#### Request
+
+```
+  {
+        "@apiVersion": "1.1",
+        "name": "{remoteDeviceAdapterName}"       
+  }
+```
+#### Response
+
+```
+{
+  "status": 200,
+  "payload": {
+    "value": [
+      {
+        "systemData": {
+          "createdAt": "2021-10-06T10:28:04.560Z",
+          "lastModifiedAt": "2021-10-06T10:28:04.560Z"
+        },
+        "name": "{remoteDeviceAdapterName}",
+        // Remote device adapter properties, except the credentials
+      }
+    ]
+  }
+}
+```
+
+#### Status codes
+
+| Condition | Status code |
+|--|--|
+| Success | 200 |
+| General user errors | 400 range |
+| General server errors | 500 range |
+
+### remoteDeviceAdapterDelete
+
+Deletes a single remote device adapter if it exists.
+
+#### Request
+
+```
+  {
+        "@apiVersion": "1.1",
+        "name": "{remoteDeviceAdapterName}"
+  }
+```
+#### Response
+
+```
+  {
+    "status": 200,
+    "payload": null
+  }
+```
+#### Status codes
+
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Remote device adapter deleted successfully | 200 | N/A |
+| Remote device adapter not found | 204 | N/A |
+| General user errors | 400 range |  |
+| General server errors | 500 range |  |
+
+### onvifDeviceDiscover and onvifDeviceGet
+The details of these calls are provided in the article on [discovering ONVIF-capable devices](camera-discovery.md).
 
 ## Next steps
 
