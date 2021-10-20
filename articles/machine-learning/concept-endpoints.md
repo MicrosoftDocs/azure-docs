@@ -110,10 +110,10 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kubernetes) |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Manual setup at the cluster level |
+| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Supported |
 | **Application Insights** | Supported | Supported |
-| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Manually configure at cluster level |
-| **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
+| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Supported |
+| **Virtual Network (VNET)** | Not supported (public preview) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 
 ### Managed online endpoints
