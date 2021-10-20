@@ -85,7 +85,7 @@ For the GNOME or MATE graphical desktop environments, you may encounter a networ
  - Publishing student VMs will hang if the auto-shutdown settings are enabled.
  - Resetting the student VM password will hang.
 
-We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.  They also support installin GNOME and MATE on Ubuntu 20.04 LTS and 21.04 LTS:
+We recommend using the following instructions to set up the GNOME or MATE graphical desktops on Ubuntu.  These instructions include a fix for the networking conflict that exists with Ubuntu 18.04 LTS.  They also support installing GNOME and MATE on Ubuntu 20.04 LTS and 21.04 LTS:
  - [Install and configure GNOME/RDP and MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## Connect to the template VM via the GUI
