@@ -46,7 +46,7 @@ After selecting orchestration, you need to provide the following details:
 - Text primary language: The primary language of your project. Your training data should be mainly be in this language.
 - Enable multiple languages: Whether you would like to enable your project to support multiple languages at once.
 
-Once you're done, you now have the option to connect to the other projects and services you wish to orchestrate to. Each connection is represented by its type and relevant data. The intent needs to have a **name**, a **project type** (LUIS, custom question answering (QnA), or Custom Language Understanding), and then selecting the project you want to connect to by name. 
+Once you're done, you now have the option to connect to the other projects and services you wish to orchestrate to. Each connection is represented by its type and relevant data. The intent needs to have a **name**, a **project type** (LUIS, custom question answering (QnA), or Conversational Language Understanding), and then selecting the project you want to connect to by name. 
 
 > [!NOTE]
 > The list of projects you can connect to are only projects that are owned by the same Language resource you are using to create the orchestration project.

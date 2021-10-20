@@ -40,7 +40,7 @@ quickstart-language-resource
 
 Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart you'll create a project that can identify commands for email, such as reading emails by certain people, deleting emails, and attaching a document to an email.
 
-1. In [Language Studio](https://language.azure.com/), scroll down and click on **Custom conversational LU**. This will bring you to the **Conversations project** page. 
+1. In [Language Studio](https://language.azure.com/), scroll down and click on **Conversational conversational LU**. This will bring you to the **Conversations project** page. 
  
     
     :::image type="content" source="media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="media/projects-page.png":::
