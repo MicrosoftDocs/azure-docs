@@ -258,7 +258,7 @@ def analyze_layout():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-document", formUrl)
+            "prebuilt-layout", formUrl)
     result = poller.result()
 
     for idx, style in enumerate(result.styles):
@@ -305,7 +305,7 @@ def format_bounding_box(bounding_box):
 
 def analyze_invoice():
 
-    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
     document_analysis_client = DocumentAnalysisClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
@@ -576,7 +576,7 @@ if __name__ == "__main__":
 python form_recognizer_quickstart.py
 ```
 
-Congratulations! In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
+Congratulations! In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
 
 ## Next steps
 
