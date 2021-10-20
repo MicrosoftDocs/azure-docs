@@ -290,7 +290,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 
 The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
-For more information, see [Deploy in batches](loop-resources.md#deploy-in-batches).
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
 
 ## Outputs
 
