@@ -110,7 +110,7 @@ To create GUIDs for tracking, you should use a GUID generator. The Azure Storage
 
 We recommend that you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
+If you deploy a product by using a template and it is available on both Azure Marketplace and GitHub, you can create and register two distinct GUIDs:
 
 - Product A in Azure Marketplace
 - Product A on GitHub

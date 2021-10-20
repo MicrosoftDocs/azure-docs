@@ -114,6 +114,8 @@ items:
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Adventure Works retail example for Synapse pipelines
+        href: tutorial-data-flow-adventure-works-retail-template.md
       - name: Best practices for landing data in the lake with ADLS Gen2
         href: tutorial-data-flow-write-to-lake.md
       - name: Dynamically set column names
@@ -981,6 +983,8 @@ items:
         href: connector-troubleshoot-dynamics-dataverse.md
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Hive
+        href: connector-troubleshoot-hive.md  
       - name: Oracle
         href: connector-troubleshoot-oracle.md
       - name: ORC format

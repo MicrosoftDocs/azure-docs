@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 09/24/2021
+ms.date: 10/14/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -98,7 +98,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | |
 | [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | |
 | [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | |
-| [Azure File Sync](../../storage/file-sync/file-sync-introduction.md) | &#x2705; | &#x2705; | |
 | [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)  | &#x2705; | &#x2705; | |
 | [Azure Firewall Manager](https://azure.microsoft.com/services/firewall-manager/)  | &#x2705; | &#x2705; | |
 | [Azure for Education](https://azure.microsoft.com/developer/students/) | &#x2705; | &#x2705; | |
@@ -225,7 +224,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Storage: Data Movement](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | |
-| [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | |
+| [Storage: Files](https://azure.microsoft.com/services/storage/files/) (incl. [Azure File Sync](../../storage/file-sync/file-sync-introduction.md)) | &#x2705; | &#x2705; | |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | |
 | [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; | |
 | [StorSimple](https://azure.microsoft.com/services/storsimple/) | &#x2705; | &#x2705; | |
@@ -298,7 +297,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure File Sync](../../storage/file-sync/file-sync-introduction.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Firewall Manager](https://azure.microsoft.com/services/firewall-manager/#overview) | &#x2705; | &#x2705; | | | |
 | [Azure Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) | &#x2705; | &#x2705; | | | |
@@ -406,7 +404,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage: Files](https://azure.microsoft.com/services/storage/files/) (incl. [Azure File Sync](../../storage/file-sync/file-sync-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

@@ -245,7 +245,7 @@ For the other volumes, including **/hana/log** on Ultra disk, the configuration 
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Another Azure storage type is called [Azure Ultra disk](../../disks-types.md#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](../../disks-types.md#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
@@ -256,7 +256,7 @@ Ultra disk gives you the possibility to define a single disk that fulfills your 
 Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. 
 
 > [!NOTE]
-> Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types listed below. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](../../disks-types.md#ultra-disk).
+> Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types listed below. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](../../disks-types.md#ultra-disks).
 
 ### Production recommended storage solution with pure Ultra disk configuration
 In this configuration, you keep the **/hana/data** and **/hana/log** volumes separately. The suggested values are derived out of the KPIs that SAP has to certify VM types for SAP HANA and storage configurations as recommended in the [SAP TDI Storage Whitepaper](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).
