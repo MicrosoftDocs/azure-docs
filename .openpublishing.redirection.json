@@ -23654,6 +23654,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/notification-hubs/configure-android-device-messaging.md",
       "redirect_url": "/azure/notification-hubs/configure-google-firebase-cloud-messaging",
       "redirect_document_id": false
@@ -44239,6 +44244,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/deploy.md",
+      "redirect_url": "/azure/azure-monitor/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/deploy-scale.md",
+      "redirect_url": "/azure/azure-monitor/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/visualizations.md",
+      "redirect_url": "/azure/azure-monitor/best-practices-analysis",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -46506,6 +46526,11 @@
     {
       "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
       "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/how-do-i.md",
+      "redirect_url": "/azure/azure-monitor/faq",
       "redirect_document_id": false
     }
   ]
