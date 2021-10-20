@@ -1050,31 +1050,31 @@ Before proceeding further, make sure you have fully configured Red Hat High Avai
 
 To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Deploy Azure load balancer](#deploy-azure-load-balancer) section.
 
-1. For **standard** load balancer, follow below additional steps on the same load balancer that you had created in earlier section.
+For **standard** load balancer, follow below additional steps on the same load balancer that you had created in earlier section.
 
-   a. Create a second front-end IP pool: 
+1. Create a second front-end IP pool: 
 
-   - Open the load balancer, select **frontend IP pool**, and select **Add**.
-   - Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
-   - Set the **Assignment** to **Static** and enter the IP address (for example, **10.23.0.19**).
-   - Select **OK**.
-   - After the new front-end IP pool is created, note the pool IP address.
+   1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+   1. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
+   1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.23.0.19**).
+   1. Select **OK**.
+   1. After the new front-end IP pool is created, note the pool IP address.
 
-   b. Next, create a health probe:
+1. Next, create a health probe:
 
-   - Open the load balancer, select **health probes**, and select **Add**.
-   - Enter the name of the new health probe (for example, **hana-secondaryhp**).
-   - Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-   - Select **OK**.
+   1. Open the load balancer, select **health probes**, and select **Add**.
+   1. Enter the name of the new health probe (for example, **hana-secondaryhp**).
+   1. Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+   1. Select **OK**.
 
-   c. Next, create the load-balancing rules:
+1. Next, create the load-balancing rules:
 
-   - Open the load balancer, select **load balancing rules**, and select **Add**.
-   - Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
-   - Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
-   - Select **HA Ports**.
-   - Make sure to **enable Floating IP**.
-   - Select **OK**.
+   1. Open the load balancer, select **load balancing rules**, and select **Add**.
+   1. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
+   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
+   1. Select **HA Ports**.
+   1. Make sure to **enable Floating IP**.
+   1. Select **OK**.
 
 ### Configure HANA active/read enabled system replication
 
@@ -1149,11 +1149,11 @@ In the next section, you can find the typical set of failover tests to execute.
 
 Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
 
-1. When cluster resource **SAPHana_HN1_HDB03** moves to the secondary site (**S2**), the second virtual IP will move to the other site, i.e. to  **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1**.  
+- When cluster resource **SAPHana_HN1_HDB03** moves to the secondary site (**S2**), the second virtual IP will move to the other site, i.e. to  **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1**.  
 
-2. When testing server crash, the second virtual IP resources (**secvip_HN1_HDB03**) and Azure load balancer port resource (**secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected  - it allows applications that are connected to the read-enabled HANA database to operate, while a secondary server is unavailable.   
+- When testing server crash, the second virtual IP resources (**secvip_HN1_HDB03**) and Azure load balancer port resource (**secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected  - it allows applications that are connected to the read-enabled HANA database to operate, while a secondary server is unavailable.   
   
-3. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
+- During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
 
 ## Test SAP HANA failover 
 
