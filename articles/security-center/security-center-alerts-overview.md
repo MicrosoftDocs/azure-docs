@@ -12,7 +12,7 @@ ms.author: memildin
 
 Defender for Cloud generates alerts for resources deployed on your Azure, on-premises, and hybrid cloud environments.
 
-Security alerts are triggered by advanced detections and are available only with enhanced security features enabled. You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+Security alerts are triggered by advanced detections and are available only with enhanced security features enabled. You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## What are security alerts and security incidents? 
 
@@ -81,7 +81,7 @@ The severity is based on how confident Defender for Cloud is in the finding or t
 You have a range of options for viewing your alerts outside of Defender for Cloud, including:
 
 - **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
-- **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md).
+- **Continuous export** from Environment settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md).
 - **Microsoft Sentinel connector** streams security alerts from Microsoft Defender for Cloud into Microsoft Sentinel. [Learn more about connecting Microsoft Defender for Cloud with Microsoft Sentinel](../sentinel/connect-azure-security-center.md).
 
 Learn about all of the export options in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md) and [Continuously export Defender for Cloud data](continuous-export.md).

@@ -41,7 +41,7 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 1. From the [Azure portal](https://azure.microsoft.com/features/azure-portal/), open **Security Center**.
 
-1. From Security Center's menu, select **Security solutions**.
+1. From Defender for Cloud's menu, select **Security solutions**.
 
 From the **Security solutions** page, you can see the health of integrated Azure security solutions and run basic management tasks.
 

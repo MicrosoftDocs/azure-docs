@@ -93,7 +93,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### [**Windows**](#tab/windows)
 
-1. From Defender for Cloud's menu, select **Pricing & settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
+1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 
@@ -115,7 +115,7 @@ During the preview period, you'll deploy Defender for Endpoint to your Linux mac
 
 If you've already enabled the integration with **Defender for Endpoint for Windows**, you have complete control over when and whether to deploy Defender for Endpoint to your **Linux** machines.
 
-1. From Defender for Cloud's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
+1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**. You'll know that the integration is enabled, if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
 
@@ -164,7 +164,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
 If you've never enabled the integration for Windows, the **Allow Microsoft Defender for Endpoint to access my data** option will enable Defender for Cloud to deploy Defender for Endpoint to *both* your Windows and Linux machines.
 
-1. From Defender for Cloud's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
+1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 

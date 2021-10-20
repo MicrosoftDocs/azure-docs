@@ -67,7 +67,7 @@ You can configure continuous export from the Microsoft Defender for Cloud pages 
 
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
-1. From Defender for Cloud's menu, select **Pricing & settings**.
+1. From Defender for Cloud's menu, select **Environment settings**.
 
 1. Select the specific subscription for which you want to configure the data export.
 

@@ -104,7 +104,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 
 ### Step 5. Connect GCP to Security Center
-1. From Security Center's menu, select **Cloud connectors**.
+1. From Defender for Cloud's menu, select **Cloud connectors**.
 1. Select add GCP account.
 1. In the onboarding page, do the following and then select **Next**.
     1. Validate the chosen subscription.

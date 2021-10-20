@@ -43,7 +43,7 @@ The regulatory compliance dashboard shows your selected compliance standards wit
 
 Use the regulatory compliance dashboard to help focus your attention on the gaps in compliance with your chosen standards and regulations. This focused view also enables you to continuously monitor your compliance over time within dynamic cloud and hybrid environments.
 
-1. From Security Center's menu, select **Regulatory compliance**.
+1. From Defender for Cloud's menu, select **Regulatory compliance**.
 
     At the top of the screen, is a dashboard with an overview of your compliance status and the set of supported compliance regulations. You'll see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 

@@ -20,58 +20,71 @@ Keeping your resources safe is a joint effort between your cloud provider, Azure
 
 Defender for Cloud fills three vital needs as you manage the security of your cloud and on-premises resources:
 
-- **Continuous assessment** - Understand your current security posture
-- **Secure** - Harden all connected resources and services
-- **Defend** - Detect and resolve threats to those resources and services
+- **Continuous assessment** - Understand your current security posture.
+- **Secure** - Harden all connected resources and services. Because it is natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
+- **Defend** - Detect and resolve threats to those resources and services.
+
+:::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-synopsis.png" alt-text="Understanding the core functionality of Microsoft Defender for Cloud.":::
+
+## Posture management and workload protection
+
+Microsoft Defender for Cloud's features cover the two broad pillars of cloud security: cloud security posture management and cloud workload protection.
+
+### Cloud security posture management (CSPM)
+
+Defender for Cloud's CSPM features include secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these tools to identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. Use these CSPM features to  and track.
+
+When you open Defender for Cloud for the first time, it'll help you secure your environment as follows:
+
+1. **Generate a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add standards such as NIST and Azure CIS.
+
+1. **Provide hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrig, and multi-cloud resources.
 
 
-## Cloud security posture management and cloud workload protection
+### Cloud workload protection (CWP)
 
-Microsoft Defender for Cloud's features cover the two broad pillars of cloud security:
+Defender for Cloud offers security alerts powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) and a range of advanced, intelligent, protections for your workloads. The workload protections are provided through Microsoft Defender plans specific to the types of resources in your subscriptions. For example, you can enable **Microsoft Defender for Storage** to get alerted about suspicious activities related to your Azure Storage accounts. 
 
-- **Cloud security posture management (CSPM)** - Defender for Cloud is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. Use these CSPM features to strengthen the security posture of your organization's resources and track compliance with the built-in policies.
 
-- **Cloud workload protection (CWP)** - Defender for Cloud's enhanced security features bring advanced, intelligent, protection of your Azure, hybrid, and multi-cloud resources and workloads as described below. The enhanced security features are provided through Microsoft Defender plans specific to types of resources. For example, you can enable Microsoft Defender for Storage to protect your Azure Storage accounts. In addition to the built-in policies provided for free with Defender for Cloud, when you've enabled any of the integrated Microsoft Defender plans, you can add custom policies and initiatives. You can also add standards - such as NIST and Azure CIS for a truly customized view of your regulatory compliance.
+## Azure, hybrid, and multi-cloud protections
+Because Defender for Cloud is an Azure-native service, many Azure services are monitored and protected without necessitating any deployment.
 
-Defender for Cloud's **workload protections dashboard** provides visibility and control of the enhanced security features for your environment:
-
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the workload protections dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+When necessary, Defender for Cloud can auto provision a Log Analytics agent to gather security related data. For Azure machines, this is handled directly. For hybrid and multi-cloud environments, this is done with the help of [Azure Arc](https://azure.microsoft.com/services/azure-arc/).
 
 
 
+To extend protection to on-premises machines, deploy and enable Defender for Cloud's enhanced security features. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 
+### Azure-native protections
+
+Defender for Cloud helps you detect threats across:
+
+- **Azure PaaS services** - Detect threats targeting Azure services including Azure App Service, Azure SQL, Azure Storage Account, and more data services. You can also take advantage of the native integration with Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security)'s User and Entity Behavioral Analytics (UEBA) to perform anomaly detection on your Azure activity logs.
+
+- **Azure data services** - Defender for Cloud includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and recommendations for how to mitigate them.
+
+- **Networks** - Defender for Cloud helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address ranges or IP addresses, and for a limited amount of time. 
+
+### Defend your hybrid resources
+As well as defending your Azure environment, you can add Defender for Cloud capabilities to your hybrid cloud environment to protect your non-Azure servers.
+
+You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
+
+To extend protection to on-premises machines, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Defender for Cloud's enhanced security features. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
+
+### Defend resources running on other clouds 
+
+Defender for Cloud can protect resources in other clouds (such as AWS and GCP). 
 
 
+Multi-cloud pro
 
+## Collecting security data from your resources 
 
+Defender for Cloud protects non-Azure, on premises machines thanks to Azure Arc enabled servers .  in the cloud or on premises, 
 
-
-Defender for Cloud addresses the three most urgent security challenges:
-
--   **Workloads are Rapidly changing** – It's both a strength and a challenge of the cloud. On the one hand, end users are empowered to do more. On the other, how do you make sure that the ever-changing services people are using and creating are up to your security standards and follow security best
-    practices?
-
--   **Attacks are increasing in their sophistication** - Wherever you run your workloads, the attacks keep getting more sophisticated. You have to secure your public cloud workloads, which are, in effect, an Internet facing workload that can leave you even more vulnerable if you don't follow security best practices.
-
--   **Security skills are in short supply** - The number of security alerts and alerting systems far outnumbers the number of administrators with the necessary background and experience to make sure your environments are protected. Staying up-to-date with the latest attacks is a constant challenge, making it impossible to stay in place while the world of security is an ever-changing front.
-
-To help you protect yourself against these challenges, Security Center provides you with the tools to:
-
--   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, and whether they are secure.
-
--   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and security alerts.
-
--   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto provisioning and protection with Azure services.
-
-> [!NOTE]
-> This service supports [Azure Lighthouse](../lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated. For Defender for Cloud scenarios, a subscription must be delegated rather than individual resource groups.
-
-## Architecture
-
-Because Security Center is natively part of Azure, PaaS services in Azure - including Service Fabric, SQL Database, SQL Managed Instance, and storage accounts - are monitored and protected by Security Center without necessitating any deployment.
-
-In addition, Security Center protects non-Azure servers and virtual machines in the cloud or on premises, for both Windows and Linux servers, by installing the Log Analytics agent on them. Azure virtual machines are auto provisioned in Security Center.
+Defender for Cloud can auto deploy the Log Analytics agent to your Azure machines, . For hybrid resources and those on multi- Azure virtual machines are auto provisioned in Security Center.
 
 The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and security alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
 
@@ -126,18 +139,6 @@ Security Center's threat protection includes fusion kill-chain analysis, which a
 Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)
 
 
-### Protect PaaS
-
-Security Center helps you detect threats across Azure PaaS services. You can detect threats targeting Azure services including Azure App Service, Azure SQL, Azure Storage Account, and more data services. You can also take advantage of the native integration with Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security)'s User and Entity Behavioral Analytics (UEBA) to perform anomaly detection on your Azure activity logs.
-
-### Block brute force attacks
-
-Security Center helps you limit exposure to brute force attacks. By reducing access to virtual machine ports, using the just-in-time VM access, you can harden your network by preventing unnecessary access. You can set secure access policies on selected ports, for only authorized users, allowed source IP address ranges or IP addresses, and for a limited amount of time.
-
-### Protect data services
-
-Security Center includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and
-recommendations for how to mitigate them.
 
 ## Get secure faster
 
@@ -196,14 +197,7 @@ Each of these plans is explained separately in the Security Center documentation
 
 ## Hybrid cloud protection
 
-As well as defending your Azure environment, you can add Azure Defender capabilities to your hybrid cloud environment:
 
-- Protect your non-Azure servers
-- Protect your virtual machines in other clouds (such as AWS and GCP)
-
-You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
-
-To extend protection to virtual machines and SQL databases that are in other clouds or on-premises, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender. Azure Arc for servers is a free service, but services that are used on Azure Arc-enabled servers, for example Azure Defender, will be charged as per the pricing for that service. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 > [!TIP]
 > The native connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).

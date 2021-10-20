@@ -25,7 +25,7 @@ In this tutorial, you will learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Azure Defender enabled. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Defender for Cloud](security-center-get-started.md) walks you through how to upgrade.
+To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Defender for Cloud](security-center-get-started.md) walks you through how to upgrade.
 
 
 ## Triage security alerts
@@ -95,19 +95,28 @@ After you've investigated a security alert and understood its scope, you can res
 
 ## End the tutorial
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. 
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Defender for Cloud's enhanced security features enabled. 
 
 If you don't plan to continue, or you want to disable either of these features:
 
-1. Return to the Defender for Cloud main menu and select **Pricing and settings**.
+1. From Defender for Cloud's menu, select **Environment settings**.
 1. Select the relevant subscription.
-1. To downgrade, select **Azure Defender off**.
-1. To disable automatic provisioning, open the **Data Collection** page and set **Auto provisioning** to **Off**.
+1. Select **Defender plans** and select **Enhanced security off**.
+
+    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features.":::
+
 1. Select **Save**.
 
->[!NOTE]
-> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
->
+    > [!NOTE]
+    > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
+
+1. From Defender for Cloud's menu, select **Environment settings**.
+1. Select the relevant subscription.
+1. Select **Auto provisioning**.
+1. Disable the relevant extensions.
+
+    >[!NOTE]
+    > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
 
 ## Next steps
 In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material see:

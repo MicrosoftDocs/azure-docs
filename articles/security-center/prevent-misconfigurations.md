@@ -1,6 +1,6 @@
 ---
 title: How to prevent misconfigurations with Microsoft Defender for Cloud
-description: Learn how to use Security Center's 'Enforce' and 'Deny' options on the recommendations details pages
+description: Learn how to use Defender for Cloud's 'Enforce' and 'Deny' options on the recommendations details pages
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.author: memildin
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
-Security misconfigurations are a major cause of security incidents. Security Center can help *prevent* misconfigurations of new resources with regard to specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
 

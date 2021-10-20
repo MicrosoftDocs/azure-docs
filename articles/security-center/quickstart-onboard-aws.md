@@ -126,7 +126,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
 ### Step 5. Connect AWS to Security Center
 
-1. From Security Center's menu, select **Multi-cloud connectors**.
+1. From Defender for Cloud's menu, select **Multi-cloud connectors**.
 1. Select **Add AWS account**.
     :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi-cloud connectors page":::
 1. Configure the options in the **AWS authentication** tab:

@@ -34,7 +34,7 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 
 The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the Log Analytics Workspace for Microsoft Sentinel.
 
-To create an Microsoft Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below. 
+To create a Microsoft Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below. 
 
 For more information about Microsoft Sentinel, see [the documentation](../sentinel/index.yml).
 

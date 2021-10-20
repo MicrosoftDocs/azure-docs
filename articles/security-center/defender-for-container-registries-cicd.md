@@ -46,7 +46,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 ### Step 1. Enable the CI/CD integration in Defender for Cloud
 
-1. From Defender for Cloud's menu, select **Pricing & settings**.
+1. From Defender for Cloud's menu, select **Environment settings**.
 1. Select the relevant subscription.
 1. From the sidebar of the settings page for that subscription, select **Integrations**.
 1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.

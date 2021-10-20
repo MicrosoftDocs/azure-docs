@@ -82,7 +82,7 @@ For more information about recommendations, see [Managing security recommendatio
    > [!NOTE]
    > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
 
-1. From the **Security Center default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
+1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 
@@ -108,7 +108,7 @@ To enable a disabled policy and ensure it's assessed for your resources:
 
 1. Select the subscription or management group for which you want to enable the recommendation (and policy).
 
-1. From the **Security Center default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
+1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 

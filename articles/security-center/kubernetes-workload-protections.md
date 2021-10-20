@@ -101,7 +101,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 1. For the recommendations with parameters that need to be customized, set the parameters:
 
-    1. From Security Center's menu, select **Security policy**.
+    1. From Defender for Cloud's menu, select **Security policy**.
     1. Select the relevant subscription.
     1. From the **Security Center default policy** section, select **View effective policy**.
     1. Select the default policy for the scope you're updating.

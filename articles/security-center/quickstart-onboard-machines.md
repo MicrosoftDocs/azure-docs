@@ -52,7 +52,7 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
 ## Add non-Azure machines from the Azure portal
 
-1. From Security Center's menu, open the **Getting started** page.
+1. From Defender for Cloud's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
 
     :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page." lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::

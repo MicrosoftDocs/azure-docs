@@ -60,7 +60,7 @@ When automatic provisioning is on for the Log Analytics agent, Security Center d
 
 To enable auto provisioning of the Log Analytics agent:
 
-1. From Security Center's menu, select **Pricing & settings**.
+1. From Defender for Cloud's menu, select **Environment settings**.
 1. Select the relevant subscription.
 1. In the **Auto provisioning** page, set the status of auto provisioning for the Log Analytics agent to **On**.
 
@@ -91,7 +91,7 @@ To enable auto provisioning of the Log Analytics agent:
 
         If your selected workspace already has a "Security" or "SecurityCenterFree" solution enabled, the pricing will be set automatically. If not, install a Security Center solution on the workspace:
 
-        1. From Security Center's menu, open **Pricing & settings**.
+        1. From Defender for Cloud's menu, open **Environment settings**.
         1. Select the workspace to which you'll be connecting the agents.
         1. Select **Azure Defender on** or **Azure Defender off**.
 
@@ -187,7 +187,7 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 
 You can define the level of security event data to store at the workspace level.
 
-1. From Security Center's menu in the Azure portal, select **Pricing & settings**.
+1. From Defender for Cloud's menu in the Azure portal, select **Environment settings**.
 1. Select the relevant workspace. The only data collection events for a workspace are the Windows security events described on this page.
 
     :::image type="content" source="media/security-center-enable-data-collection/event-collection-workspace.png" alt-text="Setting the security event data to store in a workspace.":::
@@ -204,7 +204,7 @@ To manually install the Log Analytics agent:
 
 1. Enable Azure Defender on the workspace on which you're installing the Log Analytics agent:
 
-    1. From Security Center's menu, select **Pricing & settings**.
+    1. From Defender for Cloud's menu, select **Environment settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions for the workspace.
 
@@ -255,7 +255,7 @@ When you disable auto provisioning, agents will not be provisioned on new VMs.
 
 To turn off automatic provisioning of an agent:
 
-1. From Security Center's menu in the portal, select **Pricing & settings**.
+1. From Defender for Cloud's menu in the portal, select **Environment settings**.
 1. Select the relevant subscription.
 1. Select **Auto provisioning**.
 1. Toggle the status to **Off** for the relevant agent.

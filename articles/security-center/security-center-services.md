@@ -73,24 +73,22 @@ The two tabs below show the features of Microsoft Defender for Cloud that are av
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
-The following table provides a matrix of:
-
- - Whether you can use Microsoft Defender for Cloud to install each solution for you.
+The following table provides a matrix of whether you can use Microsoft Defender for Cloud to install each solution for you.
  - Which endpoint protection solutions Defender for Cloud can discover. If an endpoint protection solution from this list is discovered, Defender for Cloud won't recommend installing one.
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
-| Solution                                                  | Supported platforms                                    | Defender for Cloud installation | Defender for Cloud discovery |
-|-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
-| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No (built into OS)           | Yes                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2                                 | Via extension                | Yes                       |
-| Trend Micro – Deep Security                               | Windows Server (all)                                   | No                           | Yes                       |
-| Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
-| McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
-| McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
-| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup>  | Linux (preview)                                        | Via extension                | No                        |  
-| Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
-|                                                           |                                                        |                              |                           |
+| Solution                                                            | Supported platforms          | Defender for Cloud installation |
+|---------------------------------------------------------------------|------------------------------|---------------------------------|
+| Microsoft Defender Antivirus                                        | Windows Server 2016 or later | No (built into OS)              |
+| System Center Endpoint Protection (Microsoft Antimalware)           | Windows Server 2012 R2       | Via extension                   |
+| Trend Micro – Deep Security                                         | Windows Server (all)         | No                              |
+| Symantec v12.1.1100+                                                | Windows Server (all)         | No                              |
+| McAfee v10+                                                         | Windows Server (all)         | No                              |
+| McAfee v10+                                                         | Linux (preview)              | No                              |
+| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (preview)              | Via extension                   |
+| Sophos V9+                                                          | Linux (preview)              | No                              |
+|                                                                     |                              |                                 |
 
 <sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the AV component is active.
 By default, the AV component is **disabled** to avoid clashes with other AV software.

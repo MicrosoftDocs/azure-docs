@@ -50,9 +50,9 @@ We've created new alerts that provide this information and add to it. In additio
 
 **Estimated date for change:** October 2021
 
-The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
+The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
-:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -71,7 +71,7 @@ When the recommendations are released to general availability, they will replace
     - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
 
 Learn more:
-- [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
+- [Defender for Cloud's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
 
 
@@ -90,11 +90,11 @@ To improve the presentation of resources in the [Asset inventory](asset-inventor
 
 **Estimated date for change:** November 2021
 
-Security Center includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
+Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
 
 - **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
 
-- **Account exemption capability** - Security Center has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
+- **Account exemption capability** - Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
 
     Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
 

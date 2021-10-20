@@ -13,7 +13,7 @@ manager: rkarlin
 
 # Introduction to Microsoft Defender for SQL
 
-Microsoft Defender for SQL includes two Azure Defender plans that extend Microsoft Defender for Cloud's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. Microsoft Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
+Microsoft Defender for SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. Microsoft Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
 
 ## Availability
 
@@ -27,7 +27,7 @@ Microsoft Defender for SQL includes two Azure Defender plans that extend Microso
 
 ## What does Microsoft Defender for SQL protect?
 
-**Microsoft Defender for SQL** comprises two separate Azure Defender plans:
+**Microsoft Defender for SQL** comprises two separate Microsoft Defender plans:
 
 - **Microsoft Defender for Azure SQL database servers** protects:
     - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)

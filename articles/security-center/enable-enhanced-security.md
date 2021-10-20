@@ -33,7 +33,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
 - To enable enhanced security features on one subscription:
 
-    1. From Defender for Cloud's main menu, select **Pricing & settings**.
+    1. From Defender for Cloud's main menu, select **Environment settings**.
     1. Select the subscription or workspace that you want to protect.
     1. Select **Enable all Microsoft Defender for Cloud plans** to upgrade.
     1. Select **Save**.
@@ -63,7 +63,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
 If you need to disable enhanced security features for a subscription, the procedure is the same but you select **Enhanced security off**:
  
-1. From Defender for Cloud's menu, select **Pricing & settings**.
+1. From Defender for Cloud's menu, select **Environment settings**.
 1. Select the relevant subscription.
 1. Select **Defender plans** and select **Enhanced security off**.
 

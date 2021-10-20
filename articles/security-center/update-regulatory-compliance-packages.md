@@ -48,8 +48,13 @@ Standards are added to the dashboard as they become available.
 
 The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 
-> [!NOTE]
-> To add standards to your dashboard, the subscription must have Azure Defender enabled. Also, only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
+### Prerequisites
+To add standards to your dashboard:
+
+- The subscription must have Defender for Cloud's enhanced security features enabled
+- The user must have owner or policy contributor permissions
+
+### Add a standard
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 

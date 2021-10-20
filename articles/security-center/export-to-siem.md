@@ -40,7 +40,7 @@ Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud
 
 When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well. Changing the status of an alert in Defender for Cloud "won't"* affect the status of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert, only that of the synchronized alert itself.
 
-Enabling the preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when an Microsoft Sentinel incident containing an Defender for Cloud alert is closed, Defender for Cloud will automatically close the corresponding original alert.
+Enabling the preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident containing an Defender for Cloud alert is closed, Defender for Cloud will automatically close the corresponding original alert.
 
 Learn more in [Connect Defender for Cloud alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
