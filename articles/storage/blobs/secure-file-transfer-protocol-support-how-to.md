@@ -65,7 +65,7 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
 2. Select **SFTP**, and then select **Add local user**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Add local users button](./media/secure-file-transfer-protocol-support-how-to/sftp-local-user-config.png)
+   > ![Add local users button](./media/secure-file-transfer-protocol-support-how-to/sftp-local-user.png)
 
 3. In the **Add local user** configuration page, add the name of a user, and then select which methods of authentication you'd like associate with this local user. You can associate a password and / or a secure shell (SSH) key. 
 
@@ -74,7 +74,7 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
    If you select **Secure with SSH public key**, then select **Add key source** to specify a key. 
 
    > [!div class="mx-imgBorder"]
-   > ![Local user configuration page](./media/secure-file-transfer-protocol-support-how-to/add-local-user-configuration-page.png)
+   > ![Local user configuration page](./media/secure-file-transfer-protocol-support-how-to/add-local-user-config-page.png)
 
    The following table describes each option:
 
@@ -89,7 +89,7 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
 5. In the **Container permissions** section, choose the containers that you want to make available to this local user. Then, choose which types of operations you want to enable this local user to perform.
 
    > [!div class="mx-imgBorder"]
-   > ![Container permissions page](./media/secure-file-transfer-protocol-support-how-to/container-permissions-tab.png)
+   > ![Container permissions page](./media/secure-file-transfer-protocol-support-how-to/container-perm-tab.png)
 
 6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this this local user. 
 
@@ -108,7 +108,7 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
 2. Select **SFTP**, and then select **Enable SFTP**.
 
    > [!div class="mx-imgBorder"]
-   > ![Enable SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable.png)
+   > ![Enable SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option.png)
 
    >[!NOTE]
    > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Configure permissions](#configure-permissions) section of this article.
