@@ -139,7 +139,7 @@ To use **ML-assisted labeling**:
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
-Approximately the first 128 words of a long document, or concatenation of multiple columns, are used as input into the ml-assisted label model.  The document or text in the set of columns can exceed 128 words.  The limit only pertains to what is input into the model to predict the prelabels for the classification of the entire document or set of columns.
+For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally leveraged by the model during the training process.
 
 The exact number of labeled items necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in the project.
 
