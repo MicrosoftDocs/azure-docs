@@ -78,6 +78,7 @@ For pricing that will be effective during the general availability release, see 
 ## Limitations
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
+* Gateway Load Balancer Portal support is currently unavailable in China cloud and Government cloud regions. CLI, PowerShell, Templates or API can be used.
 
 ## Next steps
 
