@@ -146,4 +146,4 @@ New-SAPWorkloadZone -Parameterfile .DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars
 ## Next step
 
 > [!div class="nextstepaction"]
-> [About SAP system deployment in automation framework](automation-system-deployment.md)
+> [About SAP system deployment in automation framework](automation-configure-system.md)
