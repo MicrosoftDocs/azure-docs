@@ -15,6 +15,8 @@ Dapr is a portable, event-driven runtime that makes it easy for any developer to
 
 By using the AKS Dapr extension to provision Dapr on your AKS cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all native Dapr configuration capabilities through simple command-line arguments.
 
+By using the AKS Dapr extension to provision Dapr on your AKS cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
+
 > [!NOTE]
 > If you plan on installing Dapr in a Kubernetes production environment, please see our [guidelines for production usage][kubernetes-production] documentation page.
 
@@ -38,16 +40,17 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 - Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 - You will also need an [AKS cluster][deploy-cluster].
 
-## Register the `Extensions` and `AKS-Dapr` preview features
+## Register the `Extensions`, `AKS-ExtensionManager` and `AKS-Dapr` preview features
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To create an AKS cluster that can use the Dapr extension, you must enable the `Extensions` and `AKS-Dapr` feature flags on your subscription.
+To create an AKS cluster that can use the Dapr extension, you must enable the `Extensions`, `AKS-ExtensionManager`, and `AKS-Dapr` feature flags on your subscription.
 
-Register the `Extensions` and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `Extensions`, `AKS-ExtensionManager`, and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.KubernetesConfiguration" --name "Extensions"
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 ```
 
@@ -55,6 +58,7 @@ It takes a few minutes for the status to show *Registered*. Verify the registrat
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/Extensions')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-Dapr')].{Name:name,State:properties.state}"
 ```
 
@@ -68,8 +72,6 @@ az provider register --namespace Microsoft.ContainerService
 ## Create the extension and install Dapr on your AKS cluster
 
 Once your subscription is registered to use Kubernetes extensions, you can create the Dapr extension, which will install Dapr on your AKS cluster. For example:
-
-<!-- TODO: get link to az k8s-extension CLI reference -->
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -151,6 +153,34 @@ az k8s-extension show --cluster-type managedClusters \
 --name myDaprExtension
 ```
 
+## Update configuration settings
+
+To update your Dapr configuration settings, simply recreate the extension with the desired state. For example, assume we have previously created and installed the extension using the following configuration:
+
+```azurecli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name myDaprExtension \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \  
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" 
+```
+
+To update the `dapr_operator.replicaCount` from 2 to 3, use the following:
+
+```azurecli-interactive
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name myDaprExtension \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \  
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=3" 
+```
+
 ## Troubleshooting extension errors
 
 If the extension fails to create or update, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings, such as `global.ha=false` instead of `global.ha.enabled=false`: 
@@ -178,7 +208,7 @@ The below JSON is returned, and the error message is captured in the `message` p
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
 ```azure-cli-interactive
-az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name myDaprExtension --debug -y --no-wait
+az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name myDaprExtension
 ```
 
 ## Next Steps
