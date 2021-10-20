@@ -86,7 +86,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 * Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Use Event Grid for App Configuration data change notifications](./howto-app-configuration-event.md).
 
-* Use a separate App configuration store, for example, for each geographic region. Each App Configuration store has its own request quota. This setup gives you the necessary scalability for large-scale applications and avoids the single point of failure.
+* Divert your requests to separate App configuration stores, for example, for each geographic region. Each App Configuration store has its own request quota. This setup gives you the necessary scalability for a large-scale application and avoids the single point of failure.
 
 ## Importing configuration data into App Configuration
 
