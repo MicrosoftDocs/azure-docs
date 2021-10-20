@@ -42,11 +42,11 @@ For more information about manual failover and Microsoft-initiated failover with
 > [!NOTE]
 > There is a limit of two failovers and two failbacks per day for an IoT hub.
 
-1. Click **Resource groups** and then select your resource group. This tutorial uses **ManlFailRG**. Click on your hub in the list of resources. 
+1. Click **Resource groups** and then select your resource group. Click on your hub in the list of resources.
 
-1. Under **Settings** on the IoT Hub pane, click **Failover**.
+1. Under **Hub settings** on the IoT Hub pane, click **Failover**.
 
-   ![Screenshot showing IoT Hub properties pane](./media/tutorial-manual-failover/trigger-failover-01.png)
+:::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="Screenshot showing IoT Hub properties pane":::
 
 1. On the Manual failover pane, you see the **Current location** and the **Failover location**. The current location always indicates the location in which the hub is currently active. The failover location is the standard [Azure geo-paired region](../best-practices-availability-paired-regions.md) that is paired to the current location. You cannot change the location values. For this tutorial, the current location is `West US 2` and the failover location is `West Central US`.
 
