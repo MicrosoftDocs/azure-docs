@@ -76,7 +76,7 @@ Create a compute cluster:
 
 :::code language="rest-api" source="~/azureml-examples-cli-preview/cli/batch-score-rest.sh" id="create_compute":::
 
-> [!ITP]
+> [!TIP]
 > If you want to use an existing compute instead, you must specify the full Azure Resource Manager ID when [creating the batch deployment](#create-batch-deployment). The full ID uses the format `/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes/<your-compute-name>`.
 
 ### Get storage account details
