@@ -1,5 +1,3 @@
-Get the Query and Data Ingestion endpoints for use with external services, tools, or SDKs.
-
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Data Explorer pools**.
 1. Select the Data Explorer pool you want to use to view its details.
 

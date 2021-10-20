@@ -36,7 +36,7 @@ The Azure Synapse Data Explorer data management service, which is responsible fo
 
 * Batching ingestion does data batching and is optimized for high ingestion throughput. This method is the preferred and most performant type of ingestion. Data is batched according to ingestion properties. Small batches of data are merged and optimized for fast query results. The [ingestion batching](/azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context) policy can be set on databases or tables. By default, the maximum batching value is 5 minutes, 1000 items, or a total size of 1 GB.  The data size limit for a batch ingestion command is 4 GB.
 
-* Streaming ingestion<!--[Streaming ingestion](ingest-data-streaming.md)--> is ongoing data ingestion from a streaming source. Streaming ingestion allows near real-time latency for small sets of data per table. Data is initially ingested to row store, then moved to column store extents.
+* [Streaming ingestion](data-explorer-ingest-data-streaming.md) is ongoing data ingestion from a streaming source. Streaming ingestion allows near real-time latency for small sets of data per table. Data is initially ingested to row store, then moved to column store extents.
 
 ## Ingestion methods and tools
 
@@ -67,6 +67,10 @@ For organizations who wish to have management (throttling, retries, monitors, al
 ### Programmatic ingestion using SDKs
 
 Azure Synapse Data Explorer provides SDKs that can be used for query and data ingestion. Programmatic ingestion is optimized for reducing ingestion costs (COGs), by minimizing storage transactions during and following the ingestion process.
+
+Before you start, use the following steps to get the Data Explorer pool endpoints for configuring programmatic ingestion.
+
+[!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
 
 **Available SDKs and open-source projects**
 

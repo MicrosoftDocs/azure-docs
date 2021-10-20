@@ -19,7 +19,8 @@ In this quickstart, you learn how to load data from a data source into Azure Syn
 
 - Create a Data Explorer pool using [Synapse Studio](../data-explorer-create-pool-studio.md) or [the Azure portal](../data-explorer-create-pool-portal.md)
 
-- [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
+- Get the Query and Data Ingestion endpoints. You'll need the query endpoint to configure your linked service.
+    [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
 
 - Create a Data Explorer database.
     1. In Synapse Studio, on the left-side pane, select **Data**.

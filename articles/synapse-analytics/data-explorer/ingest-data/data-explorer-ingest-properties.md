@@ -1,12 +1,14 @@
 ---
 title: Data ingestion properties for Azure Synapse Analytics Data Explorer (Preview)
 description: Learn about the various data ingestion properties supported by Azure Synapse Analytics Data Explorer.
-author: orspod
-ms.author: orspodek
-ms.reviewer: tzgitlin
-ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 11/02/2021
+author: shsagir
+ms.author: shsagir
+ms.reviewer: tzgitlin
+services: synapse-analytics
+ms.service: synapse-analytics
+ms.subservice: data-explorer
 ---
 
 # Azure Synapse Analytics Data Explorer data ingestion properties (Preview)
