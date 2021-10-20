@@ -30,9 +30,9 @@ Enterprise IT admins who are planning to enable Azure files leveraging Azure AD 
 ## Scenarios 
 Customers can now leverage Azure AD and Azure files for the following scenarios:
 
-1. Lifting and Shifting the on premises file servers to Azure without implementing changes to the authentication stack or deploying Azure AD domain services. Customers can leverage their Azure AD credentials to access Azure files as a replacement of on premises file share from Azure AD /Hybrid Azure AD joined devices.
-1. Cloud born applications using Azure Files as the shared data storage with Native Azure AD authentication and modern credentials. 
-1. Accessing on prem file share or Azure files over the internet without line of sight to a DC. 
+- Lifting and Shifting the on premises file servers to Azure without implementing changes to the authentication stack or deploying Azure AD domain services. Customers can leverage their Azure AD credentials to access Azure files as a replacement of on premises file share from Azure AD /Hybrid Azure AD joined devices.
+- Cloud born applications using Azure Files as the shared data storage with Native Azure AD authentication and modern credentials. 
+- Accessing on prem file share or Azure files over the internet without line of sight to a DC. 
 
 ## How does Azure AD provide Kerberos authentication?
 This is achieved by flipping the traditional trust model where Azure AD now becomes the trusted source for both cloud and on premises authentication. Azure AD becomes an independent Kerberos realm, and the Windows clients (insider build) are enlightened and allows clients to access Azure AD Kerberos. This enables:
