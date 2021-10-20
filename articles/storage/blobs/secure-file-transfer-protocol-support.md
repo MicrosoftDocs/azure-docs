@@ -13,7 +13,7 @@ ms.reviewer: ylunagaria
 
 # Secure File Transfer (SFTP) protocol support in Azure Blob Storage (preview)
 
-Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use an SFTP client to securely connect to an Azure Storage account, and then manage your objects by using file system semantics.
+Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use an SFTP client to securely connect to an Azure Storage account, and then upload and download files. 
 
 > [!IMPORTANT]
 > SFTP protocol support is currently in PREVIEW and is available in the following regions: North US, Central US, East US, Canada, West Europe, North Europe, Australia, Switzerland, Germany West Central, and East Asia.
@@ -21,6 +21,8 @@ Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
+
+For step-by-step guidance, see [Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)](secure-file-transfer-protocol-support-how-to.md).
 
 ## SFTP and the hierarchical namespace
 
@@ -36,6 +38,8 @@ Capabilities Overview:
 
 Up to 1000 users per account
 Each user can access up to 100 containers
+
+Questions - do local users need to be uniquely named across all accounts or only within a specific account
 
 ### Authentication methods
 
@@ -60,10 +64,6 @@ Password - This method of authentication uses an Azure-generated password. The p
 
 Explain the purpose of the default home directory
   
-## Get started
-
-For step-by-step guidance, see [Mount Blob storage by using the Secure File Transfer (SFTP) protocol](secure-file-transfer-protocol-support-how-to.md).
-
 ## Known issues and limitations
 
 See the [Known issues](secure-file-transfer-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of SFTP support.

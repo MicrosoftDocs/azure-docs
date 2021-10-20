@@ -13,7 +13,9 @@ ms.reviewer: ylunagaria
 
 # Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)
 
-You can securely connect to an Azure Storage account by using an SFTP client, and then manage your objects by using file system semantics. This article provides step-by-step guidance that helps you use SFTP to interact with Azure Blob Storage. To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+You can securely connect to an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP protocol support, and then connect to your storage account by using an SFTP client. 
+
+To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
 > SFTP protocol support is currently in PREVIEW and is available in the following regions: North US, Central US, East US, Canada, West Europe, North Europe, Australia, Switzerland, Germany West Central, and East Asia.
@@ -26,13 +28,15 @@ You can securely connect to an Azure Storage account by using an SFTP client, an
 
 - A standard general-purpose v2 or premium block blob storage account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
-- Account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
+- The account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
 
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 - If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22. The SFTP protocol uses that port.
 
-## Register the SFTP feature
+## Register the feature
+
+Before you can enable SFTP support, you must register the SFTP feature with your subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -40,15 +44,17 @@ You can securely connect to an Azure Storage account by using an SFTP client, an
 
 3. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
 
-4. Make sure to verify that the feature is registered before continuing.
-    
-   In the **Preview features** page of your subscription, locate the **AllowSFTP** feature, and then make sure that **Registered** appears in the **State** column.
+## Verify feature registration
 
-## Add local users
+Make sure to verify that the feature is registered before continuing with the other steps in this article. To verify the registration, open the **Preview features** page of your subscription. Then, locate the **AllowSFTP** feature and make sure that **Registered** appears in the **State** column.
 
-Local users are a new form of identity management designed to secure connections from SFTP clients. To connect an SFTP client to an Azure Storage endpoint, the client must provide the password or SSH public key associated with a local user. To learn more about local users, see [Local users](secure-file-transfer-protocol-support.md#local-users). 
+## Configure access permissions
 
-This section helps you to configure a local user, choose an authentication method, and set permissions on containers and directories. Repeat the steps in this section for each local user that you want to add.
+Azure Storage doesn't support account key, SAS, or Azure Active directory authentication for connecting SFTP clients. Instead, SFTP clients must use either a password or an SSH public key credential. To grant access to a connecting client, the storage account must have an identity associated with that credential. That identity is called a *local user*. 
+
+In this section, you'll learn how to create a local user, create a credential for that local user, and then assign permissions for that user to containers and directories in your account. 
+
+To learn more about local users, see [Local users](secure-file-transfer-protocol-support.md#local-users). 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
@@ -66,10 +72,10 @@ This section helps you to configure a local user, choose an authentication metho
 
    If you select **Secure with SSH public key**, then select **Add key source** to specify a key. 
 
-   You can generate a new key pair, use an existing key stored in Azure, or specify an existing public key.  To learn more about these options, see [Authentication methods](secure-file-transfer-protocol-support.md#authentication-methods).
-
    > [!div class="mx-imgBorder"]
    > ![Add key source](./media/secure-file-transfer-protocol-support-how-to/add-local-user-configuration-page-add-key-source.png)
+
+   You can generate a new key pair, use an existing key stored in Azure, or specify an existing public key.  To learn more about these options, see [Authentication methods](secure-file-transfer-protocol-support.md#authentication-methods).
 
 4. Select **Next** to move to the **Container permissions** tab of the configuration page.
 
@@ -98,47 +104,21 @@ This section helps you to configure a local user, choose an authentication metho
    > ![Enable SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable.png)
 
    >[!NOTE]
-   > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Add a local user](#add-local-users) section of this article.
+   > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Configure access permissions](#configure-access-permissions) section of this article.
 
-## Connect to Azure Blob Storage and upload a file
+## Connect with an SFTP client
 
-You can use any SFTP client to securely transfer files to your SFTP-enabled storage account. This section shows how to use OpenSSH with password authentication. To learn more about this tool, see [OpenSSH in Windows](/windows-server/administration/openssh/openssh_overview).
+You can use any SFTP client to securely connect and then transfer files. The following screenshot shows a Windows PowerShell session that uses [Open SSH](/windows-server/administration/openssh/openssh_overview) and password authentication to connect and then upload a file named `logfile.txt`.  
 
-1. Open a Windows PowerShell command window.
+> [!div class="mx-imgBorder"]
+> ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect.png)
 
-2. Connect to your storage account by using the following command. The prefix of this command is the storage account name followed by the name of the local user that you want to use with the connection.
+After the transfer, this file appears in the default home directory that you specified for this local user.
 
-   ```console
-   sftp contoso.contosouser1@contoso.blob.core.windows.net/
-   ```
-   When prompted for the password, provide it to complete the connection. If your connection is successful, the `sftp` prompt appears in the console.
+> [!div class="mx-imgBorder"]
+> ![Uploaded file appears in storage account](./media/secure-file-transfer-protocol-support-how-to/uploaded-file-in-storage-account.png)
 
-3. View a list of commands and their parameters by using the `help` command.
-
-   ```console
-   help
-   ```
-
-4. Determine your current local directory by using the ``lpwd`` command.
-
-   ```console
-   lpwd
-   ```
-5. Navigate to the local directory that contains the file that you want to upload. This example navigates to a subdirectory named ``mylogfiles``.
-
-   ```console
-   cd mylogfiles
-   ```
- 
-6. Upload a file to your account by using the ``put`` command. This example uploads a file named `logfile.txt` from the current local directory.
-
-   ```console
-   put logfile.txt
-   ```
-
-   After the transfer, this file appears in the default home directory that you specified for this local user.
-
----
+See the documentation for your SFTP client for guidance about how to connect and transfer files.
 
 ## Resolve common errors
 
