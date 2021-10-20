@@ -93,12 +93,14 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
 1. Get the available RTSP port(s) of the device
 1. Compare the `localPort` value specified in the direct method call with the available ports
    * Return **BadRequest** if no match is found (see Error Responses section below)
-1. Open a TCP connection to "localhost:`localPort`"
+1. Open a TCP connection to "(camera IP or hostname):`localPort`"
    * Return **BadRequest** if the connection fails
+   * NOTE: hostname is typically **localhost**
 1. Open a web socket connection to the `remoteEndpoint` (through a proxy if configured on the device)
    * Set the HTTP "Authorization" header as "Bearer <remoteAuthorizationToken>"
    * Set the header "TunnelConnectionSource" with value "PnpDevice"
-   * Set User-Agent to a value such as "User-Agent: Azure Video Analyzer/1.0 ({platform}) {device information}", where "{platform}" could represent the CPU architecture, and "{device information}" could be the make or model of the device.
+   * Set User-Agent to a suitable value that would help you identify your implementation. 
+      * For example, you may want to capture the architecture of the CPU, the OS, the model/make of the the device.
    * Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
 1. Return response (do not block)
 1. Asynchronously connect the web socket tunnel
@@ -118,13 +120,18 @@ If the `tunnelOpen` request fails then the response body should be as follows
 Examples of such error responses are:
 
 * Local port is not available as an RTSP or RTSPS port
-{ "code": "400", "target": "localhost:{localPort}", "message": "Local port is not available"}
+{ "code": "400", "target": "(camera IP or hostname):{localPort}", "message": "Local port is not available"}
 * Timeout/could not connect to RTSP endpoint
-{ "code": "400", "target": "localhost:{localPort}", "message":"Could not connect to RTSP endpoint"}
+{ "code": "400", "target": "(camera IP or hostname):{localPort}", "message":"Could not connect to RTSP endpoint"}
 *	Timeout/error response from web socket connect attempt
 { "code": "{WebSocket response code}", "target": "{remoteEndpoint}", "message": "{Web socket response error message}"}
 
 
+## Ingestion to Video Analyzer
+In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated.  
+[Instructions for this process are outlined here.]()
+
+ 
 ## Example implementation
 Contact videoanalyzerhelp@microsoft.com if you would like to implement an application on your device to connect it to Video Analyzer.
 
