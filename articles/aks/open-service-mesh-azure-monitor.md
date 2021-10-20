@@ -37,7 +37,7 @@ For metrics to be scraped from a particular namespace monitored by the mesh, the
 osm metrics enable --namespace <namespace>
 ```
 
-For instance, if you are running the [bookstore demo](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
+For instance, if you are running the [bookstore demo](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
 
 ```sh
 osm metrics enable --namespace bookbuyer
@@ -45,7 +45,7 @@ osm metrics enable --namespace bookstore
 osm metrics enable --namespace bookthief
 osm metrics enable --namespace bookwarehouse
 ```
-## Apply ConfigMaps
+## Apply ConfigMap
 
 Create the following ConfigMap in `kube-system`, which will tell AzMon what namespaces should be monitored. For instance, for the bookbuyer / bookstore demo, the ConfigMap would look as follows: 
 
@@ -65,23 +65,6 @@ metadata:
   name: container-azm-ms-osmconfig
   namespace: kube-system
 
-```
-
-Next, a second ConfigMap needs to be created to set [monitor_kubernetes_pods to true](https://github.com/microsoft/Docker-Provider/blob/24b709f9e3c3b18779102b491fc98b87a99d1335/kubernetes/container-azm-ms-agentconfig.yaml#L72).
-
-```yaml
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: container-azm-ms-agentconfig
-  namespace: kube-system
-data:
-  schema-version: v1
-  config-version: ver1
-  prometheus-data-collection-settings: |-
-    [prometheus_data_collection_settings.cluster]
-        interval = "30s"
-        monitor_kubernetes_pods = true
 ```
 
 ## View metrics in the Azure portal
