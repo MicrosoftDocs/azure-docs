@@ -101,6 +101,26 @@ In the Form Recognizer UI:
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
+### Try signature detection
+
+1. Build your training data set.
+
+1. Navigate to the Form Recognizer Studio and select Custom form under Custom models:
+
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select custom form.":::
+
+1. Follow the workflow to create a new project:
+
+1. Follow the Custom model input requirements.
+
+1. Create a label with the type Signature.
+
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
+
+    :::image type="content" source="media/label-tool/signature-label-region.png" alt-text="Screenshot: Label signature field.":::
+
+Once your training set has been labeled, you can train your custom model and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
+
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
