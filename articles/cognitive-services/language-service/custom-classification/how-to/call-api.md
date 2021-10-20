@@ -20,20 +20,11 @@ After you're satisfied with your model, and made any necessary improvements, you
 
 * [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
     * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
-* [Tagged data](tag-data.md) to successfully [train a model](train-model.md)
+* [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
     * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
-
-## Deploy your model
-
-
-## Prerquistes
-
-* Sucessfully [trained model](train-model.png)
-
-* Install [curl](https://curl.se/download.html)
 
 ## Deploy your model
 
@@ -75,7 +66,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
- You can find more details baout the results in the next section.
+ You can find more details about the results in the next section.
 
 # [Using the API](#tab/api)
 
@@ -168,7 +159,7 @@ Use the following **GET** request to query the status/results of the custom clas
 |--|--|
 |Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
 
-You can find more details baout the results in the next section.
+You can find more details about the results in the next section.
 
 ---
 

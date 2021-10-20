@@ -68,7 +68,7 @@ Create a **POST** request using the following URL, headers, and JSON body to cre
 
 ### Request URL
 
-Use the following URL to create a project and import you tags file. Replace the placeholder values below with your own values. 
+Use the following URL to create a project and import your tags file. Replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import. 
@@ -126,7 +126,7 @@ For the metadata key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `modelType  `    | | Yoour Model type, for single classifcication use `singleClassification`.   | multiClassification |
+| `modelType  `    | | Your Model type, for single classification use `singleClassification`.   | multiClassification |
 |`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
 
 This request will return an error if:
@@ -171,8 +171,8 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-|`modelLabel  `    | Yoour Model name.   | MyModel |
-|`runValidation`     | Boolean value to run validation on the test set.   | true |
+|`modelLabel  `    | Your Model name.   | MyModel |
+|`runValidation`     | Boolean value to run validation on the test set.   | True |
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
@@ -362,7 +362,7 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |"tasks"|[]| List of tasks we want to perform.|
 |--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
 |parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. Note that project name is case senitive.|
+|project-name| "MyProject"| Your project name. The project name is case sensitive.|
 |deployment-name| "MyDeploymentName"| Your deployment name|
 
 Replace the text of the document with movie summaries to classify.
