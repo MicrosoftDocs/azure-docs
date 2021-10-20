@@ -100,7 +100,7 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to [pglogical extension documentation](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs) for more details. Also make sure you have performed pre-requisite tasks listed above.
+Here is an example of configuring pglogical at the provider database server and the subscriber. Also make sure you have performed pre-requisite tasks listed above.
 
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
@@ -245,4 +245,3 @@ SELECT * FROM pg_replication_slots;
 * Learn more about [networking options](concepts-networking.md)
 * Learn about [extensions](concepts-extensions.md) available in flexible server
 * Learn more about [high availability](concepts-high-availability.md)
-
