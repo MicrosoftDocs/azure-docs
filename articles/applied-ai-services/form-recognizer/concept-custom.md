@@ -20,7 +20,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+:::image type="content" source="media/analyze-studio.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 ## What is a custom model?
 
