@@ -64,7 +64,7 @@ See [Scheduled Maintenance](concepts-maintenance.md) for more details.
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption.
+The flexible server service automatically creates server backups and stores them in user configured locally redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
 See [Backup concepts](concepts-backup-restore.md) to learn more.
 
