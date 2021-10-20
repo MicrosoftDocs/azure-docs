@@ -100,27 +100,16 @@ dsregcmd.exe /RefreshPrt
 Follow these instructions to set up Azure files. 
 
 1. Create Azure storage account and enable AAD Kerberos Authentication for Azure Files
-   1. Installation prerequisites.
-      1. Az.Storage PowerShell module
-         1. This module provides management cmdlets for Azure Storage resources.  Required to create storage account, enable AAD Kerberos authentication on storage account, and retrieve storage accounts’ Kerberos keys.
-         1. In PowerShell, run the following command:
-            
-            ```powershell
-            Install-Module -Name Az.Storage
-            ```
+   1. Install prerequisites:
 
-      1. Azure Active Directory PowerShell Module
-         1. This module provides management cmdlets for Azure AD administrative tasks such as user and service principal management. 
-         1. In PowerShell, run the following command:
+      | Module | Descrption | Powershell |
+      |--------|------------|---------|
+      | Az.Storage PowerShell module |This module provides management cmdlets for Azure Storage resources. Required to create storage account, enable Azure AD Kerberos authentication on storage account, and retrieve storage accounts’ Kerberos keys. | `Install-Module -Name Az.Storage`|
+      | Azure Active Directory PowerShell Module | This module provides management cmdlets for Azure AD administrative tasks such as user and service principal management. | `Install-Module -Name AzureAD`. |
          
-            ```powershell
-            Install-Module -Name AzureAD
-            ```
+      For more information about installing the Azure AD PowerShell module, see [Install Azure Active Directory PowerShell for Graph](/powershell/azure/active-directory/install-adv2.md?view=azureadps-2.0).
 
-         1. For additional information about installing the Azure AD PowerShell module: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0  
-
-   1. Feature Registration
-      1. Because Azure Files with Azure AD Kerberos is in preview, the feature is gated through a Azure-wide feature exposure system (AFEC). To register for the feature, please do the following:
+   1. Register Azure AD Kerberos for Azure Files. Because Azure Files with Azure AD Kerberos is in preview, the feature is gated through a Azure-wide feature exposure system (AFEC). To register, run the following command:
       
       ```powershell
       Register-AzProviderFeature -FeatureName EUAPParticipation -ProviderNamespace Microsoft.Resources
@@ -131,7 +120,7 @@ Follow these instructions to set up Azure files.
       - **Resource Group name**: choose from existing resource groups
       - **Storage Account name**: provide a new name that you intend to use for your storage account. (If the name is taken, we will append random strings behind the given name.)
 
-   1. Validate your environment can connect to Azure Files over SMB. If you haven’t mount Azure Files shares to your environment before, we strongly suggest you run AzFileDiagnostics tool to validate your setup before configuring Azure AD authentic
+   1. Validate your environment can connect to Azure Files over SMB. If you haven’t mount Azure Files shares to your environment before, we strongly suggest you run the AzFileDiagnostics tool to validate your setup before configuring Azure AD authentic.
 
    1. Configure the Azure AD service principal and application. To enable AAD Kerberos authentication on a storage account, we need to create an Azure AD Application to represent the storage account in Azure AD. This can be done by using PowerShell commands from both the Az.Storage and Azure AD modules.
       1. Set variables for both storage account name and resource group name.
@@ -145,7 +134,7 @@ Follow these instructions to set up Azure files.
       1. Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between AAD Kerberos and Azure Storage. The Kerberos derives its value as the first 32 bytes of the storage account’s kerb1 key.
       
          ```powershell
-         <# 2. Use Az.Storage PowerShell to retrieve the kerb1 key of the storage account and generate a password for the AAD Service Principal. #>
+         <# 2. Use Az.Storage PowerShell to retrieve the kerb1 key of the storage account and generate a password for the Azure AD service principal. #>
          $kerbKey1 = Get-AzStorageAccountKey `
              -ResourceGroupName $resourceGroupName `
              -Name $storageAccountName -ListKerbKey `
@@ -159,7 +148,7 @@ Follow these instructions to set up Azure files.
      1. Connect to Azure AD and retrieve tenant information.
     
         ```powershell
-        <# 3. Connect to the Azure AD using your AAD credentials, retrieve tenant ID and domain name #>
+        <# 3. Connect to the Azure AD using your Azure AD credentials, retrieve tenant ID and domain name #>
         Connect-AzureAD
         
         $azureAdTenantDetail = Get-AzureADTenantDetail;
@@ -167,10 +156,10 @@ Follow these instructions to set up Azure files.
         $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
         ```
 
-     1. Generate the Service Principal Names for the AAD Service Principal.
+     1. Generate the Service Principal Names for the Azure AD service principal.
      
         ```powershell
-        <# 4. Generate the Service Principal Names for the Service Principal #>
+        <# 4. Generate the Service Principal Names for the service principal #>
      
         $servicePrincipalNames = New-Object string[] 3
         $servicePrincipalNames[0] = 'HTTP/{0}.file.core.windows.net' -f ` $storageAccountName
@@ -189,10 +178,10 @@ Follow these instructions to set up Azure files.
             -GroupMembershipClaims "All";
         ```    
 
-     1. Create a Service Principal for the storage account.
+     1. Create a service principal for the storage account.
      
         ```powershell
-        <# 6. Create a Service Principal for the storage account #>
+        <# 6. Create a service principal for the storage account #>
         
         $servicePrincipal = New-AzureADServicePrincipal `
             -AccountEnabled $true `
