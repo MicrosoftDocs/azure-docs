@@ -9,7 +9,6 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-
 ---
 
 **Configuration and process server requirements**
@@ -61,7 +60,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 > If you have [private links connectivity](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
 
 > [!NOTE]
-> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) to perform the manual installation. 
+> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
 
 ## Required software
 

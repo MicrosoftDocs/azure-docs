@@ -102,26 +102,6 @@ In the Form Recognizer UI:
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
-### Try signature detection
-
-1. [**Build your training data set**](build-training-data-set.md#custom-model-input-requirements).
-
-1. Navigate to the [**Form Recognizer sample labeling tool**](https://fott-preview-private.azurewebsites.net) and select **Use Custom to train a models with labels and get key value pairs**:
-
-    :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtools selection of the custom option.":::
-
-1. In the next window, select **New project**:
-
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
-
-1. Follow the  [**Custom model input requirements**](build-training-data-set.md#custom-model-input-requirements).
-
-1. Create a label with the type **Signature**.
-
-1. **Label your documents**.  For signature fields, using region labeling is recommended for better accuracy.
-
-1. Once your training set has been labeled, you can **train your custom model** and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
-
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
