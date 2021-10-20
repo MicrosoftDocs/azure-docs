@@ -299,7 +299,10 @@ When you use the Azure Cosmos DB built-in operations in a **Logic App (Standard)
 > returned from an Azure Cosmos DB action differs from the status code returned from the 
 > behind-the-scenes service call that's actually sent to Azure Cosmos DB. The action's 
 > status code is available in the dynamic content list, while the service call's status 
-> code is nested in the body of the response object.
+> code is returned and nested in the `body` of the response object.
+>
+> The following steps show how to access the service call's status code by using an 
+> expression that parses the `body` of the response object.
 
 For example, the following steps create a workflow that uses the **Read an item** action and shows how to check the status code from the read operation that's made by the service call sent to Azure Cosmos DB:
 
@@ -343,7 +346,9 @@ For example, the following steps create a workflow that uses the **Read an item*
 
    :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-condition-configure.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with a condition configuration.":::
 
-1. In the expression editor box, enter `'Read_an_item'` as a parameter for the **outputs(actionName)** function followed by `?['body']?['statusCode']` to access the status code from the read operation, and select **OK**. The complete expression follows this format:
+1. In the expression editor box, enter `'Read_an_item'` as a parameter for the **outputs(actionName)** function followed by `?['body']?['statusCode']`, and select **OK**.
+
+   This expression accesses the status code returned by the service call that runs the read operation on Azure Cosmos DB by parsing the `body` content in the response object. The complete expression follows this format:
 
    `outputs('Read_an_item')?['body']?['statusCode']`
 
@@ -351,7 +356,7 @@ For example, the following steps create a workflow that uses the **Read an item*
    > Remember, the status code returned from an Azure Cosmos DB action differs from the status 
    > code returned from the call that's actually sent to Azure Cosmos DB. The action's status 
    > code is available in the dynamic content list, while the service call's status code is 
-   > nested in the `body` of the response object.
+   > returned and nested in the `body` of the response object.
 
 1. In the condition's middle box and the rightmost **Choose a value** box, specify the values that are appropriate for your workflow. In this example, the condition checks whether the status code is equal to `OK`.
 
