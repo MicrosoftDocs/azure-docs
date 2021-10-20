@@ -241,7 +241,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
         ...
         ```
 For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
-<!--Question - do you need to change the triggers section above too?-->
+
 ---
 
 > [!IMPORTANT]
@@ -251,11 +251,11 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 After you've successfully created a connection to your source control repository, anytime that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Azure Sentinel workspaces.
 
-> [!IMPORTANT]
-> We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
->
+We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Azure Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
 
 If you have edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
+
+If you are deleting content, make sure to delete it from both your repository and the Azure portal. Deleting content from your repository does not delete it from your Azure Sentinel workspace.
 
 ## Remove a repository connection
 
