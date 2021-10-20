@@ -25,7 +25,7 @@ You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **L
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [Azure Cosmos DB account.](../cosmos-db/sql/create-cosmosdb-resources-portal.md)
+- An [Azure Cosmos DB account](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 
 - A logic app workflow from which you want to access your Azure Cosmos DB account. To use the Azure Cosmos DB trigger, you need to [create your logic app using the **Logic App (Standard)** resource type](../logic-apps/create-single-tenant-workflows-azure-portal.md), and add a blank workflow.
 
@@ -156,7 +156,7 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
    | **Database Id** | Yes | <*database-ID*> | The database that you want to connect. |
    | **Container Id** | Yes | <*container-ID*> | The container that you want to query. |
    | **Item** | Yes | <*JSON-document*> | The JSON document that you want to create. This example uses the request body from the trigger output. <p><p>**Tip**: If the HTTP trigger's **Body** token doesn't appear in the dynamic content list for you to add, next to the trigger name, select **See more**. <p><p>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the `id` property and the partition key property for your document. If a document with the specified `id` and partition key already exist, the document is updated. Otherwise, a new document is created. | 
-   | **Partition key** | Yes | <*partition-key*> | The partition key value for the document that you want to create. If this property doesn't appear, open **Add new parameter** list, and select **Partition key**. <p><p>**Important**: Although this property isn't marked as required with an asterisk (*), the property is actually required for the workflow to succeed.||||
+   | **Partition key** | Yes | <*partition-key*> | The partition key value for the document that you want to create. If this property doesn't appear, open **Add new parameter** list, and select **Partition key**. <p><p>**Important**: Although this property isn't marked as required with an asterisk (*), the property is actually required for the workflow to succeed. |
    |||||
 
    The following image shows an example action:
