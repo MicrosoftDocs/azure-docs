@@ -30,7 +30,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
     ![Add an experiment in Azure portal](images/add-an-experiment.png)
 
-2. Fill in the Subscription, Resource Group, and Location where you want to deploy the chaos experiment. Give your experiment a Name. Click **Next : Experiment designer >**
+2. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a **Name**. Click **Next : Experiment designer >**
 
 ![Add experiment basics](images/quickstart-service-direct-add-basics.PNG)
 
@@ -63,11 +63,18 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 3. When the Status changes to Running, click Details for the latest run under History to see details for the running experiment
 
 ## Clean up resources
-1. Search the VM that you created on the Azure portal serach bar.
+1. Delete the experiment created. Click on **Delete**.
+
+![Select the experiment to be deleted](imagesquickstart-delete-experiment.PNG)
+
+2. Search the VM that you created on the Azure portal serach bar.
+
 ![Select the VM](images/quickstart-cleanup.PNG)
 
-2. Click on **delete** to avoid being charged for the resource.
+3. Click on **Delete** to avoid being charged for the resource.
+
 ![Select the VM](images/quickstart-cleanup-virtual-machine.PNG)
+
 
 ## Next steps
 Now that you have run a VM shutdown service-direct experiment, you are ready to:
