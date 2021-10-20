@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 09/08/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ---
 
@@ -44,6 +44,12 @@ Subscriptions (or resource groups within a subscription) can be onboarded to Azu
 Since enterprise users will typically have direct access to the enterprise’s tenants, and there's no need to market or promote a management offering, it's usually faster and more straightforward to deploy Azure Resource Manager templates. While the [onboarding guidance](../how-to/onboard-customer.md) refers to service providers and customers, enterprises can use the same processes to onboard their tenants.
 
 If you prefer, tenants within an enterprise can be onboarded by [publishing a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). To ensure that the offer is only available to the appropriate tenants, be sure that your plans are marked as private. With a private plan, you provide the subscription IDs for each tenant that you plan to onboard, and no one else will be able to get your offer.
+
+## Azure Active Directory B2C (Azure AD B2C)
+
+[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. By delegating a resource group through Azure Lighthouse, you can use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and auditing logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
+
+For more information, see [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md).
 
 ## Terminology notes
 
