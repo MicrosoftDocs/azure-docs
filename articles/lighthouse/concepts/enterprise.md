@@ -45,9 +45,9 @@ Since enterprise users will typically have direct access to the enterprise’s t
 
 If you prefer, tenants within an enterprise can be onboarded by [publishing a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). To ensure that the offer is only available to the appropriate tenants, be sure that your plans are marked as private. With a private plan, you provide the subscription IDs for each tenant that you plan to onboard, and no one else will be able to get your offer.
 
-## Azure Active Directory B2C (Azure AD B2C)
+## Azure AD B2C
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. By delegating a resource group through Azure Lighthouse, you can use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and auditing logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
+[Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. When you delegate a resource group through Azure Lighthouse, you can use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and auditing logs to different monitoring solutions. You can retain the logs for long-term use, or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 
 For more information, see [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md).
 
