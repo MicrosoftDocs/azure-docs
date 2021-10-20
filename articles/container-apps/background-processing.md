@@ -180,7 +180,7 @@ az containerapp create \
   --cpu 0.2 \
   --memory 100Mi \
   --revisions-mode single \
-  --min-replicas 0 \
+  --min-replicas 1 \
   --max-replicas 10 \
   --scale-rules "./myscalerules.yaml" \
   --secrets "queueconnection=$QUEUE_CONNECTION_STRING" \
