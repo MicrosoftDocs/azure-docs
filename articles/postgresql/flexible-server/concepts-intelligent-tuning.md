@@ -11,7 +11,7 @@ ms.date: 08/04/2021
 # Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server and intelligent tuning are in preview.
+> Intelligent tuning is in preview.
 
 **Applies to:** Azure Database for PostgreSQL - Flexible Server versions 11 and later.
 
