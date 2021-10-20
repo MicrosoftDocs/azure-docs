@@ -17,11 +17,11 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
->
-> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
+> * This guide targets API version **2.1**.
 
 [Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+
+A full working sample of this Java how-to guide is available on [**GitHub**](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java).
 
 ## Prerequisites
 
@@ -84,9 +84,6 @@ mkdir -p src/main/java
 Navigate to the new folder and create a file called *FormRecognizer.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
-
-> [!TIP]
-> If you want to view the entire file with the code samples in this quickstart, you can find it on [**GitHub**](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java).
 
 In the application's **FormRecognizer** class, create variables for your resource's key and endpoint.
 

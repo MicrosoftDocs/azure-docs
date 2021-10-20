@@ -15,9 +15,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * This quickstart targets API version **2.1**.
->
-> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
+> * This guide targets API version **2.1**.
 
 [Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 

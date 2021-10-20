@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 > [!NOTE]
 >
-> * This quickstart  targets Azure Form Recognizer API version **2.1** using cURL to execute REST API calls.
+> * This guide targets Azure Form Recognizer API version **2.1** using cURL to execute REST API calls.
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
 
