@@ -230,16 +230,25 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
 
         This default configuration means that a deployment pipeline is triggered any time that content is pushed to any part of the `main` branch.
 
-        To deploy content from a specific branch or folder path only, add them the `include` section and the `steps` section below as needed. For example, to deploy content only from a root folder named `SentinelContent` in your `main` branch, add a `workingDirectory` setting to your `steps` code as follows:
+        To deploy content from a specific folder path only, add the folder name to the `include` section, for the trigger, and the `steps` section, for the deployment path, below as needed.
+
+        For example, to deploy content only from a root folder named `SentinelContent` in your `main` branch, add `include` and `workingDirectory` settings to your code as follows:
 
         ```yml
+        paths:
+            exclude:
+            - .sentinel/*
+            include:
+            - .sentinel/sentinel-deploy-39d8ekc8-397-5963-49g8-5k63k5953829.yml
+            - SentinelContent
+        ....
         steps:
         - task: AzurePowerShell@5
           inputs:
             azureSubscription: `Sentinel_Deploy_ServiceConnection_0000000000000000`
             workingDirectory: `SentinelContent`
-        ...
         ```
+
 For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
 
 ---
