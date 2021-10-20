@@ -42,11 +42,11 @@ Refer to the [Networking planning checklist for Azure VMware Solution](../azure-
 
 ## Disk pool scalability and performance targets
 
-|Resource  |Limit  |
-|---------|---------|
-|Maximum number of disks per disk pool|8|
-|Maximum IOPS per disk pool|25,600|
-|Maximum MBps per disk pool|384|
+|Resource  |Basic disk pool  |Standard disk pool  |Premium disk pool  |
+|---------|---------|---------|---------|
+|Maximum number of disks per disk pool     |16         |32         |32         |
+|Maximum IOPS per disk pool     |12,800         |25,600         |51,200         |
+|Maximum MBps per disk pool     |192         |384         |768         |
 
 The following example should give you an idea of how the different performance factors work together:
 
@@ -54,14 +54,15 @@ As an example, if you add two 1-TiB premium SSDs (P30, with a provisioned target
 
 ## Availability
 
-Disk pools are currently in preview, and shouldn't be used for production workloads.
+Disk pools are currently in preview, and shouldn't be used for production workloads. Disk pools with support for premium and standard SSDs are based on a highly available architecture, with duplicates hosting the iSCSI endpoint. Disk pools with support for ultra disks are hosted on a single instance deployment.
 
 If your disk pool becomes inaccessible to your Azure VMware Solution cloud for any reason, you will experience the following:
 
 - All datastores associated to the disk pool will no longer be accessible.
-- All VMware VMs hosted in this Azure VMware Solution cloud what is using the impacted datastores will be in an unhealthy state.
-- The health of clusters in this Azure VMware Solution cloud won't be impacted, except for one operation: You won't be able to place a host into maintenance mode. Azure VMware Solution will handle this failure and attempt recovery by disconnecting the impacted datastores.
+- All VMware VMs hosted in the Azure VMware Solution cloud that is using the impacted datastores will be in an unhealthy state.
+- The health of clusters in the Azure VMware Solution cloud won't be impacted, except for one operation: You won't be able to place a host into maintenance mode. Azure VMware Solution will handle this failure and attempt recovery by disconnecting the impacted datastores.
 
 ## Next steps
 
 [Deploy a disk pool](disks-pools-deploy.md).
+To learn about how Azure VMware Solutions integrates disk pools, see [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md).

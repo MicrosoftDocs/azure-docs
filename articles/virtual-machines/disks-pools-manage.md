@@ -13,10 +13,6 @@ ms.subservice: disks
 
 This article covers how to add a managed disk to an Azure disk pool (preview) and how to disable iSCSI support on a disk that has been added to a disk pool.
 
-## Prerequisites
-
-Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true) of the Azure PowerShell module.
-
 ## Add a disk to a pool
 
 Your disk must meet the following requirements in order to be added to the disk pool:
@@ -32,9 +28,19 @@ Your disk must meet the following requirements in order to be added to the disk 
 1. Select **Attach existing disk** and select your disks.
 1. When you have chosen all the disks you'd like to attach, select **Save**.
 
-
-
 # [PowerShell](#tab/azure-powershell)
+
+### Prerequisites
+
+Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true) of the Azure PowerShell module.
+
+Install the disk pool module using the following command:
+
+```azurepowershell
+Install-Module -Name Az.DiskPool -RequiredVersion 0.3.0 -Repository PSGallery
+```
+
+### Add a disk pool
 
 The following script adds an additional disk to the disk pool and exposes it over iSCSI. It keeps the existing disks in the disk pool without any change.
 
@@ -77,6 +83,16 @@ Update-AzDiskPoolIscsiTarget -Name $iscsiTargetName -DiskPoolName $diskPoolName 
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+### Prerequisites
+
+If you haven't already, install the disk pool extension using the following command:
+
+```azurecli
+az extension add -n diskpool
+```
+
+### Add a disk pool - CLI
 
 The following script adds an additional disk to the disk pool and exposes it over iSCSI. It keeps the existing disks in the disk pool without any change.
 
