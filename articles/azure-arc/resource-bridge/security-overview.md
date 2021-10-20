@@ -23,4 +23,8 @@ By default, the Azure Active Directory system assigned identity used by Azure Ar
 
 The Azure Arc resource bridge stores the resource information in the Cosmos DB, and as described in the [Encryption at rest in Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) article, all the data is encrypted at rest.
 
+## Security audit logs
+
+The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when the Azure Arc resource bridge is modified, deleted, or added. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. See [View the Activity log](../../azure-monitor/essentials/activity-log.md#view-the-activity-log) for details. See [retention of the Activity log](../../azure-monitor/essentials/activity-log.md#retention-period) for details.
+
 ## Next steps
