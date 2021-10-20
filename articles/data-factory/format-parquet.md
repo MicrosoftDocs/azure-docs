@@ -30,7 +30,7 @@ Parquet format is supported for the following connectors:
 - [HDFS](connector-hdfs.md)
 - [HTTP](connector-http.md)
 - [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
-- [SFTP](connector-sftp.md).
+- [SFTP](connector-sftp.md)
 
 For a list of supported features for all available connectors, visit the [Connectors Overview](connector-overview.md) article.
 
