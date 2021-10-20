@@ -1272,6 +1272,8 @@ items:
     items:
     - name: Use a sample notebook from the gallery
       href: machine-learning/quickstart-gallery-sample-notebook.md
+    - name: Use the Retail AI solution
+      href: machine-learning/quickstart-industry-ai-solutions.md
     - name: Create a linked service
       items:
       - name: Azure Machine Learning
@@ -1288,9 +1290,12 @@ items:
     items:
     - name: Data access and preparation
       items:
+      - name: Read/write ADLS with Pandas
+        displayName: data prep, data preparation
+        href: ./spark/tutorial-use-pandas-spark-pool.md
       - name: Read/write ADLS with filesystem spec
         displayName: data prep, data preparation
-        href: ./machine-learning/tutorial-spark-pool-filesystem-spec.md
+        href: ./spark/tutorial-spark-pool-filesystem-spec.md
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
@@ -1312,6 +1317,9 @@ items:
       - name: Use the scoring wizard for dedicated SQL pools
         displayName: score model
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+      - name: PREDICT score in Synapse spark using model registered in AML or ADLS
+        displayName: predict score, Synapse spark, model registered in AML or ADLS
+        href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
       - name: With Cognitive Services
         items:
         - name: Overview
