@@ -1,7 +1,7 @@
 ---
-title: Recommended practices for Conversational Named Entity Recognition (NER)
+title: Recommended practices for Custom Named Entity Recognition (NER)
 titleSuffix: Azure Cognitive Services
-description: Learn about recommended practices when using Conversational Named Entity Recognition (NER).
+description: Learn about recommended practices when using Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Recommended practices for Conversational Named Entity Recognition (NER)
+# Recommended practices for Custom Named Entity Recognition (NER)
 
 Follow the recommended development life cycle for best results:
 
@@ -34,7 +34,7 @@ The quality of data you train your model with affects model performance greatly.
 
 ## Data preparation
 
-As a prerequisite for creating a conversational NER project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly, or through using the Azure Storage Explorer tool. Using the Azure Storage Explorer tool allows you to upload more data quickly.
+As a prerequisite for creating a custom NER project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly, or through using the Azure Storage Explorer tool. Using the Azure Storage Explorer tool allows you to upload more data quickly.
 
 * [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 * [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)

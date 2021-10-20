@@ -1,7 +1,7 @@
 ---
-title: How to improve Conversational Named Entity Recognition (NER) model performance
+title: How to improve Custom Named Entity Recognition (NER) model performance
 titleSuffix: Azure Cognitive Services
-description: Learn about improving a model for Conversational Named Entity Recognition (NER).
+description: Learn about improving a model for Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Improve the performance of Conversational Named Entity Recognition (NER) models 
+# Improve the performance of Custom Named Entity Recognition (NER) models 
 
 After you've trained your model you reviewed its evaluation details, you can start to improve model performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
 

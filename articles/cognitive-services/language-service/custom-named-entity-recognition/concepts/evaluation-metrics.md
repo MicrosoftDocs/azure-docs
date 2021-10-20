@@ -1,7 +1,7 @@
 ---
-title: Conversational NER evaluation metrics 
+title: Custom NER evaluation metrics 
 titleSuffix: Azure Cognitive Services
-description: Learn about evaluation metrics in Conversational Named Entity Recognition (NER)
+description: Learn about evaluation metrics in Custom Named Entity Recognition (NER)
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Evaluation metrics for Conversational NER models
+# Evaluation metrics for Custom NER models
 
-Model evaluation in conversational entity extraction uses the following metrics:
+Model evaluation in custom entity extraction uses the following metrics:
 
 
 |Metric |Description  |Calculation  |

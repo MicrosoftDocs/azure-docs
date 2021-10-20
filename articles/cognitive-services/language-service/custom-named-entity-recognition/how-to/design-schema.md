@@ -1,7 +1,7 @@
 ---
-title: Preparing data and designing a schema for conversational NER 
+title: Preparing data and designing a schema for custom NER 
 titleSuffix: Azure Cognitive Services
-description: Learn about how to select and prepare data, to be successful in creating conversational NER projects.
+description: Learn about how to select and prepare data, to be successful in creating custom NER projects.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # How to prepare data and define a schema
 
-In order to create a conversational NER model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. The schema defines the entity types/categories that you need your model to extract from text at runtime, and is the first step of [developing an entity extraction model](../overview.md#application-development-lifecycle).
+In order to create a custom NER model, you will need quality data to train it. This article covers how you should approach selecting and preparing your data, along with defining a schema. The schema defines the entity types/categories that you need your model to extract from text at runtime, and is the first step of [developing an entity extraction model](../overview.md#application-development-lifecycle).
 
 ## Schema design
 
@@ -66,4 +66,4 @@ You can only use `.txt` files. If your data is in other format, you can use [CLU
  
 ## Next steps
 
-If you haven't already, create a conversational NER project. If it's your first time using conversational NER, consider following the [quickstart](../quickstart.md) to create an example project. You can also see the [how-to article](../how-to/create-project.md) for more details on what you need to create a project. 
+If you haven't already, create a custom NER project. If it's your first time using custom NER, consider following the [quickstart](../quickstart.md) to create an example project. You can also see the [how-to article](../how-to/create-project.md) for more details on what you need to create a project. 

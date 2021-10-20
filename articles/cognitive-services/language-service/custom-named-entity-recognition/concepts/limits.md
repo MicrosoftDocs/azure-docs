@@ -1,7 +1,7 @@
 ---
-title: Conversational Named Entity Recognition (NER) service limits
+title: Custom Named Entity Recognition (NER) service limits
 titleSuffix: Azure Cognitive Services
-description: Learn about the data and service limits when using Conversational Named Entity Recognition (NER).
+description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Conversational Named Entity Recognition (NER) service limits
+# Custom Named Entity Recognition (NER) service limits
 
-Use this article to learn about the data and service limits when using Conversational NER.
+Use this article to learn about the data and service limits when using Custom NER.
 
 ## File limits
 
@@ -46,9 +46,9 @@ Use this article to learn about the data and service limits when using Conversat
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource across both conversational NER and [conversational text classification](../../custom-classification/overview.md).
+* Project names have to be unique within the same resource across both custom NER and [custom text classification](../../custom-classification/overview.md).
 
-* Conversational NER is only available in the following regions:    
+* Custom NER is only available in the following regions:    
     * West US 2
     * West Europe
     
@@ -89,4 +89,4 @@ Use this article to learn about the data and service limits when using Conversat
 
 ## Next steps
 
-[Conversational NER overview](../overview.md)
+[Custom NER overview](../overview.md)

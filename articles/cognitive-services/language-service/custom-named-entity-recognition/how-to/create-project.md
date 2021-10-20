@@ -1,7 +1,7 @@
 ---
-title: Using Azure resources in conversational NER 
+title: Using Azure resources in custom NER 
 titleSuffix: Azure Cognitive Services
-description: Learn about the steps for using Azure resources with conversational NER.
+description: Learn about the steps for using Azure resources with custom NER.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,25 +13,25 @@ ms.author: aahi
 ms.custom: references_regions
 ---
 
-# How to create conversational NER projects
+# How to create custom NER projects
 
-Before you start using conversational NER, you will need several things:
+Before you start using custom NER, you will need several things:
 
 * An Azure Language resource 
 * An Azure storage account where you will upload your `.txt` files that will be used to train an AI model to classify text
 
-Use this article to learn how to prepare the requirements for using conversational NER.
+Use this article to learn how to prepare the requirements for using custom NER.
 
 ## Prerequisites
 
 An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 You should have an idea of the [project schema](design-schema.md) you will use for your data.
 
-Use this article to learn how to prepare the requirements for using conversational text classification.
+Use this article to learn how to prepare the requirements for using custom text classification.
 
 ## Azure resources
 
-Before you start using conversational NER, you will need a Azure Language resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with conversational NER.
+Before you start using custom NER, you will need a Azure Language resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom NER.
 
 # [Azure portal](#tab/portal)
 
@@ -44,12 +44,12 @@ Before you start using conversational NER, you will need a Azure Language resour
 If it's your first time logging in, you'll see a window appear in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
 
 > [!IMPORTANT]
-> * To use Conversational NER, you'll need a Language resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
+> * To use Custom NER, you'll need a Language resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
 > * Be sure to to select **Managed Identity** when you create a resource. 
 
 :::image type="content" source="../../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/create-new-resource.png":::
 
-To use conversational NER, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
+To use custom NER, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Text Analytics resource. 
 
@@ -64,7 +64,7 @@ Edit the following values in the parameters file:
 | Parameter name | Value description |
 |--|--|
 |`name`| Name of your Language resource|
-|`location`| Region in which your resource is hosted. Conversational NER is only available in **West US 2** and **West Europe**.|
+|`location`| Region in which your resource is hosted. Custom NER is only available in **West US 2** and **West Europe**.|
 |`sku`| Pricing tier of your resource. This feature only works with **S** tier|
 |`storageResourceName`| Name of your storage account|
 |`storageLocation`| Region in which your storage account is hosted.|
@@ -86,7 +86,7 @@ See the ARM template documentation for information on [deploying templates](/azu
 
 ## Using a pre-existing Azure resource
 
-You can use an existing Language resource to get started with conversational NER as long as this resource meets the below requirements:
+You can use an existing Language resource to get started with custom NER as long as this resource meets the below requirements:
 
 |Requirement  |Description  |
 |---------|---------|
@@ -94,7 +94,7 @@ You can use an existing Language resource to get started with conversational NER
 |Pricing tier     | Make sure your existing resource is in the Standard (**S**) pricing tier. Only this pricing tier is supported. If your resource doesn't use this pricing  tier, you will need to create a new resource.        |
 |Managed identity     | Make sure that the resource-managed identity setting is enabled. Otherwise, read the next section. |
 
-To use conversational NER, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
+To use custom NER, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Text Analytics resource. 
 
@@ -127,12 +127,12 @@ To set proper roles on your storage account:
 
 ## Prepare training data
 
-* As a prerequisite for creating a conversational NER project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
+* As a prerequisite for creating a custom NER project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
 
   * [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
   * [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
 
-* You can only use `.txt`. files for conversational NER. If your data is in other format, you can use [Cognitive Services Language Utilities tool](https://aka.ms/CognitiveServicesLanguageUtilities) to parse your file to `.txt` format.
+* You can only use `.txt`. files for custom NER. If your data is in other format, you can use [Cognitive Services Language Utilities tool](https://aka.ms/CognitiveServicesLanguageUtilities) to parse your file to `.txt` format.
 
 * You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](../concepts/data-formats.md). 
 

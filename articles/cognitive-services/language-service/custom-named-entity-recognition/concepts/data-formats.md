@@ -1,7 +1,7 @@
 ---
-title: Conversational NER data formats
+title: Custom NER data formats
 titleSuffix: Azure Cognitive Services
-description: Learn about the data formats accepted by conversational NER.
+description: Learn about the data formats accepted by custom NER.
 services: cognitive-services
 author: aahill
 manager: nitinme
