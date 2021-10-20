@@ -29,19 +29,17 @@ To verify you've installed the extension, open any file with the `.bicep` file e
 
 ### Troubleshoot
 
-When install the Bicep extension for Visual Studio Code, you may run into the following error messages:
+When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
 
 ```error
 Failed to install .NET runtime v5.0
 ```
 
-or
-
 ```error
 Failed to download .NET 5.0.x ....... Error!
 ```
 
-To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET. by using the following settings:
+To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET. with the following settings:
 
 **Windows**
 
@@ -157,7 +155,7 @@ bicep --help
 
 ### macOS
 
-#### via homebrew
+#### Via homebrew
 
 ```sh
 # Add the tap for bicep
@@ -167,7 +165,7 @@ brew tap azure/bicep
 brew install bicep
 ```
 
-#### via BASH
+#### Via BASH
 
 ```sh
 # Fetch the latest Bicep CLI binary
