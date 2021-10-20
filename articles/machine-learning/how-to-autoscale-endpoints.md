@@ -51,15 +51,11 @@ The following snippet creates the autoscale profile:
 
 # [Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com), select __Azure Monitor__. You can find this entry in the menu on the left of the page, or in the __Tools__ section at the bottom of the page.
+In the [Azure portal](https://portal.azure.com), select one of your endpoint deployments. You can find the endpoint deployment by looking in the resource group that contains your workspace or by searching for a resource of type __Machine learning online deployment__.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/select-azure-monitor.png" alt-text="Screenshot of Azure Monitor in the menu and on the page":::
+:::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of an endpoint deployment entry in the portal.":::
 
-From the left side of the Azure Monitor page, select __Autoscale__ and then select the deployed endpoint. You can use the selections at the top of the page to filter the list of resources.
-
-:::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of the list of items that can be used with autoscale":::
-
-On the __Autoscale settings__ page, select __Custom autoscale__ to begin the configuration.
+In properties for the deployment, select __Scaling__ from the left of the page and then select __Custom autoscale__. On the __Autoscale settings__ page, select __Custom autoscale__ to begin the configuration.
 
 For the default scale condition, use the following values:
 
@@ -68,7 +64,7 @@ For the default scale condition, use the following values:
 * Set __Maximum__ to __5__.
 * Set __Default__ to __2__.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice":::
+:::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot showing custom autoscale choice.":::
 
 ---
 
@@ -96,7 +92,7 @@ In the __Rules__ section, select __Add a rule__. The __Scale rule__ page is disp
 
 Finally, select the __Add__ button to create the rule.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes":::
+:::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot showing scale out rule >70% CPU for 5 minutes.":::
 
 ---
 
@@ -123,7 +119,7 @@ Finally, select the __Add__ button to create the rule.
 
 If you have both scale out and scale in rules, your rules will look similar to the following screenshot. You've specified that if average CPU load exceeds 70% for 5 minutes, 2 more nodes should be allocated, up to the limit of 5. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of 2. 
 
-:::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules":::
+:::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot showing autoscale settings including rules.":::
 
 ---
 
@@ -149,7 +145,7 @@ Select __Scale based on metric__, and then select __Add a rule__. The __Scale ru
 * Set __Duration (minutes)__ to __5__.
 * Set __Operation__ to __Increase count by__ and set __Instance count__ to 1
 
-:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing endpoint metrics rules":::
+:::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing endpoint metrics rules.":::
 
 ---
 
@@ -170,7 +166,7 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 * Set the __Schedule__ to __Repeat specific days__.
 * Set the schedule to __Repeat every__ __Saturday__ and __Sunday__.
 
-:::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="Screenshot showing schedule-based rules":::
+:::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="Screenshot showing schedule-based rules.":::
 
 ---
 
@@ -178,7 +174,7 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 
 If you are not going to use your deployments, delete them:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
 
