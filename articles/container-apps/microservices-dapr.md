@@ -195,7 +195,7 @@ az containerapp create \
   --dapr-components ./components.yaml
 ```
 
-This command that the producer (Node) app server on `--target-port 3000` (the app's port) along with its accompanying Dapr side car configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation. Your state store is configured using `--dapr-components ./components.yaml`, which enables the sidecar to persist state.
+This command deploys the service (Node) app server on `--target-port 3000` (the app's port) along with its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation. Your state store is configured using `--dapr-components ./components.yaml`, which enables the sidecar to persist state.
 
 
 ## Deploy the client application (headless client)
