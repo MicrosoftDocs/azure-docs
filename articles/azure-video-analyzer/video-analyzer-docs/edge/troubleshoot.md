@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot Azure Video Analyzer - Azure
-description: This article covers troubleshooting steps for Azure Video Analyzer.
+description: This article covers troubleshooting steps for Azure Video Analyzer edge module.
 ms.topic: troubleshooting
-ms.date: 07/15/2021
+ms.date: 10/15/2021
 ---
 
 # Troubleshoot Azure Video Analyzer
 
 
-This article covers troubleshooting steps for Azure Video Analyzer (AVA).
+This article covers troubleshooting steps for the Azure Video Analyzer edge module.
 
 ## Troubleshoot deployment issues
 
@@ -25,7 +25,7 @@ As part of your Video Analyzer deployment, you set up Azure resources such as Io
 
 ### Issues when using ARM template
 
-If you encounter issues when using the ARM template (the Deploy to Azure button), use the steps in this [quickstart](get-started-detect-motion-emit-events-portal.md) to manually deploy the necessary resources. 
+If you encounter issues when using the ARM template (the `Deploy to Azure` button), use the steps in this [quickstart](get-started-detect-motion-emit-events-portal.md) to manually deploy the necessary resources. 
 
 ### Pre-deployment issues
 
@@ -40,22 +40,17 @@ If the JSON code isn't well formed, you might receive the following error:
 
 If you encounter this error, we recommend that you check the JSON for missing brackets or other issues with the structure of the file. To validate the file structure, you can use a client such as the [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) or an online tool such as the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
-### During deployment: Diagnose with live pipeline direct methods
+### During deployment: IoT Edge Runtime response
 
-After the Video Analyzer module is deployed correctly on the IoT Edge device, you can create and run the live pipeline by invoking [direct methods](direct-methods.md).
-
-> [!NOTE]
-> The direct method calls should be made to the **`avaedge`** module only.
-
-You can use the Azure portal to run a diagnosis of the live pipeline using direct methods:
+After the Video Analyzer module is deployed correctly on the IoT Edge device, you can use the Azure portal to run a diagnosis of the [IoT Edge Runtime](../../../iot-edge/iot-edge-runtime.md).
 
 1. In the Azure portal, go to the IoT hub that's connected to your IoT Edge device.
 1. Look for **Automatic device management**, and then select **IoT Edge**.
-1. In the list of Edge devices, select the device that you want to diagnose.
+1. In the list of Edge devices, select the device that you want to diagnose, and open the management blade.
 
    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot/ava-sample-device.png)
 
-1. Check to see whether the response code is _200-OK_. Other response codes for the [IoT Edge runtime](../../../iot-edge/iot-edge-runtime.md) include:
+1. Check whether the IoT Edge Runtime response code is _200-OK_. Other response codes include:
 
    - 400 - The deployment configuration is malformed or invalid.
    - 417 - The device doesn't have a deployment configuration set.
@@ -66,28 +61,29 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
    > [!TIP]
    > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
 
-### Post deployment: Direct method error code
+### Post deployment: Reported properties and direct methods
 
-1. If you get a status `501 code`, check to ensure that the direct method name is accurate. If the method name and request payload are accurate, you should get results along with success code =200.
-1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
+In the Azure portal, select and open the management blade for the Video Analyzer edge module.
+First, check the reported and desired properties, which can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. If the **Specified in deployment** and **Reported by device** columns indicate _Yes_, you can invoke direct methods on the Video Analyzer module, by clicking on the **Direct method** menu option.
 
-   - Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device.
-   - Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as pipelineTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer IoT Edge module is functionally OK.
+You can use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as `pipelineTopologyList`. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer edge module is functionally OK.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/troubleshoot/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot/direct-method.png":::
 
-1. If the **Specified in deployment** and **Reported by device** columns indicate _Yes_, you can invoke direct methods on the Video Analyzer module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following:
+Keep in mind the following:
+1. If you get a status `501 code`, check to ensure that the direct method name is accurate. If the method name and request payload are accurate, you should get results along with success code of 200.
+1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
 
-### Post deployment: Diagnose logs for issues during the run
+### Post deployment: Diagnostic logs for issues
 
-The container logs for your IoT Edge module should contain diagnostics information to help debug your issues during module runtime. You can [check container logs for issues](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue.
+The container logs for your IoT Edge module should contain diagnostics information to help debug your issues you encounter while analyzing live video. You may be able to [check container logs for issues](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue.
 
 If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
 
 ## Common error resolutions
 
-Video Analyzer is deployed as an IoT Edge module on the IoT Edge device, and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with the Video Analyzer deployment are caused by issues with the underlying IoT infrastructure. The errors include:
+Video Analyzer edge module works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with its deployment are caused by issues with the underlying IoT infrastructure. The errors include:
 
 - [The IoT Edge agent stops after about a minute](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-about-a-minute).
 - [The IoT Edge agent can't access a module's image (403)](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-cant-access-a-modules-image-403).
@@ -100,11 +96,11 @@ Video Analyzer is deployed as an IoT Edge module on the IoT Edge device, and it 
   > [!TIP]
   > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
 
-If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
+If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[videoanalyzerhelp@microsoft.com](mailto:videoanalyzerhelp@microsoft.com)**.
 
-### Video Analyzer working with external modules
+### Working with external modules
 
-Video Analyzer via the pipeline extension processors can extend the pipeline to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension), this live pipeline can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
+Using pipeline extension processors you can extend the pipeline to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/httpExtension), this live pipeline can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol. In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
 
 - Check to see whether the hub that live pipeline is publishing to and the hub you're examining are the same. As you create multiple deployments, you might end up with multiple hubs and mistakenly check the wrong hub for events.
 - In Azure portal, check to see whether the external module is deployed and running. In the example image here, rtspsim, yolov3, tinyyolov3 and logAnalyticsAgent are IoT Edge modules running external to the avaedge module.
@@ -156,7 +152,7 @@ To gather the relevant logs that should be added to the ticket, follow the instr
 	> [!NOTE]
 	> This step is required to gracefully terminate the edge module and get all log files in a usable format without dropping any events. 	
 	
-	On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module :
+	On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module:
 	
 	```cmd
 	sudo iotedge restart <avaedge>
@@ -165,10 +161,7 @@ To gather the relevant logs that should be added to the ticket, follow the instr
    You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../../iot-edge/troubleshoot-in-portal.md).
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
-   1. Zip all the files in the _debugLogs_ folder.
-
-      > [!NOTE]
-      > These log files are not meant for self-diagnosis. They are meant for the Azure engineering team to analyze your issues.
+   1. Zip all the files in the _debugLogs_ folder. These log files are not meant for self-diagnosis. They are meant for the Azure engineering team to analyze your issues.
 
       - In the following command, be sure to replace **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location of the debug logs on the Edge device that you set up earlier in **Step 2**.
 
@@ -215,9 +208,9 @@ When you need to gather logs from an IoT Edge device, the easiest way is to use 
 
 1. Attach the _support_bundle.zip_ file to the support ticket.
 
-### Video Analyzer debug logs
+### Video Analyzer edge module debug logs
 
-To configure the Video Analyzer module to generate debug logs, do the following:
+To configure the Video Analyzer edge module to generate debug logs, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to your IoT hub.
 1. On the left pane, select **IoT Edge**.
@@ -292,7 +285,7 @@ If a pipeline is active and streaming from a camera, the connection will be main
 
 ### Monitoring and balancing the load of CPU and GPU resources when these resources become bottlenecks
 
-Video Analyzer does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Video Analyzer edge module does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 gRPC in .NET core documents also share some valuable information on [Performance Best Practices](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1) and [Load balancing](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1#load-balancing).
 
@@ -315,18 +308,18 @@ There are several things you can do to get more information about the problem.
 
 As a part of the gRPC data transfer contract, all messages that Video Analyzer sends to the gRPC inferencing server should be acknowledged. Not acknowledging the receipt of an image frame breaks the data contract and can result in undesired situations.
 
-To use your gRPC server with Video Analyzer, shared memory can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment.
+To use your gRPC server with Video Analyzer edge module, shared memory can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment.
 
 1. Open the Linux shared memory handle.
 1. Upon receiving of a frame, access the address offset within the shared memory.
-1. Acknowledge the frame processing completion so its memory can be reclaimed by Video Analyzer.
+1. Acknowledge the frame processing completion so its memory can be reclaimed by Video Analyzer edge module
 
    > [!NOTE]
    > If you delay in acknowledging the receipt of the frame to Video Analyzer for a long time, it can result in the shared memory becoming full and causing data drops.
 
 1. Store each frame in a data structure of your choice (list, array, and so on) on the inferencing server.
 1. You can then run your processing logic when you have the desired number of image frames.
-1. Return the inferencing result back to Video Analyzer when ready.
+1. Return the inferencing result back to Video Analyzer edge module when ready.
 
 ## Next steps
 
