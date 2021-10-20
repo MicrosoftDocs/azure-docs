@@ -160,7 +160,7 @@
     - name: Connect camera via remote device adapter
       href: cloud/use-remote-device-adapter.md
     - name: Monitor  
-      href: overview.md       
+      href: monitor-log-cloud.md     
     - name: Troubleshoot      
       href: cloud/troubleshoot.md     
   - name: Networking 
