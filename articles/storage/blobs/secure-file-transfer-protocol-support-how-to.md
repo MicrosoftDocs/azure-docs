@@ -71,12 +71,12 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
 
    If you select **Secure with a password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration page.
 
-   If you select **Secure with SSH public key**, then select **Add key source** to specify a key. 
+   If you select **Secure with SSH public key**, then select **Add key source** to specify a key source. 
 
    > [!div class="mx-imgBorder"]
    > ![Local user configuration page](./media/secure-file-transfer-protocol-support-how-to/add-local-user-config-page.png)
 
-   The following table describes each option:
+   The following table describes each key source option:
 
    | Option | Guidance |
    |----|----|
