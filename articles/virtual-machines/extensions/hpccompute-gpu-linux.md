@@ -13,7 +13,7 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/21/2021
+ms.date: 10/14/2021
 ms.author: amverma 
 ms.custom: devx-track-azurepowershell
 
@@ -35,7 +35,7 @@ This extension supports the following OS distros, depending on driver support fo
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 
@@ -59,7 +59,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.6",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -74,7 +74,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.6 | int |
 
 ### Settings
 
@@ -110,7 +110,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.6",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -128,7 +128,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.6 `
     -SettingString '{ `
 	}'
 ```
@@ -143,7 +143,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 
+  --version 1.6 
 ```
 
 The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA tolkit version may not always be compatible with newer kernels.
@@ -154,7 +154,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.6 \
   --settings '{ \
     "updateOS": true, \
     "driverVersion": "10.0.130" \

@@ -20,7 +20,7 @@ The OSM AKS add-on will have deep integrations into both of these Azure services
 
 Once the OSM AKS add-on has been enabled on the AKS cluster, Azure Monitor needs to be enabled in the cluster via Azure portal. Click on the AKS cluster, navigate to the "Insights" tab under "Monitoring," and select "Enable." 
 
-Once Azure Monitor has been enabled, you should be able to see the following logs in the kube-system namespace: 
+Once Azure Monitor has been enabled, you should be able to see the following pods in the kube-system namespace: 
 
 ```
 kube-system     omsagent-5pn4c                        1/1     Running   0          24m
@@ -34,16 +34,16 @@ kube-system     omsagent-rs-74b8f7dfd8-rp5vx          1/1     Running   1       
 For metrics to be scraped from a particular namespace monitored by the mesh, the following command needs to be run:
 
 ```sh
-osm metrics enable --osm-namespace <namespace>
+osm metrics enable --namespace <namespace>
 ```
 
 For instance, if you are running the [bookstore demo](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/), you would run the `osm metrics enable` command on the following namespaces:
 
 ```sh
-osm metrics enable --osm-namespace bookbuyer
-osm metrics enable --osm-namespace bookstore
-osm metrics enable --osm-namespace bookthief
-osm metrics enable --osm-namespace bookwarehouse
+osm metrics enable --namespace bookbuyer
+osm metrics enable --namespace bookstore
+osm metrics enable --namespace bookthief
+osm metrics enable --namespace bookwarehouse
 ```
 ## Apply ConfigMaps
 

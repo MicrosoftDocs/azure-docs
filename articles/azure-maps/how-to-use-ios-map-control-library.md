@@ -10,7 +10,7 @@ services: azure-maps
 manager: eriklind
 ---
 
-# Getting started with Azure Maps iOS SDK
+# Getting started with Azure Maps iOS SDK (Public Preview)
 
 The Azure Maps iOS SDK is a vector map library for iOS. This article guides you through the processes of installing the Azure Maps iOS SDK and loading a map.
 

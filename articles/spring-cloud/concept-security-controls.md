@@ -33,4 +33,4 @@ A security control is a quality or feature of an Azure service that contributes 
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md)

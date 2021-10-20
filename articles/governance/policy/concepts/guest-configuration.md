@@ -29,6 +29,12 @@ for the machine. Configurations can include settings such as:
 - Application configuration or presence
 - Environment settings
 
+The results from each configurations can be viewed either in the
+[Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
+or if the configuration is orchestrated by an Azure Policy assignment,
+by clicking on the "Last evaluated resource" link on the
+["Compliance details" page](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
+
 [A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM).
 
 ## Enable guest configuration
@@ -127,8 +133,8 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Publisher|Name|Versions|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|16.04 - 20.x|
-|Credativ|Debian|9 - 10.x|
+|Canonical|Ubuntu Server|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|

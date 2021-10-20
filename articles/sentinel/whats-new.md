@@ -31,6 +31,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## October 2021
 
 - [Windows Forwarded Events connector now available (Public preview)](#windows-forwarded-events-connector-now-available-public-preview)
+- [Defender for Office 365 events now available in the M365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
@@ -49,6 +50,9 @@ You can now stream event logs from Windows Servers connected to your Azure Senti
 We recommend using this connector with the [Azure Sentinel Information Model (ASIM)](normalization.md) parsers installed to ensure full support for data normalization.
 
 Learn more about the [Windows Forwarded Events connector](data-connectors-reference.md#windows-forwarded-events-preview).
+### Defender for Office 365 events now available in the M365 Defender connector (Public preview)
+
+In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
 ### Playbook templates and gallery now available (Public preview)
 
@@ -101,7 +105,7 @@ For more information, see:
 - **Generic how-to articles**:
 
    - [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-   - [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md)
+   - [Connect your data source to the Azure Sentinel Data Collector API to ingest data](connect-rest-api-template.md)
    - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
    - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
    - [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
@@ -210,7 +214,6 @@ For more information, see:
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
-
 
 ### Microsoft Threat Intelligence Matching Analytics (Public preview)
 
