@@ -19,7 +19,7 @@ An [availability zone][availability-zone-overview] is a physically separate zone
 ## Limitations
 
 > [!IMPORTANT]
-> This feature is currently only usable via the REST API. Attempting to make use of availability zones through another method will result in error.
+> This feature is currently not yet available for Azure CLI, PowerShell, Java SDK, or Azure Portal. Attempting to make use of availability zones through these methods will result in error.
 
 * Container groups with GPU resources do not support availability zones at this time.
 * Virtual Network injected container groups do not support availability zones at this time.
