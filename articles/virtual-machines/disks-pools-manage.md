@@ -160,16 +160,20 @@ Before you disable iSCSI support on a disk, confirm there is no outstanding iSCS
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your disk pool and select **iSCSI** under **Settings**.
-1. Under **Disks enabled for iSCSI** select the disk you'd like to remove and select **Remove LUN**.
+1. Under **Disks enabled for iSCSI** select the disks you'd like to remove and select **Remove LUN**.
 1. Select **Save** and wait for the operation to complete.
 
-    Now that you've disabled the LUN, you can remove your disk from the disk pool.
+    :::image type="content" source="media/disk-pools-manage/remove-disk-lun.png" alt-text="Screenshot of the disk pool iSCSI blade, removing disk LUNs.":::
+
+    Now that you've disabled the LUN, you can remove your disks from the disk pool.
 
 1. Select **Disks** under **Settings**.
-1. Select **Remove disk from disk pool** and select your disk.
+1. Select **Remove disk from disk pool** and select your disks.
 1. Select **Save**.
 
 When the operation completes, your disk will have been completely removed from the disk pool.
+
+:::image type="content" source="media/disk-pools-manage/remove-disks-from-pool.png" alt-text="Screenshot of disk pool's disk's blade. Disks being removed from pool.":::
 
 # [PowerShell](#tab/azure-powershell)
 
