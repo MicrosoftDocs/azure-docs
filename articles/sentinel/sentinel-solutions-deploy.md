@@ -23,16 +23,16 @@ ms.author: yelevin
 >
 > Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Sentinel Content hub provides access to Azure Sentinel out-of-the-box content and solutions, which are packed with content for end-to-end product, domain, or industry needs.
+The Azure Sentinel Content hub provides access to Azure Sentinel out-of-the-box (built-in) content and solutions, which are packed with content for end-to-end product, domain, or industry needs.
 
-This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use. 
+This article describes how to install solutions in your Azure Sentinel workspace, making the content inside them available for your use.
 
 - Find your solutions in the Content hub based on their statuses, the content included, support, and more.
 
 - Install the solution in your workspace when you find one that fits your organization's needs. Make sure to keep it updated with the latest changes.
 
 > [!TIP]
-> If you are a partner who wants to create your own solution, see the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing.
+> If you are a partner who wants to create your own solution, see the [Azure Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 >
 ## Find a solution
 
@@ -40,7 +40,7 @@ This article describes how to install solutions in your Azure Sentinel workspace
 
 1. The **Content hub** page displays a searchable and filterable grid of solutions.
 
-    Filter the list displayed, either by entering any part of a solution name or description in the **Search** field, or by selecting specific values from the filters.
+    Filter the list displayed, either by selecting specific values from the filters, or entering any part of a solution name or description in the **Search** field.
 
     For more information, see [Azure Sentinel out-of-the-box content and solution categories](sentinel-solutions.md#azure-sentinel-out-of-the-box-content-and-solution-categories).
 
@@ -76,9 +76,19 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 For more information, see [Azure Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Azure Sentinel data connector](data-connectors-reference.md).
 
 
+## Find the support model for your solution
+
+Each solution lists details about its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
+
+:::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution.":::
+
+When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the solution's details page, on the **Usage information & support** tab. For example:
+
+:::image type="content" source="media/sentinel-solutions-deploy/usage-support.png" alt-text="Screenshot of usage and support details for a solution.":::
+
 ## Next steps
 
-In this document, you learned about Azure Sentinel solutions and how to find and deploy them.
+In this document, you learned about Azure Sentinel solutions and how to find and deploy built-in content.
 
 - Learn more about [Azure Sentinel solutions](sentinel-solutions.md).
 - See the full [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
