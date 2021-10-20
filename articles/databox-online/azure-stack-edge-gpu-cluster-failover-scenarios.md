@@ -15,20 +15,20 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article provides a brief overview of clustering on your Azure Stack Edge device. 
+This article identifies the common failover scenarios, how the Azure Stack Edge device responds, and the overall impact on the workloads deployed on the cluster should the failover occur.
 
 ## About failover 
 
 Azure Stack Edge can be set up as a single standalone device or a two-node cluster. In a two-node cluster, the clustered nodes provide high availability for applications and services that are running on the cluster. 
 
-If one of the clustered node fails, the other node begins to provide service (the process is known as failover). Failover may also occur if hardware components associated with one or both nodes of your device such as disk drives, power supply units (PSUs), or network fail.
+If one of the clustered node fails, the other node begins to provide service - this process is known as failover. Failover may also occur if hardware components associated with one or both nodes of your device such as disk drives, power supply units (PSUs), or network fail.
 
 ## Failover scenarios 
 
-When using an Azure Stack Edge cluster, there are several things to consider, such as hardware, networking, and the cluster architecture. It is important to understand how the Azure Stack Edge cluster responds to the various failure scenarios when deploying workloads. This article identifies the common failure scenarios, how the Azure Stack Edge device responds, and the overall impact on the workloads deployed on the cluster.
+Failover may occur as a result of hardware component failure, node failure or when updating the Azure Stack Edge cluster.
 
 
-## Hardware component failure
+## Hardware failures
 
 These tables summarize the failure scenarios for a physical hardware component associated with your device cluster such as one or more of disk drives, power supply, or network.
 
@@ -58,7 +58,12 @@ These tables summarize the failure scenarios for a physical hardware component a
 | 1 or both of Port 3 and Port 4 fail     | No failures | Yes              | Yes      | VMs on node A fail over to node B                                    |
 
 
-## Node failure
+
+## Node failures and updates
+
+
+
+### Node failure
 
 This table summarizes the failure scenarios when an entire node has failed on your cluster.
 
@@ -71,6 +76,17 @@ This table summarizes the failure scenarios when an entire node has failed on yo
 | Core component fails. For example, motherboard, DIMM, and OS disk. | No failures                                                        | Yes              | Yes      | VMs from node A fail over to node B           |
 | Core component fails. For example, motherboard, DIMM, and OS disk. | Core component fails. For example, motherboard, DIMM, and OS disk. | No               | -        | Cluster goes offline                          |
 
+
+
+### Node update
+
+| Node A      | Node B                                                       | Cluster survives | Failover | Details                             |
+|-------------|--------------------------------------------------------------|------------------|----------|-------------------------------------|
+| Node update | No failures                                                  | Yes              | Yes      | VMs from node A fail over to node B |
+| Node update | 2 PSUs fail                                                  | No               | -        | Cluster goes offline                |
+| Node update | Entire node fails or goes offline                            | No               | -        | Cluster goes offline                |
+| Node update | Reboot                                                       | No               | -        | Cluster goes offline                |
+| Node update | Core component fails such as motherboard, DIMM, and OS disk. | No               | -        | Cluster goes offline                |
 
 ## High availability requirements and procedures 
 
