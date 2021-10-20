@@ -74,6 +74,119 @@ It is important to register the data source in Azure Purview prior to setting up
 
 ## Scan
 
+### Authentication for a scan
+
+In order to have access to scan the data source, an authentication method in the Azure Blob Storage account needs to be configured.
+
+The following options are supported:
+
+> [!Note]
+> If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+
+- **Managed Identity (Recommended)** - As soon as the Azure Purview Account is created, a system **Managed Identity** is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview MSI to perform the scans.
+
+- **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password or a password.
+
+   > [!Note]
+   > If you use this option, you need to deploy an _Azure key vault_ resource in your subscription and assign _Azure Purview account’s_ MSI with required access permission to secrets inside _Azure key vault_.
+
+- **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+
+#### Using Managed Identity for scanning
+
+It is important to give your Purview account the permission to scan the Azure Blob data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+
+> [!NOTE]
+> If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
+
+> [!Note]
+> You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
+
+1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Blob storage account) that you would like to allow the catalog to scan.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Screenshot that shows the storage account":::
+
+1. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
+
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
+
+1. Go into your Azure Blob storage account in [Azure portal](https://portal.azure.com)
+1. Navigate to **Security + networking > Networking**
+
+1. Choose **Selected Networks** under **Allow access from**
+
+1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-permission.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
+
+> [!Note]
+> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+
+#### Using Account Key for scanning
+
+When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
+
+1. Navigate to your Azure Blob storage account
+1. Select **Security + networking > Access keys**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-keys.png" alt-text="Screenshot that shows the access keys in the storage account":::
+
+1. Copy your *key* and save it separately for the next steps
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-key.png" alt-text="Screenshot that shows the access keys to be copied":::
+
+1. Navigate to your key vault
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-key-vault.png" alt-text="Screenshot that shows the key vault":::
+
+1. Select **Settings > Secrets** and click on **+ Generate/Import**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-generate-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret":::
+
+1. Enter the **Name** and **Value** as the *key* from your storage account
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-secret-values.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
+
+1. Select **Create** to complete
+
+1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
+
+#### Using Service Principal for scanning
+
+##### Creating a new service principal
+
+If you need to [Create a new service principal](./create-service-principal-azure.md), it is required to register an application in your Azure AD tenant and provide access to Service Principal in your data sources. Your Azure AD Global Administrator or other roles such as Application Administrator can perform this operation.
+
+##### Getting the Service Principal's Application ID
+
+1. Copy the **Application (client) ID** present in the **Overview** of the [_Service Principal_](./create-service-principal-azure.md) already created
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
+
+##### Granting the Service Principal access to your Azure Blob account
+
+It is important to give your service principal the permission to scan the Azure Blob data source. You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+
+> [!Note]
+> You need to be an owner of the subscription to be able to add a service principal on an Azure resource.
+
+1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Blob Storage storage account) that you would like to allow the catalog to scan.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Screenshot that shows the storage account":::
+
+1. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
+
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _service principal_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-permission.png" alt-text="Screenshot that shows the details to provide storage account permissions to the service principal":::
+
 ### Creating the scan
 
 1. Open your **Purview account** and click on the **Open Purview Studio**
