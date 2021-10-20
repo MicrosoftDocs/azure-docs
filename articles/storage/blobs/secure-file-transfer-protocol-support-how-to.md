@@ -81,7 +81,7 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
    | Option | Guidance |
    |----|----|
    | Generate a new key pair | Use this option to create a new public / private key pair. The public key is stored in Azure. You'll be given the private key when you complete the steps in **Add local user** configuration page. |
-   | Use existing key stored in Azure | Use this option if you already have the private key to a public key stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). |
+   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When you connect your SFTP client to Azure Storage, you'll need to provide the private key associated with this public key. |
    | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen). |
 
 4. Select **Next** to move to the **Container permissions** tab of the configuration page.
@@ -113,26 +113,19 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
    >[!NOTE]
    > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the [Configure permissions](#configure-permissions) section of this article.
 
-## Connect with an SFTP client
+## Connect an SFTP client
 
 You can use any SFTP client to securely connect and then transfer files. The following screenshot shows a Windows PowerShell session that uses [Open SSH](/windows-server/administration/openssh/openssh_overview) and password authentication to connect and then upload a file named `logfile.txt`.  
 
 > [!div class="mx-imgBorder"]
-> ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect.png)
+> ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect-and-transfer.png)
 
-After the transfer, this file appears in the default home directory that you specified for this local user.
+After the transfer is complete, the file appears in the default home directory that you specified for this local user.
 
 > [!div class="mx-imgBorder"]
 > ![Uploaded file appears in storage account](./media/secure-file-transfer-protocol-support-how-to/uploaded-file-in-storage-account.png)
 
-See the documentation for your SFTP client for guidance about how to connect and transfer files.
-
-## Resolve common errors
-
-|Error | Cause / resolution|
-|---|---|
-|`Error`|Cause / resolution |
-
+See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
 ## See also
 
