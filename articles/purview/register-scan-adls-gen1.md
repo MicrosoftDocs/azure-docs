@@ -160,7 +160,7 @@ It is important to give your service principal the permission to scan the ADLS G
 
 Provide a **Name** for the scan, select the **Purview MSI** under **Credential**, choose the appropriate collection for the scan and click on **Test connection**. On a successful connection, click **Continue**.
 
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
+:::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
 #### If using Service Principal
 

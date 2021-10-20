@@ -220,7 +220,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 Follow the steps below to scan a Power BI tenant to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
 
-This guide covers both [same-tenant](#create-and-run-scan-for-same-tenant-power-bi) and [cross-tenant](#create-and-run-scan-for-came-tenant-power-bi) scanning scenarios.
+This guide covers both [same-tenant](#create-and-run-scan-for-same-tenant-power-bi) and [cross-tenant](#create-and-run-scan-for-cross-tenant-power-bi) scanning scenarios.
 
 ### Create and run scan for same-tenant Power BI
 
@@ -242,8 +242,8 @@ To create and run a new scan, do the following:
     > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
 
 1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
-    1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required. [Check if you have provided correct authentication for delegated authentication](register-scan-power-bi-tenant.md#register-and-scan-a-cross-tenant-power-bi)
-    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the [Purview managed identity is added to the security group associated in Power BI admin portal](register-scan-power-bi-tenant.md#create-a-security-group-for-permissions)
+    1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
+    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the Purview managed identity is added to the security group associated in Power BI admin portal.
     1. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::

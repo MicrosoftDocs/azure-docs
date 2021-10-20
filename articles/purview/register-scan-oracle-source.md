@@ -52,33 +52,33 @@ A read-only access to system tables is required.
 
 The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
-    ```sql
-    grant create session to [user];
-    grant select on all_users to [user];
-    grant select on dba_objects to [user];
-    grant select on dba_tab_comments to [user];
-    grant select on dba_external_locations to [user];
-    grant select on dba_directories to [user];
-    grant select on dba_mviews to [user];
-    grant select on dba_clu_columns to [user];
-    grant select on dba_tab_columns to [user];
-    grant select on dba_col_comments to [user];
-    grant select on dba_constraints to [user];
-    grant select on dba_cons_columns to [user];
-    grant select on dba_indexes to [user];
-    grant select on dba_ind_columns to [user];
-    grant select on dba_procedures to [user];
-    grant select on dba_synonyms to [user];
-    grant select on dba_views to [user];
-    grant select on dba_source to [user];
-    grant select on dba_triggers to [user];
-    grant select on dba_arguments to [user];
-    grant select on dba_sequences to [user];
-    grant select on dba_dependencies to [user];
-    grant select on dba_type_attrs to [user];
-    grant select on V_$INSTANCE to [user];
-    grant select on v_$database to [user];
-    ```
+```sql
+grant create session to [user];
+grant select on all_users to [user];
+grant select on dba_objects to [user];
+grant select on dba_tab_comments to [user];
+grant select on dba_external_locations to [user];
+grant select on dba_directories to [user];
+grant select on dba_mviews to [user];
+grant select on dba_clu_columns to [user];
+grant select on dba_tab_columns to [user];
+grant select on dba_col_comments to [user];
+grant select on dba_constraints to [user];
+grant select on dba_cons_columns to [user];
+grant select on dba_indexes to [user];
+grant select on dba_ind_columns to [user];
+grant select on dba_procedures to [user];
+grant select on dba_synonyms to [user];
+grant select on dba_views to [user];
+grant select on dba_source to [user];
+grant select on dba_triggers to [user];
+grant select on dba_arguments to [user];
+grant select on dba_sequences to [user];
+grant select on dba_dependencies to [user];
+grant select on dba_type_attrs to [user];
+grant select on V_$INSTANCE to [user];
+grant select on v_$database to [user];
+```
 
 ### Authentication for registration
 

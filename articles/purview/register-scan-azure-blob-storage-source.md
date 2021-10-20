@@ -18,7 +18,7 @@ This article outlines the process to register an Azure Blob Storage account in A
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| Yes | Yes | No|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| Yes | No|
 
 For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
 
