@@ -74,7 +74,7 @@ This section will guide you through how to create a mesh configuration with the 
 
 1. Select **Add** again to create the mesh connectivity configuration.
 
-## Deploy the hub and spoke configuration
+## Deploy the mesh configuration
 
 To have this configuration take effect in your environment, you'll need to deploy the configuration to the regions where your selected virtual networks are created.
 
