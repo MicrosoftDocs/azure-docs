@@ -789,7 +789,7 @@
 - name: SQL Managed Instance (SQL MI)
   items:
   - name: Documentation
-    href: managed-instance/index.yml  
+    href: managed-instance/index.yml
   - name: Overview
     items:
     - name: What is SQL Managed Instance? 
@@ -882,6 +882,9 @@
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
       href: managed-instance/replication-transactional-overview.md
+    - name: Managed Instance link
+      href: managed-instance/managed-instance-link.md
+
 
     - name: Management operations
       items:
