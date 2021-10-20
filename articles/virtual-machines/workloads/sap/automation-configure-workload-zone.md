@@ -99,6 +99,18 @@ version="latest"
 }
 ```
 
+### Authentication Parameters
+
+The table below defines the credentials used for defining the Virtual Machine authentication
+
+| Variable                         | Type         | Description                           | 
+| -------------------------------- | ------------ | ------------------------------------- | 
+| `automation_username`            | Optional	  | Administrator account name |
+| `automation_password`            | Optional     | Administrator password |
+| `automation_path_to_public_key`  | Optional     | Path to existing public key used for authentication |
+| `automation_path_to_private_key` | Optional     | Path to existing private key used for authentication |
+
+
 ## Key Vault Parameters
 
 The table below defines the parameters used for defining the Key Vault information
@@ -142,4 +154,4 @@ The table below defines the parameters used for defining the Key Vault informati
 ## Next Step
 
 > [!div class="nextstepaction"]
-> [About SAP system deployment in automation framework](automation-system-deployment.md)
+> [About SAP system deployment in automation framework](automation-deploy-workload-zone.md)

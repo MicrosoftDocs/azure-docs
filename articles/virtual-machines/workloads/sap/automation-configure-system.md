@@ -11,302 +11,232 @@ ms.service: virtual-machines-sap
 
 # Configure SAP system parameters for automation
 
-Configuration for the [SAP deployment automation framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a JSON file, which the automation framework uses for deployment. 
-
-## Root node types
-
-You can define the following types of root nodes in your parameters file. The infrastructure, application, and database root nodes are required.
-
-| Type | Node | Description |
-| ---- | ---- | ----------- |
-| Required | `infrastructure` | Defines the resource group and networking information. |
-| Required | `application` | Defines attributes for the application tier. For example, the number of virtual machines (VMs), or what VM images to use. |
-| Required | `database` | Defines attributes for the database tier. |
-| Optional | `authentication` | Defines authentication details for the system. The default settings use information from the workload zone's key vault in Azure Key Vault. |
-| Optional | `options` | Defines special settings for the environment. |
-
-## Parameters
-
-The following tables include required and optional parameters for: 
-
-- The [SAP system's infrastructure](#infrastructure-parameters)
-- The [database tier](#database-tier-parameters)
-- The [application tier](#application-tier-parameters)
-- The [authentication process](#authentication-parameters).
-
-### Infrastructure parameters
-
-| Type | Node | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| Required | `infrastructure.` | `environment` | Five-character name for the workload tier. For example, `PROD` for a production environment and `NP` for a non-production environment. You can also use a unique Service Principal Name (SPN) or an Azure subscription identifier. |
-| Required | `infrastructure.` | `region` | Specifies the Azure region in which you're deploying the system. |
-| Optional | `infrastructure.resource_group.` | `arm_id` | The Azure resource identifier of the resource group that you want to use for the deployment. |
-| Optional | `infrastructure.resource_group.` | `name` | The name of the resource group that you want to create and use for the deployment. |
-| Optional | `infrastructure.anchor_vms.` | `sku` | Populated when it's necessary to have an anchor VM to tie the proximity placement groups to a specific zone. |
-| Optional | `infrastructure.anchor_vms.` | `accelerated_networking` | A boolean flag that determines if an anchor VM uses accelerated networking. The default setting is `false`. |
-| Optional | `infrastructure.anchor_vms.`| `nic_ips` | The list of IP addresses that anchor VMs can use. The number of list entries must equal the total Azure Availability Zone count for all VMs in the deployment. Not needed if `use_DCHP` is set to `true`. |
-| Optional | `infrastructure.anchor_vms.`| `use_DHCP` | A boolean flag that determines if the subnet provides the IP addresses for the VMs. The default setting is `false`. |
-| Optional | `infrastructure.anchor_vms.authentication.` | `type` | The authentication type for an anchor VM. The value can be a key or password. |
-| Optional | `infrastructure.anchor_vms.os.` | `publisher` | The Azure Marketplace publisher of the VM image. |
-| Optional | `infrastructure.anchor_vms.os.` | `offer` | The Azure Marketplace image offer. |
-| Optional | `infrastructure.anchor_vms.os.` | `sku` | The Azure Marketplace image SKU. |
-| Required, in some cases | `infrastructure.vnets.sap.subnet_admin` | `arm_id` | The Azure resource identifier for the administrator subnet. Required if there's no `name` parameter for this node. |
-| Required, in some cases | `infrastructure.vnets.sap.subnet_admin` | `name` | The name of the administrator subnet to create and use. Required if there's no `arm_id` parameter for this node. |
-| Required | `infrastructure.vnets.sap.subnet_admin` | `prefix` | The address prefix of the administrator subnet. |
-| Required, in some cases | `infrastructure.vnets.sap.subnet_app` | `arm_id` | The Azure resource identifier for the application subnet. Required if there's no `name` parameter for this node. |
-| Required, in some cases | `infrastructure.vnets.sap.subnet_app` | `name` | The name of the application subnet to create and use. Required if there's no `arm_id` parameter for this node. |
-| Required | `infrastructure.vnets.sap.subnet_app` | `prefix` | The address prefix of the application subnet. |
-| Required, in some cases | `infrastructure.vnets.sap.db` | `arm_id` | The Azure resource identifier for the database subnet. Required if there's no `name` parameter for this node. |
-| Required, in some cases | `infrastructure.vnets.sap.db` | `name` | The name of the database subnet to create and use. Required if there's no `arm_id` parameter for this node. |
-| Required | `infrastructure.vnets.sap.db` | `prefix` | The address prefix of the database subnet. |
-| Required, in some cases | `infrastructure.vnets.sap.web` | `arm_id` | The Azure resource identifier for the web dispatcher subnet. Required if there's no `name` parameter for this node. |
-| Required, in some cases | `infrastructure.vnets.sap.web` | `name` | The name of the web dispatcher subnet to create and use. Required if there's no `arm_id` parameter for this node. |
-| Required | `infrastructure.vnets.sap.web` | `prefix` | The address prefix of the web dispatcher subnet. |
-| Optional | `options.` | `resource_offset` | The offset number for resource naming when creating multiple resources. The default value is `0`, which creates a naming pattern of `disk0`, `disk1`, and so on. An offset of `1` creates a naming pattern of `disk1`, `disk2`, and so on.
-| Optional | `options.` | `disk_encryption_set_id` | The disk encryption key to use for encrypting managed disks. |
-| Required | `tfstate_resource_id` | None | The resource identifier for the storage account in which you want to store the state files. Typically, the SAP Library execution unit deploys these files. |
-| Required | `deployer_tfstate_key` | `Remote State` | The file name of the deployer state file. This parameter is case-sensitive. |
-| Required | `landscape_tfstate_key` | `Remote State` | The file name of the landscape state file. This parameter is case-sensitive. |
-
-### Database tier parameters
-
-| Type | Node | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| Required | `databases.[].` | `platform` | The backend database type. Valid values are `HANA`, `DB2`, `ORACLE`, `SQLSERVER`, `ASE`, or `NONE`. If you specify `NONE`, no database tier is deployed. |
-| Optional | `databases.[].` | `high_availability` | A boolean flag that determines whether the automation framework deploys extra servers. If true, the framework deploys twice the number of servers as defined in the count for the node. |
-| Required | `databases.[].` | `size` | Maps to the disk sizing. For HANA, use the VM SKU; for example, `M32` or `M128ms`. For AnyDB, use the size of the database in GB; values include `200`, `500`, `1024`, `2048`, `5120`, `10240`, `15360`, `20480`, `30720`, `40960`, `51200`. You can also set custom disk sizing if necessary. |
-| Optional | `databases.[].` | `zones` | A list of Availability Zones into which you want to deploy the VMs. |
-| Optional | `databases.[].` | `avset_arm_ids.[]` | The name of the availability set into which you're deploying the VMs. |
-| Optional | `databases.[].` | `use_DHCP` | A boolean flag that determines if the subnet provides the IP addresses for the VMs. The default setting is `false`. |
-| Required, in some cases | `databases.[].os.` | `os_type` | The OS type. Required if using the `source_image_id` parameter to specify a custom image. |
-| Required, in some cases | `databases.[].os.` | `source_image_id` | The resource identifier for a custom image to use. Required if you're not using a published VM image. |
-| Required, in some cases | `databases.[].os.` | `publisher` | The publisher of the VM image you want to use. Required if you're not using a custom image. |
-| Required, in some cases | `databases.[].os.` | `offer` | The offer identifier for the VM image. Required if you're not using a custom image. |
-| Required, in some cases | `databases.[].os.` | `sku` | The SKU for the VM image. Required if you're not using a custom image. |
-| Optional | `databases.[].dbnodes.[].` | `name` | The name of the VM. |
-| Optional | `databases.[].dbnodes.[].` | `db_nic_ips.[]` | The IP addresses of the `db nic` VM. |
-| Optional | `databases.[].dbnodes.[].` | `admin_nic_ips.[]` | The IP addresses of the `admin nic` VM. |
-| Optional | `databases.[].loadbalancer.` |	`frontend_ip` | The IP address of the load balancer. |
-| Optional | `db_disk_sizes_filename` | None | The custom disk sizing JSON file for the database tier. |
+Configuration for the [SAP deployment automation framework](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
 
 
-### Application tier parameters
+The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
 
-| Type | Node | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| Optional | `application.` | `enable_deployment` | A boolean flag that determines whether to deploy the application tier. |
-| Required | `application.` | `sid` | The SAP application identifier. |
-| Optional | `application.` | `application_server_count` | The number of application servers to deploy. |
-| Optional | `application.` | `app_zones` | A list of Availability Zones into which to deploy the VMs. |
-| Optional | `application.` | `app_sku` | The VM SKU to use. |
-| Optional | `application.` | `dual_nics` | A boolean flag that determines whether to deploy the application tier with dual network cards. |
-| Optional | `application.` | `app_nic_ips[]` | A list of IP addresses for the application subnet VM. |
-| Optional | `application.` | `app_admin_nic_ips[]` | A list of IP addresses for the administrator subnet VM. |
-| Optional | `application.` | `use_DHCP` | A boolean flag that determines if the subnet provides IP addresses for the VMs. The default setting is `false`. |
-| Optional | `application.web_os.` | `os_type` | The OS type. Required if you provide a custom image identifier. |
-| Optional | `application.web_os.` | `source_image_id` | The resource identifier of a custom image to use. Required if you don't provide a published VM image to use with the parameter `publisher` in this node. |
-| Optional | `application.web_os.` | `publisher` | The publisher of an image to use for the VM. Required if you don't provide parameters for a custom image in this node. |
-| Optional | `application.web_os.` | `offer` | The offer identifier of  a VM image to use. Required if you don't provide parameters for a custom image in this node. |
-| Optional | `application.web_os.` | `sku` | The SKU of a VM image to use. Required if you don't provide parameters for a custom image in this node. |
-| Optional | `app_disk_sizes_filename` | None | The custom disk sizing JSON file for the application tier. |
+## Terraform Parameters
 
-### Authentication parameters
+The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
 
-| Type | Node | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| Optional | `application.authentication.` | `type` | The authentication type for the VM. Valid values are `Password` or `Key`. |
-| Optional | `authentication.` | `username` | The default username for the environment. |
-| Optional | `authentication.` | `password` | The password for the environment. If not specified, Terraform creates and stores a password in the key vault. |
-| Optional | `authentication.` | `path_to_public_key` | The path to the SSH public key file. If not specified, Terraform creates and stores a public key file in the key vault. |
-| Optional | `authentication.` | `path_to_private_key` | The path to the SSH private key file. If not specified, Terraform creates and stores a private key file in the key vault. |
-| Optional | `key_vault.` | `kv_user_id` | The resource identifier for the key vault to use. |
-| Optional | `key_vault.` | `kv_prvt_id` | The resource identifier for the private key vault to use. |
-| Optional | `key_vault.` | `kv_spn_id` | The resource identifier of the private key vault to use, that contains SPN details. |
+| Variable                  | Type       | Description                           | 
+| ------------------------- | ---------- | ------------------------------------- | 
+| `tfstate_resource_id`     | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
+| `deployer_tfstate_key`    | Required * | The name of the state file for the Deployer  |
+| `landscaper_tfstate_key`  | Required * | The name of the state file for the workload zone  |
 
-## Example parameters file (required parameters only)
+* = required for manual deployments
+## Generic Parameters
 
-This example JSON file includes only the required parameters. Replace all values as needed for your configuration.
+The table below contains the parameters that define the resource group and the resource naming.
 
-```json
+| Variable                | Type       | Description                           | 
+| ----------------------- | ---------- | ------------------------------------- | 
+| `environment`           | Required   | A five-character identifier for the workload zone. For example, `PROD` for a production environment and `NP` for a non-production environment. |
+| `location`              | Required   | The Azure region in which to deploy.     |
+| `resource_group_name`   | Optional   | Name of the resource group to be created |
+| `resource_group_arm_id` | Optional   | Azure resource identifier for an existing resource group |
+
+## Network Parameters
+
+If the subnets are not deployed using the workload zone deployment, they can be added in the system's tfvars file.
+
+The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
+ - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
+ - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
+
+Ensure that the virtual network address space is large enough to host all the resources
+
+The table below contains the networking parameters.
+
+| Variable                         | Type        | Description                           | Notes  |
+| -------------------------------- | ----------- | ------------------------------------- | ------ |
+| `network_name`                   | Required    | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE) | |
+| `network_arm_id`                 | Optional *  | The Azure resource identifier for the virtual network | Required for brown field deployments |
+| `network_address_space`          | Required * | The address range for the virtual network | Required for green field.  |
+| `admin_subnet_name`              | Optional    | The name of the 'admin' subnet | |
+| `admin_subnet_address_prefix`    | Required * | The address range for the 'admin' subnet | Required for green field deployments |
+| `admin_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'admin' subnet | Required for brown field deployments |
+| `admin_subnet_nsg_name`          | Optional	 | The name of the 'admin' Network Security Group name | |
+| `admin_subnet_nsg_arm_id`        | Required * | The Azure resource identifier for the 'admin' Network Security Group | Required for brown field deployments |
+| `db_subnet_name`                 | Optional    | The name of the 'db' subnet | |
+| `db_subnet_address_prefix`       | Required * | The address range for the 'db' subnet | Required for green field deployments |
+| `db_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'db' subnet | Required for brown field deployments |
+| `db_subnet_nsg_name`             | Optional	 | The name of the 'db' Network Security Group name | |
+| `db_subnet_nsg_arm_id`           | Required * | The Azure resource identifier for the 'db' Network Security Group | Required for brown field deployments |
+| `app_subnet_name`                | Optional    | The name of the 'app' subnet | |
+| `app_subnet_address_prefix`      | Required * | The address range for the 'app' subnet | Required for green field deployments |
+| `app_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'app' subnet | Required for brown field deployments |
+| `app_subnet_nsg_name`            | Optional	 | The name of the 'app' Network Security Group name | |
+| `app_subnet_nsg_arm_id`          | Required * | The Azure resource identifier for the 'app' Network Security Group | Required for brown field deployments |
+| `web_subnet_name`                | Optional    | The name of the 'web' subnet | |
+| `web_subnet_address_prefix`      | Required * | The address range for the 'web' subnet | Required for green field deployments |
+| `web_subnet_arm_id`	           | Required * | The Azure resource identifier for the 'web' subnet | Required for brown field deployments |
+| `web_subnet_nsg_name`            | Optional	 | The name of the 'web' Network Security Group name | |
+| `web_subnet_nsg_arm_id`          | Required * | The Azure resource identifier for the 'web' Network Security Group | Required for brown field deployments |
+
+* = Required for brown field deployments
+
+### Database Tier Parameters
+
+The database tier defines the infrastructure for the database tier, supported database back ends are:
+
+- `HANA`
+- `DB2`
+- `ORACLE`
+- `ORACLE-ASM`
+- `ASE`
+- `SQLSERVER`
+- `NONE` (in this case no database tier is deployed)
+
+| Variable                          | Type        | Description                             | Notes  |
+| --------------------------------  | ----------- | --------------------------------------- | ------ |
+| `database_platform`               | Required    | Defines the database backend  
+ | |
+| `database_high_availability`      | Optional    | Defines if the database tier is deployed highly available | |
+| `database_size`                   | Required    | Defines the database sizing information | See [Custom Sizing](automation-configure-extra-disks.md) |
+| `database_sid`                    | Required    | Defines the database SID                |       |
+| `db_disk_sizes_filename`          | Optional    | Defines the custom database sizing      | See [Custom Sizing](automation-configure-extra-disks.md) |
+| `database_sid`                    | Required    | Defines the database SID | |
+| `database_vm_image`	            | Optional	  | Defines the Virtual machine image to use, see below | 
+| `database_vm_use_DHCP`            | Optional    | Controls if Azure subnet provided IP addresses should be used (dynamic) true |
+| `database_vm_authentication_type` | Optional	  | Defines the authentication type for the database virtual machines (key/password) | | 
+| `database_vm_zones`               | Optional	  | Defines the Availability Zones | |
+| `database_vm_avset_arm_ids`       | Optional	  | Defines the existing availability sets Azure resource IDs | Primarily used together with ANF pinning | 
+| `database_no_avset`               | Optional	  | Controls if the database virtual machines are deployed without availability sets | default is false |
+| `database_no_ppg`                 | Optional	  | Controls if the database servers will not be placed in a proximity placement group | default is false |
+
+The Virtual Machine image is defined using a json structure: 
+
+```python 
 {
-	"infrastructure": {
-		"environment": "NP",
-		"region": "eastus2",
-		"vnets": {
-			"sap": {
-				"name": "SAP-01"
-			}
-		}
-	},
-	"databases": [{
-		"platform": "HANA",
-		"high_availability": false,
-		"db_version": "2.00.050",
-		"size": "Demo",
-		"os": {
-			"publisher": "SUSE",
-			"offer": "sles-sap-12-sp5",
-			"sku": "gen1"
-		}
-	}],
-	"application": {
-		"enable_deployment": true,
-		"sid": "PRD",
-		"scs_instance_number": "00",
-		"ers_instance_number": "10",
-		"scs_high_availability": false,
-		"application_server_count": 3,
-		"webdispatcher_count": 1
-	},
-	"options": {},
-	"tfstate_resource_id": "",
-	"deployer_tfstate_key": "",
-	"landscape_tfstate_key": ""
+  os_type="linux"
+  source_image_id=""
+  publisher="RedHat"
+  offer="RHEL-SAP-HA"
+  sku="82sapha-gen2"
+  version="8.2.2021040902"
 }
 ```
 
-## Example parameters file (all parameters)
+### Common Application Tier Parameters
 
-The following example parameters file shows all possible parameters. Replace all values as needed for your configuration.
+The application tier defines the infrastructure for the application tier, which can consist of application servers, central services servers and web dispatch servers
 
-```json
-{
-	"infrastructure": {
-		"environment": "NP",
-		"region": "eastus2",
-		"resource_group": {
-			"name": "NP-EUS2-SAP-PRD",
-			"arm_id": ""
-		},
-		"anchor_vms": {
-			"sku": "Standard_D4s_v4",
-			"authentication": {
-				"type": "key"
-			},
-			"accelerated_networking": true,
-			"os": {
-				"publisher": "SUSE",
-				"offer": "sles-sap-12-sp5",
-				"sku": "gen1"
-			},
-			"nic_ips": ["", "", ""],
-			"use_DHCP": false
-		},
-		"vnets": {
-			"sap": {
-				"arm_id": "",
-				"name": "",
-				"address_space": "10.1.0.0/16",
-				"subnet_db": {
-					"prefix": "10.1.1.0/28"
-				},
-				"subnet_web": {
-					"prefix": "10.1.1.16/28"
-				},
-				"subnet_app": {
-					"prefix": "10.1.1.32/27"
-				},
-				"subnet_admin": {
-					"prefix": "10.1.1.64/27"
-				}
-			}
-		}
-	},
-	"databases": [{
-		"platform": "HANA",
-		"high_availability": false,
-		"db_version": "2.00.050",
-		"size": "Demo",
-		"os": {
-			"publisher": "SUSE",
-			"offer": "sles-sap-12-sp5",
-			"sku": "gen1"
-		},
-		"zones": ["1"],
-		"avset_arm_ids": [
-			""
-		],
-		"use_DHCP": false,
-		"loadbalancer": {
-			"frontend_ip": "10.1.1.5"
-		},
-		"dbnodes": [{
-			"name": "dbserver",
-			"db_nic_ips": ["10.1 .1 .1, 10.1 .1 .2"],
-			"admin_nic_ips": ["10.1 .1 .65, 10.1 .1 .66"]
-		}]
-	}],
-	"application": {
-		"enable_deployment": true,
-		"sid": "PRD",
-		"application_server_count": 2,
-		"app_sku": "Standard_E4ds_v4",
-		"dual_nics": true,
-		"app_zones": ["1", "2"],
-		"app_nic_ips": ["10.1.1.33", "10.1.1.34"],
-		"app_admin_nic_ips": ["10.1.1.67", "10.1.1.68"],
-		"os": {
-			"os_type": "Linux",
-			"offer": "sles-sap-12-sp5",
-			"publisher": "SUSE",
-			"sku": "gen2",
-			"version": "latest"
-		},
-		"scs_high_availability": false,
-		"scs_server_count": 1,
-		"scs_instance_number": "00",
-		"ers_instance_number": "10",
-		"scs_sku": "Standard_E4ds_v4",
-		"scs_zones": ["1"],
-		"scs_nic_ips": ["10.1.1.35", "10.1.1.36"],
-		"scs_admin_nic_ips": ["10.1.1.69", "10.1.1.70"],
-		"scs_lb_ips": ["10.1.1.37"],
-		"scs_os": {
-			"os_type": "Linux",
-			"offer": "sles-sap-12-sp5",
-			"publisher": "SUSE",
-			"sku": "gen2",
-			"version": "latest"
-		},
-		"webdispatcher_count": 1,
-		"web_sku": "Standard_E4ds_v4",
-		"web_zones": ["1"],
-		"web_nic_ips": ["10.1.1.17"],
-		"web_admin_nic_ips": ["10.1.1.72"],
-		"web_lb_ips": ["10.1.1.18"],
-		"web_os": {
-			"os_type": "Linux",
-			"offer": "sles-sap-12-sp5",
-			"publisher": "SUSE",
-			"sku": "gen2",
-			"version": "latest"
-		},
-		"use_DHCP": false,
-		"authentication": {
-			"type": "password"
-		}
-	},
-	"authentication": {
-		"username": "azureadm",
-		"password": "",
-		"path_to_public_key": "sshkey.pub",
-		"path_to_private_key": "sshkey"
-	},
-	"options": {
-		"resource_offset": 0,
-		"disk_encryption_set_id": ""
-	},
-	"tfstate_resource_id": "",
-	"deployer_tfstate_key": "",
-	"landscape_tfstate_key": "",
-	"app_disk_sizes_filename": "custom_size_app.json",
-	"db_disk_sizes_filename": "custom_size_db.json"
+| Variable                          | Type        | Description                             | Notes  |
+| --------------------------------  | ----------- | --------------------------------------- | ------ |
+| `enable_app_tier_deployment`	    | Optional	  | Defines if the application tier is deployed ||
+| `sid`	                            | Required	  |	Defines the SAP application SID ||
+| `app_disk_sizes_filename`	        | Optional 	  | Defines the custom disk size file for the application tier servers | See [Custom Sizing](automation-configure-extra-disks.md) |
+| `app_tier_authentication_type`    | Optional	  | Defines the authentication type for the application tier virtual machine(s) (key/password) | | 
+| `app_tier_use_DHCP`	            | Optional	  | Controls if Azure subnet provided IP addresses should be used (dynamic) | |
+| `app_tier_dual_nics`	            | Optional	  | Defines if the application tier server will have two network interfaces  | |
+| `app_tier_vm_sizing`	            | Optional	  | Lookup value defining the VM SKU and the disk layout for tha application tier servers  | |
 
+### Application Server Parameters
+
+| Variable                               | Type        | Description                             | Notes  |
+| -------------------------------------- | ----------- | --------------------------------------- | ------ |
+| `application_server_count`	         | Required	   | Defines the number of application servers | |
+| `application_server_sku`	             | Optional    | Defines the Virtual machine SKU to use | | 
+| `application_server_image`	         | Required    | Defines the Virtual machine image to use| | 
+| `application_server_zones`	         | Optional    | Defines the availability zones to which the application servers are deployed | | 
+| `application_server_app_nic_ips[]`     | Optional    | List of IP addresses for the application server (app subnet) | Ignored if `app_tier_use_DHCP` is used |
+| `application_server_app_admin_nic_ips` | Optional    | List of IP addresses for the application server (admin subnet) | Ignored if `app_tier_use_DHCP` is used |
+| `application_server_no_ppg`            | Optional    | Controls if the application servers will not be placed in a proximity placement group ||
+| `application_server_no_avset`	         | Optional    | Defines that the application servers machines will not be placed in an availability set ||
+| `application_server_tags`	             | Optional    | Defines a list of tags to be applied to the application servers ||
+
+### SAP Central Services Parameters
+
+| Variable                              | Type        | Description                             | Notes  |
+| ------------------------------------- | ----------- | --------------------------------------- | ------ |
+| `scs_high_availability`	            | Optional	  | Defines if the Central Services is highly available ||
+| `scs_instance_number`	                | Optional    | The instance number of SCS ||
+| `ers_instance_number`	                | Optional	  | The instance number of ERS ||
+| `scs_server_count`	                | Required	  | Defines the number of scs servers | |
+| `scs_server_sku`	                    | Optional    | Defines the Virtual machine SKU to use | | 
+| `scs_server_image`	                | Required    | Defines the Virtual machine image to use| | 
+| `scs_server_zones`	                | Optional    | Defines the availability zones to which the scs servers are deployed | | 
+| `scs_server_app_nic_ips[]`            | Optional    | List of IP addresses for the scs server (app subnet) | Ignored if `app_tier_use_DHCP` is used |
+| `scs_server_app_admin_nic_ips`        | Optional    | List of IP addresses for the scs server (admin subnet) | Ignored if `app_tier_use_DHCP` is used |
+| `scs_server_no_ppg`                   | Optional    | Controls if the 'scs' servers will not be placed in a proximity placement group ||
+| `scs_server_no_avset`	                | Optional    | Defines that the scs servers machines will not be placed in an availability set ||
+| `scs_server_tags`	                    | Optional    | Defines a list of tags to be applied to the scs servers ||
+
+### Web Dispatcher Parameters
+
+| Variable                                 | Type        | Description                             | Notes  |
+| ---------------------------------------- | ----------- | --------------------------------------- | ------ |
+| `webdispatcher_server_count`	           | Required	 | Defines the number of web dispatcher servers | |
+| `webdispatcher_server_sku`	           | Optional    | Defines the Virtual machine SKU to use | | 
+| `webdispatcher_server_image`	           | Optional    | Defines the Virtual machine image to use| | 
+| `webdispatcher_server_zones`	           | Optional    | Defines the availability zones to which the web dispatcher servers are deployed | | 
+| `webdispatcher_server_app_nic_ips[]`     | Optional    | List of IP addresses for the web dispatcher server (app subnet) | Ignored if `app_tier_use_DHCP` is used |
+| `webdispatcher_server_app_admin_nic_ips` | Optional    | List of IP addresses for the web dispatcher server (admin subnet) | Ignored if `app_tier_use_DHCP` is used |
+| `webdispatcher_server_no_ppg`            | Optional    | Controls if the web dispatchers will not be placed in a proximity placement group ||
+| `webdispatcher_server_no_avset`	       | Optional    | Defines if the web dispatcher servers machines will not be placed in an availability set ||
+| `webdispatcher_server_tags`	           | Optional    | Defines a list of tags to be applied to the web dispatcher servers ||
+
+### Anchor Virtual Machine Parameters
+
+The SAP Deployment Automation Framework supports having an Anchor Virtual Machine. The anchor Virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+
+The table below contains the parameters related to the anchor virtual machine. 
+
+| Variable                           | Type        | Description                           | 
+| ---------------------------------- | ----------- | ------------------------------------- | 
+| `deploy_anchor_vm`                 | Optional	   | Defines if the anchor Virtual Machine is used|
+| `anchor_vm_sku`                    | Optional    | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3 | 
+| `anchor_vm_image`	                 | Optional	   | Defines the Virtual machine image to use, see below | 
+| `anchor_vm_use_DHCP`               | Optional    | Controls if Azure subnet provided IP addresses should be used (dynamic) true |
+| `anchor_vm_accelerated_networking` | Optional    | Defines if the Anchor Virtual machine is configured to use accelerated networking |
+| `anchor_vm_authentication_type`    | Optional	   | Defines the authentication type for the anchor virtual machine key/password|
+
+The Virtual Machine image is defined using a json structure: 
+```python 
+{ 
+os_type=""
+source_image_id=""
+publisher="Canonical"
+offer="0001-com-ubuntu-server-focal"
+sku="20_04-lts"
+version="latest"
 }
 ```
+
+### Authentication Parameters
+
+By default the SAP System deployment uses the credentials from the SAP Workload zone. If the SAP system needs unique credentials, you can provide them using these parameters.
+
+| Variable                         | Type         | Description                           | 
+| -------------------------------- | ------------ | ------------------------------------- | 
+| `automation_username`            | Optional	  | Administrator account name |
+| `automation_password`            | Optional     | Administrator password |
+| `automation_path_to_public_key`  | Optional     | Path to existing public key used for authentication |
+| `automation_path_to_private_key` | Optional     | Path to existing private key used for authentication |
+
+
+## Other Parameters
+
+| Variable                                       | Type        | Description                           | Notes  |
+| ---------------------------------------------- | ----------- | ------------------------------------- | ------ |
+| `resource_offset`                              | Optional    | Provides and offset for resource naming | The offset number for resource naming when creating multiple resources. The default value is `0`, which creates a naming pattern of `disk0`, `disk1`, and so on. An offset of `1` creates a naming pattern of `disk1`, `disk2`, and so on. |
+| `disk_encryption_set_id`                       | Optional    | The disk encryption key to use for encrypting managed disks using customer provided keys|
+| `use_loadbalancers_for_standalone_deployments' | Optional    | Controls if load balancers are deployed for standalone installations |
+
+## Azure NetApp Support
+
+| Variable                           | Type        | Description                           | Notes  |
+| ---------------------------------- | ----------- | ------------------------------------- | ------ |
+| `use_ANF`                          | Optional    | If specified, deploys the Azure NetApp Files Account and Capacity Pool  | 
+| `anf_sapmnt_volume_size`           | Optional    | Defines the size (in GB) for the 'sapmnt' volume | |
+| `anf_transport_volume_size`        | Optional    | Defines the size (in GB) for the 'sapmnt' volume | |
+
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure SAP Library](automation-configure-control-plane.md)
+> [Deploy SAP System](automation-deploy-system.md)
 
