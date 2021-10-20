@@ -170,7 +170,7 @@ az deployment group create \
 
 ## Get container group details
 
-To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command.
+To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
 
 ```azurecli
 az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
