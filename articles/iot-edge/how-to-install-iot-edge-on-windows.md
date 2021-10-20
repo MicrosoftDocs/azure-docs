@@ -34,7 +34,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 * A Windows device with the following minimum system requirements:
 
   * Windows 10 Version 1809 or later; build 17763 or later
-  * Professional, Enterprise, or Server editions
+  * Professional, Enterprise, IoT Enterprise, Server, or Server IoT editions
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
   * Virtualization support
