@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: digital-twins
 ms.topic: include
-ms.date: 4/8/2021
+ms.date: 10/20/2021
 ms.author: baanders
 ---
 
