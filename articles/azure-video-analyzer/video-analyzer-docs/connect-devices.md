@@ -24,7 +24,7 @@ The application will need to:
    * Forward the websocket bytes to the camera's RTSP server TCP connection
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/connect-devices/connect-devices.svg" alt-text="Connect devices to the cloud":::
+> :::image type="content" source="./media/connect-devices/connect-devices.png" alt-text="Connect devices to the cloud":::
 
 ## Run as an IoT Device 
 
