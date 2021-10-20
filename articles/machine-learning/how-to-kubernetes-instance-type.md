@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: how-to
 ---
 
-# Kubernetes instance types (preview)
+# Create and select Kubernetes instance types (preview)
 
 Learn how to create and select Kubernetes instances for Azure Machine Learning training and inferencing workloads.
 
