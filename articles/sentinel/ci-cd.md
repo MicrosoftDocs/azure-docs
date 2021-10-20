@@ -214,7 +214,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
 
         By default, this configuration is set to detect any push to the connected branch, including both modifications to existing content and additions of new content to the repository.
 
-        Modify this trigger to any available Azure DevOps Triggers, such as to scheduling or pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
+        Modify this trigger to any available Azure DevOps Triggers, such as to scheduling or pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema).
 
 
     - **To modify the deployment path**:
@@ -240,7 +240,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
             workingDirectory: `SentinelContent`
         ...
         ```
-For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema) on the Azure DevOps YAML schema.
+For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
 <!--Question - do you need to change the triggers section above too?-->
 ---
 
