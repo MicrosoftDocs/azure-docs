@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, danil
-ms.date: 21/10/2021
+ms.date: 10/21/2021
 ---
 # Overview of Managed Instance link (limited public preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,7 +70,7 @@ Use the below link to sign-up for managed instance link limited preview. We are 
 ## Next steps
 
 For more information on managed instance link, see the following:
-- [Managed Instance link technical blogpost](https://aka.ms/mi-link-techblog).
+- [Managed Instance link – data mobility between SQL Server and Azure reimagined](https://aka.ms/mi-link-techblog).
 
 ## See also
 
