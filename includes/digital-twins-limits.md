@@ -17,7 +17,7 @@ The following table lists the functional limits of Azure Digital Twins.
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
-| Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
+| Digital twins | Number of twins in an Azure Digital Twins instance | 500,000 | Yes |
 | Digital twins | Number of incoming relationships to a single twin | 5,000 | No |
 | Digital twins | Number of outgoing relationships from a single twin | 5,000 | No |
 | Digital twins | Maximum size (of JSON body in a PUT or PATCH request) of a single twin | 32 KB | No |
