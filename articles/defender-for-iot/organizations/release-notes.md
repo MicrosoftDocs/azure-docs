@@ -157,20 +157,6 @@ You can now enhance the security of your deployment by adding a second network i
 
 This feature is available on the on-premises management console with the release of version 10.2.
 
-### Device builder - new micro agent (Public preview)
-
-A new device builder module is available. The module, referred to as a micro-agent, allows:
-
-- **Integration with Azure IoT Hub and Azure Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Azure Defender for IoT.
-- **Flexible deployment options with support for standard IoT operating systems** - can be deployed either as a binary package or as modifiable source code, with support for standard IoT operating systems like Linux and Azure RTOS.
-- **Minimal resource requirements with no OS kernel dependencies** - small footprint, low CPU consumption, and no OS kernel dependencies.
-- **Security posture management** – proactively monitor the security posture of your IoT devices.
-- **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
-
-The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
-
-This feature set is available with the current public preview cloud release.
-
 ## January 2021
 
 - [Security](#security)
