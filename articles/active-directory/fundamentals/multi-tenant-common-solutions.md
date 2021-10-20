@@ -38,7 +38,7 @@ This customer had the following goals:
 
    * User account lifecycle changes in the home tenant automatically reflected in the resource tenant GAL. 
 
-   * Attribute changes in home tenants (such as department, name, SMTP address) automatically reflected in resource tenant GAL and the home GAL
+   * Attribute changes in home tenants (such as department, name, SMTP address) automatically reflected in resource tenant GAL and the home GAL.
 
 * Users can access applications and resources in the resource tenant.
 
