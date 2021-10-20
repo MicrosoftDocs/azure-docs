@@ -25,7 +25,7 @@ The Dv5 series virtual machines are based on the 3rd Generation Intel® Xeon® P
 
 The Dv5 VM sizes offer a combination of vCPUs and memory able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more. They also provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class).
 
-The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs, and Standard HDDs disk storage to these VMs. If you prefer to use Premium SSD or Ultra Disk storage, please select the Dsv5 virtual machines instead. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs, and Standard HDDs disk storage to these VMs. If you prefer to use Premium SSD or Ultra Disk storage, please select the Dsv5 virtual machines instead. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
@@ -55,7 +55,7 @@ The Dsv5 series virtual machines are based on the 3rd Generation Intel® Xeon® 
 
 The Dsv5 VM sizes offer a combination of vCPUs and memory able to meet the requirements associated with most production workloads. They also provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class).
 
-The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lowering the price of entry. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -92,7 +92,7 @@ The Dv5 and Dsv5 virtual machine sizes do not have any temporary storage thus lo
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps
