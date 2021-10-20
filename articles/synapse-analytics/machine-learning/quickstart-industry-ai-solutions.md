@@ -39,7 +39,7 @@ The **Retail - Product recommendations** solution provides a recommendation pipe
 1. In the Gallery, select the **Database Templates** tab, scroll down to the **AI solutions** section, and select the "Retail - Product recommendations" solution. Click **Continue**.
 1. You can choose between two options:
    * "Use sample data" 
-   * "Use my own data from a workspace database". This option can for example be a databse modeled with the Retail Database template.
+   * "Use my own data from a workspace database". This option can for example be a database modeled with the Retail Database template.
    
     Clicking **Deploy** will open a Notebook in your Synapse workspace.
 
