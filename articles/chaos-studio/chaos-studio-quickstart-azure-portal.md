@@ -53,7 +53,7 @@ Sign in to the Azure portal at https://portal.azure.com
 ![Fault properties](images/quickstart-service-direct-add-fault.PNG)
 
 5. Click **Next: Target resources >**
-![Add a target](images/quickstart-service-direct-add-target.PNG)
+![Add a target](images/quickstart-service-direct-add-targets.PNG)
 
 6. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
 
