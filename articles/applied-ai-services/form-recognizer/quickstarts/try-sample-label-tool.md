@@ -54,10 +54,9 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 * [**ID document**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../concept-business-card.md): extracts text and key information from business cards.
 
-
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. At the sample tool home page select **Use prebuilt model to get data**.
+1. On the sample tool home page select **Use prebuilt model to get data**.
 
     :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
 
@@ -97,7 +96,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. At the sample tool home page select **Use Layout to get text, tables and selection marks**.
+1. On the sample tool home page select **Use Layout to get text, tables and selection marks**.
 
      :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
 
@@ -135,47 +134,64 @@ Train a custom model to analyze and extract data from forms and documents specif
     :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
     1. Select the CORS blade for the storage account.
-    2. Start by creating a new CORS entry in the Blob service.
-    3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
-    4. Select all the available 8 options for **Allowed methods**.
-    5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
-    6. Set the **Max Age** to 120 seconds or any acceptable value.
-    7. Click the save button at the top of the page to save the changes.
+
+    1. Start by creating a new CORS entry in the Blob service.
+
+    1. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+
+    1. Select all the available 8 options for **Allowed methods**.
+
+    1. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+
+    1. Set the **Max Age** to 120 seconds or any acceptable value.
+
+    1. Click the save button at the top of the page to save the changes.
 
     CORS should now be configured to use the storage account from Form Recognizer Studio.
 
 ### Use the sample labeling tool
 
-1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
+1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. At the sample tool home page select "use custom form to train a model with labels and get key value pairs"
+1. On the sample tool home page select **Use custom form to train a model with labels and get key value pairs**.
 
     :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Train a custom model.":::
 
-2. Select "New Project"
+1. Select **New project**
+
+    :::image type="content" source="../media/fott-new-project.png" alt-text="Screenshot: select a new project prompt.":::
 
 #### Create a new project
 
-* Select **New project**
+Configure the **Project Settings** fields with the following values:
 
-Configure the project settings fill in the fields with the following values:
+1. **Display Name**. Name your project.
 
-* **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+1. **Security Token**. Each project will auto-generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
-* **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values:
-  * **Display Name** - The connection display name.
-  * **Description** - Your project description.
-  * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
+1. **Source connection**. The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
 
-  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+    * Create a new connection, select the **Add Connection** button. Complete the fields with the following values:
 
-   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
+    > [!div class="checklist"]
+    >
+    > * **Display Name**. Name the connection.
+    > * **Description**. Add a brief description.
+    > * **SAS URL**. Paste the shared access signature (SAS) URL for your Azure Blob Storage container.
 
-* **Folder Path** -- Optional - If your source forms are located in a folder on the blob container, specify the folder name here
-* **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
-* **API Key** - Your Form Recognizer subscription key.
-* **Description** - Optional - Project description
+    * To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
+       :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
+
+1. **Folder Path** (optional).  If your source forms are located within a folder in the blob container, specify the folder name.
+
+1. **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
+
+1. **API Key**. Your Form Recognizer subscription key.
+
+1. **API  version**. Keep the v2.1 (default) value.
+
+1. **Description** (optional). Describe your project.
 
     :::image type="content" source="../media/label-tool/connections.png"  alt-text="Connection settings":::
 
@@ -199,19 +215,25 @@ The labeling tool will also show which tables have been automatically extracted.
 
 ##### Apply labels to text
 
-Next, you will create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes labeled fields already we will add another field.
+Next, you will create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes already labeled fields; we will add another field.
 
-1. First, use the tags editor pane to create a new tag you'd like to identify.
-   1. Select **+** to create a new tag.
-   1. Enter the tag name. Add a 'Total' tag
-   1. Press Enter to save the tag.
+Use the tags editor pane to create a new tag you'd like to identify:
+
+1. Select **+**  plus sign to create a new tag.
+
+1. Enter the tag "Total" name.
+
+1. Select **Enter** to save the tag.
+
 1. In the main editor, select the total value from the highlighted text elements.
-1. Select the Total tag you want to apply to the value, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+
+1. Select the Total tag to apply to the value, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
 
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms:
     >
     > * You can only apply one tag to each selected text element.
+    >
     > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
     > * Tags cannot span across pages.
     > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
@@ -221,7 +243,7 @@ Next, you will create tags (labels) and apply them to the text elements that you
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
 
-Follow the steps above to label for the five forms in the sample dataset.
+1. Continue to follow the steps above to label all five forms in the sample dataset.
 
   :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Label the samples.":::
 
@@ -229,7 +251,8 @@ Follow the steps above to label for the five forms in the sample dataset.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](../quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](../quickstarts/get-started-sdk-rest-api.md).
+* **Model ID**. The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](../quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](../quickstarts/get-started-sdk-rest-api.md).
+
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -237,13 +260,17 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 #### Analyze a custom form
 
-Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+1. Select the **Analyze** (light bulb) icon on the left to test your model. 
+
+1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder. 
+
+1. Choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
    :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
-## Next steps
+That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
 
-Congratulations! You've learned how to use the Form Recognizer sample tool to try out prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Explore Form Recognizer client library SDK and REST API quickstart](../quickstarts/get-started-sdk-rest-api.md)
