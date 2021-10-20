@@ -45,6 +45,11 @@ You can create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microso
 
 ![Screenshot that shows Anomaly Detector in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
+
+You can create an [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource in the Azure portal:
+
+![Screenshot that shows Form Recognizer in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
+
 ## Create a key vault and configure secrets and access
 
 1. Create a [key vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
