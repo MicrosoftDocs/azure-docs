@@ -134,7 +134,7 @@ If you store your custom content in an external repository in order to maintain 
 
 For more information, see [Enable continuous deployment from your content repositories](ci-cd.md).
 
-### Enriched threat intelligence with Geolocation and WhoIs data
+### Enriched threat intelligence with Geolocation and WhoIs data (Public preview)
 
 Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is automatically enriched with GeoLocation and WhoIs information.
 
@@ -159,7 +159,7 @@ For more information, see:
 - [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 
-### Use notebooks with Azure Synapse Analytics in Azure Sentinel
+### Use notebooks with Azure Synapse Analytics in Azure Sentinel (Public preview)
 
 Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-scale security analytics scenarios.
 
