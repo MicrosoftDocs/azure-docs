@@ -44,7 +44,7 @@ Use the following steps to tag your data
 
 2. From the left side menu, select **Tag data**
 
-3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the top-right menu to navigate.
+3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.
     
 4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu. 
 
@@ -66,13 +66,7 @@ Use the following steps to tag your data
       :::image type="content" source="../media/tag-multi.png" alt-text="A screenshot showing the multiple label classification menu" lightbox="../media/tag-multi.png":::
 
 
-While tagging, keep an eye on the status indicator next to **Tag data**:
-
-  * **Green** indicates that your changes have been saved.
-  * **Yellow** indicates that saving is in progress.
-  * **Red** indicates that your changes have not been saved yet.
-
-If you want to save manually, hover over the red indicator and click on **Save now**.
+While tagging, your changes will be synced peridodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
 
 :::image type="content" source="../media/tag-status.png" alt-text="The tag status" lightbox="../media/tag-status.png":::
 
