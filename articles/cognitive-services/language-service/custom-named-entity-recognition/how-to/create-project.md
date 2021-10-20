@@ -137,14 +137,14 @@ To set proper roles on your storage account:
 * You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](../concepts/data-formats.md). 
 
 >[!TIP]
-> Review the [recommended practices](..//concepts/recommended-practices.md) for data selection and preparation.
+> Review the [recommended practices](../concepts/recommended-practices.md) for data selection and preparation.
 
-## Create a project
-
-Once your Azure resource and storage account are configured, you can create a project, using the [Language studio](../quickstart.md?pivots=language-studio#create-a-custom-classification-project) or [REST API](../quickstart.md?pivots=rest-api#create-project).
+## Create a custom named entity recognition project
 
 >[!NOTE]
 > If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
+
+[!INCLUDE [Create custom NER project](../includes/create-project.md)]
 
 ## Next steps
 

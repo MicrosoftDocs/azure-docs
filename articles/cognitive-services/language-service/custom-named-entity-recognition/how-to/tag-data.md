@@ -63,6 +63,8 @@ You have two options to tag your document:
 |Tag using a brush     | Select the brush icon next to an entity in the top-right corner of the screen, then highlight words in the document you want to associate with the entity           |
 |Tag using a menu    | Highlight the word you want to tag as an entity, and a menu will appear. Select the tag you want to assign for this entity.        |
 
+The below screenshot shows tagging using a brush.
+
 :::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Custom NER." lightbox="../media/tag-options.png":::
 
 ## Remove tags
