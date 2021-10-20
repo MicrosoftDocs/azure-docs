@@ -16,7 +16,7 @@ ms.author: deanwe
 
 These Azure services are automatically onboarded for you when you use Automanage Machine Best Practices Profiles on a Linux VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
-For all of these services, we will auto-onboard, auto-configure, monitor for drift, and remediate if drift is detected. To learn more about this process, see [Azure Automanage for virtual machines](automanage-virtual-machines.md).
+For all of these services, we will auto-onboard, auto-configure, monitor for drift, and remediate if drift is detected. To learn more, go to [Azure Automanage for virtual machines](automanage-virtual-machines.md).
 
 ## Supported Linux distributions and versions
 
