@@ -1,57 +1,66 @@
 ---
-title: 'Scan multiple sources in Azure Purview'
-description: Learn how to scan an entire Azure subscription or resource group in your Azure Purview data catalog. 
+title: Connect to and manage multiple Azure sources
+description: This guide describes how to connect to multiple Azure sources in Azure Purview at onces, and use Purview's features to scan and manage your sources.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to
-ms.date: 05/08/2021
+ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.date: 10/20/2021
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Register and scan multiple sources in Azure Purview
+# Connect to and manage multiple Azure sources in Azure Purview
 
-This article outlines how to register multiple sources (Azure subscriptions or resource groups) in Azure Purview and set up a scan on them.
+This article outlines how to register multiple Azure sources and how to authenticate and interact with them in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-You can scan multiple sources to capture metadata and schema on most Azure resource types that Azure Purview supports. Azure Purview classifies the data automatically based on system and custom classification rules.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Source Dependant](catalog-lineage-user-guide.md)|
 
 ## Prerequisites
 
-- Before you register data sources, create an Azure Purview account. For more information, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- Make sure you're an Azure Purview Data Source Administrator. You must also be an owner or user access administrator to add a role on a subscription or resource group.
-- Set up authentication as described in the following sections.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-### Set up authentication for enumerating resources under a subscription or resource group
+* An active [Purview resource](create-catalog-portal.md).
+
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+
+## Register
+
+This section describes how to register multiple Azure sources in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+
+### Prerequisites for registration
+
+You need to set up some authentication to be able to enumerate resources under a subscription or resource group.
 
 1. Go to the subscription or the resource group in the Azure portal.  
-1. Select **Access Control (IAM)** from the left menu. 
-1. Select **+Add**. 
+1. Select **Access Control (IAM)** from the left menu.
+1. Select **+Add**.
 1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name). 
 1. Select **Save** to finish the role assignment.
 
-### Set up authentication to scan resources under a subscription or resource group
+### Authentication for registration
 
 There are two ways to set up authentication for multiple sources in Azure:
 
-- Managed identity
-- Service principal
+* Managed identity
+* Service principal
 
-You must set up authentication on each resource within your subscription or resource group that you want to register and scan. Azure Storage resource types (Azure Blob Storage and Azure Data Lake Storage Gen2) make it easy by allowing you to add the MSI file or service principal at the subscription or resource group level as a storage blob data reader. The permissions then trickle down to each storage account within that subscription or resource group. For all other resource types, you must apply the MSI file or service principal on each resource, or create a script to do so. 
+You must set up authentication on each resource within your subscription or resource group that you want to register and scan. Azure Storage resource types (Azure Blob Storage and Azure Data Lake Storage Gen2) make it easy by allowing you to add the MSI file or service principal at the subscription or resource group level as a storage blob data reader. The permissions then trickle down to each storage account within that subscription or resource group. For all other resource types, you must apply the MSI file or service principal on each resource, or create a script to do so.
 
 To learn how to add permissions on each resource type within a subscription or resource group, see the following resources:
     
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
-- [Azure SQL Database](register-scan-azure-sql-database.md)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
+- [Azure SQL Database](register-scan-azure-sql-database.md#authentication-for-a-scan)
 - [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
- 
-## Register multiple sources
 
-To register new multiple sources in your data catalog, do the following:
+### Steps to register
 
 1. Go to your Azure Purview account.
 1. Select **Data Map** on the left menu.
@@ -59,6 +68,7 @@ To register new multiple sources in your data catalog, do the following:
 1. On **Register sources**, select **Azure (multiple)**.
 
    :::image type="content" source="media/register-scan-azure-multiple-sources/register-azure-multiple.png" alt-text="Screenshot that shows the tile for Azure Multiple on the screen for registering multiple sources.":::
+
 1. Select **Continue**.
 1. On the **Register sources (Azure)** screen, do the following:
 
@@ -67,11 +77,15 @@ To register new multiple sources in your data catalog, do the following:
    1. In the **Subscription** and **Resource group** dropdown list boxes, select a subscription or a specific resource group, respectively. The registration scope will be set to the selected subscription or resource group.  
 
       :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="Screenshot that shows the boxes for selecting a subscription and resource group.":::
+
    1. In the **Select a collection** box, select a collection or create a new one (optional).
    1. Select **Register** to register the data sources.
 
+## Scan
 
-## Create and run a scan
+Follow the steps below to scan multiple Azure sources to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+
+### Create and run scan
 
 To create and run a new scan, do the following:
 
@@ -126,6 +140,7 @@ To create and run a new scan, do the following:
 1. View a summary of recent failed scan runs at the bottom of the source details. You can also view more granular details about these runs.
 
 ## Manage your scans: edit, delete, or cancel
+
 To manage a scan, do the following:
 
 1. Go to the management center.
@@ -138,5 +153,8 @@ To manage a scan, do the following:
 
 ## Next steps
 
-- [Browse the Azure Purview data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview data catalog](how-to-search-catalog.md)    
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

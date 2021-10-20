@@ -266,7 +266,7 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-review-scan.png" alt-text="review scan":::
 
-### Viewing Scan
+### View Scan
 
 1. Navigate to the _data source_ in the _Collection_ and click on **View Details** to check the status of the scan
 
@@ -280,7 +280,7 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-complete.png" alt-text="view scan completed":::
 
-### Managing Scan
+### Manage Scan
 
 Scans can be managed or run again on completion
 
