@@ -40,6 +40,8 @@
     href: chaos-studio-fault-library.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
+  - name: Service limits
+    href: chaos-studio-service-limits.md
   - name: REST API documentation
     href: https://aka.ms/chaosRESTAPI
 - name: Resources
