@@ -74,7 +74,7 @@ The modern Edge browser is now included in the requirement to provide an `Origin
 **Service category:** User Access Management 
 **Product capability:** Entitlement Management
  
-There is now an additional option for advanced expiration settings in entitlement management. It's possible  to configure an access package that'll expire in hours, in addition to prior settings. [Learn more]../governance/entitlement-management-access-package-create.md#lifecycle).
+There is now an additional option for advanced expiration settings in entitlement management. It's possible  to configure an access package that'll expire in hours, in addition to prior settings. [Learn more](../governance/entitlement-management-access-package-create.md#lifecycle).
 
 ---
 
