@@ -135,7 +135,7 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |"tasks"|[]| List of tasks we want to perform.|
 |--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
 |parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. Note that project name is case senitive.|
+|project-name| "MyProject"| Your project name. The project name is case sensitive.|
 |deployment-name| "MyDeploymentName"| Your deployment name|
 
 #### Response
