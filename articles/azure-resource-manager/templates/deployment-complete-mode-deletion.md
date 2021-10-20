@@ -221,7 +221,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.Teams](#microsoftteams)
 > - [Microsoft.TestBase](#microsofttestbase)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VideoIndexer](#microsoftvideoindexer)
@@ -229,6 +228,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.VMware](#microsoftvmware)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.VSOnline](#microsoftvsonline)
+> - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
@@ -2905,14 +2905,6 @@ Jump to a resource provider namespace:
 > | workspaces / sqlDatabases | Yes |
 > | workspaces / sqlPools | Yes |
 
-## Microsoft.Teams
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | resourceEligibility | No |
-> | telephonyServices | No |
-
 ## Microsoft.TestBase
 
 > [!div class="mx-tableFixed"]
@@ -2987,6 +2979,57 @@ Jump to a resource provider namespace:
 > | accounts | Yes |
 > | plans | Yes |
 > | registeredSubscriptions | No |
+## Microsoft.Network
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | apiManagementAccounts | No |
+> | apiManagementAccounts / apiAcls | No |
+> | apiManagementAccounts / apis | No |
+> | apiManagementAccounts / apis / apiAcls | No |
+> | apiManagementAccounts / apis / connectionAcls | No |
+> | apiManagementAccounts / apis / connections | No |
+> | apiManagementAccounts / apis / connections / connectionAcls | No |
+> | apiManagementAccounts / apis / localizedDefinitions | No |
+> | apiManagementAccounts / connectionAcls | No |
+> | apiManagementAccounts / connections | No |
+> | billingMeters | No |
+> | certificates | Yes |
+> | connectionGateways | Yes |
+> | connections | Yes |
+> | customApis | Yes |
+> | deletedSites | No |
+> | functionAppStacks | No |
+> | generateGithubAccessTokenForAppserviceCLI | No |
+> | hostingEnvironments | Yes |
+> | hostingEnvironments / eventGridFilters | No |
+> | hostingEnvironments / multiRolePools | No |
+> | hostingEnvironments / workerPools | No |
+> | kubeEnvironments | Yes |
+> | publishingUsers | No |
+> | recommendations | No |
+> | resourceHealthMetadata | No |
+> | runtimes | No |
+> | serverFarms | Yes |
+> | serverFarms / eventGridFilters | No |
+> | serverFarms / firstPartyApps | No |
+> | serverFarms / firstPartyApps / keyVaultSettings | No |
+> | sites | Yes |
+> | sites/config  | No |
+> | sites / eventGridFilters | No |
+> | sites / hostNameBindings | No |
+> | sites / networkConfig | No |
+> | sites / premieraddons | Yes |
+> | sites / slots | Yes |
+> | sites / slots / eventGridFilters | No |
+> | sites / slots / hostNameBindings | No |
+> | sites / slots / networkConfig | No |
+> | sourceControls | No |
+> | staticSites | Yes |
+> | validate | No |
+> | verifyHostingEnvironmentVnet | No |
+> | webAppStacks | No |
 
 ## Microsoft.WindowsDefenderATP
 

@@ -212,7 +212,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.Teams](#microsoftteams)
 > - [Microsoft.TestBase](#microsofttestbase)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VideoIndexer](#microsoftvideoindexer)
@@ -221,6 +220,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.VSOnline](#microsoftvsonline)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
@@ -2960,14 +2960,6 @@ Jump to a resource provider namespace:
 > | workspaces / sqlDatabases | Yes | Yes |
 > | workspaces / sqlPools | Yes | Yes |
 
-## Microsoft.Teams
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | resourceEligibility | No | No |
-> | telephonyServices | No | No |
-
 ## Microsoft.TestBase
 
 > [!div class="mx-tableFixed"]
@@ -3050,6 +3042,58 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | No | No |
 > | diagnosticSettingsCategories | No | No |
+
+## Microsoft.Web
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | apiManagementAccounts | No | No |
+> | apiManagementAccounts / apiAcls | No | No |
+> | apiManagementAccounts / apis | No | No |
+> | apiManagementAccounts / apis / apiAcls | No | No |
+> | apiManagementAccounts / apis / connectionAcls | No | No |
+> | apiManagementAccounts / apis / connections | No | No |
+> | apiManagementAccounts / apis / connections / connectionAcls | No | No |
+> | apiManagementAccounts / apis / localizedDefinitions | No | No |
+> | apiManagementAccounts / connectionAcls | No | No |
+> | apiManagementAccounts / connections | No | No |
+> | billingMeters | No | No |
+> | certificates | Yes | Yes |
+> | connectionGateways | Yes | Yes |
+> | connections | Yes | Yes |
+> | customApis | Yes | Yes |
+> | deletedSites | No | No |
+> | functionAppStacks | No | No |
+> | generateGithubAccessTokenForAppserviceCLI | No | No |
+> | hostingEnvironments | Yes | Yes |
+> | hostingEnvironments / eventGridFilters | No | No |
+> | hostingEnvironments / multiRolePools | No | No |
+> | hostingEnvironments / workerPools | No | No |
+> | kubeEnvironments | Yes | Yes |
+> | publishingUsers | No | No |
+> | recommendations | No | No |
+> | resourceHealthMetadata | No | No |
+> | runtimes | No | No |
+> | serverFarms | Yes | Yes |
+> | serverFarms / eventGridFilters | No | No |
+> | serverFarms / firstPartyApps | No | No |
+> | serverFarms / firstPartyApps / keyVaultSettings | No | No |
+> | sites | Yes | Yes |
+> | sites / config  | No | No |
+> | sites / eventGridFilters | No | No |
+> | sites / hostNameBindings | No | No |
+> | sites / networkConfig | No | No |
+> | sites / premieraddons | Yes | Yes |
+> | sites / slots | Yes | Yes |
+> | sites / slots / eventGridFilters | No | No |
+> | sites / slots / hostNameBindings | No | No |
+> | sites / slots / networkConfig | No | No |
+> | sourceControls | No | No |
+> | staticSites | Yes | Yes |
+> | validate | No | No |
+> | verifyHostingEnvironmentVnet | No | No |
+> | webAppStacks | No | No |
 
 ## Microsoft.WindowsESU
 
