@@ -12,65 +12,67 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Submit text classification tasks
+# Deploy a model and classify text using the runtime API
 
-After deploying your model it is ready for you to send text classification tasks to it. 
-
->[!IMPORTANT]
-> You can create a text classification job using Language Studio, but you will only be able to retrieve and view it programmatically. 
+After you're satisfied with your model, and made any necessary improvements, you can deploy it and start classifying text. Deploying a model makes it available for use through the runtime API.
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart.md) with
-    * Model training completed 
-    * Successful model deployment.
-* Completed [data tagging](tag-data.md).
+* [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
+* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
+* (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
 
-* [cURL](https://curl.haxx.se/) installed
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
-## Create a text classification job
+## Deploy your model
+
+1. Go to your project in [Language Studio](https://aka.ms/custom-classification)
+
+2. Select **Deploy model** from the left side menu.
+
+3. Select the model you want to deploy, then select **Deploy model**.
+
+> [!TIP]
+> You can test your model in Language Studio by sending samples of text for it to classify. 
+> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
+> 2. Select the model you want to test.
+> 3. Add your text to the textbox, you can also upload a `.txt` file. 
+> 4. Click on **Run the test**.
+> 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
+
+## Send a text classification request to your model
 
 # [Using Language Studio](#tab/language-studio)
 
 ### Using Language studio
 
-1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/classification).
-
-2. Select **Deploy model** from the left side menu.
-
-3. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
+1. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
 
     :::image type="content" source="../media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../media/get-prediction-url-1.png":::
 
-4. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
+2. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
 
-5. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
+3. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
 
     :::image type="content" source="../media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../media/get-prediction-url-2.png":::
 
-6. Submit the request
+4. Submit the request
 
-7. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId}>`
+5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
-8. Copy the retrieve request and replace `jobId` and submit the request.
+6. Copy the retrieve request and replace `jobId` and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
+
+ You can find more details about the results in the next section.
 
 # [Using the API](#tab/api)
 
 ### Using the API
 
-You will get the `model id` from the get train results request you submitted earlier. Or you can get the `model id` directly from the Language studio portal.
-
-1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/classification).
-
-2. Select **Deploy model** from the left side menu.
-
-3. If your model is deployed you will find the `model id` under the **Model id** column.
-
-    :::image type="content" source="../media/get-model-id.png" alt-text="get the model ID" lightbox="../media/get-model-id.png":::
-
-### Get your resource keys endpoint
+First you will need to get your resource key and endpoint
 
 1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
@@ -78,14 +80,14 @@ You will get the `model id` from the get train results request you submitted ear
 
     :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
 
-### Submit a job request
+### Submit text classification task
 
 > [!NOTE]
 > Project names is case sensitive.
 
-Use this **POST** request to start an entity extraction task. replace `{projectName}` with the project name where you have the model you want to use.
+Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze`
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
 
 #### Headers
 
@@ -114,8 +116,9 @@ Use this **POST** request to start an entity extraction task. replace `{projectN
         "customMultiClassificationTasks": [      
             {
                 "parameters": {
-                    "modelId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_MultiClassification_latest",
-                    "stringIndexType": "TextElements_v8"
+                      "project-name": "MyProject",
+                      "deployment-name": "MyDeploymentName"
+                      "stringIndexType": "TextElements_v8"
                 }
             }
         ]
@@ -132,24 +135,23 @@ Use this **POST** request to start an entity extraction task. replace `{projectN
 |"tasks"|[]| List of tasks we want to perform.|
 |--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
 |parameters|[]|List of parameters to pass to task|
-|modelId| "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_MultiClassification_latest"| Your published Model ID|
+|project-name| "MyProject"| Your project name. The project name is case sensitive.|
+|deployment-name| "MyDeploymentName"| Your deployment name|
 
 #### Response
 
 You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
 `operation-location` is formatted like this:
 
- `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId>`
+ `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
 You will use this endpoint in the next step to get the custom classification task results.
 
----
-
-### Orchestrator Get job status/results
+### Get the classification task status and results
 
 Use the following **GET** request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId>`.
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
 
 #### Headers
 
@@ -157,9 +159,14 @@ Use the following **GET** request to query the status/results of the custom clas
 |--|--|
 |Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
 
-#### Response Body
+You can find more details about the results in the next section.
 
-The response will be a JSON document with the following parameters
+---
+
+
+#### Text classification task results
+
+The response returned from the Get result call will be a JSON document with the following parameters:
 
 ```json
 {
@@ -216,7 +223,6 @@ The response will be a JSON document with the following parameters
                 "errors": [],
                 "statistics": {
                     "documentsCount":0,
-                    "validDocumentsCount":0,
                     "erroneousDocumentsCount":0,
                     "transactionsCount":0
                 }

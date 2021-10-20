@@ -1,7 +1,7 @@
 ---
 title: Custom text classification limits 
 titleSuffix: Azure Cognitive Services
-description: Learn about the data and rate limits when using custom entity extraction.
+description: Learn about the data and rate limits when using custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,17 +14,15 @@ ms.author: aahi
 
 # Custom text classification limits
 
-Use this article to learn about the data and rate limits when using custom classification.
+Use this article to learn about the data and rate limits when using custom text classification
 
 ## File limits
 
-* You can only use `.txt`. files for custom text classification. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to crack your document and extract the text.
+* You can only use `.txt` files for custom text classification. If your data is in other format, you can use [CLUtils parse command](https://aka.ms/CognitiveServicesLanguageUtilities) to crack your document and extract the text.
 
 * All files uploaded in your container must contain data, no empty files are allowed for training.
 
 * All files should be available at the root of your container.
-
-* The maximum allowed length for your files is 17,500 characters, which is approximately 3,800 words or 8 pages.
 
 * Your [training dataset](../how-to/train-model.md#data-splits) should include at least 10 files and no more than 1,000,000 files.
 

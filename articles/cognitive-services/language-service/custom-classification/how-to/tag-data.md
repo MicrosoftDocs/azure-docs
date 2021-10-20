@@ -12,33 +12,46 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Tag your data in language studio
+# Tag text data for training your model 
 
 Before creating a custom text classification model, you need to have tagged data first. If your data is not tagged already, you can tag it in the language studio. Tagged data informs the model how to interpret text, and is used for training and evaluation.
 
-
 ## Prerequisites
 
-* a [created project](../quickstart.md) with a valid resource and storage account.
+Before you can tag data, you need:
+* [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
+<!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).-->
+
+
 
 ## Tag your data
+
+After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
+
+As you tag your data, keep in mind:
+
+* In general, more tagged data leads to better results, provided the data is tagged accurately.
+
+* Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
+
+Use the following steps to tag your data
 
 1. Go to your projects page in [Language Studio](https://language.azure.com/customText/projects/classifciation) and select your project.
 
 2. From the left side menu, select **Tag data**
 
-3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the top-right menu to navigate.
+3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.
     
-    >[!TIP]
-    > See the [recommended practices](../concepts/recommended-practices.md#data-tagging) for tagging your data
-    
-4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu.
+4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu. 
+
+    > [!NOTE]
+    > If you enabled multiple languages for your project, you will find an additional **Language** drop-down menu. Select the language of each document.
 
     :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
-
-5. If you enabled multiple languages for your project, you will find an additional **Language** drop-down menu. Select the language of each document.
-
-    :::image type="content" source="../media/tag-multilingual.png" alt-text="A screenshot showing the multilingual selector" lightbox="../media/tag-multilingual.png":::
 
 6. Before you start tagging, add classes to your project from the top-right corner
 
@@ -53,13 +66,7 @@ Before creating a custom text classification model, you need to have tagged data
       :::image type="content" source="../media/tag-multi.png" alt-text="A screenshot showing the multiple label classification menu" lightbox="../media/tag-multi.png":::
 
 
-While tagging, keep an eye on the status indicator next to **Tag data**:
-
-  * **Green** indicates that your changes have been saved.
-  * **Yellow** indicates that saving is in progress.
-  * **Red** indicates that your changes have not been saved yet.
-
-If you want to save manually, hover over the red indicator and click on **Save now**.
+While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
 
 :::image type="content" source="../media/tag-status.png" alt-text="The tag status" lightbox="../media/tag-status.png":::
 
@@ -72,46 +79,11 @@ To delete/rename a class,
 :::image type="content" source="../media/tag-edit-class.png" alt-text="Edit the tag class" lightbox="../media/tag-edit-class.png":::
 
 >[!NOTE]
-> The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 20 tagged files per classification.
+> The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 50 tagged files per classification and more as you go.
 
 As you tag your data, you can find a training readiness recommendation in the top-right corner of the page.
 :::image type="content" source="../media/tag-train-ready.png" alt-text="Readiness recommendation" lightbox="../media/tag-train-ready.png":::
 
-## Data tag JSON file format
+## Next steps
 
-Your tags file should be in the `json` format below.
-
-```json
-{
-  //List of intent names. Their index within this array is used as an ID.
-  "classNames": [
-      "intent_name1",
-      "intent_name2"
-  ],
-  "documents": [
-      {
-          "location": "path to document", //Relative file path to get the text.
-          "culture": "en-US", //Standard culture strings supported by CultureInfo
-          "classes": [
-              0,
-              3
-          ]
-      }
-  ]
-}
-```
-
-### Data description
-
-* `classNames`: An array of classes. Index of the class within the array is used as its ID.
-* `documents`: An array of tagged documents. For example:
-    * `file.txt` For documents on the same level as the tags file. 
-    * `dir1/file.txt` For documents within a directory level. 
-    *  `../file.txt` For documents one directory level above.
-* `location`: The path of the JSON file containing tags. The tags file has to be in root of the storage container.
-* `culture`: Culture/language of the document. Use one of the [supported culture locales](../language-support.md).
-* `classes`: Array of classes assigned to the document. If you're working on a single classification project, array should only contain one value only.
-
-## Next Steps
-
-* [Train your model](train-model.md)
+After you've tagged your data, you can begin [training a model](train-model.md) that will learn based on your data.

@@ -12,45 +12,58 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# How to train your model
+# How to train a text classification model
 
 
-Training is the process where the model learns from your [tagged data](tag-data.md) to output a trained model. At the start of the training process the tags file containing tagged data and classes is sent to the service along with the tagged files. Tagged files are split into train and test sets<!-- , where the split can either be pre-defined by developers in tags file or chosen at random during training-->. The train set alongside the tags file are processed during training to create the custom classification model. The test set is later processed by the trained model to evaluate its performance. You can have a maximum of 10 models within your project, but you can only train one model at a time. The user can choose to train a new model or overwrite an existing one.
-
-> [!NOTE]
-> * The minimum number of tagged instances per class is 10. You can start with this and add more tagged instances if needed. Model performance depends on how distinct the classes in your documents are and how easily they can be differentiated from each other.
-> * The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
-
-## Data splits
-
-Before starting the training process, files in your dataset are divided into two sets at random: 
-
-* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model alongside the tags file.
-
-* The **test set** contains 20% of the files available in your dataset. This set is a blind set which means that it is not introduced to the model during training. Test set is later used to provide [evaluation](../how-to/view-model-evaluation.md) of the model. You can also view the correct and incorrect predictions for this set so that you can readjust the training data to [improve model](improve-model.md).
+Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart.md)
+Before you train your model you need:
 
-* Finished [tagging your data](tag-data.md).
-    * You can create and train multiple [models](../definitions.md#model) within the same [project](../definitions.md#project). However, if you re-train a specific model it will overwrite the previous state.
+* [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
 
-## Train model in Language studio
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+## Training a model 
+
+The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
+
+
+
+As you train your model, keep in mind:
+
+* [View the model's evaluation details](../how-to/view-model-evaluation.md) After model training, model evaluation is done against the [test set](../how-to/train-model.md#data-splits), which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
+
+* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution-from-language-studio) Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged far less frequent than the others, this class is likely under-represented and most occurrences probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
+
+* [Improve performance (optional)](../how-to/improve-model.md) Other than revising [tagged data](tag-data.md) based on error analysis, you may want to increase the number of tags for under-performing entity types, or improve the diversity of your tagged data. This will help your model learn to give correct predictions, over potential linguistic phenomena that cause failure.
+
+<!-- * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged classes.
+ -->
+
+## Data splits
+
+Before starting the training process, files in your dataset are divided into three groups at random:
+
+* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
+
+* The **test set** contains 20% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
+
+## Train model in Language Studio
+
+1. Go to your project page in [Language Studio](https://aka.ms/LanguageStudio).
 
 2. Select **Train** from the left side menu.
 
-3. Select the model you want to train from the **Model name** dropdown, if you don’t have models already, type in the name of your model and select **create new model**.
+3. To train a new model, select **Train a new model** and type in the model name in the text box below. You can **overwrite an existing model** by selecting this option and select the model you want from the dropdown below.
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
-4. Select the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up window will appear to confirm overwriting the last model state.
-
-5. After training is completed, you can [view the model evaluation details](view-model-evaluation.md) and [improve your model](improve-model.md)
+4. Select the **Train** button at the bottom of the page.
 
 ## Next steps
 
-* [View the model evaluation details](view-model-evaluation.md)
-* [Improve model](improve-model.md)
+After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to optionally [improve your model](../how-to/improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [classifying text](call-api.md).

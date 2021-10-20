@@ -1,5 +1,5 @@
 ---
-title: Language support in custom entity extraction 
+title: Language support in custom text classification
 titleSuffix: Azure Cognitive Services
 description: Learn about which languages are supported by custom entity extraction, which is a part of Language Services.
 services: cognitive-services
@@ -14,7 +14,14 @@ ms.author: aahi
 
 # Language support
 
-Custom text classification lets you have multiple files in your dataset of different languages. You can also train your model in one language and use it to query text in other languages. If you want to use this multilingual option, you have to enable it during [project creation](quickstart.md). If you notice your model performing poorly and scoring low in certain languages during the evaluation process, consider adding more data in this language to your training set.
+Use this article to learn which languages are supported by custom text classification.
+
+## Multiple language support
+
+With custom text classification, you can train a model in one language and test in another language. This feature is very powerful because it helps you save time and effort, instead of building separate projects for every language, you can handle multi-lingual dataset in one project.  Your dataset doesn't have to be entirely in the same language but you have to specify this option at project creation. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in this language to your training set.
+
+> [!NOTE]
+> To enable support for multiple languages, you need to enable this option when [creating your project](how-to/project-requirements.md).
 
 ## Languages supported by custom text classification
 
