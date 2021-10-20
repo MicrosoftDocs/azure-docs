@@ -41,11 +41,11 @@ No Azure Cosmos DB triggers are available for the **Logic App (Consumption)** re
 
 ### [Standard](#tab/standard)
 
-To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
+To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-tenant Azure Logic Apps, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. To find the trigger, follow these steps:
+1. To find the trigger, use the following steps:
 
    1. On the designer, select **Choose an operation**.
 
@@ -83,7 +83,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 ### [Consumption](#tab/consumption)
 
-To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure Logic Apps, follow these steps:
+To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure Logic Apps, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
@@ -123,7 +123,7 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
 ### [Standard](#tab/standard)
 
-To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
+To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure Logic Apps, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
@@ -238,7 +238,7 @@ No corresponding reference page exists for Azure Cosmos DB *built-in* operations
 
 ### Get iterable results from the Query items action by using expressions
 
-The output type of the Query items action for the built-in operation on Logic Apps (Standard) is a non-iterable object. To get the query results as an iterable object for processing use the following steps:
+The output type from the built-in **Query items** action in a **Logic App (Standard)** workflow is a non-iterable object. To get the query results as an iterable object for processing, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
@@ -256,29 +256,38 @@ The output type of the Query items action for the built-in operation on Logic Ap
 
 1. Provide the necessary information for the action.
 
-    1. For **Database Id** enter the database you want to connect to.
+   | Properties | Required | Value | Description |
+   |------------|----------|-------|-------------|
+   | **Database Id** | Yes | <*database-ID*> | The database that you want to connect. |
+   | **Container Id** | Yes | <*container-ID*> | The container that you want to query. |
+   | **SQL Query** | Yes | <*sql-query*> | The SQL query for your request. |
+   |||||
 
-    1. For **Container Id** enter the container you want to query.
+   The following image shows an example action:
 
-    1. For **SQL Query** enter the SQL query for your request.
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-action.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB 'Query items' action and parameters configuration.":::
 
-       :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-action.png" alt-text="Screenshot of Standard logic app in designer, showing configuration of the Azure Cosmos DB Query items action.":::
+1. Configure other action settings as needed.
 
-    1. Configure other action settings as needed.
+1. Under the action, select **Insert a new step** (**+**) > **Add an action**. Under **Built-in**, find and add the **For each** action.
 
-1. Under the action, select **Insert a new step** (**+**) > **Add an action**, then search for and add the **For each** action.
+1. To convert the outputs from the **Query items** action, use the following steps:
 
-1. For **Select an output from previous step** toggle to the **Expression** tab and search for **Referencing functions** > **outputs(actionName)**.
+   1. In the **For each** action details pane, click inside the **Select an output from previous step** box so that the dynamic content list appears. Select the **Expression** tab to open the expression editor.
 
-1. Enter `'Query_items'` as a parameter to the **outputs** function followed by `?['body']?['item']?['results']` to access the array of query results. Together, this should look like `outputs('Query_items')?['body']?['item']?['results']`.
+   1. In the functions list, find the **Referencing functions** section, and select **outputs(actionName)**, which appears in the expression editor box.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-configure.png" alt-text="Screenshot showing the Azure portal and workflow designer with a Standard logic app workflow and a for each action to process Azure Cosmos DB query results.":::
+   1. In the editor box, enter `'Query_items'` as a parameter for the **outputs(actionName)** function, followed by `?['body']?['item']?['results']` to access the array with the query results. Together, this expression should follow this format:
 
-1. Add an action of your choice inside the for each loop and build the rest of your workflow.
+      `outputs('Query_items')?['body']?['item']?['results']`.
+
+      :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-configure.png" alt-text="Screenshot showing the Azure portal and workflow designer with a Standard logic app workflow and a for each action to process Azure Cosmos DB query results.":::
+
+1. In the **For each** loop, add any other actions that you want, and continue building the remaining workflow.
 
 1. On the designer toolbar, select **Save**.
 
-1. Test your logic app to make sure your workflow returns the output you expect.
+1. Test your logic app to make sure your workflow returns the output that you expect.
 
 ## Check the operation status code to verify action success
 
