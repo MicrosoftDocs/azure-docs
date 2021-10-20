@@ -55,9 +55,7 @@ In the [Azure portal](https://portal.azure.com), select one of your endpoint dep
 
 :::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of an endpoint deployment entry in the portal.":::
 
-In properties for the deployment, select __Scaling__ from the left of the page and then select __Custom autoscale__. On the __Autoscale settings__ page, select __Custom autoscale__ to begin the configuration.
-
-For the default scale condition, use the following values:
+In properties for the deployment, select __Scaling__ from the left of the page and then select __Custom autoscale__ to begin the configuration. For the default scale condition, use the following values:
 
 * Set __Scale mode__ to __Scale based on a metric__.
 * Set __Minimum__ to __2__.
