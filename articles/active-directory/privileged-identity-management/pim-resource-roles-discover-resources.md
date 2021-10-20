@@ -24,11 +24,11 @@ Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), yo
 - Organizations that already use Privileged Identity Management to protect Azure AD roles
 - Management group and subscription owners who are trying to secure production resources
 
-When you first set up Privileged Identity Management for Azure resources, you need to discover and select the resources to protect with Privileged Identity Management. There's no limit to the number of resources that you can manage with Privileged Identity Management. However, we recommend starting with your most critical production resources.
+When you first set up Privileged Identity Management for Azure resources, you need to discover and select the resources you want to protect with Privileged Identity Management. There's no limit to the number of resources that you can manage with Privileged Identity Management. However, we recommend starting with your most critical production resources.
 
 ## Required permissions
 
-You can view and manage the management groups or subscriptions to which you have Microsoft.Authorization/roleAssignments/write permissions, such as User Access Administrator or Owner. If you are not a subscription owner but are a Global Administrator and don't see any Azure subscriptions or management groups to manage, then you can [elevate access to manage your resources](pim-resource-roles-discover-resources.md).
+You can view and manage the management groups or subscriptions to which you have Microsoft.Authorization/roleAssignments/write permissions, such as User Access Administrator or Owner roles. If you are not a subscription owner, but are a Global Administrator and don't see any Azure subscriptions or management groups to manage, then you can [elevate access to manage your resources](pim-resource-roles-discover-resources.md).
 
 ## Discover resources
 
