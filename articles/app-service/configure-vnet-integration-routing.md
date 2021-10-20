@@ -30,7 +30,7 @@ You can use the following steps to disable Route All in your app through the por
 
 ## Configure with Azure CLI
 
-You can also configure Route All using Azure CLI (*Note*: minimum `az version` required is 2.27.0):
+You can also configure Route All using Azure CLI (the minimum `az version` required is 2.27.0):
 
 ```azurecli-interactive
 az webapp config set --resource-group <group-name> --name <app-name> --vnet-route-all-enabled [true|false]
