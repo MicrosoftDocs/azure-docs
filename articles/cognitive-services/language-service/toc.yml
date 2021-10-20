@@ -511,7 +511,9 @@ items:
     - name: Data sources and content
       href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language-service/context/context
     - name: Confidence score
-      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language-service/context/context
+      href: custom-question-answering/concepts/confidence-score.md
+    - name: Best practices
+      href: custom-question-answering/concepts/best-practices.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
