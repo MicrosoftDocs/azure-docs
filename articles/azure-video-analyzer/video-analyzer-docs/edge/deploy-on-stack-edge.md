@@ -153,13 +153,14 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/twin-settings.png" alt-text="Twin settings":::
 
-    Azure Video Analyzer requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
+    Video Analyzer edge module requires a set of mandatory twin properties in order to run, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
 
-    The JSON that you need to enter into Module Twin Settings edit box will look like this:    
+    The JSON that you need to enter into `Module Twin Settings` edit box will look like this:    
     ```
     {
         "applicationDataDirectory": "/var/lib/videoanalyzer",
         "ProvisioningToken": "{provisioning-token}",
+        ...
     }
     ```
     Below are some additional **recommended** properties that can be added to the JSON and will help in monitoring the module. For more information, see [monitoring and logging](monitor-log-edge.md):
