@@ -7,6 +7,7 @@ ms.topic: conceptual
 author: b-juche
 ms.author: b-juche
 ms.date: 10/11/2021
+ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
 
