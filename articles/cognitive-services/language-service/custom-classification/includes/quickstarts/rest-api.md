@@ -12,15 +12,42 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-[!INCLUDE [create a new resource from the Azure portal](../../includes/resource-creation-azure-portal.md)]
+## Create a new Azure resource and Azure Blob Storage account
+
+Before you can use custom text classification, you will need to create a Text Analytics resource, which will give you the subscription and credentials you will need to create a project and start training a model. You will also need an Azure blob storage account, which is the required online data storage to hold text for analysis. 
+
+> [!IMPORTANT]
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later. 
+>
+> If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See the [**Project requirements**](../../how-to/project-requirements.md#using-a-pre-existing-azure-resource)  for information.
+
+1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Text Analytics resource. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following parameters.  
+
+    |Azure resource requirement  |Required value  |
+    |---------|---------|
+    |Location | "West US 2" or "West Europe"         |
+    |Pricing tier     | Standard (**S**) pricing tier        |
+
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
+
+    |Storage account value  |Recommended value  |
+    |---------|---------|
+    | Name | Any name |
+    | Performance | Standard | 
+    | Account kind| Storage (general purpose v1) |
+    | Replication | Locally-redundant storage (LRS)
+    |Location | Any location closest to you, for best latency.        |
+
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language Service resource
+After you have created an Azure storage account and linked it to your Language Service resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
 
-1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
 
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
+2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
+
+The provided sample dataset contains around 200 movie summaries that belongs to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
 
 ### Get your resource keys and endpoint
 
@@ -35,16 +62,16 @@ After you have created an Azure storage account and linked it to your Language S
 To start creating a custom classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
 > [!NOTE]
-> The project name is case sensitive for all operations.
+> The project name is case-sensitive for all operations.
 
-Create a **POST** request using the following URL, headers, and JSON body to create your project.
+Create a **POST** request using the following URL, headers, and JSON body to create your project and import the tags file.
 
 ### Request URL
 
-Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
+Use the following URL to create a project and import your tags file. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects. 
+{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import. 
 ```
 
 |Placeholder  |Value  | Example |
@@ -61,29 +88,50 @@ Use the following header to authenticate your request.
 
 ### Body
 
-Use the following JSON in your request. Replace the placeholder values below with your own values. 
+Use the following JSON in your request. Replace the placeholder values below with your own values. Use the tags file available in the [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) tab 
 
 ```json
 {
-    "name": "MyProject",
-    "modelType": "MultiClassification",
-    "multiLingual": false,
-    "description": "My new custom classification project",
-    "culture": "en-US",
-    "storageInputContainerName": "{YOUR-CONTAINER-NAME}",
-    "labelsLocation": "{YOUR-LABEL-FILE-LOCATION}"
+    "api-version": "2021-11-01-preview",
+    "metadata": {
+        "name": "MyProject",
+        "multiLingual": true,
+        "description": "Tryong out custom text classification",
+        "modelType": "multiClassification",
+        "language": "string",
+        "storageInputContainerName": "YOUR-CONTAINER-NAME",
+        "settings": {}
+    },
+    "assets": {
+        "classifiers": [
+            {
+                "name": "Class1"
+            }
+        ],
+        "documents": [
+            {
+                "location": "doc1.txt",
+                "language": "en-us",
+                "classifiers": [
+                    {
+                        "classifierName": "Class1"
+                    }
+                ]
+            }
+        ]
+    }
 }
 ```
+For the metadata key: 
 
-|Placeholder  |Value  | Example |
+|Key  |Value  | Example |
 |---------|---------|---------|
-|`{YOUR-CONTAINER-NAME}`     | The name of your Azure blob storage container.   | `myContainer` |
-|`{YOUR-LABEL-FILE-LOCATION}`     | The location of the label file in your storage container.   | `myLabels.json` |
+| `modelType  `    | Your Model type, for single classification use `singleClassification`.   | multiClassification |
+|`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
 
 This request will return an error if:
 
 * The selected resource doesn't have proper permission for the storage account. 
-* The labels file location is not valid.
 
 ## Start training your model
 
@@ -94,13 +142,13 @@ After your project has been created, you can begin training a text classificatio
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train. 
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Headers
 
@@ -112,22 +160,24 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. the model will be named `MyModel` once training is complete.  
+Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
 {
-    "tasks": [
-        {
-            "trainingModelName": "MyModel"
-        }
-    ]
+  "modelLabel": "MyModel",
+  "runValidation": true
 }
 ```
+
+|Key  |Value  | Example |
+|---------|---------|---------|
+|`modelLabel  `    | Your Model name.   | MyModel |
+|`runValidation`     | Boolean value to run validation on the test set.   | True |
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
@@ -138,13 +188,13 @@ Use the following **GET** request to query the status of your model's training p
 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train/jobs/{jOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
@@ -162,57 +212,49 @@ Once you send the request, you will get the following response.
 
 ```json
 {
-    "tasks": [
-        {
-        "trainingModelName": "MyModel",
-        "evaluationStatus": {
-            "status": "notStarted",
-            "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-            "error": {
-            "code": "NotFound",
-            "message": "Error Message"
-            }
+  "jobs": [
+    {
+      "result": {
+        "trainedModelLabel": "MyModel",
+        "trainStatus": {
+          "percentComplete": 0,
+          "elapsedTime": "string"
         },
-        "status": "notStarted",
-        "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-        "error": {
-            "code": "NotFound",
-            "message": "Error Message"
+        "evaluationStatus": {
+          "percentComplete": 0,
+          "elapsedTime": "string"
         }
-        }
-    ],
-    "inProgress": 0,
-    "completed": 0,
-    "failed": 0,
-    "total": 0,
-    "jobId": "123456789",
-    "createdDateTime": "2021-05-18T20:31:04.592Z",
-    "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-    "expirationDateTime": "2021-05-19T11:44:08.555Z",
-    "status": "notStarted",
-    "errors": [
+      },
+      "jobId": "string",
+      "createdDateTime": "2021-10-19T23:24:41.572Z",
+      "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
+      "expirationDateTime": "2021-10-19T23:24:41.572Z",
+      "status": "unknown",
+      "errors": [
         {
-        "code": "NotFound",
-        "message": "string"
+          "code": "unknown",
+          "message": "string"
         }
-    ]
+      ]
+    }
+  ],
+  "nextLink": "string"
 }
 ```
 
-## Publish your model
+## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [improve model](../../how-to/improve-model.md) if necessary. In this quickstart, you will just publish your model, and make it available for you to try. 
-
-Create a **POST** request using the following URL, headers, and JSON body to start publishing a text classification model.
+Create a **PUT** request using the following URL, headers, and JSON body to start publishing a text classification model.
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/publish
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
+|`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 
 ### Headers
 
@@ -224,38 +266,36 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. the model will be named `MyModel` once training is complete.  
+Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
 {
-  "tasks": [
-    {
-      "trainingModelName": "MyModel"
-    }
-  ]
+{
+  "trainedModelLabel": "MyModel"
 }
 ```
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
 
-## Get the publishing status
+## Get the deployment status
 
 Use the following **GET** request to query the status of your model's publishing process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/publish/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
+|`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
@@ -267,127 +307,86 @@ Use the following header to authenticate your request.
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
 
-### Response Body
+### Submit text classification task
 
-Once you send the request, you will get the following response. 
+> [!NOTE]
+> Project names is case sensitive.
+
+Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
+
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+
+#### Headers
+
+|Key|Value|
+|--|--|
+|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
+
+#### Body
 
 ```json
-    {
-  "tasks": [
-    {
-      "modelId": "string",
-      "status": "notStarted",
-      "lastUpdatedDateTime": "2021-05-19T12:09:58.301Z",
-      "error": {
-        "code": "NotFound",
-        "message": "string"
-      }
+{
+    "displayName": "MyJobName",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1", 
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
+            },
+            {
+                "id": "doc2",
+                "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+            }
+        ]
+    },
+    "tasks": {
+        "customMultiClassificationTasks": [      
+            {
+                "parameters": {
+                      "project-name": "MyProject",
+                      "deployment-name": "MyDeploymentName"
+                      "stringIndexType": "TextElements_v8"
+                }
+            }
+        ]
     }
-  ],
-  "inProgress": 0,
-  "completed": 0,
-  "failed": 0,
-  "total": 0,
-  "jobId": "string",
-  "createdDateTime": "2021-05-19T12:09:58.301Z",
-  "lastUpdatedDateTime": "2021-05-19T12:09:58.301Z",
-  "expirationDateTime": "2021-05-19T12:09:58.301Z",
-  "status": "notStarted",
-  "errors": [
-    {
-      "code": "NotFound",
-      "message": "string"
-    }
-  ]
 }
 ```
 
-## Start a text classification task
+|Key|Sample Value|Description|
+|--|--|--|
+|displayName|"MyJobName"|Your job Name|
+|documents|[{},{}]|List of documents to run tasks on|
+|ID|"doc1"|a string document identifier|
+|text|"Lorem ipsum dolor sit amet"| You document in string format|
+|"tasks"|[]| List of tasks we want to perform.|
+|--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
+|parameters|[]|List of parameters to pass to task|
+|project-name| "MyProject"| Your project name. The project name is case-sensitive.|
+|deployment-name| "MyDeploymentName"| Your deployment name|
 
-Now that your model is published, you can begin sending text classification tasks to it 
+Replace the text of the document with movie summaries to classify.
 
-Create a **POST** request using the following URL, headers, and JSON body to start publishing a text classification model.
+#### Response
 
-```rest
-{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze
-```
+You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
+`operation-location` is formatted like this:
 
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+ `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
-### Headers
+You will use this endpoint in the next step to get the custom classification task results.
 
-Use the following header to authenticate your request. 
+### Get the classification task status and results
 
-|Key|Value|
-|--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+Use the following **GET** request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
 
-### Request body
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
 
-Use the following JSON in your request. Replace the `modelId` placeholder value with your own model ID 
-
-```json
-    {
-        "displayName": "MyJobName",
-        "analysisInput": {
-            "documents": [
-                {
-                    "id": "doc1", 
-                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
-                },
-                {
-                    "id": "doc2",
-                    "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-                }
-            ]
-        },
-        "tasks": {
-            "customMultiClassificationTasks": [      
-                {
-                    "parameters": {
-                        "modelId": "{YOUR-MODEL-ID}",
-                        "stringIndexType": "TextElements_v8"
-                    }
-                }
-            ]
-        }
-    }
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-MODEL-ID}`     | The ID for your model.   | `myModel` |
-
-Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `operation-location` value. It will be formatted like this: 
-
-```rest
-{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/{JOB-ID}
-``` 
-
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the task status and results.
-
-## Get the classification task status and results
-
-After you've created a classification task, you can create a **GET** request to query the status of the task. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
-
-```rest
-{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/{JOB-ID}
-```
-
-|Placeholder  |Value  | Example |
-|---------|---------|---------|
-|`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Headers
-
-Use the following header to authenticate your request. 
+#### Headers
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
+|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
 
 ### Response body
 
@@ -448,7 +447,6 @@ The response will be a JSON document with the following parameters.
                 "errors": [],
                 "statistics": {
                     "documentsCount":0,
-                    "validDocumentsCount":0,
                     "erroneousDocumentsCount":0,
                     "transactionsCount":0
                 }
@@ -464,13 +462,13 @@ The response will be a JSON document with the following parameters.
 When you no longer need your project, you can delete it with the following **DELETE** request. Replace the placeholder values with your own values.   
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
+|`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Headers
 

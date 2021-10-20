@@ -15,7 +15,7 @@ zone_pivot_groups: usage-custom-language-features
 
 # Quickstart: Custom text classification (preview)
 
-Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example for creating a model for classifying support tickets.
+Use this article to get started with creating a custom text classification project where you train custom models for text classification. A model is a machine learning object that will learn from example data we provide, and trained to classify text afterwards.
 
 ::: zone pivot="language-studio"
 
@@ -31,9 +31,13 @@ Use this article to get started with Custom text classification using Language S
 
 ## Next steps
 
-* [Send text classification requests to your model](how-to/run-inference.md)
-* [Improve your model's performance](how-to/improve-model.md).
-* [View recommended practices](concepts/recommended-practices.md)
-* [View your model's evaluation and confusion matrix](how-to/view-model-evaluation.md).
-* [Learn about the evaluation metrics](concepts/evaluation.md)
+After you've created a text classification model, you can:
+* [Use the runtime API to classify text](how-to/call-api.md)
 
+When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
+
+* [Data selection and schema design](concepts/recommended-practices.md)
+* [Tag data](how-to/tag-data.md)
+* [Train a model](how-to/train-model.md)
+* [View model evaluation](how-to/view-model-evaluation.md)
+* [Improve a model](how-to/improve-model.md)

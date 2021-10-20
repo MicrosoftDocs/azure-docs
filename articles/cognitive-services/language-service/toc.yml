@@ -35,8 +35,11 @@ items:
     href: custom-classification/faq.md
   - name: How-to guides
     items:
-    - name: Using Azure resources
-      href: custom-classification/how-to/use-azure-resources.md
+    - name: Create projects
+      href: custom-classification/how-to/project-requirements.md
+    - name: Data selection and schema design
+      href: custom-classification/concepts/recommended-practices.md
+      displayName: Best practices
     - name: Tag data
       href: custom-classification/how-to/tag-data.md
     - name: Train a model
@@ -45,20 +48,22 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Submit text classification tasks
-      href: custom-classification/how-to/run-inference.md
+    - name: Deploy a model and call the runtime API to classify text
+      href: custom-classification/how-to/call-api.md
   - name: Concepts
     items:
-    - name: Recommended practices
-      href: custom-classification/concepts/recommended-practices.md
-    - name: Definitions
-      href: custom-classification/definitions.md
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
-    - name: Data limits
-      href: custom-classification/concepts/data-limits.md
+    - name: Accepted data tag formats
+      href: custom-classification/concepts/data-formats.md
+      displayName: Data representation
   - name: Reference
     items:
+    - name: Glossary
+      href: custom-classification/definitions.md
+      displayName: Model, Project, Class
+    - name: Service limits
+      href: custom-classification/concepts/data-limits.md
     - name: Prediction
       items:
       - name: REST API
@@ -126,23 +131,33 @@ items:
     href: custom-language-understanding/language-support.md
   - name: How-to guides
     items:
+      - name: Create projects
+        href: custom-language-understanding/how-to/create-project.md
       - name: Build a schema
         href: custom-language-understanding/how-to/build-schema.md
       - name: Tag utterances
         href: custom-language-understanding/how-to/tag-utterances.md
+      - name: Train a model
+        href: custom-language-understanding/how-to/train-model.md
       - name: View model evaluation and scoring
         href: custom-named-entity-recognition/how-to/view-model-evaluation.md
-      - name: Improve your model
-        href: custom-language-understanding/how-to/improve-model.md
       - name: Query the runtime
         href: custom-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
+      - name: Entity components
+        href: custom-language-understanding/concepts/entity-components.md
+      - name: Evaluation metrics
+        href: custom-language-understanding/concepts/evaluation-metrics.md
   - name: Reference
     items:
-    - name: Prediction
+    - name: Prebuilt component reference
+      href: custom-language-understanding/prebuilt-component-reference.md
+    - name: Service limits
+      href: custom-language-understanding/service-limits.md
+    - name: Prediction API
       items:
       - name: REST API
         items:
@@ -478,8 +493,6 @@ items:
       href: custom-question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: custom-question-answering/how-to/create-test-deploy.md
-    - name: Query with REST APIs
-      href: custom-question-answering/how-to/url-test-tool.md
     - name: Encrypt data at rest
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -494,8 +507,6 @@ items:
       href: custom-question-answering/how-to/analytics.md
     - name: Manage knowledge base
       href: custom-question-answering/how-to/manage-knowledge-base.md
-    - name: Generate answer
-      href: custom-question-answering/how-to/generate-answer.md
     - name: Filter responses
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Manage resources
@@ -511,7 +522,9 @@ items:
     - name: Data sources and content
       href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language-service/context/context
     - name: Confidence score
-      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language-service/context/context
+      href: custom-question-answering/concepts/confidence-score.md
+    - name: Best practices
+      href: custom-question-answering/concepts/best-practices.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
