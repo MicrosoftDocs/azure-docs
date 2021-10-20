@@ -54,10 +54,10 @@ Even if your workloads are not currently impacted by the changes (as described i
 
 In many cases, this new communication model will not directly affect your Batch workloads. However, simplified compute node communication will have an impact for the following cases:
 
-1. Users who specify a Virtual Network as part of creating a Batch pool and do one or both of the following:
-   1. Explicitly disable outbound network traffic rules that are incompatible with simplified compute node communication.
-   1. Use UDRs and firewall rules that are incompatible with simplified compute node communication.
-1. Users who enable software firewalls on compute nodes and explicitly disable outbound traffic in software firewall rules which are incompatible with simplified compute node communication.
+- Users who specify a Virtual Network as part of creating a Batch pool and do one or both of the following:
+   - Explicitly disable outbound network traffic rules that are incompatible with simplified compute node communication.
+   - Use UDRs and firewall rules that are incompatible with simplified compute node communication.
+- Users who enable software firewalls on compute nodes and explicitly disable outbound traffic in software firewall rules which are incompatible with simplified compute node communication.
 
 If either of these cases applies to you, and you would like to opt in to the preview, follow the steps outlined in the next section to ensure that your Batch workloads can still function under the new model.
 
