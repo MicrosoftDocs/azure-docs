@@ -77,6 +77,7 @@ To support both these in the same environment, you can provide the Windows clien
 By Default, all the Azure Files instances will be configured to on-premises and you will be required to list only the cloud instance separately. 
 
 YOURDOMAIN.COM => .file.core.windows.net
+
 KERBEROS.MICROSOFTONLINE.COM => instance1.file.core.windows.net,instance2.file.core.windows.net
 
 ## Deployment steps 
