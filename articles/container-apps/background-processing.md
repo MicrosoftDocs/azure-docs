@@ -9,17 +9,17 @@ ms.date: 10/16/2021
 ms.author: joarteir
 ---
 
-# Tutorial: Deploy a Background processing Application with Azure Container Apps
+# Tutorial: Deploy a background processing application with Azure Container Apps
 
-Azure Container Apps allows an application to be deployed without opening any ingress to the container where the application is running. Application runs as a background process using the container image, cpu cores, memory, secrets, environment variables and scale rules defined by you. 
+Azure Container Apps allows you to deploy and applications without requiring the exposure of public endpoints. In this tutorial, you deploy a sample application that reads messages from an Azure Storage Queue and logs the messages in a Azure log Analytics workspace. Using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
 
-In this Tutorial, a sample application is deployed to read messages from an Azure Storage Queue and logs the message in Azure log Analytics workspace. Using container apps scale rules feature, the application will scale up and down based on the Azure Storage queue length. When there is no messages on the queue, application will scales down to zero. You learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
-> * Deploy your Background processing application as a container app
-> * Verify if Azure Storage Queue messages have been processed by the container app
+> * Deploy your background processing application as a container app
+> * Verify that the queue messages are processed by the container app
 
 <!-- ## Setup application and container
 
@@ -31,30 +31,26 @@ In this Tutorial, a sample application is deployed to read messages from an Azur
 
 You must satisfy the following requirements to complete this tutorial:
 
-**Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer. Run az --version to find the version. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-
-**Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell. 
-
-## Before you begin
-
-
+- **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
+  - Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](../cli/azure/install-azure-cli.md)
+- **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell. 
+  
+## Setup
 
 This tutorial makes use of the following environment variables:
 
 ```bash
 RESOURCE_GROUP="containerapps-rg"
-LOCATION="northcentralus"
+LOCATION="eastus2"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
-STORAGE_ACCOUNT="<storage account name>"
+STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
 STORAGE_ACCOUNT_QUEUE="demoqueue"
 ```
-> [!NOTE]
-> Choose a name for the `STORAGE_ACCOUNT` environment variable above, before you run this snippet. Storage Account will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
-## Setup
+Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step. 
 
-Begin by signing in to Azure from the CLI.
+Next, signing in to Azure from the CLI.
 
 Run the following command, and follow the prompts to complete the authentication process.
 
@@ -87,7 +83,7 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 
 ## Create an environment
 
-Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+Azure Container Apps environments act as isolation boundaries between a group of container apps. Different container apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
 Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
 
@@ -118,7 +114,7 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-## Set up a storage Queue
+## Set up a storage queue
 
 
 ### Create an Azure Storage account
@@ -155,7 +151,7 @@ az storage message put \
 
 ### Create Container App's Scale Rule as a local YAML file 
 
-This command generates a local YAML file called myscalerules.yaml required by the next tutorial step.
+Run the following command to generate a YAML file called *myscalerules.yaml* required by the next step
 
 ```azurecli
 cat <<EOF > myscalerules.yaml
@@ -194,7 +190,9 @@ This command deploys the demo background application from the public container i
 
 ### Query Log Analytics
 
-The Background container app creates logs entries on Log analytics when processing the message from Azure Storage Queue. Run this command to search for this message.
+The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
+Run the following command to see logged messages. This command requires the Application Insights extension, so accept the prompt to install extension when requested.
+
 ```azurecli
 az monitor app-insights query \
   --apps $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
@@ -202,17 +200,14 @@ az monitor app-insights query \
   --offset 48h
 ```
 
-> [!NOTE]
-> This command requires the extension application-insights to be installed, please accept prompt to install extension when requested.
-
 ## Clean up resources
 
-Once you are done, clean up your Container App resources by running the following command to delete your resource group.
+Once you are done, clean up your Container Apps resources by running the following command to delete your resource group.
 
 ```azurecli
 az group delete --resource-group $RESOURCE_GROUP --yes
 ```
 
-This will delete the entire resource group including container apps, storage account, log analytics workspace, container apps environment and any other resources in the resource group.
+This command deletes the entire resource group including the Container Apps instance, storage account, Log Analytics workspace, and any other resources in the resource group.
 
 
