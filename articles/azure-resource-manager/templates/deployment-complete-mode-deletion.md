@@ -2979,7 +2979,7 @@ Jump to a resource provider namespace:
 > | accounts | Yes |
 > | plans | Yes |
 > | registeredSubscriptions | No |
-## Microsoft.Network
+## Microsoft.Web
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
