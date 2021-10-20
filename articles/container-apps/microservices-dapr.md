@@ -131,7 +131,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Once your Azure Blob Storage account is created, you will need to use the following values.
+Once your Azure Blob Storage account is created, source the following values that are needed for subsequent steps in this tutorial.
 
 **accountName** will be the value of `STORAGE_ACCOUNT` that you chose above.
 
