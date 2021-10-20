@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ---
 
-# Introduction
+# Azure Purview scanning best practices
 
 Azure Purview supports automated scanning of on-prem, multi-cloud and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, as well as sensitivity labels if your Purview account is connected to a Microsoft 365 Security and Compliance Center(SCC). 
 
@@ -77,12 +77,12 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
         - Multi-lingual data classification is not supported yet (for example, scanning email ids is different languages)
         - While creating custom classification scan, ensure that the pattern rule and threshold has been verified and configured appropriately to prevent erroneous classification
         - When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets forms a resource set. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog
-        Refer to [How to create resource set pattern rules](./how-to-resource-set-pattern-rules) for more details. 
+        Refer to [How to create resource set pattern rules](./how-to-resource-set-pattern-rules.md) for more details. 
         > [!NOTE]
         > This feature has cost considerations, please refer to the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/) for details
 
 3. Set up a scan for the registered data source(s)
-    - **Scan name**: By default, Purview uses a naming convention “SCAN-[A-Z][a-z][a-z]" which is not helpful when trying to identify a scan that you have run. As a best practice use a meaningful naming convention.  An instance could be naming the scan as "<ENV><SRC>-<Periodicity>-<Time>, for example DEVODS-Daily-0200 which would represent a daily scan at 0200 hrs.
+    - **Scan name**: By default, Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice use a meaningful naming convention.  An instance could be naming the scan as **<ENV><SRC>-<Periodicity>-<Time>**, for example DEVODS-Daily-0200 which would represent a daily scan at 0200 hrs.
     
     - **Authentication**
         - Azure Purview offers various authentication method for scanning the data sources, depending on the type of sources (Azure cloud or on-prem or third-party sources). It is recommended to follow the least privilege principle for authentication method following below order of preference:
