@@ -1,9 +1,9 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 01/27/2021
-ms.author: mimart
+ms.author: kengaderdus
 ---
 ::: zone pivot="b2c-user-flow"
 

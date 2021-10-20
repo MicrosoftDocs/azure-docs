@@ -29,7 +29,7 @@ This article lists the curated environments with latest framework versions in Az
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211005.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211012.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.9
 
@@ -56,10 +56,10 @@ RUN HOROVOD_WITH_PYTORCH=1 \
                 'scipy>=1.5,<1.6' \
                 'numpy>=1.10,<1.20' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.34.0' \
-                'azureml-defaults==1.34.0' \
-                'azureml-mlflow==1.34.0' \
-                'azureml-telemetry==1.34.0' \
+                'azureml-core==1.35.0' \
+                'azureml-defaults==1.35.0' \
+                'azureml-mlflow==1.35.0' \
+                'azureml-telemetry==1.35.0' \
                 'tensorboard==2.4.0' \
                 'tensorflow-gpu==2.4.1' \
                 'onnxruntime-gpu>=1.7,<1.8' \
@@ -84,7 +84,7 @@ Other available PyTorch environments:
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211012.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
 
@@ -111,10 +111,10 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
                 'dask-ml~=1.9.0' \
                 'adlfs~=0.7.0' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.34.0' \
-                'azureml-defaults==1.34.0' \
-                'azureml-mlflow==1.34.0' \
-                'azureml-telemetry==1.34.0'
+                'azureml-core==1.35.0' \
+                'azureml-defaults==1.35.0' \
+                'azureml-mlflow==1.35.0' \
+                'azureml-telemetry==1.35.0'
 
 # This is needed for mpi to locate libpython
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
@@ -164,7 +164,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211005.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211012.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
@@ -184,10 +184,10 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
                 'scipy>=1.5,<1.6' \
                 'numpy>=1.10,<1.20' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.34.0' \
-                'azureml-defaults==1.34.0' \
-                'azureml-mlflow==1.34.0' \
-                'azureml-telemetry==1.34.0' \
+                'azureml-core==1.35.0' \
+                'azureml-defaults==1.35.0' \
+                'azureml-mlflow==1.35.0' \
+                'azureml-telemetry==1.35.0' \
                 'tensorboard==2.4.0' \
                 'tensorflow-gpu==2.4.1' \
                 'tensorflow-datasets==4.3.0' \

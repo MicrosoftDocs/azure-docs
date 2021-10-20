@@ -2,8 +2,6 @@
 title: Azure Application Insights telemetry correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: "devx-track-python, devx-track-csharp"
