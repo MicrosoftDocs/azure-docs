@@ -44,7 +44,7 @@ If you are unable to use a configuration metadata document, you will need to gat
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
 1. Select **OpenID Connect** in the identity provider dropdown.
 1. Provide the unique alphanumeric name selected earlier for **OpenID provider name**.
-1. If you have the URL for the **metadata document** from the identity provider, provide that value for **Metadata URL**. Otherwise, select the **Provide endpoints seperately** option and put each 1RL gathered from the identity provider in the appropriate field.
+1. If you have the URL for the **metadata document** from the identity provider, provide that value for **Metadata URL**. Otherwise, select the **Provide endpoints seperately** option and put each URL gathered from the identity provider in the appropriate field.
 1. Provide the earlier collected **Client ID** and **Client Secret** in the appropriate fields.
 1. Specify an application setting name for your client secret. Your client secret will be stored as an app setting to ensure secrets are stored in a secure fashion. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
 1. Press the **Add** button to finish setting up the identity provider. 
