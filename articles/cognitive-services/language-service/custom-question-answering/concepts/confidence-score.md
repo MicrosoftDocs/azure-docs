@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ---
 
-# The confidence score of an answer
+# Confidence score
 
 When a user query is matched against a project (also known as a knowledge base), question answering returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query.
 
@@ -29,7 +29,7 @@ The following table indicates typical confidence associated for a given score.
 
 ## Choose a score threshold
 
-The table above shows the range of scores that can occur when querying with question answering. However, since every project is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to 0, so that all possible answers are returned. The recommended threshold that should work for most projects, is **50**.
+The table above shows the range of scores that can occur when querying with question answering. However, since every project is different, and has different types of words, intents, and goals- we recommend you test and choose the threshold that best works for you. By default the threshold is set to `0`, so that all possible answers are returned. The recommended threshold that should work for most projects, is **50**.
 
 When choosing your threshold, keep in mind the balance between **Accuracy** and **Coverage**, and adjust your threshold based on your requirements.
 
@@ -42,6 +42,7 @@ When choosing your threshold, keep in mind the balance between **Accuracy** and 
 Set the threshold score as a property of the [REST API JSON body](../quickstart/sdk.md#&pivots=rest). This means you set it for each call to REST API.
 
 ## Improve confidence scores
+
 To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [synonyms](../tutorials/adding-synonyms.md) to add synonyms to keywords in your project.
 
 ## Similar confidence scores
@@ -54,8 +55,8 @@ The confidence score of an answer may change negligibly between the test and dep
 
 The test index holds all the question and answer pairs of your project. When querying the test index, the query applies to the entire index then results are restricted to the partition for that specific project. If the test query results are negatively impacting your ability to validate the project, you can:
 * Organize your project using one of the following:
-    * 1 resource restricted to 1 project: restrict your single language resource (and the resulting Azure Cognitive Search test index) to a project/knowledge base.
-    * 2 resources - 1 for test, 1 for production: have two language resources, using one for testing (with its own test and  production indexes) and one for production (also having its own test and production indexes)
+    * One resource restricted to one project: restrict your single language resource (and the resulting Azure Cognitive Search test index) to a project/knowledge base.
+    * Two resources - one for test, one for production: have two language resources, using one for testing (with its own test and  production indexes) and one for production (also having its own test and production indexes)
 * Always use the same parameters when querying both your test and production projects.
 
 When you deploy a project, the question and answer contents of your project moves from the test index to a production index in Azure search.
@@ -64,7 +65,7 @@ If you have a project in different regions, each region uses its own Azure Cogni
 
 ## No match found
 
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is returned."No good match found in the KB". You can change the [default response](../how-to/change-default-answer.md).
+When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is returned. You can change the [default response](../how-to/change-default-answer.md).
 
 ## Next steps
 > [!div class="nextstepaction"]

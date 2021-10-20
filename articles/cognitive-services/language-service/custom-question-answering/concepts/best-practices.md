@@ -9,7 +9,7 @@ ms.date: 11/02/2021
 
 # Question answering best practices
 
-The [knowledge base development lifecycle](../Concepts/development-lifecycle-knowledge-base.md) guides you on how to manage your KB from beginning to end. Use these best practices to improve your knowledge base and provide better results to your client application or chat bot's end users.
+Use these best practices to improve your knowledge base and provide better results to your client application or chat bot's end users.
 
 ## Extraction
 
@@ -109,7 +109,7 @@ Metadata adds the ability for a client application to know it should not take al
 
 ### Use synonyms
 
-While there is some support for synonyms in the English language, use case-insensitive [word alterations](../how-to/adding-synonyms.md) to add synonyms to keywords that take different forms.
+While there is some support for synonyms in the English language, use case-insensitive [word alterations](../tutorials/adding-synonyms.md) to add synonyms to keywords that take different forms.
 
 |Original word|Synonyms|
 |--|--|
@@ -141,4 +141,4 @@ Question answering allows users to collaborate on a project/knowledge base. User
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Edit a knowledge base](../How-to/edit-knowledge-base.md)
+> [Edit a knowledge base](../How-to/manage-knowledge-base.md)
