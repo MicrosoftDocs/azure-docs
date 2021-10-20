@@ -5,17 +5,15 @@ author: prmitt
 
 ms.service: network-function-manager
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 11/02/2021
 ms.author: prmitt
 
 ---
-# Network Function Manager partners (Preview)
+# Network Function Manager partners
 
-We have a growing ecosystem of partners offering their network function as managed applications for use with this service. 
+We have a growing ecosystem of partners offering their network function as managed applications for use with this service.
 
 ## <a name="devices"></a>Devices and configuration links
-
-For Preview, the following SKUs are currently available.
 
 |Function |Category|Link|
 | ---  | --- | --- |
