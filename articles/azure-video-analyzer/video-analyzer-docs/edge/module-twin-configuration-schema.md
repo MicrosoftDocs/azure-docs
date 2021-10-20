@@ -1,8 +1,8 @@
 ---
 title: Azure Video Analyzer module twin JSON schema 
-description: This article provides an overview of an Azure Video Analyzer module twin JSON schema.
+description: This article provides an overview of the module twin JSON schema for Azure Video Analyzer edge module
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 
 ---
 # Module twin configuration schema
@@ -11,15 +11,15 @@ ms.date: 06/01/2021
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For detailed explanation, see [Understand and use module twins in IoT Hub.](../../../iot-hub/iot-hub-devguide-module-twins.md)
 
-This topic describes module twin JSON schema of Azure Video Analyzer.
+This topic describes module twin JSON schema of Azure Video Analyzer edge module.
 
 ## Module twin properties
 
-Azure Video Analyzer exposes the following module twin properties.
+The Video Analyzer edge module exposes the following module twin properties.
 
 | Property                    | Required | Dynamic | Description                                                  |
 | :-------------------------- | :------- | :------ | :----------------------------------------------------------- |
-| `ProvisioningToken`          | Yes      | No      | Authentication token to validate the edge module and provision cloud services (including access to Video analyzer account) |
+| `ProvisioningToken`          | Yes      | No      | Authentication token to validate the edge module and provision cloud services (including access to Video Analyzer account) |
 | `ApplicationDataDirectory`    | Yes      | No      | Path within the module's file system that maps to a mounted volume for persisting configuration.       |
 | `DiagnosticsEventsOutputName` | No       | Yes     | Hub output for diagnostics events. (Empty means diagnostics are not published) |
 | `OperationalEventsOutputName` | No       | Yes     | Hub output for operational events. (Empty means operational events are not published) |
