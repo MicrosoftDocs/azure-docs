@@ -73,14 +73,14 @@ sections:
         answer: |
           ### Where can I find known issues and defects?
           
-          For product defects and known issues, see [Known issues](doc-changes-updates-known-issues.md).
+          For product defects and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
           
       - question: |
           New features
         answer: |
           ### Where can I find latest features and the features in public preview?
           
-          For new and preview features, see [What's new](doc-changes-updates-release-notes-whats-new.md).
+          For new and preview features, see [Release notes](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
           
       - question: |
           Create, update, delete or move SQL Managed Instance
@@ -112,7 +112,26 @@ sections:
           ### How much time does it take to create or update an instance, or to restore a database?
           
           Expected time to create a new managed instance or to change service tiers (vCores, storage), depends on several factors. See [Management operations](sql-managed-instance-paas-overview.md#management-operations).
-           
+          
+      - question: |
+          Create, update, delete or move SQL Managed Database
+        answer: |
+          ### Can I drop and recreate a SQL Managed Database with the same name?
+          
+          We guarantee it will be possible to restore each database created over the entire previously defined retention period. This is also true for a database that is live only for a couple of seconds.
+As a result, we first need to take the remaining logs synchronously before the drop operation is completed and then allow the drop operation to finish, as seen in the image below. It is not possible to create a database with the same name until the entire previous operation is in progress. Any attempt to drop and create a database before the operation is finished will result in the following error:
+![Error ](./media/frequently-asked-questions-faq/error-different-database-name.png)  
+          
+          To avoid seeing this error message, before the create is initiated it is possible to check the state of the drop operation (more information sys.dm_operation_status - SQL Server | Microsoft Docs). Once the operation state is Completed it will be safe to RESTORE/CREATE DB with the same name. 
+The common use cases when this problem can occur are given below:
+-	If multiple databases are dropped and again created.
+The sequential nature of the drop operation will put the databases in a queue, which prolongs the process of dropping the databases and delays the possibility of creating new ones under the same name. Read more on [tail-log backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/tail-log-backups-sql-server).
+![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
+ 
+-	If a database is restored and dropped before a full backup is created.
+To restore a database, we always need to create a full backup first, meaning that a creation of a database with the same name will have to wait until the full backup is taken and drop finished. This size of the data operation can block the process of new databases creation for hours. 
+
+      
       - question: |
           Naming conventions
         answer: |
