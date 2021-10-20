@@ -3,7 +3,7 @@ title: Create an Azure Video Analyzer for Media (formerly Video Indexer) account
 description: Learn how to create a Azure Video Analyzer for Media (formerly Video Indexer) account connected to Azure.
 ms.topic: tutorial 
 ms.date: 10/19/2021
-ms.author: juliako, itnorman
+ms.author: itnorman
 ---
  
 # Create a Video Analyzer for Media account
