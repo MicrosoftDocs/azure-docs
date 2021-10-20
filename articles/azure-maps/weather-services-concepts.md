@@ -1,22 +1,22 @@
 ---
-title: Weather Services concepts | Microsoft Azure Maps
-description: In this article, you will learn about the concepts that apply to Microsoft Azure Maps Weather Services.
-author: philmea
-ms.author: philmea
-ms.date: 11/20/2019
+title: Weather services concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather services.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Weather services in Azure Maps
 
-This article introduces concepts that apply to the [Azure Maps Weather Services](https://aka.ms/AzureMapsWeatherService). We recommend going through this article before starting out with the weather APIs. 
+This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
-Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
+Some of the Weather service (Preview) APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -43,59 +43,59 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 |20      |percent             |
 |21      |float               |
 |22      |integer             |
-
+|31      |MicrogramsPerCubicMeterOfAir             |
 
 ## Weather icons
 
-Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service (Preview) APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Yes |  No    | Sunny|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Yes |  No    | Mostly Sunny|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Yes |  No    | Partly Sunny|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Yes |  No    | Intermittent Clouds|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Yes |  No    | Hazy Sunshine |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Yes |  No    | Mostly Cloudy|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Yes |  Yes   | Cloudy |
-| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Yes |  Yes   | Dreary (Overcast)|
-| 11           |![](./media/weather-services-concepts/fog-i.png)                       | Yes |  Yes   | Fog|
-| 12           |![](./media/weather-services-concepts/showers-i.png)                   | Yes |  Yes   | Showers|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Yes |  No    | Mostly Cloudy with Showers|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Yes |  No    | Partly Sunny with Showers|
-| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Yes |  Yes   | Thunderstorms|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Yes |  No    | Mostly Cloudy with Thunderstorms|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Yes |  No    | Partly Sunny with Thunderstorms|
-| 18           |![](./media/weather-services-concepts/rain-i.png)                      | Yes |  Yes   | Rain|
-| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Yes |  Yes   | Flurries|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Yes |  No    | Mostly Cloudy with Flurries|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Yes |  No    | Partly Sunny with Flurries|
-| 22           |![](./media/weather-services-concepts/snow-i.png)                      | Yes |  Yes   | Snow|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Yes |  No    | Mostly Cloudy with Snow|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Yes |  Yes   | Ice |
-| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Yes |  Yes   | Sleet|
-| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Yes |  Yes   | Freezing Rain|
-| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Yes |  Yes   | Rain and Snow|
-| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Yes |  Yes   | Hot|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Yes |  Yes   | Cold|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Yes |  Yes   | Windy|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Yes   | Clear|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Yes   | Mostly Clear|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Yes   | Partly Cloudy|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Yes   | Intermittent Clouds|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | No  |  Yes   | Hazy Moonlight|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | No  |  Yes   | Mostly Cloudy|
-| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | No  |  Yes   | Partly Cloudy with Showers|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | No  |  Yes   | Mostly Cloudy with Showers|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | No  |  Yes   | Partly Cloudy with Thunderstorms|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | No  |  Yes   | Mostly Cloudy with Thunderstorms|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | No  |  Yes   | Mostly Cloudy with Flurries|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | No  |  Yes   | Mostly Cloudy with Snow|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  No    | Sunny|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  No    | Mostly Sunny|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  No    | Partly Sunny|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  No    | Intermittent Clouds|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  No    | Hazy Sunshine |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  No    | Mostly Cloudy|
+| 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Yes |  Yes   | Cloudy |
+| 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Yes |  Yes   | Dreary (Overcast)|
+| 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Yes |  Yes   | Fog|
+| 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Yes |  Yes   | Showers|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  No    | Mostly Cloudy with Showers|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  No    | Partly Sunny with Showers|
+| 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Yes |  Yes   | Thunderstorms|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  No    | Mostly Cloudy with Thunderstorms|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  No    | Partly Sunny with Thunderstorms|
+| 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Yes |  Yes   | Rain|
+| 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Yes |  Yes   | Flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  No    | Mostly Cloudy with Flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  No    | Partly Sunny with Flurries|
+| 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Yes |  Yes   | Snow|
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  No    | Mostly Cloudy with Snow|     
+| 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Yes |  Yes   | Ice |
+| 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Yes |  Yes   | Sleet|
+| 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Yes |  Yes   | Freezing Rain|
+| 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Yes |  Yes   | Rain and Snow|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Yes |  Yes   | Hot|
+| 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Yes |  Yes   | Cold|
+| 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Yes |  Yes   | Windy|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Yes   | Clear|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | No  |  Yes   | Mostly Clear|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | No  |  Yes   | Partly Cloudy|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | No  |  Yes   | Intermittent Clouds|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | No  |  Yes   | Hazy Moonlight|
+| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | No  |  Yes   | Mostly Cloudy|
+| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | No  |  Yes   | Partly Cloudy with Showers|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | No  |  Yes   | Mostly Cloudy with Showers|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | No  |  Yes   | Partly Cloudy with Thunderstorms|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | No  |  Yes   | Mostly Cloudy with Thunderstorms|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | No  |  Yes   | Mostly Cloudy with Flurries|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | No  |  Yes   | Mostly Cloudy with Snow|
 
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
@@ -103,22 +103,22 @@ The table below provides guidance to interpret the radar images and create a map
 
 | Hex color code | Color sample | Weather condition |
 |----------------|--------------|-------------------|
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Rain-Light |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Rain-Moderate |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Rain-Heavy |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Rain-Severe |
-| #9ec8f2        | ![](./media/weather-services-concepts/color-9ec8f2.png) | Snow-Light |
-| #2a8fdb        | ![](./media/weather-services-concepts/color-2a8fdb.png) | Snow-Moderate |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Snow-Heavy |
-| #020096        | ![](./media/weather-services-concepts/color-020096.png) | Snow-Severe |
-| #e6a5c8        | ![](./media/weather-services-concepts/color-e6a5c8.png) | Ice-Light |
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Ice-Moderate |
-| #b71691        | ![](./media/weather-services-concepts/color-b71691.png) | Ice-Severe |
-| #7a1570        | ![](./media/weather-services-concepts/color-7a1570.png) | Ice-Heavy |
-| #c196e6        | ![](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
-| #ae6ee6        | ![](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderate |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
-| #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
+| #93c701        | ![Color for rain-light.](./media/weather-services-concepts/color-93c701.png) | Rain-Light |
+| #ffd701        | ![Color for rain-moderate.](./media/weather-services-concepts/color-ffd701.png) | Rain-Moderate |
+| #f05514        | ![Color for rain-heavy.](./media/weather-services-concepts/color-f05514.png) | Rain-Heavy |
+| #dc250e        | ![Color for rain-severe.](./media/weather-services-concepts/color-dc250e.png) | Rain-Severe |
+| #9ec8f2        | ![Color for snow-light.](./media/weather-services-concepts/color-9ec8f2.png) | Snow-Light |
+| #2a8fdb        | ![Color for snow-moderate.](./media/weather-services-concepts/color-2a8fdb.png) | Snow-Moderate |
+| #144bed        | ![Color for snow-heavy.](./media/weather-services-concepts/color-144bed.png) | Snow-Heavy |
+| #020096        | ![Color for snow-severe.](./media/weather-services-concepts/color-020096.png) | Snow-Severe |
+| #e6a5c8        | ![Color for ice-light.](./media/weather-services-concepts/color-e6a5c8.png) | Ice-Light |
+| #d24fa0        | ![Color for ice-moderate.](./media/weather-services-concepts/color-d24fa0.png) | Ice-Moderate |
+| #b71691        | ![Color for ice-severe.](./media/weather-services-concepts/color-b71691.png) | Ice-Severe |
+| #7a1570        | ![Color for ice-heavy.](./media/weather-services-concepts/color-7a1570.png) | Ice-Heavy |
+| #c196e6        | ![Color for mix-light.](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
+| #ae6ee6        | ![Color for mix-moderate.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderate |
+| #8a32d7        | ![Color for mix-heavy.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
+| #6500ba        | ![Color for mix-severe.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
 Detailed color palette for radar tiles with Hex color codes and dBZ values is shown below. dBZ represents precipitation intensity in weather radar. 
 
@@ -194,18 +194,18 @@ The table below provides guidance to interpret the infrared satellite images sho
 
 | Hex color code | Color sample | Cloud Temperature |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) |  |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) |  |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) |  |
-| #479702        | ![](./media/weather-services-concepts/color-479702.png) |  |
-| #72b403        | ![](./media/weather-services-concepts/color-72b403.png) |  |
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) |  |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) |  |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) |  |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) |  |
-| #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
+| #b5b5b5        | ![Color tile for #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
+| #d24fa0        | ![Color tile for #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
+| #8a32d7        | ![Color tile for #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
+| #144bed        | ![Color tile for #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
+| #479702        | ![Color tile for #479702.](./media/weather-services-concepts/color-479702.png) |  |
+| #72b403        | ![Color tile for #72b403.](./media/weather-services-concepts/color-72b403.png) |  |
+| #93c701        | ![Color tile for #93c701.](./media/weather-services-concepts/color-93c701.png) |  |
+| #ffd701        | ![Color tile for #ffd701.](./media/weather-services-concepts/color-ffd701.png) |  |
+| #f05514        | ![Color tile for #f05514.](./media/weather-services-concepts/color-f05514.png) |  |
+| #dc250e        | ![Color tile for #dc250e.](./media/weather-services-concepts/color-dc250e.png) |  |
+| #ba0808        | ![Color tile for #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
+| #1f1f1f        | ![Color tile for #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
 
 Detailed color palette for infrared satellite tiles is shown below.
@@ -467,3 +467,171 @@ Detailed color palette for infrared satellite tiles is shown below.
 |307.57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## Index IDs and Index Groups IDs
+
+[Get Daily Indices API](/rest/api/maps/weather) allows users to
+restrict returned results to specific index types or index
+groups.
+
+Below is a table of available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
+
+  Index Name |  ID  | Value Range
+  -------------------------- |---|-----
+  Arthritis Pain             |21 | [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Asthma                     |23|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Beach & Pool               |10| [Poor-Excellent 1](#poor-excellent-1)
+  Bicycling                  |4| [Poor-Excellent 1](#poor-excellent-1)
+  Common Cold                |25|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Composting                 |38| [Poor-Excellent 1](#poor-excellent-1)
+  Construction               |14| [Poor-Excellent 1](#poor-excellent-1)
+  COPD                       |44|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Dog Walking Comfort        |43| [Poor-Excellent 1](#poor-excellent-1)
+  Driving                    |40|  [Poor-Excellent 2](#poor-excellent-2)
+  Dust & Dander              |18| [Low-Extreme 1](#low-extreme-1)
+  Field Readiness            |32| [Poor-Excellent 1](#poor-excellent-1)
+  Fishing                    |13| [Poor-Excellent 1](#poor-excellent-1)
+  Flight Delays              |-3|  [Very Unlikely-Very Likely 2](#very-unlikely-very-likely-2)
+  Flu                        |26|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Flying Travel Index        |31| [Excellent-Poor](#excellent-poor)
+  Fuel Economy               |37| [Poor-Excellent 1](#poor-excellent-1)
+  Golf Weather               |5| [Poor-Excellent 1](#poor-excellent-1)
+  Grass Growing              |33| [Poor-Excellent 1](#poor-excellent-1)
+  Hair Frizz                 |42| [Unlikely-Emergency](#unlikely-emergency)
+  Healthy Heart Fitness      |16| [Poor-Excellent 1](#poor-excellent-1)
+  Hiking                     |3| [Poor-Excellent 1](#poor-excellent-1)
+  Home Energy Efficiency     |36| [Poor-Excellent 1](#poor-excellent-1)
+  Hunting                    | 20| [Poor-Excellent 1](#poor-excellent-1)
+  Indoor Activity            | -2| [Poor-Excellent 1](#poor-excellent-1)
+  Jogging                    |2| [Poor-Excellent 1](#poor-excellent-1)
+  Kite Flying                |9| [Poor-Excellent 1](#poor-excellent-1)
+  Lawn Mowing                |28| [Poor-Excellent 1](#poor-excellent-1)
+  Migraine Headache          |27|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Morning School Bus         |35| [Poor-Excellent 1](#poor-excellent-1)
+  Mosquito Activity          |17|[Low-Extreme 1](#low-extreme-1)
+  Outdoor Activity           |29| [Poor-Excellent 1](#poor-excellent-1)
+  Outdoor Barbecue           |24| [Poor-Excellent 1](#poor-excellent-1)
+  Outdoor Concert            |8| [Poor-Excellent 1](#poor-excellent-1)
+  Running                    |1|  [Poor-Excellent 1](#poor-excellent-1)
+  Tennis                     |6| [Poor-Excellent 1](#poor-excellent-1)
+  Thirst                     |41| [Low-Extreme 2](#low-extreme-2)
+  Sailing                    |11| [Poor-Excellent 1](#poor-excellent-1)
+  Shopping                   |39| [Poor-Excellent 1](#poor-excellent-1)
+  Sinus Headache             |30|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Skateboarding              | 7| [Poor-Excellent 1](#poor-excellent-1)
+  Ski Weather                | 15| [Poor-Excellent 1](#poor-excellent-1)
+  Snow Days                  | 19| [Very Unlikely-Very Likely](#very-unlikely-very-likely)
+  Soil Moisture              | 34| [Poor-Excellent 1](#poor-excellent-1)
+  Stargazing                 | 12| [Poor-Excellent 1](#poor-excellent-1)
+
+Below is the list of available Index groups (indexGroupId):
+
+  ID   | Group Name | Indices in this group |
+  -------- | ------------------|------
+  1       |All | All
+  2       |Aches and Pains | Arthritis Pain (21) </br> Migraine Headache (27) </br> Sinus Headache (30)
+  3       |Respiratory | Asthma (23) </br> Common Cold (25) </br> Flu Forecast (26)
+  4       |Gardening | Field Readiness (32) </br> Lawn Mowing (28) </br> Soil Moisture (34)</br>
+  5       |Environmental | Compositing (38) </br> Home Energy Efficiency (36) </br> Fuel Economy (37)
+  6       |Outdoor Living | Outdoor Barbecue (24) </br> Mosquito Activity (17)
+  7       |Beach and Marine | Beach & Pool (10) </br> Fishing (13) </br> Sailing (11)
+  8       |Sportsman | Fishing (13) </br> Hunting (20) </br> Outdoor Activity (29)</br>
+  9       |Farming |  Field Readiness (32) </br>  Soil Moisture (34)
+  10      |Health | Arthritis Pain (21) </br> Asthma (23) </br> Common Cold (25) </br> Dust & Dander (18) </br> Flu (26) </br> Healthy Heart Fitness (16) </br> Migraine Headache (27)
+  11      |Outdoor | Outdoor Barbecue (24) </br> Beach & Pool (10) </br> Bicycling (4) </br> Outdoor Concert (8) </br>  Field Readiness (32) </br> Fishing (13) </br> Golf Weather (5) </br> Hiking (3) </br> Hunting (20) </br> Jogging (2) </br> Kite Flying (9) </br> Mosquito Activity (17)</br> Lawn Mowing (28) </br> Outdoor Activity (29) </br> Running (1) </br> Sailing (11) </br> Skateboarding (7) </br> Ski Weather (15) </br>  Soil Moisture (34)</br> Stargazing (12) </br> Tennis (6)
+  12      |Sporting | Bicycling (4) </br> Golf Weather (5) </br> Hiking (3) </br>  Jogging (2) </br> Running (1) </br> Skateboarding (7) </br> Ski Weather (15) </br>Tennis (6)
+  13      |Home | Home Energy Efficiency (36) </br> Fuel Economy (37) </br> Indoor Activity (-2)
+
+## Daily index range sets
+
+[Get Daily Indices API](/rest/api/maps/weather) returns the ranged value and its associated category name for each index ID. Range sets are not the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+
+### Poor-Excellent 1
+
+  | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Poor              |  0 |                2.99
+  Fair              |  3  |               4.99
+  Good              |  5  |              6.99
+  Very Good         |  7  |               8.99
+  Excellent         |  9  |               10
+
+### Poor-Excellent 2
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Poor           |0              |  3
+  Fair           |3.01           |  6
+  Good           |6.01           |  7.5
+  Very Good      |7.51           |  8.99
+  Excellent      |9              |  10
+
+### Excellent-Poor
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Excellent      |     0.00        |    1.00
+  Very Good        |   1.01          |  3.00
+  Good             |   3.01          |  5.00
+  Fair             |   5.01          |  7.00
+  Poor             |   7.01          |  10.00
+
+### Low-Extreme 1
+
+   | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Low                |  0         |        1.99
+  Moderate           |  2         |        3.99
+  High               |  4         |        5.99
+  Very High          |  6         |        7.99
+  Extreme            |  8         |        10
+
+### Low-Extreme 2
+
+   | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Low                |  0            |      2.99
+  Moderate           |  3            |      4.99
+  High               |  5            |      6.99
+  Very High          |  7            |      8.99
+  Extreme            |  9            |      10
+
+### Very Unlikely-Very Likely
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Very Unlikely      | 0     |           1.99
+  Unlikely           | 2     |           3.99
+  Possibly           | 4     |           5.99
+  Likely             | 6     |           7.99
+  Very Likely        | 8     |           10
+
+### Very Unlikely-Very Likely 2
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Very Unlikely      |  0.00     |         1.00
+  Unlikely           |  1.01     |         3.00
+  Possibly           |  3.01     |         5.00
+  Likely             |  5.01     |         7.00
+  Very Likely        |  7.01     |         10.00
+
+### Unlikely-Emergency
+
+| Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Unlikely         |  0     |          2.99
+  Watch            |  3     |          4.99
+  Advisory         |  5     |          6.99
+  Warning          |  7     |          8.99
+  Emergency        |  9     |          10
+
+### Beneficial-At Extreme Risk
+
+| Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Beneficial        |    0        |        1.99
+  Neutral           |    2        |        3.99
+  At Risk           |    4        |        5.99
+  At High Risk      |    6        |        7.99
+  At Extreme Risk   |    8        |        10

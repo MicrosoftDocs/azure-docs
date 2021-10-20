@@ -3,13 +3,13 @@ title: "PowerShell: Restore geo-backup for Azure SQL Managed Instance"
 description: Azure PowerShell example script to restore an Azure SQL Managed Instance database from a geo-redundant backup.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: Misliplavo
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 07/03/2019
 ---
 # Use PowerShell to restore an Azure SQL Managed Instance database to another geo-region
@@ -69,13 +69,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Creates a resource group in which all resources are stored. |
+| [New-AzResourceGroup](/powershell/module/az.resources/New-AzResourceGroup) | Creates a resource group in which all resources are stored. |
 | [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Creates a geo-redundant backup of a SQL Managed Instance database. |
 | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Creates a database on SQL Managed Instance from geo-backup. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group, including all nested resources. |
 
 ## Next steps
 
-For more information about PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information about PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples for Azure SQL Database can be found in [Azure SQL Database PowerShell scripts](../../database/powershell-script-content-guide.md).

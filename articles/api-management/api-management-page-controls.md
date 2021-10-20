@@ -3,7 +3,7 @@ title: Azure API Management page controls | Microsoft Docs
 description: Learn about the page controls available for use in developer portal templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Azure API Management page controls
@@ -26,7 +26,7 @@ To use a control, place it in the desired location in the developer portal templ
   
 The values for the parameters are passed in as part of the data model for the template. In most cases, you can simply paste in the provided example for each control for it to work correctly. For more information on the parameter values, you can see the data model section for each template in which a control may be used.  
 
-For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 

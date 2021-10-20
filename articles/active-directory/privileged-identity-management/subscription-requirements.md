@@ -4,8 +4,8 @@ description: Describes the licensing requirements to use Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: markwahl-msft
+manager: KarenH444
+editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
@@ -13,8 +13,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 01/10/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 
 ms.collection: M365-identity-device-management
@@ -26,21 +27,21 @@ To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a
 
 ## Valid licenses
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+You will need an Azure AD license to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## How many licenses must you have?
+## Licenses you must have
 
 Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
 
-- Users assigned as eligible to Azure AD roles managed using PIM
+- Users assigned as eligible to Azure AD or Azure roles managed using PIM
+- Users who are assigned as eligible members or owners of privileged access groups
 - Users able to approve or reject activation requests in PIM
-- Users assigned to an Azure resource role with just-in-time or direct (time-based) assignments  
 - Users assigned to an access review
 - Users who perform access reviews
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 
-- No licenses are required for users with the Global Administrator or Privileged Role Administrator roles that set up PIM, configure policies, receive alerts, and set up access reviews.
+- No licenses are required for users who set up PIM, configure policies, receive alerts, and set up access reviews.
 
 For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
@@ -54,7 +55,7 @@ Here are some example license scenarios to help you determine the number of lice
 | Graphic Design Institute has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
 | Contoso has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. Contoso also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
 
-## What happens when a license expires?
+## When a license expires
 
 If an Azure AD Premium P2, EMS E5, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
 
@@ -68,4 +69,6 @@ If an Azure AD Premium P2, EMS E5, or trial license expires, Privileged Identity
 
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)
 - [Start using Privileged Identity Management](pim-getting-started.md)
-- [Roles you cannot manage in Privileged Identity Management](pim-roles.md)
+- [Roles you can't manage in Privileged Identity Management](pim-roles.md)
+- [Create an access review of Azure resource roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)
+- [Create an access review of Azure AD roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)

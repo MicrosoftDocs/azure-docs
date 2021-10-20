@@ -69,7 +69,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 1.  Under **Direct Peering Connection**, fill in the following BGP session details:
 
     > [!div class="mx-imgBorder"]
-    > ![Configure direct peering route server](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Screenshot shows the Direct Peering Connection pane with details added.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Peering Facility, select the appropriate physical location for the peering
@@ -94,19 +94,19 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 1. Select **Registered ASNs** under the Settings section.
 
     > [!div class="mx-imgBorder"]
-    > ![Configure direct peering route server](./media/setup-exchange-registered-asn.png)
+    > ![Screenshot shows the Peering pane with the Registered A S Ns menu item called out.](./media/setup-exchange-registered-asn.png)
 
 1. Select **Add registered ASN** to create a new customer ASN under your exchange subscription.
 
     > [!div class="mx-imgBorder"]
-    > ![Configure direct peering route server](./media/setup-exchange-register-new-asn.png)
+    > ![Screenshot shows the Register an A S N pane with Name and A S N text boxes.](./media/setup-exchange-register-new-asn.png)
 
 1. Under Register an ASN, select a Name, populate the customer ASN, and click Save.
 
 1. Under Registered ASNs, there will be an associated Prefix Key assigned to each ASN. As an exchange provider, you will need to provide this Prefix Key to your customer so they can register Peering Service under their subscription.
 
     > [!div class="mx-imgBorder"]
-    > ![Configure direct peering route server](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Screenshot shows the Registered A S Ns pane with prefix keys.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

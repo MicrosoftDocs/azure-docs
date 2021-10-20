@@ -32,8 +32,8 @@ The reporting architecture in Azure AD consists of the following components:
     - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
     
 - **Security reports** 
-    - [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-    - [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
+    - [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 This articles lists the audit activities that can be logged in your audit logs.
 
@@ -492,7 +492,54 @@ This articles lists the audit activities that can be logged in your audit logs.
 |User Management|Update device configuration|
 |User Management|Update role|
 
+## Entitlement Management
 
+|Audit Category|Activity|
+|---|---|
+|Entitlement Management|Add Entitlement Management role assignment|
+|Entitlement Management|Administrator directly assigns user to access package|		 
+|Entitlement Management|Administrator directly removes user access package assignment|
+|Entitlement Management|Approve access package assignment request|
+|Entitlement Management|Assign user as external sponsor|
+|Entitlement Management|Assign user as internal sponsor|
+|Entitlement Management|Auto approve access package assignment request|
+|Entitlement Management|Cancel access package assignment request|
+|Entitlement Management|Create access package|
+|Entitlement Management|Create access package assignment policy|
+|Entitlement Management|Create access package assignment user update request|	
+|Entitlement Management|Create access package catalog|
+|Entitlement Management|Create connected organization|	
+|Entitlement Management|Create custom action|
+|Entitlement Management|Create resource remove request|
+|Entitlement Management|Create resource request|
+|Entitlement Management|Delete access package|
+|Entitlement Management|Delete access package assignment policy|
+|Entitlement Management|Delete access package catalog|
+|Entitlement Management|Delete connected organization|
+|Entitlement Management|Deny access package assignment request|
+|Entitlement Management|Entitlement Management removes access package assignment request for user|
+|Entitlement Management|Execute custom action|
+|Entitlement Management|Extend access package assignment|
+|Entitlement Management|Failed access package assignment request|
+|Entitlement Management|Fulfill access package assignment request|
+|Entitlement Management|Fulfill access package resource assignment|	
+|Entitlement Management|Partially fulfill access package assignment request|
+|Entitlement Management|Ready to fulfill access package assignment request|
+|Entitlement Management|Remove Entitlement Management role assignment|
+|Entitlement Management|Remove access package resource assignment|
+|Entitlement Management|Remove user as external sponsor|
+|Entitlement Management|Remove user as internal sponsor|
+|Entitlement Management|Schedule a future access package assignment|
+|Entitlement Management|Update access package|
+|Entitlement Management|Update access package assignment policy|
+|Entitlement Management|Update access package catalog|
+|Entitlement Management|Update access package catalog resource|
+|Entitlement Management|Update connected organization|
+|Entitlement Management|Update custom action|
+|Entitlement Management|User requests access package assignment|
+|Entitlement Management|User requests an access package assignment on behalf of service principal|
+|Entitlement Management|User requests to extend access package assignment|
+|Entitlement Management|User requests to remove access package assignment|
 
 
 
@@ -520,14 +567,17 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Other|Create request approval|
-|Other|Delete access review|
-|User Management|Remove reviewer from access review|
-|User Management|Request apply review result|
-|User Management|Request Stop Review|
-|User Management|Review app assignment|
-|User Management|Review group membership|
-|User Management|Review Rbac Role membership|
+|Invited users|Delete external user|
+|Invited users|Email not sent, user unsubscribed|
+|Invited users|Email subscribed|
+|Invited users|Email unsubscribed|
+|Invited users|Invitation Email|
+|Invited users|Invite external user|
+|Invited users|Invite external user with reset invitation status|
+|Invited users|Invite internal user to B2B collaboration|
+|Invited users|Redeem external user invite|
+|Invited users|Viral tenant creation|
+|Invited users|Viral user creation|
 
 
 ## Microsoft Identity Manager (MIM)

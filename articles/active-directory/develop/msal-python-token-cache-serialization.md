@@ -8,12 +8,12 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
-ms.custom: aaddev, tracking-python
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer using the Microsoft Authentication Library (MSAL) for Python, I want to learn how to persist the token cache so that it is available to a new instance of my application.
 ---
 
@@ -35,4 +35,4 @@ For web apps or web APIs, you might use the session, or a Redis cache, or a data
 
 ## Next steps
 
-See [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) for an example of how to use the token cache for a Windows or Linux Web app or web API. The example is for a web app that calls the Microsoft Graph API.
+See [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.3.0/app.py#L66-L74) for an example of how to use the token cache for a Windows or Linux Web app or web API. The example is for a web app that calls the Microsoft Graph API.

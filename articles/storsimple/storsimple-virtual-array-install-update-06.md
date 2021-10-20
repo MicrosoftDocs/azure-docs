@@ -1,6 +1,6 @@
 ---
 title: Install Update 0.6 on StorSimple Virtual Array | Microsoft Docs
-description: Describes how to use the StorSimple Virtual Array web UI to apply updates using the Azure portal and hotfix method
+description: Describes how to use the StorSimple Virtual Array web UI to apply Update 0.6 using the Azure portal and hot fix method.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
@@ -25,6 +25,7 @@ This article describes the steps required to install Update 0.6 on your StorSimp
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption. After the volumes or shares are offline, you should also take a manual backup of the device.
 
 > [!IMPORTANT]
+>
 > - Update 0.6 corresponds to **10.0.10293.0** software version on your device. For information on what is new in this update, go to [Release notes for Update 0.6](storsimple-virtual-array-update-06-release-notes.md).
 >
 > - If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal. If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install Update 0.6.
@@ -91,26 +92,26 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10290.0**, you do not need to update the MDS agent in step 6.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Screenshot shows Software update selected from the Maintenance menu.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![Screenshot shows the Update file path text box in the Software update page.](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. A warning is displayed. Given the virtual array is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![Screenshot shows a dialog box warning of downtime.](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![Screenshot shows a success message for the update.](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10293** for Update 0.6.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10293** and the Azure portal reports **10.0.10293.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![Screenshot shows the Software update page with the current software version.](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
 6. Skip this step if you were running StorSimple Virtual Array Update 0.5 (**10.0.10290.0**) before you applied this update. You made a note of the software version in step 1 before you began to update. If you were running Update 0.5, your MDS agent is already up-to-date .
 

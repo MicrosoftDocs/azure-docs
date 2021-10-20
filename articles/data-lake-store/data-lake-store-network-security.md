@@ -1,19 +1,12 @@
 ---
 title: Network security in Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Understand how virtual network integration works in Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: how-to
 ms.date: 10/09/2018
-ms.author: elsung
+ms.author: normesta
 
 ---
 # Virtual network integration for Azure Data Lake Storage Gen1
@@ -29,7 +22,7 @@ Virtual network integration for Data Lake Storage Gen1 makes use of the virtual 
 
 ## Scenarios for virtual network integration for Data Lake Storage Gen1
 
-With Data Lake Storage Gen1 virtual network integration, you can restrict access to your Data Lake Storage Gen1 account from specific virtual networks and subnets. After your account is locked to the specified virtual network subnet, other virtual networks/VMs in Azure aren't allowed access. Functionally, Data Lake Storage Gen1 virtual network integration enables the same scenario as [virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). A few key differences are detailed in the following sections. 
+With Data Lake Storage Gen1 virtual network integration, you can restrict access to your Data Lake Storage Gen1 account from specific virtual networks and subnets. After your account is locked to the specified virtual network subnet, other virtual networks/VMs in Azure aren't allowed access. Functionally, Data Lake Storage Gen1 virtual network integration enables the same scenario as [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). A few key differences are detailed in the following sections. 
 
 ![Scenario diagram for Data Lake Storage Gen1 virtual network integration](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -38,21 +31,21 @@ With Data Lake Storage Gen1 virtual network integration, you can restrict access
 
 ## Optimal routing with Data Lake Storage Gen1 virtual network integration
 
-A key benefit of virtual network service endpoints is [optimal routing](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) from your virtual network. You can perform the same route optimization to Data Lake Storage Gen1 accounts. Use the following [user-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) from your virtual network to your Data Lake Storage Gen1 account.
+A key benefit of virtual network service endpoints is [optimal routing](../virtual-network/virtual-network-service-endpoints-overview.md#key-benefits) from your virtual network. You can perform the same route optimization to Data Lake Storage Gen1 accounts. Use the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) from your virtual network to your Data Lake Storage Gen1 account.
 
-**Data Lake Storage public IP address** – Use the public IP address for your target Data Lake Storage Gen1 accounts. To identify the IP addresses for your Data Lake Storage Gen1 account, [resolve the DNS names](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) of your accounts. Create a separate entry for each address.
+**Data Lake Storage public IP address** – Use the public IP address for your target Data Lake Storage Gen1 accounts. To identify the IP addresses for your Data Lake Storage Gen1 account, [resolve the DNS names](./data-lake-store-connectivity-from-vnets.md#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) of your accounts. Create a separate entry for each address.
 
-    ```azurecli
-    # Create a route table for your resource group.
-    az network route-table create --resource-group $RgName --name $RouteTableName
-    
-    # Create route table rules for Data Lake Storage public IP addresses.
-    # There's one rule per Data Lake Storage public IP address. 
-    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
-    
-    # Update the virtual network, and apply the newly created route table to it.
-    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-    ```
+```azurecli
+# Create a route table for your resource group.
+az network route-table create --resource-group $RgName --name $RouteTableName
+
+# Create route table rules for Data Lake Storage public IP addresses.
+# There's one rule per Data Lake Storage public IP address. 
+az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+
+# Update the virtual network, and apply the newly created route table to it.
+az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+```
 
 ## Data exfiltration from the customer virtual network
 
@@ -61,7 +54,7 @@ In addition to securing the Data Lake Storage accounts for access from the virtu
 Use a firewall solution in your virtual network to filter the outbound traffic based on the destination account URL. Allow access to only approved Data Lake Storage Gen1 accounts.
 
 Some available options are:
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [Deploy and configure an Azure firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) for your virtual network. Secure the outbound Data Lake Storage traffic, and lock it down to the known and approved account URL.
+- [Azure Firewall](../firewall/overview.md): [Deploy and configure an Azure firewall](../firewall/tutorial-firewall-deploy-portal.md) for your virtual network. Secure the outbound Data Lake Storage traffic, and lock it down to the known and approved account URL.
 - [Network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) firewall: Your administrator might allow the use of only certain commercial firewall vendors. Use a network virtual appliance firewall solution that's available in the Azure Marketplace to perform the same function.
 
 > [!NOTE]
@@ -73,7 +66,7 @@ Some available options are:
  
 - When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. Then create the HDInsight cluster before finally re-enabling the virtual network rule or de-selecting **Allow access from all networks and services**. For more information, see the [Exceptions](#exceptions) section.
 
-- Data Lake Storage Gen1 virtual network integration doesn't work with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Data Lake Storage Gen1 virtual network integration doesn't work with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
   
 - File and folder data in your virtual network-enabled Data Lake Storage Gen1 account isn't accessible from the portal. This restriction includes access from a VM that’s within the virtual network and activities such as using Data Explorer. Account management activities continue to work. File and folder data in your virtual network-enabled Data Lake Storage account is accessible via all non-portal resources. These resources include SDK access, PowerShell scripts, and other Azure services when they don't originate from the portal. 
 
@@ -83,7 +76,7 @@ Some available options are:
 
 1.	Go to the Azure portal, and sign in to your account.
  
-2.	[Create a new virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
+2.	[Create a new virtual network](../virtual-network/quick-create-portal.md)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
  
 3.	On the **Virtual network** blade, select **Service endpoints**.
  

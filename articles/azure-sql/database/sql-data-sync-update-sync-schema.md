@@ -3,13 +3,13 @@ title: Automate the replication of schema changes in SQL Data Sync
 description: Learn how to automate the replication of schema changes in Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync
 ms.devlang: 
-ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+ms.topic: how-to
+author: MaraSteiu 
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 11/14/2018
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
@@ -91,23 +91,23 @@ CREATE TRIGGER SchemaChangesTrigger
 ON SchemaChanges
 AFTER INSERT
 AS
-DECLARE \@lastAppliedId bigint
-DECLARE \@id bigint
-DECLARE \@sqlStmt nvarchar(max)
-SELECT TOP 1 \@lastAppliedId=LastAppliedId FROM SchemaChangeHistory
-SELECT TOP 1 \@id = id, \@SqlStmt = SqlStmt FROM SchemaChanges WHERE id \> \@lastAppliedId ORDER BY id
-IF (\@id = \@lastAppliedId + 1)
+DECLARE @lastAppliedId bigint
+DECLARE @id bigint
+DECLARE @sqlStmt nvarchar(max)
+SELECT TOP 1 @lastAppliedId=LastAppliedId FROM SchemaChangeHistory
+SELECT TOP 1 @id = id, @SqlStmt = SqlStmt FROM SchemaChanges WHERE id > @lastAppliedId ORDER BY id
+IF (@id = @lastAppliedId + 1)
 BEGIN
-    EXEC sp_executesql \@SqlStmt
-        UPDATE SchemaChangeHistory SET LastAppliedId = \@id
+    EXEC sp_executesql @SqlStmt
+        UPDATE SchemaChangeHistory SET LastAppliedId = @id
     WHILE (1 = 1)
     BEGIN
-        SET \@id = \@id + 1
-        IF exists (SELECT id FROM SchemaChanges WHERE ID = \@id)
+        SET @id = @id + 1
+        IF exists (SELECT id FROM SchemaChanges WHERE ID = @id)
             BEGIN
-                SELECT \@sqlStmt = SqlStmt FROM SchemaChanges WHERE ID = \@id
-                EXEC sp_executesql \@SqlStmt
-                UPDATE SchemaChangeHistory SET LastAppliedId = \@id
+                SELECT @sqlStmt = SqlStmt FROM SchemaChanges WHERE ID = @id
+                EXEC sp_executesql @SqlStmt
+                UPDATE SchemaChangeHistory SET LastAppliedId = @id
             END
         ELSE
             BREAK;
@@ -225,7 +225,7 @@ For more info about SQL Data Sync, see:
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 -   Best practices - [Best practices for Azure SQL Data Sync](sql-data-sync-best-practices.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync]()
 -   Update the sync schema
     -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/update-sync-schema-in-sync-group.md)

@@ -4,7 +4,8 @@ description: Quickstart that shows the conversion steps for a custom model.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
-ms.topic: quickstart
+ms.topic: quickstart 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Convert a model for rendering
@@ -22,7 +23,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
-* Install Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+* For the conversion using the PowerShell script: Install Azure PowerShell [(documentation)](/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
 
@@ -39,7 +40,7 @@ You need:
 * A blob storage container for your output data
 * A model to convert, see [sample models](../samples/sample-model.md)
   * See the list of [supported source formats](../how-tos/conversion/model-conversion.md#supported-source-formats)
-  * To use the sample conversion script make sure you prepare an input folder which contains the model and all external dependencies (like external textures or geometry)
+  * To use the sample conversion script, make sure you prepare an input folder that contains the model and all external dependencies (like external textures or geometry)
 
 ## Azure setup
 
@@ -65,7 +66,7 @@ Clicking this button will bring up the following screen with storage properties 
 Fill out the form in the following manner:
 
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is ready given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
+* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
 * **Performance** set to 'Standard'
 * **Account kind** set to 'StorageV2 (general purpose v2)'
@@ -103,13 +104,22 @@ You should now have two blob storage containers:
 
 ## Run the conversion
 
+There are three distinct ways to trigger a model conversion:
+
+### 1. Conversion via the ARRT tool
+
+There is a [UI-based tool called ARRT](./../samples/azure-remote-rendering-asset-tool.md) to start conversions and interact with the rendered result.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "ARRT screenshot")
+
+### 2. Conversion via a PowerShell script
+
 To make it easier to call the asset conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**.
 
 In particular, this script
 
 1. uploads all files in a given directory from local disk to the input storage container
-1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md) which will retrieve the data from the input storage container and start a conversion which will return a conversion id
-1. poll the conversion status API with the retrieved conversion id until the conversion process terminates with success or failure
+1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md), which will retrieve the data from the input storage container and start a conversion, which will return a conversion ID
+1. poll the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure
 1. retrieves a link to the converted asset in the output storage
 
 The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
@@ -142,17 +152,17 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
 The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
 Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
-Note that the value **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
+Note that the value for **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
-Change **localAssetDirectoryPath** to point to the directory on your disk which contains the model you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
+Change **localAssetDirectoryPath** to point to the directory on your disk, which contains the model you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
 All data from the path given in **localAssetDirectoryPath** will be uploaded to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. So in the example configuration above the content of the "D:\\tmp\\robot" directory will be uploaded to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files will be overwritten.
 
-Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file which is located directly in "D:\\tmp\\robot" use "robot.fbx".
+Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file, which is located directly in "D:\\tmp\\robot", use "robot.fbx".
 
-Once the model was converted it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
+Once the model was converted, it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above, the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
 
-The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise. 
+The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise.
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription with the following command and follow the on-screen directions:
 
@@ -161,7 +171,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](/powershell/module/az.accounts/connect-azaccount).
 
 Change to the `azure-remote-rendering\Scripts` directory and run the conversion script:
 
@@ -171,6 +181,15 @@ Change to the `azure-remote-rendering\Scripts` directory and run the conversion 
 
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
+
+### 3. Conversion via API calls
+
+Both the C# and the C++ API provide an entry point to interact with the service:
+* [C# RemoteRenderingClient.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient::StartAssetConversionAsync()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
+
+
+## Insert new model into Quickstart Sample App
 
 The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the quickstart sample app (see [Quickstart: Render a model with Unity](render-model.md)).
 
@@ -184,7 +203,7 @@ The SAS URI created by the conversion script will only be valid for 24 hours. Ho
 
 1. Go to the [Azure portal](https://www.portal.azure.com)
 1. Click on your **Storage account** resource:
-![Signature Access](./media/portal-storage-accounts.png)
+![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)
 1. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
 ![Signature Access](./media/portal-storage-explorer.png)
 1. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.
@@ -196,4 +215,4 @@ Now that you know the basics, have a look at our tutorials to gain more in-depth
 If you want to learn the details of model conversion, check out [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md)
+> [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)

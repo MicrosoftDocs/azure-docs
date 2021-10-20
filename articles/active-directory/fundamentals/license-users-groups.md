@@ -2,15 +2,15 @@
 title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/06/2018
+ms.topic: how-to
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -31,7 +31,7 @@ There are several license plans available for the Azure AD service, including:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://azure.microsoft.com/pricing/details/active-directory/).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
 
 Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
 
@@ -45,11 +45,16 @@ You can view your available service plans, including the individual licenses, ch
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
 
-    ![Licenses page, with number of purchased services and assigned licenses](media/license-users-groups/license-details-blade.png)
+1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
-1. Select the **Purchased** link to view the **Products** page and to see the **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="services page - with service license plans - associated license info":::
 
-    ![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-products.png)
+    > [!NOTE]
+    > The numbers are defined as: 
+    > - Total: Total number of licenses purchased
+    > - Assigned: Number of licenses assigned to users
+    > - Available: Number of licenses available for assignment including expiring soon
+    > - Expiring soon: Number of licenses expiring soon
 
 1. Select a plan name to see its licensed users and groups.
 
@@ -61,11 +66,9 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 1. On the **Products** page, select the name of the license plan you want to assign to the user.
 
-    ![services page, with highlighted service license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
+1. After you select the license plan, select **Assign**.
 
-1. On the license plan overview page, select **Assign**.
-
-    ![services page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+    ![services page, with highlighted license plan selection and Assign options](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
 1. On the **Assign** page, select **Users and groups**, and then search for and select the user you're assigning the license.
 
@@ -98,11 +101,11 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 1. On the **Assign** page, select **Users and groups**, and then search for and select the group you're assigning the license.
 
-    ![Assign license page, with highlighted search and Select options](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Assign license page, with highlighted search and Select options 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option page, with all options available in the license plan](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![License option page, with all options available in the license plan 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
@@ -131,7 +134,7 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 
 1. Select **Remove license**.
 
-    ![Licensed groups page with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Licensed groups page with Remove license option highlighted 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > When an on-premises user account synced to Azure AD falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Azure AD. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
@@ -140,10 +143,10 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 
 After you've assigned your licenses, you can perform the following processes:
 
-- [Identify and resolve license assignment problems](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [Identify and resolve license assignment problems](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [Add licensed users to a group for licensing](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Add licensed users to a group for licensing](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md)

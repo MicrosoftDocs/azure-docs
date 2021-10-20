@@ -27,8 +27,6 @@ landingContent:
         links:
           - text: What is Azure Container Registry?
             url: container-registry-intro.md
-          - text: Registries, repositories, and images
-            url: container-registry-concepts.md
   # Card (optional)
   - title: Get started
     linkLists:
@@ -38,6 +36,8 @@ landingContent:
             url: container-registry-get-started-azure-cli.md
           - text: Create container registry - Portal
             url: container-registry-get-started-portal.md
+          - text: Create container registry - ARM template
+            url: container-registry-get-started-geo-replication-template.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
     - linkListType: concept
@@ -47,7 +47,7 @@ landingContent:
     - linkListType: learn 
       links:
           - text: Build and store container images with Azure Container Registry
-            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/         
+            url: /learn/modules/build-and-store-container-images/
     - linkListType: video
       links:
           - text: Azure Container Registry videos
@@ -55,6 +55,10 @@ landingContent:
   # Card
   - title: Manage registries
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage content with client libraries
+            url: quickstart-client-libraries.md
       - linkListType: how-to-guide
         links:
           - text: View repositories and tags
@@ -67,6 +71,8 @@ landingContent:
             url: container-registry-delete.md
       - linkListType: concept
         links:
+          - text: Registries, repositories, and images
+            url: container-registry-concepts.md
           - text: Geo-replication
             url: container-registry-geo-replication.md
           - text: Authentication
@@ -74,7 +80,7 @@ landingContent:
           - text: Best practices
             url: container-registry-best-practices.md
           - text: FAQ
-            url: container-registry-faq.md
+            url: container-registry-faq.yml
   # Card (optional)
   - title: ACR Tasks
     linkLists:

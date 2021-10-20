@@ -1,11 +1,11 @@
 ---
 title: Lead management in Marketo - Microsoft commercial marketplace
 description: Learn how to use a Marketo CRM system to manage leads from Microsoft AppSource and Azure Marketplace.
-author: qianw211 
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
 ---
 
@@ -62,7 +62,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps. 
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 1. Select your offer, and go to the **Offer setup** tab.
 

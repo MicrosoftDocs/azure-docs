@@ -11,10 +11,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
 ---
 
 # Create video transcript reviews using .NET
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 This article provides information and code samples to help you quickly get started using the [Content Moderator SDK with C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
@@ -201,7 +204,7 @@ You add a transcript to a video review with **ContentModeratorClient.Reviews.Add
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](../../media-services/previous/media-services-index-content.md) from a video.
 
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
@@ -314,7 +317,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 Add the **Main** method definition to namespace VideoTranscriptReviews, class Program. Finally, close the Program class and the VideoTranscriptReviews namespace.
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](../../media-services/previous/media-services-index-content.md) from a video.
 
 ```csharp
 static void Main(string[] args)
@@ -377,5 +380,3 @@ You see the following features:
 Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.
 
 Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) in the review tool.
-
-Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).

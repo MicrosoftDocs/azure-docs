@@ -1,18 +1,15 @@
 ---
 title: Use Apache Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight using Curl.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ---
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Hadoop on Azure HDInsight cluster.
 
@@ -20,7 +17,7 @@ Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Had
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* A REST client. This document uses [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) on Windows PowerShell and [Curl](https://curl.haxx.se/) on [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
+* A REST client. This document uses [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) on Windows PowerShell and [Curl](https://curl.haxx.se/) on [Bash](/windows/wsl/install-win10).
 
 * If you use Bash, you'll also need jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -181,7 +178,7 @@ $clusterName
 
 1. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
-    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) document.
+    You can list and download these files by using the [Azure CLI](/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI with Azure Storage](../../storage/blobs/storage-quickstart-blobs-cli.md) document.
 
 ## Next steps
 

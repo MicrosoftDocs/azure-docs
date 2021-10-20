@@ -1,15 +1,13 @@
 ---
 title: Confidence score - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: A knowledge base must be published. Once published, the knowledge base is queried at the runtime prediction endpoint using the generateAnswer API.
+description: When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -50,7 +48,7 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 - If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give answers for queries like "Where can I edit my KB?"
 
 > [!NOTE]
-> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 ## Set threshold
 
@@ -59,7 +57,7 @@ Set the threshold score as a property of the [GenerateAnswer API JSON body](../h
 From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## Improve confidence scores
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
+To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
 
 
 ## Similar confidence scores
@@ -86,4 +84,3 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 ## Next steps
 > [!div class="nextstepaction"]
 > [Best practices](./best-practices.md)
-

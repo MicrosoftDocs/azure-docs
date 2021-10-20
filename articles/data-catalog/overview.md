@@ -9,6 +9,7 @@ ms.date: 08/01/2019
 ---
 
 # What is Azure Data Catalog?
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Azure Data Catalog is a fully managed cloud service. It lets users discover the data sources they need and understand the data sources they find. At the same time, Data Catalog helps organizations get more value from their existing investments.
 
@@ -61,7 +62,7 @@ To learn more about the capabilities of Data Catalog, see:
 * [How to work with big data](data-catalog-how-to-big-data.md)
 * [How to manage data assets](data-catalog-how-to-manage.md)
 * [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
-* [Frequently asked questions](data-catalog-frequently-asked-questions.md)
+* [Frequently asked questions](data-catalog-frequently-asked-questions.yml)
 
 ## Next steps
 

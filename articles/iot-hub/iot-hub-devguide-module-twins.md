@@ -1,12 +1,13 @@
 ---
 title: Understand Azure IoT Hub module twins | Microsoft Docs
 description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
-author: chrissie926
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
+ms.date: 09/29/2020
+ms.author: nehsin
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and use module twins in IoT Hub
@@ -217,13 +218,13 @@ In addition to these operations, the solution back end can query the module twin
 
 The module app operates on the module twin using the following atomic operations:
 
-* **Retrieve module twin**. This operation returns the module twin document (including tags and desired and reported system properties) for the currently connected module.
+* **Retrieve module twin**. This operation returns the module twin document (including desired and reported system properties) for the currently connected module.
 
 * **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected module. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
 
 * **Observe desired properties**. The currently connected module can choose to be notified of updates to the desired properties when they happen. The module receives the same form of update (partial or full replacement) executed by the solution back end.
 
-All the preceding operations require the **ModuleConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
+All the preceding operations require the **DeviceConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
 
 The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the preceding operations from many languages and platforms.
 
@@ -231,35 +232,45 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* **Keys**: All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
+* **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
-* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
     * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 
-    * String values are UTF-8 encoded and can have a maximum length of 512 bytes.
+    * String values are UTF-8 encoded and can have a maximum length of 4 KB.
 
-* **Depth**: All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+* **Depth**: The maximum depth of JSON objects in tags, desired properties, and reported properties is 10. For example, the following object is valid:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## Module twin size
 

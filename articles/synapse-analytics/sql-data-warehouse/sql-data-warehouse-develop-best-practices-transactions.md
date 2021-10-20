@@ -1,27 +1,27 @@
 ---
 title: Optimizing transactions 
-description: Learn how to optimize the performance of your transactional code in Synapse SQL while minimizing risk for long rollbacks.
+description: Learn how to optimize the performance of your transactional code in dedicated SQL pool while minimizing risk for long rollbacks.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse 
 ---
 
-# Optimizing transactions in Synapse SQL
+# Optimizing transactions in dedicated SQL pool in Azure Synapse Analytics
 
-Learn how to optimize the performance of your transactional code in Synapse SQL while minimizing risk for long rollbacks.
+Learn how to optimize the performance of your transactional code in dedicated SQL pool while minimizing risk for long rollbacks.
 
 ## Transactions and logging
 
-Transactions are an important component of a relational database engine. Transactions are used during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit.
+Transactions are an important component of a relational SQL pool engine. Transactions are used during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit.
 
-Changes to the database are tracked using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
+Changes to the SQL pool are tracked using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
 
 * Use minimal logging constructs whenever possible
 * Process data using scoped batches to avoid singular long running transactions
@@ -74,13 +74,13 @@ CTAS and INSERT...SELECT are both bulk load operations. However, both are influe
 It is worth noting that any writes to update secondary or non-clustered indexes will always be fully logged operations.
 
 > [!IMPORTANT]
-> A Synapse SQL pool database has 60 distributions. Therefore, assuming all rows are evenly distributed and landing in a single partition, your batch will need to contain 6,144,000 rows or larger to be minimally logged when writing to a Clustered Columnstore Index. If the table is partitioned and the rows being inserted span partition boundaries, then you will need 6,144,000 rows per partition boundary assuming even data distribution. Each partition in each distribution must independently exceed the 102,400 row threshold for the insert to be minimally logged into the distribution.
+> A dedicated SQL pool has 60 distributions. Therefore, assuming all rows are evenly distributed and landing in a single partition, your batch will need to contain 6,144,000 rows or larger to be minimally logged when writing to a Clustered Columnstore Index. If the table is partitioned and the rows being inserted span partition boundaries, then you will need 6,144,000 rows per partition boundary assuming even data distribution. Each partition in each distribution must independently exceed the 102,400 row threshold for the insert to be minimally logged into the distribution.
 
 Loading data into a non-empty table with a clustered index can often contain a mixture of fully logged and minimally logged rows. A clustered index is a balanced tree (b-tree) of pages. If the page being written to already contains rows from another transaction, then these writes will be fully logged. However, if the page is empty then the write to that page will be minimally logged.
 
 ## Optimizing deletes
 
-DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](sql-data-warehouse-develop-ctas.md).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](sql-data-warehouse-develop-ctas.md).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -112,7 +112,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## Optimizing updates
 
-UPDATE is a fully logged operation.  If you need to update a large number of rows in a table or a partition, it can often be far more efficient to use a minimally logged operation such as [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to do so.
+UPDATE is a fully logged operation.  If you need to update a large number of rows in a table or a partition, it can often be far more efficient to use a minimally logged operation such as [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to do so.
 
 In the example below a full table update has been converted to a CTAS so that minimal logging is possible.
 
@@ -173,7 +173,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using Synapse SQL pool workload management features. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
+> Re-creating large tables can benefit from using dedicated SQL pool workload management features. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 
 ## Optimizing with partition switching
 
@@ -402,16 +402,16 @@ END
 
 ## Pause and scaling guidance
 
-Synapse SQL lets you [pause, resume, and scale](sql-data-warehouse-manage-compute-overview.md) your SQL pool on demand. When you pause or scale your SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your SQL pool.
+Dedicated SQL pool lets you [pause, resume, and scale](sql-data-warehouse-manage-compute-overview.md) your dedicated SQL pool on demand. When you pause or scale your dedicated SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your dedicated SQL pool.
 
 > [!IMPORTANT]
 > Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations.
 
-The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL pool. However, this scenario might not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
+The best scenario is to let in flight data modification transactions complete prior to pausing or scaling a dedicated SQL pool. However, this scenario might not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
 
-* Rewrite long running operations using [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Rewrite long running operations using [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
 
-See [Transactions in Synapse SQL](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](sql-data-warehouse-best-practices.md).
+See [Transactions in dedicated SQL pool](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [Dedicated SQL pool best practices](../sql/best-practices-dedicated-sql-pool.md).

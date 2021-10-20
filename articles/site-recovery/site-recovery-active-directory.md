@@ -20,7 +20,7 @@ This article explains how to create a disaster recovery solution for Active Dire
 ## Prerequisites
 
 - If you're replicating to Azure, [prepare Azure resources](tutorial-prepare-azure.md), including a subscription, an Azure Virtual Network, a storage account, and a Recovery Services vault.
-- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
+- Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
 
 ## Replicate the domain controller
 
@@ -174,7 +174,7 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 
 ### DNS and domain controller on different machines
 
-If you're running the domain controller and DNs on the same VM, you can skip this procedure.
+If you're running the domain controller and DNS on the same VM, you can skip this procedure.
 
 If DNS isn't on the same VM as the domain controller, you need to create a DNS VM for the test failover. You can use a fresh DNS server, and create all the required zones. For example, if your Active Directory domain is `contoso.com`, you can create a DNS zone with the name `contoso.com`. The entries that correspond to Active Directory must be updated in DNS as follows:
 

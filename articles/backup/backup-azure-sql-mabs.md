@@ -2,11 +2,25 @@
 title: Back up SQL Server by using Azure Backup Server
 description: In this article, learn the configuration to back up SQL Server databases by using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 07/28/2021
 ---
 # Back up SQL Server to Azure by using Azure Backup Server
 
-This article helps you set up backups of SQL Server databases by using Microsoft Azure Backup Server (MABS).
+Microsoft Azure Backup Server (MABS) provides backup and recovery for SQL Server databases. In addition to backing up SQL Server databases, you can run a system backup or full bare-metal backup of the SQL Server computer. Here's what MABS can protect:
+
+- A standalone SQL Server instance
+- A SQL Server Failover Cluster Instance (FCI)
+
+>[!Note]
+>MABS v3 UR2 supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV).
+>
+>Protection of SQL Server FCI with Storage Spaces Direct on Azure, and SQL Server FCI with Azure shared disks is supported with this feature. The DPM server must be deployed in the Azure Virtual Machine to protect the SQL FCI instance, deployed on the Azure VMs.
+>
+>A SQL Server AlwaysOn availability group with theses preferences:
+>- Prefer Secondary
+>- Secondary only
+>- Primary
+>- Any Replica
 
 To back up a SQL Server database and recover it from Azure:
 
@@ -14,9 +28,37 @@ To back up a SQL Server database and recover it from Azure:
 1. Create on-demand backup copies in Azure.
 1. Recover the database in Azure.
 
+## Prerequisites and limitations
+
+* If you have a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
+* MABS can't protect databases that are stored on remote SMB shares.
+* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
+* You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
+* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) feature enabled.
+* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream) feature enabled.
+* Protection for SQL Server AlwaysOn:
+  * MABS detects Availability Groups when running inquiry at protection group creation.
+  * MABS detects a failover and continues protection of the database.
+  * MABS supports multi-site cluster configurations for an instance of SQL Server.
+* When you protect databases that use the AlwaysOn feature, MABS has the following limitations:
+  * MABS will honor the backup policy for availability groups that's set in SQL Server based on the backup preferences, as follows:
+    * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
+    * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
+    * Primary - Backups should always occur on the primary replica.
+    * Any Replica - Backups can happen on any of the availability replicas in the availability group. The node to be backed up from will be based on the backup priorities for each of the nodes.
+  * Note the following:
+    * Backups can happen from any readable replica -  that is, primary, synchronous secondary, asynchronous secondary.
+    * If any replica is excluded from backup, for example **Exclude Replica** is enabled or is marked as not readable, then that replica won't be selected for backup under any of the options.
+    * If multiple replicas are available and readable, then the node with the highest backup priority will be selected for backup.
+    * If the backup fails on the selected node, then the backup operation fails.
+    * Recovery to the original location isn't supported.
+* SQL Server 2014 or above backup issues:
+  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS can't be used to protect this configuration.
+  * There are some known issues with "Prefer secondary" backup preference for the SQL AlwaysOn option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
+
 ## Before you start
 
-Before you begin, ensure that you have [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+Before you begin, ensure that you've [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## Create a backup policy
 
@@ -146,4 +188,4 @@ To recover a protected entity, such as a SQL Server database, from Azure:
 
 ### Next steps
 
-For more information, see [Azure Backup FAQ](backup-azure-backup-faq.md).
+For more information, see [Azure Backup FAQ](backup-azure-backup-faq.yml).

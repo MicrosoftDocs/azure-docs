@@ -1,12 +1,14 @@
 ---
-title: "Quickstart: Query for prediction with browser - LUIS"
-description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text in a browser.
+title: "How to query for predictions using a browser - LUIS"
+description: In this article, use an available public LUIS app to determine a user's intention from conversational text in a browser.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/21/2020
+ms.date: 03/26/2021
 #Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
-# Quickstart: Query prediction runtime with user text
+# How to query the prediction runtime with user text
 
 To understand what a LUIS prediction endpoint returns, view a prediction result in a web browser.
 
@@ -15,7 +17,7 @@ To understand what a LUIS prediction endpoint returns, view a prediction result 
 In order to query a public app, you need:
 
 * Your Language Understanding (LUIS) resource information:
-    * **Prediction key** - which can be obtained from [LUIS Portal](https://www.luis.ai/). If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/).
+    * **Prediction key** - which can be obtained from [LUIS Portal](https://www.luis.ai/). If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/cognitive-services).
     * **Prediction endpoint subdomain** - the subdomain is also the **name** of your LUIS resource.
 * A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
@@ -170,4 +172,4 @@ Learn more about:
 * [Custom subdomains](../cognitive-services-custom-subdomains.md)
 
 > [!div class="nextstepaction"]
-> [Create an app in the LUIS portal](get-started-portal-build-app.md)
+> [Use the client libraries or REST API](client-libraries-rest-api.md)

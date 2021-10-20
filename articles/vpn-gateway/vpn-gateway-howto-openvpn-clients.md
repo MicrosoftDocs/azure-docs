@@ -1,12 +1,13 @@
 ---
-title: 'How to configure OpenVPN Clients for Azure VPN Gateway| Microsoft Docs'
-description: Steps to configure OpenVPN Clients for Azure VPN Gateway
+title: 'How to configure OpenVPN clients for P2S VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: Learn how to configure OpenVPN clients for Azure VPN Gateway. This article helps you configure Windows, Linux, iOS, and Mac clients.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 12/12/2019
+ms.topic: how-to
+ms.date: 07/27/2021
 ms.author: cherylmc
 
 ---
@@ -17,6 +18,12 @@ This article helps you configure **OpenVPN &reg; Protocol** clients.
 ## Before you begin
 
 Verify that you have completed the steps to configure OpenVPN for your VPN gateway. For details, see [Configure OpenVPN for Azure VPN Gateway](vpn-gateway-howto-openvpn.md).
+
+## VPN client configuration files
+
+You can generate and download the VPN client configuration files from the portal, or by using PowerShell. Either method returns the same zip file. Unzip the file to view the OpenVPN folder.
+
+:::image type="content" source="./media/howto-openvpn-clients/download.png" alt-text="Screenshot of Download VPN client highlighted." :::
 
 [!INCLUDE [configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-clients.md)]
 

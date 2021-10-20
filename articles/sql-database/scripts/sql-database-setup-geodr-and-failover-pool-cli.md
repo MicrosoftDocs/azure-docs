@@ -4,12 +4,12 @@ description: Azure CLI example script to set up active geo-replication for a poo
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: carlrab
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use CLI to configure active geo-replication for a pooled database in Azure SQL Database
@@ -47,7 +47,7 @@ az group delete --name $secondaryResource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Elastic pool commands |
 | [az sql db replica](/cli/azure/sql/db/replica) | Database replication commands. |

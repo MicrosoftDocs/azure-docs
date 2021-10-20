@@ -12,7 +12,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -198,6 +198,5 @@ Directly below the bar chart, the following information will be listed for the t
 ## See also
 * [Azure CDN Overview](cdn-overview.md)
 * [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Overriding default HTTP behavior using the rules engine](./cdn-verizon-premium-rules-engine.md)
 * [Analyze Edge Performance](cdn-edge-performance.md)
-

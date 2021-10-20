@@ -12,7 +12,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -71,14 +71,16 @@ On Azure CDN Standard from Microsoft, you can create a rule in the [Standard rul
 On **Azure CDN Standard from Akamai**, the only mechanism to allow for multiple origins without the use of the wildcard origin is to use [query string caching](cdn-query-string.md). Enable the query string setting for the CDN endpoint and then use a unique query string for requests from each allowed domain. Doing so will result in the CDN caching a separate object for each unique query string. This approach is not ideal, however, as it will result in multiple copies of the same file cached on the CDN.  
 
 ### Azure CDN Premium from Verizon
-Using the Verizon Premium rules engine, You'll need to [create a rule](cdn-rules-engine.md) to check the **Origin** header on the request.  If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the origin provided in the request.  If the origin specified in the **Origin** header is not allowed, your rule should omit the **Access-Control-Allow-Origin** header, which will cause the browser to reject the request. 
+Using the Verizon Premium rules engine, You'll need to [create a rule](./cdn-verizon-premium-rules-engine.md) to check the **Origin** header on the request.  If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the origin provided in the request.  If the origin specified in the **Origin** header is not allowed, your rule should omit the **Access-Control-Allow-Origin** header, which will cause the browser to reject the request. 
 
 There are two ways to do this with the Premium rules engine. In both cases, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the CDN's rules engine completely manages the allowed CORS origins.
 
 #### One regular expression with all valid origins
 In this case, you'll create a regular expression that includes all of the origins you want to allow: 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > **Azure CDN Premium from Verizon** uses [Perl Compatible Regular Expressions](https://pcre.org/) as its engine for regular expressions.  You can use a tool like [Regular Expressions 101](https://regex101.com/) to validate your regular expression.  Note that the "/" character is valid in regular expressions and doesn't need to be escaped, however, escaping that character is considered a best practice and is expected by some regex validators.
@@ -97,7 +99,4 @@ Rather than regular expressions, you can instead create a separate rule for each
 > [!TIP]
 > In the example above, the use of the wildcard character * tells the rules engine to match both HTTP and HTTPS.
 > 
-> 
-
-
-
+>

@@ -3,14 +3,14 @@ title: Move resources to new region
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Learn how to move your database or managed instance to another region.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+ms.topic: how-to
+author: rothja
+ms.author: jroth
+ms.reviewer:
 ms.date: 06/25/2019
 ---
 
@@ -35,6 +35,9 @@ This article provides a general workflow for moving resources to a different reg
 > [!NOTE]
 > This article applies to migrations within the Azure public cloud or within the same sovereign cloud.
 
+> [!NOTE]
+> To move Azure SQL databases and elastic pools to a different Azure region, you can also use Azure Resource Mover (in preview). Refer [this tutorial](../../resource-mover/tutorial-move-region-sql.md) for detailed steps to do the same.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Move a database
@@ -44,7 +47,13 @@ This article provides a general workflow for moving resources to a different reg
 1. Create a target server for each source server.
 1. Configure the firewall with the right exceptions by using [PowerShell](scripts/create-and-configure-database-powershell.md).  
 1. Configure the servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
-1. If your databases are encrypted with transparent data encryption and use your own encryption key in Azure Key Vault, ensure that the correct encryption material is provisioned in the target regions. For more information, see [Azure SQL transparent data encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+1. If your databases are encrypted with transparent data encryption (TDE) and bring your own encryption key (BYOK or Customer-Managed Key) in Azure Key Vault, ensure that the correct encryption material is provisioned in the target regions. 
+    - The simplest way to do this is to add the encryption key from the existing key vault (that is being used as TDE Protector on source server) to the target server and then set the key as the TDE Protector on the target server
+      > [!NOTE]
+      > A server or managed instance in one region can now be connected to a key vault in any other region.
+    - As a best practice to ensure the target server has access to older encryption keys (required for restoring database backups), run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet on the source server or [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) cmdlet on the source managed instance to return the list of available keys and add those keys to the target server.
+    - For more information and best practices on configuring customer-managed TDE on the target server, see [Azure SQL transparent data encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+    - To move the key vault to the new region, see [Move an Azure key vault across regions](../../key-vault/general/move-region.md) 
 1. If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require the cross-region traffic, which isn't desired or possible after the move.
 1. For server-level audits, ensure that:
    - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
@@ -165,7 +174,7 @@ Replication of all databases on each instance will be initiated automatically. F
 
 ### Monitor the preparation process
 
-You can periodically call [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) to monitor replication of your databases from the source to the target. The output object of `Get-AzSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**:
+You can periodically call [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) to monitor replication of your databases from the source to the target. The output object of `Get-AzSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) indicates the database is synchronized and can be safely failed over.
 - **ReplicationState = 0** (SEEDING) indicates that the database isn't yet seeded, and an attempt to fail over will fail.
@@ -177,7 +186,7 @@ Once **ReplicationState** is `2`, connect to each database, or subset of databas
 ### Initiate the move
 
 1. Connect to the target managed instance by using the secondary endpoint `<fog-name>.secondary.database.windows.net`.
-1. Use [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) to switch the secondary managed instance to be the primary with full synchronization. This operation will succeed, or it will roll back.
+1. Use [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) to switch the secondary managed instance to be the primary with full synchronization. This operation will succeed, or it will roll back.
 1. Verify that the command has completed successfully by using `nslook up <fog-name>.secondary.database.windows.net` to ascertain that the DNS CNAME entry points to the target region IP address. If the switch command fails, the CNAME won't be updated.
 
 ### Remove the source managed instances

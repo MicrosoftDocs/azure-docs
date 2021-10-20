@@ -2,11 +2,11 @@
 title: Authentication - Data Lake Storage Gen1 with Azure AD
 description: Learn how to authenticate with Azure Data Lake Storage Gen1 using Azure Active Directory.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
@@ -36,11 +36,9 @@ The following table illustrates how end-user and service-to-service authenticati
 <i>* Click the <b>✔\*</b> symbol. It's a link.</i><br>
 <i>** MFA stands for multi-factor authentication</i>
 
-See  [Authentication Scenarios for Azure Active Directory](../active-directory/develop/authentication-scenarios.md) for more information on how to use Azure Active Directory for authentication.
+See  [Authentication Scenarios for Azure Active Directory](../active-directory/develop/authentication-vs-authorization.md) for more information on how to use Azure Active Directory for authentication.
 
 ## Next steps
 
 * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Service-to-service authentication](data-lake-store-service-to-service-authenticate-using-active-directory.md)
-
-

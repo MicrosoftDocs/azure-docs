@@ -1,15 +1,15 @@
 ---
-title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
+title: ClaimsTransformations - Azure Active Directory B2C  
 description: Definition of the ClaimsTransformations element in the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -111,13 +111,13 @@ The **OutputClaim** element contains the following attributes:
 | ClaimTypeReferenceId | Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy.
 | TransformationClaimType | Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
 
-If input claim and the output claim are the same type (string, or boolean), you can use the same input claim as the output claim. In this case, the claims transformation changes the input claim with the output value.
+Input and output claims used in claims transformation need to be distinct. The same input claim cannot be used as the output claim.
 
 ## Example
 
 For example, you may store the last version of your terms of services that the user accepted. When you update the terms of services, you can ask the user to accept the new version. In the following example, the **HasTOSVersionChanged** claims transformation compares the value of the **TOSVersion** claim with the value of the **LastTOSAcceptedVersion** claim and then returns the boolean **TOSVersionChanged** claim.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="TOSVersionChanged">

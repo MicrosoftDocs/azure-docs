@@ -2,10 +2,11 @@
 title: Determine what Azure reservation you should purchase
 description: This article helps you determine which reservation you should purchase.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 09/20/2021
 ms.author: banders
 ---
 
@@ -33,7 +34,7 @@ To narrow down to eligible VM usage, apply the following filters on your usage d
 
 Ignore resources that have less than 24 hours of usage in a day.
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 
@@ -46,7 +47,7 @@ To narrow eligible usage, apply follow filters on your usage data:
 - Filter **MeterName** for **vCore**.
 - Filter **MeterSubCategory** for all usage records that have _Compute_ in the name.
 
-From **AdditionalInfo** , get the **vCores** value. It tells you how many vCores were used. The quantity is **vCores** multiplied by the number of hours the database was used.
+From **AdditionalInfo**, get the **vCores** value. It tells you how many vCores were used. The quantity is **vCores** multiplied by the number of hours the database was used.
 
 The data informs you about the consistent usage for:
 
@@ -80,6 +81,7 @@ Note the following points:
 - Recommendations are calculated for individual sizes, not for the instance size family.
 - The recommended quantity for a scope is reduced on the same day that you purchase reservations for the scope.
     - However, an update for the reservation quantity recommendation across scopes can take up to 25 days. For example, if you purchase based on shared scope recommendations, the single subscription scope recommendations can take up to 25 days to adjust down.
+- Currently, Azure doesn't generate recommendations for the management group scope.
 
 ## Recommendations in the Azure portal
 
@@ -87,9 +89,11 @@ Reservation purchases calculated by the recommendations engine are shown on the 
 
 ![Image showing recommendations](./media/determine-reservation-purchase/select-product-ri.png)
 
+Learn more about [recommendations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
+
 ## Recommendations in the Cost Management Power BI app
 
-Enterprise Agreement and Microsoft Customer Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
+Enterprise Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
 
 1. Get the [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 2. Go to the VM RI Coverage report – Shared or Single scope, depending on which scope you want to purchase at.

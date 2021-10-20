@@ -3,16 +3,18 @@ title: Create SQL Server on a Windows virtual machine with Azure PowerShell | Mi
 description: This tutorial shows how to use Azure PowerShell to create a Windows virtual machine running SQL Server 2017.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create SQL Server on a Windows virtual machine with Azure PowerShell
@@ -23,7 +25,7 @@ This quickstart steps through creating a SQL Server virtual machine (VM) with Az
 
 > [!TIP]
 > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](create-sql-vm-powershell.md).
-> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -143,13 +145,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!TIP]
    > It takes several minutes to create the VM.
 
-## Install the SQL IaaS Agent
+## Register with SQL VM RP 
 
-To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To install the agent on the new VM, run the following command after the VM is created.
+To get portal integration and SQL VM features, you must register with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+To get full functionality, you need to register with the extension in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode). Otherwise, register in lightweight mode. 
+
 
 ## Remote desktop into the VM
 

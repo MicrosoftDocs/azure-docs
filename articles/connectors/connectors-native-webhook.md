@@ -3,26 +3,28 @@ title: Wait and respond to events
 description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 08/27/2020
 tags: connectors
 ---
 
 # Create and run automated event-based workflows by using HTTP webhooks in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP Webhook connector, you can automate workflows that wait and run based on specific events that happen at an HTTP or HTTPS endpoint by building logic apps. For example, you can create a logic app that monitors a service endpoint by waiting for a specific event before triggering the workflow and running the specified actions, rather than regularly checking or *polling* that endpoint.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP Webhook connector, you can create automated tasks and workflows that subscribe to a service endpoint, wait for specific events, and run based on those events, rather than regularly checking or *polling* that endpoint.
 
-Here are some example event-based workflows:
+Here are some example webhook-based workflows:
 
 * Wait for an item to arrive from an [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) before triggering a logic app run.
 * Wait for an approval before continuing a workflow.
 
+This article shows how to use the Webhook trigger and Webhook action so that your logic app can receive and respond to events at a service endpoint.
+
 ## How do webhooks work?
 
-An HTTP webhook trigger is event-based, which doesn't depend on checking or polling regularly for new items. When you save a logic app that starts with a webhook trigger, or when you change your logic app from disabled to enabled, the webhook trigger *subscribes* to a specific service or endpoint by registering a *callback URL* with that service or endpoint. The trigger then waits for that service or endpoint to call the URL, which starts running the logic app. Similar to the [Request trigger](connectors-native-reqres.md), the logic app fires immediately when the specified event happens. The trigger *unsubscribes* from the service or endpoint if you remove the trigger and save your logic app, or when you change your logic app from enabled to disabled.
+A webhook trigger is event-based, which doesn't depend on checking or polling regularly for new items. When you save a logic app that starts with a webhook trigger, or when you change your logic app from disabled to enabled, the webhook trigger *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. The trigger then waits for that service endpoint to call the URL, which starts running the logic app. Similar to the [Request trigger](connectors-native-reqres.md), the logic app fires immediately when the specified event happens. The webhook trigger *unsubscribes* from the service endpoint if you remove the trigger and save your logic app, or when you change your logic app from enabled to disabled.
 
-An HTTP webhook action is also event-based and *subscribes* to a specific service or endpoint by registering a *callback URL* with that service or endpoint. The webhook action pauses the logic app's workflow and waits until the service or endpoint calls the URL before the logic app resumes running. The action logic app *unsubscribes* from the service or endpoint in these cases:
+A webhook action is also event-based and *subscribes* to the specified service endpoint by registering a *callback URL* with that endpoint. The webhook action pauses the logic app's workflow and waits until the service endpoint calls the URL before the logic app resumes running. The webhook action *unsubscribes* from the service endpoint in these cases:
 
 * When the webhook action successfully finishes
 * If the logic app run is canceled while waiting for a response
@@ -30,30 +32,16 @@ An HTTP webhook action is also event-based and *subscribes* to a specific servic
 
 For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
 
-> [!NOTE]
-> Logic Apps enforces Transport Layer Security (TLS) 1.2 when 
-> receiving the call back to the HTTP webhook trigger or action. 
-> If you see TLS handshake errors, make sure that you use TLS 1.2. 
-> For incoming calls, here are the supported cipher suites:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-
 For more information, see these topics:
 
-* [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks and subscriptions](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Create custom APIs that support a webhook](../logic-apps/logic-apps-create-api-app.md)
 
+For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) as appropriate
 
@@ -145,20 +133,16 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
    Now, when this action runs, your logic app calls the subscribe endpoint on the target service and registers the callback URL. The logic app then pauses the workflow and waits for the target service to send an `HTTP POST` request to the callback URL. When this event happens, the action passes any data in the request along to the workflow. If the operation completes successfully, the action unsubscribes from the endpoint, and your logic app continues running the remaining workflow.
 
-## Connector reference
-
-For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-### Output details
+## Trigger and action outputs
 
 Here is more information about the outputs from an HTTP Webhook trigger or action, which returns this information:
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | headers | object | The headers from the request |
-| body | object | JSON object | The object with the body content from the request |
+| body | object | The object with the body content from the request |
 | status code | int | The status code from the request |
-|||
+||||
 
 | Status code | Description |
 |-------------|-------------|
@@ -171,6 +155,11 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | 500 | Internal server error. Unknown error occurred. |
 |||
 
+## Connector reference
+
+For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Connectors for Logic Apps](../connectors/apis-list.md)

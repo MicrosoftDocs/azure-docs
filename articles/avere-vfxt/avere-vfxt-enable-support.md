@@ -1,9 +1,9 @@
 ---
 title: Enable support for Avere vFXT - Azure
-description: How to enable support uploads from Avere vFXT for Azure
+description: Learn how to enable automatic upload of support data about your cluster from Avere vFXT for Azure to help Support provide customer service.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ---

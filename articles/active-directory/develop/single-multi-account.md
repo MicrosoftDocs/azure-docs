@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: shoatman
 ---
 
@@ -113,7 +113,7 @@ Use one or more accounts in your application by calling `acquireToken` one or mo
 - Call `getAccount` to get a specific account.
 - Call `getAccounts`to get a list of accounts currently known to the app.
 
-Your app won't be able to enumerate all Microsoft identity platform accounts on the device known to the broker app. It can only enumerate accounts that have been used by your app.  Accounts that have been removed from the device won't be returned by these functions.
+Your app won't be able to enumerate all the Microsoft identity platform accounts on the device known to the broker app. It can only enumerate accounts that have been used by your app.  Accounts that have been removed from the device won't be returned by these functions.
 
 ### Remove an account
 

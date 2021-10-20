@@ -9,7 +9,6 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.custom: sfrev
 ---
 
 # Update the RDP port range values
@@ -18,7 +17,7 @@ This sample script changes the RDP port range values on the cluster node VMs aft
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview).
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/).
 
 ## Sample script
 
@@ -35,6 +34,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

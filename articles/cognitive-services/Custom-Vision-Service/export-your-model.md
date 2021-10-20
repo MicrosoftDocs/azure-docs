@@ -3,14 +3,14 @@ title: Export your model to mobile - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to export your model for use in creating mobile applications or run locally for real-time classification.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.author: anroth
+ms.author: pafarley
 ---
 
 # Export your model for use with mobile devices
@@ -22,8 +22,9 @@ Custom Vision Service allows classifiers to be exported to run offline. You can 
 Custom Vision Service supports the following exports:
 
 * __Tensorflow__ for __Android__.
+* **TensorflowJS** for JavaScript frameworks like React, Angular, and Vue. This will run on both **Android** and **iOS** devices.
 * __CoreML__ for __iOS11__.
-* __ONNX__ for __Windows ML__.
+* __ONNX__ for __Windows ML__, **Android**, and **iOS**.
 * __[Vision AI Developer Kit](https://azure.github.io/Vision-AI-DevKit-Pages/)__.
 * A __Docker container__ for Windows, Linux, or ARM architecture. The container includes a Tensorflow model and service code to use the Custom Vision API.
 

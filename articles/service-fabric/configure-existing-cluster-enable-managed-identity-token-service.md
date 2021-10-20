@@ -3,7 +3,6 @@ title: Configure managed identity support in an existing Service Fabric cluster
 description: Here's how to enable managed identities support in an existing Azure Service Fabric cluster
 ms.topic: article
 ms.date: 03/11/2019
-ms.custom: sfrev
 ---
 
 # Configure managed identity support in an existing Service Fabric cluster
@@ -35,7 +34,7 @@ To enable the Managed Identity Token Service in an existing cluster, you will ne
 ]
 ```
 
-In order for the changes to take effect, you will also need to change the upgrade policy to specify a forceful restart of the Service Fabric runtime on each node as the upgrade progresses through the cluster. This restart ensures that the newly enabled system service is started and running on each node. In the snippet below, `forceRestart` is the essential setting to enable restart. For the remaining parameters, use values described below or use existing custom values already specified for the cluster resource. Custom settings for Fabric Upgrade Policy ('upgradeDescription') can be viewed from Azure Portal by selecting 'Fabric Upgrades' option on the Service Fabric resource or resources.azure.com. Default options for the upgrade policy ('upgradeDescription') are not viewable from powershell or resources.azure.com. See [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) for additional information.  
+In order for the changes to take effect, you will also need to change the upgrade policy to specify a forceful restart of the Service Fabric runtime on each node as the upgrade progresses through the cluster. This restart ensures that the newly enabled system service is started and running on each node. In the snippet below, `forceRestart` is the essential setting to enable restart. For the remaining parameters, use values described below or use existing custom values already specified for the cluster resource. Custom settings for Fabric Upgrade Policy ('upgradeDescription') can be viewed from Azure Portal by selecting 'Fabric Upgrades' option on the Service Fabric resource or resources.azure.com. Default options for the upgrade policy ('upgradeDescription') are not viewable from powershell or resources.azure.com. See [ClusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy) for additional information.  
 
 ```json
 "upgradeDescription": {

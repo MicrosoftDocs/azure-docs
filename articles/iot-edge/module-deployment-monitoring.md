@@ -1,16 +1,18 @@
 ---
 title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs 
 description: Use automatic deployments in Azure IoT Edge to manage groups of devices based on shared tags
-author: kgremban
-manager: philmea
-ms.author: kgremban
-ms.date: 01/30/2020
+author: anastasia-ms
+
+ms.author: v-stharr
+ms.date: 10/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
 # Understand IoT Edge automatic deployments for single devices or at scale
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices.
 
@@ -64,7 +66,7 @@ Examples of target conditions:
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 * properties.reported.devicemodel = '4000x'
 
 Consider these constraints when you construct a target condition:
@@ -72,7 +74,8 @@ Consider these constraints when you construct a target condition:
 * In device twin, you can only build a target condition using tags, reported properties, or deviceId.
 * Double quotes aren't allowed in any portion of the target condition. Use single quotes.
 * Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it's part of the device name. For example, to target a device called `operator'sDevice`, write `deviceId='operator''sDevice'`.
-* Numbers, letters, and the following characters are allowed in target condition values: `-:.+%_#*?!(),=@;$`.
+* Numbers, letters, and the following characters are allowed in target condition values: `“()<>@,;:\\"/?={} \t\n\r`.
+* The following characters are not allowed in target condition keys:`/;`.
 
 ### Priority
 

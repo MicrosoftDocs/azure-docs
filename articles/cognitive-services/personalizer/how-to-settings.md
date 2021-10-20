@@ -1,6 +1,11 @@
 ---
 title: Configure Personalizer
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 04/29/2020
 ---

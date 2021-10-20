@@ -1,8 +1,10 @@
 ---
 title: What's New - Language Understanding (LUIS)
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 04/07/2021
 ---
 
 # What's new in Language Understanding
@@ -11,11 +13,37 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### August 2021
+* Norway East [publishing region](luis-reference-regions.md#publishing-to-europe).
+* West US 3 [publishing region](luis-reference-regions.md#other-publishing-regions).
+
+### April 2021
+
+* Switzerland North [authoring region](luis-reference-regions.md#publishing-to-europe).
+
+### January 2021
+
+* The V3 prediction API now supports the [Bing Spellcheck API](luis-tutorial-bing-spellcheck.md).
+* The regional portals (au.luis.ai and eu.luis.ai) have been consolidated into a single portal and URL. If you were using one of these portals, you will be automatically re-directed to luis.ai.
+
+### December 2020
+
+* All LUIS users are required to [migrate to a LUIS authoring resource](luis-migration-authoring.md)
+* New [evaluation endpoints](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) that allow you to submit batch tests using the REST API, and get accuracy results for your intents and entities. Available starting with the v3.0-preview LUIS Endpoint.
+
 ### June 2020
 
 * [Preview 3.0 Authoring](luis-migration-authoring-entities.md) SDK -
     * Version 3.2.0-preview.3 - [.NET - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * Version 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* Applying DevOps practices with LUIS
+    * Concepts
+        * [DevOps practices for LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Continuous Integration and Continuous Delivery workflows for LUIS DevOps](luis-concept-devops-automation.md)
+        * [Testing for LUIS DevOps](luis-concept-devops-testing.md)
+    * How-to
+        * [Apply DevOps to LUIS app development using GitHub Actions](./luis-concept-devops-automation.md)
+    * [Complete code GitHub repo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### May 2020 - //Build
 
@@ -31,7 +59,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 * New resources for developers
     * [Continuous integration tools](developer-reference-resource.md#continuous-integration-tools)
     * Workshop - learn best practices for [_Natural Language Understanding_ (NLU) using LUIS](developer-reference-resource.md#workshops)
-* [Customer managed keys](luis-encryption-of-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
+* [Customer managed keys](./encrypt-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
 * [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
 
 

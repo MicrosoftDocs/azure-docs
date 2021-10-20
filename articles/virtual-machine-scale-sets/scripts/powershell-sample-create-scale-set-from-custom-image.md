@@ -1,14 +1,14 @@
 ---
 title: Azure PowerShell Samples - Use a custom VM image
 description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
-author: axayjo
-ms.author: akjosh
+author: mamccrea
+ms.author: mamccrea
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
-ms.custom: akjosh
+ms.custom: akjosh, devx-track-azurepowershell
 
 ---
 
@@ -39,4 +39,4 @@ This script uses the following commands to create the deployment. Each item in t
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

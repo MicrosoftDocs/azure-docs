@@ -1,18 +1,19 @@
 ---
-title: Azure CLI samples - Azure Database for PostgreSQL - Single Server
+title: Azure CLI samples - Azure Database for PostgreSQL - Single Server | Microsoft Docs
 description: This article lists several Azure CLI code samples available for interacting with Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: sample, mvc
-ms.date: 5/6/2019
+ms.custom: sample, mvc, devx-track-azurecli, seo-azure-cli
+ms.date: 09/17/2021
+keywords: azure cli samples, azure cli code samples, azure cli script samples
 ---
 # Azure CLI samples for Azure Database for PostgreSQL - Single Server
 The following table includes links to sample Azure CLI scripts for Azure Database for PostgreSQL.
 
-| |  |
+| Sample link | Description |
 |---|---|
 |**Create a server**||
 | [Create a server and firewall rule](scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. |

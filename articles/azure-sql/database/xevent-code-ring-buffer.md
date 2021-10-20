@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+ms.topic: sample
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
 ms.date: 12/19/2018
 ---
 # Ring Buffer target code for extended events in Azure SQL Database
@@ -17,7 +17,7 @@ ms.date: 12/19/2018
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](https://msdn.microsoft.com/library/ff878182.aspx).
+You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 This topic presents a Transact-SQL code sample that:
 
@@ -39,12 +39,12 @@ This topic presents a Transact-SQL code sample that:
 
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.
-  
+
   * Optionally you can [create an **AdventureWorksLT** demonstration database](single-database-create-quickstart.md) in minutes.
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
   You can download the latest ssms.exe from:
-  
-  * Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+  * Topic titled [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## Code sample
@@ -220,7 +220,7 @@ The output is shown in the following block. It looks long, but it is just two **
 
 &nbsp;
 
-```
+```xml
 <RingBufferTarget truncated="0" processingTime="0" totalEventsProcessed="2" eventCount="2" droppedCount="0" memoryUsed="1728">
   <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T15:29:31.317Z">
     <data name="state">
@@ -343,6 +343,6 @@ Other code sample topics for extended events are available at the following link
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

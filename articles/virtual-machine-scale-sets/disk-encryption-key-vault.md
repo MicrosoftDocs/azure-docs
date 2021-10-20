@@ -12,9 +12,11 @@ ms.custom: mimckitt
 
 ---
 
-# Creating and configuring a key vault for Azure Disk Encryption
+# Create and configure a key vault for Azure Disk Encryption
 
-Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md) and [Secure your key vault](../key-vault/general/secure-your-key-vault.md).
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
+Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/general/overview.md) and [Secure your key vault](../key-vault/general/secure-your-key-vault.md).
 
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
 
@@ -28,11 +30,11 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
 ### Connect to your Azure account
 
-Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Signing in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), or supplying your credentials to the Azure portal when prompted.
+Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure PowerShell](/powershell/azure/authenticate-azureps), or supplying your credentials to the Azure portal when prompted.
 
 ```azurecli-interactive
 az login
@@ -49,3 +51,4 @@ Connect-AzAccount
 - [Azure Disk Encryption overview](disk-encryption-overview.md)
 - [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
 - [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
+

@@ -5,21 +5,23 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 03/27/2019
+ms.date: 07/13/2021
 ms.author: cephalin
 ms.custom: "include file"
 ---
 
-You can access the console logs generated from inside the container. First, turn on container logging by running the following command in the Cloud Shell:
+To access the console logs generated from inside your application code in App Service, turn on diagnostics logging by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --resource-group <resource-group-name> --name <app-name> --docker-container-logging filesystem --level Verbose
 ```
 
-Once container logging is turned on, run the following command to see the log stream:
+Possible values for `--level` are: `Error`, `Warning`, `Info`, and `Verbose`. Each subsequent level includes the previous level. For example: `Error` includes only error messages, and `Verbose` includes all messages.
+
+Once diagnostic logging is turned on, run the following command to see the log stream:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
 If you don't see console logs immediately, check again in 30 seconds.

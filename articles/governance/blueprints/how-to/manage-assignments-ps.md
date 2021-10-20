@@ -1,7 +1,7 @@
 ---
 title: How to manage assignments with PowerShell
 description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
-ms.date: 05/06/2020
+ms.date: 08/17/2021
 ms.topic: how-to
 ---
 # How to manage assignments with PowerShell
@@ -14,7 +14,7 @@ on existing blueprint definitions. This article covers how to install the module
 
 To enable Azure PowerShell to manage blueprint assignments, the module must be added. This module
 can be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
-with the [Azure PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
+with the [Azure PowerShell Docker image](/powershell/azure/azureps-in-docker).
 
 ### Base requirements
 
@@ -434,4 +434,5 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

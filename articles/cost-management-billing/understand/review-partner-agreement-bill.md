@@ -5,13 +5,15 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.subservice: billing
+ms.topic: tutorial
+ms.date: 10/07/2021
 ms.author: banders
 ---
+
 # Tutorial: Review your Microsoft Partner Agreement invoice
 
- In the billing account for a Microsoft Partner Agreement, an invoice is generated every month for each billing profile. The invoice includes all customer charges from the previous month. You can understand the charges on your invoice by analyzing the individual transactions in the Azure portal. You can also view your invoices in the Azure portal and compare the charges to the usage detail file.
+In the billing account for a Microsoft Partner Agreement, an invoice is generated every month for each billing profile. The invoice includes all customer charges from the previous month. You can understand the charges on your invoice by analyzing the individual transactions in the Azure portal. You can also view your invoices in the Azure portal and compare the charges to the usage detail file.
 
 For more information, see [how to download invoices from the Azure portal](download-azure-invoice.md).
 
@@ -63,7 +65,7 @@ The All transactions page displays the following information:
 |Date     | The date of transaction  |
 |Invoice ID     | The identifier for the invoice on which the transaction got billed. If you submit a support request, share the ID with Azure support to expedite your support request |
 |Transaction type     |  The type of transaction like purchase, cancel, and usage charges  |
-|Product family     | The category of product like compute for Virtual machines or database for Azure SQL database|
+|Product family     | The category of product like compute for Virtual machines or database for Azure SQL Database|
 |Product SDKU     | A unique code identifying the instance of your product |
 |Amount     |  The amount of transaction      |
 |Billing profile     | The transaction shows up on this billing profile's invoice |
@@ -125,7 +127,7 @@ In this tutorial, you learned how to:
 > * Review pending charges to estimate your next invoice
 > * Analyze your Azure usage charges
 
-Learn about using Azure Cost Management for partners.
+Learn about using Cost Management for partners.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cost Management for partners](../costs/get-started-partners.md)
+> [Get started with Cost Management for partners](../costs/get-started-partners.md)

@@ -1,16 +1,19 @@
 ---
-title: Cloud Services and management certificates | Microsoft Docs
-description: Learn how to create and use certificates with Microsoft Azure
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
+title: Cloud Services (classic) and management certificates | Microsoft Docs
+description: Learn about how to create and deploy certificates for cloud services and for authenticating with the management API in Azure.
 ms.topic: article
-ms.date: 04/19/2017
-ms.author: tagore
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Certificates overview for Azure Cloud Services
+
+# Certificates overview for Azure Cloud Services (classic)
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates)). This topic gives a general overview of both certificate types, how to [create](#create) and deploy them to Azure.
 
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, therefore it is not trusted by default. Most browsers can ignore this problem. You should only use self-signed certificates when developing and testing your cloud services. 
@@ -28,7 +31,7 @@ You can upload service certificates to Azure either using the Azure portal or by
 Service certificates can be managed separately from your services, and may be managed by different individuals. For example, a developer may upload a service package that refers to a certificate that an IT manager has previously uploaded to Azure. An IT manager can manage and renew that certificate (changing the configuration of the service) without needing to upload a new service package. Updating without a new service package is possible because the logical name, store name, and location of the certificate is in the service definition file and while the certificate thumbprint is specified in the service configuration file. To update the certificate, it's only necessary to upload a new certificate and change the thumbprint value in the service configuration file.
 
 >[!Note]
->The [Cloud Services FAQ - Configuration and Management](cloud-services-configuration-and-management-faq.md) article has some helpful information about certificates.
+>The [Cloud Services FAQ - Configuration and Management](cloud-services-configuration-and-management-faq.yml) article has some helpful information about certificates.
 
 ## What are management certificates?
 Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
@@ -71,7 +74,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
 
 
-If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
+If you want to use this [certificate with the management portal](/previous-versions/azure/azure-api-management-certs), export it to a **.cer** file:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -86,8 +89,4 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 ## Next steps
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure portal.
-
-
-
-
+Upload a [management API certificate](/previous-versions/azure/azure-api-management-certs) to the Azure portal.

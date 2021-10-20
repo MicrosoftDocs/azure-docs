@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create an Android app'
 description: In this quickstart, you learn how to build an Android app using Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -82,7 +82,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `public AzureSpatialAnchorsManager(Session arCoreSession)` and add the following line, substituting in your account domain from earlier: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 # [NDK](#tab/openproject-ndk)
 
@@ -92,7 +92,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `AzureSpatialAnchorsApplication::StartCloudSession()` and add the following line, substituting in your account domain from earlier: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 ---
 

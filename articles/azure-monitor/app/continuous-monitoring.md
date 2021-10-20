@@ -51,7 +51,7 @@ In the left pane of the release pipeline page, select **Configure Application In
 
 The four default alert rules are created via an Inline script:
 
-```bash
+```azurecli
 $subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
 az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
 az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
@@ -97,4 +97,4 @@ You can see deployment gate behavior and other release steps in the release logs
 
 ## Next steps
 
-For more information about Azure Pipelines, see the [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines).
+For more information about Azure Pipelines, see the [Azure Pipelines documentation](/azure/devops/pipelines).

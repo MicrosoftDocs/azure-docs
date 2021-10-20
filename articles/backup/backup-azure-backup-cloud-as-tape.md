@@ -56,13 +56,13 @@ The total number of recovery points is 56.
 
 ## Advanced configuration
 
-By clicking **Modify** in the preceding screen, customers have further flexibility in specifying retention schedules.
+By selecting **Modify** in the preceding screen, customers have further flexibility in specifying retention schedules.
 
-![Modify](./media/backup-azure-backup-cloud-as-tape/modify.png)
+![Modify Policy window](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## Next steps
 
 For more information about Azure Backup, see:
 
-* [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-* [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Introduction to Azure Backup](./backup-overview.md)
+* [Try Azure Backup](./backup-windows-with-mars-agent.md)

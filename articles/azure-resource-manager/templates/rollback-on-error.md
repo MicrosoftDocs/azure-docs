@@ -2,19 +2,29 @@
 title: Roll back on error to successful deployment
 description: Specify that a failed deployment should roll back to a successful deployment.
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 02/02/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Rollback on error to successful deployment
 
-When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. This functionality is useful if you've got a known good state for your infrastructure deployment and want to revert to this state. There are a number of caveats and restrictions:
+When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. This functionality is useful if you've got a known good state for your infrastructure deployment and want to revert to this state. You can specify either a particular earlier deployment or the last successful deployment.
 
+> [!IMPORTANT]
+> This feature rollbacks a failed deployment by redeploying an earlier deployment. This result may be different than what you would expect from undoing the failed deployment. Make sure you understand how the earlier deployment is redeployed.
+
+## Considerations for redeploying
+
+Before using this feature, consider these details about how the redeployment is handled:
+
+- The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode), even if you used [incremental mode](./deployment-modes.md#incremental-mode) during the earlier deployment. Redeploying in complete mode could produce unexpected results when the earlier deployment used incremental. The complete mode means that any resources not included in the previous deployment are deleted. Specify an earlier deployment that represents all of the resources and their states that you want to exist in the resource group. For more information, see [deployment modes](./deployment-modes.md).
 - The redeployment is run exactly as it was run previously with the same parameters. You can't change the parameters.
-- The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode). Any resources not included in the previous deployment are deleted, and any resource configurations are set to their previous state. Make sure you fully understand the [deployment modes](./deployment-modes.md).
 - The redeployment only affects the resources, any data changes aren't affected.
-- You can use this feature only with resource group deployments, not subscription or management group level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
+- You can use this feature only with resource group deployments. It doesn't support subscription, management group, or tenant level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
 - You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
 
-To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history.
+To use this option, your deployments must have unique names in the deployment history. It's only with unique names that a specific deployment can be identified. If you don't have unique names, a failed deployment might overwrite a successful deployment in the history.
+
+If you specify an earlier deployment that doesn't exist in the deployment history, the rollback returns an error.
 
 ## PowerShell
 
@@ -109,7 +119,5 @@ The specified deployment must have succeeded.
 
 ## Next steps
 
-- To safely roll out your service to more than one region, see [Azure Deployment Manager](deployment-manager-overview.md).
-- To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
-- For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
+- To understand complete and incremental modes, see [Azure Resource Manager deployment modes](deployment-modes.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).

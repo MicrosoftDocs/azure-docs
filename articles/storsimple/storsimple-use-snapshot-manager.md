@@ -3,18 +3,18 @@ title: StorSimple Snapshot Manager user interface | Microsoft Docs
 description: Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
+ms.author: alkohli
 ms.custom: 
 
 ---
@@ -42,7 +42,7 @@ Additionally, the StorSimple Snapshot Manager supports [keyboard navigation and 
 The StorSimple Snapshot Manager user interface supports the accessibility features provided by the Windows operating system and the Microsoft Management Console (MMC), as well as some StorSimple Snapshot Manager–specific keyboard shortcuts. 
 
 * For a description of the Windows accessibility features, go to [Keyboard shortcuts for Windows](https://support.microsoft.com/kb/126449). 
-* For a description of the MMC accessibility features, go to [Accessibility for MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
+* For a description of the MMC accessibility features, go to [Accessibility for MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766075(v=ws.11))
 * For a description of the StorSimple Snapshot Manager accessibility features, go to [Keyboard navigation and shortcuts](#keyboard-navigation-and-shortcuts).
 
 ## Menu bar
@@ -69,7 +69,7 @@ The following table describes items that appear on the **File** menu.
 | Open |Click **Open** to open an existing console. |
 | Save |Click **Save** to save the current console. |
 | Save as |Click **Save As** to create a new, renamed instance of the current console. Use the **Save As** option to customize a view and save it for later retrieval. For example, you could create StorSimple Snapshot Manager snap-ins that point to specific servers. |
-| Add/Remove Snap-in |Click **Add/Remove Snap-in** to add or remove snap-ins and to organize nodes in the **Scope** pane. For more information, go to [Add, Remove, and Organize Snap-ins and Extensions in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Add/Remove Snap-in |Click **Add/Remove Snap-in** to add or remove snap-ins and to organize nodes in the **Scope** pane. For more information, go to [Add, Remove, and Organize Snap-ins and Extensions in MMC 3.0](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722035(v=ws.11)). |
 | Options |Click **Options** to change the console icon, specify user access modes and permissions, or delete console files to increase available disk space. |
 | List of file paths |Click a path in the numbered list to reopen a file that you recently opened. |
 | Exit |Click **Exit** to close the **File** menu. |
@@ -424,7 +424,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | V |Opens the **View** menu. |
 | W |Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
 | F |Updates the StorSimple Snapshot Manager console. |
-| L |Opens the **Export List **page. |
+| L |Opens the **Export List** page. |
 | H |Opens online Help. |
 
 #### Backup Catalog node shortcut keys
@@ -446,4 +446,3 @@ The following tables show the shortcut key combinations for each node in the **S
 ## Next steps
 * Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
 * Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).
-

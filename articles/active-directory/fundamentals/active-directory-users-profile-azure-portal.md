@@ -2,14 +2,14 @@
 title: Add or update user profile information - Azure AD
 description: Instructions about how to add information to a user's profile in Azure Active Directory, including a picture and job details.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 04/11/2019
+ms.topic: how-to
+ms.date: 06/10/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -22,7 +22,11 @@ Add user profile information, including a profile picture, job-specific informat
 As you'll see, there's more information available in a user's profile than what you're able to add during the user's creation. All this additional information is optional and can be added as needed by your organization.
 
 ## To add or change profile information
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
+
+>[!Note]
+>The user name and email address properties can't contain accent characters.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select a user. For example, _Alain Charon_.
 
@@ -30,9 +34,7 @@ As you'll see, there's more information available in a user's profile than what 
 
     ![User's profile page, including editable information](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. Select **Edit** to optionally add or update the information included in each of the available sections.
-
-    ![User's profile page, showing the editable areas](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+3. Select **Edit** to optionally add or update the information included in each of the editable sections.
 
     - **Profile picture.** Select a thumbnail image for the user's account. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page.
 
@@ -62,4 +64,4 @@ After you've updated your users' profiles, you can perform the following basic p
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).

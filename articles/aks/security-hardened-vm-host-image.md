@@ -4,30 +4,33 @@ description: Learn about the security hardening in AKS VM host OS
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
 ---
 
 # Security hardening for AKS agent node host OS
 
-Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine (VM) hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > This document is scoped to Linux agents in AKS only.
 
-AKS clusters are deployed on host virtual machines, which run a security optimized OS which is utilized for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with additional security hardening and optimizations applied (see Security hardening details).
+AKS clusters are deployed on host VMs, which run a security-optimized OS used for containers running on AKS. This host OS is based on an **Ubuntu 18.04.5 LTS** image with more [security hardening](#security-hardening-features) and optimizations applied.
 
 The goal of the security hardened host OS is to reduce the surface area of attack and optimize for the deployment of containers in a secure manner.
 
 > [!Important]
-> The security hardened OS is NOT CIS benchmarked. While there are overlaps with CIS benchmarks, the goal is not to be CIS-compliant. The goal for host OS hardening is to converge on a level of security consistent with Microsoft's own internal host security standards.
+> The security hardened OS is **not** CIS benchmarked. While it overlaps with CIS benchmarks, the goal is not to be CIS-compliant. The goal for host OS hardening is to converge on a level of security consistent with Microsoft's own internal host security standards.
 
 ## Security hardening features
 
-* AKS provides a security optimized host OS by default. There is no option to select an alternate operating system.
+* AKS provides a security-optimized host OS by default, but no option to select an alternate operating system.
 
-* Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](https://docs.microsoft.com/azure/aks/node-updates-kured).
+* Azure applies daily patches (including security patches) to AKS virtual machine hosts. 
+    * Some of these patches require a reboot, while others will not. 
+    * You're responsible for scheduling AKS VM host reboots as needed. 
+    * For guidance on how to automate AKS patching, see [patching AKS nodes](./node-updates-kured.md).
 
 ## What is configured
 
@@ -74,14 +77,12 @@ The goal of the security hardened host OS is to reduce the surface area of attac
  
 * To further reduce the attack surface area, some unnecessary kernel module drivers have been disabled in the OS.
 
-* The security hardened OS is built and maintained specifically for AKS and is NOT supported outside of the AKS platform.
+* The security hardened OS is built and maintained specifically for AKS and is **not** supported outside of the AKS platform.
 
 ## Next steps  
 
-See the following articles for more information about AKS security: 
+For more information about AKS security, see the following articles: 
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-
-[AKS security considerations ](https://docs.microsoft.com/azure/aks/concepts-security)
-
-[AKS best practices ](https://docs.microsoft.com/azure/aks/best-practices)
+* [Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
+* [AKS security considerations](./concepts-security.md)
+* [AKS best practices](./best-practices.md)

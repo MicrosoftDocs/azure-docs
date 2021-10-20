@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Query across cloud databases with different schemas (preview)
@@ -17,7 +17,7 @@ ms.date: 01/25/2019
 
 ![Query across tables in different databases][1]
 
-Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database.
+Vertically partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database.
 
 ## Prerequisites
 
@@ -30,10 +30,10 @@ Vertically-partitioned databases use different sets of tables on different datab
 > Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
 >
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## Create database scoped master key and credentials
 
@@ -41,9 +41,8 @@ The credential is used by the elastic query to connect to your remote databases.
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
-CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-SECRET = '<password>'
-[;]
+CREATE DATABASE SCOPED CREDENTIAL [<credential_name>]  WITH IDENTITY = '<username>',  
+SECRET = '<password>';
 ```
 
 > [!NOTE]
@@ -53,6 +52,7 @@ SECRET = '<password>'
 
 Syntax:
 
+```syntaxsql
 <External_Data_Source> ::=
 CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
     (TYPE = RDBMS,
@@ -60,7 +60,7 @@ CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
     DATABASE_NAME = ‘<remote_database_name>’,  
     CREDENTIAL = <credential_name>
     ) [;]
-
+```
 > [!IMPORTANT]
 > The TYPE parameter must be set to **RDBMS**.
 
@@ -89,6 +89,7 @@ select * from sys.external_data_sources;
 
 Syntax:
 
+```syntaxsql
 CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])
     { WITH ( <rdbms_external_table_options> ) }
@@ -98,6 +99,7 @@ CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] tabl
     DATA_SOURCE = <External_Data_Source>,
     [ SCHEMA_NAME = N'nonescaped_schema_name',]
     [ OBJECT_NAME = N'nonescaped_object_name',]
+```
 
 ### Example
 
@@ -129,9 +131,9 @@ Elastic query extends the existing external table syntax to define external tabl
 
 Using an external data source as outlined in the previous section, the syntax to create external tables is as follows:
 
-The DATA_SOURCE clause defines the external data source (i.e. the remote database in case of vertical partitioning) that is used for the external table.  
+The DATA_SOURCE clause defines the external data source (i.e. the remote database in vertical partitioning) that is used for the external table.  
 
-The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database - or any other situation where the remote table name is already taken locally.  
+The SCHEMA_NAME and OBJECT_NAME clauses allow mapping the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This mapping is useful if you want to define an external table to a catalog view or DMV on your remote database - or any other situation where the remote table name is already taken locally.  
 
 The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database.
 
@@ -139,11 +141,11 @@ The following DDL statement drops an existing external table definition from the
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL which is also needed to refer to the underlying data source.  
+**Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL, which is also needed to refer to the underlying data source.  
 
 ## Security considerations
 
-Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. You should carefully manage access to the external table in order to avoid undesired elevation of privileges through the credential of the external data source. Regular SQL permissions can be used to GRANT or REVOKE access to an external table just as though it were a regular table.  
+Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. Carefully manage access to the external table, in order to avoid undesired elevation of privileges through the credential of the external data source. Regular SQL permissions can be used to GRANT or REVOKE access to an external table just as though it were a regular table.  
 
 ## Example: querying vertically partitioned databases
 
@@ -167,7 +169,7 @@ The following query performs a three-way join between the two local tables for o
 
 ## Stored procedure for remote T-SQL execution: sp\_execute_remote
 
-Elastic query also introduces a stored procedure that provides direct access to the remote database. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote database. It takes the following parameters:
+Elastic query also introduces a stored procedure that provides direct access to the remote database. The stored procedure is called [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) and can be used to execute remote stored procedures or T-SQL code on the remote database. It takes the following parameters:
 
 * Data source name (nvarchar): The name of the external data source of type RDBMS.
 * Query (nvarchar): The T-SQL query to be executed on the remote database.
@@ -199,7 +201,7 @@ You can use regular SQL Server connection strings to connect your BI and data in
 * For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](elastic-query-getting-started-vertical.md).
 * For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](elastic-query-getting-started.md).
 * For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](elastic-query-horizontal-partitioning.md)
-* See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
+* See [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
 
 <!--Image references-->
 [1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png

@@ -1,18 +1,19 @@
 ---
 title: In-place change of SQL Server edition
-description: Learn how to change the edition of your SQL Server virtual machine in Azure. 
+description: Learn how to change the edition of your SQL Server virtual machine in Azure to downgrade to reduce cost or upgrade to enable more features.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/14/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -30,7 +31,7 @@ Once the edition of SQL Server has been changed internally to the SQL Server VM,
 To do an in-place change of the edition of SQL Server, you need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
+- A [SQL Server VM on Windows](./create-sql-vm-portal.md) registered with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).
 - Setup media with the **desired edition** of SQL Server. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has their desired edition (typically located in `C:\SQLServerFull`). 
 
 
@@ -47,8 +48,9 @@ To upgrade the edition of SQL Server, obtain the SQL Server setup media for the 
    ![Selection for upgrading the edition of SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
 1. Select **Next** until you reach the **Ready to upgrade edition** page, and then select **Upgrade**. The setup window might stop responding for a few minutes while the change is taking effect. A **Complete** page will confirm that your edition upgrade is finished. 
+1. After the SQL Server edition is upgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
 
-After the SQL Server edition is upgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
+
 
 ## Downgrade an edition
 
@@ -66,12 +68,13 @@ You can downgrade the edition of SQL Server by following these steps:
 1. Install SQL Server by using the media with the desired edition of SQL Server.
 1. Install the latest service packs and cumulative updates.  
 1. Replace the new system databases that were created during installation with the system databases that you previously moved to a different location. 
+1. After the SQL Server edition is downgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM. 
 
-After the SQL Server edition is downgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
+
 
 ## Change edition in portal 
 
-Once you've changed the edition of SQL Server using the installation media, and you've registered your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md), you can then use the Azure portal to modify the Edition property of the SQL Server VM for billing purposes. To do so, follow these steps: 
+Once you've changed the edition of SQL Server using the installation media, and you've registered your SQL Server VM with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md), you can then use the Azure portal to modify the Edition property of the SQL Server VM for billing purposes. To do so, follow these steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Go to your SQL Server virtual machine resource. 
@@ -87,7 +90,7 @@ Once you've changed the edition of SQL Server using the installation media, and 
 
 - The edition property for the SQL Server VM must match the edition of the SQL Server instance installed for all SQL Server virtual machines, including both pay-as-you-go and bring-your-own-license types of licenses.
 - If you drop your SQL Server VM resource, you will go back to the hard-coded edition setting of the image.
-- The ability to change the edition is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](sql-vm-resource-provider-register.md).
+- The ability to change the edition is a feature of the SQL IaaS Agent extension. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the SQL IaaS Agent extension. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](sql-agent-extension-manually-register-single-vm.md).
 - Adding a SQL Server VM to an availability set requires re-creating the VM. Any VMs added to an availability set will go back to the default edition, and the edition will need to be modified again.
 
 ## Next steps
@@ -95,8 +98,6 @@ Once you've changed the edition of SQL Server using the installation media, and 
 For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
-
-
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)

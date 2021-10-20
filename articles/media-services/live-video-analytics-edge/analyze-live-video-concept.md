@@ -1,11 +1,13 @@
 ---
-title: Analyzing live video without any recording - Azure
-description: A media graph can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
+title: Analyze live video without any recording with Live Video Analytics - Azure
+description: A media graph can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept and how to analyze live video without any recording with Live Video Analytics.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Analyzing live video without any recording
+# Analyze live video without any recording with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Suggested pre-reading 
 
@@ -20,19 +22,24 @@ You can use a media graph to analyze live video, without recording any portions 
 
 The media graph shown below consists of a [RTSP source](media-graph-concept.md#rtsp-source) node, a [motion detection processor](media-graph-concept.md#motion-detection-processor) node, and an [IoT Hub message sink](media-graph-concept.md#iot-hub-message-sink) node. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-detection/topology.json). This graph enables you to detect motion in the incoming live video stream and relay the motion events to other apps and services via the IoT Hub message sink node. The external apps or services can trigger an alert or send a notification to appropriate personnel.
 
-![Live Video Analytics based on motion detection](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics based on motion detection":::
 
 ### Analyzing video using a custom vision model 
 
 The media graph shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json). You can see some examples [here](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis) on wrapping models into IoT Edge modules that run as an inference service.
 
-![Live Video Analytics based on an external inferencing module](./media/analyze-live-video/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Live Video Analytics based on an external inferencing module":::
 
-In this media graph, the frame rate filter processor node lowers the frame rate of the incoming live video stream before sending it to a [HTTP extension processor](media-graph-concept.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of media graph can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
+In this media graph, the video input from the RTSP source is sent to a [HTTP extension processor](media-graph-concept.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of media graph can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
+>[!TIP]
+> You can manage the frame rate within the HTTP extension processor node using the `samplingOptions` field before sending it downstream.
 
-An enhancement to this example is to use a motion detector processor ahead of the frame rate filter processor node. This will reduce the load on the inference service, since it is used only when there is motion activity in the video.
+An enhancement to this example is to use a motion detector processor ahead of the HTTP extension processor node. This will reduce the load on the inference service, since it is used only when there is motion activity in the video.
 
-![Live Video Analytics based on motion detected frames via external inferencing module](./media/analyze-live-video/motion-detected-frames.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Live Video Analytics based on motion detected frames via external inferencing module":::
 
 ## Next steps
 

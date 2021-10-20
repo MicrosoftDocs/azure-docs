@@ -5,9 +5,9 @@ services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020 
-ms.author: v-stazar 
+ms.author: stefanazaric 
 ms.reviewer: jrasnick
 ---
 
@@ -23,7 +23,7 @@ Traditional analytics architecture often uses separate databases to create appli
 Instead, Synapse SQL runs the entire analytics workload within one database. Cross database joins aren't permitted. Synapse SQL expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
-> SQL pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. SQL on-demand (preview) supports cross database queries.
+> Dedicated SQL pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. Serverless SQL pool supports cross database queries.
 
 ## User-defined schema recommendations
 
@@ -114,7 +114,7 @@ FROM    [edw].customer
 > [!NOTE]
 > Any change in schema strategy requires a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level.
 
-If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](../../analysis-services/analysis-services-database-users.md) article.
+If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](/sql/relational-databases/security/authentication-access/database-level-roles) article.
 
 ## Next steps
 

@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure RFPIO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to RFPIO.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: 54419db4-47d5-4fb4-ab74-7b0b28afb11b
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia 
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure RFPIO for automatic user provisioning
@@ -66,11 +61,11 @@ Before configuring RFPIO for automatic user provisioning with Azure AD, you will
 
 4.	Ensure that **Auto User Provisioning** is enabled. Click on **GENERATE SCIM API TOKEN**.
 
-	![RFPIO Create Token](media/rfpio-provisioning-tutorial/generate.png)
+	![Screenshot of the S C I M section with the GENERATE S C I M A P I TOKEN option called out.](media/rfpio-provisioning-tutorial/generate.png)
 
 5.	Save the **SCIM API Token** as this token will not be displayed again for security purpose. This value will be entered in the **Secret Token** field in the Provisioning tab of your RFPIO application in the Azure portal.
 
-	![RFPIO Create Token](media/rfpio-provisioning-tutorial/auth.png)
+	![Screenshot of the S C I M section with the the Warning dialog box that appears after you select SUBMIT.](media/rfpio-provisioning-tutorial/auth.png)
 
 ## Add RFPIO from the gallery
 
@@ -99,7 +94,7 @@ To configure RFPIO for automatic user provisioning with Azure AD, you need to ad
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in RFPIO based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for RFPIO , following the instructions provided in the [RFPIO Single sign-on tutorial](rfpio-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for RFPIO, following the instructions provided in the [RFPIO Single sign-on tutorial](rfpio-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for RFPIO in Azure AD:
 
@@ -113,11 +108,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` in **Tenant URL**. An example value is `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Input the **SCIM API Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to RFPIO. If the connection fails, ensure your RFPIO account has Admin permissions and try again.
 

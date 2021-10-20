@@ -255,7 +255,7 @@ If connecting to secure cluster, specify an absolute path to a cert (.crt) and k
 | --aad | Use Azure Active Directory for authentication. |
 | --ca | Absolute path to CA certs directory to treat as valid or CA bundle file. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolics links. This is used to verify that the certificate returned by the cluster is valid. |
 | --cert | Absolute path to a client certificate file. |
-| --endpoint | Cluster endpoint URL, including port and HTTP or HTTPS prefix. Typically, the endpoint will look something like https\://<your-url>\:19080. If no endpoint is given, it will default to http\://localhost\:19080.  Default\: http\://localhost\:19080. |
+| --endpoint | Cluster endpoint URL, including port and HTTP or HTTPS prefix. Typically, the endpoint will look something like `https\://<your-url>\:19080`. If no endpoint is given, it will default to `http\://localhost\:19080`. |
 | --key | Absolute path to client certificate key file. |
 | --no-verify | Disable verification for certificates when using HTTPS, note\: this is an insecure option and should not be used for production environments. |
 | --pem | Absolute path to client certificate, as a .pem file. |
@@ -450,4 +450,4 @@ Update the upgrade parameters of a Service Fabric cluster upgrade.
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

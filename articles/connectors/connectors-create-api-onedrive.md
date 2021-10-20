@@ -35,11 +35,11 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 1. In the Logic App Designer, type `onedrive` to get a list of the triggers:  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![A dialog box titled "Show Microsoft managed A P I's" has a box that contains "onedrive". Below that is a list of four triggers. The first of these is "OneDrive - When a file is created". The second, "OneDrive - When a file is modified", has been selected.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   ![A dialog box titled "When a file is modified" has a box titled "FOLDER" with an associated browse button.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this article lists the steps.
 
@@ -47,7 +47,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   ![A dialog box titled "When a file is modified" shows five boxes labeled: "FOLDER", "FREQUENCY", "INTERVAL", "TIMEZONE", and "START TIME". There are drop-down lists for the "FREQUENCY" and "TIME ZONE" fields.](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
@@ -57,23 +57,23 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![A screenshot shows four buttons: "+ New Step", "Add an action", "Add a condition", and "...More".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. Choose **Add an action**.
 
 3. In the search box, type `onedrive` to get a list of all the available actions.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![A dialog box titled "Show Microsoft managed A P I's" has a box that contains "onedrive". Below that is a list of eight actions. The first is "OneDrive - Create file", and it is selected.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. In our example, choose **OneDrive - Create file**. If a connection already exists, then select the **Folder Path** to put the file, enter the **File Name**, and choose the **File Content** you want:  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   ![A dialog box titled "Create file" shows three boxes labeled "FOLDER PATH", "FILE NAME", and "FOLDER CONTENT". There is a directory browse button next to the "FOLDER PATH" box.](./media/connectors-create-api-onedrive/sample-action.png)
 
    If you are prompted for the connection information, enter the details to [create the connection as described](#create-the-connection) in this topic.
 
    In this example, you create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   ![A dialog box titled "For each" has a box labeled "SELECT AN OUTPUT FROM PREVIOUS STEPS" which contains "Attachments". There is a "Create file" dialog box covering the remainder of the "For each" box, with boxes labeled "FOLDER PATH", "FILE NAME", and "FILE CONTENT". ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 

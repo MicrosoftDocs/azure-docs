@@ -10,7 +10,7 @@ ms.author: glenga
 
 Azure Functions Core Tools integrates with Visual Studio Code to let you run and debug an Azure Functions project locally. For details on how to debug in Visual Studio Code, see [Debug PowerShell Azure Functions locally](../articles/azure-functions/functions-debug-powershell-local.md). 
 
-1. Press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To call your function, press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -25,7 +25,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     You can also execute the GET request from a browser from the following URL:
 
-    <http://localhost:7071/api/HttpExample?name=PowerShell>
+    `http://localhost:7071/api/HttpExample?name=PowerShell`
 
     When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a `BadRequest` error. When you review the code in run.ps1, you see that this error occurs by design.
 

@@ -10,11 +10,12 @@ ms.author: magottei
 * Open Document formats: ODT, ODS, ODP  
 * HTML
 * XML
+* KML (XML for geographic representations)
 * ZIP
 * GZ
 * EPUB
 * EML
 * RTF
-* Plain text files (see also [Indexing plain text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
+* Plain text files (see also [Indexing plain text](../articles/search/search-howto-index-plaintext-blobs.md))
 * JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
 * CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md))

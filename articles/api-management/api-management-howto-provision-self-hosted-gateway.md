@@ -3,7 +3,7 @@ title: Provision a self-hosted gateway in Azure API Management | Microsoft Docs
 description: Learn how to provision a self-hosted gateway in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 
@@ -28,7 +28,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 ## Provision a self-hosted gateway
 
-1. Select the **Gateways** from under **Settings**.
+1. Select the **Gateways** from under **Deployment and infrastructure**.
 2. Click **+ Add**.
 3. Enter the **Name** and **Region** of the gateway.
 > [!TIP]
@@ -47,4 +47,5 @@ Now the gateway resource has been provisioned in your API Management instance. Y
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn more about how to [Deploy a self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+- Learn more about how to [Deploy a self-hosted gateway to an Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
 * Learn more about how to [Deploy a self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)

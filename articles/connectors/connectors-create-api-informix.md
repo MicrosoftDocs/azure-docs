@@ -4,7 +4,7 @@ description: Automate tasks and workflows that manage resources stored in IBM In
 services: logic-apps
 ms.suite: integration
 author: gplarsen
-ms.author: plarsen
+ms.author: daberry
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020

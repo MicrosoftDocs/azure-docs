@@ -1,21 +1,21 @@
 ---
 title: Work with proxies in Azure Functions 
 description: Overview of how to use Azure Functions Proxies
-author: alexkarcher-msft
 
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: alkarche
 
 ---
 # Work with Azure Functions Proxies
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
+Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+> You should also consider using [Azure API Management](../api-management/api-management-key-concepts.md) for your application. It provides the same capabilities as Functions Proxies as well as other tools for building and maintaining APIs, such as OpenAPI integration, rate limiting, and advanced policies. 
 
 ## <a name="create"></a>Create a proxy
 
@@ -53,11 +53,11 @@ The configuration for a proxy does not need to be static. You can condition it t
 ### <a name="reference-localhost"></a>Reference local functions
 You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
+`"backendUri": "https://localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
 
  
 >[!Note]  
->If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` We recommend storing these keys in [application settings] and referencing those in your proxies. This avoids storing secrets in your source code. 
+>If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendUri": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` We recommend storing these keys in [application settings] and referencing those in your proxies. This avoids storing secrets in your source code. 
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -85,7 +85,7 @@ Response parameters can be used as part of modifying the response to the client.
 
 ### <a name="use-appsettings"></a>Reference application settings
 
-You can also reference [application settings defined for the function app](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) by surrounding the setting name with percent signs (%).
+You can also reference [application settings defined for the function app](./functions-how-to-use-azure-function-app-settings.md) by surrounding the setting name with percent signs (%).
 
 For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* would have "%ORDER_PROCESSING_HOST%" replaced with the value of the ORDER_PROCESSING_HOST setting.
 
@@ -106,7 +106,7 @@ Disable traces altogether by adding `"debug":false` to any particular proxy in y
 
 ## Advanced configuration
 
-The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. 
+The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](./functions-continuous-deployment.md) that Functions supports. 
 
 > [!TIP] 
 > If you have not set up one of the deployment methods, you can also work with the *proxies.json* file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
@@ -240,7 +240,7 @@ An example configuration might look like the following:
 > In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
 [Azure portal]: https://portal.azure.com
-[HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[HTTP triggers]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Define a requestOverrides object]: #requestOverrides

@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption and Azure virtual machine scale sets extension sequencing 
-description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
+description: In this article, learn how to enable Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -13,6 +13,8 @@ ms.custom: mimckitt
 ---
 
 # Use Azure Disk Encryption with virtual machine scale set extension sequencing
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Extensions such as Azure disk encryption can be added to an Azure virtual machines scale set in a specified order. To do so, use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md). 
 
@@ -27,7 +29,7 @@ In either case, the `provisionAfterExtensions` property designates which extensi
 
 If you wish to have Azure Disk Encryption applied after another extension, put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block. 
 
-Here is an example using "CustomScriptExtension", a Powershell script that initializes and formats a Windows disk, followed by "AzureDiskEncryption":
+Here is an example using "CustomScriptExtension", a PowerShell script that initializes and formats a Windows disk, followed by "AzureDiskEncryption":
 
 ```json
 "virtualMachineProfile": {

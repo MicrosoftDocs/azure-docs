@@ -13,32 +13,32 @@ You can find below compliance offerings for Azure Backup to ensure your service 
 
 ## Global
 
-* [CSA-STAR-Attestation](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-attestation)
-* [CSA-Star-Certification](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-certification)
-* [CSA-STAR-Self-Assessment](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-self-assessment)
-* [ISO 20000-1:2011](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-20000-1-2011)
-* [ISO 22301](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-22301)
-* [ISO 27001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017)
-* [ISO 27017](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017)
-* [ISO 27018](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018)
-* [ISO 9001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001)
-* [SOC 1,2,3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
+* [CSA-STAR-Attestation](/microsoft-365/compliance/offering-csa-star-attestation)
+* [CSA-Star-Certification](/microsoft-365/compliance/offering-csa-star-certification)
+* [CSA-STAR-Self-Assessment](/microsoft-365/compliance/offering-csa-star-self-assessment)
+* [ISO 20000-1:2011](/microsoft-365/compliance/offering-iso-20000-1-2011)
+* [ISO 22301](/compliance/regulatory/offering-iso-22301)
+* [ISO 27001](/microsoft-365/compliance/offering-iso-27017)
+* [ISO 27017](/microsoft-365/compliance/offering-iso-27017)
+* [ISO 27018](/microsoft-365/compliance/offering-iso-27018)
+* [ISO 9001](/microsoft-365/compliance/offering-iso-9001)
+* [SOC 1,2,3](/microsoft-365/compliance/offering-soc)
 
 ## US Government
 
-* [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
-* [FedRAMP](https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp)
-* [FIPS 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2)
+* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5)
+* [FedRAMP](/microsoft-365/compliance/offering-fedramp)
+* [FIPS 140-2](/microsoft-365/compliance/offering-fips-140-2)
 
 ## Industry
 
-* [HIPAA](https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech)
-* [HITRUST](https://docs.microsoft.com/microsoft-365/compliance/offering-hitrust)
-* [PCI DSS](https://docs.microsoft.com/microsoft-365/compliance/offering-pci-dss)
+* [HIPAA](/compliance/regulatory/offering-hipaa-hitech)
+* [HITRUST](/microsoft-365/compliance/offering-hitrust)
+* [PCI DSS](/microsoft-365/compliance/offering-pci-dss)
 
 ## Regional
 
-* [CCSL/IRAP (Australia)](https://docs.microsoft.com/microsoft-365/compliance/offering-ccsl-irap-australia)
+* [CCSL/IRAP (Australia)](/microsoft-365/compliance/offering-ccsl-irap-australia)
 * [GDPR (EU)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 
 ## Next steps

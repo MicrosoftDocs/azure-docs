@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create groups in Azure Active Directory (or have an existing group)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## Role assignments
 
@@ -293,4 +293,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
+> [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)

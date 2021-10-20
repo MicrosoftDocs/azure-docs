@@ -1,7 +1,7 @@
 ---
 title: Create your first durable function in Azure using C#
 description: Create and publish an Azure Durable Function using Visual Studio or Visual Studio Code.
-author: jeffhollan
+author: anthonychu
 
 ms.topic: quickstart
 ms.date: 03/18/2020
@@ -18,7 +18,7 @@ zone_pivot_groups: code-editors-set-one
 
 In this article, you learn how to use Visual Studio Code to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the VS Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![Screenshot shows a Visual Studio Code window with a durable function.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
+Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 ## Add functions to the app
 
@@ -145,7 +145,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in the following format:
 
-        https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart
+    `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
 1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
@@ -160,9 +160,9 @@ You have used Visual Studio Code to create and publish a C# durable function app
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this article, you learn how to Visual Studio 2019 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
+In this article, you learn how to use Visual Studio 2019 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
 
-![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Screenshot shows a Visual Studio 2019 window with a durable function.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## Prerequisites
 
@@ -234,7 +234,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
-    ![Function localhost response in the browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![Screenshot shows a browser window with statusQueryGetUri called out.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully.  It is not yet the end result of the orchestration.  The response includes a few useful URLs.  For now, let's query the status of the orchestration.
 
@@ -274,7 +274,7 @@ You must have a function app in your Azure subscription before you can publish y
 
     The URL that calls your durable function HTTP trigger should be in the following format:
 
-        https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
+    `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 

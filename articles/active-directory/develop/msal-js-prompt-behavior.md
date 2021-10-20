@@ -3,15 +3,15 @@ title: Interactive request prompt behavior (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn to customize prompt behavior in interactive calls using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about customizing the UI prompt behaviors in MSAL.js library so I can decide if this platform meets my application development needs and requirements.

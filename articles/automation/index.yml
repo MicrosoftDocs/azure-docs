@@ -24,11 +24,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Create an Automation account
-            url: automation-quickstart-create-account.md
+            url: ./quickstarts/create-account-portal.md
       - linkListType: quickstart
         links:
           - text: Create a runbook
-            url: automation-quickstart-create-runbook.md
+            url: ./learn/powershell-runbook-managed-identity.md
       - linkListType: deploy
         links: 
           - text: Start/Stop VMs during off-hours
@@ -39,16 +39,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Update Management overview
-            url: automation-update-management.md
+            url: update-management/overview.md
       - linkListType: get-started
         links:
           - text: Manage updates for multiple VMs
-            url: manage-update-multi.md
-      - linkListType: deploy
-        links:
-          - text: Update, Inventory and Track Changes on Azure VMs
-            url: automation-onboard-solutions.md
-
+            url: update-management/manage-updates-for-vm.md
   - title: Configure your VMs with Desired State Configuration
     linkLists:
       - linkListType: overview

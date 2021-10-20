@@ -127,6 +127,10 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
 
+### Supported entry point limitations
+
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal, do not support the use of commands that modify UX components in Cloud Shell, such as `Code`.
+
 ## Bash limitations
 
 ### Editing .bashrc
@@ -139,26 +143,6 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 
 Currently, `AzureAD.Standard.Preview`, a preview version of .NET Standard-based, module is available. This module provides the same functionality as `AzureAD`.
 
-### `SqlServer` module functionality
-
-The `SqlServer` module included in Cloud Shell has only prerelease support for PowerShell Core. In particular, `Invoke-SqlCmd` is not available yet.
-
-### Default file location when created from Azure drive
-
-Using PowerShell cmdlets, users cannot create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default.
-
-### Tab completion can throw PSReadline exception
-
-If the user's PSReadline EditMode is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilities, PSReadline will throw unhandled exception.
-
-### Large gap after displaying progress bar
-
-If a command or user action displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
-
-### Random characters appear inline
-
-The cursor position sequence codes, for example `5;13R`, can appear in the user input. The characters can be manually removed.
-
 ## Personal data in Cloud Shell
 
 Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back cloud drive. Should you wish to export or delete this data, use the following instructions.
@@ -168,7 +152,8 @@ Azure Cloud Shell takes your personal data seriously, the data captured and stor
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. Launch Cloud Shell.
+
 2. Run the following commands in Bash or PowerShell:
 
 Bash:
@@ -191,20 +176,21 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 >[!Note]
 > If you delete your user settings, the actual Azure Files share will not be deleted. Go to your Azure Files to complete that action.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. Launch Cloud Shell or a local shell with either Azure PowerShell or Azure CLI installed.
+
 2. Run the following commands in Bash or PowerShell:
 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
 PowerShell:
 
   ```powershell
-  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
+  $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## Azure Government limitations

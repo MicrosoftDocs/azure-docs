@@ -4,17 +4,20 @@ description: Describes the Microsoft.Common.OptionsGroup UI element for Azure po
 author: tfitzmac
 
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
 
 ---
 # Microsoft.Common.OptionsGroup UI element
 
-A selection control with a row of available options.
+The OptionsGroup control lets users select one option from two or more choices. A user can select only one option.
+
+> [!NOTE]
+> In the past, this control rendered the options horizontally. Now, the control presents the options vertically as radio buttons.
 
 ## UI sample
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## Schema
 

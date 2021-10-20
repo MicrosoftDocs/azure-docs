@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Cache for Redis client-side issues
 description: Learn how to resolve common client-side issues with Azure Cache for Redis such as Redis client memory pressure, traffic burst, high CPU, limited bandwidth, large requests or large response size.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
@@ -15,7 +15,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 - [Traffic burst](#traffic-burst)
 - [High client CPU usage](#high-client-cpu-usage)
 - [Client-side bandwidth limitation](#client-side-bandwidth-limitation)
-- [Large request or response size](#large-request-or-response-size)
+<!-- [Large request or response size](#large-request-or-response-size) -->
 
 ## Memory pressure on Redis client
 
@@ -37,15 +37,17 @@ Bursts of traffic combined with poor `ThreadPool` settings can result in delays 
 
 Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis like below to further investigate:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 In the preceding exception, there are several issues that are interesting:
 
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
 - You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
-You can [configure your `ThreadPool` Settings](cache-faq.md#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
+You can [configure your `ThreadPool` Settings](cache-management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ## High client CPU usage
 
@@ -70,18 +72,21 @@ Monitor how your Bandwidth usage change over time using [an example `BandwidthLo
 
 To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity.
 
+<!-- 
 ## Large request or response Size
 
 A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
 
 In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
 
-    |-------- 1 Second Timeout (A)----------|
-    |-Request A-|
-         |-------- 1 Second Timeout (B) ----------|
-         |-Request B-|
-                |- Read Response A --------|
-                                           |- Read Response B-| (**TIMEOUT**)
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
 
 This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
 
@@ -96,7 +101,8 @@ Resolutions for large response sizes are varied but include:
 1. Increase the number of connection objects your application uses.
     - Use a round-robin approach to make requests over different connection objects.
 
+ -->
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)

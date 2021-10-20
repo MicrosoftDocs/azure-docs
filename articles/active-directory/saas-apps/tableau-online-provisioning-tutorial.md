@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Tableau Online for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Tableau Online.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd-msft
-ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: "jeedes"
-ms.collection: M365-identity-device-management
+ms.author: jeedes
 ---
 
 # Tutorial: Configure Tableau Online for automatic user provisioning
@@ -61,7 +56,7 @@ To add Tableau Online from the Marketplace, follow these steps.
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that were assigned to an application in Azure AD are synchronized.
 
-Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Tableau Online. To assign these users or groups to Tableau Online, follow the instructions in [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Tableau Online. To assign these users or groups to Tableau Online, follow the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### Important tips for assigning users to Tableau Online
 
@@ -98,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    * In the **Domain** box, fill in the subdomain based on Step 6.
 
-   * In the **Admin Username** box, fill in the username of the admin account on your Clarizen Tenant. An example is admin@contoso.com.
+   * In the **Admin Username** box, fill in the username of the admin account on your Tableau Online Tenant. An example is admin@contoso.com.
 
    * In the **Admin Password** box, fill in the password of the admin account that corresponds to the admin username.
 
@@ -133,7 +128,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the user attributes that are synchronized from Azure AD to Tableau Online in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Online for update operations. To save any changes, select **Save**.
 
-	![Tableau Online matching user attributes](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+	![Tableau Online matching user attributes](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau**.
 
@@ -162,6 +157,9 @@ This operation starts the initial synchronization of all users or groups defined
 You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Tableau Online.
 
 For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+
+## Change log
+* 09/30/2020 - Added support for attribute "authSetting" for Users.
 
 ## Additional resources
 

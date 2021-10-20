@@ -14,7 +14,7 @@ A text box control with built-in validation for Windows and Linux user names.
 
 ## UI sample
 
-![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
+![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft-compute-usernametextbox.png)
 
 ## Schema
 

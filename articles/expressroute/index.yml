@@ -9,9 +9,10 @@ metadata:
   services: expressroute
   ms.service: expressroute 
   ms.topic: landing-page 
-  author: cherylmc 
-  ms.author: cherylmc 
+  author: duongau 
+  ms.author: duau 
   ms.date: 08/27/2019
+  ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,6 +30,10 @@ landingContent:
         links:
           - text: FAQ
             url: expressroute-faqs.md
+      - linkListType: learn
+        links:
+          - text: Connect your on-premises network to the Microsoft global network using ExpressRoute
+            url: /learn/modules/connect-on-premises-network-with-expressroute/   
   # Card
   - title: Get started
     linkLists:
@@ -126,7 +131,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/express-route
+            url: /cli/azure/network/express-route
           - text: Azure Powershell
             url: /powershell/module/az.network#expressroute
           - text: REST
@@ -134,6 +139,6 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Reference Architecutre for Hybrid Networking
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
           - text: Reference Architecture for Hybrid Networking with VPN Failover
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

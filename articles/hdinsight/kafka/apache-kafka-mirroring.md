@@ -1,11 +1,8 @@
 ---
 title: Mirror Apache Kafka topics - Azure HDInsight 
 description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ---
@@ -13,6 +10,9 @@ ms.date: 11/29/2019
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
 Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
+
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this example, mirroring is used to replicate topics between two HDInsight clusters. Both clusters are in different virtual networks in different datacenters.
 
@@ -29,7 +29,7 @@ The most useful mirroring setup for disaster recovery utilizes Kafka clusters in
 
 The following diagram illustrates the mirroring process and how the communication flows between clusters:
 
-![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagram of the mirroring process" border="false":::
 
 The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
@@ -79,14 +79,14 @@ This architecture features two clusters in different resource groups and virtual
     1. Select **Add**.
     1. On the **Add peering** screen, enter the details as shown in the screenshot below.
 
-        ![HDInsight Kafka add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="HDInsight Kafka add vnet peering" border="true":::
 
 ### Configure IP advertising
 
 Configure IP advertising to enable a client to connect using broker IP addresses instead of domain names.
 
 1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-1. Select **Services** > **Kafka**. CliSelectck the **Configs** tab.
+1. Select **Services** > **Kafka**. Select the **Configs** tab.
 1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
 
     ```
@@ -102,7 +102,7 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 1. Select **Ok** on the **Save Configuration Changes**.
 1. Select **Restart** > **Restart All Affected** in the **Restart Required** notification. Select **Confirm Restart All**.
 
-    ![Apache Ambari restart all affected](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="Apache Ambari restart all affected" border="true":::
 
 ### Configure Kafka to listen on all network interfaces.
     
@@ -115,7 +115,7 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 1. Select **Hosts** on the Ambari dashboard.
 1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
 
-    ![Apache Ambari view node ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Apache Ambari view node ip addresses" border="true":::
 
 1. Repeat the previous three steps for the second cluster **kafka-secondary-cluster**: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
@@ -131,11 +131,14 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Use the following command to create a variable with the Apache Zookeeper hosts for the primary cluster. The strings like `ZOOKEEPER_IP_ADDRESS1` must be replaced with the actual IP addresses recorded earlier, such as `10.23.0.11` and `10.23.0.7`. If you're using FQDN resolution with a custom DNS server, follow [these steps](apache-kafka-get-started.md#getkafkainfo) to get broker and zookeeper names.:
+1. Use the following command to create two environment variables with the Apache Zookeeper hosts and Broker hosts for the primary cluster. The strings like `ZOOKEEPER_IP_ADDRESS1` must be replaced with the actual IP addresses recorded earlier, such as `10.23.0.11` and `10.23.0.7`. The same goes for `BROKER_IP_ADDRESS1`. If you're using FQDN resolution with a custom DNS server, follow [these steps](apache-kafka-get-started.md#getkafkainfo) to get broker and zookeeper names.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
+    
+    # get the broker hosts for the primary cluster
+    export PRIMARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
 1. To create a topic named `testtopic`, use the following command:
@@ -152,15 +155,15 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 
     The response contains `testtopic`.
 
-1. Use the following to view the Zookeeper host information for this (the **primary**) cluster:
+1. Use the following to view the Broker host information for this (the **primary**) cluster:
 
     ```bash
-    echo $PRIMARY_ZKHOSTS
+    echo $PRIMARY_BROKERHOSTS
     ```
 
     This returns information similar to the following text:
 
-    `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
+    `10.23.0.11:9092,10.23.0.7:9092,10.23.0.9:9092`
 
     Save this information. It's used in the next section.
 
@@ -185,11 +188,11 @@ Configure IP advertising to enable a client to connect using broker IP addresses
     Use the following text as the contents of the `consumer.properties` file:
 
     ```yaml
-    zookeeper.connect=PRIMARY_ZKHOSTS
+    bootstrap.servers=PRIMARY_BROKERHOSTS
     group.id=mirrorgroup
     ```
 
-    Replace **PRIMARY_ZKHOSTS** with the Zookeeper IP Addresses from the **primary** cluster.
+    Replace **PRIMARY_BROKERHOSTS** with the Broker host IP Addresses from the **primary** cluster.
 
     This file describes the consumer information to use when reading from the primary Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
 
@@ -251,7 +254,7 @@ Configure IP advertising to enable a client to connect using broker IP addresses
         1. Change the value of `auto.create.topics.enable` to true, and then select __Save__. Add a note, and then select __Save__ again.
         1. Select the __Kafka__ service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
-        ![kafka enable auto create topics](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="kafka enable auto create topics" border="true":::
 
 ## Start MirrorMaker
 
@@ -275,8 +278,7 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 2. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
-    export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
-    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
+    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $PRIMARY_BROKERHOSTS --topic testtopic
     ```
 
      When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **primary** cluster. When done, use **Ctrl + C** to end the producer process.
@@ -284,14 +286,14 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 3. From the SSH connection to the **secondary** cluster, use **Ctrl + C** to end the MirrorMaker process. It may take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_BROKERHOSTS --topic testtopic --from-beginning
     ```
 
     The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the primary cluster to the secondary. The messages retrieved from the topic are the same as the ones you entered on the primary cluster.
 
 ## Delete the cluster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 The steps in this document created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary_rg**. Deleting the resource groups removes all of the resources created by following this document, including clusters, virtual networks, and storage accounts.
 

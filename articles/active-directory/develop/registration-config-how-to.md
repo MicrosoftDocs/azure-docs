@@ -11,15 +11,16 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
+ROBOTS: NOINDEX
 ---
 
 # How to discover endpoints
 
 You can find the authentication endpoints for your application in the [Azure portal](https://portal.azure.com).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select **Endpoints** in the top menu.
 

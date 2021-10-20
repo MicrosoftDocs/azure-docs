@@ -5,10 +5,9 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Delivery and retry

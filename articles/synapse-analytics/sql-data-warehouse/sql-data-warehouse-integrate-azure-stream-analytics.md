@@ -1,35 +1,35 @@
 ---
-title: Use Azure Stream Analytics
-description: Tips for using Azure Stream Analytics with your data warehouse in Azure Synapse for developing real-time solutions.
+title: Use Azure Stream Analytics in dedicated SQL pool
+description: Tips for using Azure Stream Analytics with dedicated SQL pool in Azure Synapse for developing real-time solutions.
 services: synapse-analytics
-author: mlee3gsd 
+author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 2/5/2020
-ms.author: martinle
+ms.subservice: sql-dw 
+ms.date: 9/25/2020
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Use Azure Stream Analytics with Azure Synapse Analytics
+# Use Azure Stream Analytics with dedicated SQL pool in Azure Synapse Analytics
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial.
 
-In this article, you will learn how to use your data warehouse as an output sink for your Azure Stream Analytics jobs.
+In this article, you will learn how to use your dedicated SQL pool as an output sink for high throughput data ingestion with Azure Stream Analytics jobs.
 
 ## Prerequisites
 
-* Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to :  
+* Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to:  
 
     1. Create an Event Hub input
     2. Configure and start event generator application
     3. Provision a Stream Analytics job
     4. Specify job input and query
-* Azure Synapse SQL pool data warehouse - To create a new data warehouse, follow the steps in the [Quickstart to create a new data warehouse](create-data-warehouse-portal.md).
+* Dedicated SQL pool - To create a new dedicated SQL pool, follow the steps in the [Quickstart: Create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md).
 
-## Specify streaming output to point to your data warehouse
+## Specify streaming output to point to your dedicated SQL pool
 
 ### Step 1
 
@@ -37,9 +37,9 @@ From the Azure portal, go to your Stream Analytics job and click on **Outputs** 
 
 ### Step 2
 
-Click on the **Add** button and choose **SQL Database** from the drop down menu.
+Click on the **Add** button and choose **Azure Synapse Analytics** from the drop down menu.
 
-![Choose SQL Database](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Choose Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### Step 3
 
@@ -47,19 +47,19 @@ Enter the following values:
 
 * *Output Alias*: Enter a friendly name for this job output.
 * *Subscription*:
-  * If your data warehouse is in the same subscription as the Stream Analytics job, click on ***Select SQL Database from your subscriptions***.
-  * If your database is in a different subscription, click on Provide SQL Database settings manually.
+  * If your dedicated SQL pool is in the same subscription as the Stream Analytics job, click on ***Select Azure Synapse Analytics from your subscriptions***.
+  * If your dedicated SQL pool is in a different subscription, click on Provide Azure Synapse Analytics settings manually.
 * *Database*: Select the destination database from the drop down list.
 * *User Name*: Specify the user name of an account that has write permissions for the database.
 * *Password*: Provide the password for the specified user account.
 * *Table*: Specify the name of the target table in the database.
 * click on the **Save** button
 
-![Completed SQL Database form](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Completed Azure Synapse Analytics form](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### Step 4
 
-Before you can run a test, you will need to create the table in your data warehouse.  Run the following table creation script using SQL Server Management Studio (SSMS) or your choice of query tool.
+Before you can run a test, you will need to create the table in your dedicated SQL pool.  Run the following table creation script using SQL Server Management Studio (SSMS) or your choice of query tool.
 
 ```sql
 CREATE TABLE SensorLog
@@ -119,4 +119,4 @@ Click the ***Start*** button on the start job pane.
 ## Next steps
 
 For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).
-For more development tips, see [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
+For more development tips, see [Design decisions and coding techniques for dedicated SQL pool](sql-data-warehouse-overview-develop.md).

@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang:
-ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+ms.topic: how-to
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 
 ---
@@ -155,7 +155,7 @@ Get the PowerShell scripts from [Azure SQL Database-Elastic Database tools scrip
 
 The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-get-started.md).
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Additional resources
 
@@ -163,7 +163,7 @@ For information on common data architecture patterns of multi-tenant software-as
 
 ## Questions and feature requests
 
-For questions, use the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

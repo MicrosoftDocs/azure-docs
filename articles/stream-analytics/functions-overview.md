@@ -1,8 +1,8 @@
 ---
 title: User-defined functions in Azure Stream Analytics
 description: This article is an overview of user-defined functions in Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020

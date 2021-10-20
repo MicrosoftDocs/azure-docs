@@ -1,14 +1,16 @@
 ---
 title: Access slow query logs - Azure portal - Azure Database for MySQL
 description: This article describes how to configure and access the slow logs in Azure Database for MySQL from the Azure portal.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/13/2020
+ms.topic: how-to
+ms.date: 3/15/2021
 ---
 
 # Configure and access slow query logs from the Azure portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 You can configure, list, and download the [Azure Database for MySQL slow query logs](concepts-server-logs.md) from the Azure portal.
 
@@ -23,17 +25,19 @@ Configure access to the MySQL slow query log.
 2. Select your Azure Database for MySQL server.
 
 3. Under the **Monitoring** section in the sidebar, select **Server logs**. 
-   ![Screenshot of Server logs options](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::
 
 4. To see the server parameters, select **Click here to enable logs and configure log parameters**.
 
 5. Turn **slow_query_log** to **ON**.
 
-6. Select where to output the logs to using **log_output**. To send logs to both local storage and Azure Monitor Diagnostic Logs, select **File**. 
+6. Select where to output the logs to using **log_output**. To send logs to both local storage and Azure Monitor Diagnostic Logs, select **File**.
 
-7. Change any other parameters needed. 
+7. Consider setting "long_query_time" which represents query time threshold for the queries that will be collected in the slow query log file, The minimum and default values of long_query_time are 0 and 10, respectively.
 
-8. Select **Save**. 
+8. Adjust other parameters, such as log_slow_admin_statements to log administrative statements. By default, administrative statements are not logged, nor are queries that do not use indexes for lookups. 
+
+9. Select **Save**. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save.":::
 
@@ -48,7 +52,7 @@ After logging begins, you can view a list of available slow query logs, and down
 
 3. Under the **Monitoring** section in the sidebar, select **Server logs**. The page shows a list of your log files.
 
-   ![Screenshot of Server logs page, with list of logs highlighted](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot of Server logs page, with list of logs highlighted":::
 
    > [!TIP]
    > The naming convention of the log is **mysql-slow-< your server name>-yyyymmddhh.log**. The date and time used in the file name is the time when the log was issued. Log files are rotated every 24 hours or 7.5 GB, whichever comes first. 
@@ -57,25 +61,25 @@ After logging begins, you can view a list of available slow query logs, and down
 
 5. To download individual log files, select the down-arrow icon next to each log file in the table row.
 
-   ![Screenshot of Server logs page, with down-arrow icon highlighted](./media/howto-configure-server-logs-in-portal/5-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Screenshot of Server logs page, with down-arrow icon highlighted":::
 
 ## Set up diagnostic logs
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings** > **Add diagnostic settings**.
 
-   ![Screenshot of Diagnostic settings options](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::
 
-1. Provide a diagnostic setting name.
+2. Provide a diagnostic setting name.
 
-1. Specify which data sinks to send the slow query logs (storage account, event hub, or Log Analytics workspace).
+3. Specify which data sinks to send the slow query logs (storage account, event hub, or Log Analytics workspace).
 
-1. Select **MySqlSlowLogs** as the log type.
-![Screenshot of Diagnostic settings configuration options](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+4. Select **MySqlSlowLogs** as the log type.
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::
 
-1. After you've configured the data sinks to pipe the slow query logs to, select **Save**.
-![Screenshot of Diagnostic settings configuration options, with Save highlighted](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+5. After you've configured the data sinks to pipe the slow query logs to, select **Save**.
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::
 
-1. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
+6. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
 
 ## Next steps
 - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.

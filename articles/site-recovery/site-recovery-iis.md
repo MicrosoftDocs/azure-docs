@@ -26,7 +26,7 @@ This article describes how to protect a web application that's based on Internet
 Before you begin, ensure that you know how to do the following tasks:
 
 * [Replicate a virtual machine to Azure](vmware-azure-tutorial.md)
-* [Design a recovery network](site-recovery-network-design.md)
+* [Design a recovery network](./concepts-on-premises-to-azure-networking.md)
 * [Do a test failover to Azure](site-recovery-test-failover-to-azure.md)
 * [Do a failover to Azure](site-recovery-failover.md)
 * [Replicate a domain controller](site-recovery-active-directory.md)
@@ -87,22 +87,24 @@ For more information, see [Customize the recovery plan](site-recovery-runbook-au
 
 
 ### Add a script to the recovery plan
-For the IIS web farm to function correctly, you might need to do some operations on the Azure virtual machines post-failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry, change a site binding, or change a connection string by adding corresponding scripts to the recovery plan. [Add a VMM script to a recovery plan](site-recovery-how-to-add-vmmscript.md) describes how to set up automated tasks by using a script.
+For the IIS web farm to function correctly, you might need to do some operations on the Azure virtual machines post-failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry, change a site binding, or change a connection string by adding corresponding scripts to the recovery plan. [Add a VMM script to a recovery plan](./hyper-v-vmm-recovery-script.md) describes how to set up automated tasks by using a script.
 
 #### DNS update
-If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post-failover action on recovery plan groups.  
+If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update IP in DNS](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-DNS-UpdateIP.ps1) as a post-failover action on recovery plan groups.  
 
 #### Connection string in an application’s web.config
 The connection string specifies the database that the website communicates with. If the connection string carries the name of the database virtual machine, no further steps are needed post-failover. The application can automatically communicate with the database. Also, if the IP address for the database virtual machine is retained, it doesn't be need to update the connection string. 
 
 If the connection string refers to the database virtual machine by using an IP address, it needs to be updated post-failover. For example, the following connection string points to the database with the IP address 127.0.1.2:
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<configuration>
-		<connectionStrings>
-		<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-		</connectionStrings>
-		</configuration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<connectionStrings>
+<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+</connectionStrings>
+</configuration>
+```
 
 To update the connection string in the web tier, add an [IIS connection update script](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) after Group 3 in the recovery plan.
 
@@ -115,10 +117,10 @@ Every site consists of binding information. The binding information includes the
 
 ![Screenshot that shows setting the TLS/SSL binding](./media/site-recovery-iis/sslbinding.png)
 
-If you associated the IP address with a site, update all site bindings with the new IP address. To change the site bindings, add an [IIS web tier update script](https://aka.ms/asr-web-tier-update-runbook-classic) after Group 3 in the recovery plan.
+If you associated the IP address with a site, update all site bindings with the new IP address. To change the site bindings, add an [IIS web tier update script](/samples/browse/?redirectedfrom=TechNet-Gallery) after Group 3 in the recovery plan.
 
 #### Update the load balancer IP address
-If you have an ARR virtual machine, to update the IP address, add an [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4.
+If you have an ARR virtual machine, to update the IP address, add an [IIS ARR  failover script](/samples/browse/?redirectedfrom=TechNet-Gallery) after Group 4.
 
 #### TLS/SSL certificate binding for an HTTPS connection
 A website might have an associated TLS/SSL certificate that helps ensure a secure communication between the web server and the user’s browser. If the website has an HTTPS connection, and also has an associated HTTPS site binding to the IP address of the IIS server with a TLS/SSL certificate binding, you must add a new site binding  for the certificate with the IP address of the IIS virtual machine post-failover.

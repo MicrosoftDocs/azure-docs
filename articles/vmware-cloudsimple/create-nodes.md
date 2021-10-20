@@ -1,6 +1,6 @@
 ---
 title: Provision nodes for VMware Solution by CloudSimple - Azure 
-description: Learn how to add nodes to your VMWare with CloudSimple deployment
+description: Learn how to add nodes to your VMWare with CloudSimple deployment in the Azure portal. You can set up pay-as-you go capacity for your private cloud environment.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019

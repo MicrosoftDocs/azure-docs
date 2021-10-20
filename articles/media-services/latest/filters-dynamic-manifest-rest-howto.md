@@ -1,9 +1,9 @@
 ---
 title: Creating filters with Azure Media Services v3 REST API
-description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
+description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services v3 REST API creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,18 +11,22 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 # Creating filters with Media Services REST API
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
-For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
 
-This topic shows how to define a filter for a Video on Demand asset and use REST APIs to create [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters). 
+For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-concept.md) and [Filters](filters-concept.md).
+
+This topic shows how to define a filter for a Video on Demand asset and use REST APIs to create [Account Filters](/rest/api/media/accountfilters) and [Asset Filters](/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -31,10 +35,10 @@ This topic shows how to define a filter for a Video on Demand asset and use REST
 
 To complete the steps described in this topic, you have to:
 
-- Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
-- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
+- Review [Filters and dynamic manifests](filters-dynamic-manifest-concept.md).
+- [Configure Postman for Azure Media Services REST API calls](setup-postman-rest-how-to.md).
 
-    Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Make sure to follow the last step in the topic [Get Azure AD Token](setup-postman-rest-how-to.md#get-azure-ad-token). 
 
 ## Define a filter  
 
@@ -93,7 +97,7 @@ Select **Send**.
 
 The filter has been created.
 
-For more information, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+For more information, see [Create or update](/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## Create asset filters  
 
@@ -111,13 +115,13 @@ Select **Send**.
 
 The asset filter has been created.
 
-For details on how to create or update asset filters, see [Create or update](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
+For details on how to create or update asset filters, see [Create or update](/rest/api/media/assetfilters/createorupdate). Also, see [JSON examples for filters](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
 ## Associate filters with Streaming Locator
 
-You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Dynamic Packager (Streaming Endpoint)](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Dynamic Packager (Streaming Endpoint)](encode-dynamic-packaging-concept.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-concept.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
 
-To create and associate filters with a Streaming Locator using REST, use the [Streaming Locators - Create](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API and specify `properties.filters` in the [Request Body](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+To create and associate filters with a Streaming Locator using REST, use the [Streaming Locators - Create](/rest/api/media/streaminglocators/create) API and specify `properties.filters` in the [Request Body](/rest/api/media/streaminglocators/create#request-body).
                                 
 ## Stream using filters
 

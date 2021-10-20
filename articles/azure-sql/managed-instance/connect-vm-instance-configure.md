@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: Connect to Azure SQL Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: connect
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, carlrab, srbozovi, bonova
+ms.topic: quickstart
+author: zoran-rilak-msft
+ms.author: zoranrilak
+ms.reviewer: mathoma, srbozovi, bonova
 ms.date: 02/18/2019
 ---
 # Quickstart: Configure an Azure VM to connect to Azure SQL Managed Instance
@@ -68,7 +68,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
 1. Make sure that you're signed in to the Azure portal in another browser tab. Then, select the following button to create a client virtual machine and install SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Fill out the form using the information in the following table:
 
@@ -79,7 +79,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
    | **Location** | The location for the resource group | This value is populated based on the resource group selected. |
    | **Virtual machine name**  | Any valid name | For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
    |**Admin Username**|Any valid username|For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). Don't use "serveradmin" as that is a reserved server-level role.<br>You use this username any time you [connect to the VM](#connect-to-the-virtual-machine).|
-   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>You use this password any time you [connect to the VM](#connect-to-the-virtual-machine).|
+   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).<br>You use this password any time you [connect to the VM](#connect-to-the-virtual-machine).|
    | **Virtual Machine Size** | Any valid size | The default in this template of **Standard_B2s** is sufficient for this quickstart. |
    | **Location**|[resourceGroup().location].| Don't change this value. |
    | **Virtual Network Name**|The virtual network in which you created the managed instance|
@@ -104,7 +104,7 @@ The following steps show you how to connect to your newly created virtual machin
 
 1. After deployment completes, go to the virtual machine resource.
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![Screenshot shows the Azure portal with the Overview page for a virtual machine selected and Connect highlighted.](./media/connect-vm-instance-configure/vm.png)  
 
 2. Select **Connect**.
 

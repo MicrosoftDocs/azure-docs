@@ -1,18 +1,19 @@
 ---
 title: Create an additional Azure subscription
-description: Learn how to add a new Azure subscription in the Azure portal.
+description: Learn how to add a new Azure subscription in the Azure portal. See information about billing account forms and view additional available resources.
 author: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 05/13/2021
 ms.author: banders
-
 ---
+
 # Create an additional Azure subscription
 
 You can create an additional subscription for your [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
 
-If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscriptions in the [Azure sign up portal](https://account.azure.com/signup?offer=ms-azr-0003p).
+If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 To learn more about billing accounts and identify the type of your billing account, see [View billing accounts in Azure portal](view-all-accounts.md).
 
@@ -24,7 +25,7 @@ You need the following permissions to create subscriptions:
 |---------|---------|
 |Enterprise Agreement (EA) |  Account Owner role on the Enterprise Agreement enrollment. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).    |
 |Microsoft Customer Agreement (MCA) |  Owner or contributor role on the invoice section, billing profile or billing account. Or Azure subscription creator role on the invoice section.  For more information, see [Subscription billing roles and task](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Microsoft Partner Agreement (MPA) |   Global Admin and Admin Agent role in the CSP partner organization. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).  The user needs to sign to partner tenant to create Azure subscriptions.   |
+|Microsoft Partner Agreement (MPA) |   Global Admin and Admin Agent role in the CSP partner organization. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).  The user needs to sign to partner tenant to create Azure subscriptions.   |
 
 ## Create a subscription in the Azure portal
 
@@ -67,15 +68,19 @@ You need the following permissions to create subscriptions:
 
 ## Create an additional Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](../../azure-resource-manager/management/programmatically-create-subscription.md).
+You can also create additional subscriptions programmatically. For more information, see:
+
+- [Create EA subscriptions programmatically with latest API](programmatically-create-subscription-enterprise-agreement.md)
+- [Create MCA subscriptions programmatically with latest API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Create MPA subscriptions programmatically with latest API](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## Next steps
 
 - [Add or change Azure subscription administrators](add-change-subscription-administrator.md)
 - [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Create management groups for resource organization and management](../../governance/management-groups/create.md)
+- [Create management groups for resource organization and management](../../governance/management-groups/create-management-group-portal.md)
 - [Cancel your subscription for Azure](cancel-azure-subscription.md)
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

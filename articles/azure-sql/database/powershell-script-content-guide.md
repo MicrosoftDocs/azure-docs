@@ -2,13 +2,13 @@
 title: Azure PowerShell script examples
 description: Use Azure PowerShell script examples to help you create and manage Azure SQL Database and Azure SQL Managed Instance resources.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 03/25/2019
 ---
@@ -27,7 +27,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Database.
 
-| |  |
+|Link|Description|
 |---|---|
 |**Create and configure single databases and elastic pools**||
 | [Create a single database and configure a server-level firewall rule](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a single database and configures a server-level IP firewall rule. |
@@ -59,11 +59,11 @@ Learn more about the [Single-database Azure PowerShell API](single-database-mana
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Managed Instance.
 
-| |  |
+|Link|Description|
 |---|---|
 |**Create and configure managed instances**||
 | [Create and manage a managed instance](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | This PowerShell script shows you how to create and manage a managed instance using Azure PowerShell. |
-| [Create and manage a managed instance using the Azure Resource Manager template](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a managed instance using Azure PowerShell and the Azure Resource Manager template.|
+| [Create and manage a managed instance using the Azure Resource Manager template](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a managed instance using Azure PowerShell and the Azure Resource Manager template.|
 | [Restore database to a managed instance in another geo-region](../managed-instance/scripts/restore-geo-backup.md) | This PowerShell script takes a backup of one database and restores it to another region. This is known as a geo-restore disaster-recovery scenario. |
 | **Configure transparent data encryption**||
 | [Manage transparent data encryption in a managed instance using your own key from Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures transparent data encryption in a Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault.|

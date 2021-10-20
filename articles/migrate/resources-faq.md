@@ -1,6 +1,9 @@
 ---
 title: Azure Migrate FAQ
 description: Get answers to common questions about the Azure Migrate service.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
 ---
@@ -18,17 +21,27 @@ Azure Migrate provides a central hub to track discovery, assessment, and migrati
 
 ## What can I do with Azure Migrate?
 
-Use Azure Migrate to discover, assess, and migrate on-premises infrastructure, applications, and data to Azure. Azure Migrate supports assessment and migration of on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized VMs, databases, web apps, and virtual desktops. 
+Use Azure Migrate to discover, assess, and migrate on-premises infrastructure, applications, and data to Azure. Azure Migrate supports assessment and migration of on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized VMs, databases, web apps, and virtual desktops.
 
 ## What's the difference between Azure Migrate and Azure Site Recovery?
 
-[Azure Migrate](migrate-services-overview.md) provides a centralized hub for assessment and migration to Azure. 
+[Azure Migrate](migrate-services-overview.md) provides a centralized hub for assessment and migration to Azure.
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) is a disaster recovery solution. 
+- Using Azure Migrate provides interoperability and future extensibility with Azure Migrate tools, other Azure services, and third-party tools.
+- The Azure Migrate: Server Migration tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration.
+- There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. It gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
+- Azure Migrate supports all migration scenarios supported by Site Recovery. Also, for VMware VMs, Azure Migrate provides an agentless migration option.
+- We're prioritizing new migration features for the Azure Migrate: Server Migration tool only. These features aren't targeted for Site Recovery.
+
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) should be used for disaster recovery only.
 
 The Azure Migrate: Server Migration tool uses some back-end Site Recovery functionality for lift-and-shift migration of some on-premises machines.
 
-## What's the difference between Azure Migrate: Server Assessment and the MAP Toolkit?
+## I have a project with the previous classic experience of Azure Migrate. How do I start using the new version?
+
+Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
+
+## What's the difference between Azure Migrate: Discovery and assessment and the MAP Toolkit?
 
 Server Assessment provides assessment to help with migration readiness, and evaluation of workloads for migration to Azure. The [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/download/details.aspx?id=7826) helps with other tasks, including migration planning for newer versions of Windows client and server operating systems, and software usage tracking. For these scenarios, continue to use the MAP Toolkit.
 
@@ -52,7 +65,7 @@ Review the supported geographies for [public](migrate-support-matrix.md#supporte
 
 ## How do I get started?
 
-Identify the tool you need, and then add the tool to an Azure Migrate project. 
+Identify the tool you need, and then add the tool to an Azure Migrate project.
 
 To add an ISV tool or Movere:
 
@@ -63,7 +76,7 @@ You can track your migration journey from within the Azure Migrate project, acro
 
 ## How do I delete a project?
 
-Learn how to [delete a project](how-to-delete-project.md). 
+Learn how to [delete a project](how-to-delete-project.md).
 
 ## Next steps
 

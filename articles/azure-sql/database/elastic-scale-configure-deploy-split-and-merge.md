@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+ms.topic: how-to
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases
@@ -52,7 +52,7 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 1. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database.
 
    > [!IMPORTANT]
-   > At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql).
 
    With Azure SQL Database, the connection string typically is of the form:
 
@@ -70,7 +70,7 @@ For the purposes of a simple test deployment for this tutorial, a minimal set of
 
 ### Create a self-signed certificate
 
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) window:
 
    ```cmd
    makecert ^
@@ -168,6 +168,9 @@ Determine the web endpoint of your Split-Merge service. You can find this in the
 
 The deployment and your environment can be tested by running the included sample PowerShell scripts.
 
+> [!IMPORTANT]
+> The sample scripts run on PowerShell 5.1. They do not currently run on PowerShell 6 or later.
+
 The script files included are:
 
 1. *SetupSampleSplitMergeEnvironment.ps1* - sets up a test data tier for Split/Merge (see table below for detailed description)
@@ -176,7 +179,7 @@ The script files included are:
 4. *ShardManagement.psm1*  - helper script that wraps the ShardManagement API
 5. *SqlDatabaseHelpers.psm1* - helper script for creating and managing databases in SQL Database
 
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>PowerShell file</th>
        <th>Steps</th>
@@ -198,7 +201,7 @@ The script files included are:
        <td>5. Declares the SchemaInfo for the sharded table.</td>
      </tr>
    </table>
-   <table style="width:100%">
+   <table width="100%">
      <tr>
        <th>PowerShell file</th>
        <th>Steps</th>
@@ -220,7 +223,7 @@ The script files included are:
 
 ## Use PowerShell to verify your deployment
 
-1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
+1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the "powershell" directory.
 
 2. Create a server (or choose an existing server) where the shard map manager and shards will be created.
 
@@ -261,7 +264,7 @@ The script files included are:
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
     ```
 
-    If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
+    If you receive the below error, it is most likely a problem with your Web endpoint's certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
 
     `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 
@@ -312,8 +315,8 @@ The service can move data in both sharded tables and reference tables. A sharded
 
 In order to perform a split-merge operation, you must declare the sharded tables and reference tables that you want to have moved. This is accomplished with the **SchemaInfo** API. This API is in the **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** namespace.
 
-1. For each sharded table, create a **ShardedTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”), the table name, and the column name in that table that contains the sharding key.
-2. For each reference table, create a **ReferenceTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”) and the table name.
+1. For each sharded table, create a **ShardedTableInfo** object describing the table's parent schema name (optional, defaults to "dbo"), the table name, and the column name in that table that contains the sharding key.
+2. For each reference table, create a **ReferenceTableInfo** object describing the table's parent schema name (optional, defaults to "dbo") and the table name.
 3. Add the above TableInfo objects to a new **SchemaInfo** object.
 4. Get a reference to a **ShardMapManager** object, and call **GetSchemaInfoCollection**.
 5. Add the **SchemaInfo** to the **SchemaInfoCollection**, providing the shard map name.

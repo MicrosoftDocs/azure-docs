@@ -1,12 +1,12 @@
 ---
 title: Lead management in Salesforce - Microsoft commercial marketplace
 description: Learn how to use Salesforce to configure leads for Microsoft AppSource and Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Configure lead management for Salesforce
@@ -61,7 +61,7 @@ This article describes how to set up your Salesforce system to process sales lea
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 1. Select your offer, and go to the **Offer setup** tab.
 

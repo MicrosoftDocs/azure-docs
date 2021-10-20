@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Create an end-to-end ETL pipeline to derive sales insights in Azure HDInsight'
 description: Learn how to use create ETL pipelines with Azure HDInsight to derive insights from sales data by using Spark on-demand clusters and Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
@@ -16,19 +13,19 @@ In this tutorial, you'll build an end-to-end data pipeline that performs extract
 
 This data pipeline combines the data from various stores, removes any unwanted data, appends new data, and loads all this back to your storage to visualize business insights. Read more about ETL pipelines in [Extract, transform, and load (ETL) at scale](./hadoop/apache-hadoop-etl-at-scale.md).
 
-![ETL architecture](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="ETL architecture" border="false":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * A member of the [Azure built-in role - owner](../role-based-access-control/built-in-roles.md).
 
-* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) to visualize business insights at the end of this tutorial.
 
@@ -88,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) command.
+    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list_locations) command.
 
     The command will deploy the following resources:
 
@@ -166,7 +163,7 @@ ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.out
 This script does the following things:
 
 1. Creates a service principal with `Storage Blob Data Contributor` permissions on the Data Lake Storage Gen2 storage account.
-1. Obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 file system REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
+1. Obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 file system REST API](/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 1. Fills in the actual name of your Data Lake Storage Gen2 storage account in the `sparktransform.py` and `query.hql` files.
 1. Obtains storage keys for the Data Lake Storage Gen2 and Blob storage accounts.
 1. Creates another resource deployment to create an Azure Data Factory pipeline, with its associated linked services and activities. It passes the storage keys as parameters to the template file so that the linked services can access the storage accounts correctly.
@@ -263,8 +260,8 @@ For other ways to transform data by using HDInsight, see [this article on using 
 
 1. From **Navigator**, select `sales`, and/or `sales_raw` to preview the data. After the data is loaded, you can experiment with the dashboard that you want to create. See the following links to get started with Power BI dashboards:
 
-* [Introduction to dashboards for Power BI designers](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Tutorial: Get started with the Power BI service](https://docs.microsoft.com/power-bi/service-get-started)
+* [Introduction to dashboards for Power BI designers](/power-bi/service-dashboards)
+* [Tutorial: Get started with the Power BI service](/power-bi/service-get-started)
 
 ## Clean up resources
 

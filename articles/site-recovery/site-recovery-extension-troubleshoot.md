@@ -11,6 +11,9 @@ ms.date: 11/27/2018
 
 This article provides troubleshooting steps that can help you resolve Azure Site Recovery errors related to the VM agent and extension.
 
+## Low system resources
+
+This issue occurs when the system has low available memory, and is not able to allocate memory for mobility service installation. Ensure that enough memory has been freed up for the installation to proceed and complete successfully.
 
 ## Azure Site Recovery extension time-out  
 
@@ -64,14 +67,14 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 1. Verify that the Windows Azure Guest Agent service appears in services.
 1. Restart the protection job.
 
-Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. You need .NET 4.5 for the VM agent to communicate with the service.
+Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. You need .NET 4.5 for the VM agent to communicate with the service.
 
 ### The agent installed in the VM is out of date (for Linux VMs)
 
 #### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > We *strongly recommend* that you update the agent only through a distribution repository. We don't recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution isn't available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
@@ -102,6 +105,6 @@ To uninstall the extension:
 1. Select **Site Recovery Extension**.
 1. Select **Uninstall**.
 
-For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md). Then run the protection.
+For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/extensions/update-linux-agent.md). Then run the protection.
 
 When you complete these steps, it causes the extension to be reinstalled during the protection.

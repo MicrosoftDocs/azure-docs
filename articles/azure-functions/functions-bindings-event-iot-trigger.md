@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub bindings for Azure Functions
+title: Azure IoT Hub trigger for Azure Functions
 description: Learn to respond to events sent to an IoT hub event stream in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
@@ -17,6 +17,10 @@ For information on setup and configuration details, see the [overview](functions
 > While the following code samples use the Event Hub API, the given syntax is applicable for IoT Hub functions.
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs-trigger.md)]
+
+## host.json properties
+
+The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hub trigger behavior. See the [host.json settings](functions-bindings-event-iot.md#hostjson-settings) section for details regarding available settings.
 
 ## Next steps
 

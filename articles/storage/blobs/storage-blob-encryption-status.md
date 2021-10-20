@@ -8,8 +8,9 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.reviewer: ozgun
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Check the encryption status of a blob
@@ -90,7 +91,7 @@ Example:
 azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt'
 ```
 
-For more information about using AzCopy to copy blob data, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md).
+For more information about using AzCopy to copy blob data, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data).
 
 ## Next steps
 

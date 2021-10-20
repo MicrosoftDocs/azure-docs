@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 09/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ---
 
@@ -69,7 +69,7 @@ After the time limit set on the packet capture has expired, the packet capture i
 > [!NOTE]
 > The portal automatically:
 >  * Creates a  network watcher in the same region as the region the virtual machine you selected exists in, if the region doesn't already have a network watcher.
->  * Adds the *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) or [Windows](../virtual-machines/windows/extensions-nwa.md) virtual machine extension to the virtual machine, if it's not already installed.
+>  * Adds the *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) or [Windows](../virtual-machines/extensions/network-watcher-windows.md) virtual machine extension to the virtual machine, if it's not already installed.
 
 ## Delete a packet capture
 

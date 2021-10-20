@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -59,7 +59,7 @@ If your organization uses a federation service to sign in to Azure AD, the claim
 
 ## 6. Enable Azure AD Seamless SSO for Windows down-level devices
 
-If your organization uses Password Hash Synchronization or Pass-through Authentication to sign in to Azure AD, enable Azure AD Seamless SSO with that sign-in method to authenticate Windows down-level devices:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
+If your organization uses Password Hash Synchronization or Pass-through Authentication to sign in to Azure AD, enable [Azure AD Seamless SSO](/azure/active-directory/connect/active-directory-aadconnect-sso) with that sign-in method to authenticate Windows down-level devices.
 
 ## 7. Set Azure AD policy for Windows down-level devices
 
@@ -80,19 +80,11 @@ If you are using [Seamless SSO](how-to-connect-sso.md), also enable “Allow sta
 
 ## 9. Install Microsoft Workplace Join on Windows down-level devices
 
-This installer creates a scheduled task on the device system that runs in the user’s context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating using Integrated Windows Authentication. The download center is at https://www.microsoft.com/download/details.aspx?id=53554. 
+This installer creates a scheduled task on the device system that runs in the user’s context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating using integrated Windows authentication. The download center is at https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## 10. Configure group policy to allow device registration
 
-* Create a group policy object in your Active Directory--if not already created.
-* Name it (ex- Hybrid Azure AD join).
-* Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration
-* Enable:  Register domain-joined computers as devices
-* Apply and click OK.
-* Link the GPO to the location of your choice (organizational unit, security group, or to the domain for all devices).
-
->[!NOTE]
->For 2012R2 the policy settings are at **Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers**
+For information about how to allow hybrid Azure AD join for individual devices, see [Controlled validation of hybrid Azure AD join](../devices/hybrid-azuread-join-control.md).
 
 ## Next steps
 [Configure device writeback](how-to-connect-device-writeback.md)

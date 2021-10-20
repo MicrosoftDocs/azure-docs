@@ -2,7 +2,7 @@
 title: 'Tutorial: Detailed walkthrough of Machine Learning on Azure IoT Edge'
 description: A high-level tutorial that walks through the various tasks necessary to create an end-to-end, machine learning at the edge scenario. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 11/11/2019
 ms.topic: tutorial
@@ -12,9 +12,43 @@ services: iot-edge
 
 # Tutorial: An end-to-end solution using Azure Machine Learning and IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Frequently, IoT applications want to take advantage of the intelligent cloud and the intelligent edge. In this tutorial, we walk you through training a machine learning model with data collected from IoT devices in the cloud, deploying that model to IoT Edge, and maintaining and refining the model periodically.
 
+>[!NOTE]
+>The concepts in this set of tutorials apply to all versions of IoT Edge, but the sample device that you create to try out the scenario runs IoT Edge version 1.1.
+
 The primary objective of this tutorial is to introduce the processing of IoT data with machine learning, specifically on the edge. While we touch many aspects of a general machine learning workflow, this tutorial is not intended as an in-depth introduction to machine learning. As a case in point, we do not attempt to create a highly optimized model for the use case – we just do enough to illustrate the process of creating and using a viable model for IoT data processing.
+
+This section of the tutorial discusses:
+
+> [!div class="checklist"]
+>
+> * The prerequisites to complete the subsequent parts of the tutorial.
+> * The target audience of the tutorial.
+> * The use case the tutorial simulates.
+> * The overall process the tutorial follows to fulfill the use case.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
+
+To complete the tutorial, you need access to an Azure subscription in which you have rights to create resources. Several of the services used in this tutorial will incur Azure charges. If you do not already have an Azure subscription, you may be able to get started with an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/).
+
+You also need a machine with PowerShell installed where you can run scripts to set up an Azure Virtual Machine as your development machine.
+
+In this document, we use the following set of tools:
+
+* An Azure IoT hub for data capture
+
+* Azure Notebooks as our main front end for data preparation and machine learning experimentation. Running python code in a notebook on a subset of the sample data is a great way to get fast iterative and interactive turnaround during data preparation. Jupyter notebooks can also be used to prepare scripts to run at scale in a compute backend.
+
+* Azure Machine Learning as a backend for machine learning at scale and for machine learning image generation. We drive the Azure Machine Learning backend using scripts prepared and tested in Jupyter notebooks.
+
+* Azure IoT Edge for off-cloud application of a machine learning image
+
+Obviously, there are other options available. In certain scenarios, for example, IoT Central can be used as a no-code alternative to capture initial training data from IoT devices.
 
 ## Target audience and roles
 
@@ -69,23 +103,9 @@ The picture below illustrates the rough steps we follow in this tutorial:
 
 1. **Maintain and refine the model**. Our work is not done once the model is deployed. In many cases, we want to continue collecting data and periodically upload that data to the cloud. We can then use this data to retrain and refine our model, which we then can redeploy to IoT Edge.
 
-## Prerequisites
+## Clean up resources
 
-To complete the tutorial, you need access to an Azure subscription in which you have rights to create resources. Several of the services used in this tutorial will incur Azure charges. If you do not already have an Azure subscription, you may be able to get started with an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/).
-
-You also need a machine with PowerShell installed where you can run scripts to set up an Azure Virtual Machine as your development machine.
-
-In this document, we use the following set of tools:
-
-* An Azure IoT hub for data capture
-
-* Azure Notebooks as our main front end for data preparation and machine learning experimentation. Running python code in a notebook on a subset of the sample data is a great way to get fast iterative and interactive turnaround during data preparation. Jupyter notebooks can also be used to prepare scripts to run at scale in a compute backend.
-
-* Azure Machine Learning as a backend for machine learning at scale and for machine learning image generation. We drive the Azure Machine Learning backend using scripts prepared and tested in Jupyter notebooks.
-
-* Azure IoT Edge for off-cloud application of a machine learning image
-
-Obviously, there are other options available. In certain scenarios, for example, IoT Central can be used as a no-code alternative to capture initial training data from IoT devices.
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
 
 ## Next steps
 

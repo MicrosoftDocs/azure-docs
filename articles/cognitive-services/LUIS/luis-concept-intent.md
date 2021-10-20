@@ -3,14 +3,14 @@ title: Intents and entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: A single intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
+ms.date: 04/13/2021
+
 ---
 # Intents in your LUIS app
 
@@ -28,7 +28,7 @@ Travel app intents   |   Example utterances   |
 All applications come with the predefined intent, "[None](#none-intent)", which is the fallback intent.
 
 ## Prebuilt domains provide intents
-In addition to intents that you define, you can use prebuilt intents from one of the [prebuilt domains](luis-how-to-use-prebuilt-domains.md).
+In addition to intents that you define, you can use prebuilt intents from one of the [prebuilt domains](./howto-add-prebuilt-models.md).
 
 ## Return all intents' scores
 You assign an utterance to a single intent. When LUIS receives an utterance on the endpoint, by default, it returns the top intent for that utterance.
@@ -49,13 +49,13 @@ Create an intent when the user's _intention_ would trigger an action in your cli
 
 |Intent   | Entity | Example utterance   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "Seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` |
 ||||
 
 ## Prebuilt domain intents
 
-[Prebuilt domains](luis-how-to-use-prebuilt-domains.md) provide intents with utterances.
+[Prebuilt domains](./howto-add-prebuilt-models.md) provide intents with utterances.
 
 ## None intent
 
@@ -70,7 +70,7 @@ If you want to determine negative and positive intentions, such as "I **want** a
 
 ## Intents and patterns
 
-If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](luis-concept-entity-types.md#regular-expression-entity) paired with a [pattern](luis-concept-patterns.md).
+If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](luis-concept-entity-types.md#regex-entity) paired with a [pattern](luis-concept-patterns.md).
 
 Using a regular expression entity guarantees the data extraction so that the pattern is matched. The pattern matching guarantees an exact intent is returned.
 

@@ -1,23 +1,11 @@
 ---
 title: What is Azure Relay? | Microsoft Docs
 description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
-services: service-bus-relay
-author: spelluru
-manager: 
-editor: ''
-
-ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: spelluru
-
-#customer intent: As a developer, I want to consume my on-premises services from my applications running in the cloud. In some cases, I want my applications running in a customer network to access services running in my network. How do I go about it? 
-
+ms.topic: overview
+ms.date: 09/02/2021
+ms.custom: contperf-fy22q1
 ---
+
 # What is Azure Relay?
 The Azure Relay service enables you to securely expose services that run in your corporate network to the public cloud. You can do so without opening a port on your firewall, or making intrusive changes to your corporate network infrastructure. 
 
@@ -25,7 +13,7 @@ The relay service supports the following scenarios between on-premises services 
 
 - Traditional one-way, request/response, and peer-to-peer communication 
 - Event distribution at internet-scope to enable publish/subscribe scenarios 
-- Bi-directional and unbuffered socket communication across network boundaries.
+- Bi-directional and unbuffered socket communication across network boundaries
 
 Azure Relay differs from network-level integration technologies such as VPN. An Azure relay can be scoped to a single application endpoint on a single machine. The VPN technology is far more intrusive, as it relies on altering the network environment. 
 
@@ -42,7 +30,7 @@ In the relayed data transfer pattern, the basic steps involved are:
 Azure Relay has two features:
 
 - [Hybrid Connections](#hybrid-connections) - Uses the open standard web sockets enabling multi-platform scenarios.
-- WCF Relays - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy relay offering that many customers already use with their WCF programming models.
+- [WCF Relays](#wcf-relay) - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy relay offering that many customers already use with their WCF programming models.
 
 ## Hybrid Connections
 
@@ -53,8 +41,25 @@ For details on the Hybrid Connection protocol, see [Hybrid Connections protocol 
 > [!NOTE]
 > Hybrid Connections of Azure Relay replaces the old Hybrid Connections feature of BizTalk Services. The Hybrid Connections feature in BizTalk Services was built on the Azure Service Bus WCF Relay. The Hybrid Connections capability in Azure Relay complements the pre-existing WCF Relay feature. These two service capabilities (WCF Relay and Hybrid Connections) exist side-by-side in the Azure Relay service. They share a common gateway, but are otherwise different implementations.
 
+To get started with using Hybrid Connections in Azure Relay, see the following quick starts: 
+
+- [Hybrid Connections - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
+- [Hybrid Connections - Node WebSockets](relay-hybrid-connections-node-get-started.md)
+- [Hybrid Connections - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+- [Hybrid Connections - Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
+
+For more samples, see [Azure Relay - Hybrid Connections samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections).
+
 ## WCF Relay
-WCF Relay works with the full .NET Framework and for WCF. You create a connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. The relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud. For more information, see [getting started with WCF Relay](service-bus-relay-tutorial.md).
+WCF Relay works with the full .NET Framework and for WCF. You create a connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. The relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
+
+To get started with using WCF Relay, see the following quick starts: 
+
+- [Expose an on-premises WCF service to a web app in the cloud](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+- [Expose an on-premises WCF service to a WCF client outside your network](service-bus-relay-tutorial.md)
+- [Expose an on-premises WCF REST service to a client outside your network](service-bus-relay-rest-tutorial.md)
+
+For more samples, see [Azure Relay - WCF Relay samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay).
 
 ## Hybrid Connections vs. WCF Relay
 Hybrid Connections and WCF Relay both enable secure connection to assets that exist within a corporate network. Use of one over the other depends on your particular needs, as described in the following table:
@@ -64,7 +69,7 @@ Hybrid Connections and WCF Relay both enable secure connection to assets that ex
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Java script/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Standards-Based open protocol** | |x |
 | **RPC programming models** | |x |
 
@@ -84,9 +89,17 @@ The following diagram shows you how incoming relay requests are handled by the A
 9. The gateway forwards any messages from the sending client to the listening client.  
 
 ## Next steps
-* [Get started with .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
-* [Get started with .NET HTTP Requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Get started with Node WebSockets](relay-hybrid-connections-node-get-started.md)
-* [Get started with Node HTTP Requests](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Relay FAQ](relay-faq.md)
+Follow one or more of the following quick starts, or see [Azure Relay samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples).
+
+- Hybrid Connections
+    - [Hybrid Connections - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
+    - [Hybrid Connections - Node WebSockets](relay-hybrid-connections-node-get-started.md)
+    - [Hybrid Connections - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+    - [Hybrid Connections - Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
+- WCF Relay
+    - [Expose an on-premises WCF service to a web app in the cloud](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+    - [Expose an on-premises WCF service to a WCF client outside your network](service-bus-relay-tutorial.md)
+    - [Expose an on-premises WCF REST service to a client outside your network](service-bus-relay-rest-tutorial.md)
+
+For a list of frequently asked questions and their answers, see [Relay FAQ](relay-faq.yml)
 

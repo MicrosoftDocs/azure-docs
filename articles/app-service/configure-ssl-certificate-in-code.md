@@ -2,7 +2,7 @@
 title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 
@@ -20,7 +20,7 @@ When you let App Service manage your TLS/SSL certificates, you can maintain the 
 
 To follow this how-to guide:
 
-- [Create an App Service app](/azure/app-service/)
+- [Create an App Service app](./index.yml)
 - [Add a certificate to your app](configure-ssl-certificate.md)
 
 ## Find the thumbprint
@@ -45,10 +45,7 @@ To make all your certificates accessible, set the value to `*`.
 
 ## Load certificate in Windows apps
 
-The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, and the location depends on the [pricing tier](overview-hosting-plans.md):
-
-- **Isolated** tier - in [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- All other tiers - in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
 In C# code, you access the certificate by the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
@@ -70,7 +67,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
                               certThumbprint,
                               validOnly);
   // Get the first cert with the thumbprint
-  X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
+  X509Certificate2 cert = certCollection.OfType<X509Certificate2>().FirstOrDefault();
 
   if (cert is null)
       throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
@@ -103,29 +100,6 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 
 For languages that don't support or offer insufficient support for the Windows certificate store, see [Load certificate from file](#load-certificate-from-file).
 
-## Load certificate in Linux apps
-
-The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Linux hosted apps (including custom container apps) as files. The files are found under the following directories:
-
-- Private certificates - `/var/ssl/private` ( `.p12` files)
-- Public certificates - `/var/ssl/certs` ( `.der` files)
-
-The certificate file names are the certificate thumbprints. The following C# code shows how to load a public certificate in a Linux app.
-
-```csharp
-using System;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-
-...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
-
-// Use the loaded certificate
-```
-
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
-
 ## Load certificate from file
 
 If you need to load a certificate file that you upload manually, it's better to upload the certificate using [FTPS](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. You should keep sensitive data like a private certificate out of source control.
@@ -155,9 +129,56 @@ var cert = new X509Certificate2(bytes);
 
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
 
+## Load certificate in Linux/Windows containers
+
+The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux container apps (including built-in Linux containers) as files. The files are found under the following directories:
+
+| Container platform | Public certificates | Private certificates |
+| - | - | - |
+| Windows container | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
+| Linux container | `/var/ssl/certs` | `/var/ssl/private` |
+
+The certificate file names are the certificate thumbprints. 
+
+> [!NOTE]
+> App Service inject the certificate paths into Windows containers as the following environment variables `WEBSITE_PRIVATE_CERTS_PATH`, `WEBSITE_INTERMEDIATE_CERTS_PATH`, `WEBSITE_PUBLIC_CERTS_PATH`, and `WEBSITE_ROOT_CERTS_PATH`. It's better to reference the certificate path with the environment variables instead of hardcoding the certificate path, in case the certificate paths change in the future.
+>
+
+In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use the file paths provided above to [Load the certificate directly from file](#load-certificate-from-file).
+
+The following C# code shows how to load a public certificate in a Linux app.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+The following C# code shows how to load a private certificate in a Linux app.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+...
+var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+
 ## More resources
 
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
+* [Environment variables and app settings reference](reference-app-settings.md)

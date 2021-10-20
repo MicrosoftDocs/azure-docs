@@ -1,16 +1,16 @@
 ---
 title: Configure Azure ExpressRoute v1
-description: Network configuration for App Service Environment for PowerApps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
-author: stefsch
+description: Network configuration for App Service Environment for Power Apps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
+author: madsd
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
 ms.date: 10/14/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
 ---
 
-# Network configuration details for App Service Environment for PowerApps with Azure ExpressRoute
+# Network configuration details for App Service Environment for Power Apps with Azure ExpressRoute
 
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure to extend their on-premises network to Azure. App Service Environment is created in a subnet of the [virtual network][virtualnetwork] infrastructure. Apps that run on App Service Environment establish secure connections to back-end resources that are accessible only over the ExpressRoute connection.  
 
@@ -136,21 +136,20 @@ Now you're ready to deploy App Service Environment!
 
 ## Next steps
 
-To get started with App Service Environment for PowerApps, see [Introduction to App Service Environment][IntroToAppServiceEnvironment].
+To get started with App Service Environment for Power Apps, see [Introduction to App Service Environment][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 
 [ExpressRoute]: https://azure.microsoft.com/services/expressroute/ 
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md 
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
-[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/ 
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
+[UDROverview]: ../../virtual-network/virtual-networks-udr-overview.md
 <!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
 
-[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell 
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md 
+[UDRHowTo]: ../../virtual-network/tutorial-create-route-table-powershell.md
 [AzureDownloads]: https://azure.microsoft.com/downloads/ 
 [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
 [NewPortal]:  https://portal.azure.com 
 

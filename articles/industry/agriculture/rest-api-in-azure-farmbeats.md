@@ -1,19 +1,15 @@
 ---
-title: References
-description:
+title: Azure FarmBeats APIs
+description: Learn about Azure FarmBeats APIs, which provide agricultural businesses with a standardized RESTful interface with JSON-based responses.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ---
 
-# References
+# Azure FarmBeats APIs
 
-This article describes the Azure FarmBeats APIs.
-
-## REST API
-
-The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
+This article describes the Azure FarmBeats APIs. The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
 
 - APIs to get sensor, camera, drone, weather, satellite, and curated ground data.
 - Normalization and contextualization of data across common data providers.
@@ -58,7 +54,7 @@ To make an authenticated request to the REST APIs, client code requires authenti
 
 The access token must be sent in subsequent API requests, in the header section, as:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -69,15 +65,15 @@ Here are the most common request headers that you must specify when you make an 
 
 **Header** | **Description and example**
 --- | ---
-Content-Type  | The request format (Content-Type: application/<format>). For Azure FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization  | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type  | The request format (Content-Type: application/\<format\>). For Azure FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization  | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept | The response format. For Azure FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 ### API requests
 
 To make a REST API request, you combine the HTTP (GET, POST, PUT, or DELETE) method, the URL to the API service, the URI to a resource to query, submit data to, update, or delete, and then add one or more HTTP request headers.
 
-The URL to the API service is your Datahub URL, for example, https://\<yourdatahub-website-name>.azurewebsites.net.
+The URL to the API service is your Datahub URL, for example, `https://<yourdatahub-website-name>.azurewebsites.net`.
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
@@ -157,7 +153,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
     - Go back to **Overview**, and select the link next to **Manage Application in local directory**.
     - Go to **Properties** to capture the **Object ID**.
 
-4. Go to your Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
+4. Go to your Datahub Swagger (`https://<yourdatahub>.azurewebsites.net/swagger/index.html`) and do the following:
     - Go to the **RoleAssignment API**.
     - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created.
  
@@ -171,12 +167,12 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
 ```
 
   > [!NOTE]
-  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 After you finish the previous steps, your app registration (client) can call the Azure FarmBeats APIs by using an access token via bearer authentication.
 
 Use the access token to send it in subsequent API requests in the header section as:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

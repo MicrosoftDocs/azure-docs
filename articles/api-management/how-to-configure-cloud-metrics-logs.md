@@ -3,7 +3,7 @@ title: Configure cloud metrics and logs for Azure API Management self-hosted gat
 description: Learn how to configure cloud metrics and logs for Azure API Management self-hosted gateway
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 
@@ -54,14 +54,12 @@ The self-hosted gateway currently emits the following metrics through Azure Moni
 
 ## Logs
 
-The self-hosted gateway currently does not send [diagnostic logs](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) to the cloud. However, it is possible to [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed. 
+The self-hosted gateway currently does not send [diagnostic logs](./api-management-howto-use-azure-monitor.md#activity-logs) to the cloud. However, it is possible to [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed. 
 
-If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) to collect logs from your containers and view them in Log Analytics. 
+If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect logs from your containers and view them in Log Analytics. 
 
 
 ## Next steps
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn about [configuring and persisting logs locally](how-to-configure-local-metrics-logs.md)
-
-

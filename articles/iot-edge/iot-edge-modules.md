@@ -2,15 +2,18 @@
 title: Learn how modules run logic on your devices - Azure IoT Edge | Microsoft Docs 
 description: Azure IoT Edge modules are containerized units of logic that can be deployed and managed remotely so that you can run business logic on IoT Edge devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: devx-track-csharp
 ---
 
 # Understand Azure IoT Edge modules
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge lets you deploy and manage business logic on the edge in the form of *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, consider the four conceptual elements of a module:
 

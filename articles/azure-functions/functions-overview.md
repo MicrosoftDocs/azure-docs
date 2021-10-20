@@ -1,92 +1,62 @@
 ---
 title: Azure Functions Overview 
-description: Understand how to use Azure Functions to optimize asynchronous workloads in minutes.
-author: mattchenderson
-
+description: Learn how Azure Functions can help build robust serverless apps.
+author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 01/16/2020
-
-ms.custom: H1Hack27Feb2017, mvc
-
+ms.date: 11/20/2020
+ms.author: cshoe
+ms.custom: contperf-fy21q2
 ---
 
-# An introduction to Azure Functions
+# Introduction to Azure Functions
 
-Azure Functions allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
+Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 
-A function is "triggered" by a specific type of event. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
+You focus on the pieces of code that matter most to you, and Azure Functions handles the rest.<br /><br />
 
-While you can always code directly against a myriad of services, integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and third-party services](./functions-triggers-bindings.md).
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
 
-## Features
+We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  IoT data streams, or even managing message queues - every application needs a way to run some code as these events occur.
 
-Some key features of Azure Functions include:
+To meet this need, Azure Functions provides "compute on-demand" in two significant ways.
 
-- **Serverless applications**: Functions allow you to develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure.
+First, Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called "functions". Different functions can run anytime you need to respond to critical events.
 
-- **Choice of language**: Write functions using your choice of [C#, Java, JavaScript, Python, and PowerShell](supported-languages.md).
+Second, as requests increase, Azure Functions meets the demand with as many resources and function instances as necessary - but only while needed. As requests fall, any extra resources and application instances drop off automatically.
 
-- **Pay-per-use pricing model**: Pay only for the time spent running your code. See the Consumption hosting plan option in the [pricing section](#pricing).  
+Where do all the compute resources come from? Azure Functions [provides as many or as few compute resources as needed](./functions-scale.md) to meet your application's demand.
 
-- **Bring your own dependencies**: Functions supports NuGet and NPM, giving you access to your favorite libraries.
+Providing compute resources on-demand is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/) in Azure Functions.
 
-- **Integrated security**: Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
+## Scenarios
 
-- **Simplified integration**: Easily integrate with Azure services and software-as-a-service (SaaS) offerings.
+In many cases, a function [integrates with an array of cloud services](./functions-triggers-bindings.md) to provide feature-rich implementations.
 
-- **Flexible development**: Set up continuous integration and deploy your code through [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md), and other [supported development tools](../app-service/deploy-local-git.md).
+The following are a common, _but by no means exhaustive_, set of scenarios for Azure Functions.
 
-- **Stateful serverless architecture**: Orchestrate serverless applications with [Durable Functions](durable/durable-functions-overview.md).
+| If you want to... | then... |
+| --- | --- |
+| **Build a web API** | Implement an endpoint for your web applications using the [HTTP trigger](./functions-bindings-http-webhook.md) |
+| **Process file uploads** | Run code when a file is uploaded or changed in [blob storage](./functions-bindings-storage-blob.md) |
+| **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable/durable-functions-overview.md) |
+| **Respond to database changes** | Run custom logic when a document is created or updated in [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
+| **Run scheduled tasks** | Execute code on [pre-defined timed intervals](./functions-bindings-timer.md) |
+| **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
+| **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |
+| **Process data in real time** | Use [Functions and SignalR](./functions-bindings-signalr-service.md) to respond to data in the moment |
 
-- **Open-source**: The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).
+As you build your functions, you have the following options and resources available:
 
-## What can I do with Functions?
+- **Use your preferred language**: Write functions in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md), or use a [custom handler](./functions-custom-handlers.md) to use virtually any other language.
 
-Functions is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
+- **Automate deployment**: From a tools-based approach to using external pipelines, there's a [myriad of deployment options](./functions-deployment-technologies.md) available.
 
-A series of templates is available to get you started with key scenarios including:
+- **Troubleshoot a function**: Use [monitoring tools](./functions-monitoring.md) and [testing strategies](./functions-test-a-function.md) to gain insights into your apps.
 
-- **HTTP**: Run code based on [HTTP requests](functions-create-first-azure-function.md)
-
-- **Timer**: Schedule code to [run at predefined times](./functions-create-scheduled-function.md)
-
-- **Azure Cosmos DB**: Process [new and modified Azure Cosmos DB documents](./functions-create-cosmos-db-triggered-function.md)
-
-- **Blob storage**: Process [new and modified Azure Storage blobs](./functions-create-storage-blob-triggered-function.md)
-
-- **Queue storage**: Respond to [Azure Storage queue messages](./functions-create-storage-queue-triggered-function.md)
-
-- **Event Grid**: Respond to [Azure Event Grid events via subscriptions and filters](../event-grid/resize-images-on-storage-blob-upload-event.md)
-
-- **Event Hub**: Respond to [high-volumes of Azure Event Hub events](./functions-bindings-event-hubs.md)
-
-- **Service Bus Queue**: Connect to other Azure or on-premises services by [responding Service Bus queue messages](./functions-bindings-service-bus.md)
-
-- **Service Bus Topic**: Connect other Azure services or on-premises services by [responding to Service Bus topic messages](./functions-bindings-service-bus.md)
-
-## <a name="pricing"></a>How much does Functions cost?
-
-Azure Functions has three kinds of pricing plans. Choose the one that best fits your needs:
-
-- **Consumption plan**: Azure provides all of the necessary computational resources. You don't have to worry about resource management, and only pay for the time that your code runs.
-
-- **Premium plan**: You specify a number of pre-warmed instances that are always online and ready to immediately respond. When your function runs, Azure provides any additional computational resources that are needed. You pay for the pre-warmed instances running continuously and any additional instances you use as Azure scales your app in and out.
-
-- **App Service plan**: Run your functions just like your web apps. If you use App Service for your other applications, your functions can run on the same plan at no additional cost.
-
-For more information about hosting plans, see [Azure Functions hosting plan comparison](functions-scale.md). Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/).
+- **Flexible pricing options**: With the [Consumption](./pricing.md) plan, you only pay while your functions are running, while the [Premium](./pricing.md) and [App Service](./pricing.md) plans offer features for specialized needs.
 
 ## Next Steps
 
-- [Create your first Azure Function](functions-create-first-function-vs-code.md)  
-  Get started with [Visual Studio Code](functions-create-first-function-vs-code.md), the [command line](functions-create-first-azure-function-azure-cli.md), or use the [Azure portal](functions-create-first-azure-function.md).
-
-- [Azure Functions developer reference](functions-reference.md)  
-  Provides more technical information about the Azure Functions runtime and a reference for coding functions and defining triggers and bindings.
-
-- [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan.
-
-- [Learn more about Azure App Service](../app-service/overview.md)  
-  Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics.
+> [!div class="nextstepaction"]
+> [Get started through lessons, samples, and interactive tutorials](./functions-get-started.md)

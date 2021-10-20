@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 03/06/2020
+ms.date: 01/07/2021
 ms.author: vinigam
 
 ---
 # Sample queries with new fields in the Traffic Analytics schema (August 2019 schema update)
 
-The [Traffic Analytics log schema](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) includes the following new fields: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. The new fields provide information about source and destination IPs, and they simplify queries.
+The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the following new fields: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. The new fields provide information about source and destination IPs, and they simplify queries.
 
 In the next few months, the following older fields will be deprecated: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
 
@@ -72,7 +72,7 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 The old field used the format:
 
-<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+`<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>`
 
 We no longer aggregate data across a network security group (NSG). In the updated schema, **NSGList_s** contains only one NSG. Also **NSGRules** contains only one rule. We removed the complicated formatting here and in other fields as shown in the example.
 
@@ -118,5 +118,5 @@ Depending on the conditions, we know which one of the four fields will be popula
 
 ## Next steps
 
-- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.md).
+- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.yml).
 - To see details about functionality, see [Traffic Analytics documentation](traffic-analytics.md).

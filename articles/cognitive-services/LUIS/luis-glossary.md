@@ -1,8 +1,10 @@
 ---
 title: Glossary - LUIS
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
+ms.date: 05/17/2021
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -33,22 +35,23 @@ Authoring is the ability to create, manage and deploy a LUIS app, either using t
 
 ### Authoring Key
 
-The [authoring key](luis-concept-keys.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
+The [authoring key](luis-how-to-azure-subscription.md) is used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
 
 ### Authoring Resource
 
-Your LUIS [authoring resource](luis-concept-keys.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
+Your LUIS [authoring resource](luis-how-to-azure-subscription.md) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
 ## Batch test
 
-Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
+Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](./luis-how-to-batch-test.md#batch-test-file).
+
 
 See also:
-* [Concepts](luis-concept-batch-test.md)
+* [Concepts](./luis-how-to-batch-test.md)
 * [How-to](luis-how-to-batch-test.md) run a batch test
-* [Tutorial](luis-tutorial-batch-testing.md) - create and run a batch test
+* [Tutorial](./luis-how-to-batch-test.md) - create and run a batch test
 
 ### F-measure
 
@@ -89,11 +92,11 @@ An [intent](#intent) is an example of a classifier.
 
 ## Collaborator
 
-A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with role-based access (RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with RBAC.
+A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with Azure role-based access control (Azure RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with Azure RBAC.
 
 ## Contributor
 
-A contributor is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances. A contributor provides role-based access (RBAC) to a LUIS app.
+A contributor is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances. A contributor provides Azure role-based access control (Azure RBAC) to a LUIS app.
 
 See also:
 * [How-to](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) add contributors
@@ -229,7 +232,7 @@ A prediction is a REST request to the Azure LUIS prediction service that takes i
 
 ### Prediction key
 
-The [prediction key](luis-concept-keys.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
+The [prediction key](luis-how-to-azure-subscription.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
 
 This key is not the authoring key. If you have a prediction endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current prediction key inside the endpoint URL at the bottom of Azure resources page in LUIS website. It is the value of the subscription-key name/value pair.
 
@@ -287,7 +290,7 @@ The model will return the normalized value for the entity when any of synonyms a
 
 ## Test
 
-[Testing](luis-concept-test.md) a LUIS app means viewing model predictions.
+[Testing](./luis-interactive-test.md) a LUIS app means viewing model predictions.
 
 ## Timezone offset
 

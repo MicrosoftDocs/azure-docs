@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -212,6 +212,6 @@ To visually explore the OData language grammar supported by Azure Cognitive Sear
 ## See also  
 
 - [Filters in Azure Cognitive Search](search-filters.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
 - [Lucene query syntax](query-lucene-syntax.md)
 - [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)

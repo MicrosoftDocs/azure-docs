@@ -1,11 +1,8 @@
 ---
 title: Apache Spark performance - Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/23/2019
 ---
 
@@ -35,7 +32,7 @@ Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is avail
 
 1. Select **Actions** (**Service Actions** in HDI 3.6) and **Activate**.
 
-    ![Enabling the IO Cache service in Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Enabling the IO Cache service in Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Enabling the IO Cache service in Ambari" border="true":::
 
 1. Confirm restart of all the affected services on the cluster.
 
@@ -50,7 +47,7 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 
 1. Select the **Configs** and **Advanced** tabs.
 
-    ![Edit HDFS Advanced Configuration](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Edit HDFS Advanced Configuration")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edit HDFS Advanced Configuration" border="true":::
 
 1. Scroll down and expand the **Custom core-site** area.
 
@@ -58,13 +55,13 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 
 1. Change the value in the box.
 
-    ![Edit IO Cache Fullness Percentage](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Edit IO Cache Fullness Percentage")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edit IO Cache Fullness Percentage" border="true":::
 
 1. Select **Save** on the upper right.
 
 1. Select **Restart** > **Restart All Affected**.
 
-    ![Apache Ambari restarts all affected](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Restart all affected")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari restarts all affected" border="true":::
 
 1. Select **Confirm Restart All**.
 

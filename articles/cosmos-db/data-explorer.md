@@ -1,17 +1,18 @@
 ---
-title: Use Azure Cosmos DB explorer to manage your data 
-description: Azure Cosmos DB explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB.
-author: deborahc
+title: Use Azure Cosmos DB Explorer to manage your data 
+description: Azure Cosmos DB Explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB.
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: dech
+ms.topic: how-to
+ms.date: 09/23/2020
+ms.author: esarroyo
+author: StefArroyo 
 
 ---
 
-# Work with data using Azure Cosmos explorer 
+# Work with data using Azure Cosmos DB Explorer 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB. Azure Cosmos DB explorer is equivalent to the existing **Data Explorer** tab that is available in Azure portal when you create an Azure Cosmos DB account. The key advantages of Azure Cosmos DB explorer over the existing Data explorer are:
+Azure Cosmos DB Explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB. Azure Cosmos DB Explorer is equivalent to the existing **Data Explorer** tab that is available in Azure portal when you create an Azure Cosmos DB account. The key advantages of Azure Cosmos DB Explorer over the existing Data explorer are:
 
 * You have a full screen real-estate to view your data, run queries, stored procedures, triggers, and view their results.  
 
@@ -19,13 +20,13 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 
 * You can share the query results with other users who do not have access to Azure portal or subscription.  
 
-## Access Azure Cosmos DB explorer
+## Access Azure Cosmos DB Explorer
 
-1. Sign in to [Azure Portal](https://portal.azure.com/). 
+1. Sign in to [Azure portal](https://portal.azure.com/). 
 
 2. From **All resources**, find and navigate to your Azure Cosmos DB account, select Keys, and copy the **Primary Connection String**.  
 
-3. Go to https://cosmos.azure.com/, paste the connection string and select **Connect**. By using the connection string, you can access the Azure Cosmos DB explorer without any time limits.  
+3. Go to https://cosmos.azure.com/, paste the connection string and select **Connect**. By using the connection string, you can access the Azure Cosmos DB Explorer without any time limits.  
 
    If you want to provide other users temporary access to your Azure Cosmos DB account, you can do so by using the read-write and read access URLs. 
 
@@ -35,9 +36,9 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 
    **Read** - When you share the read-only URL with other users, they can view the databases, collections, queries, and other resources associated with that specific account. For example, if you want to share results of a query with your teammates who don't have access to Azure portal or your Azure Cosmos DB account, you can provide them with this URL.
 
-   Choose the type of access you'd like to open the account with and click **Open**. After you open the explorer, the experience is same as you had with the Data Explorer tab in Azure portal.   
+   Choose the type of access you'd like to open the account with and click **Open**. After you open the explorer, the experience is same as you had with the Data Explorer tab in Azure portal.
 
-   ![Open Azure Cosmos DB explorer](./media/data-explorer/open-data-explorer-with-access-url.png)
+   :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Open Azure Cosmos DB Explorer":::
 
 ## Known issues
 
@@ -45,7 +46,10 @@ Currently the **Open Full Screen** experience that allows you to share temporary
 
 Currently, viewing documents that contain a UUID is not supported in Data Explorer. This does not affect loading collections, only viewing individual documents or queries that include these documents. To view and manage these documents, users should continue to use the tool that was originally used to create these documents.
 
-## Next steps
-Now that you have learned how to get started with Azure Cosmos DB explorer to manage your data, next you can:
+Customers receiving HTTP-401 errors may be due to insufficient Azure RBAC permissions for the customer's Azure account, particularly if the account has a custom role. Any custom roles must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action to use Data Explorer if signing in using their Azure Active Directory credentials.
 
-* Start defining [queries](sql-api-query-reference.md) using SQL syntax and perform [server side programming](stored-procedures-triggers-udfs.md) by using stored procedures, UDFs, triggers. 
+## Next steps
+
+Now that you have learned how to get started with Azure Cosmos DB Explorer to manage your data, next you can:
+
+* Start defining [queries](./sql-query-getting-started.md) using SQL syntax and perform [server side programming](stored-procedures-triggers-udfs.md) by using stored procedures, UDFs, triggers.
