@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: anosov1960 
 ms.author: sashan
 ms.reviewer: mikeray
-ms.date: 10/01/2021
+ms.date: 10/19/2021
 ---
 
 # Reserve capacity - Azure Arc-enabled SQL Managed Instance
