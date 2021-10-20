@@ -120,6 +120,15 @@ Azure Logic Apps provides the following built-in actions for the following servi
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
+        [![Azure Blob icon icon][azure-blob-storage-icon]][azure-app-services-doc]
+        \
+        \
+        [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to your Azure Storage account so that you can create and manage blob content.
+    :::column-end:::
+    :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
@@ -128,11 +137,21 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
         \
-        [**SQL Server**][sql-server-doc] <br>(*Single-tenant only*)
+        [**SQL Server**][sql-server-doc] <br>(*Standard logic app only*)
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. <p>**Note**: Single-tenant Azure Logic Apps provides both SQL built-in and managed connector operations, while multi-tenant Azure Logic Apps provides only managed connector operations. <p>For more information, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
@@ -410,6 +429,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
+[azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
 [batch-icon]: ./media/apis-list/batch.png

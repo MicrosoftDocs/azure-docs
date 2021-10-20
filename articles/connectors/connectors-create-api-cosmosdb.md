@@ -7,7 +7,7 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 tags: connectors
 ---
 
@@ -53,7 +53,7 @@ To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-ten
 
    1. In the search box, enter `Azure Cosmos DB`. From the triggers list, select the trigger named **When an item is created or modified (preview)**.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app and the trigger named 'When an item is created or modified (preview)' selected.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and designer for a Standard logic app workflow with the trigger named 'When an item is created or modified (preview)' selected.":::
 
 1. If you're prompted for connection details, [create a connection to Azure Cosmos DB now](#connect-to-azure-cosmos-db).
 
@@ -69,9 +69,9 @@ To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-ten
 
    The following image shows an example trigger:
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-parameters.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with an Azure Cosmos DB trigger and parameters configuration.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-parameters.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with an Azure Cosmos DB trigger and parameters configuration.":::
 
-1. Continue creating your workflow by adding one or more actions.
+1. Add any other actions that you want to your workflow.
 
 1. On the designer toolbar, select **Save**.
 
@@ -97,7 +97,7 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
    This example uses the action named **Create or update document (V3)**.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-action-add.png" alt-text="Screenshot showing the workflow designer for a Consumption logic app workflow with a list of available Azure Cosmos DB actions.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-action-add.png" alt-text="Screenshot showing the designer for a Consumption logic app workflow with the available Azure Cosmos DB actions.":::
 
 1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account now](#connect-to-azure-cosmos-db).
 
@@ -113,9 +113,9 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
    The following image shows an example action:
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-create-action.png" alt-text="Screenshot showing the workflow designer for a Consumption logic app workflow with the Azure Cosmos DB 'Create or update documents (V3)' action and parameters configuration.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-create-action.png" alt-text="Screenshot showing the designer for a Consumption logic app workflow with the Azure Cosmos DB 'Create or update documents (V3)' action and parameters configuration.":::
 
-1. Configure other action settings as needed.
+1. Configure any other action settings as needed.
 
 1. On the designer toolbar, select **Save**.
 
@@ -129,22 +129,23 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger) that includes a simple schema that defines the document that you want to create.
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the document that you want to create.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and workflow designer for a Standard logic app workflow with the Request trigger, 'When a HTTP request is received', and parameters configuration.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and designer for a Standard logic app workflow with the 'When a HTTP request is received' trigger and parameters configuration.":::
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **Insert a new step** (**+**) > **Add an action**.
 
 1. On the designer, make sure that **Add an operation** is selected. In the **Add an action** pane that opens, under the **Choose an operation** search box, select **Built-in** to find the **Azure Cosmos DB** actions.
 
    > [!NOTE]
-   > If you have a stateful workflow, *managed connector* actions are also available on the **Azure** tab, but use them only when the *built-in* actions that you want aren't available.
+   > If you have a stateful workflow, *managed connector* actions are also available on the 
+   > **Azure** tab, but use them only when the *built-in* actions that you want aren't available.
 
 1. In the search box, enter `Azure Cosmos DB`. Select the Azure Cosmos DB action that you want to use.
 
    This example uses the action named **Create or update item (preview)**, which creates a new item or updates an existing item.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-action-add.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow and available Azure Cosmos DB actions.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-action-add.png" alt-text="Screenshot showing the designer for a Standard logic app workflow and available Azure Cosmos DB actions.":::
 
 1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account now](#connect-to-azure-cosmos-db).
 
@@ -160,9 +161,9 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
 
    The following image shows an example action:
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-create-action.png" alt-text="Screenshot showing workflow designer for a Standard logic app workflow with the Azure Cosmos DB 'Create or update item' action and parameters configuration.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-create-action.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB 'Create or update item' action and parameters configuration.":::
 
-1. Configure other action settings as needed
+1. Configure any other action settings as needed.
 
 1. On the designer toolbar, select **Save**.
 
@@ -183,7 +184,7 @@ In a **Logic App (Consumption)** workflow, an Azure Cosmos DB connection require
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, continue providing the remaining required property values to create the connection. <p><p>- If you select **Azure AD Integrated**, no other property values are required, but you have to configure your connection by following the steps for [Azure AD authentication and Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
+| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, provide the remaining required property values to create the connection. <p><p>- If you select **Azure AD Integrated**, no other property values are required, but you have to configure your connection by following the steps for [Azure AD authentication and Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
 | **Access key to your Cosmos DB account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <p><p>**Note**: To find the key, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available key values. |
 | **Account Id** | Yes | <*acccount-ID*> | The name for the Azure Cosmos DB account to use for this connection. |
 |||||
@@ -267,39 +268,48 @@ The output type from the built-in **Query items** action in a **Logic App (Stand
 
    :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-action.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB 'Query items' action and parameters configuration.":::
 
-1. Configure other action settings as needed.
+1. Configure any other action settings as needed.
 
-1. Under the action, select **Insert a new step** (**+**) > **Add an action**. Under **Built-in**, find and add the **For each** action.
+1. Under the action, select **Insert a new step** (**+**) > **Add an action**. In the **Add an action** pane that opens, under the **Choose an operation** search box, select **Built-in** to find and add the **For each** action.
 
 1. To convert the outputs from the **Query items** action, use the following steps:
 
    1. In the **For each** action details pane, click inside the **Select an output from previous step** box so that the dynamic content list appears. Select the **Expression** tab to open the expression editor.
 
-   1. In the functions list, find the **Referencing functions** section, and select **outputs(actionName)**, which appears in the expression editor box.
+   1. In the functions list, find the **Referencing functions** section, and select the **outputs(actionName)** function, which appears in the expression editor box.
 
-   1. In the editor box, enter `'Query_items'` as a parameter for the **outputs(actionName)** function, followed by `?['body']?['item']?['results']` to access the array with the query results. Together, this expression should follow this format:
+   1. In the editor box, enter `'Query_items'` as a parameter for the **outputs(actionName)** function, followed by `?['body']?['item']?['results']` to access the array with the query results, and select **OK**. The complete expression follows this format:
 
-      `outputs('Query_items')?['body']?['item']?['results']`.
+      `outputs('Query_items')?['body']?['item']?['results']`
 
-      :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-configure.png" alt-text="Screenshot showing the Azure portal and workflow designer with a Standard logic app workflow and a for each action to process Azure Cosmos DB query results.":::
+      :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-query-configure.png" alt-text="Screenshot showing the Azure portal and designer for a Standard logic app workflow with the 'For each' action to process Azure Cosmos DB query results.":::
 
-1. In the **For each** loop, add any other actions that you want, and continue building the remaining workflow.
+1. In the **For each** loop, add any other actions that you want.
 
 1. On the designer toolbar, select **Save**.
 
 1. Test your logic app to make sure your workflow returns the output that you expect.
 
-## Check the operation status code to verify action success
+### Confirm action success by checking the operation status code
 
-The Azure Cosmos DB built-in operations for Logic Apps (Standard) allow you to read and respond to the various status codes that could be returned. This means for every action you should have a step that checks the status code returned from the body and reacts according to your needs. The status code returned as dynamic content by the action is different from the status code in the body representing the status of the operation itself. An example workflow with the **Read an item** action and status code check of the read operation is as follows:
+When you use the Azure Cosmos DB built-in operations in a **Logic App (Standard)** workflow, subsequent workflow actions can read and respond to the various status codes that Azure Cosmos DB operations can return. So, for every Azure Cosmos DB action, you should have a step that checks the status code that's returned from the body and reacts based on your scenario.
+
+> [!NOTE]
+> Currently, unlike other managed connector actions and built-in actions, the status code 
+> returned from an Azure Cosmos DB action differs from the status code returned from the 
+> behind-the-scenes service call that's actually sent to Azure Cosmos DB. The action's 
+> status code is available in the dynamic content list, while the service call's status 
+> code is nested in the body of the response object.
+
+For example, the following steps create a workflow that uses the **Read an item** action and shows how to check the status code from the read operation that's made by the service call sent to Azure Cosmos DB:
 
 1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#) with a simple schema defined that represents the document you want to read.
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#), which uses a basic schema definition to represent the document that you want to read.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and workflow designer with the configuration of an http trigger for a Standard logic app workflow.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Request trigger and parameters configuration.":::
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **Insert a new step** (**+**) > **Add an action**.
 
@@ -311,33 +321,44 @@ The Azure Cosmos DB built-in operations for Logic Apps (Standard) allow you to r
 
 1. Provide the necessary information for the action.
 
-    1. For **Database Id** enter the database you want to connect to.
+   | Properties | Required | Value | Description |
+   |------------|----------|-------|-------------|
+   | **Database Id** | Yes | <*database-ID*> | The database that you want to connect. |
+   | **Container Id** | Yes | <*container-ID*> | The container that you want to query. |
+   | **Item Id** | Yes | <*item-ID*> | The `id` value for the document that you want to read. |
+   | **Partition key** | Yes | <*partition-key*> | The partition key value for the document that you want to read. |
+   |||||
 
-    1. For **Container Id** enter the container you want to query.
+   The following image shows an example action:
 
-    1. For **Item Id** enter the `id` value of the document you want to read.
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-read-configure.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB 'Read an item' action and parameters configuration.":::
 
-    1. For **Partition key** enter the partition key value of the document you want to read.
+1. Configure any other action settings as needed.
 
-       :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-read-configure.png" alt-text="Screenshot of Standard logic app in designer, showing configuration of the Azure Cosmos DB Read an item action.":::
+1. Under the action, select **Insert a new step** (**+**) > **Add an action**. In the **Add an action** pane that opens, under the **Choose an operation** search box, select **Built-in** to find and add the **Condition** action.
 
-    1. Configure other action settings as needed.
+1. Click inside the condition's leftmost **Choose a value** box so that the dynamic content list appears. Select the **Expression** tab to open the expression editor.
 
-1. Under the action, select **Insert a new step** (**+**) > **Add an action**, then search for and add the **Condition** action.
+1. In the functions list, find the **Referencing functions** section, and select the **outputs(actionName)** function, which appears in the expression editor box.
 
-1. For the first **Choose a value** box, toggle to the **Expression** tab and search for **Referencing functions** > **outputs(actionName)**.
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-condition-configure.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with a condition configuration.":::
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-condition-configure.png" alt-text="Screenshot showing the Azure portal and workflow designer with a Standard logic app workflow and a condition configuration.":::
+1. In the expression editor box, enter `'Read_an_item'` as a parameter for the **outputs(actionName)** function followed by `?['body']?['statusCode']` to access the status code from the read operation, and select **OK**. The complete expression follows this format:
 
-1. Enter `'Read_an_item'` as a parameter to the **outputs** function followed by `?['body']?['statusCode']` to the status code from the read operation. Together, this should look like `outputs('Read_an_item')?['body']?['statusCode']`.
+   `outputs('Read_an_item')?['body']?['statusCode']`
 
-> Note: The `Status code` available in the **Dynamic Content** tab represents the status of the action. In this case, we are interested in the status of the operation itself, which is nested in the body of the response object.
+   > [!NOTE]
+   > Remember, the status code returned from an Azure Cosmos DB action differs from the status 
+   > code returned from the call that's actually sent to Azure Cosmos DB. The action's status 
+   > code is available in the dynamic content list, while the service call's status code is 
+   > nested in the `body` of the response object.
 
-1. For the middle condition drop down and the second **Choose a value** box, enter values that are appropriate for your workflow. In this example, we will check for equality to `OK`.
+1. In the condition's middle box and the rightmost **Choose a value** box, specify the values that are appropriate for your workflow. In this example, the condition checks whether the status code is equal to `OK`.
 
-> Note: Status codes are represented in their text form, not as numbers.
+   > [!NOTE]
+   > Status codes are represented as text, not numbers.
 
-1. Add actions of your choice inside the true and false paths and build the rest of your workflow.
+1. In the condition's **True** and **False** paths, add any other actions that fit your scenario.
 
 1. On the designer toolbar, select **Save**.
 
