@@ -45,7 +45,7 @@ After training data is uploaded to your Azure storage account, you will need to 
 
 If you enabled multiple languages for your project, you will find a **Language** dropdown, which lets you select the language of each document.
 
-While tagging, your changes will be synced peridodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
+While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
 
 ## Tagging options
 
