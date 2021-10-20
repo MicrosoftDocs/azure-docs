@@ -349,7 +349,7 @@ In the section to set up Azure Files, there is a guide on how to configure file-
 Log collection for troubleshooting.
 
 1. Collect fiddler traces and Request Id or Correlation Id from response headers.
-1. Use [aka.ms/logsminer](aka.ms/logsminer) to search for traces.
+1. Use aka.ms/logsminerto search for traces.
 1. Collect Windows ETL traces from client.
 
 ## Collect logs with Feedback HUb
