@@ -17,6 +17,10 @@ From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and w
 
 You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **Logic App (Standard)** resource types by using the [*managed connector*](managed.md) operations. For **Logic App (Standard)**, Azure Cosmos DB also provides [*built-in*](built-in.md) operations, which are currently in preview and offer different functionality, better performance, and higher throughput. For example, if you're working with the **Logic App (Standard)** resource type, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in your logic app workflows to enable scenarios such as event sourcing and general data processing.
 
+> [!NOTE]
+> Currently, only stateful workflows in a **Logic App (Standard)** resource can use both the managed 
+> connector operations and built-in operations. Stateless workflows can use only built-in operations.
+
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -29,36 +33,43 @@ You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **L
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
 
-This connector offers one trigger called **When an item is created or modified (preview)** which is based off of the [Azure Cosmos DB change feed](../cosmos-db/sql/change-feed-design-patterns.md). It is only available in workflows with the Logic Apps Standard resource type. The trigger is not available for workflows with the Logic Apps Consumption resource type.
+If you're working with the **Logic App (Standard)** resource type, the built-in trigger called **When an item is created or modified (preview)** is available and is based on the [Azure Cosmos DB change feed pattern](../cosmos-db/sql/change-feed-design-patterns.md). This trigger is unavailable for the **Logic App (Consumption)** resource type.
 
 ### [Consumption](#tab/consumption)
 
-There is no Azure Cosmos DB trigger available for the Logic Apps Consumption resource type.
+No Azure Cosmos DB triggers are available for the **Logic App (Consumption)** resource type.
 
 ### [Standard](#tab/standard)
 
-To add an Azure Cosmos DB trigger to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
+To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer search box, enter `Azure Cosmos DB` as your filter. From the triggers list, select the trigger named **When an item is created or modified (preview)**.
+1. To find the trigger, follow these steps:
 
-:::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app and the trigger named 'When an item is created or modified (preview)' selected.":::
+   1. On the designer, select **Choose an operation**.
 
-1. If you're prompted for connection details, [create your Azure Cosmos DB connection now](#connect-to-azure-cosmos-db).
+   1. After the **Add a trigger** pane opens, under the **Choose an operation** search box, select **Built-in**.
 
-1. Provide the necessary information for the trigger on the **Parameters** tab. 
-    1. For **Database Id** enter the name of the database with the container you want to monitor. This database should also have the lease container. If you don't already have a lease container, the connector will create one for you in a step below.
+   1. In the search box, enter `Azure Cosmos DB`. From the triggers list, select the trigger named **When an item is created or modified (preview)**.
 
-    1. For **Monitored Container Id** enter the name of the container you want to monitor. This container should already exist in the database provided.
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Standard logic app and the trigger named 'When an item is created or modified (preview)' selected.":::
 
-    1. For **Lease Container Id** enter the name of the lease container. This can either be an existing container, or the name of a container you would like the connector to create for you. The value `leases` is common and is pre-filled for you.
+1. If you're prompted for connection details, [create a connection to Azure Cosmos DB now](#connect-to-azure-cosmos-db).
 
-    1. For **Create Lease Container** enter `No` if the lease container already exists in the database provided. Enter `Yes` if you would like the connector to create this container for you.
+1. On the **Parameters** tab, provide the necessary information for the trigger.
 
-    1. If you entered `Yes` to **Create Lease Container**, select **Add new parameter**, then select *Lease Container Throughput**. Enter the number of [RUs](../cosmos-db/request-units.md) you would like to provision for this container.
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Database Id** | Yes | <*database-name*> | The name of the database with the container that you want to monitor. This database should also have the lease container. If you don't already have a lease container, the connector will create one for you in a later step. |
+   | **Monitored Container Id** | Yes | <*container-name*> | The name of the container that you want to monitor. This container should already exist in the specified database. |
+   | **Lease Container Id** |  Yes | <*lease-container-name*> | The name of either an existing lease container or a new container that you want created for you. The trigger pre-fills `leases` as a common default name. |
+   | **Create Lease Container** | No | **No** or **Yes** | If the lease container already exists in the specified database, select **No**. If you want the trigger to create this container, select **Yes**. If you select **Yes**, make sure to open the **Add new parameter** list, and select the **Lease Container Throughput** property. Enter the number of [request units (RUs)](../cosmos-db/request-units.md) that you want to provision for this container. |
+   |||||
 
-    :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-parameters.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with an Azure Cosmos DB trigger and parameters configuration.":::
+   The following image shows an example trigger:
+
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-parameters.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with an Azure Cosmos DB trigger and parameters configuration.":::
 
 1. Continue creating your workflow by adding one or more actions.
 
@@ -68,7 +79,7 @@ To add an Azure Cosmos DB trigger to a logic app workflow in single-tenant Azure
 
 ## Add Azure Cosmos DB action
 
-In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action. The Azure Cosmos DB connector offers several actions for both the Consumption and Standard resource types. An example action that creates a document is provided below for each resource type.
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action. The Azure Cosmos DB connector offers actions for both the **Logic App (Consumption)** and **Logic App (Standard)** resource types. The following examples for each resource type shows how to use an action that creates a document.
 
 ### [Consumption](#tab/consumption)
 
@@ -86,23 +97,25 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
    This example uses the action named **Create or update document (V3)**.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-action-add.png" alt-text="Screenshot of Consumption logic app in designer, showing list of available Azure Cosmos DB actions.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-action-add.png" alt-text="Screenshot showing the workflow designer for a Consumption logic app workflow with a list of available Azure Cosmos DB actions.":::
 
-1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account](#connect-to-azure-cosmos-db).
+1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account now](#connect-to-azure-cosmos-db).
 
 1. Provide the necessary information for the action.
 
-    1. For **Azure Cosmos DB account name** select the account from your connection settings. Or, enter the value manually.
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Azure Cosmos DB account name** | Yes | Either select **Use connection settings (<*Azure-Cosmos-DB-account-name*>)**, or manually enter the name. | The account name for your Azure Cosmos DB account. |
+   | **Database ID** | Yes | <*database-ID*> | The database that you want to connect. |
+   | **Container ID** | Yes | <*container-ID*> | The container that you want to query. |
+   | **Document** | Yes | <*JSON-document-to-create*> | The JSON document that you want to create. This example uses the request body from the trigger output. <p><p>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the `id` property and the partition key property for your document. If a document with the specified `id` and partition key already exist, the document is updated. Otherwise, a new document is created. |
+   |||||
 
-    1. For **Database ID** enter the database you want to connect to.
+   The following image shows an example action:
 
-    1. For **Container ID** enter the container you want to query.
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-create-action.png" alt-text="Screenshot showing the workflow designer for a Consumption logic app workflow with the Azure Cosmos DB 'Create or update documents (V3)' action and parameters configuration.":::
 
-    1. For **Document** enter the JSON document you want to create. For this example, we are using the request body from the output of the trigger. Ensure the body is well-formed JSON and that it contains a minimum of the `id` property as well as the partition key property for your document. If a document with the specified `id` and partition key already exists, it will be updated, otherwise a new document will be created.
-
-       :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-create-action.png" alt-text="Screenshot of Consumption logic app in designer, showing configuration of the Azure Cosmos DB 'Create or update documents (V3)' action.":::
-
-    1. Configure other action settings as needed.
+1. Configure other action settings as needed.
 
 1. Test your logic app to make sure your workflow creates a document in the specified container.
 
