@@ -17,7 +17,7 @@ For networking scenarios and limitations, see [Virtual network scenarios and res
 > [!IMPORTANT]
 > Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability][container-regions]. 
 
-[!INCLUDE [network profile callout](./includes/preview/network-profile-callout.md)]
+[!INCLUDE [network profile callout](./includes/network-profile-callout.md)]
 
 Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
 
