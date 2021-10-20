@@ -5,14 +5,14 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 05/17/2021
+ms.date: 10/20/2021
 ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is Language Understanding (LUIS)?
 
 > [!NOTE]
-> A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Custom Language Understanding](../language-service/custom-language-understanding/overview.md), [Custom Text Extraction](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
+> A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/overview.md), [Custom Named Entity Recognition](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
 
 Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. LUIS provides access through its [custom portal](https://www.luis.ai), [APIs][endpoint-apis] and [SDK client libraries](client-libraries-rest-api.md).
 

@@ -23,7 +23,7 @@ Consider using one of the available quickstart articles to see the latest inform
 
 ## How do I migrate to the language service if I am using LUIS?
 
-If you're using Language Understanding (LUIS), you can [import your LUIS JSON file](../custom-language-understanding/concepts/backwards-compatibility.md) to the new Conversational language understanding feature. 
+If you're using Language Understanding (LUIS), you can [import your LUIS JSON file](../conversational-language-understanding/concepts/backwards-compatibility.md) to the new Conversational language understanding feature. 
 
 ## How do I migrate to the language service if I am using QnA Maker?
 
@@ -32,5 +32,5 @@ If you're using QnA Maker, see the [migration guide](../custom-question-answerin
 ## See also
 
 * [Azure Cognitive Service for Language overview](../overview.md)
-* [Custom language understanding overview](../custom-language-understanding/overview.md)
+* [Conversational language understanding overview](../conversational-language-understanding/overview.md)
 * [Question answering overview](../custom-question-answering/overview.md)

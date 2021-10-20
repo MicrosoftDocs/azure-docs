@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Evaluation metrics for Conversational Language Understanding models
 
-Model evaluation in custom entity extraction uses the following metrics:
+Model evaluation in conversational language understanding uses the following metrics:
 
 
 |Metric |Description  |Calculation  |
