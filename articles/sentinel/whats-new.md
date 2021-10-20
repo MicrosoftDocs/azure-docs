@@ -71,7 +71,7 @@ For more information, see [Plan and manage costs for Azure Sentinel](azure-senti
 
 ### Content hub and new solutions (Public preview)
 
-Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel out-of-the-box solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel out-of-the-box (built-in) content and solutions to your Azure Sentinel workspace. Find the content you need by filtering for content type, support models, categories and more, or use the powerful text search.
 
 Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
 
@@ -121,10 +121,6 @@ For more information, see:
 - [About Azure Sentinel solutions](sentinel-solutions.md)
 - [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
-
->[!TIP]
-> We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
->
 
 ### Enable continuous deployment from your content repositories (Public preview)
 
