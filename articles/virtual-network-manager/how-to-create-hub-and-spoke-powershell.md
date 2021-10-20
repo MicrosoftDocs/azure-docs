@@ -92,7 +92,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     $configGroup.Add($spokesGroup) 
     ```
 
-1. Create a hub connectivity group item and define the virtual network you will use as the hub with [New-AzNetworkManagerHub](/powershell/module/az.network/new-aznetworkmanagerhub).
+1. Create a hub connectivity group item and define the virtual network you'll use as the hub with [New-AzNetworkManagerHub](/powershell/module/az.network/new-aznetworkmanagerhub).
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
@@ -144,7 +144,7 @@ Deploy-AzNetworkManagerCommit @deployment
 
 1. Go to one of the virtual networks in the portal and select **Peerings** under *Settings*. You should see a new peering connection create between the hub and the spokes virtual network with *AVNM* in the name.
 
-1. To test *direct connectivity* between spokes, deploy a virtual machine into each spokes virtual network. Then initiate an ICMP request from one virtual machine to the other.
+1. To test *direct connectivity* between spokes, deploy a virtual machine into each spokes virtual network. Then start an ICMP request from one virtual machine to the other.
 
 ## Next steps
 
