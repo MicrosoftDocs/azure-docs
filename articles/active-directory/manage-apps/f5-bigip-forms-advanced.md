@@ -68,7 +68,7 @@ Prior BIG-IP experience is not necessary, but you'll need:
 - An Azure AD free subscription or above
 
 - An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in
-  Azure](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+  Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
 
 - Any of the following F5 BIG-IP license SKUs
 
@@ -219,7 +219,7 @@ Select **Access** > **Single Sign-on** > **Forms Based** > **Create** and provid
 | Username Source | The preferred username source for pre-filling the password collection form. Any APM session variable can be used but the default `session.sso.token.last.username` tends to work best as it holds the logged in users' Azure AD UPN |
 | Password Source | Leave the default `session.sso.token.last.password` as that's the APM variable the BIG-IP will use to cache the password provided by users |
 
-  ![Sceenshot shows new sso configuration](./media/f5-bigip-forms-advanced/new-sso-configuration.png)
+![Sceenshot shows new sso configuration](./media/f5-bigip-forms-advanced/new-sso-configuration.png)
 
 |Property | Description |
 |:------|:---------|
@@ -228,9 +228,9 @@ Select **Access** > **Single Sign-on** > **Forms Based** > **Create** and provid
 | Form Parameter for Username | The element name of your login forms' username field. User your browser's dev tools to determine this.| 
 | Form Parameter for Password | The element name of your login forms' password field. Same, use dev tools.|
 
-  ![Sceenshot shows sso method configuration](./media/f5-bigip-forms-advanced/sso-method-configuration.png)
+![Sceenshot shows sso method configuration](./media/f5-bigip-forms-advanced/sso-method-configuration.png)
 
-  ![Sceenshot shows contoso my vacation sign in page](./media/f5-bigip-forms-advanced/contoso-example.png)
+![Sceenshot shows contoso my vacation sign in page](./media/f5-bigip-forms-advanced/contoso-example.png)
 
 More details on configuring an APM for FBA SSO are available
 [here](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449).
@@ -304,16 +304,18 @@ Although optional, adding a LogonID_Mapping configuration enables the BIG-IP act
 
    ![Sceenshot shows add new entry field](./media/f5-bigip-forms-advanced/add-new-entry.png)
 
-4. Set both variables to use the following, then **Finished** >
-   **Save**.
+4. Set both variables to use the following:
+   
    | Property | Description |
    |:-----|:-------|
    | Custom Variable | `session.logon.last.username` |
    | Session Variable | `session.saml.last.identity`|
 
+   Then after, select **Finished** > **Save**.
+
 5. Commit those settings by selecting **Apply Access Policy** in the top left-hand corner and close the visual policy editor.
 
-   ![Sceenshot shows add new entry field](./media/f5-bigip-forms-advanced/apply-access-policy.png)
+   ![Sceenshot shows apply access policy](./media/f5-bigip-forms-advanced/apply-access-policy.png)
 
 ### Backend pool configuration
 
@@ -345,7 +347,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 2. Provide the virtual server with a **Name,** an unused IP IPv4/IPv6 that can be assigned to the BIG-IP to receive client traffic, and set the **Service Port** to 443.
 
-   ![Sceenshot shows pool member](./media/f5-bigip-forms-advanced/virtual-server.png)
+   ![Sceenshot shows virtual server](./media/f5-bigip-forms-advanced/virtual-server.png)
 
 3. **HTTP Profile**: Set to http.
 
