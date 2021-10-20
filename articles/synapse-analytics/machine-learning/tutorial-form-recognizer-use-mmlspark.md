@@ -197,6 +197,6 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 ## Next steps
 
-* [Train a custom form recognizer model](../../applied-ai-services/form-recognizer/label-tool)
+* [Train a custom form recognizer model](../../applied-ai-services/form-recognizer/label-tool.md)
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)
