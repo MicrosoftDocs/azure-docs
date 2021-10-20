@@ -12,7 +12,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Accepted data formats
+# Data formats accepted by custom NER
 
 When data is used by your model for learning, it expects the data to be in a specific format. When you tag your data in Language Studio, it gets converted to the JSON format described in this article. You can also manually tag your files.
 
