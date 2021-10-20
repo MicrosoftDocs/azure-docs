@@ -29,7 +29,7 @@ The Microsoft Audio Stack is a set of enhancements optimized for speech processi
 * **Acoustic echo cancellation** - Suppress audio being played out of the device while microphone input is active.
 * **Automatic gain control** - Dynamically adjust the person’s voice level to account for soft speakers, long distances, or non-calibrated microphones.
 
-![Block diagram of Microsoft Audio Stack's enhancements.](media/audio-processing/mas-block-diagram.png)
+[ ![Block diagram of Microsoft Audio Stack's enhancements.](media/audio-processing/mas-block-diagram.png) ](media/audio-processing/mas-block-diagram.png#lightbox)
 
 The Microsoft Audio Stack powers a wide range of Microsoft’s products:
 * **Windows** - Microsoft Audio Stack is the default speech processing pipeline when using the Speech audio category. 

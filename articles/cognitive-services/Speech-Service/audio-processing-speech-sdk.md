@@ -87,7 +87,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 This sample shows how to use MAS with a predefined microphone geometry on a specified audio input device. In this example:
 * **Enhancement options** - The default enhancements will be applied on the input audio stream.
 * **Preset geometry** - The preset geometry represents a linear 2-microphone array.
-* **Audio input device** - The audio input device id is `hw:0,1`. For more information on how to select an audio input device, see [How to: Select an audio input device with the Speech SDK](how-to-select-audio-input-devices.md).
+* **Audio input device** - The audio input device ID is `hw:0,1`. For more information on how to select an audio input device, see [How to: Select an audio input device with the Speech SDK](how-to-select-audio-input-devices.md).
 
 #### [C#](#tab/csharp)
 
