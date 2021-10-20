@@ -28,12 +28,11 @@ Connecting cameras to the cloud using a remote device adapter allows cameras to 
 The following are required for this how-to guide:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+* IoT Hub
 * [Azure Video Analyzer account](../create-video-analyzer-account.md) with associated:
   * Storage account
   * User-assigned managed identity (UAMI)
-* IoT Hub
-  * User-assigned managed identity with **Contributor** role access
-* Video Analyzer account must be paired with IoT Hub
+  * [IoT Hub must be attached to Video Analyzer account](../create-video-analyzer-account.md#post-deployment-steps)
 * [IoT Edge with Video Analyzer edge module installed and configured](../edge/deploy-iot-edge-device.md)
 * RTSP capable camera(s)
   * Ensure that camera(s) are on the same network as edge device
@@ -41,9 +40,9 @@ The following are required for this how-to guide:
 ## Overview
 The following is a overview of the instructions of this how-to guide:
 
-* Provision a device entry on IoT Hub to represent the legacy camera device
-* Create a device adapter with Video Analyzer edge to proxy the legacy camera as a transparent gateway
-* Reference the IoT Camera device in the cloud live topology and pipeline to ingest data from the camera.
+1. Provision a device entry on IoT Hub to represent the legacy camera device
+1. Create a device adapter with Video Analyzer edge to proxy the legacy camera as a transparent gateway
+1. Reference the IoT Camera device in the cloud live topology and pipeline to ingest data from the camera.
 
 ## Provisioning IoT device entry/credentials
 
@@ -103,12 +102,9 @@ If successful, you will receive a response with a status code 201.
 
 ## Create pipeline topology in the cloud
 
-> [!NOTE]
-> IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
-
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
-See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.  
+See an example of a [pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/cloud-topologies/cloud-record-camera-behind-firewall)<!-- TODO: make sure link is correct -->.  
 
 [This quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) outlines the steps for creating a pipeline topology and live pipeline in Azure portal. Use the sample topology `CVR from private camera`.
 
@@ -152,7 +148,7 @@ When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and
    {
     "name": "Sample-Pipeline-1",
     "properties": {
-        "topologyName": "CVRwithRemoteDeviceAdapter", <!-- TODO: change to match name in GitHub -->
+        "topologyName": "record-camera-behind-firewall",
         "description": "Continuous video recording with ingestion via a remote device adapter",
         "bitrateKbps": 500,
         "parameters": [
@@ -181,7 +177,7 @@ The RTSP URL must be **localhost** because the access to the camera is being tun
 After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.  
 [The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a live pipeline in Azure portal.
 
-The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can also be used to automate this process.
+The [AVA C# cloud sample repository](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/ingest-from-rtsp-camera-behind-firewall) <!-- TODO: make sure link is correct --> can also be used to automate this process.
 
 ### Playback recorded video in the Azure portal
 
