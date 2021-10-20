@@ -17,9 +17,40 @@ ms.subservice: blobs
 
 tbd
 
-## Archive a blob on ingestion
+## Archive a blob on upload
 
-tbd
+To archive a blob on upload, you can create the blob directly in the Archive tier.
+
+### [Azure portal](#tab/portal)
+
+
+
+### [PowerShell](#tab/powershell)
+
+```azurepowershell
+$rgName = <resource-group>
+$storageAccount = <storage-account>
+$containerName = <container>
+
+# Get context object
+$ctx = New-AzStorageContext -StorageAccountName $storageAccount -UseConnectedAccount
+
+# Create new container.
+New-AzStorageContainer -Name $containerName -Context $ctx
+
+# Upload a file named blob1.txt to the Archive tier.
+Set-AzStorageBlobContent -Container $containerName `
+    -File "blob1.txt" `
+    -Blob "blob1.txt" `
+    -Context $ctx `
+    -StandardBlobTier Archive
+```
+
+### [Azure CLI](#tab/azure-cli) 
+
+
+
+---
 
 ## Archive an existing blob
 
