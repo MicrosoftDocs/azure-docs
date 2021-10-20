@@ -21,7 +21,7 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 ### Supported Kubernetes versions
 
-The minimum recommended Kubernetes version for this feature is 1.18.
+The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Please make sure you are running N-2 or a more recent version. 
 
 ## Features
 
@@ -302,6 +302,7 @@ After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see 
 [aks-managed-identity]: ./use-managed-identity.md
 [identity-access-methods]: ./csi-secrets-store-identity-access.md
 [aad-pod-identity]: ./use-azure-ad-pod-identity.md
+[kubernetes-version-support]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 
 <!-- External -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
