@@ -18,7 +18,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
-2. Use the following command to identify the UUID of an Azure virtual machine or non-Azure machine that you want to remove from management.
+2. Use the following method to identify the UUID of an Azure virtual machine or non-Azure machine that you want to remove from management.
 
    # [Azure VM](#tab/azure-vm)
 
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    Heartbeat
    | where TimeGenerated > ago(30d)
    | where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure")
-   | summarize by Computer, VMUUIDContent for Windows...
+   | summarize by Computer, VMUUID
    ```
 
    ---
