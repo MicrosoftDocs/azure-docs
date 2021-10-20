@@ -22,7 +22,7 @@
 - name: How-to guides
   items:
   - name: Change directory tenants
-    href: how-to-change-directory-tenants-vss-azure.md
+    href: how-to-change-directory-tenants-visual-studio-azure.md
   - name: Remove credit limits 
     href: remove-credit-limits.md
   - name: Add users to your directory
