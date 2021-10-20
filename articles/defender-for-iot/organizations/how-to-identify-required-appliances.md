@@ -35,7 +35,7 @@ This section provides an overview of physical sensor models that are available. 
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | Up to 4 RJ45 | Up to 5 RJ45 |
 | Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
-| Maximum protected devices | 10,000 | 10,000 | 1,000 | 800 |
+| Maximum protected devices | 12,000 | 10,000 | 1,000 | 800 |
 
 See [Appliance specifications](#appliance-specifications) for vendor details.
 
@@ -92,7 +92,7 @@ This section describes hardware specifications for the following appliances:
 | Chipset | Intel C621 |
 | Memory | 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM |
 | Storage | 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5 |
-| Network controller | On-board: 2 x 1-Gb Broadcom BCM5720<br>On-board LOM: iDRAC Port Card 1-Gb Broadcom BCM5720<br><br>External: 1 x Intel Ethernet i350 QP 1-Gb Server Adapter, Low Profile |
+| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter |
 | Management | HPE iLO Advanced |
 | Device access | Two rear USB 3.0<br>One front USB 2.0<br>One internal USB 3.0 |
 | Power | 2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit |
