@@ -164,10 +164,3 @@ These playbooks configure SAP OS prerequisites, including OS and software depend
 
 The playbooks also install the SAP product through SAP Software Provisioning Manager (SWPM) or HDBLCM.
 
-## Next steps
-
-- [Run automation framework from Cloud Shell](automation-run-from-cloud-shell.md)
-
-- [Run automation framework from Linux](automation-run-from-linux.md)
-
-- [Run automation framework from Windows](automation-run-from-windows.md)
