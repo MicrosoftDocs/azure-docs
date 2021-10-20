@@ -48,6 +48,10 @@
           href: event-hubs-capture-python.md
     - name: Stream into Event Hubs for Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Use Schema Registry
+      items:
+        - name: Validate schema when sending and receiving events - AMQP and .NET
+          href: event-hubs-schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
