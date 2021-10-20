@@ -37,7 +37,7 @@ Integrate threat intelligence (TI) into Azure Sentinel through the following act
 
 - **Visualize key information** about your imported threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
 
-Microsoft enriches all imported threat intelligence indicators with GeoLocation and WhoIs data, which is displayed together with other indicator details.
+Microsoft enriches all imported threat intelligence indicators with [GeoLocation and WhoIs data](#view-your-geolocation-and-whois-data-enrichments-public-preview), which is displayed together with other indicator details.
 
 > [!TIP]
 > Threat Intelligence also provides useful context within other Azure Sentinel experiences such as **Hunting** and **Notebooks**. For more information, see [Jupyter Notebooks in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md).
@@ -99,7 +99,7 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 For more details on viewing and managing your threat indicators, see [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md#view-your-threat-indicators-in-azure-sentinel).
 
-### View your GeoLocation and WhoIs data enrichments
+### View your GeoLocation and WhoIs data enrichments (Public preview)
 
 Microsoft enriches each indicator with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator of compromise (IOC) is found.
 
