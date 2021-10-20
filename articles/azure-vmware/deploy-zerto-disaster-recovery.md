@@ -89,11 +89,11 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 > As part of the manual installation, Microsoft will create a new vCenter user account for Zerto. This user account is only for Zerto Virtual Manager (ZVM) to perform operations on the Azure VMware Solution vCenter. When installing ZVM on Azure VMware Solution, don’t select the “Select to enforce roles and permissions using Zerto vCenter privileges” option. 
 
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-4.png" alt-text="Example shows the vCenter Server Connectivity window with instructions to NOT select the checkbox at the bottom.":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-4.png" alt-text="Screenshot of the vCenter Server Connectivity window with instructions to NOT select the checkbox at the bottom.":::
 
 After the ZVM installation, select the options below from the Zerto Virtual Manager **Site Settings**. 
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Image demonstrates to select all of the blue checkboxes shown in the **Workload Automation** section, located on the left sidebar":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Screenshot of the **Workload Automation** section that shows to select all of the options listed for the blue checkboxes":::
 
 >[!NOTE]
 >General Availability of Azure VMware Solution will enable self-service installation and Day 2 operations of Zerto on Azure VMware Solution.
