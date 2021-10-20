@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL - Flexible Server (Preview) - Scheduled maintenance - Azure portal
+title: Azure Database for PostgreSQL - Flexible Server - Scheduled maintenance - Azure portal
 description: Learn how to configure scheduled maintenance settings for an Azure Database for PostgreSQL - Flexible server from the Azure portal.
 author: niklarin
 ms.author: nlarin
