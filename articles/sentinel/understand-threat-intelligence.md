@@ -101,9 +101,9 @@ For more details on viewing and managing your threat indicators, see [Work with 
 
 ### View your GeoLocation and WhoIs data enrichments
 
-Microsoft enriches each indicator with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator of compromise is found.
+Microsoft enriches each indicator with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator of compromise (IOC) is found.
 
-You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise (IOC) that you've imported into Azure Sentinel.
+You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Azure Sentinel.
 
 For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
 
