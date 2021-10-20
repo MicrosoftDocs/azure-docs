@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<baseURL>/Saml2/Acs`
     
     c. In the **Sign on URL** text box, type a URL using the following pattern:   
-    `https://<baseURL>/sso` (optionally add the `?companycode=` query parameter with the company code value given by VECOS.
+    `https://<baseURL>/sso` (optionally add the `?companycode=` query parameter with the company code value given by VECOS.)
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [VECOS Releezme Locker management system support team](mailto:servicedesk@vecos.com) what region you are connecting to. Depending on your region, the URL's below will be different:
