@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
 title: Azure Dev/Test offer documentation
-summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest Offer. Tutorials, code examples, API references, and more. 
+summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with the Azure Dev/Test offer. Tutorials, code examples, API references, and more.
 
 metadata:
   title: Azure Dev/Test offer documentation
-  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure DevTest offer. Tutorials, code examples, API references, and more. 
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Dev/Test offer.
  
   ms.topic: hub-page
   ms.collection: collection
@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Azure Dev/Test offer?
+    - title: What is the Azure Dev/Test offer?
       itemType: overview
       url: overview-what-is-devtest-offer-visual-studio.md
  
@@ -31,7 +31,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Azure Dev/Test Offer for Individuals
+    - title: Azure Dev/Test offer for individuals
       links:
         - url: ../../devtest/offer/how-to-individual-credit.md
           itemType: how-to-guide
@@ -49,20 +49,20 @@ conceptualContent:
           itemType: how-to-guide
           text: Change directory tenants with your VSS Azure subscription
     # Card
-    - title: Azure Dev/Test Offer for Enterprise
+    - title: Azure Dev/Test offer for enterprise
       links:
         - url: ../../devtest/offer/create-enterprise-devtest-subscriptions.md
           itemType: how-to-guide
-          text: Create Enterprise and Organizational Azure Dev/Test subscriptions
+          text: Create Enterprise and Organizational subscriptions
         - url: ../../devtest/offer/gitops-azure-devtest.md
           itemType: how-to-guide
-          text: Use GitOps in association with Azure Dev/Test
+          text: Use GitOps with Azure Dev/Test
         - url: ../../devtest/offer/manage-monitor-devtest.md
           itemType: how-to-guide
-          text: Manage your Azure Dev/Test subscriptions with Azure's cloud environment
+          text: Manage your Azure Dev/Test subscriptions
         - url: ../../devtest/offer/manage-reliability-performance.md
           itemType: how-to-guide
-          text: Build reliability into your applications with Dev/Test subscriptions
+          text: Build reliability into your applications
         - url: ../../devtest/offer/security-governance-devtest.md
           itemType: how-to-guide
-          text: Manage security and governance within your organization's Dev/Test subscriptions
+          text: Manage security and governance
