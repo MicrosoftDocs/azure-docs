@@ -14,7 +14,7 @@ ms.author: aahi
 
 Deploy a model and extract entities from text using the runtime API.
 
-# Submit a Conversational Named Entity Recognition (NER) task
+# Submit a Custom Named Entity Recognition (NER) task
 
 After deploying your model, it is ready to be used. You can only send entity recognition tasks through the API, not from Language Studio.
 
@@ -30,48 +30,82 @@ After deploying your model, it is ready to be used. You can only send entity rec
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
 ## Deploy your model
- 
-> [!TIP]
-> You can test your model in Language Studio by sending samples of text for it to classify.
->
-> Select **Test model** from the menu on the left side of your project in Language Studio.
-> Select the model you want to test.
-> Add your text to the textbox, you can also upload a .txt file.
-> Click on **Run the test**.
-> In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the JSON tab.
 
-You can deploy your model by navigating to your project in Language Studio, and selecting **Deploy model** from the menu on the left part of the screen.
-
-## Submit a job to the API
-
-1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/extraction).
+1. Go to your project in [Language studio](https://aka.ms/custom-extraction)
 
 2. Select **Deploy model** from the left side menu.
 
-3. make sure your model you want to use is deployed, and click on **Get prediction URL**.
+3. Select the model you want to deploy, then select **Deploy model**.
 
-4. In the window that appears under the **Submit** pivot, and copy the sample request into a text editor. 
+> [!TIP]
+> You can test your model in Language Studio by sending samples of text for it to classify. 
+> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
+> 2. Select the model you want to test.
+> 3. Add your text to the textbox, you can also upload a `.txt` file. 
+> 4. Click on **Run the test**.
+> 5. In the **Result** tab, you can see the extracted entities from your text. You can also view the JSON response under the **JSON** tab.
 
-    :::image type="content" source="../media/get-prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/get-prediction-url.png":::
+## Send a text classification request to your model
 
-5. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to extract entities from.
+# [Using Language Studio](#tab/language-studio)
 
-6. Submit the `POST` cURL request in your terminal or command prompt. You'll receive a 202 response if the request was successful.
+### Using Language studio
+
+1. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
+
+    :::image type="content" source="../media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../media/get-prediction-url-1.png":::
+
+2. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
+
+3. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
+
+    :::image type="content" source="../media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../media/get-prediction-url-2.png":::
+
+4. Submit the request
+
+5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
+
+6. Copy the retrieve request and replace `jobId` and submit the request.
+
+    :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
+
+ You can find more details about the results in the next section.
+
+# [Using the API](#tab/api)
+
+### Using the API
+
+### Get your resource keys endpoint
+
+1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+
+2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
+
+    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
+
+### Submit custom NER task
+
+> [!NOTE]
+> Project names is case sensitive.
+
+Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
+
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+
+#### Headers
+
+|Key|Value|
+|--|--|
+|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
+
+#### Body
 
 
-    > [!NOTE]
-    > When you send requests using the REST API, you will need to specify your API key, endpoint, and model ID. The example request in Language Studio contains these values. Additionally:
-    > * You can find your model ID in **Deploy model**, after your model's status and deployment date.
-    > * You can find your key and endpoint in **Project Settings**.
 
 
-7. In the response header you receive, extract the value from `operation-location` which is formatted as: 
 
-    ```rest
-    <YOUR-ENDPOINT>/text/analytics/v3.1-preview.ct.1/analyze/jobs/<jobId>
-    ```
 
-    You'll use this endpoint and the `jobId` to get the entity extraction task results. 
+
 
 ## Retrieve the results of your job
 
@@ -83,33 +117,103 @@ You can deploy your model by navigating to your project in Language Studio, and 
 
 3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
 
-    ```json
+```json
     {
-        "createdDateTime": "2021-05-19T14:32:25.578Z",
-        "displayName": "MyJobName",
-        "expirationDateTime": "2021-05-19T14:32:25.578Z",
-        "jobId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "lastUpdateDateTime": "2021-05-19T14:32:25.578Z",
-        "status": "completed",
-        "errors": [],
-        "tasks": {
-            "details": {
-                "name": "MyJobName",
-                "lastUpdateDateTime": "2021-03-29T19:50:23Z",
-                "status": "completed"
-            },
-            "completed": 1,
-            "failed": 0,
-            "inProgress": 0,
-            "total": 1,
-            "tasks": {
-        "customEntityRecognitionTasks": [
+    "displayName": "MyJobName",
+    "analysisInput": {
+        "documents": [
             {
-                "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
-                "name": "MyJobName",
-                "status": "completed",
-                "results": {
-                    "documents": [
+                "id": "doc1", 
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
+            },
+            {
+                "id": "doc2",
+                "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+            }
+        ]
+    },
+    "tasks": {
+        "customEntityRecognitionTasks": [      
+            {
+                "parameters": {
+                      "project-name": "MyProject",
+                      "deployment-name": "MyDeploymentName"
+                      "stringIndexType": "TextElements_v8"
+                }
+            }
+        ]
+    }
+}
+```
+
+|Key|Sample Value|Description|
+|--|--|--|
+|displayName|"MyJobName"|Your job Name|
+|documents|[{},{}]|List of documents to run tasks on|
+|ID|"doc1"|a string document identifier|
+|text|"Lorem ipsum dolor sit amet"| You document in string format|
+|"tasks"|[]| List of tasks we want to perform.|
+|--|customEntityRecognitionTasks|Task identifer for task we want to perform. |
+|parameters|[]|List of parameters to pass to task|
+|project-name| "MyProject"| Your project name. The project name is case sensitive.|
+|deployment-name| "MyDeploymentName"| Your deployment name|
+
+#### Response
+
+You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
+`operation-location` is formatted like this:
+
+ `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
+
+You will use this endpoint in the next step to get the custom recognition task results.
+
+### Get the classification task status and results
+
+Use the following **GET** request to query the status/results of the custom recognition task. You can use the endpoint you received from the previous step.
+
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
+
+#### Headers
+
+|Key|Value|
+|--|--|
+|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+
+You can find more details about the results in the next section.
+
+---
+
+#### Text classification task results
+
+The response returned from the Get result call will be a JSON document with the following parameters:
+
+```json
+{
+    "createdDateTime": "2021-05-19T14:32:25.578Z",
+    "displayName": "MyJobName",
+    "expirationDateTime": "2021-05-19T14:32:25.578Z",
+    "jobId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "lastUpdateDateTime": "2021-05-19T14:32:25.578Z",
+    "status": "completed",
+    "errors": [],
+    "tasks": {
+        "details": {
+            "name": "MyJobName",
+            "lastUpdateDateTime": "2021-03-29T19:50:23Z",
+            "status": "completed"
+        },
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "tasks": {
+    "customMultiClassificationTasks": [
+        {
+            "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
+            "name": "MyJobName",
+            "status": "completed",
+            "results": {
+               "documents": [
                         {
                             "id": "doc1",
                             "entities": [
@@ -137,20 +241,15 @@ You can deploy your model by navigating to your project in Language Studio, and 
                             "warnings": []
                         }
                     ],
-                    "errors": [],
-                    "statistics": {
-                        "documentsCount":0,
-                        "validDocumentsCount":0,
-                        "erroneousDocumentsCount":0,
-                        "transactionsCount":0
+                "errors": [],
+                "statistics": {
+                    "documentsCount":0,
+                    "erroneousDocumentsCount":0,
+                    "transactionsCount":0
+                }
                     }
-                        }
-                    }
-                ]
-            }
+                }
+            ]
         }
-    ```
-
-## Next steps
-
-[Recommended practices](../concepts/recommended-practices.md)
+    }
+```
