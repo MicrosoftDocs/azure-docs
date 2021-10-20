@@ -1,5 +1,5 @@
 ---
-title: Create a trust relationship between an app and GitHub
+title: Create a trust relationship between an app and an external identity provider
 titleSuffix: Microsoft identity platform
 description: Set up a trust relationship between an app in Azure AD and a GitHub repo.  This allows a GitHub Actions workflow to access Azure or Microsoft Graph resources without using secrets or certificates. 
 services: active-directory
@@ -14,23 +14,23 @@ ms.date: 10/18/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: keyam, udayh, vakarand
-#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with a GitHub repo and use workload identity federation to access Azure resources without managing secrets.
+#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure resources without managing secrets.
 ---
 
-# Configure an app to trust a GitHub repo (preview)
+# Configure an app to trust an external identity provider (preview)
 
-This article describes how to create a trust relationship between an application in Azure Active Directory (Azure AD) and a GitHub repo.  You can then configure a GitHub Actions workflow to exchange a token from GitHub for an access token from Microsoft identity platform and access Azure AD protected resources without needing to manage secrets.  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  You establish the trust relationship by configuring a federated identity credential on your app registration in the Azure portal or by using Microsoft Graph.
+This article describes how to create a trust relationship between an application in Azure Active Directory (Azure AD) and an external identity provider (IdP).  You can then configure an external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload can access Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  You establish the trust relationship by configuring a federated identity credential on your app registration by using Microsoft Graph.
 
 Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf.  Anyone in the Application Administrator or Application Owner roles can do this.
 
-After you configure your app to trust a GitHub repo, configure your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
+After you configure your app to trust an external IdP, configure your software workload to get an access token from Microsoft identity provider and access Azure AD protected resources.
 
 ## Prerequisites
-[Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your GitHub workflow.  
+[Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.  
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
-Get the organization, repository, and environment information for your GitHub repo, which you need in the following steps.
+Get the information for your external IdP and software workload, which you need in the following steps.
 
 ## Configure a federated identity credential using Microsoft Graph
 
@@ -111,11 +111,3 @@ Run the following command to [delete a federated identity credential](/graph/api
 ```azurecli
 az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials/1aa3e6a7-464c-4cd2-88d3-90db98132755' 
 ```
-
-## Get the application (client) ID and tenant ID from the Azure portal
-
-Before configuring your GitHub Actions workflow, get the *tenant-id* and *client-id* values of your app registration.  You can find these values in the Azure portal. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Application (client) ID** and **Directory (tenant) ID**. Set these values in your GitHub environment to use in the Azure login action for your workflow.  
-
-## Next steps
-
-Configure a GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
