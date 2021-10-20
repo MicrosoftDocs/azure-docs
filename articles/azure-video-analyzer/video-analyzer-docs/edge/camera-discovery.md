@@ -138,7 +138,7 @@ The onvifDeviceGet call supports both unsecured and TLS enabled endpoints. This 
 # [UnsecuredEndpoint](#tab/unsecuredendpoint)
 
 > [!NOTE]
-> When the onvifDeviceGet call is made to an unsecured endpoint on an ONVIF enabled camera you need to set the Video Edge module Identity Twin setting `"AllowUnsecuredEndpoints"` to `"True"`. For more information see article [Module twin properties](./module-twin-configuration-schema.md).
+> When the onvifDeviceGet call is made to an unsecured endpoint on an ONVIF enabled camera you need to set the Video Edge module Identity Twin setting `"allowUnsecuredEndpoints"` to `true`. For more information see article [Module twin properties](./module-twin-configuration-schema.md).
 
 1. In the method name enter:
 
