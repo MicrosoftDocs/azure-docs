@@ -31,6 +31,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## November 2021
 
+### Fusion engine now detects emerging and unknown threats (Public preview)
+
+In addition to detecting attacks based on [predefined scenarios](fusion-scenario-reference.md), Azure Sentinel's ML-powered Fusion engine can help you find the emerging and unknown threats in your environment by applying extended ML analysis and by correlating a broader scope of anomalous signals, while keeping the alert fatigue low.
+
+The Fusion engine's ML algorithms constantly learn from existing attacks and apply analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
+
+Learn more about [Fusion for emerging threats](fusion.md#fusion-for-emerging-threats).
+
+Also, the [Fusion analytics rule is now more configurable](configure-fusion-rules.md), reflecting its increased functionality.
+
+### Get fine-tuning recommendations for your analytics rules (Public preview)
+
+Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, and continuous process of balancing between maximizing your threat detection coverage and minimizing false positive rates. Azure Sentinel simplifies and streamlines this process by using machine learning to analyze billions of signals from your data sources as well as your responses to incidents over time, deducing patterns and providing you with actionable recommendations and insights that can significantly lower your tuning overhead and allow you to focus on detecting and responding to actual threats.
+
+[Tuning recommendations and insights](detection-tuning.md) are now built in to your analytics rules. 
+
 ### Free trial updates
 
 Azure Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
