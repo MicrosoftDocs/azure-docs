@@ -64,7 +64,7 @@ After your machines are off-boarded from Automanage, you can now re-enable Autom
 > [!NOTE]
 > The **Production** environment maps to the **Azure Best Practices - Production** Configuration Profile. 
 > The **Dev/Test** environment maps to the **Azure Best Practices - Dev/Test** Configuration Profile. 
-> If you took advantage of **Configuration Preferences**, you can create a Custom Profile with those same modifications. 
+> If you took advantage of **Configuration Preferences**, you can create a **Custom Profile** with those same modifications. 
 
 3. On the **Select machines** blade:
     1. Filter the list by your **Subscription** and **Resource group**.
@@ -82,10 +82,10 @@ Now, your machines will be onboarded to the latest version of Automanage.
 ## Differences in the Automanage versions
 
 ### Environment and Configuration Profiles
-In the previous version of Automanage, you selected your Environment type: Dev/Test or Production. In the new version of Automanage, the environment maps to confguration profiles. The configuration profile options are Azure Best Practices - Dev/Test, Azure Best Practices - Production, Custom Profile. The set of services and settings from the **Dev/Test** environment are the same in the **Azure Best Practices - Dev/Test** configuration profile. Similarily, the set of services and settings from the **Production** environment are the same in the **Azure Best Practices - Production** configuration profile. 
+In the previous version of Automanage, you selected your Environment type: Dev/Test or Production. In the new version of Automanage, the environment maps to configuration profiles. The configuration profile options are Azure Best Practices - Dev/Test, Azure Best Practices - Production, Custom Profile. The set of services and settings from the **Dev/Test** environment are the same in the **Azure Best Practices - Dev/Test** configuration profile. Similarly, the set of services and settings from the **Production** environment are the same in the **Azure Best Practices - Production** configuration profile. 
 
 ### Configuration Preferences and Custom Profiles
-In the previous version of Automanage, you were able to customer a subset of settings through **Configuration Preferences**. In the latest version of Automanage, we have enhanced the customization so you can pick and choose each serivce you want to onboard and support modifying some settings on the services through **Custom Profiles**. 
+In the previous version of Automanage, you were able to customer a subset of settings through **Configuration Preferences**. In the latest version of Automanage, we have enhanced the customization so you can pick and choose each service you want to onboard and support modifying some settings on the services through **Custom Profiles**. 
 
 ### Automanage Account and First party application
 In the previous version of Automanage, the Automanage Account was used as an MSI to preform actions on your machine. However, in the latest version of Automanage, Automanage uses a first party application (Application Id : d828acde-4b48-47f5-a6e8-52460104a052) to order to perform actions on the Automanage machines. 

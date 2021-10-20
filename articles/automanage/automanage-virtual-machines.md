@@ -25,9 +25,9 @@ This article covers information about Azure Automanage for machine best practice
 
 Azure Automanage machine best practices is a service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. These services are considered to be Azure best practices services, and help enhance reliability, security, and management for virtual machines. Example services include [Azure Update Management](../automation/update-management/overview.md) and [Azure Backup](../backup/backup-overview.md).
 
-After onboarding your machines to Azure Automanage, each best practice service is configured to its recommended settings. However, if you want to customize the best pratice services and settings, you can use the [Custom Profile](#custom-profiles) option. 
+After onboarding your machines to Azure Automanage, each best practice service is configured to its recommended settings. However, if you want to customize the best practice services and settings, you can use the [Custom Profile](#custom-profiles) option. 
 
-Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine or Arc-enabled server is onboarded to Azure Automanage, we'll monitor your machine to ensure that it continues to comply with its [configuration profile](#configuration-profile) across its entire lifecycle. If your virtual machine does drift or deviate from the profile (for example, if a service is offboarded), we will correct it and pull your machine back into the desired state.
+Azure Automanage also automatically monitors for drift and corrects for it when detected. What this means is if your virtual machine or Arc-enabled server is onboarded to Azure Automanage, we'll monitor your machine to ensure that it continues to comply with its [configuration profile](#configuration-profile) across its entire lifecycle. If your virtual machine does drift or deviate from the profile (for example, if a service is off-boarded), we will correct it and pull your machine back into the desired state.
 
 Automanage doesn't store/process customer data outside the geography your VMs are located. In the Southeast Asia region, Automanage does not store/process data outside of Southeast Asia.
 
@@ -178,7 +178,7 @@ If you are using the Production environment, you will also be onboarded to Azure
 
 In this article, you learned that Automanage for machines provides a means for which you can eliminate the need for you to know of, onboard to, and configure best practices Azure services. In addition, if a machine you onboarded to Automanage for virtual machines drifts from the configuration profile, we will automatically bring it back into compliance.
 
-Try enabling Automanage for Azure virtaul machines or Arc-enabled servers in the Azure portal.
+Try enabling Automanage for Azure virtual machines or Arc-enabled servers in the Azure portal.
 
 > [!div class="nextstepaction"]
 > [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)
