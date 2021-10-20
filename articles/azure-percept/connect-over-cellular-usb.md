@@ -25,12 +25,12 @@ This article discusses how to connect Azure Percept DK to 5G or LTE networks by 
 
 1. [Download the Azure Percept 5G software image](https://aka.ms/azpercept5gimage) that supports ModemManager. 
 
-   These three files are needed to update your Azure Percept software to support USB modems.
+   These three files are needed to update your Azure Percept DK software to support USB modems.
 
-1. [Update the Azure Percept DK software](./how-to-update-via-usb.md) with the special 5G/LTE-enabled Azure Percept software you downloaded in the preceding step. 
+1. [Update the Azure Percept DK software](./how-to-update-via-usb.md) with the special 5G/LTE-enabled Azure Percept DK software that you downloaded in the preceding step. 
 
    > [!IMPORTANT]
-   > Follow the instructions in [Update Azure Percept DK over a USB-C connection](./how-to-update-via-usb.md), but be sure to use *only* the files you downloaded in the preceding step, and not the files that are mentioned in the article.
+   > Follow the instructions in [Update Azure Percept DK over a USB-C connection](./how-to-update-via-usb.md), but be sure to use *only* the files that you downloaded in the preceding step, and not the files that are mentioned in the article.
 
 1. Follow the normal process to [set up the Azure Percept DK device](./quickstart-percept-dk-set-up.md), if it's unfamiliar to you. 
 
@@ -56,9 +56,7 @@ This MultiTech USB modem offers several USB modes of operation. For this type of
 
 :::image type="Image" source="media/connect-over-cellular/multitech-usb-modem-75.png" alt-text="Illustration of the MultiTech Multiconnect USB modem.":::
 
-Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the MultiTech USB modem (MTCM-LNA3-B03).
-
-For instructions, see [Connect by using the MultiTech USB modem](./connect-over-cellular-usb-multitech.md).   
+To connect Azure Percept DK by using a simple USB modem such as the MultiTech USB modem (MTCM-LNA3-B03), follow the instructions in [Connect by using the MultiTech USB modem](./connect-over-cellular-usb-multitech.md).
 
 ### Quectel 5G developer kit
 
@@ -69,10 +67,10 @@ The third modem is the Quectel 5G DK. It also offers several modes, and you have
 For instructions for connecting your Azure Percept DK by using a 5G USB modem such as Quectel RM500Q-GL, see [Connect by using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md). 
 
 ## Help your 5G or LTE connection recover from reboot 
-The preceding instructions can help you configure the USB modem to connect to the network, but if you reboot your device you have to reconnect again manually. We're working on a solution to improve this experience. For more information, contact [our support team](mailto:azpercept5G@microsoft.com) with a short note referencing this issue. 
+You can configure the USB modem to connect to the network, but if you reboot your device, you have to reconnect again manually. We're currently working on a solution to improve this experience. For more information, contact [our support team](mailto:azpercept5G@microsoft.com) with a short note referencing this issue. 
 
 ## Debugging information 
-Always remember to check that your SIM card works on the specific hardware that you intend to use. Several carriers limit the data-only IoT SIM cards to work on only one device. For this reason, make sure that your device International Mobile Equipment Identity (IMEI) or serial number is listed on the SIM card allowed device list by the carrier.
+Check to ensure that your SIM card works on the specific hardware that you intend to use. Several carriers limit the data-only IoT SIM cards to work on only one device. For this reason, make sure that your device International Mobile Equipment Identity (IMEI) or serial number is listed on the carrier's SIM card allowed device list.
 
 ### ModemManager debug mode
 
@@ -84,7 +82,7 @@ ExecStart=/usr/sbin/ModemManager [...] --debug
 [...]  
 ```
 
-For your changes to take effect, you then need to reload the services and restart ModemManager, as shown here:
+For your changes to take effect, reload the services and restart ModemManager, as shown here:
 
 ```
 systemctl daemon-reload
@@ -113,7 +111,7 @@ To do so, edit the */lib/systemd/system/ModemManager.service* file at the `ExecS
 ExecStart=/usr/sbin/ModemManager --filter-policy=STRICT
 [...]
 ```
-For your changes to take effect, you then need to reload the services and restart ModemManager, as shown here:
+For your changes to take effect, reload the services and restart ModemManager, as shown here:
 
 ```
 systemctl daemon-reload
