@@ -94,6 +94,8 @@ To define email for the forwarding rule:
 
 1. Enter a single email address. If you need to add more than one email, you will need to create another action for each email address.
 
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/forward-email.png" alt-text="Scrrenshot of the forwarding alert screen to forward the alerts to an email address.":::
+
 1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
 1. Select **Submit**.

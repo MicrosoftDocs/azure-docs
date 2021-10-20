@@ -42,6 +42,27 @@ the same machine. There are no special steps required within the
 operating system of guest configuration extension. There's no need to configure
 [partial configurations](/powershell/scripting/dsc/pull-server/partialConfigs).
 
+## Dependencies are managed per-configuration
+
+When a configuration is
+[packaged using the available tools](../how-to/guest-configuration-create.md),
+the required dependencies for the configuration are included in a .zip file.
+Machines extract the contents into a unique folder for each configuration.
+The agent delivered by the guest configuration extension creates a dedicated
+PowerShell session for each configuration, using a `$Env:PSModulePath` that
+limits automatic module loading to only the path where the package was
+extracted.
+
+Multiple benefits result from this change.
+
+- It's possible to use difference module versions for each configuration, on
+  the same machine.
+- When a configuration is no longer deleted on a machine, the entire folder
+  where it was extracted is safely deleted by the agent without the need to
+  manage shared dependencies across configurations.
+- It's not requird to manage multiple versions of any module in a central
+  service.
+
 ## Configuration mode is set in the package artifact
 
 When creating the configuration package, the mode is set using the following
@@ -116,6 +137,7 @@ Configuration.
 - The Reasons property must be an array.
 - Each item in the array should be a hashtable with keys named **Code** and
   **Phrase**.
+- No other values other than the hashtable should be returned.
 
 The Reasons property is used by the service to standardize how compliance
 information is presented. You can think of each item in Reasons as a "reason"
@@ -148,6 +170,12 @@ return @{
     reasons = $reasons
 }
 ```
+
+When using commandline tools to get information that will return in Get, you
+might find the tool returns output you didn't expect. Even though you capture
+the output in PowerShell, output might also been written to
+standard error. To avoid this issue, consider redirecting
+output to null.
 
 ### The Reasons property embedded class
 
@@ -248,6 +276,13 @@ following known compatibility issues.
   switch to `PSDscResources`.
 - Do not use the `WindowsFeature` and `WindowsFeatureSet` resources in `PsDscResources`. Instead,
   switch to the `WindowsOptionalFeature` and `WindowsOptionalFeatureSet` resources.
+  
+The "nx" resources for Linux that were included in the
+[DSC for Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers)
+repo were written in a combination of the languages C and Python. Because the path
+forward for DSC on Linux is to use PowerShell, the existing "nx" resources
+aren't compatible with DSCv3. Until a new module containing supported resources for Linux
+is available, it's required to author custom resources.
 
 ## Coexistance with DSC version 3 and previous versions
 

@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 09/22/2021
+ms.date: 10/13/2021
 
 ---
 # Azure Functions runtime versions overview
@@ -67,21 +67,16 @@ Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no lo
 
 ## <a name="migrating-from-3x-to-4x"></a>Migrating from 3.x to 4.x (Preview)
 
-Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x.  Many apps should be able to safely upgrade to 4.x without any code changes. Be sure to run extensive tests before changing the major version in production apps.
+Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. Be sure to test extensively before changing the major version in production apps.
 
-To migrate an app from 3.x to 4.x:
+To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
-- Set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+```bash
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
-    ```bash
-    az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
-
-- For Windows function apps, the runtime requires .NET 6.0 to be enabled with the following Azure CLI command:
-
-    ```bash
-    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+```
 
 ### Breaking changes between 3.x and 4.x
 
@@ -91,25 +86,46 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Azure Functions Proxies are no longer supported in 4.x. You are recommended to use [Azure API Management](../api-management/import-function-app-as-api.md).
 
-- Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You are recommended to use [Application Insights](./functions-monitoring.md).
+- Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You are recommended to use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later.
+- Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
-- Default and maximum timeouts are now enforced in 4.x Linux consumption function apps.
+- Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
+
+- Application Insights is no longer included by default in 4.x. It is now available as a separate extension. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
+    - For in-process .NET apps, add the [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
+    - For isolated .NET apps:
+        - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
+        - Update the [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) packages to the latest versions.
+    - For other languages, a future update to [Azure Functions extension bundles](functions-bindings-register.md#extension-bundles) will include the Application Insights extension. Your app will automatically use the new bundle when it is available. Until the updated extension bundle is ready, remove both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` app settings from your function app. This will prevent the host from failing to start.
+
+- Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
 #### Languages
 
 # [C\#](#tab/csharp)
 
-None currently reported.
+- `InvalidHostServicesException` is now a fatal error. ([#2045](https://github.com/Azure/Azure-Functions/issues/2045))
+
+- `EnableEnhancedScopes` is enabled by default. ([#1954](https://github.com/Azure/Azure-Functions/issues/1954))
+
+- Remove `HttpClient` as a registered service. ([#1911](https://github.com/Azure/Azure-Functions/issues/1911))
+
+# [Java](#tab/java)
+
+- Use single class loader in Java 11. ([#1997](https://github.com/Azure/Azure-Functions/issues/1997))
+
+- Stop loading worker jars in Java 8. ([#1991](https://github.com/Azure/Azure-Functions/issues/1991))
 
 # [JavaScript](#tab/javascript)
 
-None currently reported.
+- Output serialization in Node.js apps was updated to address previous inconsistencies. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 
 # [Python](#tab/python)
 
-- Shared memory transfer is enabled by default in Azure Functions 4.x.
+- Shared memory transfer is enabled by default. ([#1973](https://github.com/Azure/Azure-Functions/issues/1973))
+
+- Default thread count has been updated. Functions that are not thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 
 ---
 
@@ -131,6 +147,10 @@ The main differences between versions when running .NET class library functions 
 
 >[!NOTE]
 >Due to support issues with .NET Core 2.2, function apps pinned to version 2 (`~2`) are essentially running on .NET Core 3.1. To learn more, see [Functions v2.x compatibility mode](functions-dotnet-class-library.md#functions-v2x-considerations).
+
+# [Java](#tab/java)
+
+None.
 
 # [JavaScript](#tab/javascript)
 

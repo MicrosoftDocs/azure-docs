@@ -228,12 +228,12 @@ Currently, portal console support, and persistence to firewall storage accounts 
 
 You can run a command like `nslookup` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DNS configuration**. In the working pane on the right, you see the IP address for the **Network Interface**.
 
-:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="private endpoint dns settings":::
+:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
 There's a `publicNetworkAccess` flag that is `Disabled` by default.
-When set to `Enabled`, this flag is allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a Restful API PATCH request.
+When set to `Enabled`, this flag is allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a RESTful API PATCH request.
 
 To change the value in the Azure portal, follow these steps.
 
@@ -245,7 +245,7 @@ To change the value in the Azure portal, follow these steps.
 
 1. Select the **Enable public network access** button.
 
-To change the value through a Restful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
+To change the value through a RESTful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -265,7 +265,7 @@ To have multiple private endpoints in different virtual networks, the private DN
 
 ### What happens if I delete all the private endpoints on my cache?
 
-Once you delete the private endpoints on your cache, your cache instance can become unreachable until: you explicitly enable public network access, or you add another private endpoint. You can change the `publicNetworkAccess` flag on either the Azure portal or through a Restful API PATCH request. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+Once you delete the private endpoints on your cache, your cache instance can become unreachable until: you explicitly enable public network access, or you add another private endpoint. You can change the `publicNetworkAccess` flag on either the Azure portal or through a RESTful API PATCH request. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 
 ### Are network security groups (NSG) enabled for private endpoints?
 

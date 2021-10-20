@@ -101,7 +101,7 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
 1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
     * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/regional-quota-requests.md) before trying to scale up again beyond initial quota limits.
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
-2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
+2. Once the underlying cause of upgrade failure is addressed, retry the original operation. This retry operation should bring your cluster to the succeeded state. 
 
 ## I'm receiving errors when trying to upgrade or scale that state my cluster is being upgraded or has failed upgrade
 
