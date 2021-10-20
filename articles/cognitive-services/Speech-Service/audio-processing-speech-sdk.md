@@ -20,13 +20,13 @@ The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application 
 Key features made available via Speech SDK APIs include:
 * **Realtime microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
 * **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario does not include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
-* **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays (see more information on supported preset geometries at [Microphone array recommendations](speech-devices-sdk-microphone.md#microphone-geometry)).
+* **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays (see more information on supported preset geometries at [Microphone array recommendations](speech-sdk-microphone.md#microphone-geometry)).
 * **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.
 
 Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
 
 > [!NOTE]
-> The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available here, with corresponding docs available here. All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer.
+> The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available [here](speech-devices-sdk.md), with corresponding sample code available on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK). All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer.
 
 ## Reference channel for echo cancellation
 
@@ -38,9 +38,9 @@ Microsoft Audio Stack requires the reference channel (also known as loopback cha
 
 | Language   | Platform(s)    | Reference docs |
 |------------|----------------|----------------|
-| C++        | Windows, Linux |                |
-| C#         | Windows, Linux |                |
-| Java       | Windows, Linux |                |
+| C++        | Windows, Linux | [C++ docs](https://docs.microsoft.com/cpp/cognitive-services/speech/) |
+| C#         | Windows, Linux | [C# docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java       | Windows, Linux | [Java docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## Sample code
 
@@ -236,7 +236,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 This sample shows how to use MAS with a custom microphone geometry and beamforming angles on a specified audio input device. In this example:
 * **Enhancement options** - The default enhancements will be applied on the input audio stream.
 * **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
-* **Beamforming angles** - Beamforming angles are specified to optimize for audio originating in that range. The units for angles are degrees.
+* **Beamforming angles** - Beamforming angles are specified to optimize for audio originating in that range. The units for angles are degrees. In the sample code below, the start angle is set to 70 degrees and the end angle is set to 110 degrees.
 * **Audio input** - The audio input is from a push stream, where the audio within the stream is expected to be captured from an audio input device corresponding to the custom geometry specified. 
 
 #### [C#](#tab/csharp)
