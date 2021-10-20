@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/05/2021
+ms.date: 10/20/2021
 ---
 
 # What's new in Azure Defender for IoT?  
@@ -11,11 +11,11 @@ This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Azure Defender for IoT 
+## Versioning and support for Azure Defender for IoT
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available. 
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available.
 
-### Servicing information and timelines 
+### Servicing information and timelines
 
 Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
@@ -24,8 +24,8 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 | Version | Date released | End support date |
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
-| 10.3 | 04/2021 | 02/2022 |
-| 10.5.2 | 10/2021 | 07/2022 |
+| 10.3 | 04/2021 | 01/2022 |
+| 10.5.2 | 11/2021 | 07/2022 |
 
 ## October 2021
 
@@ -89,7 +89,7 @@ Unicode characters are now supported when working with sensor certificate passph
 
 New threat intelligence packages can now be automatically pushed to cloud connected sensors as they are released by Microsoft Defender for IoT. This is in addition to downloading threat intelligence packages and then uploading them to sensors.
 
-Working with automatic updates helps reduce operational efforts and ensure greater security. 
+Working with automatic updates helps reduce operational efforts and ensure greater security.
 Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
 
 If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Azure Defender for IoT portal to cloud connected sensors only when you feel it is required.
@@ -98,7 +98,7 @@ This gives you the ability to control when a package is installed, without the n
 You can also review the following information about threat intelligence packages:
 
 - Package version installed
-- Threat intelligence update mode 
+- Threat intelligence update mode
 - Threat intelligence update status
 
 ### View cloud connected sensor information (Public Preview)
