@@ -87,6 +87,8 @@ items:
     - name: Manage credentials
       href: manage-credentials.md
       displayName: Create and manage credentials
+    - name: Create Service Principal
+      href: create-service-principal-azure.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
