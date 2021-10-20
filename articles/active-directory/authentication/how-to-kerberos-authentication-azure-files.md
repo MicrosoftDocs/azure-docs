@@ -247,7 +247,7 @@ Follow these instructions to set up Azure files.
 1. Create a file share under the storage account. You can create a file share under the storage account by using the Azure portal or Powershell. 
 
    ```powershell
-   New-AzRmStorageShare -StorageAccount $storageAccountName -Name “<your-share-name-here>” -QuotaGiB 1024 | Out-Null
+   New-AzRmStorageShare -StorageAccount $storageAccountName -Name "<your-share-name-here>" -QuotaGiB 1024 | Out-Null
    ```
 
 1. Configure RBAC permissions on the file share:
