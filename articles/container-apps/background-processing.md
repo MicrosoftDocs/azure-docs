@@ -128,15 +128,18 @@ az storage account create \
   --kind StorageV2
 ```
 
-### Create Queue
-```azurecli
-az storage queue create \
-  --name $STORAGE_ACCOUNT_QUEUE
-```
 ### Get queue ConnectionString 
 
 ```azurecli
 QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString -o tsv)
+```
+
+### Create Queue
+```azurecli
+az storage queue create \
+  --name $STORAGE_ACCOUNT_QUEUE \
+  --account-name $STORAGE_ACCOUNT \
+  --connection-string $QUEUE_CONNECTION_STRING
 ```
 
 ### Send a message to the storage queue 
@@ -144,7 +147,8 @@ QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE
 ```azurecli
 az storage message put \
   --content "Hello Queue Reader App" \
-  --queue-name $STORAGE_ACCOUNT_QUEUE
+  --queue-name $STORAGE_ACCOUNT_QUEUE \
+  --connection-string $QUEUE_CONNECTION_STRING
 ```
 
 ## Deploy the background application
