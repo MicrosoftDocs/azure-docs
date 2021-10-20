@@ -317,7 +317,7 @@ After copying this c# project into your development platform you'll need to run 
 3. Go to Program.cs and populate ```AccountName``` with your account name.
 4. Go to Program.cs and populate ```VideoUrl``` with your video url.
 5. Make sure dotnet 6.0 is installed. if not, click [here](https://dotnet.microsoft.com/download/dotnet/6.0) to install.
-6. Make sure Azure CLI is installed. If not, click [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) to install.
+6. Make sure Azure CLI is installed. If not, click [here](https://docs.microsoft.com/cli/azure/install-azure-cli) to install.
 7. Open your terminal and navigate to VideoIndexerArm folder.
 8. Login to azure: ```az login --use-device```
 9. Build the project: ```dotnet build```
