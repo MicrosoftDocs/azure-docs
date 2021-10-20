@@ -45,7 +45,7 @@ conceptualContent:
         - url: ../../devtest/offer/sign-into-azure-with-github.md
           itemType: how-to-guide
           text: Sign into Azure with GitHub credentials
-        - url: ../../devtest/offer/change-directory-tenants-vss-azure.md
+        - url: ../../devtest/offer/how-to-change-directory-tenants-visual-studio-azure.md
           itemType: how-to-guide
           text: Change directory tenants with your VSS Azure subscription
     # Card
