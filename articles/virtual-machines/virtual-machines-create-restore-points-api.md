@@ -23,7 +23,7 @@ user will complete.
 
 Azure compute backup and recovery APIs provide programmatic access to virtual machine (VM) backup and restore functions. An individual VM restore point stores the VM configuration and a snapshot for any attached managed disks. Independent software vendors (ISVs) can use these APIs to develop business continuity and disaster recovery solutions. You can also use the APIs to protect individual VM instances from failure or data loss.
 
-For more information, see FOO ARTICLE.
+For more information on restore points, see [Backup and restore options for virtual machines in Azure](backup-recovery.md).
 
 ## About VM restore points
 
@@ -35,18 +35,114 @@ You can use the APIs to create restore points for your source VM in either the s
 
 VM restore points are incremental. The first restore point stores a full copy of all disks attached to the VM. For each successive restore point for a VM, only the incremental changes to your disks are backed up. To reduce your costs, you can optionally exclude any disk when creating a restore point for your VM.
 
-Keep the following restrictions in mind when working with VM restore points:
+Keep the following restrictions in mind when you work with VM restore points:
 
-- Works with managed disks only
+- The restore points APIs work with managed disks only.
 - Ultra disks, Ephemeral OS Disks, and Shared Disks aren't supported.
-- Requires API version 2021-0301 (or better)
-- Requires Azure Feature Exposure Controls (AFECs):
-    - Microsoft.Compute/RestorePointExcludeDisks
-    - Microsoft.Compute/IncrementalRestorePoints
+- The restore points APIs require API version 2021-0301 or better.
 
 ## About the preview
 
-Cool intro
+In order to use the restore points APIs, you must register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features with your subscription. Complete the following steps to register these features.
+
+> [!IMPORTANT]
+> The restore points APIs are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Step 1: Register the features
+
+to use the restore points APIs, you must register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features with your subscription.
+
+#### [PowerShell](#tab/powershell)
+
+1. Open a Windows PowerShell command window.
+
+1. Sign in to your Azure subscription with the `Connect-AzAccount` cmdlet and follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+1. If your identity is associated with more than one subscription, then set your active subscription.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+1. Register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet.
+
+   ```powershell
+   Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName RestorePointExcludeDisks
+   Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName IncrementalRestorePoints
+   ```
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+1. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+1. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+
+   ```azurecli
+   az feature register --namespace Microsoft.Storage --name BlobQuery
+   ```
+
+---
+
+### Step 2: Verify that the feature is registered
+
+#### [PowerShell](#tab/powershell)
+
+To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage --name BlobQuery
+```
+
+---
+
+### Step 3: Register the Azure Storage resource provider
+
+After your registration is approved, you must re-register the Azure Storage resource provider.
+
+#### [PowerShell](#tab/powershell)
+
+To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
+
+```azurecli
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
+
+- Requires Azure Feature Exposure Controls (AFECs):
+    - Microsoft.Compute/RestorePointExcludeDisks
+    - Microsoft.Compute/IncrementalRestorePoints
 
 ## Create VM restore points
 
