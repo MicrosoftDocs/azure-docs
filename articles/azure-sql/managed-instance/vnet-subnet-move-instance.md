@@ -37,11 +37,17 @@ To deploy a managed instance, or move it to another subnet, the destination subn
 
 ### Subnet readiness 
 
-Before you move your managed instance, confirm the subnet is marked as **Ready for Managed Instance** or **Other** as both designations indicate the subnet can support a managed instance. 
+Before you move your managed instance, confirm the subnet is marked as **Ready for Managed Instance**. 
 
 In the **Virtual network** UI of the Azure portal, virtual networks that meet the prerequisites for a managed instance are categorized as **Ready for Managed Instance**. Virtual networks that have subnets with managed instances already deployed to them display an icon before the virtual network name. Empty subnets that are ready for a managed instance do not have an icon. 
 
-Subnets that are marked as **Other** are empty and can be used for a managed instance, but may be automatically adjusted as part of the instance deployment process. These adjustments apply to both creating new instance and moving existing instance operations.  
+Subnets that are marked as **Other** are empty and can be used for a managed instance, but first you need to fulfil the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). This includes:
+
+- delegating to the Microsoft.Sql/managedInstances resource provider.
+- attaching route table
+- attaching network security group
+
+After all requiremes are satisfied, the subnet will move from **Other** to **Ready for Managed Instance** group.
 
 Subnets marked as **Invalid** cannot be used for new or existing managed instances, either because they're already in use (instances used for instance deployments cannot contain other resources), or the subnet has a different DNS zone (a cross-subnet instance move limitation). 
 
@@ -52,13 +58,10 @@ Subnets marked as **Invalid** cannot be used for new or existing managed instanc
 Depending on the subnet state and designation, the following adjustments may be made to the destination subnet: 
 
 - **Ready for Managed Instance (contains existing SQL Managed Instance)**: No adjustments are made. These subnets already contain managed instances, and making any change to the subnet could impact existing instances. 
-- **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and adds any rules that are necessary but missing. <sup>1</sup>
-- **Other**: The subnet is prepared and all relevant rules are created according to the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). <sup>1</sup>
+- **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and route table, and adds any rules that are necessary but missing. <sup>1</sup>
 
 > [!Note]
-> <sup>1</sup> When you use the Azure portal to move your subnet, neccesary subnet adjustments are made automatically so that the configuration of the destination subnet matches the configuration of the source subnet. Subnet adjustments should be made manually when using Azure PoweShell or the Azure CLI so that subnet configurations match. Destination subnets that are categorized in the Azure portal as **Ready for Managed Instance (empty)** and **Other** may be adjusted to match the source subnet configuration: 
-> - Extra rules may be deployed depending on the instance configuration (such as public endpoint, connection type for private endpoint, etc.). 
-> - Custom rules added to the source subnet configuration are copied to the destination subnet.
+> <sup>1</sup> Custom rules added to the source subnet configuration are not copied to the destination subnet. Any customizations of the source subnet configuration have to be replicated manually on the destination subnet. One way to achieve this is using same route table and network security group for the source and destination subnet.
 
 
 ### Destination subnet limitations 
@@ -67,7 +70,7 @@ Consider the following limitations when choosing a destination subnet for an exi
 
 - The destination subnet must be in the same virtual network as the source subnet. 
 - The DNS zone of the destination subnet must match the DNS zone of the source subnet as changing the DNS zone of a managed instance is not currently supported. 
-- Instances running on Gen4 hardware must be upgraded to a newer hardware generation before moving to another subnet since Gen4 is deprecated. 
+- Instances running on Gen4 hardware must be upgraded to a newer hardware generation since Gen4 is being deprecated. Upgrading hardware generation and moving to another subnet can be performed as one operation. 
 
 
 ## Operation steps
