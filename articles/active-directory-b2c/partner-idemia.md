@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials
 
-In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or TouchID/FaceID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
+In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or touchID/faceID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
 
 ## Prerequisites
 
@@ -59,14 +59,14 @@ The following diagrams show how this would be enabled for web or on-premises sce
 | 1. | User visits the Azure AD B2C login page, which is the replying party in this case on their device to conduct a transaction and logs in via their mID app. |
 | 2. | Azure AD B2C requires an ID check and so redirects the user to the IDEMIA router using the OIDC authorization code flow|
 | 3. | The IDEMIA router sends a biometric challenge to the user’s mobile app including all context details of the authentication and authorization request.|
-| 4. | Depending on the level of security needed, the user may require provide additional details, input their PIN, take a live selfie, or both.|
-| 5. |  Final authentication response provides proof of possession, presence, and consent. The respond is returned to the IDEMIA router.
+| 4. | Depending on the level of security needed, the user may require to provide additional details, input their PIN, take a live selfie, or both.|
+| 5. | Final authentication response provides proof of possession, presence, and consent. The response is returned to the IDEMIA router.
 | 6. | IDEMIA router verifies the information provided by the user and replies to Azure AD B2C with the authentication result.
 |7. | Based on the authentication result user is granted/denied access. |
 
 ## Onboard with IDEMIA
 
-Get in touch with [](https://www.idemia.com/get-touch/) to request a demo for mID filling out the contact form. In the message field indicates that you would like to onboard with Azure AD B2C.
+Get in touch with [IDEMIA](https://www.idemia.com/get-touch/) to request a demo for mID filling out the contact form. In the message field indicate that you would like to onboard with Azure AD B2C.
 
 ## Integrate IDEMIA with Azure AD B2C
 
@@ -78,13 +78,13 @@ As part of your integration with IDEMIA, you will be provided with the following
 |:---------|:----------|
 | Application Name | Azure AD B2C or your desired application name |
 | Client_ID | This is the unique identifier provided by the Identity Provider |
-| Client Secret | Password the relying party application will use to authenticate with the IDEMIA Identity Provider. |
+| Client Secret | Password the relying party application will use to authenticate with the IDEMIA Identity Provider |
 | Metadata endpoint | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint. |
-|Redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For example:`https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br><br>If you use a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant. |
+|Redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`<br>For  example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br><br>If you use a custom domain, enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant. |
 |Post log out redirect URIs | `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/{policy}/oauth2/v2.0/logout`<br>Send a sign-out request. |
 
 >[!NOTE]
->You'll need IDEMIA client ID and client secret later to configure the Identity provider in Azure AD B2C.
+>You'll need IDEMIA client ID and client secret later to configure the Identity Provider in Azure AD B2C.
 
 ### Step 2 - Create a policy key
 
@@ -167,9 +167,9 @@ Set client_id to the application ID from the application registration.
 
 |Property | Description|
 |:------|:-------|
-|Scope| For OpenID Connect the minimum requirement is that the scope parameter be set to “openid”. Additional scopes may be appended as a space-delimited list.|
-|redirect_uri | This defines where the User Agent sends the authorization code back to B2C.|
-|response_type| For the Authorization Code Flow, this is set to “code.”|
+|Scope| For OpenID Connect (OIDC) the minimum requirement is that the scope parameter be set to **openid**. Additional scopes may be appended as a space-delimited list.|
+|redirect_uri | This defines where the User Agent sends the authorization code back to Azure AD B2C.|
+|response_type| For the Authorization Code Flow, this is set to **code**|
 |acr_values| This parameter controls the authentication methods that the user is required to perform during the authentication process. |
 
 One of the following values must be selected:
