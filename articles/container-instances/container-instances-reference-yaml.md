@@ -18,7 +18,7 @@ A YAML file is a convenient way to configure a container group for reproducible 
 
 The schema for the YAML file follows, including comments to highlight key properties. For a description of the properties in this schema, see the [Property values](#property-values) section.
 
-[!INCLUDE [network profile callout](./includes/network-profile-callout.md)]
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 ```yml
 name: string  # Name of the container group

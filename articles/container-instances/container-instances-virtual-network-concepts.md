@@ -60,7 +60,7 @@ The subnet that you use for container groups may contain only container groups. 
 
 ### Network profile
 
-[!INCLUDE [network profile callout](./includes/network-profile-callout.md)]
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. When you first use the [az container create][az-container-create] command to deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet. 
 

@@ -13,7 +13,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 
 ## Sample templates
 
-[!INCLUDE [network profile callout](./includes/network-profile-callout.md)]
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 | Template | Description |
 |-|-|
