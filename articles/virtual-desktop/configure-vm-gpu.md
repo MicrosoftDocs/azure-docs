@@ -78,8 +78,8 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 
 ## Configure fullscreen video encoding
 
-    >[!NOTE]
-    >Fullscreen video encoding can be enabled even without a GPU present.
+>[!NOTE]
+>Fullscreen video encoding can be enabled even without a GPU present.
 
 If you often use applications that produce a high-frame rate content, such as 3D modeling, CAD/CAM and video applications, you may choose to enable a fullscreen video encoding for a remote session. Fullscreen video profile provides a higher frame rate and better user experience for such applications at expense of network bandwidth and both session host and client resources. It is recommended to use GPU-accelerated frame encoding for a full-screen video encoding. Configure Group Policy for the session host to enable fullscreen video encoding. Continuing the steps above:
 
