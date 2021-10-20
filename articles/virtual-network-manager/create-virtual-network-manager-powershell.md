@@ -100,7 +100,7 @@ $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetC
 $virtualnetworkC | Set-AzVirtualNetwork
 ```
 
-## Create a Network Manager
+## Create Virtual Network Manager
 
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using **New-AzNetworkManagerScope**.
 
@@ -170,7 +170,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
         ResourceGroupName = 'myAVNMResourceGroup'
         GroupMember = $groupMembers
         ConditionalMembership = $conditionalMembership
-        NetworkManagerName = $networkmanager.Name
+        NetworkManagerName = 'myAVNM'
     }
     $networkgroup = New-AzNetworkGroup @ng
     ```
@@ -181,7 +181,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
     ```azurepowershell-interactive
     $gi = @{
-        NetworkGroupId = '$networkgroup.Id'
+        NetworkGroupId = $networkgroup.Id
     }
     $groupItem = New-AzConnectivityGroupItem @gi
     ```
@@ -193,23 +193,22 @@ $virtualnetworkC | Set-AzVirtualNetwork
     $configGroup.Add($groupItem)
     ```
 
-1. Create the connectivity configuration with [New-AzNetworkManagerConnectivityConfiguration]():
+1. Create the connectivity configuration with **New-AzNetworkManagerConnectivityConfiguration**:
 
     ```azurepowershell-interactive
     $config = @{
         Name = 'connectivityconfig'
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManagerName = 'myAVNM'
-        ConnectivityTopology = 'MeshTopology'
-        AppliesToGroup = '$configGroup
-        DeleteExistingPeering = $false
+        ConnectivityTopology = 'Mesh'
+        AppliesToGroup = $configGroup
     }
     $connectivityconfig = New-AzNetworkManagerConnectivityConfiguration @config
      ```
 
 ## Commit deployment
 
-Commit the configuration to the target regions with [Deploy-AzNetworkManagerCommit]():
+Commit the configuration to the target regions with **Deploy-AzNetworkManagerCommit**:
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -220,8 +219,8 @@ $target.Add("westus")
 $deployment = @{
     Name = 'myAVNM'
     ResourceGroupName = 'myAVNMResourceGroup'
-    ConfigurationId = '$configIds'
-    TargetLocation = '$target'
+    ConfigurationId = $configIds
+    TargetLocation = $target
     CommitType = 'Connectivity'
 }
 Deploy-AzNetworkManagerCommit @deployment 
@@ -244,8 +243,8 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
     $removedeployment = @{
         Name = 'myAVNM'
         ResourceGroupName = 'myAVNMResourceGroup'
-        ConfigurationId = '$configIds'
-        Target = '$target'
+        ConfigurationId = $configIds
+        Target = $target
         CommitType = 'Connectivity'
     }
     Deploy-AzNetworkManagerCommit @removedeployment
