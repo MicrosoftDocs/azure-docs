@@ -28,7 +28,7 @@ Before you can use custom text classification, you will need to create a Text An
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select **Create a new storage account**. These values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments. 
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -126,7 +126,7 @@ For the metadata key:
 
 |Key  |Value  | Example |
 |---------|---------|---------|
-| `modelType  `    | | Your Model type, for single classification use `singleClassification`.   | multiClassification |
+| `modelType  `    | Your Model type, for single classification use `singleClassification`.   | multiClassification |
 |`storageInputContainerName`   | The name of your Azure blob storage container.   | `myContainer` |
 
 This request will return an error if:
@@ -266,7 +266,7 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. the model will be named `MyModel` once training is complete.  
+Use the following JSON in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
 {
@@ -362,7 +362,7 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |"tasks"|[]| List of tasks we want to perform.|
 |--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
 |parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. The project name is case sensitive.|
+|project-name| "MyProject"| Your project name. The project name is case-sensitive.|
 |deployment-name| "MyDeploymentName"| Your deployment name|
 
 Replace the text of the document with movie summaries to classify.
