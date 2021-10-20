@@ -31,7 +31,7 @@ Updates in October include:
 - [Software inventory filters added to asset inventory (in preview)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 - [Recommendations details pages now show related recommendations](#recommendations-details-pages-now-show-related-recommendations)
-- [New alerts for Azure Defender for Kubernetes](#new-alerts-for-azure-defender-for-kubernetes)
+- [New alerts for Azure Defender for Kubernetes (in preview)](#new-alerts-for-azure-defender-for-kubernetes-in-preview)
 
 
 ### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)
