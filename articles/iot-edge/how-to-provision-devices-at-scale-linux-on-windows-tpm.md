@@ -287,22 +287,10 @@ IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this
 
 1. Open PowerShell in an elevated session.
 
-1. Clone the [iotedge-eflow](https://github.com/Azure/iotedge-eflow) repository.
-
-   ```powershell
-   git clone https://github.com/Azure/iotedge-eflow.git
-   ```
-
-1. Import the downloaded module.
-
-   ```powershell
-   Import-Module <path>\iotedge-eflow\samples\scripts\EflowTpmProvisioningInfo.ps1
-   ```
-
 1. Run the command.
 
    ```powershell
-   Get-EflowVmTpmProvisioningInformation
+   Get-EflowVmTpmProvisioningInfo
    ```
 
 # [Simulated TPM](#tab/simulated-tpm)
