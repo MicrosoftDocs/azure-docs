@@ -206,9 +206,9 @@ Moving the **command to execute** property to the **protected** configuration se
 
 ### How do agents and extensions get updated?
 
-The Agents and Extensions share the same automatic update mechanism.
+Agents and extensions share the same automatic update mechanism.
 
-When an update is available and automatic updates are enabled, the update is only installed on the VM once there is a change to extensions, and other VM Model changes such as:
+When an update is available and automatic updates are enabled, the update is installed on the VM only after there is a change to an extension or after other VM model changes, such as:
 
 - Data disks
 - Extensions
@@ -218,12 +218,12 @@ When an update is available and automatic updates are enabled, the update is onl
 - Network profile
 
 > [!IMPORTANT]
-> The update is only installed once there is a change to the VM model.
+> The update is installed only after there is a change to the VM model.
 
 Publishers make updates available to regions at different times, so it is possible you can have VMs in different regions on different versions.
 
 > [!NOTE]
-> Some updates may require additional firewall rules. See [Network access](#network-access).
+> Some updates might require additional firewall rules. See [Network access](#network-access).
 
 #### Agent updates
 
@@ -259,9 +259,9 @@ It is highly recommended that you always have auto update for the agent, [AutoUp
 
 #### Extension updates
 
-When an extension update is available and automatic updates are enabled, once a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Linux Agent downloads and upgrades the extension.
+When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Linux Agent downloads and upgrades the extension.
 
-Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *"autoUpgradeMinorVersion": true,*:
+Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extension *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *"autoUpgradeMinorVersion": true,*:
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -277,7 +277,7 @@ Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or op
 
 To get the latest minor release bug fixes, it is highly recommended that you always select auto update in your extension deployments. Hotfix updates that carry security or key bug fixes cannot be opted out.
 
-If you disable extension automatic updates or you need to upgrade major version, use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) and specify target version.
+If you disable extension automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) and specify the target version.
 
 ### How to identify extension updates
 
