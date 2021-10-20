@@ -20,7 +20,7 @@ ms.custom: contperf-fy20q4
 
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. With this preview, Azure AD supports Kerberos authentication so you can use SMB to access Azure Files using Azure AD credentials from devices and VMs joined to Azure AD or hybrid environments. An Azure AD user can now access a file share that requires Kerberos authentication in the cloud. 
 
-Enterprises can move their traditional services that require Kerberos authentication to the cloud while maintaining a seamless user experience. No changes are made to the authentication stack of the file servers. No domain services need to be set up or managed, and no new infrastructure is required on premises. End users can access Azure Files or traditional file servers over the internet without requiring a line of sight to domain controllers. 
+Enterprises can move their traditional services that require Kerberos authentication to the cloud while maintaining a seamless user experience. No changes are made to the authentication stack of the file servers. No domain services need to be set up or managed, and no new infrastructure is required on premises. End users can access Azure Files or traditional file servers over the internet without requiring a line-of-sight to domain controllers. 
 
 Azure AD Kerberos authentication for Azure Files is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -28,8 +28,8 @@ Azure AD Kerberos authentication for Azure Files is supported as part of a publi
 This topic helps Enterprise IT admins who plan to use Azure AD Kerberos authentication for Azure Files or plan to access Azure Files from hybrid environments. Customers can use Azure AD and Azure files for the following scenarios:
 
 - Lift and shift on-premises file servers to Azure without implementing changes to the authentication stack or deploying Azure AD Domain Services. Customers can leverage their Azure AD credentials to access Azure files as a replacement of on premises file share from devices joined to Azure AD or hybrid environments.
-- Cloud born applications using Azure Files as the shared data storage with Native Azure AD authentication and modern credentials. 
-- Accessing on prem file share or Azure files over the internet without line of sight to a DC. 
+- Native cloud applications using Azure Files as the shared data storage with native Azure AD authentication and modern credentials. 
+- Accessing on-premises file shares or Azure Files over the internet without line-of-sight to a domain controller. 
 
 ## How does Azure AD provide Kerberos authentication?
 This is achieved by flipping the traditional trust model where Azure AD now becomes the trusted source for both cloud and on premises authentication. Azure AD becomes an independent Kerberos realm, and the Windows clients (insider build) are enlightened and allows clients to access Azure AD Kerberos. This enables:
