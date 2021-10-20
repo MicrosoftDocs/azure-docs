@@ -1,5 +1,5 @@
 ---
-title: Custom Named Entity Recognition (NER) data limits
+title: Custom Named Entity Recognition (NER) service limits
 titleSuffix: Azure Cognitive Services
 description: Learn about the data and service limits when using Custom Named Entity Recognition (NER).
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Custom Named Entity Recognition (NER) data limits
+# Custom Named Entity Recognition (NER) service limits
 
 Use this article to learn about the data and service limits when using Custom NER.
 
 ## File limits
 
-* You can only use `.txt`. files for custom text. If your data is in another format, you can use the [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to open your document and extract the text.
+* You can only use `.txt`. files. If your data is in another format, you can use the [CLUtils parse command](https://github.com/microsoft/CogSLanguageUtilities/blob/main/CLUtils/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to open your document and extract the text.
 
 * All files uploaded in your container must contain data. Empty files are not allowed for training.
 
@@ -26,7 +26,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Maximum allowed length for your file sis 128,000 characters, which is approximately 28,000 words or 56 pages.
 
-* Your [training dataset](../how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
+* Your [training dataset](how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
 
 
 ## APIs limits
@@ -46,13 +46,17 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource across both custom NER and [custom classification](../../custom-classification/overview.md).
+* Project names have to be unique within the same resource across both custom NER and [custom text classification](../custom-classification/overview.md).
 
+* Custom NER is only available in the following regions:    
+    * West US 2
+    * West Europe
+    
 ## Project limits
 
 * You can only connect 1 storage container for each project. This process is irreversible. If you connect a container to your project, you cannot disconnect it later.
 
-* You can only have 1 [tags file](../how-to/tag-data.md) per project. You cannot change to a different tags file later. You can only update the tags within your project.
+* You can only have 1 [tags file](how-to/tag-data.md) per project. You cannot change to a different tags file later. You can only update the tags within your project.
 
 * You cannot rename your project after creation.
 

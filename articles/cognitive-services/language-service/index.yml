@@ -43,10 +43,13 @@ conceptualContent:
           text: Find linked entities
           url:  entity-linking/overview.md 
         - itemType: overview
-          text: Extract entities (NER) and sensitive information (PII)
+          text: Named Entity Recognition (NER)
           url:  named-entity-recognition/overview.md
         - itemType: overview
-          text: Custom text extraction
+          text: Personally Identifiable Information (PII) detection
+          url:  personally-identifiable-information/overview.md
+        - itemType: overview
+          text: Custom Named Entity Recognition (NER)
           url:  custom-named-entity-recognition/overview.md
         - itemType: overview
           text: Get information from healthcare-related text
