@@ -138,7 +138,7 @@ az ml model create -f sample-create-mlflow-model.yaml
 
 ## Deploy models post training job
 
-This section helps you understand how to deploy models to managed online endpoint once you have completed your [training job](how-to-train-cli.md#introducing-jobs).
+This section helps you understand how to deploy models to managed online endpoint once you have completed your [training job](how-to-train-cli.md).
 
 ### 1. Download the outputs from training job
 
@@ -159,7 +159,7 @@ az ml job download -n $run_id --outputs
 
 ### 2. Deploy using downloaded files
 
-To deploy using these files, you can use either studio or the Azure command line interface. Use the model folder from outputs for deployment.
+To deploy using these files, you can use either studio or the Azure command line interface. Use the model folder from the outputs for deployment.
 
 * [Azure Machine Learning Studio](how-to-deploy-mlflow-models-online-endpoints.md#deploy-using-azure-machine-learning-studio)
 * [Azure Machine Learning CLI (v2)](how-to-deploy-mlflow-models-online-endpoints.md#deploy-using-cli-v2)
