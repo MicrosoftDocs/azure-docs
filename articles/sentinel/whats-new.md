@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/17/2021
+ms.date: 10/20/2021
 ---
 
 # What's new in Azure Sentinel
@@ -110,13 +110,13 @@ For more information, see:
 > We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
 >
 
-### Manage custom content in source control repositories (Public preview)
+### Enable continuous deployment from your content repositories (Public preview)
 
-Now, the new Azure Sentinel **Repositories** page provides you with the ability to store your custom content in GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspace.
+The new Azure Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspaces. This capability introduces a more streamlined and automated approach for managing and deploying content across Azure Sentinel workspaces.
 
-Store your custom content in an external repository in order to maintain it outside of Azure Sentinel. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspace, and visible from the various Azure Sentinel galleries, such as the **Analytics**, **Notebooks**, or **Workbooks** pages.
+If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
 
-For more information, see [Manage custom content in your own repository](ci-cd.md).
+For more information, see [Enable continuous deployment from your content repositories](ci-cd.md).
 
 ### Enriched threat intelligence with Geolocation and WhoIs data
 
@@ -126,7 +126,8 @@ View Geolocation and WhoIs data in Azure Sentinel, on the **Threat Intelligence*
 
 Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
 
-<!--For example: Screenshot TBD-->
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
+
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
