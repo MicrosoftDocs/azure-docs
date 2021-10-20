@@ -14,9 +14,9 @@ ms.custom: template-how-to
 This article discusses how to connect your Azure Percept DK by using a MultiTech MultiConnect (MTCM-LNA3-B03) USB modem. 
 
 > [!Note]
-> The MultiTech MultiConnect USB modem comes in a variety of models. In this article, we used model LNA3, which works at least with Verizon and Vodafone SIM cards. We were unable to connect to an AT&T network, but we're investigating the issue and will update this article if we find the root cause. For more information about the MultiConnect USB modem, visit the [MultiTech](https://www.multitech.com/brands/multiconnect-microcell) site.
+> The MultiTech MultiConnect USB modem comes in a variety of models. In this article, we used model LNA3, which works with Verizon and Vodafone SIM cards, among others. At this time, we're unable to connect to an AT&T network, but we're investigating the issue and will update this article if and when we find the root cause. For more information about the MultiTech MultiConnect USB modem, visit the [MultiTech](https://www.multitech.com/brands/multiconnect-microcell) site.
 
-## Preparation
+## Prepare to connect Azure Percept DK
 To learn how to prepare Azure Percept DK, go to [Connect Azure Percept DK over 5G or LTE networks by using a USB modem](./connect-over-cellular-usb.md). Be sure to note the comments about the USB cables that should be used. 
 
 ### Prepare the modem
@@ -61,7 +61,7 @@ At this point, the modem should disconnect and later reconnect to the USB port b
 
 ## Use the modem to connect
 
-Make sure that you've completed the Azure Percept DK preparations from [Connect by using a USB modem](./connect-over-cellular-usb.md).   
+Make sure that you've completed the Azure Percept DK preparations outlined in the [Connect by using a USB modem](./connect-over-cellular-usb.md) article.   
 
 1. Plug a SIM card into the MultiTech modem.
 
@@ -98,7 +98,7 @@ Make sure that you've completed the Azure Percept DK preparations from [Connect 
 
 1. Get the modem details.
 
-    The modem ID here is `0`, but your result could differ. Modem ID (`--modem 0`) is used in the ModemManager commands like this:
+    The modem ID here is `0`, but your result might differ. Modem ID (`--modem 0`) is used in the ModemManager commands like this:
     
     ```
     mmcli --modem 0
@@ -159,7 +159,7 @@ Make sure that you've completed the Azure Percept DK preparations from [Connect 
     mmcli --modem 0 --enable
     ```
 
-    You should get a response like *successfully enabled the modem*.
+    You should get a response like "successfully enabled the modem."
 
     After some time, the modem should be registered to a cell tower, and you should see a modem status of `Status -> state: registered` after you run the following code:
 
@@ -175,11 +175,11 @@ Make sure that you've completed the Azure Percept DK preparations from [Connect 
     mmcli --modem 0 --simple-connect="apn=vzwinternet"  
     ```
 
-    You should get a response like *successfully connected the modem*.
+    You should get a response like "successfully enabled the modem."
 
 1. Get the modem status.
 
-    You should see a status of `Status -> state: connected` now and a new `Bearer` category at the end of the status message.
+    You should now see a status of `Status -> state: connected` and a new `Bearer` category at the end of the status message.
 
     ```
     mmcli --modem 0
@@ -240,13 +240,13 @@ Make sure that you've completed the Azure Percept DK preparations from [Connect 
 
 1. Get the bearer details.
 
-    You need bearer details to connect the OS to the packet data connection that the modem has now established with the cellular network. At this point, the modem has an IP connection, but the OS is not yet configured to use it.
+    You need bearer details to connect the operating system to the packet data connection that the modem has now established with the cellular network. At this point, the modem has an IP connection, but the operating system is not yet configured to use it.
   
     ```
     mmcli --bearer 0
     ```
 
-    Bearer details are listed in the following code:
+    The bearer details are listed in the following code:
 
     ```
     ------------------------------------
@@ -313,7 +313,7 @@ Make sure that you've completed the Azure Percept DK preparations from [Connect 
     sudo ip route add default via 100.112.107.1 dev wwan0
     ```
 
-    And now Azure Percept DK is connected with the USB modem!
+    Azure Percept DK is now connected with the USB modem!
 
 1. Test the connectivity.
 
