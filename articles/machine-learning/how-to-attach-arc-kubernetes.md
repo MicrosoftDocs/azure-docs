@@ -317,6 +317,7 @@ az ml compute attach --resource-group <resource-group-name> --workspace-name <wo
 
 ## Next steps
 
+- [Create and select different instance types for training and inferencing workloads](how-to-kubernetes-instance-type.md)
 - [Train models with CLI (v2)](how-to-train-cli.md)
 - [Configure and submit training runs](how-to-set-up-training-targets.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
