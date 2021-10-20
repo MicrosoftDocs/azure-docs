@@ -100,7 +100,7 @@ Company A is currently providing SSO to on premises apps for its own members via
 
 ![Example of appliction access](media/multi-tenant-common-solutions/app-access-scenario.png)
 
-To enable their guest users to access the same on-premises applications Admins is tenet A will:
+To enable their guest users to access the same on-premises applications Admins in tenet A will:
 
 1. [Configure access to SAML apps](../external-identities/hybrid-cloud-to-on-premises.md#access-to-saml-apps).
 
