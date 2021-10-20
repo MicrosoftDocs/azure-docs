@@ -39,7 +39,7 @@ When choosing your threshold, keep in mind the balance between **Accuracy** and 
 
 ## Set threshold
 
-Set the threshold score as a property of the [REST API JSON body](../quickstart/sdk.md&pivots=rest). This means you set it for each call to REST API.
+Set the threshold score as a property of the [REST API JSON body](../quickstart/sdk.md). This means you set it for each call to REST API.
 
 ## Improve confidence scores
 
