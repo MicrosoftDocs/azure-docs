@@ -1331,6 +1331,9 @@ items:
         - name: Anomaly detection wizard
           displayName: cognitive services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+        - name: Form Recognizer with Apache Spark (MMLSpark)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
         - name: With Apache Spark (MMLSpark)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
