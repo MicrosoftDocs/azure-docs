@@ -202,7 +202,8 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
-    # [v2.x+](#tab/v2)
+
+    # [v1.x](#tab/v1)
   
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
