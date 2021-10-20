@@ -25,7 +25,7 @@ While KQL and Log Analytics are the primary tools and solutions for querying and
 Integrating with Azure Synapse provides:
 
 - **Big data processing support** for batch-based analytics on large datasets via [Synapse Apache Spark pool](/azure/synapse-analytics/spark/apache-spark-overview)
-- 
+
 - **Large historical data storage** via cost-effective data lake access, [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), which is built on top of Azure Blob Storage.
 
 
