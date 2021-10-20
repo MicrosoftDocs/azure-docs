@@ -8,7 +8,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 10/20/2021
 ms.author: allensu
 # Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for. 
 ---
@@ -96,21 +96,11 @@ You can monitor the operation of your NAT through multi-dimensional metrics expo
 - SNAT connection state transitions per interval.
 
 Learn more about [NAT gateway metrics](./nat-metrics.md).
-## SLA
 
-At general availability, NAT data path is at least 99.9% available.
+## Pricing and SLA
 
-## Pricing
+For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
 
-For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
-
-## Availability
-
-Virtual Network NAT and the NAT gateway resource are available in all regions of all Azure clouds [regions](https://azure.microsoft.com/global-infrastructure/regions/).
-
-## Suggestions
-
-We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 ## Limitations
 
 * NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as basic load balancer, and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
