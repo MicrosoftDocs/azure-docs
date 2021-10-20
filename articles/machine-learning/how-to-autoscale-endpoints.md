@@ -57,7 +57,7 @@ In [Azure Machine Learning studio](https://ml.azure.com), select your workspace 
 
 From the __Details__ tab for the endpoint, select __Configure auto scaling__.
 
-:::image type="content" source=".media/how-to-autoscale-endpoints/configure-auto-scaling.png" alt-text="Screenshot of the configure auto scaling link in endpoint details.":::
+:::image type="content" source="media/how-to-autoscale-endpoints/configure-auto-scaling.png" alt-text="Screenshot of the configure auto scaling link in endpoint details.":::
 
 Under __Choose how to scale your resources__, select __Custom autoscale__ to begin the configuration. For the default scale condition, use the following values:
 
