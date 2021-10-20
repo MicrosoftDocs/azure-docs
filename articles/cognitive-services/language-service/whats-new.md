@@ -28,7 +28,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Text summarization preview](text-summarization/overview.md)
     * [Custom Named Entity Recognition (Custom NER) preview](custom-named-entity-recognition/overview.md)
     * [Custom Text Classification preview](custom-classification/overview.md)
-    * [Conversational Language Understanding preview](custom-language-understanding/overview.md)
+    * [Conversational Language Understanding preview](conversational-language-understanding/overview.md)
 
 
 ## Next steps
