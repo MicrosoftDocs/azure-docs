@@ -181,7 +181,7 @@ Navigate to the directory in which you stored the *components.yaml* file and run
 
 ```azurecli
 az containerapp create \
-  --name nodeapp \
+  --name serviceapp \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image dapriosamples/hello-k8s-node:latest \
@@ -204,17 +204,17 @@ Navigate to the directory in which you stored the *components.yaml* file and run
 
 ```azurecli
 az containerapp create \
-  --name pythonapp \
+  --name clientapp \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image dapriosamples/hello-k8s-python:latest \
   --min-replicas 1 \
   --max-replicas 1 \
   --enable-dapr \
-  --dapr-app-id pythonapp
+  --dapr-app-id pythonapp 
 ```
 
-Run the command below to deploy `pythonapp` which also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. Note that since this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
+Run the command below to deploy `clientapp` which also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `serviceapp`. Note that since this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
 
 ## Verify the result
 
@@ -241,4 +241,4 @@ az group delete --resource-group $RESOURCE_GROUP --yes
 This will delete both container apps, the storage account, the container apps environment and any other resources in the resource group.
 
 > [!NOTE]
-> Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
+> Since `clientapp` continuously makes calls to `serviceapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
