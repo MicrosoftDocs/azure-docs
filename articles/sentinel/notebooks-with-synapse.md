@@ -20,7 +20,7 @@ ms.date: 10/06/2021
 
 Integrating Azure Sentinel notebooks with Azure Synapse Analytics enables large-scale security analytics.
 
-While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Synapse Analytics provides extra features for big data analysis, with built-in data lake access and the Apache Spark distributed processing engine.
+While KQL and Log Analytics are the primary tools and solutions for querying and analyzing data in Azure Sentinel, Azure Synapse provides extra features for big data analysis, with built-in data lake access and the Apache Spark distributed processing engine.
 
 Integrating with Azure Synapse provides:
 
@@ -29,7 +29,7 @@ Integrating with Azure Synapse provides:
 - **Large historical data storage** via cost-effective data lake access, [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), which is built on top of Azure Blob Storage.
 
 
-For example, you may want to use notebooks with Synapse Analytics to hunt for anomalous behaviors from network firewall logs to detect potential network beaconing, or to train and build machine learning models on top of data collected from a Log Analytics workspace.
+For example, you may want to use notebooks with Azure Synapse to hunt for anomalous behaviors from network firewall logs to detect potential network beaconing, or to train and build machine learning models on top of data collected from a Log Analytics workspace.
 
 ## Prerequisites
 
