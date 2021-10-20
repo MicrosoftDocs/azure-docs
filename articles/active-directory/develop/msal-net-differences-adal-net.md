@@ -157,6 +157,14 @@ catch(AdalException exception)
 
 For details, see [the recommended pattern to acquire a token in public client applications](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) with ADAL.NET.
 
+### Prompt Behavior in MSAL equivalent to that in ADAL -
+ADAL --> MSAL
+PromptBehavior.Auto -> NoPrompt
+PromptBehavior.Always -> ForceLogin
+PromptBehavior.RefreshSession --> Consent 
+PromptBehavior.Never --> Never, but it should not be used, instead try AcquireTokenSilent / catch MsalUiRequriedException and that should cover for it.
+Ref docs - https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively
+
 ### Handling claim challenge exceptions
 
 At times when acquiring a token, Azure AD throws an exception in case a resource requires more claims from the user (for instance two-factor authentication).
