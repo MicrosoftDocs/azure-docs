@@ -104,7 +104,7 @@ If successful, you will receive a response with a status code 201.
 
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
-See an example of a [pipeline topology]()<!-- TODO: add link to sample topology with tunneling enabled on RTSP source node -->.  
+See an example of a [pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/cloud-topologies/cloud-record-camera-behind-firewall)<!-- TODO: make sure link is correct -->.  
 
 [This quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) outlines the steps for creating a pipeline topology and live pipeline in Azure portal. Use the sample topology `CVR from private camera`.
 
@@ -148,7 +148,7 @@ When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and
    {
     "name": "Sample-Pipeline-1",
     "properties": {
-        "topologyName": "CVRwithRemoteDeviceAdapter", <!-- TODO: change to match name in GitHub -->
+        "topologyName": "record-camera-behind-firewall",
         "description": "Continuous video recording with ingestion via a remote device adapter",
         "bitrateKbps": 500,
         "parameters": [
@@ -177,7 +177,7 @@ The RTSP URL must be **localhost** because the access to the camera is being tun
 After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource.  
 [The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a live pipeline in Azure portal.
 
-The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo --> can also be used to automate this process.
+The [AVA C# cloud sample repository](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/ingest-from-rtsp-camera-behind-firewall) <!-- TODO: make sure link is correct --> can also be used to automate this process.
 
 ### Playback recorded video in the Azure portal
 
