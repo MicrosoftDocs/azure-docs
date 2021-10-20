@@ -143,12 +143,7 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 1. The default disk locations for storing telemetry in Windows are %LOCALAPPDATA% or %TEMP%. These locations are typically local to the machine. If the application migrates physically from one location to another, any telemetry stored in the original location is lost.
 
-1. In Azure Web Apps on Windows, the default disk-storage location is
-   D:\local\LocalAppData. This location isn't persisted. It's wiped out in app
-   restarts, scale-outs, and other such operations, leading to loss of any
-   telemetry stored there. You can override the default and specify storage to a
-   persisted location like D:\home. However, such persisted locations are served
-   by remote storage and so can be slow.
+1. In Azure Web Apps on Windows, the default disk-storage location is D:\local\LocalAppData. This location isn't persisted. It's wiped out in app restarts, scale-outs, and other such operations, leading to loss of any telemetry stored there. You can override the default and specify storage to a persisted location like D:\home. However, such persisted locations are served by remote storage and so can be slow.
 
 Though less likely, it is also possible that channel can cause duplicate
 telemetry items. This occurs when `ServerTelemetryChannel` retries due to
