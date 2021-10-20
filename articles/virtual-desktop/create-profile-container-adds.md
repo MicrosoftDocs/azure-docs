@@ -131,7 +131,7 @@ To get the Storage Account access key:
 
 ## Create a profile container with FSLogix
 
-In order to make profile containers, you'll need to configure FSLogix on your session host VMs. Before you start configuring, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host.
+In order to use profile containers, you'll need to configure FSLogix on your session host VMs. In case you are using a custom image that doesn't has the FSLogix Agent already installed, please follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host, as long as you don't use group policies to apply these settings at scale to multiple session hosts.
 
 To configure FSLogix on your session host VM:
 
@@ -167,9 +167,9 @@ To check your permissions on your session:
 
 3. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-4. Select **Create a share** on the Create an Azure file share page.
+4. Select **File shares** in the section **Data storage** of the storage account.
 
-5. Make sure a folder containing the user profile now exists in your files.
+5. Expand your file share and make sure a folder containing the user profile now exists in your file share.
 
 For additional testing, follow the instructions in [Make sure your profile works](create-profile-container-adds.md#make-sure-your-profile-works).
 
