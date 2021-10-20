@@ -24,7 +24,7 @@ Prerequisites for this tutorial are:
 
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 * [Video Analyzer account](../create-video-analyzer-account.md).
-* Have completed [Quickstart: Detect motion, record video to Video Analyzer](../edge/detect-motion-record-video-clips-cloud.md) or any Video Analyzer pipeline that records video to the Video Analyzer account.
+* Have completed [Quickstart: Detect motion, record video to Video Analyzer](../edge/detect-motion-record-video-clips-cloud.md) or any Video Analyzer pipeline that records to a video sink.
 
 ## Overview
 
@@ -36,14 +36,14 @@ In this tutorial, you will learn:
 * How to create a batch topology.
 * How to create a batch pipeline job from a Video Analyzer video archive that will create a MP4 file that contains a specified value of time (up to 24 hours).
 
-## Pipeline topology of batch kind (Batch)
+## Pipeline topology of **batch** kind
 
-A pipeline topology of batch kind enables you to describe how recorded video should be processed for export based on your custom needs through three interconnected nodes.  A pipeline topology of batch kind is the base that is used for pipeline jobs.  A pipeline job is the individual instance of a pipeline topology of batch kind and the pipeline job imports the recorded Video Analyzer video and saves it to the Video Analyzer's storage account as a downloadable MP4 file.  The pipeline topology of batch kind uses 1 source node ([video source](../pipeline.md#video-source)), 1 processor node ([encoder processor](../pipeline.md#encoder-processor)), and one sink node ([video sink](../pipeline.md#video-sink)).
+A pipeline topology of batch kind enables you to describe how recorded video should be processed for export based on your custom needs through three interconnected nodes.  A pipeline topology of batch kind is the base that is used for pipeline jobs.  A pipeline job is the individual instance of a pipeline topology of batch kind.  The pipeline job imports the recorded Video Analyzer video and saves it to the Video Analyzer's storage account, as a downloadable MP4 file.  The pipeline topology of batch kind uses a [video source node](../pipeline.md#video-source) that connects to an [encoder processor node](../pipeline.md#encoder-processor) and then connects to a [video sink node](../pipeline.md#video-sink).
 
 > [!NOTE]
 > For more information about sources, processors and sinks please see [sources, processors, and sinks](../pipeline.md#sources-processors-and-sinks). For more information on pipeline jobs please see [pipeline jobs](../pipeline.md#batch-pipeline)
 
-## Create a pipeline job (video playback blade)
+## Create a pipeline job
 
 1. In the Azure portal navigate to your Video Analyzer account.
 1. Select **Videos** under the `Video Analyzer` section and then select the video stream that should be used to export a portion of video from.
