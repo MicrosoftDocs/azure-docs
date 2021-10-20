@@ -139,6 +139,11 @@ The following values, specific to the IoT device provisioned in the previous ins
             }
 ``` 
 
+Ensure that:
+* `Transport` is set to `TCP`
+* `Endpoint` is set to `Unsecured endpoint`
+* `Tunnel` is set to `Secure IoT device remote tunnel`
+
 ## Create and activate live pipeline in the cloud
 
 When creating the live pipeline, the RTSP URL, RTSP username, RTSP password, and IoT Hub Device ID must be defined.
@@ -184,7 +189,7 @@ The [AVA C# cloud sample repository]() <!-- TODO: add link to cloud sample repo 
 1. Select the video name that was defined in the topology and view the video.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/camera1800smkv.PNG" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
+> :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Screenshot of the recorded video captured by live pipeline on the cloud.":::
 
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
