@@ -200,7 +200,7 @@ This command deploys the service (Node) app server on `--target-port 3000` (the 
 
 ## Deploy the client application (headless client)
 
-Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the client container app.
+Run the command below to deploy the client container app.
 
 ```azurecli
 az containerapp create \
