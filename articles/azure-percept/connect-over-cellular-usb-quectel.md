@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Percept over 5G or LTE by using a Quectel RM500 5G modem
-description: This article explains how to connect the Azure Percept DK over 5G or LTE networks by using a Quectel 5G modem.
+title: Connect Azure Percept DK over 5G or LTE by using a Quectel RM500 5G modem
+description: This article explains how to connect Azure Percept DK over 5G or LTE networks by using a Quectel 5G modem.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.custom: template-how-to
 ---
-# Connect Azure Percept over 5G or LTE by using a Quectel RM500-GL 5G modem  
+# Connect Azure Percept DK over 5G or LTE by using a Quectel RM500-GL 5G modem  
 
-This article discusses how to connect your Azure Percept DK over 5G or LTE by using a Quectel RM500-GL 5G modem. 
+This article discusses how to connect Azure Percept DK over 5G or LTE by using a Quectel RM500-GL 5G modem. 
 
-For more information about this 5G modem developer kit, contact your Quectel local sales team:
+For more information about this 5G modem dev kit, contact your Quectel local sales team:
 
 * For North American customers: northamerica-sales@quectel.com
 * For global customers: sales@quectel.com
 
 > [!Note] 
-> About USB cables for 5G modems:
-> 5G modems require more power than LTE modems, and the USB cable can be a bottleneck to realizing the best possible 5G data rates. To supply sufficient, consistent power to a 5G modem, make sure that the USB cable meets the following standards:  
+> **About USB cables for 5G modems**:  
+> 5G modems require more power than LTE modems, and the wrong USB cable can be a bottleneck to realizing the best possible 5G data rates. To supply sufficient, consistent power to a 5G modem, make sure that the USB cable meets the following standards:  
 > **Power:**
 > - Max amperage should be equal to or greater than 3 amperes.
 > - The cable length should be less than 1 meter.
@@ -29,7 +29,7 @@ For more information about this 5G modem developer kit, contact your Quectel loc
 > - USB 3.1 Gen2
 > - USB-IF certified
 
-## Preparation
+## Prepare to connect Azure Percept DK
 To learn how to prepare Azure Percept DK, go to [Connect Azure Percept DK over 5G or LTE networks by using a USB modem](./connect-over-cellular-usb.md). Be sure to note the comments about the USB cables that should be used. 
 
 ### Prepare the modem
@@ -41,7 +41,7 @@ The `usbnet` property can be set to four different values, from `0` to `3`:
 - `2` for **MBIM mode** (supported in Linux when `CONFIG_USB_NET_CDC_MBIM=y|m`)
 - `3` for **RNDIS mode**
 
-Easiest way to configure the mode is to connect the Quectel 5G modem to a PC and use terminal software, such as TeraTerm, or Quectel's own PC software, such as QCOM. You can use Windows Device Manager to see which USB port is assigned for the modem. The COM port settings should be:
+The easiest way to configure the mode is to connect the Quectel 5G modem to a PC and use terminal software, such as TeraTerm, or Quectel's own PC software, such as QCOM. You can use Windows Device Manager to see which USB port is assigned for the modem. The COM port settings should be:
 * **Baud rate**: 115200
 * **Stop bits**: 1
 * **Parity**: None
@@ -62,9 +62,13 @@ To change to mode 2, use:
 AT+QCFG="usbnet",2
 ```
 
-If you check again by using the first AT command, you should get: "+QCFG: "usbnet",2"
+If you check again by using the first AT command, you should get:
 
-After you've set the correct USB mode, you should issue hardware reset by using:
+```
++QCFG: "usbnet",2`
+```
+
+After you've set the correct USB mode, issue a hardware reset by using:
 
 ```
 AT+CFUN=1,1
@@ -77,9 +81,9 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 1. Put a SIM card in the Quectel modem.
 
-1. Plug the Quectel modem into the Azure Percept USB port. Remember to use a proper USB cable!
+1. Plug the Quectel modem into the Azure Percept DK USB port. Be sure to use a proper USB cable.
 
-1. Power up Azure Percept.
+1. Power up Azure Percept DK.
 
 1. Ensure that ModemManager is running.
 
@@ -96,11 +100,11 @@ At this point, the modem should disconnect and later reconnect to the USB port.
       [...]
       ```
 
-      If you're unsuccessful, make sure that you've flashed the correct image to your Azure Percept (5G enabled).
+      If you're unsuccessful, make sure that you've flashed the correct image to Azure Percept DK (5G enabled).
 
 1. List the active modems.
 
-      When you list the modems, you should see that the Quectel modem has been recognized and is now handled by ModemManager.
+      When you list the modems, you'll see that the Quectel modem has been recognized and is now handled by ModemManager.
 
       ```
       mmcli --list-modems
@@ -112,11 +116,11 @@ At this point, the modem should disconnect and later reconnect to the USB port.
       /org/freedesktop/ModemManager1/Modem/0 [Quectel] RM500Q-GL
       ```
 
-      The modem ID is here `0`, which is used in the following commands to address it (that is, `--modem 0`)
+      The modem ID here is `0`, which is used in the following commands to address it (that is, `--modem 0`).
 
 1. Get the modem details.
 
-      By default, the modem is disabled (`Status -> state: disabled`), see status:
+      By default, the modem is disabled (`Status -> state: disabled`). To view the status, run:
 
       ```
       mmcli --modem 0
@@ -195,7 +199,7 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 1. Enable the modem.
 
-      Prior to establishing a connection, you need to turn on the modem's radio or radios by running the following code:
+      Prior to establishing a connection, turn on the modem's radio or radios by runninge:
 
       ```
       mmcli --modem 0 --enable
@@ -215,7 +219,7 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 1. Connect by using the access point name (APN) information.
 
-      Usually, modems provide the APN to use (see `3GPP EPS -> initial bearer APN` information), so you can use it to establish a connection. If the modem doesn't proved an APN, consult with your cell phone provider for the APN to use. 
+      Usually, modems provide the APN to use (see `3GPP EPS -> initial bearer APN` information), so you can use it to establish a connection. If the modem doesn't provide an APN, consult with your cell phone provider for the APN to use. 
       
       Here is the ModemManager command for connecting by using, for example, the Verizon APN `APN=vzwinternet`.
 
@@ -231,7 +235,7 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 1. Get the modem status.
 
-      You should see a status of `Status -> state: connected` now and a new `Bearer` category at the end of the status message.
+      You should now see a status of `Status -> state: connected` and a new `Bearer` category at the end of the status message.
  
       ```
       mmcli -m 0
@@ -319,9 +323,9 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 1. Get the bearer details.
 
-      The bearer resulting from the preceding (step 8) `--simple-connect` is at path `/org/freedesktop/ModemManager1/Bearer/1`.
+      The bearer resulting from the preceding step, `--simple-connect`, is at path `/org/freedesktop/ModemManager1/Bearer/1`.
 
-      This is the bearer that we're querying the modem information about the active connection. The initial bearer isn't attached to an active connection and, therefore, holds no IP information.
+      This is the bearer that we're querying for modem information about the active connection. The initial bearer isn't attached to an active connection and, therefore, holds no IP information.
 
       ```
       mmcli --bearer 1
@@ -425,14 +429,14 @@ At this point, the modem should disconnect and later reconnect to the USB port.
       ip route show dev wwan0
       ```
 
-      like this:
+      You should get a result that's similar to the following:
 
       ```
       default via 25.21.113.166 
       25.21.113.164/30 proto kernel scope link src 25.21.113.165
       ```
 
-      Now you've established a connection to Azure Percept by using the Quectel Modem!
+      You've now established a connection to Azure Percept DK by using the Quectel modem!
 
 
 1. Test connectivity.
