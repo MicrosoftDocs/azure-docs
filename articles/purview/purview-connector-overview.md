@@ -41,6 +41,8 @@ details.
 ||[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| No| No| Yes|
 
+[!Note] Currently Purview don't support scanning on asset with '/', '\' or '#' in its name. Please follow this example [creating and running a scan for an Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan) to scope your scan and avoid scanning on those asset.
+
 ## Scan regions
 The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
  
