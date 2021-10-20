@@ -51,13 +51,13 @@ See the [application development lifecycle](../overview.md#application-developme
 
 1. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
 
-    :::image type="content" source="../../custom-classification/media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../media/get-prediction-url-1.png":::
+    :::image type="content" source="../../custom-classification/media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../../custom-classification/media/get-prediction-url-1.png":::
 
 2. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
 
 3. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
 
-    :::image type="content" source="../../custom-classification/media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../media/get-prediction-url-2.png":::
+    :::image type="content" source="../../custom-classification/media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../../custom-classification/media/get-prediction-url-2.png":::
 
 4. Submit the request
 
@@ -65,7 +65,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 6. Copy the retrieve request and replace `jobId` and submit the request.
 
-    :::image type="content" source="../../custom-classification/media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
+    :::image type="content" source="../../custom-classification/media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../../custom-classification/media/get-prediction-url-3.png":::
 
  You can find more details about the results in the next section.
 
@@ -79,7 +79,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
-    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
+    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
 
 ### Submit custom NER task
 
