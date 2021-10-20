@@ -1,6 +1,6 @@
 ---
-title: Use the Secrets Store CSI Driver for Azure Kubernetes Service secrets
-description: Learn how to use the secrets store CSI Driver to integrate secrets stores with Azure Kubernetes Service (AKS).
+title: Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service secrets
+description: Learn how to use the Azure Key Vault Provider for Secrets Store CSI Driver to integrate secrets stores with Azure Kubernetes Service (AKS).
 author: nickomang 
 ms.author: nickoman
 ms.service: container-service
@@ -9,9 +9,9 @@ ms.date: 10/13/2021
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Use the Secrets Store CSI Driver for Kubernetes in an Azure Kubernetes Service (AKS) cluster
+# Use the Azure Key Vault Provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster
 
-The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume][kube-csi].
+The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume][kube-csi].
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 ### Supported Kubernetes versions
 
-The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Please make sure you are running N-2 or a more recent version. 
+The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Ensure you are running N-2 or a more recent version.
 
 ## Features
 
@@ -33,7 +33,7 @@ The minimum recommended Kubernetes version is based on the [rolling Kubernetes v
 - Sync with Kubernetes Secrets
 - Supports auto rotation of mounted contents and synced Kubernetes secrets
 
-## Create an AKS cluster with Secrets Store CSI Driver support
+## Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
 
 First, create an Azure resource group:
 
@@ -41,7 +41,7 @@ First, create an Azure resource group:
 az group create -n myResourceGroup -l eastus2
 ```
 
-To create an AKS cluster with Secrets Store CSI Driver capability, use the [az aks create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`.
+To create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability, use the [az aks create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`.
 
 ```azurecli-interactive
 az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
@@ -61,9 +61,9 @@ A user-assigned managed identity is created by the addon for the purpose of acce
     }
 ```
 
-## Upgrade an existing AKS cluster with Secrets Store CSI Driver support
+## Upgrade an existing AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
 
-To upgrade an existing AKS cluster with Secrets Store CSI Driver capability, use the [az aks enable-addons][az-aks-enable-addons] command with the addon `azure-keyvault-secrets-provider`:
+To upgrade an existing AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability, use the [az aks enable-addons][az-aks-enable-addons] command with the addon `azure-keyvault-secrets-provider`:
 
 ```azurecli-interactive
 az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
@@ -71,7 +71,7 @@ az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluste
 
 As stated above, the addon creates a user-assigned managed identity that can be used to authenticate to Azure Key Vault.
 
-## Verify Secrets Store CSI Driver installation
+## Verify Azure Key Vault Provider for Secrets Store CSI Driver installation
 
 The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your nodes. Verify completion by listing all pods with the secrets-store-csi-driver and secrets-store-provider-azure labels in the kube-system namespace, and ensure your output looks similar to the following:
 
@@ -140,20 +140,22 @@ Azure Key Vault's design makes sharp distinctions between keys, secrets, and cer
 |`cert`|The certificate in PEM format|No|
 |`secret`|The private key and certificate in PEM format|Yes|
 
-## Disable Secrets Store CSI Driver on an existing AKS Cluster
+## Disable Azure Key Vault Provider for Secrets Store CSI Driver on an existing AKS Cluster
 
-To disable the Secrets Store CSI Driver capability in an existing cluster, use the [az aks disable-addons][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` flag:
+To disable the Azure Key Vault Provider for Secrets Store CSI Driver capability in an existing cluster, use the [az aks disable-addons][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` flag:
 
 ```azurecli-interactive
 az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGroup -n myAKSCluster
 ```
+> [!NOTE]
+> If the addon is disabled, existing workloads will have no issues and will not see any updates in the mounted secrets. If the pod restarts or a new pod is created as part of scale up event, then the pod will fail to start because the driver is no longer running.
 
 ## Additional configuration options
 
 ### Enabling and disabling autorotation
 
 > [!NOTE]
-> When enabled, the Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass by polling for changes periodically based on the rotation poll interval defined. The default rotation poll interval is 2m.
+> When enabled, the Azure Key Vault Provider for Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass by polling for changes periodically based on the rotation poll interval defined. The default rotation poll interval is 2m.
 
 To enable autorotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
 
@@ -165,6 +167,12 @@ Or update an existing cluster with the addon enabled:
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation
+```
+
+To specify a custom rotation interval, use the flag `rotation-poll-interval`:
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster2 --enable-secret-rotation --rotation-poll-interval 5m
 ```
 
 To disable, use the flag `disable-secret-rotation`:
@@ -281,7 +289,7 @@ The following table lists the metrics provided by the Secrets Store CSI Driver:
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-After learning how to use the CSI Secrets Store Driver with an AKS Cluster, see the following resources:
+After learning how to use the Azure Key Vault Provider for CSI Secrets Store Driver with an AKS Cluster, see the following resources:
 
 - [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
 

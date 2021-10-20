@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Secrets Store CSI driver on Azure Kubernetes Service (AKS)
-description: Learn how to troubleshoot and resolve common problems when using the Secrets Store CSI driver with Azure Kubernetes Service (AKS).
+title: Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver on Azure Kubernetes Service (AKS)
+description: Learn how to troubleshoot and resolve common problems when using the Azure Key Vault Provider for Secrets Store CSI driver with Azure Kubernetes Service (AKS).
 author: nickomang
 
 ms.service: container-service
@@ -9,21 +9,21 @@ ms.date: 10/18/2021
 ms.author: nickoman
 ---
 
-# Troubleshooting Secrets Store CSI Driver
+# Troubleshooting Azure Key Vault Provider for Secrets Store CSI Driver
 
 This article provides an overview of components that can aid in troubleshooting and a list of common issues and their resolutions.
 
 ## Logging
 
-Azure Key Vault (AKV) provider logs are available in the provider pods. To troubleshoot issues with the provider, you can look at logs from the provider pod running on the same node as your application pod:
+Azure Key Vault Provider logs are available in the provider pods. To troubleshoot issues with the provider, you can look at logs from the provider pod running on the same node as your application pod:
 
 ```bash
 # find the csi-secrets-store-provider-azure pod running on the same node as your application pod
-kubectl get pods -l app=secrets-store-provider-azure -n kube-system -o wide
+kubectl get pods -l app=secrets-store-csi-driver-provider-azure -n kube-system -o wide
 kubectl logs <provider pod name> -n kube-system --since=1h | grep ^E
 ```
 
-Secrets Store CSI driver logs are also accessible:
+Secrets Store CSI Driver logs are also accessible:
 
 ```bash
 # find the secrets store csi driver pod running on the same node as your application pod
@@ -32,18 +32,6 @@ kubectl logs <driver pod name> secrets-store -n kube-system --since=1h | grep ^E
 ```
 
 ## Common issues
-
-### Driver name `secrets-store.csi.k8s.io` not found in the list of registered CSI drivers
-
-If you received the following error message in the pod events:
-
-```bash
-Warning FailedMount 42s (x12 over 8m56s) kubelet, akswin000000 MountVolume.SetUp failed for volume "secrets-store01-inline" : kubernetes.io/csi: mounter.SetUpAt failed to get CSI client: driver name secrets-store.csi.k8s.io not found in the list of registered CSI drivers
-```
-
-It means the Secrets Store CSI Driver pods aren’t running on the node where application is running.
-
-- If you’ve already deployed the Secrets Store CSI Driver, then check if the node is tainted. If node is tainted, then redeploy the Secrets Store CSI Driver and Azure Key Vault provider by adding toleration for the taints.
 
 ### Failed to get key vault token: nmi response failed with status code: 404 
 

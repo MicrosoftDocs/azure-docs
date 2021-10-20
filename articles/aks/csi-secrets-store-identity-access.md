@@ -1,6 +1,6 @@
 ---
-title: Provide an access identity to the Secrets Store CSI driver for Azure Kubernetes Service (AKS) secrets
-description: Learn about the various methods that can be used to allow the Secrets Store CSI driver to integrate with Azure Key Vault (AKV).
+title: Provide an access identity to the Azure Key Vault Provider for Secrets Store CSI driver for Azure Kubernetes Service (AKS) secrets
+description: Learn about the various methods that can be used to allow the Azure Key Vault Provider for Secrets Store CSI driver to integrate with Azure Key Vault (AKV).
 author: nickomang 
 ms.author: nickoman
 ms.service: container-service
@@ -15,7 +15,7 @@ The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) allows for variou
 
 ## Use Pod identity
 
-Azure Active Directory pod-managed identities uses Kubernetes primitives to associate managed identities for Azure resources and identities in Azure Active Directory (AAD) with pods. These identities can be used to provide access to the Secrets Store CSI driver.
+Azure Active Directory pod-managed identities uses Kubernetes primitives to associate managed identities for Azure resources and identities in Azure Active Directory (AAD) with pods. These identities can be used to grant access to the Azure Key Vault Secrets Provider for Secrets Store CSI driver.
 
 ### Prerequisites
 
@@ -41,7 +41,7 @@ az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <p
 
 ```yml
 # This is a SecretProviderClass example using aad-pod-identity to access Keyvault
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-kvname-podid
@@ -137,7 +137,7 @@ az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <i
 
 ```yml
 # This is a SecretProviderClass example using user-assigned identity to access Keyvault
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-kvname-user-msi
@@ -234,7 +234,7 @@ az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <i
 
 ```yml
 # This is a SecretProviderClass example using system-assigned identity to access Keyvault
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-kvname-system-msi
