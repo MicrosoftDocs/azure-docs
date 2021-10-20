@@ -74,7 +74,7 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 |`name` |    string |    false |    Name of the feature in local language. Maximum length allowed is 1000. |
 |`nameSubtitle` |    string |    false |   Subtitle that shows up under the `name` of the feature. Can be used to display the name in a different language, and so on.  Maximum length allowed is 1000.|
 |`nameAlt` |    string |    false |   Alternate name used for the feature. Maximum length allowed is 1000. |
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [GeoJSON Point geometry](/rest/api/maps/wfs/get-feature-preview#featuregeojson) that represents the feature as a point. Can be used to position the label of the feature.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [GeoJSON Point geometry](/rest/api/maps/wfs/get-feature-preview#featuregeojson) that represents the feature as a point. Can be used to position the label of the feature.|
 
 :::zone-end
 
