@@ -13,7 +13,7 @@ ms.author: danil
 ms.reviewer: mathoma, danil
 ms.date: 10/21/2021
 ---
-# Overview of Managed Instance link (limited public preview)
+# Overview of Managed Instance link (limited preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 The new link feature in SQL Managed Instance connects your SQL Servers hosted anywhere to Azure SQL Managed Instance, providing unprecedented hybrid flexibility and database mobility. With an approach that uses near real-time data replication to the cloud, you can offload workloads to read-only secondaries in Azure to take advantage of Azure-only features, performance, and scale. In case of a disaster recovery, you can continue running your on-premises workloads on Managed Instance in Azure. In addition, you can also choose to migrate one or more applications from SQL Server to Managed Instance at the same time, at your own pace, and with the best possible minimum downtime compared to other solutions in Azure today.
