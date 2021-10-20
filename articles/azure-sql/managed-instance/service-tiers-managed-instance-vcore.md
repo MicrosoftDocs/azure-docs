@@ -29,7 +29,7 @@ Service tier options in the vCore purchase model include General Purpose and Bus
 |**Use case**|**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
-|Storage|Uses remote storage. 32 GB - 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only |Uses local SSD storage. 32 GB - 4 TB |
+|Storage|Uses remote storage. 32 GB - 16 TB depending on number of cores |Uses local SSD storage. <BR>- **Standard Series (Gen5):** 32 GB - 4 TB <BR>- **Premium Series:** 32 GB - 5.5 TB <BR>- **Premium Series - Memory Optimized:** 32 GB - 16 TB |
 |IOPS and throughput (approximate)|See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|
 |Availability|1 replica, no read-scale replicas|4 replicas total, 1 [read-scale replica](../database/read-scale-out.md),<br/> 2 high availability replicas (HA)|
 |Backups|[Read-access geo-redundant storage (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|
@@ -55,10 +55,12 @@ Hardware generation options in the vCore model include Gen 5 hardware series. Th
 
 |Hardware generation  |Compute  |Memory  |
 |:---------|:---------|:---------|
-|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
-|Gen5     |- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)|5.1 GB per vCore<br>- Provision up to 408 GB|
+|**Standard Series (Gen 5)**     |- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)|5.1 GB per vCore<br>- Provision up to 408 GB|
+|**Premium Series**     |- Intel&reg; 8370C (Ice Lake) 2.8 GHz processors<br>- Provision up to 64 vCores (1 vCore = 1 hyper-thread)|7 GB per vCore<br>- Provision up to 560 GB|
+|**Premium Series - Memory Optimized**     |- Intel&reg; 8370C (Ice Lake) 2.8 GHz processors<br>- Provision up to 64 vCores (1 vCore = 1 hyper-thread)|13.6 GB per vCore<br>- Provision up to 870.4 GB|
+|**Gen4 (being phased out)**     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
 
-\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for instances using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for instances using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 instances are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
+\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for instances using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for instances using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Standard Series (Gen5) instances are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
 ### Selecting a hardware generation
 
@@ -106,11 +108,15 @@ For more details, check [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) c
 
 ### Hardware availability
 
-#### <a id="gen4gen5-1"></a> Gen4/Gen5
+#### <a id="gen4gen5-1"></a> Gen4
 
 Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is no longer available for new deployments. All new instances must be deployed on Gen5 hardware.
 
-Gen5 is available in all public regions worldwide.
+#### Standard Series (Gen 5) and Premium Series
+
+Standard Series (Gen 5) hardware is available in all public regions worldwide.
+  
+Premium Series and Premium Series - Memory Optimized hardware is in preview, and has limited regional availability. For more details, please see the [Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics) page
 
 ## Next steps
 
