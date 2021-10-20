@@ -32,7 +32,10 @@ Each enclave has a set size of encrypted page cache (EPC) that determines the am
 When developing applications, you can use [software tools](application-development.md) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
 
 ## Next Steps
-- [Deploy a DCsv2 or DCsv3/DCdsv3-series virtual machine](quick-create-portal.md)
-- [Develop an enclave-aware application](application-development.md) using the OE SDK
+> [!div class="nextstepaction"]
+> [Deploy a DCsv2 or DCsv3/DCdsv3-series virtual machine](quick-create-portal.md)
+
+> [!div class="nextstepaction"]
+> [Develop an enclave-aware application](application-development.md)
 
 *DCsv3 and DCdsv3 are in public preview as of November 1, 2021.

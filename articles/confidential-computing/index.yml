@@ -31,7 +31,7 @@ landingContent:
             url: use-cases-scenarios.md 
       - linkListType: concept
         links:
-          - text: Build with Enclaves 
+          - text: Build with application enclaves 
             url: confidential-computing-enclaves.md
           - text: Container computing on AKS
             url: confidential-containers.md
@@ -118,8 +118,16 @@ landingContent:
             url: https://aka.ms/confidentialinference
           - text: Always Encrypted with secure enclaves in Azure SQL Database
             url: ../azure-sql/database/always-encrypted-with-secure-enclaves-landing.yml
+          - text: Azure Confidential Ledger
+            url: ../confidential-ledger/overview.md
+          - text: Trusted launch
+            url: ../virtual-machines/trusted-launch.md
+          - text: Azure IoT Edge
+            url: ../iot-edge/deploy-confidential-applications.md
+          - text: Azure Key Vault Managed HSM
+            url: https://docs.microsoft.com/azure/key-vault/managed-hsm/
            
-  
+     
 
 # Card
   - title: Build with confidential computing

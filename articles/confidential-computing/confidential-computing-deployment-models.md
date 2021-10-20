@@ -33,7 +33,7 @@ While there are still many reasons to use VMs, containers provide extra flexibil
 Containers are also ideal for automation and Azure Pipelines, including continuous integration and continuous deployment (CI/CD) implementation.
 
 Containers further increase portability of applications, and improve resource utilization, applying the elasticity of the Azure cloud and its best.
-
+## Selecting a path
 You would normally choose to deploy your solution on confidential VMs if:
 
 - You have legacy applications that cannot be modified or containerized, but you need to introduce protection of data in memory, when being processed.
@@ -41,7 +41,7 @@ You would normally choose to deploy your solution on confidential VMs if:
 - You need to emulate an entire computing environment, including all OS resources.
 - You are migrating your existing VMs from on-premises to Azure.
 
-You&#39;d opt for a confidential container-based approach when:
+You'd opt for a confidential container-based approach when:
 
 - Cost and resource allocation is a concern, and you need a more agile platform for deployment of your proprietary apps and datasets.
 - You are building a modern cloud-native solution and have full control on source code and the deployment process.

@@ -6,7 +6,7 @@ author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/01/2021
 ms.author: JenCook
 ---
 
@@ -51,29 +51,6 @@ Running workloads on the cloud requires trust. You give this trust to various pr
 **Infrastructure providers**: Trust cloud providers or manage your own on-premise data centers.
 
 Azure confidential computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
-
-### Reducing the attack surface
-The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. 
-
-### Reducing the TCB in Azure
-
-When you deploy Azure confidential virtual machines, you can reduce cloud operators from your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, this requires no code or app changes. 
-
-Azure also offers confidential VMs with application enclaves. These solutions require some changes to configuration policies, or application code. Typically, application enclaves allow developers to build solutions with a smaller TCB. Enclaves remove both cloud operators and your own company operators from the TCB. Application enclaves like what Intel SGX provides, reduces your TCB to only trusted runtime binaries, code, and libraries. 
-
-### Using Azure for cloud-based confidential computing <a id="cc-on-Azure"></a>
-
-Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware.  
-
-**Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
-
-**Regulatory compliance**: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
-
-**Secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
-
-**Isolated processing**: Offer a new wave of products that remove liability on private data with blind processing. User data cannot even be retrieved by the service provider. 
-
-Azure offers various [products and services](overview-azure-products.md) for confidential computing. 
 
 ## Next steps
 
