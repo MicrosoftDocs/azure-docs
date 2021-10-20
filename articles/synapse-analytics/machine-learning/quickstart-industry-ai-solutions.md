@@ -43,7 +43,7 @@ The **Retail - Product recommendations** solution provides a recommendation pipe
    
     Clicking **Deploy** will open a Notebook in your Synapse workspace.
 
-6. A Notebook will now be opened in your workspace. You can attach this Notebook to a Spark pool and start exploring it. Please be aware that this Notebook is meant to be customized to your specific needs.
+1. A Notebook will now be opened in your workspace. You can attach this Notebook to a Spark pool and start exploring it. Please be aware that this Notebook is meant to be customized to your specific needs.
 
 > [!NOTE]
 > If you choose your own database, you need to customize the Notebook to use your own table and column names.
