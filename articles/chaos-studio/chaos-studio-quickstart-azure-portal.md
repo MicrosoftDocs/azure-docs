@@ -1,4 +1,4 @@
-# Quickstart: Create and run a chaos experiment that uses a VM Shutdown fault 
+# Quickstart: Create and run a chaos experiment using a VM Shutdown fault 
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
 
 ## Prerequisites
@@ -20,7 +20,8 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ## Create an experiment
 
-1. Click **Add an experiment**.
+1. Click on **Experiments**                 ---add the picture of the left part 
+2. Click **Add an experiment**.
 
     ![Add an experiment in Azure portal](images/add-an-experiment.png)
 
@@ -28,7 +29,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ![Add experiment basics](images/quickstart-service-direct-add-basics.PNG)
 
-3. You are now in the Chaos Studio experiment designer. Give a friendly name to your Step and Branch, then click Add fault.
+3. You are now in the Chaos Studio experiment designer. Give a friendly name to your **Step** and **Branch**, then click **Add fault**.
 
 ![Experiment designer](images/quickstart-service-direct-add-designer.PNG)
 
@@ -47,11 +48,21 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ![Add a target](images/quickstart-review-and-create.PNG)
 
+## Give experiment permission to your Virtual Machine
+1. Navigate to your Virtual Machine and click on **Access control (IAM).**
+2. Click **Add** then click **Add role assignment**.
+3. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
+4. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. If there are multiple experiments in the same tenant with the same name, your experiment name will be truncated with random characters added.
+5. Click **Review + assign** then **Review + assign.**
+
 
 ## Run your experiment
 1. You are now ready to run the  experiment. 
 2. In the Experiments view, click on your experiment, and click **Start**, then click **OK**.
 3. When the Status changes to Running, click Details for the latest run under History to see details for the running experiment
+
+
+
 
 ## Clean up resources
 1. Delete the experiment created. Click on **Delete**.
@@ -65,6 +76,9 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 3. Click on **Delete** to avoid being charged for the resource.
 
 ![Select the VM](images/quickstart-cleanup-virtual-machine.PNG)
+
+
+
 
 
 ## Next steps
