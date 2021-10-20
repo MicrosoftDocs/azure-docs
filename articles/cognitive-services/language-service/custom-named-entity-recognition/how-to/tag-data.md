@@ -29,29 +29,23 @@ See the [application development lifecycle](../overview.md#application-developme
 
 After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
 
-1. Go to the projects page in [Language Studio](https://language.azure.com/customText/projects/extraction) and select your project.
+1. Go to the projects page in [Language Studio](https://aka.ms/custom-extraction) and select your project.
 
 2. From the left side menu, select **Tag data**
 
-3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the top-right menu to navigate.
+3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.
 
 4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down.
 
 >[!TIP]
 > * See [recommended practices](../concepts/recommended-practices.md#data-tagging) for tips on tagging your data
-> * There is no standard number of tags you will need, Consider starting with 20 tags per entity. The number of tags you'll need depends on how distinct your entities are, and how easily they can be differentiated from each other. It also depends on your tagging, which should be consistent and complete.
+> * There is no standard number of tags you will need, Consider starting with 50 tags per entity. The number of tags you'll need depends on how distinct your entities are, and how easily they can be differentiated from each other. It also depends on your tagging, which should be consistent and complete.
 
 :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
 
 If you enabled multiple languages for your project, you will find a **Language** dropdown, which lets you select the language of each document.
 
-While tagging, routinely check on the status indicator next to **Tag data**.
-
-* Green indicates that your changes have been saved.
-* Yellow indicates that saving is in progress.
-* Red indicates that your changes have not been saved yet.
-
-If you want to save manually, hover your cursor over the red indicator and click on **Save now**.
+While tagging, your changes will be synced peridodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
 
 ## Tagging options
 
