@@ -1,6 +1,6 @@
 ---
 title: Managed NAT Gateway (preview)
-description: Learn how to create a Multi-instance GPU Node pool and schedule tasks on it
+description: Learn how to create an AKS cluster with managed NAT integration
 services: container-service
 ms.topic: article
 ms.date: 9/1/2021
@@ -26,9 +26,9 @@ You must have the following resource installed:
 * Kubernetes version 1.20.x or above
 
 
-### Register the `ManagedNATGateway` feature flag
+### Register the `AKS-NATGatewayPreview` feature flag
 
-To use the Cloud Controller Manager feature, you must enable the `ManagedNATGateway` feature flag on your subscription. 
+To use the NAT Gateway feature, you must enable the `AKS-NATGatewayPreview` feature flag on your subscription. 
 
 ```azurecli
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-NATGatewayPreview"
@@ -60,7 +60,7 @@ az aks create --resource-group myresourcegroup
     --name natcluster  \
     --node-count 3 \
     --outbound-type managedNATGateway \ 
-    --nat-gateway-managed-outbound-ip-min-count 2 \
+    --nat-gateway-managed-outbound-ip-count 2 \
     --nat-gateway-idle-timeout 30
 ```
 
@@ -70,7 +70,7 @@ az aks create --resource-group myresourcegroup
 az aks update \ 
     --resource-group myresourcegroup \
     --name natcluster\
-    --nat-gateway-managed-outbound-ip-min-count 5
+    --nat-gateway-managed-outbound-ip-count 5
 ```
 
 ## Create an AKS cluster and integrate with an existing NAT Gateway
