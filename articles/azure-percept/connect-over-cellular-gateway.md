@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Percept over 5G and LTE networks by using a gateway
-description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using cellular gateway.
+title: Connect Azure Percept DK over 5G and LTE networks by using a gateway
+description: This article explains how to connect Azure Percept DK over 5G and LTE networks by using a cellular gateway.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
-# Connect Azure Percept over 5G and LTE networks by using a gateway
+# Connect Azure Percept DK over 5G and LTE networks by using a gateway
 
 A simple way to connect Azure Percept to the internet is to use a gateway that connects to the internet over 5G or LTE and provides Ethernet ports. In this case, Azure Percept isn't even aware that it's connected over 5G or LTE. It "knows" only that its Ethernet port has connectivity and it's routing all traffic through that port.  
 
 
-## Overview of 5G or LTE gateway topology
+## Overview of 5G and LTE gateway topology
 
-The following image shows how a 5G or LTE gateway can be easily paired with Azure Percept DK (development kit).
+The following diagram shows how a 5G or LTE gateway can be easily paired with Azure Percept DK (development kit).
 
 :::image type="Image" source="media/connect-over-cellular/topology.png" alt-text="Diagram showing how Azure Percept DK connects to a 5G or LTE gateway via Ethernet." lightbox="media/connect-over-cellular/topology-expanded.png":::
 
