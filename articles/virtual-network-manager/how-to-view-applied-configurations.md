@@ -55,11 +55,25 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 1. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Direct connectivity*](concept-connectivity-configuration.md#direct-connectivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
 
-    :::image type="content" source="./media/how-to-view-applied-configurations/effective-rules.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes.":::
+    :::image type="content" source="./media/how-to-view-applied-configurations/effective-routes.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes." lightbox="./media/how-to-view-applied-configurations/effective-routes-expanded.png":::
 
     > [!NOTE]
     > The hub virtual network address space is also **included** in the *ConnectedGroup*. Therefore, if virtual network peering fails between the hub and spoke virtual networks, they can still communicate with each other because they're in a connected group.
     > 
+
+### Effective security rules
+
+1. To see effective security rules for an applied security rule configuration, select the network interface name under the *Networking* settings of the virtual machine.
+
+    :::image type="content" source="./media/how-to-view-applied-configurations/vm-network-interface.png" alt-text="Screenshot of selecting virtual machine network interface card for security rules.":::
+
+1. Then select **Effective security rules** under *Support + troubleshooting*.
+
+    :::image type="content" source="./media/how-to-view-applied-configurations/network-interface-security-rules.png" alt-text="Screenshot of effective security rules button for a VM network interface card.":::
+
+1. Select the name of the Azure Virtual Network Manager to see the security admin rules associated to the virtual machine.
+
+    :::image type="content" source="./media/how-to-view-applied-configurations/effective-security-rules.png" alt-text="Screenshot of effective security rules associated to the virtual machine.":::
 
 ## Activity Log
 
