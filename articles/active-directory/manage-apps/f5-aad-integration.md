@@ -144,7 +144,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
-- [Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication SSO](f5-bigip-forms-advanced.md)
+- [Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication SSO](f5-big-ip-forms-advanced.md)
 
 ## Additional resources
 
