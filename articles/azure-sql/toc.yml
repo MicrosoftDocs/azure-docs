@@ -882,8 +882,8 @@
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
       href: managed-instance/replication-transactional-overview.md
-    - name: Managed Instance link
-      href: managed-instance/managed-instance-link.md
+    - name: Link feature for SQL MI
+      href: managed-instance/link-feature.md
 
 
     - name: Management operations
