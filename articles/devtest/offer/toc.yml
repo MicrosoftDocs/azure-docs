@@ -16,9 +16,9 @@
   expanded: true
   items:
   - name: GitOps & Azure Dev/Test offer
-    href: gitops-azure-devtest.md  
+    href: concepts-gitops-azure-devtest.md  
   - name: Security & governance
-    href: security-governance-devtest.md    
+    href: concepts-security-governance-devtest.md    
 - name: How-to guides
   items:
   - name: Change directory tenants

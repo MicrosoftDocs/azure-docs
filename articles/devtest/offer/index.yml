@@ -54,7 +54,7 @@ conceptualContent:
         - url: ../../devtest/offer/quickstart-create-enterprise-devtest-subscriptions.md
           itemType: how-to-guide
           text: Create Enterprise and Organizational subscriptions
-        - url: ../../devtest/offer/gitops-azure-devtest.md
+        - url: ../../devtest/offer/concepts-gitops-azure-devtest.md
           itemType: how-to-guide
           text: Use GitOps with Azure Dev/Test
         - url: ../../devtest/offer/manage-monitor-devtest.md
@@ -63,6 +63,6 @@ conceptualContent:
         - url: ../../devtest/offer/manage-reliability-performance.md
           itemType: how-to-guide
           text: Build reliability into your applications
-        - url: ../../devtest/offer/security-governance-devtest.md
+        - url: ../../devtest/offer/concepts-security-governance-devtest.md
           itemType: how-to-guide
           text: Manage security and governance
