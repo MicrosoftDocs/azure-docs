@@ -67,8 +67,8 @@ conceptualContent:
     - title: Understand conversations and answer questions
       links:
         - itemType: overview
-          text: Custom language understanding
-          url: custom-language-understanding/overview.md 
+          text: Conversational language understanding
+          url: conversational-language-understanding/overview.md 
         - itemType: overview
           text: Question answering
           url: custom-question-answering/overview.md 

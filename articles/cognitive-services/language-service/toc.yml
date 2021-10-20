@@ -113,39 +113,39 @@ items:
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
-    href: custom-language-understanding/overview.md
+    href: conversational-language-understanding/overview.md
   - name: Quickstart
-    href: custom-language-understanding/quickstart.md
+    href: conversational-language-understanding/quickstart.md
   - name: Language support
-    href: custom-language-understanding/language-support.md
+    href: conversational-language-understanding/language-support.md
   - name: How-to guides
     items:
       - name: Create projects
-        href: custom-language-understanding/how-to/create-project.md
+        href: conversational-language-understanding/how-to/create-project.md
       - name: Build a schema
-        href: custom-language-understanding/how-to/build-schema.md
+        href: conversational-language-understanding/how-to/build-schema.md
       - name: Tag utterances
-        href: custom-language-understanding/how-to/tag-utterances.md
+        href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
-        href: custom-language-understanding/how-to/train-model.md
+        href: conversational-language-understanding/how-to/train-model.md
       - name: View model evaluation and scoring
         href: custom-named-entity-recognition/how-to/view-model-evaluation.md
       - name: Deploy a model and query the runtime API
-        href: custom-language-understanding/how-to/deploy-query-model.md
+        href: conversational-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
       - name: Backwards compatibility
-        href: custom-language-understanding/concepts/backwards-compatibility.md
+        href: conversational-language-understanding/concepts/backwards-compatibility.md
       - name: Entity components
-        href: custom-language-understanding/concepts/entity-components.md
+        href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
-        href: custom-language-understanding/concepts/evaluation-metrics.md
+        href: conversational-language-understanding/concepts/evaluation-metrics.md
   - name: Reference
     items:
     - name: Prebuilt component reference
-      href: custom-language-understanding/prebuilt-component-reference.md
+      href: conversational-language-understanding/prebuilt-component-reference.md
     - name: Service limits
-      href: custom-language-understanding/service-limits.md
+      href: conversational-language-understanding/service-limits.md
     - name: Prediction API
       items:
       - name: REST API
