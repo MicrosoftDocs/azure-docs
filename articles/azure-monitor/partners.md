@@ -144,6 +144,16 @@ InfluxData is on a mission to help developers and organizations, such as IBM, Vi
 
 [Learn more about Azure Monitor integration with InfluxData Telegraf](essentials/collect-custom-metrics-linux-telegraf.md). 
 
+## Interlink Software
+
+![Interlink Software logo.](./media/partners/Interlinksoftware.png)
+
+The Interlink Software AIOps platform ingests Azure Application Insights and Azure Stack Hub events and metrics, enabling IT Ops to analyze the availability of Azure environments, diagnose the root cause of issues and proactively remediate them before they impact on customers.
+
+Monitor and visualize the full IT stack by aggregating and correlating Azure events and metrics with data from other sources, including CMDBs, change, APM and service desk tools - empowering IT Ops with unified, actionable, single pane dashboard visualizations of service health.
+
+[Learn more about Microsoft Azure Application Insights & Azure Stack Hub integration with the Interlink Software AIOps platform](https://www.interlinksoftware.com/azure).
+
 ## Logic Monitor
 
 ![Logic Monitor logo.](./media/partners/logicmonitor.png)
