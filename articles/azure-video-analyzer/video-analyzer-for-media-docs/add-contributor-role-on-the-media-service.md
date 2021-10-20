@@ -18,7 +18,7 @@ This article describes how to assign contributor role on the Media Services.
 1. Azure Media Services (AMS)
 2. User-assigned managed identity
 > [!NOTE]
-> You'll need an Azure subscription where you have access to both the [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role and the [User Access Administrator](../../../role-based-access-control/built-in-roles.md#user-access-administrator) role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Video Analyzer for Media account.
+> You'll need an Azure subscription where you have access to both the [Contributor](../../../role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](../../../role-based-access-control/built-in-roles#user-access-administrator) role to the Azure Media Services and the User-assigned managed identity. If you don't have the right permissions, ask your account administrator to grant you those permissions. The associated Azure Media Services must be in the same region as the Video Analyzer for Media account.
 
 
 ## Add Contributor role on the Media Services
