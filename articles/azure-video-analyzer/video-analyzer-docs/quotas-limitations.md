@@ -66,17 +66,17 @@ The HTTP or gRPC extension processors only support sending of image/video frame 
 
 This section enumerates the quotas and limitations of Video Analyzer cloud pipelines. 
 
-### Maximum number of Concurrent Live Pipeline Activations 
-
-At most 10 live pipelines per Video Analyzer account can be in activating state. 
-
 ### Maximum number of pipeline topologies 
 
 At most 5 pipeline topologies per Video Analyzer account are supported. 
 
-### Live Pipeline Activations per time window 
+### Maximum number of concurrent live pipeline activations 
 
-At most 10 pipeline topologies per Video Analyzer account can be activated within a time window of 5 minutes.  
+At most 10 live pipelines per Video Analyzer account can be in activating state. 
+
+### Live pipeline activations per time window 
+
+At most 10 live pipelines per Video Analyzer account can be activated within a time window of 5 minutes.  
 
 ### Maximum Live Pipelines per Topology	 
 
@@ -91,11 +91,27 @@ At most 1 concurrent playback session is supported for a single Live Pipeline.
 Following are the different nodes that can be connected together in a pipeline topology and their limitations: 
 
 * RTSP source 
-   * Only one RTSP source is allowed per pipeline topology.
+  * Only one RTSP source is allowed per pipeline topology.
 * Video source
+   * Only one video source is allowed per pipeline topology.
    * Used for batch video export to mp4, allows only Video Analyzer video recording to be used as a source. 
-* Encoder pocessor 
+* Encoder processor 
+   * Only one encoder processor is allowed per pipeline topology.
+   * Must be immediately downstream from Video source.
+   * Allows user to specify encoding properties when converting the recorded video into the desired format for downstream processing. Two types allowed: (a) System Preset
+     (b) Custom Preset. The allowed configurations for each preset are listed in teh table below: 
+     
+     | Configuration      | System Preset | Custom Preset |
+     | ----------- | ----------- |----------- |
+     | Video encoder bitrate       | same as source      | 200 to 16,000 kbps |
+     | Scale mode   | Pad        | Pad, PreserveAspectRatio, Stretch |
+     | Width    | same as source       | 1 to 8192 |
+     | Height    | same as source        | 1 to 4320 |
+     | Audio encoder bitrate  | same as source        | Allowed values: 96000, 112000, 128000, 160000, 192000, 224000, 256000 |
+     
 * Video sink 
+   *  Only one video sink is allowed per pipeline topology.
+   *  Must be immediately downstream from RTSP source or Encoder processor node. 
 
 ### Supported cameras 
 
