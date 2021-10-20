@@ -233,11 +233,9 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
 1. Enter a compute name and select your Azure Arc-enabled Kubernetes cluster from the dropdown.
 
-   ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster.png)
+   **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
 
-1. (Optional) For advanced scenarios, browse and upload a configuration file.
-
-   ![Upload configuration file](./media/how-to-attach-arc-kubernetes/upload-configuration-file.png)
+   ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
 
 1. Select **Attach**
 
@@ -245,199 +243,73 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
     ![Provision resources](./media/how-to-attach-arc-kubernetes/provision-resources.png)
 
-#### Advanced attach scenario
-
-Use a JSON configuration file to configure advanced compute target capabilities on Azure Arc-enabled Kubernetes clusters.
-
-The following is an example configuration file:
-
-```json
-{
-   "namespace": "amlarc-testing",
-   "defaultInstanceType": "gpu_instance",
-   "instanceTypes": {
-      "gpu_instance": {
-         "nodeSelector": {
-            "accelerator": "nvidia-tesla-k80"
-         },
-         "resources": {
-            "requests": {
-               "cpu": "2",
-               "memory": "16Gi",
-               "nvidia.com/gpu": "1"
-            },
-            "limits": {
-               "cpu": "2",
-               "memory": "16Gi",
-               "nvidia.com/gpu": "1"
-            }
-         }
-      },
-      "big_cpu_sku": {
-         "nodeSelector": {
-            "VMSizes": "VM-64vCPU-256GB"
-         },
-         "resources": {
-            "requests": {
-               "cpu": "4",
-               "memory": "16Gi",
-               "nvidia.com/gpu": "0"
-            },
-            "limits": {
-               "cpu": "4",
-               "memory": "16Gi",
-               "nvidia.com/gpu": "0"
-            }
-         }
-      }
-   }
-}
-```
-
-The following custom compute target properties can be configured using a configuration file:
-
-* `namespace` - Defaults to `default` namespace. This is the namespace where jobs and pods run under. Note that when setting a namespace other than the default, the namespace must already exist. Creating namespaces requires cluster administrator privileges.
-
-* `defaultInstanceType` - The type of instance where training jobs run on by default. Required `defaultInstanceType` if `instanceTypes` property is specified. The value of `defaultInstanceType` must be one of values defined in the `instanceTypes` property.
-
-    > [!IMPORTANT]
-    > Currently, only job submissions using computer target name are supported. Therefore, the configuration will always default to defaultInstanceType.
-
-* `instanceTypes` - List of instance types used for training jobs. Each instance type is defined by `nodeSelector` and `resources requests/limits` properties:
-
-  * `nodeSelector` - One or more node labels used to identify nodes in a cluster. Cluster administrator privileges are needed to create labels for cluster nodes. If this property is specified, training jobs are scheduled to run on nodes with the specified node labels. You can use `nodeSelector` to target a subset of nodes for training workload placement. This can be useful in scenarios where a cluster has different SKUs, or different types of nodes such as CPU or GPU nodes. For example, you could create node labels for all GPU nodes and define an `instanceType` for the GPU node pool. Doing so targets the GPU node pool exclusively when scheduling training jobs. 
-
-  * `resources requests/limits` - Specifies resources requests and limits a training job pod to run. Defaults to 1 CPU and 4GB of of memory.
-
-    >[!IMPORTANT]
-    > By default, a cluster resource is deployed with 1 CPU and 4 GB of memory. If a cluster is configured with lower resources, the job run will fail. To ensure successful job completion, we recommend to always specify resources requests/limits according to training job needs. The following is an example default configuration file:
-    >
-    > ```json
-    > {
-    >    "namespace": "default",
-    >    "defaultInstanceType": "defaultInstanceType",
-    >    "instanceTypes": {
-    >       "defaultInstanceType": {
-    >          "nodeSelector": null,
-    >          "resources": {
-    >             "requests": {
-    >                "cpu": "1",
-    >                "memory": "4Gi",
-    >                "nvidia.com/gpu": "0"
-    >             },
-    >             "limits": {
-    >                "cpu": "1",
-    >                "memory": "4Gi",
-    >                "nvidia.com/gpu": "0"
-    >             }
-    >          }
-    >       }
-    >    }
-    > }
-    > ```
-
 ### [Python SDK](#tab/sdk)
 
-The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target for training:
+You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Kubernetes clusters as compute targets using the [`attach_configuration`](/python/api/azureml-core/azureml.core.compute.kubernetescompute.kubernetescompute?view=azure-ml-py) method.
+
+The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
+
+Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
 
 ```python
 from azureml.core.compute import KubernetesCompute
 from azureml.core.compute import ComputeTarget
+from azureml.core.workspace import Workspace
 import os
 
 ws = Workspace.from_config()
 
-# choose a name for your Azure Arc-enabled Kubernetes compute
-amlarc_compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "amlarc-compute")
+# Specify a name for your Kubernetes compute
+amlarc_compute_name = "<COMPUTE_CLUSTER_NAME>"
 
-# resource ID for your Azure Arc-enabled Kubernetes cluster
-resource_id = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Kubernetes/connectedClusters/amlarc-cluster"
+# resource ID for the Kubernetes cluster and user-managed identity
+resource_id = "/subscriptions/<sub ID>/resourceGroups/<RG>/providers/Microsoft.Kubernetes/connectedClusters/<cluster name>"
+
+user_assigned_identity_resouce_id = ['subscriptions/<sub ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity name>']
+
+ns = "default" 
 
 if amlarc_compute_name in ws.compute_targets:
     amlarc_compute = ws.compute_targets[amlarc_compute_name]
     if amlarc_compute and type(amlarc_compute) is KubernetesCompute:
         print("found compute target: " + amlarc_compute_name)
 else:
-    print("creating new compute target...")
-
-    amlarc_attach_configuration = KubernetesCompute.attach_configuration(resource_id) 
-    amlarc_compute = ComputeTarget.attach(ws, amlarc_compute_name, amlarc_attach_configuration)
-
- 
-    amlarc_compute.wait_for_completion(show_output=True)
-    
-     # For a more detailed view of current KubernetesCompute status, use get_status()
-    print(amlarc_compute.get_status().serialize())
-```
-
-#### Advanced attach scenario
-
-The following code shows how to configure advanced compute target properties like namespace, nodeSelector, or resources requests/limits:
-
-```python
-from azureml.core.compute import KubernetesCompute
-from azureml.core.compute import ComputeTarget
-import os
-
-ws = Workspace.from_config()
-
-# choose a name for your Azure Arc-enabled Kubernetes compute
-amlarc_compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "amlarc-compute")
-
-# resource ID for your Azure Arc-enabled Kubernetes cluster
-resource_id = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Kubernetes/connectedClusters/amlarc-cluster"
-
-if amlarc_compute_name in ws.compute_targets:
-   amlarc_compute = ws.compute_targets[amlarc_compute_name]
-   if amlarc_compute and type(amlarc_compute) is KubernetesCompute:
-      print("found compute target: " + amlarc_compute_name)
-else:
    print("creating new compute target...")
-   ns = "amlarc-testing"
-    
-   instance_types = {
-      "gpu_instance": {
-         "nodeSelector": {
-            "accelerator": "nvidia-tesla-k80"
-         },
-         "resources": {
-            "requests": {
-               "cpu": "2",
-               "memory": "16Gi",
-               "nvidia.com/gpu": "1"
-            },
-            "limits": {
-               "cpu": "2",
-               "memory": "16Gi",
-               "nvidia.com/gpu": "1"
-            }
-        }
-      },
-      "big_cpu_sku": {
-         "nodeSelector": {
-            "VMSizes": "VM-64vCPU-256GB"
-         }
-      }
-   }
 
-   amlarc_attach_configuration = KubernetesCompute.attach_configuration(resource_id = resource_id, namespace = ns, default_instance_type="gpu_instance", instance_types = instance_types)
- 
-   amlarc_compute = ComputeTarget.attach(ws, amlarc_compute_name, amlarc_attach_configuration)
 
- 
-   amlarc_compute.wait_for_completion(show_output=True)
-    
-   # For a more detailed view of current KubernetesCompute status, use get_status()
-   print(amlarc_compute.get_status().serialize())
+# assign user-assigned managed identity
+amlarc_attach_configuration = KubernetesCompute.attach_configuration(resource_id = resource_id, namespace = ns,  identity_type ='UserAssigned',identity_ids = user_assigned_identity_resouce_id) 
+
+# assign system-assigned managed identity
+# amlarc_attach_configuration = KubernetesCompute.attach_configuration(resource_id = resource_id, namespace = ns,  identity_type ='SystemAssigned') 
+
+amlarc_compute = ComputeTarget.attach(ws, amlarc_compute_name, amlarc_attach_configuration)
+amlarc_compute.wait_for_completion(show_output=True)
+
+# get detailed compute description containing managed identity principle ID, used for permission access. 
+print(amlarc_compute.get_status().serialize())
 ```
+
+Use the `identity_type` parameter to enable `SystemAssigned` or `UserAssigned` managed identities.
 
 ### [CLI](#tab/cli)
 
-Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) command to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+You can attach an AKS or Azure Arc enabled Kubernetes cluster using the Azure Machine Learning 2.0 CLI (preview).
+
+Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) command and set the --type argument to `kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+
+> [!NOTE]
+> Compute attach support for AKS or Azure Arc enabled Kubernetes clusters requires a version of the Azure CLI `ml` extension >= 2.0.1a4. For more information, see [Install and set up the CLI (v2)](how-to-configure-cli.md).
+
+**AKS**
 
 ```azurecli
-az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/connectedClusters/amlarc-compute" --type kubernetes --file advanced-attach.yml --no-wait
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.Kubernetes/managedclusters/\<cluster-name\>" --type kubernetes --file advanced-attach.yml --no-wait
 ```
+
+**Azure Arc enabled Kubernetes**
+
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.Kubernetes/connectedClusters/\<cluster-name\>" --type kubernetes --file advanced-attach.yml --no-wait
 
 #### Advanced compute attach scenarios
 
