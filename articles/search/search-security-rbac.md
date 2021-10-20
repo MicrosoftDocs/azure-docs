@@ -68,7 +68,7 @@ To add your subscription to the preview:
 
 ![sign up for rbac on afec](media/search-howto-aad/rbac-signup-afec.png)
 
-For more details, on adding preview features, see [Set up preview features in Azure subscription](azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+For more details, on adding preview features, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
 
 
 ## Step 2: Preview configuration
