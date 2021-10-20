@@ -10,6 +10,8 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
+  - name: Cause a DNS outage using the network security group fault
+    href: chaos-studio-quickstart-dns-outage.md
 - name: Samples
   items:
   - name: Azure REST API 
@@ -26,11 +28,11 @@
     href: chaos-studio-permissions-security.md
 - name: How-to guides
   items:
-  - name: Create and run experiment - Cosmos DB (service-direct)
+  - name: Create and run experiment - Service-direct faults
     href: chaos-studio-tutorial-service-direct.md
-  - name: Create and run experiment - Linux VM (agent-based)
+  - name: Create and run experiment - Agent-based faults
     href: chaos-studio-tutorial-agent-based.md
-  - name: Create and run experiment - AKS Chaos Mesh
+  - name: Create and run experiment - Chaos Mesh faults on AKS
     href: chaos-studio-tutorial-aks.md
 - name: Reference
   items:
