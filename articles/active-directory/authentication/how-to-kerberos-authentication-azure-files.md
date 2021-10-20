@@ -44,7 +44,8 @@ This is achieved by flipping the traditional trust model where Azure AD now beco
 
 With this, now the users can access Azure files or traditional file servers over the internet i.e. sitting in a coffee shop without requiring a line of sight to DC. This will require the latest Windows client version (Insider build) and the set up described in following sections. We also support native Azure AD authentication with the previous windows client version i.e. Windows client version 2004 and below but to enable this the clients will require a line of sight to the DC. You will also need to create a trust object in your tenant in on premises and registered in Azure AD. 
 
->[!NOTE]This private preview focuses on the upcoming Windows Insider build only. 
+>[!NOTE]
+>This private preview focuses on the upcoming Windows Insider build only. 
 
 ## Prerequisite	Description 
 
