@@ -18,7 +18,7 @@ Question answering allows you to manage your projects/knowledge bases by providi
 
 ## Create a project
 
-1. Sign in to the [Language Studio](https://language.azure.com/) portal with your Azure credentials.
+1. Sign in to the [Language Studio](https://aka.ms/languageStudio) portal with your Azure credentials.
 
 2. Open the [question answering](https://language.azure.com/languageStudio/questionAnswering/projects) page.
 

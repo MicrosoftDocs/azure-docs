@@ -27,7 +27,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 ## Create a custom named entity recognition project
 
-1. Sign into the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+1. Sign into the [Language Studio portal](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
 2. Scroll down until you see **Custom named entity recognition** from the available services, and select it.
 

@@ -19,7 +19,7 @@ To use Language Studio, you will need an Azure resource for language for authent
 
 1. Create an Azure Subscription. You can [create one for free](https://azure.microsoft.com/free/ai/). 
 
-2. [Log into Language Studio](https://language.azure.com/). If it's your first time logging in, you'll see a window appear that lets you choose a language resource. 
+2. [Log into Language Studio](https://aka.ms/languageStudio). If it's your first time logging in, you'll see a window appear that lets you choose a language resource. 
 
    :::image type="content" source="../media/language-resource-small.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../media/language-resource.png":::
 

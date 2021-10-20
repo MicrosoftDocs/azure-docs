@@ -23,7 +23,7 @@ You may want to create a copy of your project for several reasons:
 
 Exporting a project allows you to migrate or back up all the sources question answer sources that are contained within a single project.
 
-1. Sign in to the [Language Studio](https://language.azure.com/).
+1. Sign in to the [Language Studio](https://aka.ms/languageStudio).
 1. Select the language resource you want to migrate a project from.
 1. On the **Projects** page, you have the options to export in two formats, Excel or TSV. This will determine the contents of the file. The file itself will be exported as a .zip containing all of your knowledge bases.
 
