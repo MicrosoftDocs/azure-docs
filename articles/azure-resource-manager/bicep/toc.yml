@@ -56,22 +56,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
-      items:
-      - name: Resources
-        displayName: iteration,copy,multiple,batches,child,condition,filter
-        href: loop-resources.md
-      - name: Modules
-        displayName: iteration,copy,multiple,batches,condition,filter
-        href: loop-modules.md
-      - name: Properties
-        displayName: iteration,copy,multiple
-        href: loop-properties.md
-      - name: Variables
-        displayName: iteration,copy,multiple
-        href: loop-variables.md
-      - name: Outputs
-        displayName: iteration,copy,multiple
-        href: loop-outputs.md
+      href: loops.md
     - name: Scopes
       items:
       - name: Resource group
