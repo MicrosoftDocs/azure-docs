@@ -65,7 +65,6 @@ Click the **Deploy to Azure** button
 
 It may take a few moments for the Azure resources to be created and the edge modules to be deployed.
 
-
 ### Verify your deployment
 
 After creating the deployment, in the Azure portal navigate to the IoT Edge device page of your IoT hub.
@@ -85,13 +84,13 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 1. Clicking on the edge module you created, will take you to its configuration page.  
 
     ![Screenshot shows the configuration page of an edge module.](./media/deploy-iot-edge-device/modules.png)
-1. Click on the Direct Method menu option.
+1. Click on the **Direct Method** menu option.
 
     > [!NOTE] 
     > You will need to add a value in the Connection string sections as you can see on the current page. You do not need to hide or change anything in the **Setting name** section. It is ok to let it be public.
 
     ![Direct method](./media/deploy-iot-edge-device/module-details.png)
-1. Next, Enter "pipelineTopologyList" in the Method Name box.
+1. Next, Enter "pipelineTopologyList" in the `Method Name` box.
 1. Next, copy and paste the below JSON payload in the payload box.
     
    ```
@@ -99,10 +98,8 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
        "@apiVersion": "1.1"
    }
    ```
-1. Click on “Invoke Method” option on top of the page
-
-    ![Direct methods](./media/deploy-iot-edge-device/direct-method.png)
-1. You should see a status 200 message in the Result box
+1. Click on **Invoke Method** option on top of the page
+1. You should see a status 200 message in the `Result` box
 
     ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png) 
 
