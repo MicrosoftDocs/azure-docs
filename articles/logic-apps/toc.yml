@@ -257,6 +257,8 @@
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
       href: ../connectors/connectors-create-api-container-instances.md
+    - name: Azure Cosmos DB
+      href: ../connectors/connectors-create-api-cosmosdb.md
     - name: Azure Event Grid
       href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Azure Event Hubs
