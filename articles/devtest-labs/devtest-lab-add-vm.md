@@ -48,7 +48,7 @@ This article walks you through on how to create and add Azure virtual machines (
     |Number of instances| For this walk-through, enter **2**. The number of virtual machine instances to be created.|
     |Automation | Optional. Selecting **View ARM Template** will open the template in a new page. You can copy and save the template to create the same virtual machine later. Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).|
 
-   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Virtual machine basic settings page.":::
+   :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Virtual machine advanced settings page.":::
 
 1. Return to the **Basic Settings** tab and then select **Create**.
 
@@ -92,7 +92,7 @@ You can also add artifacts after the VM has been created.
 
 1. Select **Apply artifacts** to open the **Add artifacts** page.
 
-1. From here, the steps are basically the same as from [Add artifacts during installation](add-artifacts-during-installation), above.
+1. From here, the steps are basically the same as from [Add artifacts during installation](#add-artifacts-during-installation), above.
 
 ## Next steps
 
