@@ -28,12 +28,11 @@ Connecting cameras to the cloud using a remote device adapter allows cameras to 
 The following are required for this how-to guide:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+* IoT Hub
 * [Azure Video Analyzer account](../create-video-analyzer-account.md) with associated:
   * Storage account
   * User-assigned managed identity (UAMI)
-* IoT Hub
-  * User-assigned managed identity with **Contributor** role access
-* Video Analyzer account must be paired with IoT Hub
+  * [IoT Hub must be attached to Video Analyzer account](../create-video-analyzer-account.md#post-deployment-steps)
 * [IoT Edge with Video Analyzer edge module installed and configured](../edge/deploy-iot-edge-device.md)
 * RTSP capable camera(s)
   * Ensure that camera(s) are on the same network as edge device
@@ -102,9 +101,6 @@ If successful, you will receive a response with a status code 201.
 
 
 ## Create pipeline topology in the cloud
-
-> [!NOTE]
-> IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
 
 When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology.
 
