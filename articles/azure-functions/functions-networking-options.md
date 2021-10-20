@@ -171,7 +171,7 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS private zones. To work with Azure DNS private zones, you need to add the following app settings:
 
-1. `WEBSITE_VNET_ROUTE_ALL` with value `1`
+- `WEBSITE_VNET_ROUTE_ALL` with value `1`
 
 This setting sends all of your outbound calls from your app into your VNet and enables your app to access an Azure DNS private zone. With these settings, your app can use Azure DNS by querying the DNS private zone at the worker level.  
 
