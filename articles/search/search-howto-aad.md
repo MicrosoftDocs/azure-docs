@@ -25,7 +25,7 @@ As a first step, [create a search service](search-create-service-portal.md) and 
 
 ### Sign up for the preview
 
-The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD for querying the search service are still in preview. To use these capabilities, you'll need to add the preview feature to your Azure subscription
+The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD for querying the search service are still in preview. To use these capabilities, you'll need to add the preview feature to your Azure subscription.
 
 To add your subscription to the preview:
 
