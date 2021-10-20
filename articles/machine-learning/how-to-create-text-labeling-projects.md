@@ -13,7 +13,7 @@ ms.custom: data4ml
 
 # Create a text labeling project and export labels (preview)
 
-Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each piece of text.
+Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each text item.
 
 You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
 
@@ -78,8 +78,8 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you are using a .csv file, where each row contains a response.
-    * Select **File** if you are using separate .txt files for each response.
+    * Select **Tabular** if you're using a .csv file, where each row contains a response.
+    * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
 1. Select the datastore.
@@ -96,8 +96,8 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you are using a .csv file, where each row is a response.
-    * Select **File** if you are using separate .txt files for each response.
+    * Select **Tabular** if you're using a .csv file, where each row is a response.
+    * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
 1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
@@ -132,14 +132,16 @@ The **ML-assisted labeling** page lets you trigger automatic machine learning mo
 To use **ML-assisted labeling**:
 
 * Select **Enable ML assisted labeling**.
-* Select the **Dataset language** for the project.
+* Select the **Dataset language** for the project. All languages supported by the [TextDNNLanguages Class](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py) are present in this list.
 * Specify a compute target to use. If you don't have one in your workspace, a compute cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
 
 ### How does ML-assisted labeling work?
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
-The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in the project.
+Approximately the first 128 words of a long document, or concatenation of multiple columns, are used as input into the ml-assisted label model.  The document or text in the set of columns can exceed 128 words.  The limit only pertains to what is input into the model to predict the prelabels for the classification of the entire document or set of columns.
+
+The exact number of labeled items necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in the project.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
@@ -170,7 +172,7 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
 
-The middle section shows the queue of tasks yet to be assigned. 
+The middle section shows the queue of tasks yet to be assigned. If ML-assisted labeling is on, you'll also see the number of pre-labeled items.
 
 
 On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
