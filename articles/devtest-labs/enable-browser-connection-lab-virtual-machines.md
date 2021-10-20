@@ -30,7 +30,7 @@ First, create a new virtual network with an Azure Bastion subnet and another sub
 1. On the **Create virtual network** screen, enter a **Name** for the new virtual network, and select the same **Subscription**, **Resource group**, and **Region** as your lab.
 1. Select **Next: IP Addresses**.
 1. On the **IP Addresses** tab, there's already one subnet, **default**. Select **Add subnet**.
-1. On the **Add Subnet** screen, enter *AzureBastionSubnet* under **Name**.
+1. On the **Add subnet** screen, enter *AzureBastionSubnet* under **Name**.
 1. Under **Subnet address range**, enter an address range that's within the virtual network's address space but doesn't overlap with the default subnet. If necessary, you can add a second **IPv4 address space** in the empty field under the existing address space.
 1. Select **Add**.
 
@@ -51,9 +51,11 @@ Next, connect your lab to the new virtual network:
 1. Select **Save** at the top of the **Virtual network** page.
 1. To remove any previous virtual network from the lab, select **...** next to that virtual network, select **Delete**, and then select **Yes**. 
 
+   ![Screenshot that shows deleting the old lab virtual network.](media/enable-browser-connection-lab-virtual-machines/add-virtual-network.png)
+
 Enable VM creation in the non-Azure Bastion subnet:
 
-1. On the **Virtual network** page, select the new network, and make sure that both the **AzureBastionSubnet** subnet and the **default** subnet appear. If you don't see both subnets, close and reopen the page.
+1. Make sure that both the **AzureBastionSubnet** subnet and the **default** subnet appear on the **Virtual network** page. If you don't see both subnets, close and reopen the page.
 1. Select the **default** subnet from the list.
 1. On the **Lab Subnet** screen, under **Use in virtual machine creation**, select **Yes**, and then select **Save**. You can now create VMs in the default subnet of your lab virtual network.
 
