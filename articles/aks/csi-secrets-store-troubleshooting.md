@@ -19,16 +19,16 @@ Azure Key Vault (AKV) provider logs are available in the provider pods. To troub
 
 ```bash
 # find the csi-secrets-store-provider-azure pod running on the same node as your application pod
-kubectl get pods -l app=csi-secrets-store-provider-azure -o wide
-kubectl logs <provider pod name> --since=1h | grep ^E
+kubectl get pods -l app=secrets-store-provider-azure -n kube-system -o wide
+kubectl logs <provider pod name> -n kube-system --since=1h | grep ^E
 ```
 
 Secrets Store CSI driver logs are also accessible:
 
 ```bash
 # find the secrets store csi driver pod running on the same node as your application pod
-kubectl get pods -l app=secrets-store-csi-driver -o wide
-kubectl logs <driver pod name> secrets-store --since=1h | grep ^E
+kubectl get pods -l app=secrets-store-csi-driver -n kube-system -o wide
+kubectl logs <driver pod name> secrets-store -n kube-system --since=1h | grep ^E
 ```
 
 ## Common issues
@@ -54,19 +54,6 @@ Warning  FailedMount  74s    kubelet            MountVolume.SetUp failed for vol
 ```
 
 It means the NMI component in aad-pod-identity returned an error for token request. To get more details on the error, check the MIC pod logs and refer to the AAD Pod Identity [troubleshooting guide][aad-troubleshooting] to resolve the issue.
-
-### Failed to find provider binary azure, err: stat /etc/kubernetes/secrets-store-csi-providers/azure/provider-azure: no such file or directory 
-
-If you received the following error message in the logs/events:
-
-```bash
-Warning FailedMount 85s (x10 over 5m35s) kubelet, aks-default-28951543-vmss000000 MountVolume.SetUp failed for volume "secrets-store01-inline" : kubernetes.io/csi: mounter.SetupAt failed: rpc error: code = Unknown desc = failed to mount secrets store objects for pod default/nginx-secrets-store-inline-user-msi, err: failed to find provider binary azure, err: stat /etc/kubernetes/secrets-store-csi-providers/azure/provider-azure: no such file or directory
-```
-
-It means the driver is unable to communicate with the provider.
-
-- If you’re installing provider version < 0.0.9, check if the provider pods are running on all nodes.
-- If you’re installing provider version >= 0.0.9, follow the Installation steps to configure the driver to use grpc for communication with the provider.
 
 ### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled” 
 
@@ -120,23 +107,6 @@ curl -X POST 'https://login.microsoftonline.com/<AAD_TENANT_ID>/oauth2/v2.0/toke
 
 ```bash
 curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
-```
-
-### Failed to create Kubernetes secret” err=“secrets is forbidden: User "system:serviceaccount:default:secrets-store-csi-driver" cannot create resource "secrets" in API group "" in the namespace "default"
-
-If you received the following error message in the logs/events:
-
-```bash
-E0610 22:27:02.283100       1 secretproviderclasspodstatus_controller.go:325] "failed to create Kubernetes secret" err="secrets is forbidden: User \"system:serviceaccount:default:secrets-store-csi-driver\" cannot create resource \"secrets\" in API group \"\" in the namespace \"default\"" spc="default/azure-linux" pod="default/busybox-linux-5f479855f7-jvfw4" secret="default/dockerconfig" spcps="default/busybox-linux-5f479855f7-jvfw4-default-azure-linux"
-```
-
-It means the RBAC clusterrole and clusterrolebinding required for the CSI driver required to sync the mounted content as Kubernetes secret is not installed. When installing/upgrading the driver and provider using helm charts from [this repo][csi-ss-provider], set secrets-store-csi-driver.syncSecret.enabled=true. This operation will install the required clusterrole and clusterrolebinding.
-
-```bash
-# sync as Kubernetes secret clusterrole
-kubectl get clusterrole/secretprovidersyncing-role
-# sync as Kubernetes secret clusterrolebinding
-kubectl get clusterrolebinding/secretprovidersyncing-rolebinding
 ```
 
 <!-- LINKS EXTERNAL -->

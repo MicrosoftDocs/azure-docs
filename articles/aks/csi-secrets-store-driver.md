@@ -1,6 +1,6 @@
 ---
-title: Use the Secrets Store CSI driver for Azure Kubernetes Service secrets
-description: Learn how to use the secrets store CSI driver to integrate secrets stores with Azure Kubernetes Service (AKS).
+title: Use the Secrets Store CSI Driver for Azure Kubernetes Service secrets
+description: Learn how to use the secrets store CSI Driver to integrate secrets stores with Azure Kubernetes Service (AKS).
 author: nickomang 
 ms.author: nickoman
 ms.service: container-service
@@ -26,12 +26,12 @@ The minimum recommended Kubernetes version for this feature is 1.18.
 ## Features
 
 - Mount secrets, keys, and/or certs to a pod using a CSI volume
-- Supports CSI Inline volumes (Kubernetes version v1.15+)
+- Supports CSI Inline volumes
 - Supports mounting multiple secrets store objects as a single volume
 - Supports pod portability with the SecretProviderClass CRD
 - Supports Windows containers
-- Sync with Kubernetes Secrets (Secrets Store CSI Driver v0.0.10+)
-- Supports auto rotation of mounted contents and synced Kubernetes secrets (Secrets Store CSI Driver v0.0.15+)
+- Sync with Kubernetes Secrets
+- Supports auto rotation of mounted contents and synced Kubernetes secrets
 
 ## Create an AKS cluster with Secrets Store CSI Driver support
 
@@ -73,20 +73,21 @@ As stated above, the addon creates a user-assigned managed identity that can be 
 
 ## Verify Secrets Store CSI Driver installation
 
-The above will install the Secrets Store CSI Driver and the Azure Key Vault provider on your nodes. Verify completion by listing all pods with the secrets-store-csi-driver and secrets-store-provider-azure labels in the kube-system namespace, and ensure your output looks similar to the following:
+The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your nodes. Verify completion by listing all pods with the secrets-store-csi-driver and secrets-store-provider-azure labels in the kube-system namespace, and ensure your output looks similar to the following:
 
 ```bash
 kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
 
-NAMESPACE     NAME                                     READY   STATUS    RESTARTS   AGE
-kube-system   aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
-kube-system   aks-secrets-store-csi-driver-ctjq6       3/3     Running   2          4m21s
-kube-system   aks-secrets-store-csi-driver-tlvlq       3/3     Running   2          4m24s
-kube-system   aks-secrets-store-provider-azure-5p4nb   1/1     Running   0          4m21s
-kube-system   aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
-kube-system   aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
+NAME                                     READY   STATUS    RESTARTS   AGE
+aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
+aks-secrets-store-csi-driver-ctjq6       3/3     Running   2          4m21s
+aks-secrets-store-csi-driver-tlvlq       3/3     Running   2          4m24s
+aks-secrets-store-provider-azure-5p4nb   1/1     Running   0          4m21s
+aks-secrets-store-provider-azure-6pqmv   1/1     Running   0          4m24s
+aks-secrets-store-provider-azure-f5qlm   1/1     Running   0          4m25s
 ```
 
+Be sure that a Secrets Store CSI Driver pod and an Azure Key Vault Provider pod are running on each node in your cluster's node pools.
 
 ## Create or use an existing Azure Key Vault
 
@@ -152,7 +153,7 @@ az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGrou
 ### Enabling and disabling autorotation
 
 > [!NOTE]
-> When enabled, the Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass by polling for changes every two minutes.
+> When enabled, the Secrets Store CSI Driver will update the pod mount and the Kubernetes Secret defined in secretObjects of the SecretProviderClass by polling for changes periodically based on the rotation poll interval defined. The default rotation poll interval is 2m.
 
 To enable autorotation of secrets, use the flag `enable-secret-rotation` when creating your cluster:
 
@@ -201,7 +202,7 @@ spec:
 
 #### Set environment variables to reference Kubernetes secrets
 
-Once the Kubernetes secret has been created, you reference it by setting an environment variable in your pod:
+Once the Kubernetes secret has been created, you can set an environment variable in your pod referencing the Kubernetes secret:
 
 > [!NOTE]
 > This is not a complete example. You will need to make modifications to this example to support your chosen method of Azure Key Vault identity access.
@@ -214,7 +215,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29
+      image: mcr.microsoft.com/aks/e2e/library-busybox
       command:
         - "/bin/sleep"
         - "10000"
@@ -237,25 +238,46 @@ spec:
           secretProviderClass: "azure-sync"
 ```
 
-### Enable NGINX Ingress Controller with TLS
-
-Enable NGINX Ingress Controller with TLS
-
 ## Metrics
 
-Metrics are served via Prometheus from port 8898, but this port is not exposed outside the pod by default. Use `kubectl port-forward` to access the metrics over localhost:
+### Azure Key Vault Provider
+
+Metrics are served via Prometheus from port 8898, but this port is not exposed outside the pod by default. Access the metrics over localhost using `kubectl port-forward`:
 
 ```bash
-kubectl port-forward ds/csi-secrets-store-provider-azure 8898:8898 &
+kubectl port-forward -n kube-system ds/aks-secrets-store-provider-azure 8898:8898 &
 curl localhost:8898/metrics
 ```
 
-The following table lists the metrics provided by the Secrets Store CSI driver:
+The following table lists the metrics provided by the Azure Key Vault provider for Secrets Store CSI Driver:
 
 |Metric|Description|Tags|
 |----|----|----|
 |keyvault_request|Distribution of how long it took to get from keyvault|`os_type=<runtime os>`, `provider=azure`, `object_name=<keyvault object name>`, `object_type=<keyvault object type>`, `error=<error if failed>`|
 |grpc_request|Distribution of how long it took for the gRPC requests|`os_type=<runtime os>`, `provider=azure`, `grpc_method=<rpc full method>`, `grpc_code=<grpc status code>`, `grpc_message=<grpc status message>`|
+
+### Secrets Store CSI Driver
+
+Metrics are served from port 8095, but this port is not exposed outside the pod by default. Access the metrics over localhost using `kubectl port-forward`:
+
+```bash
+kubectl port-forward -n kube-system ds/aks-secrets-store 8095:8095 &
+curl localhost:8095/metrics
+```
+
+The following table lists the metrics provided by the Secrets Store CSI Driver:
+
+|Metric|Description|Tags|
+|----|----|----|
+|total_node_publish|Total number of successful volume mount requests|`os_type=<runtime os>`, `provider=<provider name>`|
+|total_node_unpublish|Total number of successful volume unmount requests|`os_type=<runtime os>`|
+|total_node_publish_error|Total number of errors with volume mount requests|`os_type=<runtime os>`, `provider=<provider name>`, `error_type=<error code>`|
+|total_node_unpublish_error|Total number of errors with volume unmount requests|`os_type=<runtime os>`|
+|total_sync_k8s_secret|Total number of k8s secrets synced|`os_type=<runtime os`, `provider=<provider name>`|
+|sync_k8s_secret_duration_sec|Distribution of how long it took to sync k8s secret|`os_type=<runtime os>`|
+|total_rotation_reconcile|Total number of rotation reconciles|`os_type=<runtime os>`, `rotated=<true or false>`|
+|total_rotation_reconcile_error|Total number of rotation reconciles with error|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
+|total_rotation_reconcile_error|Distribution of how long it took to rotate secrets-store content for pods|`os_type=<runtime os>`|
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

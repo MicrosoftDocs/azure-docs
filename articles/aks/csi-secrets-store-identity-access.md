@@ -9,7 +9,7 @@ ms.date: 10/13/2021
 ms.custom: devx-track-azurecli
 ---
 
-# Provide an identity to access Azure Key Vault for Secrets Store CSI Driver
+# Provide an identity to access Azure Key Vault Provider for Secrets Store CSI Driver
 
 The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) allows for various methods of identity-based access to Azure Key Vault (AKV). This article outlines these methods and how to use them to access an AKV instance and its content from your cluster. For more, see [Using the Secrets Store CSI Driver][csi-secrets-store-driver].
 
@@ -45,7 +45,6 @@ apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:
   name: azure-kvname-podid
-  aadpodidbinding: <aad-pod-id-binding>  # Set to the name of your identity
 spec:
   provider: azure
   parameters:
@@ -84,7 +83,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29
+      image: mcr.microsoft.com/aks/e2e/library-busybox
       command:
         - "/bin/sleep"
         - "10000"
@@ -101,7 +100,7 @@ spec:
           secretProviderClass: "azure-kvname-podid"
 ```
 
-6. Apply the deployment to your cluster:
+6. Apply the pod to your cluster:
 
 ```bash
 kubectl apply -f pod.yaml
@@ -180,7 +179,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29
+      image: mcr.microsoft.com/aks/e2e/library-busybox
       command:
         - "/bin/sleep"
         - "10000"
@@ -197,7 +196,7 @@ spec:
           secretProviderClass: "azure-kvname-user-msi"
 ```
 
-6. Apply the deployment to your cluster:
+6. Apply the pod to your cluster:
 
 ```bash
 kubectl apply -f pod.yaml
@@ -207,7 +206,7 @@ kubectl apply -f pod.yaml
 
 ### Prerequisites
 
-- [Enable system-assigned managed identity][enable-system-assigned-identity] in your cluster's VM's or scale sets
+- [Enable system-assigned managed identity][enable-system-assigned-identity] in your cluster's VMs or scale sets
 
 ### Usage
 
@@ -277,7 +276,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29
+      image: mcr.microsoft.com/aks/e2e/library-busybox
       command:
         - "/bin/sleep"
         - "10000"

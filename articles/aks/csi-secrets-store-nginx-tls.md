@@ -189,7 +189,7 @@ spec:
     spec:
       containers:
       - name: busybox
-        image: k8s.gcr.io/e2e-test-images/busybox:1.29
+        image: mcr.microsoft.com/aks/e2e/library-busybox
         command:
           - "/bin/sleep"
           - "10000"
@@ -255,7 +255,7 @@ spec:
     spec:
       containers:
       - name: busybox
-        image: k8s.gcr.io/e2e-test-images/busybox:1.29
+        image: mcr.microsoft.com/aks/e2e/library-busybox
         command:
           - "/bin/sleep"
           - "10000"
