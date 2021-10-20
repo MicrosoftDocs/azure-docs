@@ -96,7 +96,7 @@ To have this configuration take effect in your environment, you'll need to deplo
 
 ## Confirm deployment
 
-1. Go to one of the virtual networks in the portal and select **Network Manager** under *Settings*. You should see the configuration listed on that page.
+1. See [view applied configurations](how-to-view-applied-configurations.md).
 
 1. To test connectivity between virtual networks, deploy a test virtual machine into each virtual network and start an ICMP request between them.
 
