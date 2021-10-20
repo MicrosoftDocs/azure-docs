@@ -1,6 +1,6 @@
 ---
-title: Save compute costs with reserved capacity
-description: Learn how to buy Azure Arc-enabled SQL Managed Instance reserved capacity to save on your compute costs.
+title: Save costs with reserved capacity
+description: Learn how to buy Azure Arc-enabled SQL Managed Instance reserved capacity to save costs.
 services: sql-database
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,7 +10,8 @@ ms.author: sashan
 ms.reviewer: mikeray
 ms.date: 10/01/2021
 ---
-# Save costs for resources with reserved capacity - Azure Arc-enabled SQL Managed Instance
+
+# Reserve capacity - Azure Arc-enabled SQL Managed Instance
 
 Save money with Azure Arc-enabled SQL Managed Instance by committing to a reservation for Azure Arc services compared to pay-as-you-go prices. With reserved capacity, you make a commitment for Azure Arc-enabled SQL Managed Instance use for one or three years to get a significant discount on the service fee. To purchase reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term.
 
