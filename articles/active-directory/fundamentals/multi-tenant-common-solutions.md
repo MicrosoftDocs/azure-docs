@@ -32,7 +32,7 @@ Currently, the organizations are synchronizing each other’s users as contact-m
 
 ### Goals
 
-This customer had the following goals
+This customer had the following goals:
 
 * Every user continues to be shown in each organization’s GAL.
 
