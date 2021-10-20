@@ -146,7 +146,7 @@ You will receive a 202 response indicating success. In the response **headers**,
 
 You will use this endpoint in the next step to get the custom classification task results.
 
-### Get classifictaon status/results
+### Get the classification task status and results
 
 Use the following **GET** request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
 
