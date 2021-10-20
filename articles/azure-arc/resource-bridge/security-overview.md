@@ -28,3 +28,5 @@ The Azure Arc resource bridge stores the resource information in the Cosmos DB, 
 The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when the Azure Arc resource bridge is modified, deleted, or added. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. See [View the Activity log](../../azure-monitor/essentials/activity-log.md#view-the-activity-log) for details. See [retention of the Activity log](../../azure-monitor/essentials/activity-log.md#retention-period) for details.
 
 ## Next steps
+
+Before evaluating or enabling Azure Arc-enabled vSphere or Azure Stack HCI, review the Azure Arc resource bridge (preview) [overview](overview.md) to understand requirements and technical details.
