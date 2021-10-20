@@ -166,17 +166,19 @@ The following steps show how to set up SQL as a storage provider for local devel
 
    1. In Visual Studio Code, [connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account) and [create a blank logic app project](create-single-tenant-workflows-visual-studio-code.md#create-project).
 
-1. In Visual Studio Code, open the Explorer pane. At your project's root, move your mouse pointer over any blank area under all the project's files and folders, open the shortcut menu, and select **Use SQL as a Storage provider**.
+1. In Visual Studio Code, open the Explorer pane, if not already open.
 
-   ![Screenshot showing Visual Studio Code, Explorer pane, and mouse pointer at project root in blank area, opened shortcut menu, and "Use SQL as a Storage provider" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/)
+1. In the Explorer pane, at your logic app project's root, move your mouse pointer over any blank area under all the project's files and folders, open the shortcut menu, and select **Use SQL storage for your Logic App project**.
+
+   ![Screenshot showing Visual Studio Code, Explorer pane, and mouse pointer at project root in blank area, opened shortcut menu, and "Use SQL storage for your Logic App project" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/use-sql-storage-logic-app-project.png)
 
 1. When the prompt appears, enter your SQL connection string. You can opt to use a local SQL Express instance or any other SQL database that you have.
 
-   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/)
+   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/enter-sql-connection-string.png)
 
-1. After confirmation, Visual Studio Code creates the following setting in your project's **local.settings.json** folder. You can update this setting at any time.  
+   After confirmation, Visual Studio Code creates the following setting in your project's **local.settings.json** file. You can update this setting at any time.  
 
-   ![Screenshot showing Visual Studio Code, logic app project, and open "local.settings.json" file with SQL connection string setting.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/)
+   ![Screenshot showing Visual Studio Code, logic app project, and open "local.settings.json" file with SQL connection string setting.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/local-settings-json-file.png)
 
 <a name="set-up-sql-logic-app-deployment-visual-studio-code"></a>
 
@@ -184,13 +186,12 @@ The following steps show how to set up SQL as a storage provider for local devel
 
 You can directly publish your logic app project from Visual Studio Code to Azure. This action deploys your logic app project using the **Logic App (Standard)** resource type.
 
-- If you're deploying your logic app as a new resource in Azure, and you want to use SQL as your primary storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
+- If you're publishing project as a new **Logic App (Standard)** resource in Azure, and you want to use SQL as your primary storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
 
-- If you're deploying your logic app to an existing **Logic App (Standard)** resource in Azure, and you already set up your SQL settings, just publish your logic app. This action overwrites your existing logic app, so when the following message appears after you publish, make sure that you select **Upload settings**.
+- If you already set up your SQL settings, you can publish your logic app project to an already deployed **Logic App (Standard)** resource in Azure. This action overwrites your existing logic app.
 
-  ![Screenshot that shows Visual Studio Code and the deployment completed message with "Upload settings" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-upload-settings.png)
-
- After deployment, make sure that you update your connection string because local SQL Express won't work with a logic app that's deployed in Azure.
+  > [!NOTE]
+  > Local SQL Express won't work with logic apps deployed and hosted in Azure.
 
 <a name="deploy-new-logic-app-visual-studio-code"></a>
 
@@ -208,9 +209,19 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
    ![Screenshot that shows the deployment option to "Create new Logic App (Standard) in Azure Advanced" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-create-logic-app-advanced.png)
 
-1. Provide a globally unique name for your new logic app, which is the name to use for the Logic App (Standard) resource. This example uses `Fabrikam-Workflows-App`.
+1. When prompted, provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Standard)** resource. This example uses `Fabrikam-Workflows-App`.
 
    ![Screenshot that shows the prompt for a globally unique name to use for your logic app.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/enter-logic-app-name.png)
+
+1. Select a location for your logic app. You can also start typing to filter the list.
+
+   - To deploy to Azure, select the Azure region where you want to deploy.
+
+   - To deploy to Azure Arc enabled Logic Apps, select your previously configured custom location.
+
+   The following example shows the location list filtered to **West US**.
+
+   ![Screenshot that shows the prompt to select a deployment location with available Azure regions and custom location for Azure Arc deployments.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-location.png)
 
 1. Specify a hosting plan for your new logic app. Either create a name for your plan, or select an existing plan. This example selects **Create new App Service Plan**.
 
@@ -227,22 +238,30 @@ You can directly publish your logic app project from Visual Studio Code to Azure
    > If you create or choose a different resource group, but cancel after the confirmation prompt appears, 
    > your deployment is also canceled.
 
-1. Select **Create new storage account** or an existing storage account, if available.
+1. When you're prompted to set up storage for your logic app, choose one of the following options:
 
-   > [!NOTE]
-   > This step is required only for Azure deployments. In Azure, Azure Storage is used to complete 
-   > the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing 
-   > workflow state, run history, and other runtime artifacts are stored in your SQL database.
-   >
-   > For deployments to a custom location that's hosted on an Azure Arc cluster, you only 
-   > need SQL as your storage provider.  
+   - If you previously selected a custom location, select the **SQL** option.
+
+   - If you want to deploy to Azure, select the **SQL and Azure Storage** option.
+
+     > [!NOTE]
+     > This option is required only for Azure deployments. In Azure, Azure Storage is required to complete 
+     > a one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing 
+     > workflow state, run history, and other runtime artifacts are stored in your SQL database.
+     >
+     > For deployments to a custom location that's hosted on an Azure Arc cluster, you only 
+     > need SQL as your storage provider.  
+
+1. When prompted, select **Create new storage account** or an existing storage account, if available.
 
    ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-storage-account.png)
 
-1. At the prompts, select **Yes** to confirm SQL setup, and enter your SQL connection string.
+1. At SQL storage confirmation prompt, select **Yes**. At the connection string prompt, enter your SQL connection string.
 
    > [!NOTE]
    > Make sure that you enter a correct connection string because Visual Studio Code won't validate this string for you.
+
+   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/enter-sql-connection-string.png)
 
 1. Finish the remaining deployment steps in [Publish to a new Logic App (Standard) resource](create-single-tenant-workflows-visual-studio-code.md#publish-new-logic-app).
 
