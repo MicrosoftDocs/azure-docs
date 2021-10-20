@@ -86,7 +86,7 @@ NAT is non zonal by default. When creating [availability zones](../../availabili
 
 ## Pricing and SLA
 
-For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). 
+For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). NAT data path is at least 99.9% available.
 
 ## Limitations
 
