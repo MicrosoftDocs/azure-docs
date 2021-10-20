@@ -119,7 +119,10 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
 1. In the **Specify template** section, select **Upload a template file**. Select **Choose file**, navigate to the **RDSPrivateLink_CloudFormation.yaml** file you downloaded earlier, and then select **Next** to continue.
 
-1. In the **Stack name** section, enter a name for your stack.
+1. In the **Stack name** section, enter a name for your stack. This name will be used, together with an automatically added suffix, for the resource names created later in the process. Therefore:
+
+    - Make sure to use a meaningful name for your stack.
+    - Make sure that the stack name is no longer than 19 characters.
 
 1. <a name="parameters"></a>In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
 
