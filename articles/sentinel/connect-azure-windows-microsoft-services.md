@@ -189,8 +189,8 @@ You'll see all your data collection rules (including those created through the A
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 > - If events are returned, the query is valid.
-> - If you receive the message No events were found that match the specified selection criteria., the query may be valid, but there are no matching events on the local machine.
-> - If you receive the message The specified query is invalid , the query syntax is invalid.
+> - If you receive the message "No events were found that match the specified selection criteria," the query may be valid, but there are no matching events on the local machine.
+> - If you receive the message "The specified query is invalid," the query syntax is invalid.
 
 ### Create data collection rules using the API
 
