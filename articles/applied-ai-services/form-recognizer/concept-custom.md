@@ -117,7 +117,7 @@ In the Form Recognizer UI:
 
 1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
-    :::image type="content" source="media/label-tool/signature-label-region.png" alt-text="Screenshot: Label signature field.":::
+    :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot: Label signature field.":::
 
 Once your training set has been labeled, you can train your custom model and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
 
