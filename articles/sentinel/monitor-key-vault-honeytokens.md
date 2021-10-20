@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2021
+ms.date: 10/20/2021
 ms.author: bagol
 
 ---
@@ -55,19 +55,19 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     The function app name must be unique, between 2-22 characters in length, and alphanumeric characters only.
 
-    The command displayed below is automatically updated with the name you define. For example, if you've named your function app `honeytokens`, the command is updated to read:
+    A command is displayed below with the name you've defined. For example:
 
-    ```bash
-    curl -sL https://aka.ms/sentinelhoneytokensappcreate | bash -s honeytokens
-    ```
+    :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="Screenshot of the prerequisites tab showing the updated curl command.":::
 
-1. Select **To open a cloud shell, click here** to open a Cloud Shell tab, and then run the command displayed.
+1. Select **To open a cloud shell click here** to open a Cloud Shell tab, and then run the command displayed.
 
     The script you run creates an Azure AD (AAD) function app, which will deploy your honeytokens. The script output includes the AAD app ID and secret.
 
 1. Back in Azure Sentinel, at the bottom of **Prerequisites** tab, enter the AAD app ID and secret into the relevant fields.
 
-1. Select **Click here** to grant admin consent to your new function app. A new browser tab opens in Azure AD application settings. Select **Grant admin consent for `<your function app name>`** to continue. For more information, see [Grant admin consent in App registrations](/azure/active-directory/manage-apps/grant-admin-consent).
+1. Select **Click here** at the bottom of the page to grant admin consent to your new function app. A new browser tab opens in Azure AD application settings. 
+
+    Select **Grant admin consent for `<your function app name>`** to continue. For more information, see [Grant admin consent in App registrations](/azure/active-directory/manage-apps/grant-admin-consent).
 
 1. Back in Azure Sentinel again, on the **Workbooks**, **Analytics**, **Watchlists**, and **Playbooks** tabs, note the security content that will be created, and modify the names as needed.
 
@@ -94,20 +94,6 @@ The following steps describe specific actions required for the **Azure Sentinel 
     |     |         |
 
 
-1. (Optional) Distribute an Azure Security Center custom recommendation for all key vault owners in your organization to create honeytokens in their key vaults.
-
-    You can distribute this recommendation either by distributing the **SOCHTManagement** workbook, or by distributing an audit recommendation directly in Azure Security Center.
-
-    **To distribute the SOCHTManagement workbook**:
-
-    Perform part of the procedure now and part of it later, after you've finished installing the solution, deploying honeytokens, and testing the functionality.
-
-    For now, on the **Policy definitions** tab, select **Click here to launch deployment of policy definitions**. This brings you to the **Custom deployment** page for a custom ARM deployment, where you'll be able to deploy and assign the relevant policy to the management group that contains your key vaults. Deploying the policy will cause the custom recommendation to appear in the relevant places.
-
-    Leave the ARM deployment browser tab open, because you'll need values that will be available only after you finish installing the solution.
-
-    For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook) and [Distribute audit recommendations via Azure Security Center](#distribute-audit-recommendations-via-azure-security-center).
-
 1. Select  **Next: Review + create** to finish installing your solution.
 
     After the solution is installed, the following items are displayed:
@@ -115,6 +101,11 @@ The following steps describe specific actions required for the **Azure Sentinel 
     - A link to your **SOCHTManagement** workbook. You may have modified this name on the **Workbooks** tab earlier in this procedure.
     - The URL for the custom ARM template, which you can use to deploy the **SOCHTManagement** to multiple management groups.
 
+1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute an Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
+
+    Use the URL displayed in the installation output to go to the linked ARM template's **Custom deployment** page. Leave this browser tab open for now, and return after you've deployed your honeytokens and tested the solution functionality.
+
+    For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook) and [Distribute audit recommendations via Azure Security Center](#distribute-audit-recommendations-via-azure-security-center).
 
 ## Deploy your honeytokens
 
@@ -130,7 +121,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
 1. In the workbook's **Key Vault** tab, view the key vaults ready to deploy honeytokens and any key vaults with honeytokens already deployed.
 
-    In the **Is Monitored by SOC** column, a green checkmark :::image type="icon" source="media/honeytokens/checkmark.png" border="false"::: indicates that the key vault already has honeytokens. A red x-mark :::image type="icon" source="media/honeytokens/xmark.png" border="false"::: indicates that the key vault does not yet have honeytokens.
+    In the **Is Monitored by SOC** column, a green checkmark :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: indicates that the key vault already has honeytokens. A red x-mark :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: indicates that the key vault does not yet have honeytokens.
 
     Use the instructions in the workbook below, in the **Take an action** section to deploy honeytokens to all key vaults at scale, or deploy them manually, one at a time.
 
@@ -204,13 +195,13 @@ We recommend that you deploy honeytokens in as many key vaults as possible to en
 
 However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution).
 
-This procedure uses the **Custom deployment** page that you opened earlier from the **Policy definitions** tab in the [solution installation wizard](#install-the-solution).
+This procedure uses the **Custom deployment** page that you opened earlier from the **Post-deployment steps** tab in the [solution installation wizard](#install-the-solution).
 
 1. Obtain the link to your **SOCHTManagement** workbook. This is included in the solution deployment output, and also from the **SOCHTManagement** workbook.
 
     For example, select  **Workbooks** > **My workbooks** > **SOCHTManagement**, and then select **Copy link** in the toolbar.
 
-1. In the **Custom deployment** page:
+1. On the **Custom deployment** page:
 
     1. In the **Project details** area, select your management group value and region, and then paste the shared link to your **SOCHTManagement** workbook. Select **Review + create** to create the Azure policy.
 
