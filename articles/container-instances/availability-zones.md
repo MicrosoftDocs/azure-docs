@@ -11,7 +11,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 An [availability zone][availability-zone-overview] is a physically separate zone in an Azure region. You can use availability zones to protect your containerized applications from an unlikely failure or loss of an entire data center. Azure Container Instances (ACI) supports zonal container group deployments, meaning the instance is pinned to a specific, self-selected availability zone. The availability zone is specified at the container group level. Containers within a container group cannot have unique availability zones. To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
 
 > [!IMPORTANT]
-> Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Sever 20193B container groups. For details, see [Regions and resource availability][container-regions].
+> Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Sever 2019 container groups. For details, see [Regions and resource availability][container-regions].
 
 > [!NOTE]
 > Examples in this article are formatted for the Bash shell. If you prefer another shell, adjust the line continuation characters accordingly.
