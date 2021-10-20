@@ -28,7 +28,7 @@ In general, migrations can be categorized as either offline or online.
 
 If your application can afford some downtime, offline migrations are always the preferred choice, as they are simple and easy to execute. However, if your application can only afford minimal downtime, an online migration is the best choice. Migrations of the majority of OLTP systems, such as payment processing and e-commerce, fall into this category. 
 
-## Decision Table
+## Decision table
 
 To help you with selecting the right tools for migrating to Azure Database for MySQL, consider the detail in the following table. 
 
@@ -39,7 +39,7 @@ To help you with selecting the right tools for migrating to Azure Database for M
 | Online Migration |  **Mydumper/Myloader with Data-in replication** <br><br> **Mysqldump with data-in replication** can be considered for small databases( less than 100GB).  These methods are applicable to both external and intra-platform migrations. | [Configure Data-in replication - Azure Database for MySQL Flexible Server](flexible-server/how-to-data-in-replication.md) <br><br> [Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime](howto-migrate-single-flexible-minimum-downtime.md) |
 |Single to Flexible Server Migrations |  **Offline**: Custom shell script hosted in [GitHub](https://github.com/Azure/azure-mysql/tree/master/azuremysqltomysqlmigrate) This script also moves other server components such as security settings and server parameter configurations. <br><br>**Online**: **Mydumper/Myloader with Data-in replication** |  [Migrate from Azure Database for MySQL - Single Server to Flexible Server in 5 easy steps!](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057)<br><br>   [Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime](howto-migrate-single-flexible-minimum-downtime.md)| 
 
-## Next Steps
+## Next steps
 * [Migrate MySQL on-premises to Azure Database for MySQL](migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
 
 <br><br>
