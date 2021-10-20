@@ -151,8 +151,6 @@
       href: alerts/alerts-unified-log.md
     - name: Activity log alerts
       href: alerts/activity-log-alerts.md  
-  - name: Visualize data
-    href: visualizations.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -166,6 +164,18 @@
   items:
   - name: Scenarios
     items:
+    - name: Azure Monitor best practices
+      items:
+      - name: Overview
+        href: best-practices.md
+      - name: Planning
+        href: best-practices-plan.md
+      - name: Configure data collection
+        href: best-practices-data-collection.md
+      - name: Analysis and visualizations
+        href: best-practices-analysis.md
+      - name: Alerts and automated actions
+        href: best-practices-alerts.md
     - name: Monitor Azure resource
       href: essentials/monitor-azure-resource.md
     - name: Monitor virtual machines
@@ -185,13 +195,6 @@
       displayname: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Deploy
-    items:
-    - name: Deploy Azure Monitor
-      href: deploy.md
-    - name: Deploy at scale
-      displayName: Azure Policy, Policy
-      href: deploy-scale.md
   - name: Manage and configure
     items:
     - name: Roles permissions and security
@@ -402,9 +405,6 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Deploy at scale
-        displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent 
       - name: Migrate from legacy agents
         displayname: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
@@ -1409,7 +1409,9 @@
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md 
+      href: app/azure-functions-supported-features.md
+    - name: Statsbeat
+      href: app/statsbeat.md
     - name: Release notes
       items:
       - name: Code-based monitoring SDKs

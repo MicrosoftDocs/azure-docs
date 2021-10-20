@@ -309,6 +309,7 @@ For advanced log analytics features, visit **Logs** tab in the menu on the [Azur
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
 This quickstart explains how to deploy a small application to Azure Spring Cloud.
 
 The application code used in this tutorial is a simple app built with Spring Initializr. When you've completed this example, the application will be accessible online and can be managed via the Azure portal.
