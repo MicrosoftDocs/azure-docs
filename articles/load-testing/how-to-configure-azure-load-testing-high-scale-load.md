@@ -29,11 +29,11 @@ In this article you'll learn how to:
 
 ## Understand the relationship between VUs and RPS  
 
-1. The maximum RPS that can be generated depends on the application's latency and the VUs. Think of it as RPS  = (# of VUs) * (1/Latency). For example, if application latency is 20 ms and you're generating a load of 2000VUs, the RPS achieved is around 100,000.  
+- The maximum RPS that can be generated depends on the application's latency and the VUs. Think of it as RPS  = (# of VUs) * (1/Latency). For example, if application latency is 20 ms and you're generating a load of 2000VUs, the RPS achieved is around 100,000.  
 
 ## Configure your test plan and load test resource for running a high scale test  
 
 Engine instances help define how you want to scale out for increased load generation for your application. We recommend:
 
-1. Set threads in the Apache JMeter test plan to a maximum of 250. This setting represents the number of threads executed by 1 engineInstance.  
-2. Set engineInstances accordingly to reach total desired threads. For example, set engineInstances = 4 to reach 1,000 total threads.  
+- Set threads in the Apache JMeter test plan to a maximum of 250. This setting represents the number of threads executed by one engineInstance.  
+- Set engineInstances accordingly to reach total desired threads. For example, set engineInstances = 4 to reach 1,000 total threads.  
