@@ -100,7 +100,7 @@ $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetC
 $virtualnetworkC | Set-AzVirtualNetwork
 ```
 
-## Create a Network Manager
+## Create Virtual Network Manager
 
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using **New-AzNetworkManagerScope**.
 
