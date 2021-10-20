@@ -13,7 +13,7 @@ tags: connectors
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps
 
-From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that your workflow can use for Azure Cosmos DB operations. You can create automated workflows to manage documents. For example, actions include creating, reading, querying, and deleting documents.
+From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that your workflow can use for Azure Cosmos DB operations. You can create automated workflows to manage documents. For example, actions include creating or updating, reading, querying, and deleting documents.
 
 You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **Logic App (Standard)** resource types by using the [*managed connector*](managed.md) operations. For **Logic App (Standard)**, Azure Cosmos DB also provides [*built-in*](built-in.md) operations, which are currently in preview and offer different functionality, better performance, and higher throughput. For example, if you're working with the **Logic App (Standard)** resource type, you can use the built-in trigger to respond to changes in an Azure Cosmos DB container. You can combine Azure Cosmos DB operations with other actions and triggers in your logic app workflows to enable scenarios such as event sourcing and general data processing.
 
@@ -71,6 +71,10 @@ To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-ten
 
    :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-trigger-parameters.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with an Azure Cosmos DB trigger and parameters configuration.":::
 
+   > [!Note]
+   > The trigger will create multiple workflow executions for each item created or modified in Azure Cosmos DB, 
+   > so the dynamic content output of this trigger is always a single item.
+
 1. Add any other actions that you want to your workflow.
 
 1. On the designer toolbar, select **Save**.
@@ -79,7 +83,7 @@ To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-ten
 
 ## Add Azure Cosmos DB action
 
-In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action. The Azure Cosmos DB connector offers actions for both the **Logic App (Consumption)** and **Logic App (Standard)** resource types. The following examples for each resource type shows how to use an action that creates a document.
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a step in your workflow that follows a trigger or another action. The Azure Cosmos DB connector offers actions for both the **Logic App (Consumption)** and **Logic App (Standard)** resource types. The following examples for each resource type show how to use an action that creates or updates a document.
 
 ### [Consumption](#tab/consumption)
 
@@ -129,7 +133,7 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the document that you want to create.
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create.
 
    :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and designer for a Standard logic app workflow with the 'When a HTTP request is received' trigger and parameters configuration.":::
 
@@ -205,7 +209,7 @@ In a **Logic App (Standard)** workflow, an Azure Cosmos DB connection requires t
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Connection String** | Yes | <*connection-string*> | The Azure Cosmos DB connection string to use for your connection. <p>**Note**: To find the connection string, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available connection string values. |
+| **Connection String** | Yes | <*connection-string*> | The Azure Cosmos DB connection string to use for your connection. <p><p>**Note**: To find the connection string, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available connection string values. |
 |||||
 
 The following image shows an example connection:
@@ -229,7 +233,7 @@ No corresponding reference page exists for Azure Cosmos DB *built-in* operations
 |------|------|------------|
 | Trigger | When an item is created or modified | - **Database Id**: Required. The name of the database with the monitored and lease containers. <br>- **Monitored Container Id**: Required. The name of the container being monitored. <br>- **Lease Container Id**: Required. The name of the container used to store leases. <br>- **Create Lease Container**: Required. If true, create the lease container if not already existing. <br>- **Lease Container Throughput**: Optional. The number of Request Units to assign when the lease container is created. |
 | Action | Create or update item | - **Database Id**: Required. The name of the database. <br>- **Container Id**: Required. The name of the container. <br>- **Item**: Required. The item to create or update. <br>- **Partition key**: Required. The partition key value for the requested item. <br>- **Is Upsert**: Optional. If true, replace the item, if existing. Otherwise, create the item. |
-| Action | Create or update many items in bulk | Use this action only in high throughput scenarios due to the required extra processing before the action submits your items to create in the container. For large numbers of items, this extra processing speeds up the total request time. For small numbers of items, this extra overhead can cause slower performance than using multiple single create item actions. <p><p>- **Database Id**: Required. The name of the database. <br>- **Container Id**: Required. The name of the container. <br>- **Item**: Required. An array of items to create or update. <br>- **Is Upsert**: Optional. If true, replace an item if existing. Otherwise, create the item. |
+| Action | Create or update many items in bulk | This action is optimized for high throughput scenarios and has extra processing before the action submits your items to be created in the Azure Cosmos DB container. For large numbers of items, this extra processing speeds up the total request time. For small numbers of items, this extra overhead can cause slower performance than using multiple single create item actions. <p><p>- **Database Id**: Required. The name of the database. <br>- **Container Id**: Required. The name of the container. <br>- **Item**: Required. An array of items to create or update. <br>- **Is Upsert**: Optional. If true, replace an item if existing. Otherwise, create the item. |
 | Action | Read an item | - **Database Id**: Required. The name of the database. <br>- **Container Id**: Required. The name of the container. <br>- **Item id**: Required. The `id` value for the requested item. <br>- **Partition key**: Required. The partition key value for the requested item. |
 | Action | Delete an item | - **Database Id**: Required. The name of the database. <br>- **Container Id** Required. The name of the container. <br>- **Item id**: Required. The `id` value for the requested item. <br>- **Partition key**: Required. The partition key value for the requested item. |
 | Action | Query items | - **Database Id**: Required. The name of the database. <br>- **Container Id**: Required. The name of the container. <br>- **Sql query**: Required. The Azure Cosmos DB SQL query text.  <br>- **Partition key**: Optional. The partition key value for the request, if any. <br>- **Continuation token**: Optional. The continuation token for this query given by the Azure Cosmos DB service, if any. <br>- **Max item count**: Optional. The maximum number of items for the query to return. |
@@ -274,7 +278,7 @@ The output type from the built-in **Query items** action in a **Logic App (Stand
 
 1. To convert the outputs from the **Query items** action, use the following steps:
 
-   1. In the **For each** action details pane, click inside the **Select an output from previous step** box so that the dynamic content list appears. Select the **Expression** tab to open the expression editor.
+   1. In the **For each** action details pane, click inside the **Select an output from previous steps** box so that the dynamic content list appears. Select the **Expression** tab to open the expression editor.
 
    1. In the functions list, find the **Referencing functions** section, and select the **outputs(actionName)** function, which appears in the expression editor box.
 
