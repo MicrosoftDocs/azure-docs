@@ -57,7 +57,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 App Configuration is designed to store any configuration data that you would normally save in configuration files or environment variables. However, some types of data may better suited to reside in other sources. For example, store secrets in Key Vault, files in Azure Storage, membership information in Azure AD groups, or customer lists in a database.
 
-You can still take advantage of App Configuration by saving a reference to external data in a key-value. When your application reads a reference, you load the data from the referenced source. In case that you change the location of your external data, you only need to update the reference in App Configuration instead of updating and redeploying your entire application.
+You can still take advantage of App Configuration by saving a reference to external data in a key-value. You can use [content-type](./concept-key-value#use-content-type) to differentiate each data source. When your application reads a reference, you load the data from the referenced source. In case that you change the location of your external data, you only need to update the reference in App Configuration instead of updating and redeploying your entire application.
 
 The App Configuration [Key Vault reference](use-key-vault-references-dotnet-core.md) feature is an example in this case. It allows the secrets required for an application to be updated as necessary while the underlying secrets themselves remain in Key Vault.
 
@@ -84,7 +84,9 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
-* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md)
+* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Use Event Grid for App Configuration data change notifications](./howto-app-configuration-event.md).
+
+* Use a separate App configuration store, for example, for each geographic region. Each App Configuration store has its own request quota. This setup gives you the necessary scalability for large-scale applications and avoids the single point of failure.
 
 ## Importing configuration data into App Configuration
 
