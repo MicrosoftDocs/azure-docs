@@ -4,34 +4,34 @@
  services: container-service
  author: agowdamsft
  ms.topic: article
- ms.date: 11/1/2011
+ ms.date: 11/1/2021
  ms.author: amgowda
  ms.service: container-service
 ---
 
 # Confidential containers on Azure
 
-Container deployments looking for secured, attestable and isolated space helps the overall security for your container deployments. Confidential computing capability on Azure provides:
+Container deployments looking for secured, attestable, and isolated space helps the overall security for your container deployments. Confidential computing capability on Azure provides:
 
-- data integrity 
-- data confidentiality
-- code integrity
-- container code protection through encryption
-- hardware-based assurances
-- allow running existing apps
-- create hardware root of trust
+- Data integrity 
+- Data confidentiality
+- Code integrity
+- Container code protection through encryption
+- Hardware-based assurances
+- Allow running existing apps
+- Create hardware root of trust
 
-A hardware based Trusted Execution Environment (TEE) is an important component that is used to provide strong assurances through hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allows verification of these measurements and validate if the container apps run in a safe, trusted verifiable execution environment.
+A hardware-based Trusted Execution Environment (TEE) is an important component, used to provide strong security assurances. These assurances occur through hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allow you to verify these measurements, and validate if the container apps run in a safe, trusted, and verifiable execution environment.
 
-Confidential containers support custom applications developed with any programming languages or allows running off the shelf Docker container apps.
+Confidential containers support custom applications developed with any programming language. They also support off-the-shelf Docker container apps.
 
 ![confidential container protection boundary](./media/confidential-containers/sgx-confidential-container.jpg)
 
-## Enclave Confidential Container enablers with Intel SGX on Azure Kubernetes Service(AKS)
+## Enclave Confidential Container enablers with Intel SGX on Azure Kubernetes Service (AKS)
 
 To run an existing docker container, applications on confidential computing nodes require an abstraction layer or SGX software to use the special CPU instruction set. The SGX software also enables your sensitive applications code to be protected and create a direct execution to CPU to remove the Guest OS, Host OS, or Hypervisor. This protection reduces the overall surface attack areas and vulnerabilities with operating system or hypervisor layers.
 
-Confidential containers are fully supported on AKS and enabled through Azure Partners and Open Source Software (OSS) projects. Developers can choose software providers based on the features, integration to Azure services and tooling support.
+Confidential containers are fully supported on Azure Kubernetes Service (AKS) and enabled through Azure Partners and Open Source Software (OSS) projects. Developers can choose software providers based on the features, integration to Azure services and tooling support.
 
 Below is the overall process for taking existing containers and running them confidentially on AKS.
 
