@@ -109,11 +109,11 @@ Manually or automatically applying results doesn't have an effect on a group tha
 > - User not found / other errors can also result in an apply result not being supported.
  
 
-## Removing denied guest users from an access review
+## Actions taken on denied guest users in an access review
  
- You can specify how to handle guest users denied access in an access review in two different ways. 
- 1. Denied guest users can be removed from access to the resource.
- 2. Blocks the denied guest user from signing for 30 days, then delete them from the tenant. During the 30-day period  the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed if the guest user has not had access to the resource granted to them again they would be removed from the tenant permanently. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
+ On review creation, the creator can choose between two options for denied guest users in an access review. 
+ 1. Denied guest users can have their to the resource removed. This is the default.
+ 2. The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user has not had access to the resource granted to them again, they will be removed from the tenant permanently. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
 
 
 ## Next steps

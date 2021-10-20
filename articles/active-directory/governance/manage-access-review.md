@@ -36,6 +36,7 @@ First, you must be assigned one of the following roles:
 - Global administrator
 - User administrator
 - Identity Governance Administrator 
+- Privileged Role Administrator(role-assignable groups only)
 - (Preview) M365 or AAD Security Group owner of the group to be reviewed 
 
 Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
@@ -46,7 +47,7 @@ You can have one or more users as reviewers in an access review.
  
 2. Decide whether to have each user review their own access or to have one or more users review everyone's access.
  
-3. In one of the following roles: a global administrator, user administrator, or (Preview) a M365 or AAD Security Group owner of the group to be reviewed, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. In one of the roles listed above, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
  
 4. Create the access review. For more information, see [Create an access review of groups or applications](create-access-review.md).
  
@@ -91,7 +92,7 @@ You can use access reviews to ensure that users who were invited and added to a 
  
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
  
-4. In addition to those users who denied their own need for continued access, you can also remove users who didn't respond. Non-responding users potentially no longer receive email.
+4.  In addition to those users who denied their own need for continued access, you can also remove users who didn't respond.
  
 5. If the group isn't used for access management, you also can remove users who weren't selected to participate in the review because they didn't accept their invitation. Not accepting might indicate that the invited user's email address had a typo. If a group is used as a distribution list, perhaps some guest users weren't selected to participate because they're contact objects.
  
@@ -121,7 +122,7 @@ You can use access reviews to ensure that users who were invited for a particula
  
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
  
-4. In addition to users who denied their own need for continued access, you also can remove guest users who did not respond. Non-responding users potentially no longer receive email. You also can remove guest users who were not selected to participate, especially if they were not recently invited. Those users did not accept their invitation and so didn't have access to the application. 
+4. In addition to users who denied their own need for continued access, you also can remove guest users who did not respond. You also can remove guest users who were not selected to participate, especially if they were not recently invited. Those users did not accept their invitation and so didn't have access to the application. 
  
 ### Ask a sponsor to review a guest's access to an application
  
@@ -137,14 +138,12 @@ You can ask a sponsor, such as the owner of an application, to review guest's ne
  
 In some organizations, guests might not be aware of their group memberships.
  
-> [!NOTE]
-> Earlier versions of the Azure portal didn't permit administrative access by users with the UserType of Guest. In some cases, an administrator in your directory might have changed a guest's UserType value to Member by using PowerShell. If this change previously occurred in your directory, the previous query might not include all guest users who historically had administrative access rights. In this case, you need to either change the guest's UserType or manually include the guest in the group membership.
  
 1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you can create a group with a manually maintained membership of guests. Or, you can create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest. Keep in mind that a guest user who is a member of the group can see the other members of the group.
  
 2. To create an access review for that group, select the reviewers to be the members themselves. For more information, see [Create an access review of groups or applications](create-access-review.md).
  
-3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review access to groups or applications](perform-access-review.md).  Those guests who didn't accept their invite will appear in the review results as "Not Notified".
+3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review access to groups or applications](perform-access-review.md). 
  
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
  

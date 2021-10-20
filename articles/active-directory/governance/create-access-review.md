@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
  
 # Create an access review of groups and applications in Azure AD access reviews
  
-Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User Administrator enables the setting via Access Reviews Settings blade (preview). For more information about these scenarios, see [Manage Access Reviews](manage-access-reviews.md) 
+Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. 
+
+Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User Administrator enables the setting via Access Reviews Settings blade (preview). For more information about these scenarios, see [Manage Access Reviews](manage-access-reviews.md) 
  
 You can watch a quick video talking about enabling Access Reviews:
  
@@ -30,7 +32,8 @@ This article describes how to create one or more access reviews for group member
 ## Prerequisites
  
 - Azure AD Premium P2
-- Global administrator, User administrator or Identity Governance administrator
+-  Global administrator, User administrator or Identity Governance administrator to create reviews on groups or applications. 
+-  Global administrators and Privileged Role administrators can create reviews on role-assignable groups see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
 - (Preview) Microsoft 365 and Security group owner
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
@@ -50,7 +53,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     ![Create an access review - Review name and description](./media/create-access-review/select-what-review.png)
  
 5. If you selected **Teams + Groups** in Step 1, you have two options in Step 2
-   - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
+   - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. One thing to note is that dynamic groups and role-assignable groups are not included. You can also choose to exclude individual groups by clicking on ‘Select group(s) to exclude’. 
    - **Select teams + groups.** Select this option if you would like to specify a finite set of teams and/or groups to review. After clicking on this option, you will see a list of groups to the right to pick from.
  
      ![Teams and groups](./media/create-access-review/teams-groups.png)
@@ -96,7 +99,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
  
     ![Create an access review - upon completion settings](./media/create-access-review/upon-completion-settings-new.png)
  
-     If you want to access to be removed automatically once the review duration ends, set **Auto apply results to resource** to Enable. If disabled, you will have to manually apply the results when the review completes. See [Manage access reviews](manage-access-review.md) to learn more about applying the results of the review.
+    If you want access of denied users to be removed automatically once the review duration ends, set **Auto apply results to resource** to Enable. If disabled, you will have to manually apply the results when the review completes. See [Manage access reviews](manage-access-review.md) to learn more about applying the results of the review.
     
      Use **If reviewers don't respond** to specify what happens for users not reviewed by any reviewer within the review period. This setting does not impact users who have been reviewed by a reviewer.
  
@@ -120,9 +123,9 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 > [!NOTE]
  > If you are creating an access review based on applications, your recommendations will be be based on the 30 day interval period based on when the user last signed into the application rather than the tenant.
- 
-    ![Enable decision helpers options](./media/create-access-review/helpers.png)
- 
+
+![Enable decision helpers options](./media/create-access-review/helpers.png)
+
 15. In the **Advanced settings** section you can choose the following
     - Set **Justification required** to **Enable** to require the reviewer to supply a reason for approval or denial.
     - Set **email notifications** to **Enable** to have Azure AD send email notifications to reviewers when an access review starts, and to administrators when a review completes.

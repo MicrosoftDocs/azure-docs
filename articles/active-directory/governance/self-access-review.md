@@ -23,7 +23,7 @@ Azure AD entitlement management simplifies how enterprises manage access to grou
 
 ## Review your own access using My Access
 
-You can review your own access to a group, application, and SharePoint sites in the two ways as detailed below:
+You can review your own access to a group, application, or access package in the two ways as detailed below:
 
 ### Email
 
