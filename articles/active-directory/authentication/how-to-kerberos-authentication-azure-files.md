@@ -86,6 +86,7 @@ KERBEROS.MICROSOFTONLINE.COM => instance1.file.core.windows.net,instance2.file.c
 There is no Azure AD set up required for enabling native Azure AD Authentication for accessing Azure files over Wi-Fi. The prerequisites are mentioned under section 5: the latest Windows client insider builds (21304+) and an Azure AD subscription. With this preview, Azure AD is now its own independent Kerberos realm. The clients are already enlightened and will redirect clients to access Azure AD Kerberos to request a Kerberos ticket. By default, this capability for the clients to access Azure AD Kerberos is switched off and you need the below policy change to enable this feature on the clients. This setting can be used to deploy this feature in a staged manner by choosing specific clients you want to pilot on and then expanding it to all the clients across your environment. 
 
 Enable the following Group Policy setting:
+
 **Administrative Templates\System\Kerberos\Allow retrieving the cloud kerberos ticket during the logon**
 
 ![Screenshot of group policy setting Allow retrieving the cloud kerberos ticket during the logon.](media\how-to-kerberos-authentication-azure-files\gp.png)
