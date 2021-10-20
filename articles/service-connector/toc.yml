@@ -34,7 +34,7 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: Service Connection internals
+  - name: Service Connector internals
     href: concept-service-connector-internals.md
   - name: Region Support
     href: concept-region-support.md
@@ -83,5 +83,7 @@ items:
 - name: Reference
   expanded: true
   items:
-  - name: Rest API reference
+  - name: Rest API
     href: /rest/api/servicelinker
+  - name: Python SDK
+    href: /python/api/overview/azure/servicelinker

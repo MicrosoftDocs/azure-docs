@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Service Connector documentation
-summary: Service is an Azure-managed service that helps developers easily connect compute service to target backing services.
+summary: Service Connector is an Azure-managed service that helps developers easily connect compute service to target backing services.
 
 metadata:
   title: Service Connector documentation
