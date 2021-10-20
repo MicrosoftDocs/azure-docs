@@ -50,7 +50,7 @@ In order to use the restore points APIs, you must register the `RestorePointExcl
 
 ### Step 1: Register the features
 
-to use the restore points APIs, you must register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features with your subscription.
+To use the restore points APIs, you must register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features with your subscription.
 
 #### [PowerShell](#tab/powershell)
 
@@ -93,7 +93,8 @@ to use the restore points APIs, you must register the `RestorePointExcludeDisks`
 1. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
 
    ```azurecli
-   az feature register --namespace Microsoft.Storage --name BlobQuery
+   az feature register --namespace Microsoft.Compute --name RestorePointExcludeDisks
+   az feature register --namespace Microsoft.Compute --name IncrementalRestorePoints
    ```
 
 ---
@@ -105,7 +106,8 @@ to use the restore points APIs, you must register the `RestorePointExcludeDisks`
 To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
 
 ```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
+Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName RestorePointExcludeDisks
+Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName IncrementalRestorePoints
 ```
 
 #### [Azure CLI](#tab/azure-cli)
@@ -113,12 +115,13 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuer
 To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name BlobQuery
+az feature show --namespace Microsoft.Compute --name RestorePointExcludeDisks
+az feature show --namespace Microsoft.Compute --name IncrementalRestorePoints
 ```
 
 ---
 
-### Step 3: Register the Azure Storage resource provider
+### Step 3: Register the Azure Compute resource provider
 
 After your registration is approved, you must re-register the Azure Storage resource provider.
 
@@ -127,7 +130,7 @@ After your registration is approved, you must re-register the Azure Storage reso
 To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
 
 ```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Compute'
 ```
 
 #### [Azure CLI](#tab/azure-cli)
@@ -135,14 +138,10 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
 
 ```azurecli
-az provider register --namespace 'Microsoft.Storage'
+az provider register --namespace 'Microsoft.Compute'
 ```
 
 ---
-
-- Requires Azure Feature Exposure Controls (AFECs):
-    - Microsoft.Compute/RestorePointExcludeDisks
-    - Microsoft.Compute/IncrementalRestorePoints
 
 ## Create VM restore points
 
