@@ -1974,6 +1974,8 @@
         href: sumtotalcentral-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SURFsecureID - Azure MFA
+        href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
         href: surveymonkey-enterprise-tutorial.md
       - name: Symantec Web Security Service (WSS)
