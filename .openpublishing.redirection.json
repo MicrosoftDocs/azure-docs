@@ -46507,6 +46507,11 @@
       "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
       "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/how-do-i.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
     }
   ]
 }

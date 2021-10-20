@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: reference
-  ms.date: 10/12/2021
+  ms.date: 10/13/2021
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -21,7 +21,7 @@ summary: |
   
   > [!IMPORTANT]
   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
-  > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
+  > - **Starting November 1, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. At that time, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. If you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
   
 
 sections:
@@ -48,19 +48,19 @@ sections:
           You can customize almost everything about the inviter process by using the [B2B invitation APIs](customize-invitation-api.md).
           
       - question: |
-          Can guest users reset their multi-factor authentication method?
+          Can guest users reset their multifactor authentication method?
         answer: |
-          Yes. Guest users can reset their multi-factor authentication method the same way that regular users do.
+          Yes. Guest users can reset their multifactor authentication method the same way that regular users do.
 
       - question: |
-          Which organization is responsible for multi-factor authentication licenses?
+          Which organization is responsible for multifactor authentication licenses?
         answer: |
-          The inviting organization performs multi-factor authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using multi-factor authentication.
+          The inviting organization performs multifactor authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using multifactor authentication.
 
       - question: |
-          What if a partner organization already has multi-factor authentication set up? Can we trust their multi-factor authentication, and not use our own multi-factor authentication?
+          What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication, and not use our own multifactor authentication?
         answer: |
-          This feature is currently not supported. If access to your organization's resources requires multi-factor authentication, the partner organization will need to register for multi-factor authentication in your (the inviting) organization.
+          This feature is currently not supported. If access to your organization's resources requires multifactor authentication, the partner organization will need to register for multifactor authentication in your (the inviting) organization.
 
       - question: |
           How can I use delayed invitations?
@@ -101,9 +101,9 @@ sections:
           13. On the **Cloud apps or actions** page, select **Done**.
           
       - question: |
-          Does Azure AD B2B collaboration support multi-factor authentication and consumer email accounts?
+          Does Azure AD B2B collaboration support multifactor authentication and consumer email accounts?
         answer: |
-          Yes. Multi-factor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
+          Yes. Multifactor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
 
       - question: |
           Do you support password reset for Azure AD B2B collaboration users?
@@ -171,14 +171,14 @@ sections:
           All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
           
       - question: |
-          Can we force multi-factor authentication for B2B guest users if our partners don't have multi-factor authentication?
+          Can we force multifactor authentication for B2B guest users if our partners don't have multifactor authentication?
         answer: |
           Yes. For more information, see [Conditional Access for B2B collaboration users](conditional-access.md).
           
       - question: |
           In SharePoint, you can define an "allow" or "deny" list for external users. Can we do this in Azure?
         answer: |
-          Yes. Azure AD B2B collaboration supports allow lists and deny lists. 
+          Yes. Azure AD B2B collaboration supports allowlists and blocklists. 
 
       - question: |
           What licenses do we need to use Azure AD B2B?
