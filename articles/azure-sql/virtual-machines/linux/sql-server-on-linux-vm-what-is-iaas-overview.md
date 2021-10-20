@@ -57,6 +57,10 @@ When you configure SQL Server on Linux, you install the Database Engine package 
 | SLES | ![SLES and database engine](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and tools](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and SQL Server agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and full-text search](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES and HA add-on](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
 | Ubuntu | ![Ubuntu and database engine](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and tools](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and SQL Server agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and full-text search](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and HA add-on](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
+
+> [!NOTE]
+> SQL IaaS Agent extension for SQL Server on Azure Linux Virtual Machines is only available for Ubuntu Linux distribution.
+
 ## Related products and services
 
 ### Linux virtual machines
