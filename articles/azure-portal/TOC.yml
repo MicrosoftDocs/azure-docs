@@ -61,7 +61,7 @@
           - name: Increase total regional vCPU limit
             href: supportability/regional-quota-requests.md
           - name: Increase spot quota limit
-            href: supportability/low-priority-quota.md
+            href: supportability/spot-quota.md
         - name: Classic deployment model
           href: supportability/classic-deployment-model-quota-increase-requests.md
       - name: Increase networking limits
