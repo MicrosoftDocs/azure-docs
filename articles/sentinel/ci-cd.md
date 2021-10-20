@@ -28,9 +28,9 @@ Azure Sentinel *content* is Security Information and Event Management (SIEM) tha
 
 You can use the built-in content provided in Azure Sentinel as is, customize it for your own needs, or create your own custom content from scratch.
 
-When creating custom content, you can store and manage it in your own Azure Sentinel workspace, or an external source control repository, including GitHub and Azure DevOps repositories. You can also package your content in solutions [via the Azure Sentinel GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) to have it displayed in the Azure Sentinel Content hub.
+When creating custom content, you can store and manage it in your own Azure Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. You can also package your content in solutions [via the Azure Sentinel GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) to have it displayed in the Azure Sentinel Content hub.
 
-This article describes how to manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspace.
+This article describes how to manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspaces.
 
 > [!TIP]
 > This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Azure Sentinel GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
@@ -40,15 +40,11 @@ This article describes how to manage the connections between Azure Sentinel and 
 
 Before connecting your Azure Sentinel workspace to an external source control repository, make sure that you have:
 
-- Access to a GitHub or Azure DevOps repository, with any files you may need to create your content. For example, if you're managing analytics rules in your workspace, make sure that you have the [relevant Azure Resource Manager (ARM) templates](detect-threats-custom.md), saved in a directory named **Detections**.
+- Access to a GitHub or Azure DevOps repository, with any custom content files you want to deploy to your workspaces, in relevant [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/).
 
     Azure Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
-    For details about specific requirements for each content type, see the instructions in the [relevant GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
-
 - An **Owner** role in the resource group that contains your Azure Sentinel workspace. The **Owner** role is required to create the connection between Azure Sentinel and your source control repository.
-
-- Permissions to register applications in Azure Active Directory. For more information, see [Delegate app registration permissions in Azure Active Directory](/azure/active-directory/roles/delegate-app-roles).
 
 ### Maximum connections and deployments
 
@@ -84,7 +80,7 @@ Each connection can support multiple types of custom content, including analytic
 
     1. Enter your GitHub credentials when prompted.
 
-        The first time you add a connection, you'll see a new browser window or tab, prompting you to authorize the connection from the **Azure-Sentinel** app. Authorize the connection to continue. This authorization is used again for every subsequent connection, and you won't need to authorize it again unless you've revoked the authorization.
+        The first time you add a connection, you'll see a new browser window or tab, prompting you to authorize the connection to Azure Sentinel. If you're already logged into  your GitHub account on the same browser, your GitHub credentials will be auto-populated.
 
     1. A **Repository** area now shows on the **Create a new connection** page, where you can select an existing repository to connect to. Select your repository from the list, and then select **Add repository**.
 
@@ -92,11 +88,9 @@ Each connection can support multiple types of custom content, including analytic
 
         You'll be directed to GitHub to continue the app installation.
 
-    1. After the **Azure-Sentinel** app is installed in your repository, the **Branch** dropdown in the **Create a new connection** page is populated with your branches. Select the branch where you want to store your Azure Sentinel content.
+    1. After the **Azure-Sentinel** app is installed in your repository, the **Branch** dropdown in the **Create a new connection** page is populated with your branches. Select the branch you want to connect to your Azure Sentinel workspace.
 
-    1. From the dropdown lists that appear, select your **Repository** and **Branch**, and one or more **Content Types**.
-
-    1. From the **Content Types** dropdown, select the type of content you'll be saving. Define your content type to make your connection filterable in the **Repositories** page.
+    1. From the **Content Types** dropdown, select the type of content you'll be deploying.
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Azure Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
 
@@ -109,9 +103,13 @@ Each connection can support multiple types of custom content, including analytic
 
     # [Azure DevOps](#tab/azure-devops)
 
-    1. You're automatically signed in to Azure DevOps using your current Azure credentials.
+    You're automatically signed in to Azure DevOps using your current Azure credentials. If you're not currently signed in to Azure DevOps with the same credentials that you're using in Azure Sentinel, switch your account in Azure DevOps to match that of Azure Sentinel.
 
-        In Azure Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
+    1.  In Azure Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
+
+        - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Azure Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
+
+        - For all other content types, selecting a content type in the **Create a new connection** pane deploys only that content to Azure Sentinel. Content of other types is not deployed.
 
     1. Select **Create** to create your connection. For example:
 
@@ -125,7 +123,7 @@ Each connection can support multiple types of custom content, including analytic
 
 After the connection is created, a new workflow or pipeline is generated in your repository, and the content stored in your repository is deployed to your Azure Sentinel workspace.
 
-The workflow deployment typically takes a few minutes to complete. View the deployment status:
+The deployment time may vary depending on the amount of content that you're deploying. View the deployment status:
 
 - **In GitHub**: On the repository's **Actions** tab. Select the workflow **.yaml** file shown there to access detailed deployment logs and any specific error messages, if relevant.
 - **In Azure DevOps**: On the repository's **Pipelines** tab.
@@ -140,9 +138,11 @@ After the deployment is complete:
 
 ### Customize the deployment workflow
 
+The default content deployment deploys all of the relevant custom content from the connected repository branch whenever a push is made to anything in that branch.
+
 If the default configuration for your content deployment from GitHub or Azure DevOps does not meet all your requirements, you can modify the experience to fit your needs.
 
-For example, the default configuration deploys all of the relevant custom content from the connected repository branch whenever a push is made to anything in that branch. You may want to configure different deployment triggers, or deploy content only from a specific root folder.
+For example, you may want to configure different deployment triggers, or deploy content only from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -174,7 +174,7 @@ Select one of the following tabs depending on your connection type:
 
         You may want to change these settings, for example, to schedule the workflow to run periodically, or to combine different workflow events together.
 
-        For more information, see the [GitHub](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) documentation.
+        For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
 
     - **To modify the deployment path**:
 
@@ -182,7 +182,7 @@ Select one of the following tabs depending on your connection type:
 
         This default configuration means that a deployment workflow is triggered any time that content is pushed to any part of the branch.
 
-        Later on the the file, the `jobs` section includes the following default configuration: `directory: '${{ github.workspace }}'`. This line indicates that the entire GitHub branch is in the path for the content deployment, without filtering for any folder paths.
+        Later on in the file, the `jobs` section includes the following default configuration: `directory: '${{ github.workspace }}'`. This line indicates that the entire GitHub branch is in the path for the content deployment, without filtering for any folder paths.
 
         To deploy content from a specific folder path only, add it to both the `paths` and the `directory` configuration. For example, to deploy content only from a root folder named `SentinelContent`, update your code as follows:
 
@@ -257,8 +257,6 @@ After you've successfully created a connection to your source control repository
 
 If you have edited the content in Azure Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
-Content is displayed as disabled in Azure Sentinel while it's being redeployed. Refresh your page when the deployment is complete to update the content status.
-
 ## Remove a repository connection
 
 This procedure describes how to remove the connection to a source control repository from Azure Sentinel.
@@ -271,7 +269,9 @@ This procedure describes how to remove the connection to a source control reposi
 
 After you've removed your connection, content that was previously deployed via the connection remains in your Azure Sentinel workspace. Content added to the repository after removing the connection is not deployed.
 
-If you encounter issues or an error message when deleting your connection, we recommend that you check your source control to confirm that the GitHub workflow or Azure DevOps pipeline associated with the connection was deleted.
+> [!TIP]
+> If you encounter issues or an error message when deleting your connection, we recommend that you check your source control to confirm that the GitHub workflow or Azure DevOps pipeline associated with the connection was deleted.
+>
 
 ### Removing the Azure Sentinel app from your GitHub repository
 
