@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
 
 > [!NOTE]
-> A newer version of the question and answering capability is now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md).
+> A newer version of the question and answering capability is now available as part of Azure Cognitive Service for Language. For more information, see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md).
 
 You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions.
 
@@ -118,7 +118,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
         * Change bot handle - if it is not unique.
         * Select SDK Language. Once the bot is created, you can download the code to your local development environment and continue the development process.
     * **Don't**
-        * change the following settings in the Azure portal when creating the bot. They are pre-populated for your existing knowledge base:
+        * Change the following settings in the Azure portal when creating the bot. They are pre-populated for your existing knowledge base:
            * QnA Auth Key
            * App service plan and location
 
