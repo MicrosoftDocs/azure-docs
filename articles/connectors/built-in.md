@@ -129,6 +129,17 @@ Azure Logic Apps provides the following built-in actions for the following servi
         Connect to your Azure Storage account so that you can create and manage blob content.
     :::column-end:::
     :::column:::
+        [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        \
+        \
+        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         \
         \
@@ -137,8 +148,6 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
@@ -149,6 +158,15 @@ Azure Logic Apps provides the following built-in actions for the following servi
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
+        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
+        \
+        \
+        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
+    :::column-end:::
+    :::column:::
         [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
@@ -157,6 +175,8 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
@@ -170,21 +190,10 @@ Azure Logic Apps provides the following built-in actions for the following servi
         [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
-        [**IBM MQ**][ibm-mq-doc]<br>(*Standard logic app only*)
+        [**MQ**][ibm-mq-doc]<br>(*Standard logic app only*)
         \
         \
         Connect to IBM MQ on-premises or in Azure to send and receive messages.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
-        \
-        \
-        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard logic app only*)
-        \
-        \
-        Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
@@ -194,8 +203,6 @@ Azure Logic Apps provides the following built-in actions for the following servi
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. <p>**Note**: Single-tenant Azure Logic Apps provides both SQL built-in and managed connector operations, while multi-tenant Azure Logic Apps provides only managed connector operations. <p>For more information, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
-    :::column-end:::
-    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -510,6 +517,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic apps with App Service API Apps"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure Blob storage connector"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmosdb.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Manage messages from Service Bus queues, topics, and topic subscriptions"
