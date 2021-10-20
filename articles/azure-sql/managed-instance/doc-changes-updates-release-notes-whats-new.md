@@ -28,7 +28,7 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 
 | Feature | Details |
 | ---| --- |
-| [Managed Instance link feature](managed-instance-link.md)| Support for online replication of SQL Server databases hosted anywhere to Azure SQL Managed Instance |
+| [Managed Instance link](managed-instance-link.md)| Support for online replication of SQL Server databases hosted anywhere to Azure SQL Managed Instance |
 | [16 TB support for SQL Managed Instance General Purpose](resource-limits.md)| Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
 | [Azure Active Directory-only authentication for Azure SQL](../database/authentication-azure-ad-only-authentication.md) |  It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. |
 | [Elastic transactions](../database/elastic-transactions-overview.md) | Elastic transactions let you execute distributed transactions across cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
