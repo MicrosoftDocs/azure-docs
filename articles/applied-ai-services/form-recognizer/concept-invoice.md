@@ -75,7 +75,7 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:---:|

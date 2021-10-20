@@ -37,7 +37,7 @@ recommendations: false
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content.
 
-##### Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document):
+***Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)***:
 
 :::image type="content" source="media/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
@@ -48,7 +48,7 @@ recommendations: false
 
 The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
 
-##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
+***Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***:
 
 :::image type="content" source="media/overview-layout.png" alt-text="{alt-text}":::
 
@@ -59,7 +59,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
 
-##### Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
@@ -70,7 +70,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts and extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total. 
 
-##### Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
@@ -81,7 +81,7 @@ The receipt model analyzes and extracts key information from sales receipts. The
 
 The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents and extracts key information such as first name, last name, address, and date of birth.
 
-##### Sample U.S. Driver's License processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample U.S. Driver's License processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
@@ -92,7 +92,7 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 
 The business card model analyzes and extracts key information from business card images. The API analyzes printed business card images and  extracts key information such as first name, last name, company name, email address, and phone number.
 
-##### Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
@@ -103,7 +103,7 @@ The business card model analyzes and extracts key information from business card
 
 The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-##### Sample custom form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample custom form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
@@ -112,15 +112,15 @@ The custom model analyzes and extracts data from forms and documents specific to
 
 ## Data extraction
 
- | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
-  | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+ | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
+  | --- | :---: |:---:| :---: | :---: |:---: |:---: |
+  |🆕General document  | ✓  |  ✓ || ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   || ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |✓|   |  ||
+  | ID document | ✓  |   ✓  |✓|   |   ||
+  | Business card    | ✓  |   ✓ | ✓|  |   ||
+  | Custom             |✓  |  ✓ || ✓  | ✓  | ✓  |
 
 ## Input requirements
 

@@ -75,7 +75,7 @@ In the Form Recognizer UI:
 |--------|:----------------------|:---------|
 |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|

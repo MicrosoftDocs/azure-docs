@@ -195,13 +195,13 @@ This sample demonstrates how to analyze data from certain types of common docume
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URI value to the `invoiceUri` variable at the top of the Main method.
 > * To analyze a given file at a URI, use the `StartRecognizeInvoicesFromUriAsync` method. 
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#key-value-pair-extraction) concept page.
+> * For simplicity, all the fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
 ### Choose a prebuilt model
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
-* [**Invoice**](../../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**Invoice**](../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
 * [**Receipt**](../../concept-receipt.md): extracts text and key information from receipts.
 * [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.

@@ -80,7 +80,7 @@ You can see how business card data is extracted by trying our Sample Labeling to
 |--------|:----------------------|:---------|
 |Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description |Standardized output |
 |:-----|:----|:----|:----:|
