@@ -43,7 +43,7 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
 > [!NOTE]
 > For more information about sources, processors and sinks please see [sources, processors, and sinks](../pipeline.md#sources-processors-and-sinks). For more information on pipeline jobs please see [pipeline jobs](../pipeline.md#batch-pipeline)
 
-## Create a pipeline job
+## Create a pipeline job (from Videos)
 
 1. In the Azure portal navigate to your Video Analyzer account.
 1. Select **Videos** under the `Video Analyzer` section and then select the video stream that should be used to export a portion of video from.
