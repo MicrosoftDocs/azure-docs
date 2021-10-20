@@ -12,49 +12,44 @@ ms.author: JenCook
 
 # Application enclave development 
 
-Confidential computing sometimes requires specific tools and software. This page describes concepts related to application enclave development for Azure confidential computing virtual machines running on Intel SGX. Before reading this page, [read the introduction of Intel SGX virtual machines and enclaves](confidential-computing-enclaves.md). 
+With Azure confidential computing, you can create application enclaves for virtual machines (VMs) that run Intel Software Guard Extensions (SGX). It's important to understand the related tools and software before you begin development.
 
-## Overview
+> [!NOTE]
+> If you haven't already read the [introduction to Intel SGX VMs and enclaves](confidential-computing-enclaves.md), do so before continuing.
 
-Application enclaves are isolated environments that can protect select code and data of your application. Developers can create these enclaves and determine what portion of their application should run within the enclave. Enclave creation and management require using compatible SDKs and frameworks that are specific to the chosen deployment stack.
+## Application enclaves
 
-Application enclaves are currently offered by Azure via confidential computing. Specifically, you can deploy and develop with application enclaves using [confidential virtual machines with Intel Software Guard Extensions (SGX) enabled](virtual-machine-solutions-sgx.md). 
+Application enclaves are isolated environments that protect specific code and data. When creating enclaves, you must determine what part of the application runs within the enclave. When you create or manage enclaves, be sure to use compatible SDKs and frameworks for the chosen deployment stack. 
 
-## Intel SGX and Application Enclaves
+Confidential computing currently offers application enclaves. Specifically, you can deploy and develop with application enclaves using [confidential VMs with Intel SGX enabled](virtual-machine-solutions-sgx.md). 
 
-With Intel SGX technology, these application enclaves, or  Trusted Execution Environments, are encrypted via an inaccessible key stored within the CPU. The code and data inside the application enclave is decrypted inside the processor, with access constrained to the CPU. This level of isolation protects data-in-use and protects against both hardware and software attacks. More details about Intel SGX can be found on the [Intel SGX website](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html). 
+## Intel SGX
 
-Azure offers Intel SGX in a virtualization environment through various virtual machine (VM) sizes in the DC family. Various VM sizes allow for various Enclave Page Cache (EPC) sizes. EPC is the maximum amount of memory area for an enclave on that VM. Currently, Intel SGX VMs are available on [DCsv2-Series](../virtual-machines/dcv2-series.md) VMs and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) VMs.
+With Intel SGX technology, you can encrypt application enclaves, or Trusted Execution Environments, with an inaccessible key stored within the CPU. Decryption of the code and data inside the enclave happens inside the processor. Only the CPU has access. This level of isolation protects data-in-use and protects against both hardware and software attacks. For more information, see the [Intel SGX website](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html). 
+
+Azure offers Intel SGX in a virtualization environment through various VM sizes in the DC series. Multiple VM sizes allow for various Enclave Page Cache (EPC) sizes. EPC is the maximum amount of memory area for an enclave on that VM. Currently, Intel SGX VMs are available on [DCsv2-Series](../virtual-machines/dcv2-series.md) VMs and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) VMs.
 
 
 ### Developing applications
 
-An application built with enclaves is partitioned in two ways:
+There are two partitions in an application built with enclaves. 
 
-1. An "untrusted" component (the host)
-1. A "trusted" component (the enclave)
+The **host** is the "untrusted" component. Your enclave application runs on top of the host. The host is an untrusted environment. When you deploy enclave code on the host, the host can't access that code.
 
+The **enclave** is the "trusted" component. The application code and its cached data and memory run in the enclave. The enclave environment protects your secrets and sensitive data. Make sure your secure computations happen in an enclave.
 
-![App development](media/application-development/oe-sdk.png)
+![Diagram of an application, showing the host and enclave partitions. Inside the enclave are the data and application code components.](media/application-development/oe-sdk.png)
 
-
-**The host** is where your enclave application is running on top of and is an untrusted environment. The enclave code deployed on the host can't be accessed by the host. 
-
-**The enclave** is where the application code and its cached data/memory runs. Secure computations should occur in the enclaves to ensure secrets and sensitive data, stay protected. 
-
-To use the power of enclaves and isolated environments, you'll need to use tools that support confidential computing. There are various tools that support enclave application development. For example, you can use these open-source frameworks: 
+To use the power of enclaves and isolated environments, choose tools that support confidential computing. Various tools support enclave application development. For example, you can use these open-source frameworks: 
 
 - [The Open Enclave Software Development Kit (OE SDK)](enclave-development-oss.md#oe-sdk)
 - [The Intel SGX SDK](enclave-development-oss.md#intel-sdk)
 - [The EGo Software Development Kit](enclave-development-oss.md#ego)
 - [The Confidential Consortium Framework (CCF)](enclave-development-oss.md#ccf)
 
-During application design, it's important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from the untrusted components. 
-
-
-
+As you design an application, identify and determine what part of needs to run in enclaves. Code in the trusted component is isolated from the rest of your application. After the enclave initializes and the code loads to memory, untrusted components can't read or change that code.
 
 ## Next steps 
-- [Deploy a confidential computing Intel SGX virtual machine](quick-create-portal.md)
 
+- [Deploy a confidential computing Intel SGX VM](quick-create-portal.md)
 - [Start developing applications with open-source software](enclave-development-oss.md)
