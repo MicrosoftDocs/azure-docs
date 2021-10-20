@@ -29,7 +29,7 @@ An [availability zone][availability-zone-overview] is a physically separate zone
 
 ### Create the ARM template
 
-Start by copying the following JSON into a new file named `azuredeploy.json`. This example template deploys a container group with a single container into availability into East US zone 1.
+Start by copying the following JSON into a new file named `azuredeploy.json`. This example template deploys a container group with a single container into availability zone 1 in East US.
 
 ```json
 {
