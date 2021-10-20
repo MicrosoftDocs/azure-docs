@@ -46,9 +46,9 @@ items:
     items:
     - name: Assemble a training data set
       href: build-training-data-set.md
-    - name:   Deploy the sample labeling tool
+    - name:   Deploy the Sample Labeling tool
       href: deploy-label-tool.md
-    - name: Train a custom model with the sample labeling tool
+    - name: Train a custom model with the Sample Labeling tool
       href: label-tool.md
     - name: Use table tags to train your custom model
       href: supervised-table-tags.md

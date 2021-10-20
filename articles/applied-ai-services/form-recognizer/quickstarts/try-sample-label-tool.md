@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
+title: "Quickstart: Label forms, train a model, and analyze forms using the Sample Labeling tool - Form Recognizer"
 titleSuffix: Azure Applied AI Services
-description: In this quickstart, you'll learn to use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
+description: In this quickstart, you'll learn to use the Form Recognizer Sample Labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -78,7 +78,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
     :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
 
-1. Select **Run analysis**. The Form Recognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
 
@@ -107,7 +107,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. In the **Source: URL** field, paste paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
 
-1. Select **Run Layout**. The Form Recognizer sample labeling tool will call the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
     :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
 
@@ -150,7 +150,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     CORS should now be configured to use the storage account from Form Recognizer Studio.
 
-### Use the sample labeling tool
+### Use the Sample Labeling tool
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
@@ -170,7 +170,7 @@ Configure the **Project Settings** fields with the following values:
 
 1. **Security Token**. Each project will auto-generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
-1. **Source connection**. The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
+1. **Source connection**. The Sample Labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
 
     * Create a new connection, select the **Add Connection** button. Complete the fields with the following values:
 
@@ -212,7 +212,7 @@ Select **Run OCR on all files** on the left pane to get the text and table layou
 
 The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. Because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 
-  :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+  :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in Sample Labeling tool.":::
 
 ##### Apply labels to text
 

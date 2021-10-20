@@ -16,7 +16,7 @@ recommendations: false
 
 Azure Form Recognizer's Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
-##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
+##### Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
 
 :::image type="content" source="media/layout-demo.gif" alt-text="Screenshot: Sample Labeling tool processing gif.":::
 
@@ -60,7 +60,7 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
   1. Select **Local file** from the dropdown menu.
   1. Upload your file and select **Run Layout**
 
-  :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: sample labeling tool dropdown layout file source selection menu.":::
+  :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: Sample Labeling tool dropdown layout file source selection menu.":::
 
 ## Input requirements
 
@@ -77,7 +77,7 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
   * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 

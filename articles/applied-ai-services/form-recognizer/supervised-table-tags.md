@@ -27,7 +27,7 @@ Here are some examples of when using table tags would be appropriate:
 > [!NOTE]
 > Form Recognizer automatically finds and extracts all tables in your documents whether the tables are tagged or not. Therefore, you don't have to label every table from your form with a table tag and your table tags don't have to replicate the structure of very table found in your form. Tables extracted automatically by Form Recognizer will be included in the pageResults section of the JSON output.
 
-## Create a table tag with the Form Recognizer sample labeling tool
+## Create a table tag with the Form Recognizer Sample Labeling tool
 <!-- markdownlint-disable MD004 -->
 * Determine whether you want a **dynamic** or **fixed-size** table tag. If the number of rows vary from document to document use a dynamic table tag. If the number of rows is consistent across your documents, use a fixed-size table tag.
 * If your table tag is dynamic, define the column names and the data type and format for each column.
@@ -44,9 +44,9 @@ Here are some examples of when using table tags would be appropriate:
 Follow our quickstart to train and use your  custom Form Recognizer model:
 
 > [!div class="nextstepaction"]
-> [Train with labels using the sample labeling tool](label-tool.md)
+> [Train with labels using the Sample Labeling tool](label-tool.md)
 
 ## See also
 
-* [Train a custom model with the sample labeling tool](label-tool.md)
+* [Train a custom model with the Sample Labeling tool](label-tool.md)
 >

@@ -50,7 +50,7 @@ In the Form Recognizer UI:
   1. Select **Use prebuilt model to get data**.
   1. Select **Receipt** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-id-document.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+  :::image type="content" source="media/try-id-document.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
 
 ## Input requirements
 
@@ -67,7 +67,7 @@ In the Form Recognizer UI:
   * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales v2.1
 
