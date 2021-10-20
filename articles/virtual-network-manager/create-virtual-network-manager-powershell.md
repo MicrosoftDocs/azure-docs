@@ -9,7 +9,7 @@ ms.date: 11/02/2021
 ms.custom: template-quickstart
 ---
 
-# Quickstart: Create a mesh network with Azure Virtual Network Manager using the Azure PowerShell
+# Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell
 
 Get started with Azure Virtual Network Manager by using the Azure PowerShell to manage connectivity for your virtual networks.
 
@@ -26,11 +26,41 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
+## Create Virtual Network Manager
+
+1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope).
+
+    ```azurepowershell-interactive
+    [System.Collections.Generic.List[string]]$subGroup = @()  
+    $group.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
+    [System.Collections.Generic.List[string]]$mgGroup = @()  
+    $group.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
+    
+    [System.Collections.Generic.List[String]]$access = @()  
+    $access.Add("Connectivity");  
+    $access.Add("Security"); 
+ 
+    $scope = New-AzNetworkManagerScope -Subscription $subGroup  -ManagementGroup $mgGroup
+    ```
+
+1. Create the Virtual Network Manager with [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an Azure Virtual Network Manager named **myAVNM** in the West US location.
+
+    ```azurepowershell-interactive
+    $avnm = @{
+        Name = 'myAVNM'
+        ResourceGroupName = 'myAVNMResourceGroup'
+        NetworkManagerScope = $scope.id
+        NetworkManagerScopeAccess = $access
+        Location = 'West US'
+    }
+    $networkmanager = New-AzNetworkManager @avnm
+    ```
+
 ## Create resource group and virtual networks
 
 ### Create a resource group
 
-Before you can create an Azure Virtual Network Manager, you have to create a resource group to host the Network Manager. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **myAVNMResourceGroup** in the **WestUS** location:
+Before you can create an Azure Virtual Network Manager, you have to create a resource group to host the Network Manager. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **myAVNMResourceGroup** in the **WestUS** location.
 
 ```azurepowershell-interactive
 $rg = @{
@@ -72,7 +102,7 @@ $virtualNetworkC = New-AzVirtualNetwork @vnetC
 
 ### Add a subnet to each virtual network
 
-To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
 
 ```azurepowershell-interactive
 $subnetA = @{
@@ -100,41 +130,11 @@ $subnetConfigC = Add-AzVirtualNetworkSubnetConfig @subnetC
 $virtualnetworkC | Set-AzVirtualNetwork
 ```
 
-## Create Virtual Network Manager
-
-1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using **New-AzNetworkManagerScope**.
-
-    ```azurepowershell-interactive
-    [System.Collections.Generic.List[string]]$subGroup = @()  
-    $group.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
-    [System.Collections.Generic.List[string]]$mgGroup = @()  
-    $group.Add("/managementGroups/abcdef12-3456-7890-abcd-ef1234567890")
-    
-    [System.Collections.Generic.List[String]]$access = @()  
-    $access.Add("Connectivity");  
-    $access.Add("Security"); 
- 
-    $scope = New-AzNetworkManagerScope -Subscription $subGroup  -ManagementGroup $mgGroup
-    ```
-
-1. Create the Virtual Network Manager with **New-AzNetworkManager**. This example creates an Azure Virtual Network Manager named myAVNM in the West US location.
-
-    ```azurepowershell-interactive
-    $avnm = @{
-        Name = 'myAVNM'
-        ResourceGroupName = 'myAVNMResourceGroup'
-        NetworkManagerScope = $scope.id
-        NetworkManagerScopeAccess = $access
-        Location = 'West US'
-    }
-    $networkmanager = New-AzNetworkManager @avnm
-    ```
-
 ## Create a network group
 
 ### Static membership
 
-1. Create a static virtual network member with **New-AzNetworkManagerGroupMembersItem**.
+1. Create a static virtual network member with [New-AzNetworkManagerGroupMembersItem](/powershell/module/az.network/new-aznetworkmanagergroupmembersitem).
 
     ```azurepowershell-interactive
     $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
@@ -162,7 +162,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
     }' 
     ```
 
-1. Create the network group using the conditional statement defined in the last step using **New-AzNetworkGroup**:
+1. Create the network group using the conditional statement defined in the last step using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup).
 
     ```azurepowershell-interactive
     $ng = @{
@@ -171,29 +171,30 @@ $virtualnetworkC | Set-AzVirtualNetwork
         GroupMember = $groupMembers
         ConditionalMembership = $conditionalMembership
         NetworkManagerName = 'myAVNM'
+        MemberType = 'Microsoft.Network/VirtualNetwork'
     }
-    $networkgroup = New-AzNetworkGroup @ng
+    $networkgroup = New-AzNetworkManagerGroup @ng
     ```
 
 ## Create a configuration
 
-1. Create a connectivity group item to add a network group to with **New-AzConnectivityGroupItem**:
+1. Create a connectivity group item to add a network group to with [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem).
 
     ```azurepowershell-interactive
     $gi = @{
         NetworkGroupId = $networkgroup.Id
     }
-    $groupItem = New-AzConnectivityGroupItem @gi
+    $groupItem = New-AzNetworkManagerConnectivityGroupItem @gi
     ```
 
 1. Create a configuration group and add the group item from the previous step.
 
     ```azurepowershell-interactive
-    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.PSConnectivityGroupItem]]$configGroup = @()
+    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.PSNetworkManagerConnectivityGroupItem]]$configGroup = @()
     $configGroup.Add($groupItem)
     ```
 
-1. Create the connectivity configuration with **New-AzNetworkManagerConnectivityConfiguration**:
+1. Create the connectivity configuration with [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration).
 
     ```azurepowershell-interactive
     $config = @{
@@ -208,7 +209,7 @@ $virtualnetworkC | Set-AzVirtualNetwork
 
 ## Commit deployment
 
-Commit the configuration to the target regions with **Deploy-AzNetworkManagerCommit**:
+Commit the configuration to the target regions with [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit).
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -234,7 +235,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 * All configurations have been deleted.
 * All network groups have been deleted.
 
-1. Remove the connectivity deployment by deploying an empty configuration with **Deploy-AzNetworkManagerCommit**:
+1. Remove the connectivity deployment by deploying an empty configuration with [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit).
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[string]]$configIds = @()
@@ -250,7 +251,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
     Deploy-AzNetworkManagerCommit @removedeployment
     ```
 
-1. Remove the connectivity configuration with **Remove-AzNetworkManagerConnectivityConfiguration**:
+1. Remove the connectivity configuration with [Remove-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/remove-aznetworkmanagerconnectivityconfiguration)
 
     ```azurepowershell-interactive
     $removeconfig = @{
@@ -261,7 +262,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
     Remove-AzNetworkManagerConnectivityConfiguration @removeconfig   
     ```
 
-1. Remove the network group with **Remove-AzNetworkGroup**:
+1. Remove the network group with [Remove-AzNetworkManagerGroup](/powershell/module/az.network/remove-aznetworkmanagergroup).
 
     ```azurepowershell-interactive
     $removegroup = @{
@@ -269,10 +270,10 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManagerName = 'myAVNM'
     }
-    Remove-AzureNetworkGroup @removegroup
+    Remove-AzNetworkManagerGroup @removegroup
     ```
 
-1. Delete the network manager instance with **Remove-AzNetworkManager**:
+1. Delete the network manager instance with [Remove-AzNetworkManager](/powershell/module/az.network/remove-aznetworkmanager).
 
     ```azurepowershell-interactive
     $removenetworkmanager = @{
@@ -282,7 +283,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
     Remove-AzNetworkManager @removenetworkmanager
     ```
 
-1. If you no longer need the resource created, delete the resource group with **Remove-AzResourceGroup**:
+1. If you no longer need the resource created, delete the resource group with [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell-interactive
     Remove-AzResourceGroup -Name 'myAVNMResourceGroup'
