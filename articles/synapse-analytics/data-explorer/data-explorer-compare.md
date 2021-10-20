@@ -1,6 +1,6 @@
 ---
-title: Differences between Azure Data Explorer and Azure Synapse Analytics Data Explorer (Preview)
-description: This article describes the differences between Azure Data Explorer and Azure Synapse Analytics Data Explorer.
+title: Differences between Azure Data Explorer and Azure Synapse Data Explorer (Preview)
+description: This article describes the differences between Azure Data Explorer and Azure Synapse Data Explorer.
 ms.topic: overview
 ms.date: 11/02/2021
 author: shsagir
@@ -11,7 +11,7 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# What is the difference between Azure Synapse Analytics Data Explorer and Azure Data Explorer? (Preview)
+# What is the difference between Azure Synapse Data Explorer and Azure Data Explorer? (Preview)
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a stand-alone, fast, and highly scalable data exploration service for log and telemetry data. The same underlying technology that runs the service is available in Azure Synapse as an integrated analytics service to complement its existing SQL and Spark services geared for data warehouse and data engineering machine learning scenarios.
 
@@ -28,7 +28,7 @@ We recommend starting with Synapse Data Explorer if you are looking for a unifie
 |  | Firewall | ✗ | Automatically inherited from Synapse workspace configuration |
 | **Business Continuity** | Availability Zones | Optional | Enabled by default where Availability Zones are available |
 | **SKU** | Compute options | 22+ VM SKUs to choose from | Simplified to most used compute types |
-| **Integrations** | Built-in ingestion pipelines | Event Hub, Event Grid, IoT Hub | Event Hub linked service integration. Others are supported via the Azure portal for non-managed VNet |
+| **Integrations** | Built-in ingestion pipelines | Event Hub, Event Grid, IoT Hub | Event Hub, Event Grid, and IoT Hub supported via the Azure portal for non-managed VNet |
 |  | Spark integration | Azure Data Explorer linked service: Built-in Kusto Spark integration with support for Azure Active Directory pass-though authentication, Synapse Workspace MSI, and Service Principal | Built-in Kusto Spark connector integration with support for Azure Active Directory pass-though authentication, Synapse Workspace MSI, and Service Principal |
 |  | KQL artifacts management | ✗ | Save KQL queries and integrate with Git |
 |  | Metadata sync | ✗ | External Tables sync with the central Synapse meta store for consumption by other Synapse services |
