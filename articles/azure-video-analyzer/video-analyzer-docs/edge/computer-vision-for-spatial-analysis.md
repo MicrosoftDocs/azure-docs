@@ -135,7 +135,7 @@ You need to create an Azure resource of type [Computer Vision](https://portal.az
 
 ## Configure deployment template
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
-Look for the deployment file in **/src/edge/deployment.spatialAnalysis.template.json**. From the template, there are `avaedge` module, `rtspsim` module, and our `spatialanalysis` module. 
+Look for the deployment file in **/src/edge/deployment.spatialAnalysis.ase.template.json**. From the template, there are `avaedge` module, `rtspsim` module, and our `spatialanalysis` module. 
 
 In your deployment template file:
 
@@ -208,7 +208,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 
 ### Gathering Keys and Endpoint URI
 
-An API key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the key and the endpoint URI that is needed by the `spatialAnalysis` container.  
+An API key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of your Computer Vision resource. Navigate to that page, and find the key and the endpoint URI that is needed by the `spatialAnalysis` container.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/keys-endpoint.png" alt-text="Endpoint URI":::
@@ -225,12 +225,12 @@ Follow these steps to generate the manifest from the template file and then depl
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Spatial Analysis: connection string":::
 
-1. In your Folder explorer, pick the appropriate deployment template (`src/edge/deployment.spatialAnalysis.template.json` or `src/edge/deployment.spatialAnalysis.generic.template.json`) and select Generate IoT Edge Deployment Manifest.
+1. In your Folder explorer, right click on your deployment template file and select Generate IoT Edge Deployment Manifest.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/spatial-analysis/generate-deployment-manifest.png" alt-text="Spatial Analysis: deployment amd64 json":::
 
-   This action should create a manifest file named `deployment.spatialAnalysis.amd64.json` or `deployment.spatialAnalysis.generic.amd64.json` in the src/edge/config folder.
+   This action should create a manifest file in the **src/edge/config** folder.
 
 1. Right-click on the generated manifest file and select **Create Deployment for Single Device**, and then select the name of your edge device.
 
