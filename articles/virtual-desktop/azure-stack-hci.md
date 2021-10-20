@@ -27,7 +27,7 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - A stable connection to Azure from your on-premises network.
 
-## Set up your deployment
+## Configure Azure Virtual Desktop for Azure Stack HCI
 
 To set up Azure Virtual Desktop for Azure Stack HCI:
 
@@ -52,6 +52,8 @@ Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few
 
 ### Create a profile container using a file share on Azure Stack HCI
 
+To create a profile container using a file share:
+
 1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be co-located on the same cluster where the session host VMs are deployed.
 
 2. Connect to the virtual machine with the credentials you provided when creating the virtual machine.
@@ -64,7 +66,7 @@ Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few
 
 6. Authenticate with a domain account that has privileges to domain-join machines.
 
-7. Follow the directions in [](create-host-pools-user-profile.md#prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles) to prepare your VM for deployment.
+7. Follow the directions in [Prepare the VM to act as a file share](create-host-pools-user-profile.md#prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles) to prepare your VM for deployment.
 
 8. Follow the directions in [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container) to configure your profile container for use.
 
@@ -75,12 +77,11 @@ You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI su
 You have two options to download an image:
 
 - Deploy a VM with your preferred OS image, then follow the instructions in [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd.md).
-
 - Download a Windows Virtual Hard Dsik (VHD) from Azure without deploying a VM.
 
 Downloading a Windows VHD without deploying a VM has several extra steps. To download a VHD from Azure without deploying a VM, you'll need to complete the instructions in the following sections in order.
 
-## Requirements to download a VHD without a VM
+### Requirements to download a VHD without a VM
 
 Before you begin, make sure you're connected to Azure and are running [Azure Cloud Shell](../cloud-shell/quickstart.md) in either a command prompt or in the bash environment. You can also run CLI reference commands on the Azure command-line interface (CLI).
 
@@ -123,7 +124,7 @@ MicrosoftWindowsServer:windowsserver-gen2preview:2019-datacenter-gen2:latest
 >[!IMPORTANT]
 >Make sure to only use generation 2 ("gen2") images. Azure Virtual Desktop for Azure Stack HCI doesn't support creating a VM with a first-generation ("gen1") image. Avoid SKUs with a "-g1" suffix.
 
-## Create a new Azure managed disk from the image
+### Create a new Azure managed disk from the image
 
 Next, you'll need to create an Azure managed disk from the image you downloaded from the Azure Marketplace.
 
@@ -145,7 +146,7 @@ $sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --na
 $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
 ```
 
-## Export a VHD from the managed disk to Azure Stack HCI cluster
+### Export a VHD from the managed disk to Azure Stack HCI cluster
 
 After that, you'll need to export the VHD you created from the managed disk to your Azure Stack HCI cluster, which will let you create new VMs. You can use the following method in a regular web browser or Storage Explorer.
 
@@ -155,7 +156,7 @@ To export the VHD:
 
 2. Download the VHD image. The downloading process may take several minutes, so be patient. Make sure the image has fully downloaded before going to the next section.
 
-## Clean up the managed disk
+### Clean up the managed disk
 
 When you're done with your VHD, you'll need to free up space by deleting the managed disk.
 

@@ -37,7 +37,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 ## Pricing
 
-The folowing things affect how much it costs to run Azure Virtual Desktop for Azure Stack HCI:
+The following things affect how much it costs to run Azure Virtual Desktop for Azure Stack HCI:
 
 - User access rights for Azure Virtual Desktop. The same licenses that grant access to Azure Virtual Desktop in the cloud also apply to Azure Virtual Desktop for Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
