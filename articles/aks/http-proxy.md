@@ -74,10 +74,30 @@ The schema for the config file looks like this:
 }
 ```
 
-Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename via the `proxy-configuration-file` flag.
+`httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
+`httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
+`noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
+`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the k8s system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
+
+Example input:
+Note the CA cert should be the base64 encoded string of the PEM format cert content.
+
+```json
+"httpProxyConfig": { 
+     "httpProxy": "http://myproxy.server.com:8080/", 
+     "httpsProxy": "https://myproxy.server.com:8080/", 
+     "noProxy": [
+         "localhost",
+         "127.0.0.1"
+     ],
+     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+}
+```
+
+Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename via the `http-proxy-config` flag.
 
 ```azurecli
-az aks create -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config.json
+az aks create -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config.json
 ```
 
 Your cluster will initialize with the HTTP proxy configured on the nodes.
@@ -109,7 +129,7 @@ Values for *httpProxy*, *httpsProxy*, and *noProxy* cannot be changed after clus
 For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action will update the cluster:
 
 ```azurecli
-az aks update -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config-2.json
+az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
 
 ## Next steps

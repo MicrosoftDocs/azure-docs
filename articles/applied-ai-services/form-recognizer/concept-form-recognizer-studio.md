@@ -36,6 +36,10 @@ The following Form Recognizer service features are available in the Studio.
 
 ## Next steps
 
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Explore our [**preview SDK quickstarts**](quickstarts/try-v3-python-sdk.md) to try the preview features in your applications using the new SDKs.
+* Refer to our [**preview REST API quickstarts**](quickstarts/try-v3-rest-api.md) to try the preview features using the new REST API.
+
 > [!div class="nextstepaction"]
-> [Get started with the Form Recognizer Studio (preview)](https://formrecognizer.appliedai.azure.com)
+> [Form Recognizer Studio (preview) quickstart](quickstarts/try-v3-form-recognizer-studio.md)
 

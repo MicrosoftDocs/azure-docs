@@ -4,7 +4,7 @@ description: Expiration for Microsoft 365 groups - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

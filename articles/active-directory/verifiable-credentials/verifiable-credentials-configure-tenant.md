@@ -4,6 +4,7 @@ description: In this tutorial, you learn how to configure your tenant to support
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
@@ -32,7 +33,7 @@ The following diagram illustrates the Azure AD verifiable credentials architectu
 
 ## Prerequisites
 
-- If you don't have Azure subscription, create [one for free](https://azure.microsoft.comfree/?WT.mc_id=A261C142F).
+- If you don't have Azure subscription, create [one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Sign up for [Azure Active Directory Premium editions](../../active-directory/fundamentals/active-directory-get-started-premium.md)
 subscription in your tenant.
 - The [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.

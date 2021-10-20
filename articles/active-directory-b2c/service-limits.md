@@ -3,14 +3,14 @@ title: Azure AD B2C service limits and restrictions
 titleSuffix: Azure AD B2C
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/02/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

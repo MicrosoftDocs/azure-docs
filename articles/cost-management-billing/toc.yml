@@ -54,6 +54,8 @@
       href: costs/ingest-azure-usage-at-scale.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
+    - name: Migrate from EA reporting to Azure Resource Manager APIs
+      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -122,10 +124,6 @@
       href: understand/mca-overview.md
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
-    - name: About transferring subscriptions
-      href: understand/subscription-transfer.md
-    - name: Transfer subscriptions between partners (Preview)
-      href: manage/azure-plan-subscription-transfer-partners.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
     - name: Request Withholding Tax credit - India
@@ -142,6 +140,8 @@
       items:
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
+      - name: Pay your bill
+        href: understand/pay-bill.md
       - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
       - name: Resolve past due balance
@@ -154,28 +154,6 @@
         href: manage/link-partner-id.md
       - name: Link partner ID to Power Apps accounts
         href: manage/link-partner-id-power-apps-accounts.md
-    - name: Administer subscriptions
-      items:
-      - name: Assign access to cost management data
-        href: costs/assign-access-acm-data.md
-      - name: Subscription states
-        href: manage/subscription-states.md
-      - name: Reactivate subscription
-        href: manage/subscription-disabled.md
-      - name: Reactivate Azure Student subscription
-        href: manage/azurestudents-subscription-disabled.md
-      - name: Transfer ownership
-        href: manage/billing-subscription-transfer.md
-      - name: Transfer Microsoft Customer Agreement ownership
-        href: manage/mca-request-billing-ownership.md
-      - name: Transfer Microsoft Partner Agreement ownership
-        href: manage/mpa-request-ownership.md
-      - name: Set up and configure AWS integration
-        href: costs/aws-integration-set-up-configure.md
-  - name: Perform key billing administration tasks
-    items:
-    - name: Manage accounts
-      items:
       - name: View billing accounts
         href: manage/view-all-accounts.md
       - name: Organize costs with invoice sections
@@ -188,9 +166,19 @@
         href: manage/azure-account-for-microsoft-365-subscription.md
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
-    - name: Manage subscriptions
+    - name: Administer subscriptions
       items:
-      - name: Pay by invoice
+      - name: Assign access to cost management data
+        href: costs/assign-access-acm-data.md
+      - name: Subscription states
+        href: manage/subscription-states.md
+      - name: Reactivate subscription
+        href: manage/subscription-disabled.md
+      - name: Reactivate Azure Student subscription
+        href: manage/azurestudents-subscription-disabled.md
+      - name: Set up and configure AWS integration
+        href: costs/aws-integration-set-up-configure.md
+      - name: Set up pay by invoice
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
@@ -206,12 +194,30 @@
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
-      - name: Transfer CSP subscriptions
-        href: manage/transfer-subscriptions-subscribers-csp.md
       - name: Cancel subscription
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies
         href: manage/manage-azure-subscription-policy.md
+    - name: Transfer subscriptions
+      items:
+      - name: Azure subscription transfers
+        href: manage/subscription-transfer.md
+      - name: Transfer subscription ownership
+        href: manage/billing-subscription-transfer.md
+      - name: Transfer subscriptions between partners (Preview)
+        href: manage/azure-plan-subscription-transfer-partners.md
+      - name: Transfer EA accounts
+        href: manage/ea-transfers.md
+      - name: Transfer subscription to EA
+        href: manage/mosp-ea-transfer.md
+      - name: Transfer CSP subscriptions
+        href: manage/transfer-subscriptions-subscribers-csp.md
+      - name: Transfer Microsoft Customer Agreement ownership
+        href: manage/mca-request-billing-ownership.md
+      - name: Transfer Microsoft Partner Agreement ownership
+        href: manage/mpa-request-ownership.md
+  - name: Perform key billing administration tasks
+    items:
     - name: Create subscriptions programmatically
       items:
       - name: Create subscriptions programmatically
@@ -234,14 +240,14 @@
         href: manage/direct-ea-administration.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
-      - name: Azure Enterprise transfers
-        href: manage/ea-transfers.md
       - name: EA tasks in Microsoft Customer Agreement
         href: manage/mca-enterprise-operations.md
       - name: Azure EA agreements and amendments
         href: manage/ea-portal-agreements.md
       - name: Enterprise enrollment invoices
         href: manage/ea-portal-enrollment-invoices.md
+      - name: View and download direct EA usage details
+        href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
         href: manage/ea-pricing-overview.md
       - name: Azure Enterprise REST APIs
@@ -252,8 +258,6 @@
         href: manage/ea-azure-marketplace.md
     - name: Download cost and billing information
       items:
-      - name: Pay your bill
-        href: understand/pay-bill.md
       - name: View and download your Azure invoice
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges

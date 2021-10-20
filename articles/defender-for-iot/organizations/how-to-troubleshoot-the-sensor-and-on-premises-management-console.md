@@ -1,28 +1,28 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 05/10/2021
+ms.date: 10/17/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
 
 This article describes basic troubleshooting tools for the sensor and the on-premises management console. In addition to the items described here, you can check the health of your system in the following ways:
 
-**Alerts**: An alert is created when the sensor interface that monitors the traffic is down. 
+**Alerts**: An alert is created when the sensor interface that monitors the traffic is down.
 
-**SNMP**: Sensor health is monitored through SNMP. Azure Defender for IoT responds to SNMP queries sent from an authorized monitoring server. 
+**SNMP**: Sensor health is monitored through SNMP. Azure Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
 
 **System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
 ## Sensor troubleshooting tools
 
-### Investigate password failure at initial sign-in
+### Investigate password failure at initial sign in
 
 When signing into a preconfigured Arrow sensor for the first time, you'll need to perform password recovery.
 
-To recover your password:
+**To recover your password**:
 
-1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
+1. On the Defender for IoT sign in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
 1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
@@ -30,11 +30,11 @@ To recover your password:
 
 1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" Screenshot of the recover on-premises management console password option.":::
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::    
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of the enter the unique identifier and then select recover.":::
 
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
@@ -53,61 +53,60 @@ To recover your password:
 An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users.
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/no-traffic-detected.png" alt-text="Screenshot of the alert that no traffic was detected.":::
- 
+
 When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.  
 
 For support and troubleshooting information, contact [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-### Check system performance 
+### Check system performance
 
 When a new sensor is deployed or, for example, the sensor is working slowly or not showing any alerts, you can check system performance.
 
-To check system performance:
+**To check system performance**:
 
 1. In the dashboard, make sure that `PPS > 0`.
 
-   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot of a sample dashboard."::: 
+   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot of a sample dashboard.":::
 
 1. From the side menu, select **Devices**.
 
 1. In the **Devices** window, make sure devices are being discovered.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Ensure that devices are discovered.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Screenshot of the discovered devices.":::
 
 1. From the side menu, select **Data Mining**.
 
 1. In the **Data Mining** window, select **ALL** and generate a report.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Generate a new report by using data mining.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Screenshot of the generate a new report by using data mining screen.":::
 
 1. Make sure the report contains data.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Ensure that the report contains data.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Screenshot of the ensure that the report contains data screen.":::
 
 1. From the side menu, select **Trends & Statistics**.
 
 1. In the **Trends & Statistics** window, select **Add Widget**.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Add a widget by selecting it.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Screenshot of the add a widget by selecting it.":::
 
 1. Add a widget and make sure it shows data.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Ensure that the widget is showing data.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Screenshot of the widget showing data.":::
 
 1. From the side menu, select **Alerts**. The **Alerts** window appears.
 
 1. Make sure the alerts were created.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Ensure that alerts were created.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Screenshot of the alerts were created.":::
 
-
-### Investigate a lack of expected alerts
+### Investigate a lack of expected alerts on the sensor
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
 - Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, the sensor console does not show a new alert.
 
-- Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console. 
+- Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console.
 
 ### Investigate widgets that show no data
 
@@ -115,13 +114,13 @@ When the widgets in the **Trends & Statistics** window show no data, do the foll
 
 - [Check system performance](#check-system-performance).
 
-- Make sure the time and region settings are properly configured and not set to a future time. 
+- Make sure the time and region settings are properly configured and not set to a future time.
 
 ### Investigate a device map that shows only broadcasting devices
 
 When devices shown on the map appear not connected to each other, something might be wrong with the SPAN port configuration. That is, you might be seeing only broadcasting devices and no unicast traffic.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="Screenshot of the broadcasting devices.":::
 
 In such a case, validate that you only the broadcast traffic and then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic as well.
 
@@ -139,7 +138,7 @@ You can configure a standalone sensor and a management console, with the sensors
 
 To connect a standalone sensor to NTP:
 
-- [Contact the Support team for assistance](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+- [Contact the Support team for assistance](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 To connect a sensor controlled by the management console to NTP:
 
@@ -151,9 +150,9 @@ Sometimes ICS devices are configured with external IP addresses. These ICS devic
 
 Another indication of the same problem is when multiple internet-related alerts appear.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Multiple internet-related alerts.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Screenshot of the multiple internet-related alerts.":::
 
-To fix the configuration:
+**To fix the configuration**:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
@@ -167,13 +166,13 @@ To save your network resources, you can limit the interface bandwidth that the s
 
 To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI tool that needs to be run with sudo permissions. The tool gets the following arguments:
 
-  - `* -i`: interfaces (example: eth0).
+- `* -i`: interfaces (example: eth0).
 
-  - `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
+- `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
 
-  - `* -c`: clear (to clear the interface bandwidth limitation).
+- `* -c`: clear (to clear the interface bandwidth limitation).
 
-To tweak the quality of service:
+**To tweak the Quality of Service (QoS)**:
 
 1. Sign in to the sensor CLI as a Defender for IoT user, and enter `sudo cyberx-xsense-limit-interface-I eth0 -l value`.
 
@@ -186,7 +185,7 @@ To tweak the quality of service:
 
 ## On-premises management console troubleshooting tools
 
-### Investigate a lack of expected alerts
+### Investigate a lack of expected alerts on the management console
 
 If an expected alert is not shown in the **Alerts** window, verify the following:
 
@@ -202,9 +201,9 @@ The default is 50. This means that in one communication session between an appli
 
 To limit the number of alerts, use the `notifications.max_number_to_report` property available in `/var/cyberx/properties/management.properties`. No restart is needed after you change this property.
 
-To tweak the quality of service:
+**To tweak the Quality of Service (QoS)**:
 
-1. Sign in as a Defender for IoT user. 
+1. Sign in as a Defender for IoT user.
 
 1. Verify the default values:
 
@@ -234,19 +233,19 @@ To tweak the quality of service:
 
 1. Save the changes. No restart is required.
 
-## Export information for troubleshooting
+## Export information from the sensor for troubleshooting
 
-In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file. 
+In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file.
 
-To export logs:
+**To export logs**:
 
 1. On the left pane, select **System Settings**.
 
 1. Select **Export Logs**.
 
-    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to system support.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/sensor-export-log.png" alt-text="Screenshot of the export a log to system support screen.":::
 
-1. In the **File Name** box, enter the file name that you want to use for the log export. The default is the current date.
+1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
 
 1. To define what data you want to export, select the data categories:  
 
@@ -275,7 +274,41 @@ The exported logs are added to the **Archived Logs** list. Send the OTP to the s
 
 The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
 
-## See also
+## Export audit log from the management console
+
+Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who. Audit logs can be exported in the management console, and contain the following information:
+
+| Action | Information logged |
+|--|--|
+| **Learn, and remediation of alerts** | Alert ID |
+| **Password changes** | User, User ID |
+| **Login** | User |
+| **User creation** | User, User role |
+| **Password reset** | User name |
+| **Exclusion rules**: </br></br>- Creation </br></br>- Editing </br></br>- Deletion | </br></br>Rule summary </br></br>Rule ID, Rule Summary </br></br>Rule ID |
+| **Management Console Upgrade** | The upgrade file used |
+| **Sensor upgrade retry** | Sensor ID |
+| **Uploaded TI package** | No additional information recorded. |
+
+**To export the audit log**:
+
+1. In the management console, in the left pane, select **System Settings**.
+
+1. Select **Export**.
+
+1. In the File Name field, enter the file name that you want to use for the exported log. If no name is entered, the default file name will be the current date.
+
+1. Select **Audit Logs**.
+
+1. Select **Export**.
+
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Screenshot of the select Audit Logs and then select Export to create your file screen.":::
+
+The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP. Send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="Screenshot of the file you created in the archived files section of the Export Troubleshooting Information window.":::
+
+## Next steps
 
 - [View alerts](how-to-view-alerts.md)
 

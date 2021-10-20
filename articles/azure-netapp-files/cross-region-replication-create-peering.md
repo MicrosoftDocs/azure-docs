@@ -13,13 +13,10 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ---
 # Create volume replication for Azure NetApp Files
-
-> [!IMPORTANT]
-> The cross-region replication feature is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
 This article shows you how to set up cross-region replication by creating replication peering. 
 

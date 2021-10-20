@@ -205,8 +205,6 @@
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
       displayName: ROPC
-    - name: Set up a self-serve password reset policy (deprecated)
-      href: user-flow-self-service-password-reset.md
     - name: Phone sign-up and sign-in
       href: phone-authentication-user-flows.md
   - name: Identity providers
@@ -378,6 +376,8 @@
       items:
       - name: Datawiza
         href: partner-datawiza.md
+      - name: F5
+        href: partner-f5.md
       - name: Ping Identity
         href: partner-ping-identity.md
       - name: Strata

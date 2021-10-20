@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 10/11/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -45,7 +45,7 @@ Users or groups assigned to a role can extend expiring role assignments directly
 
 ![Azure AD roles - My roles page listing eligible roles with an Action column](./media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
 
-When the assignment end date and time is within 14 days, the button to **Extend** becomes an active link in the user interface. In the following example, assume the current date is March 27.
+When the assignment end date and time is within 14 days, the button to **Extend** becomes an active link in the user interface. In the following example, assume the current date is March 27. For a group assigned to a role, the **Extend** link never becomes available, so that a single user with an inherited assignment can't extend the group assignment.
 
 ![Action column with links to Activate or Extend](./media/pim-how-to-renew-extend/pim-extend-within-fourteen.png)
 
