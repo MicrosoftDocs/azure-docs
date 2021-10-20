@@ -11,26 +11,24 @@ ms.topic: how-to
 ms.date: 10/21/2021
 ms.author: gasinh
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-custom-policy"
+
+
+
+::: zone-end
 
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or touchID/faceID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
 
-## Prerequisites
+::: zone pivot="b2c-user-flow"
+This feature is available only for custom policies. For setup steps, select Custom policy in the preceding selector.
 
-To get started, you'll need:
-
-- Access to end users that have an IDEMIA - US state issued Mobile ID credential (mID) or during the test phase, the mID demo application provided by [IDEMIA](https://www.idemia.com/).
-
-- An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
-
-- Your business web application registered in Azure AD B2C tenant. For testing purposes you can configure https://jwt.ms, a Microsoft-owned web application that displays the decoded contents of a token.
-
->[!NOTE]
->The contents of the token never leave your browser.
+::: zone-end
 
 ## Scenario description
 
@@ -64,13 +62,30 @@ The following diagrams show how this would be enabled for web or on-premises sce
 | 6. | IDEMIA router verifies the information provided by the user and replies to Azure AD B2C with the authentication result.
 |7. | Based on the authentication result user is granted/denied access. |
 
+::: zone pivot="b2c-custom-policy"
 ## Onboard with IDEMIA
 
 Get in touch with [IDEMIA](https://www.idemia.com/get-touch/) to request a demo for mID filling out the contact form. In the message field indicate that you would like to onboard with Azure AD B2C.
 
 ## Integrate IDEMIA with Azure AD B2C
 
-### Step 1 - Submit a Relying Party application on-boarding for mID
+## Prerequisites
+
+To get started, you'll need:
+
+- Access to end users that have an IDEMIA - US state issued Mobile ID credential (mID) or during the test phase, the mID demo application provided by [IDEMIA](https://www.idemia.com/).
+
+- An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+
+- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+
+- Your business web application registered in Azure AD B2C tenant. For testing purposes you can configure https://jwt.ms, a Microsoft-owned web application that displays the decoded contents of a token.
+
+>[!NOTE]
+>The contents of the token never leave your browser.
+
+
+### Part 1 - Submit a Relying Party application on-boarding for mID
 
 As part of your integration with IDEMIA, you will be provided with the following information:
 
@@ -86,7 +101,7 @@ As part of your integration with IDEMIA, you will be provided with the following
 >[!NOTE]
 >You'll need IDEMIA client ID and client secret later to configure the Identity Provider in Azure AD B2C.
 
-### Step 2 - Create a policy key
+### Part 2 - Create a policy key
 
 Store the IDEMIA client secret that you previously recorded in your Azure AD B2C tenant.
 
@@ -112,7 +127,7 @@ Store the IDEMIA client secret that you previously recorded in your Azure AD B2C
 
 11. Select **Create**.
 
-### Step 3 - Configure IDEMIA as an External Identity Provider
+### Part 3 - Configure IDEMIA as an External Identity Provider
 
 To enable users to sign in using IDEMIA MobileID Passwordless identity, you need to define IDEMIA as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using biometry such as fingerprint or facial scan as available on their device, proving the user’s identity.
 You can define IDEMIA as a claims provider by adding it to the **ClaimsProvider** element in the extension file of your policy
@@ -182,6 +197,89 @@ One of the following values must be selected:
 
 >[!NOTE]
 >Additional parameter values may be added in the future to provide additional clarity and flexibility for RPs. For example, MFA, pin, faceID, in place of `loa-x`. When that happens, the new values will be published in the “acr_values_supported” section of discovery API referenced earlier in this document.
+
+The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes such claims as First Name, Last Name, and Driver's License Number, among other items. 
+The claims set for any given scope is published in the "scope_to_claims_mapping" section of the discovery API.
+B2C Requests claims from the claims endpoint and returns those claims in the OutputClaims element. You may need to map the name of the claim defined in your policy to the name defined in the identity provider making sure to defines the claim type in the [ClaimSchema element](https://docs.microsoft.com/en-us/azure/active-directory-b2c/claimsschema):
+
+```PowerShell
+<ClaimType Id="documentId">
+     <DisplayName>documentId</DisplayName>
+     <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="address1">
+     <DisplayName>address</DisplayName>
+     <DataType>string</DataType>
+</ClaimType>
+```
+
+### Part 4 - Add a user journey
+At this point, the identity provider has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
+
+1. Open the `TrustFrameworkBase.xml` file from the starter pack.
+2. Find and copy the entire contents of the **UserJourneys** element that includes `ID=SignUpOrSignIn`.
+3. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
+4. Paste the entire content of the **UserJourney** element that you copied as a child of the UserJourneys element.
+5. Rename the ID of the user journey. For example, `ID=CustomSignUpSignIn`.
+
+### Part 5 - Add the identity provider to a user journey
+Now that you have a user journey, add the new identity provider to the user journey. First add a sign-in button, then link the button to an action. The action is the technical profile you created earlier.
+
+1. Find the orchestration step element that includes Type=`CombinedSignInAndSignUp`, or Type=`ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign-in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name.
+
+2. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier.
+
+The following XML demonstrates the first two orchestration steps of a user journey with the identity provider:
+
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="IdemiaExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
+
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="IdemiaExchange" TechnicalProfileReferenceId="Idemia-Oauth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
+
+### Part 6 - Configure the relying party policy
+
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAndLocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within relying party. Update the **ReferenceId** to match the user journey ID, in which you added the identity provider.
+
+In the following example, for the `CustomSignUpOrSignIn` user journey, the ReferenceId is set to `CustomSignUpOrSignIn`.  
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="CustomSignUpSignIn" />
+  ...
+</RelyingParty>
+```
+
+### Part 7 - Upload the custom policy
+
+1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+1. Under Policies, select **Identity Experience Framework**.
+Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
+
+### Part 8 - Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **IDEMIA** to sign in with an IDEMIA - US State issued mID (Mobile ID Credential).
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
+
+::: zone-end
 
 ## Next steps
 
