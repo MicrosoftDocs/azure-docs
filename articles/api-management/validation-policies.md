@@ -59,13 +59,13 @@ We recommend performing load tests with your expected production workloads to as
 
 The `validate-content` policy validates the size or schema of a request or response body against the API schema. 
 
-The following table shows the formats and sample content types used in API definitions that the policy supports.
+The following table shows the formats and content types used in API definitions that the policy supports.
 
-| Format  | Content type examples | 
+| Format  | Content types | 
 |---------|---------|
-|JSON     |  `application/json`<br/>`application/hal+json` | 
-|XML     |  `application/xml`  | 
-|SOAP     |  `application/soap+xml` for SOAP 1.2 APIs<br/>`text/xml` for SOAP 1.1 APIs|
+|JSON     |  Examples: `application/json`<br/>`application/hal+json` | 
+|XML     |  Example: `application/xml`  | 
+|SOAP     |  Allowed values: `application/soap+xml` for SOAP 1.2 APIs<br/>`text/xml` for SOAP 1.1 APIs|
 
 ### Policy statement
 
@@ -115,8 +115,8 @@ Content types other than `application/soap+xml`, including messages without the 
 | max-size | Maximum length of the body of the request or response in bytes, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
-| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/>When "soap" is specified, the XML schema from the request or response is extracted from the SOAP envelope and validated against an XML schema. The `type` attribute must be `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs |  Yes     |  N/A  |
+| type | Content type to execute body validation for, checked against the `content-type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema.<br/><br/>To validate SOAP requests and responses (`validate-as` attribute set to "soap""), set `type` to `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs. |   No    |  N/A  |
+| validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/><br/>When "soap" is specified, the XML schema from the request or response is extracted from the SOAP envelope and validated against an XML schema.  |  Yes     |  N/A  |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
 
 ### Usage
