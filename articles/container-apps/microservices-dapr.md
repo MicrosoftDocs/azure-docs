@@ -92,7 +92,7 @@ Create a new Log Analytics workspace with the following command:
 ```azurecli
 az monitor log-analytics workspace create \
   --resource-group $RESOURCE_GROUP \
-  --name $LOG_ANALYTICS_WORKSPACE
+  --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
 Next, retrieve the Log Analytics Client ID and client secret.
@@ -122,7 +122,7 @@ az containerapp env create \
 
 Use the following command to create a new Azure Storage account.
 
-```console
+```azurecli
 az storage account create \
   --name $STORAGE_ACCOUNT \
   --resource-group $RESOURCE_GROUP \
@@ -139,7 +139,7 @@ Once your Azure Blob Storage account is created, you will need to use the follow
 
 Get an **accountKey** with the following command.
 
-```console
+```azurecli
 az storage account keys list \
   --resource-group $RESOURCE_GROUP \
   --account-name $STORAGE_ACCOUNT
@@ -179,7 +179,7 @@ To use this file, make sure to replace the placeholder values between the `<>` b
 
 Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the producer container app.
 
-```console
+```azurecli
 az containerapp create \
   --name nodeapp \
   --resource-group $RESOURCE_GROUP \
@@ -202,7 +202,7 @@ This command that the producer (Node) app server on `--target-port 3000` (the ap
 
 Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the consumer container app.
 
-```console
+```azurecli
 az containerapp create \
   --name pythonapp \
   --resource-group $RESOURCE_GROUP \
@@ -234,7 +234,7 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
 
-```console
+```azurecli
 az group delete --resource-group $RESOURCE_GROUP --yes
 ```
 
