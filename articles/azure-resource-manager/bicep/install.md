@@ -53,12 +53,12 @@ To solve the problem, you can manually install .NET from the [.NET website](http
 
 ```
 
-**Mac**
+**macOS**
 
 ```json
 "dotnetAcquisitionExtension.existingDotnetPath": [
   {
-    "extensionId": "msazurermtools.azurerm-vscode-tools",
+    "extensionId": "ms-azuretools.vscode-bicep",
     "path": "/usr/local/share/dotnet/dotnet"
   }
 ]
