@@ -541,14 +541,14 @@
   items:
     - name: Overview
       items:
-        - name: Audio processing overview
+      - name: Audio processing overview
         href: audio-processing-overview.md
-        - name: Speech SDK integration
-          href: audio-processing-speech-sdk.md
+      - name: Speech SDK integration
+        href: audio-processing-speech-sdk.md
     - name: Hardware
       items:
-        - name: Microphone array recommendations
-          href: speech-sdk-microphone.md
+      - name: Microphone array recommendations
+        href: speech-sdk-microphone.md
 - name: Resources
   items:
     - name: Speech SDK
