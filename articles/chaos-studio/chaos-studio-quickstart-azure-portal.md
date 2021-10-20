@@ -45,14 +45,11 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 5. Click **Next: Target resources >**.
 ![Add a target](images/quickstart-service-direct-add-targets.PNG)
 
-
 6. Click **Add**.
-
 
 ![Add a target](images/quickstart-add-target.PNG)
 
 7. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
-
 
 ![Add a target](images/quickstart-review-and-create.PNG)
 
@@ -65,7 +62,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 ## Clean up resources
 1. Delete the experiment created. Click on **Delete**.
 
-![Select the experiment to be deleted](imagesquickstart-delete-experiment.PNG)
+![Select the experiment to be deleted](images/quickstart-delete-experiment.PNG)
 
 2. Search the VM that you created on the Azure portal serach bar.
 
