@@ -140,5 +140,5 @@ spec:
 - [Quick starter samples for confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
 - [DCsv2 SKU List](../virtual-machines/dcv2-series.md)
 - [DCSv3 SKU List](../virtual-machines/dcv3-series.md)
-- [Azure Attestation]: ../attestation/index.yml
-- [Intel SGX Confidential Virtual Machines on Azure]: /confidential-computing/virtual-machine-solutions-sgx.md
+- [Azure Attestation](../attestation/index.yml)
+- [Intel SGX Confidential Virtual Machines on Azure](/confidential-computing/virtual-machine-solutions-sgx.md)
