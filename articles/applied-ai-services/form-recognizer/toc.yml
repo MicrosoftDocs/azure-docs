@@ -42,18 +42,22 @@ items:
     href: how-to-guides/try-sdk-rest-api.md  
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
-  - name: Build and train a custom model
-    items:
-    - name: Assemble a training data set
-      href: build-training-data-set.md
-    - name:   Deploy the Sample Labeling tool
-      href: deploy-label-tool.md
-    - name: Train a custom model with the Sample Labeling tool
-      href: label-tool.md
-    - name: Use table tags to train your custom model
-      href: supervised-table-tags.md
-  - name: Compose custom models
-    href: compose-custom-models.md
+  - name: Custom models
+    items:  
+    - name: Build and train custom models
+      items:
+      - name: Assemble a training data set
+        href: build-training-data-set.md
+      - name:   Deploy the Sample Labeling tool
+        href: deploy-label-tool.md
+      - name: Train a custom model with the Sample Labeling tool
+        href: label-tool.md
+      - name: Use table tags to train your custom model
+        href: supervised-table-tags.md
+    - name: Compose custom models
+      href: compose-custom-models.md
+  - name: Back up and recover models
+    href: disaster-recovery.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -66,8 +70,6 @@ items:
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-  - name: Back up and recover models
-    href: disaster-recovery.md
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
