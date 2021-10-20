@@ -1,7 +1,8 @@
 # Quickstart:Create and run a chaos experiment using the Azure portal
 ## Sign in to Azure portal 
 Sign in to the Azure portal at https://portal.azure.com
-## Enable the VM targets
+## Create a VM resource
+On the Azure portal menu or from the Home page, select Create a resource. 
 ## Create an experiment
 Click Add an experiment, and then provide values for the Resource group, experiment Name, and Location. 
 Click Next: Experiment designer > and add Fault VM Shutdown. 
