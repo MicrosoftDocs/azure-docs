@@ -125,7 +125,7 @@
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events
-        href: connect-windows-security-events.md
+        href: data-connectors-reference.md#windows-security-events-preview
     - name: Connection instructions by type
       items:
       - name: Azure, Windows, and Microsoft connectors
