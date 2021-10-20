@@ -350,9 +350,9 @@ Log collection for troubleshooting.
 1. Use aka.ms/logsminerto search for traces.
 1. Collect Windows ETL traces from client.
 
-## Collect logs with Feedback HUb
+## Collect logs with Feedback Hub
 
-Please collect logs by using **FeedBack Hub** to share any feedback or report any issues while logging into the client:
+Please collect logs by using **Feedback Hub** to share any feedback or report any issues while logging into the client:
 
 1. Open feedback hub and create a new feedback item.
 1. Select the **Security and Privacy** category, and then the **Logging into Your PC** subcategory.
@@ -361,4 +361,4 @@ Please collect logs by using **FeedBack Hub** to share any feedback or report an
 
 ## Next steps
 
-Migrate to Azure file shares | Microsoft Docs
+- For more information about moving file shares to Azure, see [Migrate to Azure file shares](/storage/files/storage-files-migration-overview.md).
