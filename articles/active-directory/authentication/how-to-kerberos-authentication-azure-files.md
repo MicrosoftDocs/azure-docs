@@ -230,15 +230,15 @@ Follow these instructions to set up Azure files.
                 'authorization' = "Bearer $($Token)"
             }
 
-       try {
+        try {
            Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json
            Write-Host "Success: Password is set for $storageAccountName"
-       } catch {
+        } catch {
            Write-Host $_.Exception.ToString()
            Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value
            Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
-       }
-       ```
+        }
+        ```
 
      1. Set the API permissions on the newly created application.
         1. In the Azure portal, click **Azure Active Directory** > **App registrations** > **All Applications**.
