@@ -228,7 +228,7 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 1. Select **mycontainer**.
 
-1. Verify that you can see the files in the container.
+1. Verify that you can see the file named `order` in the container.
 
 ## Clean up resources
 
