@@ -37,7 +37,7 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 cd azureml-examples/cli/endpoints/online/mlflow
 ```
 
-### Create a YAML file for your endpoint and deployment
+### 1. Create a YAML file for your endpoint and deployment
 
 You can configure your cloud deployment using YAML. Take a look at the sample YAML for this example:
 
@@ -73,7 +73,7 @@ az ml online-deployment create -f sklearn-deployment.yaml
 > [!IMPORTANT]
 > For MLflow no-code-deployment (NCD) to work, setting **`model_format`** to **`mlflow`** is mandatory. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md)
 
-### Invoke the endpoint
+### 2. Invoke the endpoint
 
 Once your deployment completes, see if you can make a scoring request to the deployed endpoint.
 
@@ -81,7 +81,7 @@ Once your deployment completes, see if you can make a scoring request to the dep
 az ml online-endpoint invoke --name sklearn-deployment --request-file 
 ```
 
-### Delete endpoint
+### 3. Delete endpoint
 
 Now that you've successfully scored with your endpoint, you can delete it:
 
@@ -93,7 +93,7 @@ az ml online-endpoint delete --name my-endpoint
 
 This example shows how you can deploy an MLflow model to managed online endpoint using [Azure Machine Learning Studio](https://ml.azure.com).
 
-### Register your model in MLflow format
+### 1. Register your model in MLflow format
 
 For this example, we are using scikit-learn MLflow model: [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow])
 
@@ -112,7 +112,9 @@ description: Scikit-learn MLflow model.
 az ml model create -f sample-create-mlflow-model.yaml
 ```
 
-### Create endpoint from Endpoints UI
+### 2. Create endpoint from Endpoints or Models UI
+
+#### Endpoints UI
 
 * Select **+Create (preview)** option on Endpoints UI page.
 
@@ -126,7 +128,7 @@ az ml model create -f sample-create-mlflow-model.yaml
 
 :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
 
-### Create endpoint from Models UI
+#### Models UI
 
 * Select the MLflow model you want to deploy.
 
@@ -139,6 +141,11 @@ az ml model create -f sample-create-mlflow-model.yaml
 This section helps you understand how to deploy models to managed online endpoint once you have completed your [training job](how-to-train-cli.md#introducing-jobs).
 
 ### 1. Download the outputs from training job
+
+First, you have to download outputs from your training job which consists the model folder. 
+
+> [!NOTE]
+> If you have used `mlflow.autolog()` in your training script, you will see model artifacts in the job's run history. Azure Machine Learning integrates with MLflow's tracking functionality. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs.[Learn more](how-to-train-cli.md#model-tracking-with-mlflow). Check [training job samples.](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/jobs/single-step)
 
 __From Azure Machine Learning studio__
 
