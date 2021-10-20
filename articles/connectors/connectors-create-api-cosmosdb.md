@@ -292,20 +292,18 @@ The output type from the built-in **Query items** action in a **Logic App (Stand
 
 ### Confirm action success by checking the operation status code
 
-When you use the Azure Cosmos DB built-in actions in a **Logic App (Standard)** workflow, you should have a step after each action that checks the status code that's returned from the Azure Cosmos DB service. That way, subsequent actions in the workflow can react to the various status codes returned by the Azure Cosmos service, based on your scenario. workflow actions can read and respond to the various status codes that Azure Cosmos DB operations can return. So,
-body and reacts based on your scenario.
+When you use the Azure Cosmos DB built-in actions in a **Logic App (Standard)** workflow, you should have a step after each action that checks the status code returned from the service call to the Azure Cosmos DB service. That way, subsequent actions in the workflow can react to the various status codes that the Azure Cosmos DB service returns, based on your scenario.
 
 > [!NOTE]
-> Currently, unlike other managed connector actions and built-in actions, the status code 
-> returned from an Azure Cosmos DB action differs from the status code returned from the 
-> service call that's actually sent to the Azure Cosmos DB service. The action's status 
-> code is available in the dynamic content list, while the service call's status code 
-> is returned and nested in the `body` of the response object.
+> Currently, unlike other managed connector actions and built-in actions, the status code returned 
+> from an Azure Cosmos DB action differs from the status code returned from the service call that's 
+> sent to the Azure Cosmos DB service. The action's status code is available in the dynamic content list, 
+> while the service call's status code is returned and nested in the `body` of the response object.
 >
 > The following steps show how to access the service call's status code by using an 
 > expression that parses the `body` of the response object.
 
-For example, the following steps create a workflow that uses the **Read an item** action and shows how to check the status code from the read operation that's made by the service call sent to Azure Cosmos DB:
+For example, the following steps create a workflow that uses the **Read an item** action and shows how to check the status code that's returned from the service call to the Azure Cosmos DB service:
 
 1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
