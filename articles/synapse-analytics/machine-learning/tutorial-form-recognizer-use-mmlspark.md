@@ -14,7 +14,7 @@ ms.author: ruxu
 
 # Tutorial: Form Recognizer with Applied AI Service
 
-[Azure Form Recognizer](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer) is an [Azure Applied AI Service](https://docs.microsoft.com/azure/applied-ai-services/) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Form Recognizer](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
+[Azure Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) is an [Azure Applied AI Service](../../applied-ai-services/index.yml) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
 
 This tutorial demonstrates using form recognizer with [MMLSpark](https://github.com/Azure/mmlspark) to:
 
@@ -197,6 +197,6 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 ## Next steps
 
-* [Train a custom form recognizer model](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/label-tool)
+* [Train a custom form recognizer model](../../applied-ai-services/form-recognizer/label-tool)
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)

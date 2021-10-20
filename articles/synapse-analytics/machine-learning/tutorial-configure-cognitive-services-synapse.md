@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a Cognitive Services resource
 
-[Azure Cognitive Services](../../cognitive-services/index.yml) includes many types of services. Text Analytics and Anomaly Detector are two examples in the Azure Synapse tutorials.
+[Azure Cognitive Services](../../cognitive-services/index.yml) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
 
 You can create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 
