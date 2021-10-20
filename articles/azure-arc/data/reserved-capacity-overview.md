@@ -18,7 +18,7 @@ You do not need to assign the reservation to a specific database or managed inst
 
 A reservation applies to Azure Arc services cost only and does not cover SQL IP costs or any other charges. At the end of the reservation term, the billing benefit expires and the managed instance is billed at the pay-as-you go price. Reservations do not automatically renew. For pricing information, see the [reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-You can buy reserved capacity in the [Azure portal](https://portal.azure.com). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
+You can buy reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/reservationsBrowse). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
 
 - You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription. Reserved capacity.
@@ -31,7 +31,9 @@ The size of reservation should be based on the total amount of compute resources
 
 The following list demonstrates a scenario to project how you would reserve resources: 
 
-* **Current**: one general purpose, 16 vCore managed instance
+* **Current**: 
+  - One general purpose, 16 vCore managed instance
+  - Two business critical, 8-vCore managed instances
 
 * **In the next year you will add**: 
   - One more general purpose, 16 vCore managed instance
@@ -53,12 +55,12 @@ The following list demonstrates a scenario to project how you would reserve reso
     | Field      | Description|
     |------------|--------------|
     |Subscription|The subscription used to pay for the capacity reservation. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer number MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer number MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.|
-    |Scope       |The vCore reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select <br/><br/>**Shared**, the vCore reservation discount is applied to the database or managed instance running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br/><br/>**Single subscription**, the vCore reservation discount is applied to the databases or managed instances in this subscription. <br/><br/>**Single resource group**, the reservation discount is applied to the instances of databases or managed instances in the selected subscription and the selected resource group within that subscription.</br></br>**Management group**, the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.|
+    |Scope       |The vCore reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select <br/><br/>**Shared**, the vCore reservation discount is applied to the database or managed instance running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br/><br/>**Single subscription**, the vCore reservation discount is applied to the databases or managed instances in this subscription. <br/><br/>**Single resource group**, the reservation discount is applied to managed instances in the selected subscription in the selected subscription and the selected resource group within that subscription.</br></br>**Management group**, the reservation discount is applied to the managed instances in the list of subscriptions that are a part of both the management group and billing scope.|
     |Region      |The Azure region that's covered by the capacity reservation.|
-    |Deployment Type|The SQL resource type that you want to buy the reservation for.|
+    |Deployment type|The SQL resource type that you want to buy the reservation for.|
     |Performance Tier|The service tier for the databases or managed instances. |
     |Term        |One year or three years.|
-    |Quantity    |The amount of compute resources being purchased within the capacity reservation. The quantity is the number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you run or plan to run multiple databases with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify the quantity as 16 to maximize the benefit for all the databases. |
+    |Quantity    |The amount of compute resources being purchased within the capacity reservation. The quantity is the number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you run or plan to run multiple managed instances with the total compute capacity of Gen5 16 vCores in the East US region, then specify the quantity as 16 to maximize the benefit for all the databases. |
 
 1. Review the cost of the capacity reservation in the **Costs** section.
 1. Select **Purchase**.
