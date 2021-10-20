@@ -8,26 +8,18 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Identify bottlenecks from Azure portal
+    - name: Identify bottlenecks
       items: 
       - name: Load test in Azure portal
         href: tutorial-identify-bottlenecks-azure-portal.md
       - name: Load test with Visual Studio Code
         href: how-to-identify-bottlenecks-vs-code.md
-    - name: Continuous regression testing in GitHub with Azure Load Testing
+    - name: Continuous regression testing
       items:
       - name: Automate with GitHub Actions
         href: tutorial-continuous-regression-testing-cicd-github-actions.md
       - name: Automate with Azure Pipelines
         href: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
-- name: Reference
-  items: 
-    - name: CLI 
-      items: 
-        - name: Train models with CLI (v2)
-          href: ../machine-learning/how-to-train-cli.md
-        - name: Access resources with managed endpoints
-          href: ../machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md
 - name: How-tos
   expanded: true
   items: 
@@ -39,14 +31,5 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/load-testing-service/
-    - name: Service limits
-      href: ../machine-learning/resource-limits-quotas-capacity.md      
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Feature availability across regions
-      href: ../machine-learning/reference-machine-learning-cloud-parity.md
-    - name: User forum
-      href: /answers/topics/azure-machine-learning.html
-    - name: Accessibility features
-      displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: ../machine-learning/designer-accessibility.md
