@@ -126,7 +126,8 @@ View Geolocation and WhoIs data in Azure Sentinel, on the **Threat Intelligence*
 
 Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
 
-<!--For example: Screenshot TBD-->
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
+
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
