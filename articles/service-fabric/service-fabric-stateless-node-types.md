@@ -68,7 +68,7 @@ To enable stateless node types, you should configure the underlying virtual mach
 
 * The value  **singlePlacementGroup** property, which should be set to **false** if you require to scale to more than 100 VMs.
 * The Scale set's **upgradeMode** should be set to **Rolling**.
-* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. For more details on configuring the health probes or the application health extension refer to this [doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#how-does-automatic-os-image-upgrade-work). Configure health probe with the default configuration for Stateless Node types as suggested below. Once the applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor the actual application health.
+* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. For more details on configuring the health probes or the application health extension refer to this [doc](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work). Configure health probe with the default configuration for Stateless Node types as suggested below. Once the applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor the actual application health.
 
 >[!NOTE]
 > While using AutoScaling with Stateless node types, after scale down operation, node state is not automatically cleaned up. In order to cleanup the NodeState of Down Nodes during AutoScale, using [Service Fabric AutoScale Helper](https://github.com/Azure/service-fabric-autoscale-helper) is advised.
