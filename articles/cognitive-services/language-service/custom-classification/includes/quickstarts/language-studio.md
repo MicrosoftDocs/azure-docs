@@ -123,7 +123,7 @@ After your model is deployed, you can start using it for text classification. Us
 
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
-    :::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
+    :::image type="content" source="../../media/test-model-results.png" alt-text="View the test results. The example is from "CMU Movie Summary", CC BY-SA 3.0, modified by Microsoft" lightbox="../../media/test-model-results.png":::
 
 ## Clean up projects
 
