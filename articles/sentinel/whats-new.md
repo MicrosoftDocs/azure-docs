@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/17/2021
+ms.date: 10/20/2021
 ---
 
 # What's new in Azure Sentinel
@@ -30,6 +30,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 
 ## November 2021
+
+### Fusion engine now detects emerging and unknown threats (Public preview)
+
+In addition to detecting attacks based on [predefined scenarios](fusion-scenario-reference.md), Azure Sentinel's ML-powered Fusion engine can help you find the emerging and unknown threats in your environment by applying extended ML analysis and by correlating a broader scope of anomalous signals, while keeping the alert fatigue low.
+
+The Fusion engine's ML algorithms constantly learn from existing attacks and apply analysis based on how security analysts think. It can therefore discover previously undetected threats from millions of anomalous behaviors across the kill-chain throughout your environment, which helps you stay one step ahead of the attackers.
+
+Learn more about [Fusion for emerging threats](fusion.md#fusion-for-emerging-threats).
+
+Also, the [Fusion analytics rule is now more configurable](configure-fusion-rules.md), reflecting its increased functionality.
+
+### Get fine-tuning recommendations for your analytics rules (Public preview)
+
+Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, and continuous process of balancing between maximizing your threat detection coverage and minimizing false positive rates. Azure Sentinel simplifies and streamlines this process by using machine learning to analyze billions of signals from your data sources as well as your responses to incidents over time, deducing patterns and providing you with actionable recommendations and insights that can significantly lower your tuning overhead and allow you to focus on detecting and responding to actual threats.
+
+[Tuning recommendations and insights](detection-tuning.md) are now built in to your analytics rules. 
 
 ### Free trial updates
 
@@ -120,13 +136,17 @@ For more information, see [Enable continuous deployment from your content reposi
 
 ### Enriched threat intelligence with Geolocation and WhoIs data
 
-Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is enriched with Geolocation and WhoIs information.
+Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is automatically enriched with GeoLocation and WhoIs information.
 
-View Geolocation and WhoIs data in Azure Sentinel, on the **Threat Intelligence** page. From the grid, select the indicator for which you'd like to view GeoLocation and WhoIs information.
+GeoLocation and WhoIs data can provide more context for investigations where the selected indicator of compromise (IOC) is found.
 
-Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
 
-<!--For example: Screenshot TBD-->
+You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Azure Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+
+For example:
+
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
@@ -136,6 +156,7 @@ For more information, see:
 
 - [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
 - [Threat intelligence integrations](threat-intelligence-integration.md)
+- [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 
 ### Use notebooks with Azure Synapse Analytics in Azure Sentinel
