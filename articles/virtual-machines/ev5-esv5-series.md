@@ -16,7 +16,7 @@ ms.date: 10/20/2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Ev5 and Esv5-series virtual machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors in a [hyper-threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration featuring an all core Turbo clock speed of 3.5 GHz. Thes VMs are ideal for various memory-intensive enterprise applications and feature up to 672GiB of RAM.
+The Ev5 and Esv5-series virtual machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors in a [hyper-threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration featuring an all core Turbo clock speed of 3.5 GHz. These VMs are ideal for various memory-intensive enterprise applications and feature up to 672GiB of RAM.
 
 > [!NOTE]
 > For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
