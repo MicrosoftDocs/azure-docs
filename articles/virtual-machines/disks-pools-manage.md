@@ -39,7 +39,7 @@ Your disk must meet the following requirements in order to be added to the disk 
 
     :::image type="content" source="media/disk-pools-manage/enable-disk-luns.png" alt-text="Screenshot of iSCSI blade, disk luns added and enabled.":::
 
-Now that you've attached your disk and enabled the LUN, you must create and attach it as an iSCSI datastore to your Azure VMware Solution private cloud. See blank for details.
+Now that you've attached your disk and enabled the LUN, you must create and attach it as an iSCSI datastore to your Azure VMware Solution private cloud. See [Attach the disk pool](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md#attach-the-disk-pool) for details.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,6 +95,8 @@ $luns += ,($newlun)
 Update-AzDiskPoolIscsiTarget -Name $iscsiTargetName -DiskPoolName $diskPoolName -ResourceGroupName $resourceGroupName -Lun $luns
 ```
 
+Now that you've attached your disk and enabled the LUN, you must create and attach it as an iSCSI datastore to your Azure VMware Solution private cloud. See [Attach the disk pool](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md#attach-the-disk-pool) for details.
+
 # [Azure CLI](#tab/azure-cli)
 
 ### Prerequisites
@@ -149,6 +151,8 @@ targetUpdateArgs+=(--luns name=$lunName managed-disk-azure-resource-id=$diskId)
 
 az disk-pool iscsi-target update "${targetUpdateArgs[@]}"
 ```
+
+Now that you've attached your disk and enabled the LUN, you must create and attach it as an iSCSI datastore to your Azure VMware Solution private cloud. See [Attach the disk pool](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md#attach-the-disk-pool) for details.
 
 ---
 
