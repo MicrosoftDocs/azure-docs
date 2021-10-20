@@ -73,7 +73,7 @@ To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-ten
 
 1. Continue creating your workflow by adding one or more actions.
 
-1. On the designer toolbar, select **Save** to save your changes.
+1. On the designer toolbar, select **Save**.
 
 ---
 
@@ -89,7 +89,7 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#).
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **New step** or **Add an action**, if between steps.
 
@@ -108,7 +108,7 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
    | **Azure Cosmos DB account name** | Yes | Either select **Use connection settings (<*Azure-Cosmos-DB-account-name*>)**, or manually enter the name. | The account name for your Azure Cosmos DB account. |
    | **Database ID** | Yes | <*database-ID*> | The database that you want to connect. |
    | **Container ID** | Yes | <*container-ID*> | The container that you want to query. |
-   | **Document** | Yes | <*JSON-document-to-create*> | The JSON document that you want to create. This example uses the request body from the trigger output. <p><p>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the `id` property and the partition key property for your document. If a document with the specified `id` and partition key already exist, the document is updated. Otherwise, a new document is created. |
+   | **Document** | Yes | <*JSON-document*> | The JSON document that you want to create. This example uses the request body from the trigger output. <p><p>**Tip**: If the HTTP trigger's **Body** token doesn't appear in the dynamic content list for you to add, next to the trigger name, select **See more**. <p><p>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the `id` property and the partition key property for your document. If a document with the specified `id` and partition key already exist, the document is updated. Otherwise, a new document is created. |
    |||||
 
    The following image shows an example action:
@@ -116,6 +116,8 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
    :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-create-action.png" alt-text="Screenshot showing the workflow designer for a Consumption logic app workflow with the Azure Cosmos DB 'Create or update documents (V3)' action and parameters configuration.":::
 
 1. Configure other action settings as needed.
+
+1. On the designer toolbar, select **Save**.
 
 1. Test your logic app to make sure your workflow creates a document in the specified container.
 
@@ -127,39 +129,40 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#) with a simple schema defined that represents the document you want to create.
+   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger) that includes a simple schema that defines the document that you want to create.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and workflow designer with the configuration of an http trigger for a Standard logic app workflow.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-http-trigger.png" alt-text="Screenshot showing the Azure portal and workflow designer for a Standard logic app workflow with the Request trigger, 'When a HTTP request is received', and parameters configuration.":::
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **Insert a new step** (**+**) > **Add an action**.
 
-1. On the designer, make sure that **Add an operation** is selected. In the **Add an action** pane that opens, under the **Choose an operation** search box, select **Built-in** to find the **Azure Cosmos DB** actions. There are also *managed* actions available in the **Azure** tab, but these should only be used if the action you are looking for is not offered as *built-in*.
+1. On the designer, make sure that **Add an operation** is selected. In the **Add an action** pane that opens, under the **Choose an operation** search box, select **Built-in** to find the **Azure Cosmos DB** actions.
+
+   > [!NOTE]
+   > If you have a stateful workflow, *managed connector* actions are also available on the **Azure** tab, but use them only when the *built-in* actions that you want aren't available.
 
 1. In the search box, enter `Azure Cosmos DB`. Select the Azure Cosmos DB action that you want to use.
 
-   This example uses the action named **Create or update item (preview)**, which creates a new item or updates an existing item if it already exists.
+   This example uses the action named **Create or update item (preview)**, which creates a new item or updates an existing item.
 
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-action-add.png" alt-text="Screenshot showing the Azure portal and workflow designer with a Standard logic app workflow and the available Azure Cosmos DB actions.":::
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-action-add.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow and available Azure Cosmos DB actions.":::
 
-1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account](#connect-to-azure-cosmos-db).
+1. If you're prompted for connection details, [create a connection to your Azure Cosmos DB account now](#connect-to-azure-cosmos-db).
 
 1. Provide the necessary information for the action.
 
-    1. For **Database Id** enter the database you want to connect to.
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Database Id** | Yes | <*database-ID*> | The database that you want to connect. |
+   | **Container Id** | Yes | <*container-ID*> | The container that you want to query. |
+   | **Item** | Yes | <*JSON-document*> | The JSON document that you want to create. This example uses the request body from the trigger output. <p><p>**Tip**: If the HTTP trigger's **Body** token doesn't appear in the dynamic content list for you to add, next to the trigger name, select **See more**. <p><p>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the `id` property and the partition key property for your document. If a document with the specified `id` and partition key already exist, the document is updated. Otherwise, a new document is created. | 
+   | **Partition key** | Yes | <*partition-key*> | The partition key value for the document that you want to create. If this property doesn't appear, open **Add new parameter** list, and select **Partition key**. <p><p>>**Important**: Although this property isn't marked as required with an asterisk (*), the property is actually required for the workflow to succeed.||||
+   |||||
 
-    1. For **Container Id** enter the container you want to query.
+   The following image shows an example action:
 
-    1. For **Item** enter the JSON document you want to create. For this example, we are using the request body from the output of the trigger. Ensure the body is well-formed JSON and that it contains a minimum of the `id` property as well as the partition key property for your container. If a document with the specified `id` and partition key already exists, it will be updated, otherwise a new document will be created.
+   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-create-action.png" alt-text="Screenshot showing workflow designer for a Standard logic app workflow with the Azure Cosmos DB 'Create or update item' action and parameters configuration.":::
 
-    > Tip: If the HTTP trigger body doesn't show up as dynamic content to add, select **see more** and it should appear in the list.
-
-    1. For **Partition key** enter the partition key value for the document you want to create.
-
-    > Important: This doesn't show as a required property on the UI, but is actually a required property for the workflow to succeed. To find this property, select **Add new parameter** and select **Partition key** from the drop down.
-
-     :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-create-action.png" alt-text="Screenshot of Standard logic app in designer, showing configuration of the Azure Cosmos DB 'Create or update item' action.":::
-
-    1. Configure other action settings as needed
+1. Configure other action settings as needed
 
 1. On the designer toolbar, select **Save**.
 
@@ -171,38 +174,32 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
+Before you can configure your [Azure Cosmos DB trigger](#add-azure-cosmos-db-trigger) or [Azure Cosmos DB action](#add-azure-cosmos-db-action), you need to connect to a database account.
+
 ### [Consumption](#tab/consumption)
 
-Before you can configure your [Azure Cosmos DB trigger](#add-azure-cosmos-db-trigger) or [Azure Cosmos DB action](#add-azure-cosmos-db-action), you need to connect to a database account. A connection requires the following properties:
+In a **Logic App (Consumption)** workflow, an Azure Cosmos DB connection requires the following property values:
 
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
-| **Connection name** | Yes | <*connection name*> | The name to use for your connection. |
-| **Authentication type** | Yes | <*type of connection*> | If you select `Access Key` continue filling out the remaining required items to create a connection. If you select `Azure AD Integrated` there are no additional fields, but you will have to configure your connection using [these steps](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
-| **Access key** | Yes | <*access key*> | Enter the access key of the Azure Cosmos DB account you would like to use for this connection, either a read-write key or a read-only key. <p>**Note**: To find the key, go to the Azure Cosmos DB account's page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available values. |
-| **Account Id** | Yes | <*acccount id*> | Enter the name of the Azure Cosmos DB account you would like to use for this connection. |
+| **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
+| **Authentication Type** | Yes | <*connection-type*> | The authentication type that you want to use. This example uses **Access key**. <p><p>- If you select **Access Key**, continue providing the remaining required property values to create the connection. <p><p>- If you select **Azure AD Integrated**, no other property values are required, but you have to configure your connection by following the steps for [Azure AD authentication and Cosmos DB connector](/connectors/documentdb/#azure-ad-authentication-and-cosmos-db-connector).  |
+| **Access key to your Cosmos DB account** | Yes | <*access-key*> | The access key for the Azure Cosmos DB account to use for this connection. This value is either a read-write key or a read-only key. <p><p>**Note**: To find the key, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available key values. |
+| **Account Id** | Yes | <*acccount-ID*> | The name for the Azure Cosmos DB account to use for this connection. |
+|||||
 
-To create an Azure Cosmos DB connection from a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
+The following image shows an example connection:
 
-1. For **Connection name**, enter a name for your connection.
-
-1. For **Authentication type**, select the authentication type that you want to use. This example uses `Access Key`.
-
-1. For **Access key**, enter the Azure Cosmos DB key you would like to use.
-
-1. For **Account Id**, enter the name of the Azure Cosmos DB account you would like to use.
-
-1. Select **Create** to establish your connection.
-
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-connection-configure.png" alt-text="Screenshot that shows the workflow designer with a Consumption logic app workflow and configuration to add a new connection for the Azure Cosmos DB step.":::
+:::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-connection-configure.png" alt-text="Screenshot showing an exmaple Azure Cosmos DB connection configuration for a Consumption logic app workflow.":::
 
 > [!NOTE]
-> After you create your connection, if you have a different existing Azure Cosmos DB connection 
-> that you want to use instead or if you want to create another new connection, select **Change connection** in the trigger or action details editor.
+> After you create your connection, if you have a different existing Azure Cosmos DB connection that 
+> you want to use instead, or if you want to create another new connection, select **Change connection** 
+> in the trigger or action details editor.
 
 ### [Standard](#tab/standard)
 
-Before you can configure your [Azure Cosmos DB trigger](#add-azure-cosmos-db-trigger) or [Azure Cosmos DB action](#add-azure-cosmos-db-action), you need to connect to a database account. A connection requires the following properties:
+In a **Logic App (Standard)** workflow, an Azure Cosmos DB connection requires the following property values:
 
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
@@ -227,9 +224,9 @@ To create an Azure Cosmos DB connection from a logic app workflow in single-tena
 
 ## Connector reference
 
-For reference information about the *managed* operations for this connector, such as triggers, actions, and limits, review the [connector's reference page](/connectors/documentdb/).
+For reference information about the Azure Cosmos DB *managed connector* operations, such as triggers, actions, and limits, review the [connector's reference page](/connectors/documentdb/).
 
-There is no corresponding reference page for the *built-in* operations, refer to the table below for information.
+No corresponding reference page exists for Azure Cosmos DB *built-in* operations. Instead, review the following table for more information:
 
 |Type |Name |Parameters |
 |-----|-----|-----------|
