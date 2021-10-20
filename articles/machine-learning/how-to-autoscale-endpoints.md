@@ -51,11 +51,15 @@ The following snippet creates the autoscale profile:
 
 # [Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com), select one of your endpoint deployments. You can find the endpoint deployment by looking in the resource group that contains your workspace or by searching for a resource of type __Machine learning online deployment__.
+In [Azure Machine Lerning studio](https://ml.azure.com), select your workspace and then select __Endpoints__ from the left side of the page. Once the endpoints are listed, select the one you want to configure.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot of an endpoint deployment entry in the portal.":::
 
-In properties for the deployment, select __Scaling__ from the left of the page and then select __Custom autoscale__ to begin the configuration. For the default scale condition, use the following values:
+From the __Details__ tab for the endpoint, select __Configure auto scaling__.
+
+:::image type="content" source=".media/how-to-autoscale-endpoints/configure-auto-scaling.png" alt-text="Screenshot of the configure auto scaling link in endpoint details.":::
+
+Under __Choose how to scale your resources__, select __Custom autoscale__ to begin the configuration. For the default scale condition, use the following values:
 
 * Set __Scale mode__ to __Scale based on a metric__.
 * Set __Minimum__ to __2__.
