@@ -60,15 +60,15 @@ New built-in preview roles provide a granular set of permissions over content on
 
 To add your subscription to the preview:
 
-1. Navigate to the **Subscriptions** blade in the [Azure Portal](https://portal.azure.com/).
+1. Navigate to the **Subscriptions** page in the [Azure portal](https://portal.azure.com/).
 1. Select the subscription you want to use.
 1. On the left-hand side of the subscription page, select **Preview Features**.
 1. Use the search bar or filters to find and select **Role Based Access Control for Search Service (Preview)**
-1. Click **Register** to add the feature to your subscription.
+1. Select **Register** to add the feature to your subscription.
 
 ![sign up for rbac on afec](media/search-howto-aad/rbac-signup-afec.png)
 
-For more details, on adding preview features, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+For more information on adding preview features, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
 
 
 ## Step 2: Preview configuration
