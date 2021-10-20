@@ -245,7 +245,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
 ### [Python SDK](#tab/sdk)
 
-You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Kubernetes clusters as compute targets using the [`attach_configuration`](/python/api/azureml-core/azureml.core.compute.kubernetescompute.kubernetescompute?view=azure-ml-py) method.
+You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Kubernetes clusters as compute targets using the [`attach_configuration`](/python/api/azureml-core/azureml.core.compute.kubernetescompute.kubernetescompute?view=azure-ml-py&preserve-view=true) method.
 
 The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
 
