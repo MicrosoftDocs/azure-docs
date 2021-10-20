@@ -197,7 +197,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 Once the portPairDescriptor of the target port pair is identified, the ExpressRoute Partner can use the expressRouteCrossConnection API to move the ExpressRoute circuit to a specific port pair.
 
-https://docs.microsoft.com/en-us/rest/api/expressroute/express-route-cross-connections/create-or-update
+https://docs.microsoft.com/rest/api/expressroute/express-route-cross-connections/create-or-update
 
 Currently this API is used by providers to update provisioning state of circuit. This same API will be used by providers to update port pair of the circuit.
 
