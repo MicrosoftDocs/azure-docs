@@ -1,4 +1,5 @@
 # Quickstart:Create and run a chaos experiment using the Azure portal
+Get started with Chaos Studio by using VM Shutdown fault to make your service more resilient to that failure in real-world. 
 ## Sign in to Azure portal 
 Sign in to the Azure portal at https://portal.azure.com
 ## Create a VM resource
@@ -61,6 +62,12 @@ Sign in to the Azure portal at https://portal.azure.com
 3. When the Status changes to Running, click Details for the latest run under History to see details for the running experiment
 
 ## Clean up resources
+1. Search the VM that you created on the Azure portal serach bar.
+![Select the VM](images/quickstart-cleanup.PNG)
+
+2. Click on **delete** to avoid being charged for the resource.
 
 ## Next steps
-In this quickstart, you created the VM targets, created and expriment using those targets. You can now use all the data 
+Now that you have run a VM shutdown service-direct experiment, you are ready to:
+- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
+
