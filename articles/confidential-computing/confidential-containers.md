@@ -11,9 +11,9 @@
 
 # Confidential containers on Azure
 
-Azure confidential computing offers confidential containers. There are multiple [options you can choose for confidential containers](choose-confidential-containers-offerings.md). Secured, isolated spaces with attestation improve the overall security of your container deployments. 
+Azure confidential computing offers confidential containers. There are multiple [options you can choose for confidential containers](choose-confidential-containers-offerings.md). Secured and isolated environments with attestation, improve the overall security of your container deployments. 
 
-A hardware-based Trusted Execution Environment (TEE) provides strong assurances. A TEE provides hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allow verification of these measurements and validate if the container apps run in a safe, trusted verifiable execution environment.
+A hardware-based Trusted Execution Environment (TEE) provides strong assurances. A TEE provides hardware and software measurements from trusted computing base (TCB) components. Confidential containers offerings on Azure allow verification of these measurements and validate if the container apps run in a verifiable execution environment.
 
 Confidential containers support custom applications developed with any programming languages. You can also run Docker container apps off the shelf.
 
@@ -21,7 +21,7 @@ Confidential containers support custom applications developed with any programmi
 
 ## Enablers with Intel SGX on Azure Kubernetes Service(AKS)
 
- To run an existing Docker container, applications on confidential computing nodes require an abstraction layer or Intel Software Guard Extensions (SGX) software to use the special CPU instruction set. Configure SGX to protect your sensitive application code. SGX creates a direct execution to the CPU to remove the guest operating system (OS), host OS, or hypervisor. This step reduces the overall surface attack areas and vulnerabilities.
+ To run an existing Docker container, applications on confidential computing nodes require an abstraction layer or Intel Software Guard Extensions (SGX) software to use the special CPU instruction set. Configure SGX to protect your sensitive application code. SGX creates a direct execution to the CPU to remove the guest operating system (OS), host OS, or hypervisor from the trust boundary. This step reduces the overall surface attack areas and vulnerabilities.
 
 Azure Kubernetes Service (AKS) fully supports confidential containers. You can run existing containers confidentially on AKS.
 
