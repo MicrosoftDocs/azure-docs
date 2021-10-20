@@ -16,8 +16,6 @@ ms.author: allensu
 
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses.  Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
-> [!VIDEO https://www.youtube.com/embed/2Ng_uM0ZaB4]
-
 :::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix.":::
 
 *Figure: Virtual Network NAT*
@@ -85,17 +83,6 @@ NAT is non zonal by default. When creating [availability zones](../../availabili
 :::image type="content" source="./media/nat-overview/az-directions.png" alt-text="Figure shows three zonal stacks, each of which contains a NAT gateway and a subnet.":::
 
 *Figure: Virtual Network NAT with availability zones*
-## Multi-dimensional metrics for observability
-
-You can monitor the operation of your NAT through multi-dimensional metrics exposed in Azure Monitor. These metrics can be used to observe the usage and for troubleshooting.  NAT gateway resources expose the following metrics:
-
-- Bytes
-- Packets
-- Dropped Packets
-- Total SNAT connections
-- SNAT connection state transitions per interval.
-
-Learn more about [NAT gateway metrics](./nat-metrics.md).
 
 ## Pricing and SLA
 
@@ -112,4 +99,4 @@ For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/p
 
 * Learn [how to get better outbound connectivity using an Azure NAT Gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
-* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
+* Learn more about [NAT gateway metrics](./nat-metrics.md).
