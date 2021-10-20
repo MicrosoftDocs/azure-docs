@@ -54,20 +54,20 @@ The following example validates a GraphQL query. Requests larger than 100 kb or 
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-graphql-request | Root element.                                                                                                                               | Yes      |
-| authorize | Add one or more of these elements to provides field-level authorization with both request- and field-level errors.   | Yes |
-| if | Add one or more of these elements for conditional changse to the action for a field-level authorization. | No |
+| `validate-graphql-request` | Root element.                                                                                                                               | Yes      |
+| `authorize` | Add one or more of these elements to provides field-level authorization with both request- and field-level errors.   | Yes |
+| `if` | Add one or more of these elements for conditional changes to the action for a field-level authorization. | No |
 
 ### Attributes
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| error-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| max-size | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
-| max-depth | An integer. Maximum query depth. | No | 6 |
-| path | Query path to execute authorization validation on. | Yes | N/A |
-| action | [Action](#request-actions) to perform for the matching field. May be changed if a matching condition is specified. |  Yes     | N/A   |
-| condition | Boolean value that determines if the [policy expression](api-management-policy-expressions.md) matches. The first matching condition is used. | No | N/A |
+| `error-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| `max-size` | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
+| `max-depth` | An integer. Maximum query depth. | No | 6 |
+| `path` | Query path to execute authorization validation on. | Yes | N/A |
+| `action` | [Action](#request-actions) to perform for the matching field. May be changed if a matching condition is specified. |  Yes     | N/A   |
+| `condition` | Boolean value that determines if the [policy expression](api-management-policy-expressions.md) matches. The first matching condition is used. | No | N/A |
 
 ### Request actions
 
@@ -75,9 +75,9 @@ Available actions are described in the following table.
 
 |Action |Description  |
 |---------|---------|
-|reject     | A request error happens, and the request is not sent to the back end   .     |
-|remove     | A field error happens, and the field is removed from the request.         |
-|allow     | The field is passed to the back end.        |
+|`reject`     | A request error happens, and the request is not sent to the back end   .     |
+|`remove`     | A field error happens, and the field is removed from the request.         |
+|`allow`     | The field is passed to the back end.        |
 
 ### Usage
 
