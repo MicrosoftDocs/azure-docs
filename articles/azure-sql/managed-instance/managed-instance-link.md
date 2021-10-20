@@ -26,10 +26,10 @@ The link feature is released in limited public preview with support for SQL Serv
 
 ## Scenarios supported
 
-Data replicated from SQL Server to Managed Instance in Azure can be used with a variety of scenarios, as indicated the diagram below. Namely these scenarios are:
+Data replicated from SQL Server to Managed Instance in Azure can be used with various scenarios, as indicated the diagram below. Namely these scenarios are:
 
 (1) Using Azure services with SQL Server data, without migrating to the cloud
-- Examples of these can include offloading reporting, analytics backups, ML and other jobs to Azure
+- Examples of these can include offloading reporting, analytics backups, ML, and other jobs to Azure
 
 (2) Offload on-premises application R/O workloads to Azure
 - Examples of this includes an application that uses SQL Server for R/W workloads, while offloading R/O workloads to Managed Instance in any of Azure’s 60+ regions worldwide.
@@ -41,25 +41,25 @@ In addition, managed instance link provides an enhanced migrations experience:
 - True online migration to Managed Instance Business Critical service tier
 - Consolidation and deconsolidation of SQL Server workloads in Azure
 
-The link is database scoped (one link per one database), allowing for consolidation and deconsolidation of workloads in Azure. For example, you can replicate data from multiple SQL Servers to a single Managed Instance in Azure (consolidation), or replicate from a single SQL Server to multiple Managed Instances to any of Azure’s 60+ regions worldwide (deconsolidation). The later provides you with an efficient way to quickly bring your workloads closer to your customers in any region worldwide which you can leverage as R/O replicas.
+The link is database scoped (one link per one database), allowing for consolidation and deconsolidation of workloads in Azure. For example, you can replicate data from multiple SQL Servers to a single Managed Instance in Azure (consolidation), or replicate from a single SQL Server to multiple Managed Instances to any of Azure’s 60+ regions worldwide (deconsolidation). The latter provides you with an efficient way to quickly bring your workloads closer to your customers in any region worldwide, which you can use as R/O replicas.
 
 In a case of a disaster on-premises, you can rely on Managed Instance in Azure as your safe DR site for business continuity – either for R/O access to your on-premises data until the primary node is back online, or to full R/W node in Azure in case you decide to failover to the cloud on-demand.
 
 ## How does it work
 
-The underlying technology behind Managed Instance link is Distributed Availability Groups. The solution supports single-node systems without existing availability groups, or multiple node systems with existing availability groups. With the link established, the primary database on SQL Server is R/W accessible, while replicated database to SQL Managed Instance in Azure is R/O accessible. This allows for a variety of scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading R/O workloads to Azure. Examples of this include offloading on-premises application R/O traffic to any of Azure’s 60+ regions worldwide, or offloading reporting, analytics or ML workloads to Azure. Managed Instance, in parallel, can also host independent R/W databases. This allows for copying the replicated database to another R/W database on the same Managed Instance, for further data processing.
+The underlying technology behind Managed Instance link is Distributed Availability Groups. The solution supports single-node systems without existing availability groups, or multiple node systems with existing availability groups. With the link established, the primary database on SQL Server is R/W accessible, while replicated database to SQL Managed Instance in Azure is R/O accessible. This allows for various scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading R/O workloads to Azure. Examples of this include offloading on-premises application R/O traffic to any of Azure’s 60+ regions worldwide, or offloading reporting, analytics, or ML workloads to Azure. Managed Instance, in parallel, can also host independent R/W databases. This allows for copying the replicated database to another R/W database on the same Managed Instance, for further data processing.
 
 ![Managed Instance link how does it work](./media/managed-instance-link/mi-link-ag-dag.png)
 
-Secure connectivity, such is VPN or Express Route is used between an on-premises network and Azure. In case that SQL Server is hosted in Azure VM, internal Azure backbone can be used between the VM and Managed Instance – such is for example global VNet peering. The trust between the two systems is established using certificate-based authentication, in which SQL Server and Managed Instance exchange their public keys.
+Secure connectivity, such is VPN or Express Route is used between an on-premises network and Azure. In case that SQL Server is hosted in Azure VM, internal Azure backbone can be used between the VM and Managed Instance – such is, for example, global VNet peering. The trust between the two systems is established using certificate-based authentication, in which SQL Server and Managed Instance exchange their public keys.
 
-There could exist up to 100 links from the same, or various SQL Server sources to a single Managed Instance. This limit is governed by the number of databases that could be hosted on Managed Instance at this time. Likewise, a single SQL Server can establish multiple parallel database replication links with several Managed Instances in different Azure regions. The feature requires CU13 or higher to be installed on SQL Server 2019. The new SQL Server 2022 CTP1 can be used out of the box without any additional CUs required.
+There could exist up to 100 links from the same, or various SQL Server sources to a single Managed Instance. This limit is governed by the number of databases that could be hosted on Managed Instance at this time. Likewise, a single SQL Server can establish multiple parallel database replication links with several Managed Instances in different Azure regions. The feature requires CU13 or higher to be installed on SQL Server 2019. The new SQL Server 2022 CTP1 can be used out of the box without any CUs required.
 
 ## Sign-up for managed instance link
 
 To use the link feature, you will need:
 - SQL Server 2019 Enterprise Edition with CU13 (or above), or SQL Server 2022 CTP1, installed on-premises or in Azure VM
-- In case of running SQL Server on-premises, a VPN link, or Express Route is required to connect on-premises network with Azure
+- If SQL Server is running on-premises, a VPN link, or Express Route is required to connect on-premises network with Azure
 - Managed Instance, either GP or BC service tier, provisioned in Azure
 
 Use the below link to sign-up for managed instance link limited preview. We are onboarding customers on the rolling basis as a limited number of seats is available. You will be placed in a queue and onboarded at the first available opportunity.
