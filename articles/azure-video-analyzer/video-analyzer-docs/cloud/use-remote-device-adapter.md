@@ -41,9 +41,9 @@ The following are required for this how-to guide:
 ## Overview
 The following is a overview of the instructions of this how-to guide:
 
-* Provision a device entry on IoT Hub to represent the legacy camera device
-* Create a device adapter with Video Analyzer edge to proxy the legacy camera as a transparent gateway
-* Reference the IoT Camera device in the cloud live topology and pipeline to ingest data from the camera.
+1. Provision a device entry on IoT Hub to represent the legacy camera device
+1. Create a device adapter with Video Analyzer edge to proxy the legacy camera as a transparent gateway
+1. Reference the IoT Camera device in the cloud live topology and pipeline to ingest data from the camera.
 
 ## Provisioning IoT device entry/credentials
 
