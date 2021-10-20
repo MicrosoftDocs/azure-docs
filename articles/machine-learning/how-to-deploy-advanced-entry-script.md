@@ -204,6 +204,15 @@ def run(request):
         return resp
     else:
         return AMLResponse("bad request", 500)
+    elif request.method == 'OPTIONS':
+        resp = AMLResponse("", 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "<remote origin>"
+        resp.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept"
+        return resp
+    else:
+        return AMLResponse("bad request", 400)
 ```
 
 > [!IMPORTANT]
