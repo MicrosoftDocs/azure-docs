@@ -28,7 +28,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## Deploy your model
 
-1. Go to your project in [Langugae Studio](https://aka.ms/custom-classification)
+1. Go to your project in [Language Studio](https://aka.ms/custom-classification)
 
 2. Select **Deploy model** from the left side menu.
 
