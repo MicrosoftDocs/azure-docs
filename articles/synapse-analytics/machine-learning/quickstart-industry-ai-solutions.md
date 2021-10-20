@@ -27,7 +27,7 @@ The **Retail - Product recommendations** solution provides a robust and scalable
 
 You may need to customize the pre-configured Notebook to ensure it meets your unique business requirements.
 
-This Retail recommendation solution can be deployed in two different modes. You can try it out with sample data, or use a database modeled according to the Retail Database Template in Synapse.
+This Retail recommendation solution can be deployed in two different modes. You can try it out with sample data, or use a database modeled using the Database Template for Retail in Synapse.
 
 The **Retail - Product recommendations** solution provides a recommendation pipeline for content-based filtering recommendations. The content-based filtering pipeline uses the LightGBM algorithm to train a model for predicting the user preferences based on user and item features. The features can be static features like user profile and item profile, as well as dynamic features like the aggregated user behavior patterns. The content-based filtering typed recommendation system is often used for recommendations such as "personalized recommendation" or "new products you may like".
 
@@ -36,14 +36,17 @@ The **Retail - Product recommendations** solution provides a recommendation pipe
 1. Open your Synapse workspace
 1. From your Home screen, select **Knowledge center** in the **Discover more** section
 1. In the Knowledge center, select **Browse gallery**
-1. In the Gallery, select the **Lake Database Templates** tab, scroll down to the **AI solutions** section, and select the "Retail - Product recommendations" solution. Click **Continue**.
+1. In the Gallery, select the **Database Templates** tab, scroll down to the **AI solutions** section, and select the "Retail - Product recommendations" solution. Click **Continue**.
+1. You can choose between two options:
+   * "Use sample data" 
+   * "Use my own data from a workspace database". This option can for example be a database modeled with the Retail Database template.
+   
+    Clicking **Deploy** will open a Notebook in your Synapse workspace.
 
-   :::image type="content" source="media\quickstart-industry-ai-solutions\retail-product-recommendation-1.png" alt-text="Screenshot of the Gallery, selecting the 'Retail - Product recommendations' solution." border="false":::
-
-You can choose to open a version of the solution notebook based on sample data or your own database modeled with the Retail Lake Database template.
+1. A Notebook will now be opened in your workspace. You can attach this Notebook to a Spark pool and start exploring it. Please be aware that this Notebook is meant to be customized to your specific needs.
 
 > [!NOTE]
-> If you choose your own database, you need to customize the Notebook to use your own table names.
+> If you choose your own database, you need to customize the Notebook to use your own table and column names.
 
 ## Next steps
 
