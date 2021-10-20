@@ -185,4 +185,10 @@ One of the following values must be selected:
 
 ## Next steps
 
+For additional information, review the following articles:
+
+- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+
+- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
+
 - [Learn more about IDEMIA mID](https://www.idemia.com/mobile-id)
