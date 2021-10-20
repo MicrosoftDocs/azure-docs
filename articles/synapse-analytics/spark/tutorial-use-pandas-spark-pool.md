@@ -14,7 +14,7 @@ ms.author: ajagarw
 
 # Tutorial: Use Pandas to read/write Azure Data Lake Storage Gen2 data in serverless Apache Spark pool in Synapse Analytics
 
-Learn how to use Pandas to read/write data to Azure Data Lake Storage Gen2 (ADLS) using a serverless Apache Spark pool in Azure Synapse Analytics.
+Learn how to use Pandas to read/write data to Azure Data Lake Storage Gen2 (ADLS) using a serverless Apache Spark pool in Azure Synapse Analytics. Examples in this tutorial show you how to read csv data with Pandas in Synapse, as well as excel and parquet files.
 
 In this tutorial, you'll learn how to:
 
