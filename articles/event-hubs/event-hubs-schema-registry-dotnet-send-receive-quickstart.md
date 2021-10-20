@@ -73,7 +73,7 @@ To complete this quickstart, you need the following prerequisites:
     Install-Package Azure.ResourceManager.Compute -Version 1.0.0-beta.1
 
     ```
-1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio.).  
+1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio&preserve-view=true).  
 
 ### Code generation using the Avro schema  
 1. You can use the same schema content and create the Avro schema file ``Order.avsc`` file inside the OrderProducer project. 
@@ -202,7 +202,7 @@ This section shows how to write a .NET Core console application that receives ev
     Install-Package Azure.ResourceManager.Compute -Version 1.0.0-beta.1
 
     ```
-1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio). 
+1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet#authenticating-via-visual-studio&preserve-view=true). 
 
 
 
