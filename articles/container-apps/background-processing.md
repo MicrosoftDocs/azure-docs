@@ -195,13 +195,12 @@ This command deploys the demo background application from the public container i
 ### Query Log Analytics
 
 The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
-Run the following command to see logged messages. This command requires the Application Insights extension, so accept the prompt to install extension when requested.
+Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
 ```azurecli
-az monitor app-insights query \
-  --apps $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'queuereader' and Log_s contains 'Message ID'" \
-  --offset 48h
+az monitor log-analytics query \
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'queuereaderapp' and Log_s contains 'Message ID'" 
 ```
 
 ## Clean up resources
