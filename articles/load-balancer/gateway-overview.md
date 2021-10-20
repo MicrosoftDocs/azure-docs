@@ -43,6 +43,8 @@ Gateway Load Balancer has the following benefits:
 
 * Improve network virtual appliance availability.
 
+* Chain applications across regions and subscriptions
+
 A Standard Public Load balancer or the IP configuration of a virtual machine can be chained to a Gateway Load Balancer. Once chained to a Standard Public Load Balancer frontend or IP configuration on a virtual machine, no additional configuration is needed to ensure traffic to and from the application endpoint is sent to the Gateway Load Balancer.
 
 Traffic moves from the consumer virtual network to the provider virtual network. The traffic then returns to the consumer virtual network. The consumer virtual network and provider virtual network can be in different subscriptions, tenants, or regions removing management overhead.
@@ -78,7 +80,8 @@ For pricing that will be effective during the general availability release, see 
 ## Limitations
 
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
-* Gateway Load Balancer Portal support is currently unavailable in China cloud and Government cloud regions. CLI, PowerShell, Templates or API can be used.
+* Gateway Load Balancer portal support is currently unavailable in China cloud and Government cloud regions. CLI, PowerShell, Templates or alternatives can be used.
+* Cross-tenant chaining is not supported through the Azure portal.
 
 ## Next steps
 
