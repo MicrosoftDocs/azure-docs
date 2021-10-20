@@ -67,16 +67,22 @@ You can use the following PowerShell script to create a custom gMSA account.  Th
 #
 #
 #
-# Declare variables 
+# Declare variables
 $Name = 'provAPP1gMSA'
 $Description = "Azure AD Cloud Sync service account for APP1 server"
 $Server = "APP1.contoso.com"
 $Principal = Get-ADGroup 'Domain Computers'
 
-# Create service account
-New-ADServiceAccount -Name $Name `-Description $Description `-DNSHostName $Server `-ManagedPasswordIntervalInDays 30 -PrincipalsAllowedToRetrieveManagedPassword $Principal`-Enabled $True `-PassThru
+# Create service account in Active Directory
+New-ADServiceAccount -Name $Name `
+-Description $Description `
+-DNSHostName $Server `
+-ManagedPasswordIntervalInDays 30 `
+-PrincipalsAllowedToRetrieveManagedPassword $Principal `
+-Enabled $True `
+-PassThru
 
-# Install the new service account
+# Install the new service account on Azure AD Cloud Sync server
 Install-ADServiceAccount -Identity $Name
  ```
 For additional information on the cmdlets above, see [Getting Started with Group Managed Service Accounts](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)?redirectedfrom=MSDN).
