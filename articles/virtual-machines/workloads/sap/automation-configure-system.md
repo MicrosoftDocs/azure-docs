@@ -234,7 +234,6 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 | `anf_sapmnt_volume_size`           | Optional    | Defines the size (in GB) for the 'sapmnt' volume | |
 | `anf_transport_volume_size`        | Optional    | Defines the size (in GB) for the 'sapmnt' volume | |
 
-```
 
 ## Next steps
 

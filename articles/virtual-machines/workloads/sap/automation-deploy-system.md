@@ -18,7 +18,7 @@ The SAP system deploys:
 - The [application tier](#application-tier), which deploys the VMs and their disks.
 - The [SAP central services tier](#central-services-tier), which deploys a customer-defined number of VMs and an Azure Standard Load Balancer.
 - The [web dispatcher tier](#web-dispatcher-tier)
-- The [database tier](#database-tier), which deploys database VMs and their disks and a Standard Azure Load Balancer. You can run [HANA databases](#hana-databases) or [AnyDB databases](#anydb-databases) in this tier.
+- The [database tier](#database-tier), which deploys database VMs and their disks and a Standard Azure Load Balancer. You can run [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) in this tier.
 
 ## Application tier
 
@@ -42,9 +42,9 @@ To set the web server count, define the parameter `web_server_count` for this ti
 
 ## Database tier
 
-The database tier deploys the VMs and their disks, and also an [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md). You can use either [HANA databases](#hana-databases) or [AnyDB databases](#anydb-databases) as your database VMs.
+The database tier deploys the VMs and their disks, and also an [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md). You can use either [HANA databases](automation-configure-extra-disks.md#hana-databases) or [AnyDB databases](automation-configure-extra-disks.md#anydb-databases) as your database VMs.
 
-You can set the size of database VMs with the parameter `size` for this tier. For example, `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. Refer to the **Size** parameter in the tables of [HANA database VM options](#hana-databases) and [AnyDB database VM options](#anydb-databases) for possible values.
+You can set the size of database VMs with the parameter `size` for this tier. For example, `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. Refer to the **Size** parameter in the tables of [HANA database VM options](automation-configure-extra-disks.md#hana-databases) and [AnyDB database VM options](automation-configure-extra-disks.md#anydb-databases) for possible values.
 
 By default, the automation framework deploys the correct disk configuration for HANA database deployments. For HANA database deployments, the framework calculates default disk configuration based on VM size. However, for AnyDB database deployments, the framework calculates default disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, [see the following JSON code sample and replace values as necessary for your configuration](#custom-database-json-settings). Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. For example, `db_disk_sizes_filename = "path/to/JSON/file"`.
 
