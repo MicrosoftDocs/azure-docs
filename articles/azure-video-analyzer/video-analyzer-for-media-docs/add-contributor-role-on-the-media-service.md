@@ -42,4 +42,4 @@ This article describes how to assign contributor role on the Media Services.
 1. To assign the role, click **Review + assign**
 
 <!-- links -->
-[docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contibutor
+[docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contributor
