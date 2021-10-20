@@ -116,7 +116,7 @@ Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-ha
 
 Standard Series (Gen 5) hardware is available in all public regions worldwide.
   
-Premium Series and Premium Series - Memory Optimized hardware is in preview, and has limited regional availability. For more details, please see the RESOURCE LIMITS page
+Premium Series and Premium Series - Memory Optimized hardware is in preview, and has limited regional availability. For more details, please see the [Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics) page
 
 ## Next steps
 
