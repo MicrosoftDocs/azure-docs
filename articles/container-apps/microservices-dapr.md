@@ -85,7 +85,7 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 
 Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
+Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
 
 Create a new Log Analytics workspace with the following command:
 
