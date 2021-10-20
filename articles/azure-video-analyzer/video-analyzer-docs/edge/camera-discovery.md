@@ -156,7 +156,7 @@ The onvifDeviceGet call supports both unsecured and TLS enabled endpoints. This 
                 "password": "<PASSWORD>",
                 "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials"
             },
-            "url": "https://<IP_ADDRESS>/onvif/device_service"
+            "url": "http://<IP_ADDRESS>/onvif/device_service"
         },
         "@apiVersion": "1.1"
     }
@@ -300,6 +300,9 @@ This section covers some troubleshooting steps:
 - The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 - Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF-compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
 - Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast. This also requires that port 3702 is available.
+- If onvifDeviceGet is called with a TLS Endpoint the ONVIF device name and IP address must be added to the hosts (/etc/hosts) file on the edge device.
+- For onvifDeviceDiscover direct method call from an EFLOW virutal machine the following steps must be performed:
+  - Connect to the EFLOW VM and run `sudo iptables -I INPUT -p udp -j ACCEPT`
 
 ## Next steps
 
