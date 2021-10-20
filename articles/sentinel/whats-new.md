@@ -122,10 +122,6 @@ For more information, see:
 - [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 
->[!TIP]
-> We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
->
-
 ### Enable continuous deployment from your content repositories (Public preview)
 
 The new Azure Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspaces. This capability introduces a more streamlined and automated approach for managing and deploying content across Azure Sentinel workspaces.
