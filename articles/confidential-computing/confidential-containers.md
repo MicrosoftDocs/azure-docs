@@ -4,7 +4,7 @@
  services: container-service
  author: agowdamsft
  ms.topic: article
- ms.date: 11/1/2011
+ ms.date: 11/01/2011
  ms.author: amgowda
  ms.service: container-service
 ---
@@ -25,7 +25,7 @@ A hardware based Trusted Execution Environment (TEE) is an important component t
 
 Confidential containers support custom applications developed with any programming languages or allows running off the shelf Docker container apps.
 
-![confidential container protection boundary](./media/confidential-containers/sgx-confidential-container.jpg)
+![Graphic of Kubernetes node, showing SGX protection boundary for confidential container.](./media/confidential-containers/sgx-confidential-container.jpg)
 
 ## Enclave Confidential Container enablers with Intel SGX on Azure Kubernetes Service(AKS)
 
@@ -35,7 +35,7 @@ Confidential containers are fully supported on AKS and enabled through Azure Par
 
 Below is the overall process for taking existing containers and running them confidentially on AKS.
 
-![The confidential container conversion](./media/confidential-containers/confidential-containers-deploy-steps.jpg)
+![Graphing showing the confidential container conversion, showing SGX, add-on and deployment steps](./media/confidential-containers/confidential-containers-deploy-steps.jpg)
 
 ## Partner Enablers
 > [!NOTE]
@@ -52,9 +52,9 @@ Below is the overall process for taking existing containers and running them con
 [SCONE](https://scontain.com/index.html?lang=en) supports security policies that can generate certificates, keys, and secrets, and ensures they are only visible to attested services of an application. In this way, the services of an application automatically attest each other via TLS - without the need to modify the applications nor TLS. This is explained with the help of a simple
 Flask application here: https://sconedocs.github.io/flask_demo/  
 
-SCONE can convert existing most binaries into applications that run inside of enclaves without needing to change the application or to recompile that application. SCONE also protects interpreted languages like Python by encrypting both data files and Python code files. With the help of a SCONE security policy, one can protect the encrypted files against unauthorized accesses, modifications, and rollbacks. How to "sconify" an existing Python application is explained [here](https://sconedocs.github.io/sconify_image/)
+SCONE can convert existing most binaries into applications that run inside of enclaves without needing to change the application or to recompile that application. SCONE also protects interpreted languages like Python by encrypting both data files and Python code files. With the help of a SCONE security policy, one can protect the encrypted files against unauthorized accesses, modifications, and rollbacks. How to "sconify" an existing Python application is explained [in the SCONE docs](https://sconedocs.github.io/sconify_image/)
 
-![Scontain Flow](./media/confidential-containers/scone-workflow.png)
+![Graphic of Scontain flow, showing the workflow.](./media/confidential-containers/scone-workflow.png)
 
 Scone deployments on confidential computing nodes with AKS are fully supported and integrated. Get started with a sample application here https://sconedocs.github.io/aks/
 
@@ -98,12 +98,9 @@ View the confidential healthcare demo with confidential containers. Sample is av
 
 Have questions with your implementation or want to become an enabler? Send an email to acconaks@microsoft.com
 
-## Reference Links
+## Next steps
 
-[Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
-
-[Microsoft Azure Attestation](../attestation/overview.md)
-
-[Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-
-[Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+-[Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
+- [Microsoft Azure Attestation](../attestation/overview.md)
+- [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
+- [Intro to Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)

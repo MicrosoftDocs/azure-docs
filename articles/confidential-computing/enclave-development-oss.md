@@ -1,12 +1,12 @@
 ---
-title: Develop application enclaves with open source solutions 
+title: Develop application enclaves with open-source solutions 
 description: Learn how to use tools to develop Intel SGX applications for confidential computing
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 11/1/2021
+ms.date: 11/01/2021
 ms.author: JenCook
 ---
 
@@ -27,7 +27,6 @@ For example, you can use these open-source frameworks:
 
 If you're not looking to write new application code, you can wrap a containerized application using [confidential container enablers](confidential-containers.md)
 
-
 ### Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 
 Use a library or framework supported by your provider if you want to write code that runs in an enclave. The [Open Enclave SDK](https://github.com/openenclave/openenclave) (OE SDK) is an open-source SDK that allows abstraction over different confidential computing-enabled hardware. 
@@ -43,10 +42,10 @@ The [Intel SGX SDK](https://01.org/intel-softwareguard-extensions) is developed 
 
 ### Confidential Consortium Framework (CCF) <a id="ccf"></a>
 
-The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework leverages the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure Intel SGX virtual machines and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
+The [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) ([CCF](https://www.microsoft.com/research/project/confidential-consortium-framework/)) is an example of a distributed blockchain framework. The CCF is built on top of Azure confidential computing. Spearheaded by Microsoft Research, this framework uses the power of trusted execution environments (TEEs) to create a network of remote enclaves for attestation. Nodes can run on top of Azure Intel SGX virtual machines and take advantage of the enclave infrastructure. Through attestation protocols, users of the blockchain can verify the integrity of one CCF node, and effective verify the entire network.
 
-In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach consensus.
-
+In the CCF, the decentralized ledger is made up of recorded changes to a Key-Value store that is replicated across all the network nodes. Each of these nodes runs a transaction engine that can be triggered by users of the blockchain over TLS. When you trigger an endpoint, you mutate the Key-Value store. Before the encrypted change is recorded to the decentralized ledger, it must be agreed upon by more than one node to reach agreement.
 
 ## Next steps
+
 - [Deploy a confidential computing Intel SGX virtual machine](quick-create-portal.md)
