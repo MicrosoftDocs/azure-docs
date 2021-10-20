@@ -156,6 +156,7 @@ For more information, see:
 
 - [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md)
 - [Threat intelligence integrations](threat-intelligence-integration.md)
+- [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 
 ### Use notebooks with Azure Synapse Analytics in Azure Sentinel
