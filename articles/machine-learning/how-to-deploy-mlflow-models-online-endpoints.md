@@ -15,7 +15,7 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment
 
 # Deploy MLflow models to managed online endpoint (preview)
 
-In this article, learn how to deploy your [MLflow]https://www.mlflow.org) model to managed online endpoint (preview). When you deploy your MLflow model to managed online endpoint, it is a no-code-deployment i.e. it does not require scoring script and environment. 
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to managed online endpoint (preview). When you deploy your MLflow model to managed online endpoint, it is a no-code-deployment i.e. it does not require scoring script and environment. 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -144,7 +144,7 @@ __From Azure Machine Learning studio__
 
 :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
 
-___Using Azure Machine Learning CLI (v2)__
+__Using Azure Machine Learning CLI (v2)__
 
 ```azurecli
 az ml job download -n $run_id --outputs
@@ -152,7 +152,7 @@ az ml job download -n $run_id --outputs
 
 ### 2. Deploy using downloaded files
 
-To deploy using these files, you can use either studio or the Azure command line interface.
+To deploy using these files, you can use either studio or the Azure command line interface. Use the model folder from outputs for deployment.
 
 * [Azure Machine Learning Studio](how-to-deploy-mlflow-models-online-endpoints.md#deploy-using-azure-machine-learning-studio)
 * [Azure Machine Learning CLI (v2)](how-to-deploy-mlflow-models-online-endpoints.md#deploy-using-cli-v2)
