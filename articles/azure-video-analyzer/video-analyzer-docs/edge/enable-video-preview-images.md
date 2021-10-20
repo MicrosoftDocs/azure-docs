@@ -47,7 +47,7 @@ Example:
             }
           ],
           "videoPublishingOptions": {
-            "enableVideoPreviewImage": "true"
+            "enableVideoPreviewImage": true
           },
           "videoCreationProperties": {
             "title": "{$parameter-for-specifying-unique-title-for-each-pipeline}",
