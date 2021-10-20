@@ -155,7 +155,7 @@ To add an Azure Cosmos DB action to a logic app workflow in single-tenant Azure 
    | **Database Id** | Yes | <*database-ID*> | The database that you want to connect. |
    | **Container Id** | Yes | <*container-ID*> | The container that you want to query. |
    | **Item** | Yes | <*JSON-document*> | The JSON document that you want to create. This example uses the request body from the trigger output. <p><p>**Tip**: If the HTTP trigger's **Body** token doesn't appear in the dynamic content list for you to add, next to the trigger name, select **See more**. <p><p>**Note**: Make sure that the body is well-formed JSON, and at a minimum, contains the `id` property and the partition key property for your document. If a document with the specified `id` and partition key already exist, the document is updated. Otherwise, a new document is created. | 
-   | **Partition key** | Yes | <*partition-key*> | The partition key value for the document that you want to create. If this property doesn't appear, open **Add new parameter** list, and select **Partition key**. <p><p>>**Important**: Although this property isn't marked as required with an asterisk (*), the property is actually required for the workflow to succeed.||||
+   | **Partition key** | Yes | <*partition-key*> | The partition key value for the document that you want to create. If this property doesn't appear, open **Add new parameter** list, and select **Partition key**. <p><p>**Important**: Although this property isn't marked as required with an asterisk (*), the property is actually required for the workflow to succeed.||||
    |||||
 
    The following image shows an example action:
@@ -190,7 +190,7 @@ In a **Logic App (Consumption)** workflow, an Azure Cosmos DB connection require
 
 The following image shows an example connection:
 
-:::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-connection-configure.png" alt-text="Screenshot showing an exmaple Azure Cosmos DB connection configuration for a Consumption logic app workflow.":::
+:::image type="content" source="./media/connectors-create-api-cosmosdb/consumption-connection-configure.png" alt-text="Screenshot showing an example Azure Cosmos DB connection configuration for a Consumption logic app workflow.":::
 
 > [!NOTE]
 > After you create your connection, if you have a different existing Azure Cosmos DB connection that 
@@ -203,22 +203,18 @@ In a **Logic App (Standard)** workflow, an Azure Cosmos DB connection requires t
 
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
-| **Connection name** | Yes | <*connection name*> | The name to use for your connection. |
-| **Connection String** | Yes | <*connection string*> | Enter the Azure Cosmos DB connection string you want to use for your connection. <p>**Note**: To find the connection string, go to the Azure Cosmos DB account's page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available connection string values. |
+| **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
+| **Connection String** | Yes | <*connection-string*> | The Azure Cosmos DB connection string to use for your connection. <p>**Note**: To find the connection string, go to the Azure Cosmos DB account page. In the navigation menu, under **Settings**, select **Keys**. Copy one of the available connection string values. |
+|||||
 
-To create an Azure Cosmos DB connection from a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
+The following image shows an example connection:
 
-1. For **Connection name**, enter a name for your connection.
-
-1. For **Connection String**, enter the connection string for the Azure Cosmos DB account that you want to use.
-
-1. Select **Create** to establish your connection.
-
-   :::image type="content" source="./media/connectors-create-api-cosmosdb/standard-connection-configure.png" alt-text="Screenshot that shows the workflow designer with a Standard logic app workflow and a prompt to add a new connection for the Azure Cosmos DB step.":::
+:::image type="content" source="./media/connectors-create-api-cosmosdb/standard-connection-configure.png" alt-text="Screenshot showing an example Azure Cosmos DB connection configuration for a Standard logic app workflow.":::
 
 > [!NOTE]
-> After you create your connection, if you have a different existing Azure Cosmos DB connection 
-> that you want to use instead or if you want to create another new connection, select **Change connection** in the trigger or action details editor.
+> After you create your connection, if you have a different existing Azure Cosmos DB connection that 
+> you want to use instead, or if you want to create another new connection, select **Change connection** 
+> in the trigger or action details editor.
 
 ---
 
