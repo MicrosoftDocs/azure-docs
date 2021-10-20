@@ -130,7 +130,7 @@ items:
         href: custom-language-understanding/how-to/train-model.md
       - name: View model evaluation and scoring
         href: custom-named-entity-recognition/how-to/view-model-evaluation.md
-      - name: Query the runtime
+      - name: Deploy a model and query the runtime API
         href: custom-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
