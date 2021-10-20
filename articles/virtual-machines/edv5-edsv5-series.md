@@ -8,20 +8,21 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 10/20/2021
 ---
 
 # Edv5 and Edsv5-series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Edv5 and Edsv5-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors in a hyper-threaded configuration, and are ideal for various memory-intensive enterprise applications and feature up to 504 GiB of RAM, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). They also support [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These new VM sizes will have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Ev3/Esv3](./ev3-esv3-series.md) sizes with [Gen2 VMs](./generation-2.md). It features an all core Turbo clock speed of 3.4 GHz. 
+The Edv5 and Edsv5-series virtual machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors in a [hyper-threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration featuring an all core Turbo clock speed of 3.5 GHz. Thes VMs are ideal for various memory-intensive enterprise applications and feature up to 672GiB of RAM. These VMs also feature fast and large local SSD storage (up to 3,600 GiB).
 
 ## Edv5-series
 
-Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors. The Edv5 virtual machine sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to the Edv4 VMs. 
+Edv5-series sizes run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors with [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Edv5 virtual machine sizes feature up to 672 GiB of RAM, in addition to fast and large local SSD storage (up to 3,600 GiB). 
 
-[ACU](acu.md): 195 - 210<br>
+These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to these VMs. To use Premium SSD disk storage, select Edsv5 VMs. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
@@ -40,8 +41,8 @@ Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) pro
 | Standard_E20d_v5             | 20 | 160 | 750  | 32 | 193000/1211 | 8 | 10000 |
 | Standard_E32d_v5             | 32 | 256 | 1200 | 32 | 308000/1936 | 8 | 16000 |
 | Standard_E48d_v5             | 48 | 384 | 1800 | 32 | 462000/2904 | 8 | 24000 |
-| Standard_E64d_v5             | 64 | 515 | 2400 | 32 | 615000/3872 | 8 | 30000 |
-| Standard_E96d_v5             | 96 | 768 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+| Standard_E64d_v5             | 64 | 512 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+| Standard_E96d_v5             | 96 | 672 | 3600 | 32 | 615000/3872 | 8 | 30000 |
 
 
 <sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
@@ -49,9 +50,10 @@ Edv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) pro
 
 ## Edsv5-series
 
-Edsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors. The Edsv5 virtual machine sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2,400 GiB). These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+Edsv5-series sizes run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors with [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Edsv5 virtual machine sizes feature up to 672 GiB of RAM, in addition to fast and large local SSD storage (up to 3,600 GiB).
 
-[ACU](acu.md): 195-210<br>
+These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
@@ -70,8 +72,8 @@ Edsv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) pr
 | Standard_E20ds_v5             | 20 | 160 | 750  | 32 | 193000/1211(500)  | 32000/480  | 8 | 10000 |
 | Standard_E32ds_v5             | 32 | 256 | 1200 | 32 | 308000/1936(800)  | 51200/768  | 8 | 16000 |
 | Standard_E48ds_v5             | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8 | 24000 |
-| Standard_E64ds_v5             | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8 | 30000 |
-| Standard_E96ds_v5             | 96 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8 | 30000 |
+| Standard_E64ds_v5             | 64 | 512 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8 | 30000 |
+| Standard_E96ds_v5             | 96 | 672 | 3600 | 32 | 615000/3872(1600) | 80000/1200 | 8 | 30000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
