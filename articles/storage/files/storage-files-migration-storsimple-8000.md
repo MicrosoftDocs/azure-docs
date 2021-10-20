@@ -415,10 +415,8 @@ The same process applies for log files recording successful copies.
 ### Manage a migration job
 
 Migration jobs have the following states:
-* **Never ran**
-    A new job, that has been defined but never ran before.
-* **Waiting**
-    A job in this state is waiting for resources to be provisioned in the migration service. It will automatically switch to a different state when ready.
+* **Never ran** </br>A new job, that has been defined but never ran before.
+* **Waiting** </br>A job in this state is waiting for resources to be provisioned in the migration service. It will automatically switch to a different state when ready.
 * **Failed** </br>A failed job hit a fatal error that prevents it from processing more backups. A job is not expected to enter this state. A support request is the best course of action.
 * **Canceled** / **Canceling**</br>Either and entire migration job or individual backups within the job can be canceled. Canceled backups won't be processed, a canceled migration job will stop processing more backups. Expect that canceling a job will take a long time. This doesn't prevent you from creating a new job. The best course of action is patience to let a job fully arrive in the **Canceled** state. You can either ignore failed / canceled jobs or delete them at a later time. You won't have to delete jobs before you can delete the Data Manager resource at the end of your StorSimple migration.
 
