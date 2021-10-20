@@ -2,7 +2,10 @@
 ## Sign in to Azure portal 
 Sign in to the Azure portal at https://portal.azure.com
 ## Create a VM resource
-On the Azure portal menu or from the Home page, select **Create a resource**. 
+1. On the Azure portal menu or from the Home page, search for **Virtual machines** in the serach bar. 
+
+    ![Search a virtual machine](images/search-virtual-machine.PNG)
+3. Click on **Create**
 
 
 1. Click **Add an experiment**.
