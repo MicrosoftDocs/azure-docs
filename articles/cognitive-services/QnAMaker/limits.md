@@ -46,9 +46,6 @@ File names may not include the following characters:
 
 The maximum number of files that can be extracted and maximum file size is based on your **[QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
-> [!NOTE]
-> Custom question answering (preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
-
 ### Maximum number of deep-links from URL
 
 The maximum number of deep-links that can be crawled for extraction of QnAs from a URL page is **20**.
