@@ -2,7 +2,13 @@
 ## Sign in to Azure portal 
 Sign in to the Azure portal at https://portal.azure.com
 ## Create a VM resource
-On the Azure portal menu or from the Home page, select Create a resource. 
+On the Azure portal menu or from the Home page, select **Create a resource**. 
+
+
+1. Click **Add an experiment**.
+
+    ![Add an experiment in Azure portal](images/add-an-experiment.png)
+
 ## Create an experiment
 Click Add an experiment, and then provide values for the Resource group, experiment Name, and Location. 
 Click Next: Experiment designer > and add Fault VM Shutdown. 
