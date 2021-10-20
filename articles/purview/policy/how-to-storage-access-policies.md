@@ -40,23 +40,12 @@ To create a new Azure Storage account, refer to [Create a storage account - Azur
 To confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
 
 ```
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p># Install the Az module</p>
-<p>Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force</p>
-<p># Log in into the subscription</p>
-<p>Connect-AzAccount -Subscription &lt;Subscription-ID&gt;</p>
-<p># Check status of the feature</p>
-<p>Get-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage</p></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+# Install the Az module
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+# Login into the subscription
+Connect-AzAccount -Subscription <SubscriptionID>
+# Register the feature
+Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
 ```
 
 If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
