@@ -49,6 +49,10 @@ After deploying your model, you [call the runtime API](how-to/call-api.md). See 
 
 Your data is only stored in your Azure storage account, Custom classification only has access to read from it during training and evaluation. 
 
+<!-- ## How to clone my project?
+
+To clone your project you need to [export]() project assests and then [import]() them into a new project. -->
+
 ## Next steps
 
 [Recommended practices](concepts/recommended-practices.md)

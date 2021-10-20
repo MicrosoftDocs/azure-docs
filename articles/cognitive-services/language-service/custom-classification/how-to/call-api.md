@@ -28,6 +28,21 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## Deploy your model
 
+
+## Prerquistes
+
+* Sucessfully [trained model](train-model.png)
+
+* Install [curl](https://curl.se/download.html)
+
+## Deploy your model
+
+1. Go to your project in [https://aka.ms/custom-classification](https://language.azure.com/customText/projects/classification)
+
+2. Select **Deploy model** from the left side menu.
+
+3. Select the model you want to deploy, then select **Deploy model**.
+
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
 > 1. Select **Test model** from the menu on the left side of your project in Language Studio.
@@ -35,8 +50,6 @@ See the [application development lifecycle](../overview.md#application-developme
 > 3. Add your text to the textbox, you can also upload a `.txt` file. 
 > 4. Click on **Run the test**.
 > 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
-
-You can deploy your model by navigating to your project in [Language Studio](https://language.azure.com/customText/projects/classification), and selecting **Deploy model** from the menu on the left part of the screen.
 
 ## Send a text classification request to your model
 
@@ -56,25 +69,17 @@ You can deploy your model by navigating to your project in [Language Studio](htt
 
 4. Submit the request
 
-5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId}>`
+5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
 6. Copy the retrieve request and replace `jobId` and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
+ You can find more details baout the results in the next section.
+
 # [Using the API](#tab/api)
 
 ### Using the API
-
-You will get the `model id` from the get train results request you submitted earlier. Or you can get the `model id` directly from the Language studio portal.
-
-1. Go to your project in [Language Studio](https://language.azure.com/customText/projects/classification).
-
-2. Select **Deploy model** from the left side menu.
-
-3. If your model is deployed, you will find the `model id` under the **Model id** column.
-
-    :::image type="content" source="../media/get-model-id.png" alt-text="get the model ID" lightbox="../media/get-model-id.png":::
 
 ### Get your resource keys endpoint
 
@@ -84,14 +89,14 @@ You will get the `model id` from the get train results request you submitted ear
 
     :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
 
-### Submit a job request
+### Submit text classification task
 
 > [!NOTE]
 > Project names is case sensitive.
 
 Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze`
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
 
 #### Headers
 
@@ -120,8 +125,9 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
         "customMultiClassificationTasks": [      
             {
                 "parameters": {
-                    "modelId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_MultiClassification_latest",
-                    "stringIndexType": "TextElements_v8"
+                      "project-name": "MyProject",
+                      "deployment-name": "MyDeploymentName"
+                      "stringIndexType": "TextElements_v8"
                 }
             }
         ]
@@ -138,24 +144,23 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |"tasks"|[]| List of tasks we want to perform.|
 |--|customMultiClassificationTasks|Task identifer for task we want to perform. Use `customClassificationTasks` for Single Classification tasks and `customMultiClassificationTasks` for Multi Classification tasks. |
 |parameters|[]|List of parameters to pass to task|
-|modelId| "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_MultiClassification_latest"| Your published Model ID|
+|project-name| "MyProject"| Your project name. Note that project name is case senitive.|
+|deployment-name| "MyDeploymentName"| Your deployment name|
 
 #### Response
 
 You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
 `operation-location` is formatted like this:
 
- `{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId>`
+ `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
 You will use this endpoint in the next step to get the custom classification task results.
 
----
-
-### Orchestrator Get job status/results
+### Get the classification task status and results
 
 Use the following **GET** request to query the status/results of the custom classification task. You can use the endpoint you received from the previous step.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.2/analyze/jobs/<jobId>`.
+`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
 
 #### Headers
 
@@ -163,9 +168,14 @@ Use the following **GET** request to query the status/results of the custom clas
 |--|--|
 |Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
 
-#### Response Body
+You can find more details baout the results in the next section.
 
-The response will be a JSON document with the following parameters
+---
+
+
+#### Text classification task results
+
+The response returned from the Get result call will be a JSON document with the following parameters:
 
 ```json
 {
@@ -222,7 +232,6 @@ The response will be a JSON document with the following parameters
                 "errors": [],
                 "statistics": {
                     "documentsCount":0,
-                    "validDocumentsCount":0,
                     "erroneousDocumentsCount":0,
                     "transactionsCount":0
                 }
