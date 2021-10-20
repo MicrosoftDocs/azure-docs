@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials
 
-In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or TouchID/FaceID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
+In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or TouchID/FaceID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
 
 ## Prerequisites
 
