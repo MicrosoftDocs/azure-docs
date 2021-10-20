@@ -24,7 +24,7 @@ This tutorial assumes you have an Office 365 tenant federated to Okta for sign-i
 
 When you switch from Okta sign-on to Conditional Access, it's important to understand licensing requirements. Conditional Access requires users to have an Azure AD Premium P1 license assigned before registration for Azure AD Multi-Factor Authentication.
 
-Before you do any of the steps for Hybrid Azure AD Join, you'll need an enterprise administrator credential in the on-premises forest to configure the service connection point (SCP) record.
+Before you do any of the steps for hybrid Azure AD join, you'll need an enterprise administrator credential in the on-premises forest to configure the service connection point (SCP) record.
 
 ## Catalog current Okta sign-on policies
 
@@ -60,33 +60,33 @@ In some scenarios, you might need more setup before you configure the Conditiona
 - **Okta network locations to named locations in Azure AD**: Follow the instructions in [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md#named-locations) to configure named locations in Azure AD.
 - **Okta device trust to device-based CA**: Conditional Access offers two possible options when you evaluate a user's device:
 
-  - [Use Hybrid Azure AD Join](#hybrid-azure-ad-join-configuration), which is a feature enabled within the Azure AD Connect server that synchronizes Windows current devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD.
+  - [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), which is a feature enabled within the Azure AD Connect server that synchronizes Windows current devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD.
   - [Enroll the device in Endpoint Manager](#configure-device-compliance) and assign a compliance policy.
 
 ### Hybrid Azure AD join configuration
 
-To enable Hybrid Azure AD Join on your Azure AD Connect server, run the configuration wizard. You'll need to take steps post-configuration to automatically enroll devices.
+To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. You'll need to take steps post-configuration to automatically enroll devices.
 
 >[!NOTE]
->Hybrid Azure AD Join isn't supported with the Azure AD Connect cloud provisioning agents.
+>Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. To enable Hybrid Azure AD Join, follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+1. To enable hybrid Azure AD join, follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 1. On the **SCP configuration** page, select the **Authentication Service** dropdown. Choose your Okta federation provider URL and select **Add**. Enter your on-premises enterprise administrator credentials and then select **Next**.
 
    ![Screenshot that shows SCP configuration.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
 
-1. If you've blocked legacy authentication on Windows clients in either the global or app-level sign-on policy, make a rule to allow the Hybrid Azure AD Join process to finish.
+1. If you've blocked legacy authentication on Windows clients in either the global or app-level sign-on policy, make a rule to allow the hybrid Azure AD join process to finish.
 
 1. Allow the entire legacy authentication stack through for all Windows clients. You can also contact Okta support to enable its custom client string on your existing app policies.
 
 ### Configure device compliance
 
-Hybrid Azure AD Join is a direct replacement for Okta device trust on Windows. Conditional Access policies can also look at device compliance for devices that have fully enrolled in Endpoint Manager:
+Hybrid Azure AD join is a direct replacement for Okta device trust on Windows. Conditional Access policies can also look at device compliance for devices that have fully enrolled in Endpoint Manager:
 
 - **Compliance overview**: Refer to [device compliance policies in Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
 - **Device compliance**: Create [policies in Intune](/mem/intune/protect/create-compliance-policy).
-- **Windows enrollment**: If you've opted to deploy Hybrid Azure AD Join, you can deploy another group policy to complete the [auto-enrollment process of these devices in Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
+- **Windows enrollment**: If you've opted to deploy hybrid Azure AD join, you can deploy another group policy to complete the [auto-enrollment process of these devices in Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
 - **iOS/iPadOS enrollment**: Before you enroll an iOS device, you must make [more configurations](/mem/intune/enrollment/ios-enroll) in the Endpoint Management console.
 - **Android enrollment**: Before you enroll an Android device, you must make [more configurations](/mem/intune/enrollment/android-enroll) in the Endpoint Management console.
 
@@ -116,7 +116,8 @@ Before you convert to Conditional Access, confirm the base Azure AD Multi-Factor
 
   >[!NOTE]
    >See [best practices for configuring the MFA prompt settings](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
-   ![Screenshot that shows cleared checkboxes in the legacy Azure AD Multi-Factor Authentication portal.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
+
+![Screenshot that shows cleared checkboxes in the legacy Azure AD Multi-Factor Authentication portal.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
 ## Configure Conditional Access policies
 

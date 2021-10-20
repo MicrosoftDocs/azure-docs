@@ -28,7 +28,7 @@ Azure AD cloud provisioning will be the most familiar migration path for Okta cu
 
 Use an Azure AD Connect server if your organization needs to take advantage of any of the following technologies when you synchronize users:
 
-- Device synchronization: Hybrid Azure AD Join or Hello for Business
+- Device synchronization: Hybrid Azure AD join or Hello for Business
 - Passthrough authentication
 - More than 150,000-object support
 - Support for writeback
@@ -115,6 +115,7 @@ After you've prepared your list of source and destination targets, it's time to 
 
    >[!WARNING]
    >This is the most critical step on this page. Before you select **Next**, ensure that the attribute you're selecting for a source anchor is what *currently* populates your existing Azure AD users. If you select the wrong attribute, you must uninstall and reinstall Azure AD Connect to reselect this option.
+   
    ![Screenshot that shows mS-DS-ConsistencyGuid.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/consistency-guid.png)
 
 1. On the **Configure** page, make sure to select the **Enable staging mode** checkbox. Then select **Install**.
