@@ -8,11 +8,11 @@ ms.date: 11/02/2021
 ---
 # Connect devices to Azure Video Analyzer
 
-In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an application on the device, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server. 
+In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an [Azure IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) device implementation, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server.
 
 ## Overview 
 
-This article provides high-level concepts to about building an application that can enable Video Analyzer to capture and record video from a device. 
+This article provides high-level concepts about building an Azure IoT PnP device implementation that can enable Video Analyzer to capture and record video from a device. 
 
 The application will need to: 
 
@@ -23,11 +23,12 @@ The application will need to:
    * Open a secure websocket connection to the URL provided using the token provided
    * Forward the websocket bytes to the camera's RTSP server TCP connection
 
-<!--- To-do: Add image --->
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/connect-devices/connect-devices.svg" alt-text="Connect devices to the cloud":::
 
 ## Run as an IoT Device 
 
-The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your application. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String.
+The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your IoT PnP device implementation. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String.
 
 ### IoT Device Client Configuration
 
@@ -103,7 +104,7 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
       * For example, you may want to capture the architecture of the CPU, the OS, the model/make of the the device.
    * Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
 1. Return response (do not block)
-1. Asynchronously connect the web socket tunnel
+1. IoT PnP device implementation starts sending TCP data bi-directionally between the websocket and RTSP server TCP connection
 
 Video Analyzer service will retry `tunnelOpen` requests on failure, so retries are not needed in the application.
 
@@ -128,8 +129,7 @@ Examples of such error responses are:
 
 
 ## Ingestion to Video Analyzer
-In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated.  
-[Instructions for this process are outlined here.]()
+In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated. [Instructions for this process are outlined here.](cloud/use-remote-device-adapter.md#create-pipeline-topology-in-the-cloud)
 
  
 ## Example implementation
