@@ -175,7 +175,7 @@ To use this file, make sure to replace the placeholder values between the `<>` b
 
 
 
-## Deploy the producer application (HTTP web server)
+## Deploy the service application (HTTP web server)
 
 Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the service container app.
 
