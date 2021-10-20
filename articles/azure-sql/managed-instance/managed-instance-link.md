@@ -31,7 +31,7 @@ Data replicated from SQL Server to Managed Instance in Azure can be used with a 
 (1) Using Azure services with SQL Server data, without migrating to the cloud
 - Examples of these can include offloading reporting, analytics backups, ML and other jobs to Azure
 
-(2) Offload on-prem. application R/O workloads to Azure
+(2) Offload on-premises application R/O workloads to Azure
 - Examples of this includes an application that uses SQL Server for R/W workloads, while offloading R/O workloads to Managed Instance in any of Azure’s 60+ regions worldwide.
 
 ![Managed Instance link main scenario](./media/managed-instance-link/mi-link-main-scenario.png)
@@ -47,7 +47,7 @@ In a case of a disaster on-premises, you can rely on Managed Instance in Azure a
 
 ## How does it work
 
-The underlying technology behind Managed Instance link is Distributed Availability Groups. The solution supports single-node systems without existing availability groups, or multiple node systems with existing availability groups. With the link established, the primary database on SQL Server is R/W accessible, while replicated database to SQL Managed Instance in Azure is R/O accessible. This allows for a variety of scenarios where replicated databases on the secondary SQL Managed Instance can be used for read scale-out and offloading R/O workloads to Azure. Examples of this include offloading on-premises application R/O traffic to any of Azure’s 60+ regions worldwide, or offloading reporting, analytics or ML workloads to Azure. Managed Instance, in parallel, can also host independent R/W databases. This allows for copying an entire, or part of the replicated database from SQL Server to another independent R/W database on Managed Instance for further data processing.
+The underlying technology behind Managed Instance link is Distributed Availability Groups. The solution supports single-node systems without existing availability groups, or multiple node systems with existing availability groups. With the link established, the primary database on SQL Server is R/W accessible, while replicated database to SQL Managed Instance in Azure is R/O accessible. This allows for a variety of scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading R/O workloads to Azure. Examples of this include offloading on-premises application R/O traffic to any of Azure’s 60+ regions worldwide, or offloading reporting, analytics or ML workloads to Azure. Managed Instance, in parallel, can also host independent R/W databases. This allows for copying the replicated database to another R/W database on the same Managed Instance, for further data processing.
 
 ![Managed Instance link how does it work](./media/managed-instance-link/mi-link-ag-dag.png)
 
