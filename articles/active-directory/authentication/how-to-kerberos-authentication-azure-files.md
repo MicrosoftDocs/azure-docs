@@ -24,13 +24,10 @@ Enterprises can move their traditional services that require Kerberos authentica
 
 Azure AD Kerberos authentication for Azure Files is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Intended Audience 
-Enterprise IT admins who are planning to enable Azure files leveraging Azure AD authentication or access Azure files / file shares in Hybrid environments. 
-
 ## Scenarios 
-Customers can now leverage Azure AD and Azure files for the following scenarios:
+This topic helps Enterprise IT admins who plan to use Azure AD Kerberos authentication for Azure Files or plan to access Azure Files from hybrid environments. Customers can use Azure AD and Azure files for the following scenarios:
 
-- Lifting and Shifting the on premises file servers to Azure without implementing changes to the authentication stack or deploying Azure AD domain services. Customers can leverage their Azure AD credentials to access Azure files as a replacement of on premises file share from Azure AD /Hybrid Azure AD joined devices.
+- Lift and shift on-premises file servers to Azure without implementing changes to the authentication stack or deploying Azure AD Domain Services. Customers can leverage their Azure AD credentials to access Azure files as a replacement of on premises file share from devices joined to Azure AD or hybrid environments.
 - Cloud born applications using Azure Files as the shared data storage with Native Azure AD authentication and modern credentials. 
 - Accessing on prem file share or Azure files over the internet without line of sight to a DC. 
 
