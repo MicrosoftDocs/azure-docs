@@ -28,9 +28,10 @@ The link feature is released in limited public preview with support for SQL Serv
 
 Data replicated from SQL Server to Managed Instance in Azure can be used with a variety of scenarios, as indicated the diagram below. Namely these scenarios are:
 
-(1) Offloading R/O workloads to the cloud without migrating to the cloud
-- Examples of these can include reporting, analytics backups, ML and other jobs to Azure
-(2) Offloading application R/O workloads to the cloud
+(1) Using Azure services with SQL Server data, and without migrating to the cloud
+- Examples of these can include offloading reporting, analytics backups, ML and other jobs to Azure
+
+(2) Offload on-prem. application R/O workloads to Azure
 - Examples of this includes an application that uses SQL Server for R/W workloads, while offloading R/O workloads to Managed Instance in any of Azure’s 60+ regions worldwide.
 
 ![Managed Instance link main scenario](./media/managed-instance-link/mi-link-main-scenario.png)
