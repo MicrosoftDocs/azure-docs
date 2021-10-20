@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 All machines that need to be upgraded will have the status **Needs upgrade**. You will also see a banner on the Automanage overview page indicating that you need to upgrade you machines. 
 
-    :::image type="content" source="media\automanage-upgrade\overview-blade.png" alt-text="Needs upgrade status.":::
+:::image type="content" source="media\automanage-upgrade\overview-blade.png" alt-text="Needs upgrade status.":::
 
 ### Disable Automanage machines that need to be upgrade
 
@@ -47,7 +47,7 @@ Before a machine can upgrade to the new Automanage version, the machine must be 
 1. Click on the **Disable** button.
 1. Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
-    :::image type="content" source="media\automanage-upgrade\disable-automanage.png" alt-text="Disable automanage.":::
+:::image type="content" source="media\automanage-upgrade\disable-automanage.png" alt-text="Disable automanage.":::
 
 ### Re-enable Automanage on your machines
 
@@ -55,11 +55,11 @@ After your machines are off-boarded from Automanage, you can now re-enable Autom
 
 1. Select the **Enable on existing VM**.
 
-    :::image type="content" source="media\automanage-upgrade\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
+:::image type="content" source="media\automanage-upgrade\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
 
 2. Under **Configuration profile**, select your profile type: **Azure Best Practices - Production** or **Azure Best Practices - Dev/Test** or [**Custom profile**](virtual-machines-custom-profile.md)
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
+:::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
 
 > [!NOTE]
 > The **Production** environment maps to the **Azure Best Practices - Production** Configuration Profile. 
@@ -73,7 +73,7 @@ After your machines are off-boarded from Automanage, you can now re-enable Autom
     > [!NOTE]
     > You may select both Azure VMs and Azure Arc-enabled servers.
 
-    :::image type="content" source="media\automanage-upgrade\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
+:::image type="content" source="media\automanage-upgrade\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
 
 4. Click the **Enable** button.
 
