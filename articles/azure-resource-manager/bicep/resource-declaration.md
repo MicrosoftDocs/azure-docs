@@ -13,18 +13,30 @@ This article describes the syntax you use to add a resource to your Bicep file.
 
 ## Declaration
 
-Add a resource declaration by using the `resource` keyword. The values you provide in the declaration are described in more details in this article.
+Add a resource declaration by using the `resource` keyword. You set a symbolic name for the resource. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
 
 ```bicep
-resource <symbolic-name> '<resource-type>@<api-version>' = {
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
   <resource-properties>
 }
 ```
 
+So, a declaration for a storage account can start with:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+  ...
+}
+```
+
+Symbolic names are case-sensitive.  They may contain letters, numbers, and _; but can't start with a number.
+
+For the available resource types and version, see [Bicep resource reference](/azure/templates/). Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
+
 To conditionally deploy a resource, use the `if` syntax. For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
 
 ```bicep
-resource <symbolic-name> '<resource-type>@<api-version>' = if (condition) {
+resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
   <resource-properties>
 }
 ```
@@ -32,7 +44,7 @@ resource <symbolic-name> '<resource-type>@<api-version>' = if (condition) {
 To deploy more than one instance of a resource, use the `for` syntax. For more information, see [Iterative loops in Bicep](loops.md).
 
 ```bicep
-resource <symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
+resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
   <properties-to-repeat>
 }]
 ```
@@ -40,28 +52,12 @@ resource <symbolic-name> '<resource-type>@<api-version>' = [for <item> in <colle
 You can also use the `for` syntax on the resource properties to create an array.
 
 ```bicep
-resource <symbolic-name> '<resource-type>@<api-version>' = {
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
   properties: {
     <array-property>: [for <item> in <collection>: <value-to-repeat>]
   }
 }
 ```
-
-## Resource type and version
-
-When adding a resource to your Bicep file, start by setting the resource type and API version. These values determine the other properties that are available for the resource.
-
-The following example shows how to set the resource type and API version for a storage account. The example doesn't show the full resource declaration.
-
-```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  ...
-}
-```
-
-You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`.  The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file. Symbolic names are case-sensitive.  They may contain letters, numbers, and _; but can't start with a number.
-
-Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
 ## Resource name
 
@@ -173,7 +169,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 
 The preceding properties are generic to most resource types. After setting those values, you need to set the properties that are specific to the resource type you're deploying.
 
-Use intellisense or [template reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
+Use intellisense or [Bicep resource reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -189,8 +185,6 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 ```
-
-To assign an array to a property, use the `for` syntax.
 
 ## Dependencies
 

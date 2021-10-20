@@ -7,7 +7,7 @@ ms.date: 10/19/2021
 
 # Iterative loops in Bicep
 
-This article shows you how to use the `for` syntax to iterate over items in a collection. You can use loops to define multiple copies of a resource, property, variable, module, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment.
+This article shows you how to use the `for` syntax to iterate over items in a collection. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment.
 
 ### Microsoft Learn
 
@@ -17,7 +17,7 @@ To learn more about loops, and for hands-on guidance, see [Build flexible Bicep 
 
 Loops can be declared by:
 
-- Using an **integer index**. This option works when your scenario is: "I want to create this many instances." The [range function](bicep-functions-array.md#range) creates an array of integers from the start index and containing the number of specified elements. Within the loop, you can use the integer index to modify values. For more information, see [Integer index](#integer-index).
+- Using an **integer index**. This option works when your scenario is: "I want to create this many instances." The [range function](bicep-functions-array.md#range) creates an array of integers that begins at the start index and contains the number of specified elements. Within the loop, you can use the integer index to modify values. For more information, see [Integer index](#integer-index).
 
   ```bicep
   [for <index> in range(<startIndex>, <numberOfElements>): {
@@ -59,7 +59,7 @@ Loops can be declared by:
 
 ## Loop limits
 
-Bicep loop has these limitations:
+Using loops in Bicep has these limitations:
 
 - Loop iterations can't be a negative number or exceed 800 iterations.
 - Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
@@ -67,7 +67,7 @@ Bicep loop has these limitations:
 
 ## Integer index
 
-For a simple example of using an index, create a **variable** for an array of strings.
+For a simple example of using an index, create a **variable** that contains an array of strings.
 
 ```bicep
 param itemCount int = 5
@@ -154,38 +154,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 
 The next example iterates over an array to define a property. It creates two subnets within a virtual network.
 
-```bicep
-param rgLocation string = resourceGroup().location
-
-var subnets = [
-  {
-    name: 'api'
-    subnetPrefix: '10.144.0.0/24'
-  }
-  {
-    name: 'worker'
-    subnetPrefix: '10.144.1.0/24'
-  }
-]
-
-resource vnet 'Microsoft.Network/virtualNetworks@2020-07-01' = {
-  name: 'vnet'
-  location: rgLocation
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        '10.144.0.0/20'
-      ]
-    }
-    subnets: [for subnet in subnets: {
-      name: subnet.name
-      properties: {
-        addressPrefix: subnet.subnetPrefix
-      }
-    }]
-  }
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/loops/loopproperty.bicep" highlight="23-28" :::
 
 ## Array and index
 
@@ -254,7 +223,7 @@ output deployedNSGs array = [for (name, i) in orgNames: {
 
 ## Dictionary object
 
-When you want to iterate over elements in a dictionary object, use the [items function](bicep-functions-array.md#items) to convert the object to an array. Use the `value` property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](bicep-functions-array.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
 
 ```bicep
 param nsgValues object = {
@@ -278,7 +247,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for nsg in 
 
 For **resources and modules**, you can add an `if` expression with the loop syntax to conditionally deploy the collection.
 
-The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value. In this example, a single condition is applied to all instances of the module.
+The following example shows a loop combined with a condition statement. In this example, a single condition is applied to all instances of the module.
 
 ```bicep
 param location string

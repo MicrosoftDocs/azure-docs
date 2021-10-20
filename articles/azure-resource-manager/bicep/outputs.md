@@ -39,7 +39,7 @@ var user = {
 output stringOutput string = user['user-name']
 ```
 
-To return one of two values depending a condition in the deployment, use the the `?` operator. For more information, see [Conditional output](#conditional-output).
+When the value to return depends on a condition in the deployment, use the the `?` operator. For more information, see [Conditional output](#conditional-output).
 
 ```bicep
 output <name> <data-type> = <condition> ? <true-value> : <false-value>
