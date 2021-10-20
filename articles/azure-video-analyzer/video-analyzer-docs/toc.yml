@@ -156,7 +156,7 @@
   - name: Operate cloud pipeline
     items:  
     - name: Connect devices
-      href: connect-devices.md
+      href: cloud/connect-devices.md
     - name: Connect camera via remote device adapter
       href: cloud/use-remote-device-adapter.md
     - name: Monitor  
