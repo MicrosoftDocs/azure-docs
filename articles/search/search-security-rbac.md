@@ -17,10 +17,10 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Use generally available roles for service administration.
 
-+ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available by request**](https://aka.ms/azure-cognitive-search/rbac-preview).
++ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available in preview**](#step-1-preview-sign-up).
 
 > [!NOTE]
-> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](https://aka.ms/azure-cognitive-search/rbac-preview).
+> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](#step-1-preview-sign-up).
 
 A few RBAC scenarios are **not** supported, or not covered in this article:
 
