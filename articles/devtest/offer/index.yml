@@ -33,7 +33,7 @@ conceptualContent:
     # Card
     - title: Azure Dev/Test offer for individuals
       links:
-        - url: ../../devtest/offer/how-to-individual-credit.md
+        - url: ../../devtest/offer/quickstart-individual-credit.md
           itemType: how-to-guide
           text: Get started using Azure Credits
         - url: ../../devtest/offer/add-users-directory.md
@@ -51,7 +51,7 @@ conceptualContent:
     # Card
     - title: Azure Dev/Test offer for enterprise
       links:
-        - url: ../../devtest/offer/create-enterprise-devtest-subscriptions.md
+        - url: ../../devtest/offer/quickstart-create-enterprise-devtest-subscriptions.md
           itemType: how-to-guide
           text: Create Enterprise and Organizational subscriptions
         - url: ../../devtest/offer/gitops-azure-devtest.md
