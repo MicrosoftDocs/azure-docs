@@ -87,7 +87,7 @@ To learn how to set up virtual network integration, see [Enable Vnet Integration
 
 During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with. By default, Route All will be enabled, and all traffic will be routed into your VNet.
 
-If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet#application-routing).
+If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/web-sites-integrate-with-vnet.md#application-routing).
 
 ## Regional virtual network integration
 
