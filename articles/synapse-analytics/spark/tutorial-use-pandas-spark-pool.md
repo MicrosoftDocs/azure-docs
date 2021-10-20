@@ -50,7 +50,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 
-## Read/Write ADLS data
+## Read/Write data to default ADLS storage account of Synapse workspace
 
 Pandas can read/write ADLS data by specifying the file path directly.
 
