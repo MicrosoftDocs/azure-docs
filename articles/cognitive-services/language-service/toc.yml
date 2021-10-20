@@ -110,7 +110,7 @@ items:
         items:
           - name: v3.2-preview.2
             href: https://go.microsoft.com/fwlink/?linkid=2173145
-- name: Conversational Language Understanding (preview)
+- name: Conversational language understanding (preview)
   items:
   - name: Overview
     href: custom-language-understanding/overview.md
