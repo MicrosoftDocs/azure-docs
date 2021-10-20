@@ -32,19 +32,35 @@ Sign in to the Azure portal at https://portal.azure.com
 
 ![Notification showing target successfully enabled](images/tutorial-service-direct-targets-enable-confirm.png)
 
-##Create an experiment
+## Create an experiment
 
-
-7. Click **Add an experiment**.
+1. Click **Add an experiment**.
 
     ![Add an experiment in Azure portal](images/add-an-experiment.png)
 
-## Create an experiment
-Click Add an experiment, and then provide values for the Resource group, experiment Name, and Location. 
-Click Next: Experiment designer > and add Fault VM Shutdown. 
-Click Next: Target resources >
-Click Review + Create 
-Go to the experiment and click Start
+2. Fill in the Subscription, Resource Group, and Location where you want to deploy the chaos experiment. Give your experiment a Name. Click **Next : Experiment designer >**
+
+![Add experiment basics](images/quickstart-service-direct-add-basics.PNG)
+
+3. You are now in the Chaos Studio experiment designer. Give a friendly name to your Step and Branch, then click Add fault.
+
+![Experiment designer](images/quickstart-service-direct-add-designer.PNG)
+
+4. Select VM Shutdown from the dropdown, then fill in the Duration with the number of minutes you want the failure to last. Click **Next: Target resources >**
+
+![Fault properties](images/quickstart-service-direct-add-fault.PNG)
+
+5. Click **Next: Target resources >**
+![Add a target](images/quickstart-service-direct-add-target.PNG)
+
+6. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
+
+## Run your experiment
+1. You are now ready to run the  experiment. 
+2. In the Experiments view, click on your experiment, and click **Start**, then click **OK**.
+3. When the Status changes to Running, click Details for the latest run under History to see details for the running experiment
+
 ## Clean up resources
+
 ## Next steps
 In this quickstart, you created the VM targets, created and expriment using those targets. You can now use all the data 
