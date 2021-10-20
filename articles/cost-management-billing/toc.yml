@@ -128,6 +128,17 @@
       href: manage/ea-portal-get-started.md
     - name: Request Withholding Tax credit - India
       href: manage/withholding-tax-credit-india.md
+  - name: Payments
+    items:
+    - name: Region 1
+      items:
+      - name: Region 1 - new article
+        href: understand/understand-usage.md
+    - name: Region 2
+      items:
+      - name: Region 2 - new article
+        href: understand/understand-usage.md
+
   - name: Security
     items:
     - name: Security baseline
@@ -140,12 +151,8 @@
       items:
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
-      - name: Pay your bill
-        href: understand/pay-bill.md
       - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
-      - name: Resolve past due balance
-        href: manage/resolve-past-due-balance.md
       - name: Grant access to billing
         href: manage/manage-billing-access.md
       - name: Microsoft Customer Agreements roles in Azure
@@ -178,8 +185,6 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
-      - name: Set up pay by invoice
-        href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
       - name: Grant access to create EA subscriptions
@@ -374,6 +379,36 @@
       items:
       - name: Renew a reservation
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
+  - name: Manage payment
+    items:
+    - name: MOSP - pay-as-you-go
+      items:
+      - name: Pay your bill - need article
+        href: manage/resolve-past-due-balance.md
+      - name: Resolve past due balance
+        href: manage/resolve-past-due-balance.md
+      - name: Set up pay by invoice
+        href: manage/pay-by-invoice.md
+    - name: MCA enterprise
+      items:
+      - name: Pay your bill - not enterprise specific
+        href: understand/pay-bill.md
+      - name: Set up pay by invoice
+        href: manage/pay-by-invoice.md
+    - name: MCA individual
+      items:
+      - name: Pay your bill - not enterprise specific
+        href: understand/pay-bill.md
+      - name: Set up pay by invoice
+        href: manage/pay-by-invoice.md
+    - name: Enterprise Agreement
+      items:
+      - name: Pay your bill - need new article
+        href: understand/pay-bill.md
+    - name: Microsoft Partner Agreement
+      items:
+      - name: Pay your bill - need new article
+        href: understand/pay-bill.md
   - name: Troubleshoot
     items:
     - name: Can't view or find invoices
