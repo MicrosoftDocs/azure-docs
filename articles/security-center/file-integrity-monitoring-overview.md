@@ -93,7 +93,7 @@ Security Center provides the following list of recommended items to monitor base
 
 FIM is only available from Security Center's pages in the Azure portal. There is currently no REST API for working with FIM.
 
-1. From **Azure Defender** dashboard's **Advanced protection** area, select **File integrity monitoring**.
+1. From the **Workload protections** dashboard's **Advanced protection** area, select **File integrity monitoring**.
 
    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Launching FIM." lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
@@ -110,7 +110,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
     - Access and view the status and settings of each workspace
 
-    - ![Upgrade plan icon.][4] Upgrade the workspace to use Azure Defender. This icon Indicates that the workspace or subscription isn't protected by Azure Defender. To use the FIM features, your subscription must be protected by Azure Defender. For more information, see [Microsoft Defender for Cloud free vs Azure Defender enabled](security-center-pricing.md).
+    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon Indicates that the workspace or subscription isn't protected with Microsoft Defender for servers. To use the FIM features, your subscription must be protected with this plan. For more information, see [Microsoft Defender for Cloud's enhanced security features](security-center-pricing.md).
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace.
 

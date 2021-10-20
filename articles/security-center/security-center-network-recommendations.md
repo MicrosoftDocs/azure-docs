@@ -35,9 +35,9 @@ The interactive network map provides a graphical view with security overlays giv
 
 To open the Network map:
 
-1. From Defender for Cloud's menu, open the Azure Defender dashboard and select **Network map**.
+1. From Defender for Cloud's menu, open the Workload protections and select **Network map**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Opening the network map from the Azure Defender dashboard." lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Opening the network map from the Workload protections." lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
 1. Select the **Layers** menu choose **Topology**.
  

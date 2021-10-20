@@ -13,7 +13,7 @@ ms.author: memildin
 
 Adaptive network hardening is an agentless feature of Microsoft Defender for Cloud - nothing needs to be installed on your machines to benefit from this network hardening tool.
 
-This page explains how to configure and manage adaptive network hardening in Security Center.
+This page explains how to configure and manage adaptive network hardening in Defender for Cloud.
 
 ## Availability
 |Aspect|Details|
@@ -33,20 +33,20 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 ## View hardening alerts and recommended rules
 
-1. From Defender for Cloud's menu, open the **Azure Defender** dashboard and select the adaptive network hardening tile (1), or the insights panel item related to adaptive network hardening (2). 
+1. From Defender for Cloud's menu, open the **Workload protections** dashboard and select the adaptive network hardening tile (1), or the insights panel item related to adaptive network hardening (2). 
 
     :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Accessing the adaptive network hardening tools." lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
     > [!TIP]
     > The insights panel shows the percentage of your VMs currently defended with adaptive network hardening. 
 
-1. The details page for the **Adaptive Network Hardening recommendations should be applied on internet facing virtual machines** recommendation opens with your network VMs grouped into three  tabs:
+1. The details page for the **Adaptive Network Hardening recommendations should be applied on internet facing virtual machines** recommendation opens with your network VMs grouped into three tabs:
    * **Unhealthy resources**: VMs that currently have recommendations and alerts that were triggered by running the adaptive network hardening algorithm. 
    * **Healthy resources**: VMs without alerts and recommendations.
    * **Unscanned resources**: VMs that the adaptive network hardening algorithm cannot be run on because of one of the following reasons:
       * **VMs are Classic VMs**: Only Azure Resource Manager VMs are supported.
-      * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
-      * **VM is not protected by Azure Defender**: Only VMs protected with [Microsoft Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
+      * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Defender for Cloud requires at least 30 days of traffic data.
+      * **VM is not protected by Microsoft Defender for servers**: Only VMs protected with [Microsoft Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
 
     :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines.":::
 
@@ -104,7 +104,7 @@ To modify an adaptive network hardening rule:
 
 ## Add a new rule <a name ="add-rule"> </a>
 
-You can add an "allow" rule that was not recommended by Security Center.
+You can add an "allow" rule that was not recommended by Defender for Cloud.
 
 > [!NOTE]
 > Only "allow" rules can be added here. If you want to add "deny" rules, you can do so directly on the NSG. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
@@ -153,4 +153,4 @@ Adaptive network hardening is an agentless feature of Microsoft Defender for Clo
 
 ### When should I use a "Deny all traffic" rule?
 
-A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as "*System Generated*". After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, "DENY", and a random number.
+A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Defender for Cloud does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as "*System Generated*". After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, "DENY", and a random number.

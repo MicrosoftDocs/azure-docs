@@ -89,5 +89,5 @@ landingContent:
             url: adaptive-application-controls.md
           - text: Implement Adaptive Network Hardening
             url: security-center-adaptive-network-hardening.md
-          - text: Use the Azure Defender dashboard
+          - text: Use the Workload protections
             url: azure-defender-dashboard.md

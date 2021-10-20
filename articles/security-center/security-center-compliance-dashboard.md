@@ -49,7 +49,7 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-1. Select a tab for a compliance standard that is relevant to you (1). You'll see which subscriptions the standard is applied on (2), and the list of all controls for that standard (3). For the applicable controls, you can view the details of passing and failing assessments associated with that control (4), and the number of affected resources (5). Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Check their requirements and assess them in your environment. Some of these might be process-related and not technical.
+1. Select a tab for a compliance standard that is relevant to you (1). You'll see which subscriptions the standard is applied on (2), and the list of all controls for that standard (3). For the applicable controls, you can view the details of passing and failing assessments associated with that control (4), and the number of affected resources (5). Some controls are grayed out. These controls don't have any Defender for Cloud assessments associated with them. Check their requirements and assess them in your environment. Some of these might be process-related and not technical.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard.":::
 
@@ -78,13 +78,13 @@ Using the information in the regulatory compliance dashboard, improve your compl
 
 - To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
 
-    The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
+    The report provides a high-level summary of your compliance status for the selected standard based on Defender for Cloud assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Using the toolbar in Security Center's regulatory compliance dashboard to download compliance reports.":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Using the toolbar in Defender for Cloud's regulatory compliance dashboard to download compliance reports.":::
 
 - To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option. 
 
-    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Using the toolbar in Security Center's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Using the toolbar in Defender for Cloud's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
 
     Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
 
@@ -99,7 +99,7 @@ Using the information in the regulatory compliance dashboard, improve your compl
 
 ## Configure frequent exports of your compliance status data
 
-If you want to track your compliance status with other monitoring tools in your environment, Security Center includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hub or a Log Analytics workspace. Learn more in [continuously export Security Center data](continuous-export.md).
+If you want to track your compliance status with other monitoring tools in your environment, Defender for Cloud includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hub or a Log Analytics workspace. Learn more in [continuously export Defender for Cloud data](continuous-export.md).
 
 Use continuous export data to an Azure Event Hub or a Log Analytics workspace:
 
@@ -117,9 +117,9 @@ Use continuous export data to an Azure Event Hub or a Log Analytics workspace:
 
 ## Run workflow automations when there are changes to your compliance
 
-Security Center's workflow automation feature can trigger Logic Apps whenever one of your regulatory compliance assessments change state.
+Defender for Cloud's workflow automation feature can trigger Logic Apps whenever one of your regulatory compliance assessments change state.
 
-For example, you might want Security Center to email a specific user when a compliance assessment fails. You'll need to create the logic app first (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Security Center triggers](workflow-automation.md).
+For example, you might want Defender for Cloud to email a specific user when a compliance assessment fails. You'll need to create the logic app first (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
@@ -137,7 +137,7 @@ For example, you might want Security Center to email a specific user when a comp
 - [How can I view a report of passing and failing controls per standard in my dashboard?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
 - [How can I download a report with compliance data in a format other than PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [How can I create exceptions for some of the policies in the regulatory compliance dashboard?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
-- [What Azure Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-microsoft-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
 - [How do I know which benchmark or standard to use?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
 ### What standards are supported in the compliance dashboard?
@@ -152,7 +152,7 @@ More standards will be added to the dashboard and included in the information on
 ### Why do some controls appear grayed out?
 For each compliance standard in the dashboard, there's a list of the standard's controls. For the applicable controls, you can view the details of passing and failing assessments.
 
-Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Some may be procedure or process-related, and so can't be verified by Security Center. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls may be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
+Some controls are grayed out. These controls don't have any Defender for Cloud assessments associated with them. Some may be procedure or process-related, and so can't be verified by Defender for Cloud. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls may be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
 
 ### How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard? 
 To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
@@ -167,7 +167,7 @@ The minimum set of roles for accessing the dashboard and managing standards is *
 
 
 ### The regulatory compliance dashboard isn't loading for me
-To use the regulatory compliance dashboard, Microsoft Defender for Cloud must have Azure Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
+To use the regulatory compliance dashboard, Microsoft Defender for Cloud must have Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
 
 1. Clear your browser's cache.
 1. Try a different browser.
@@ -190,13 +190,13 @@ Currently, there's no support for downloading a report for a custom policy; only
 
 
 ### How can I create exceptions for some of the policies in the regulatory compliance dashboard?
-For policies that are built into Security Center and included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+For policies that are built into Defender for Cloud and included in the secure score, you can create exemptions for one or more resources directly in the portal as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
 
 For other policies, you can create an exemption directly in the policy itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
 
 
-### What Azure Defender plans or licenses do I need to use the regulatory compliance dashboard?
-If you've got *any* of the Azure Defender plan enabled on *any* of your Azure resources, you can access Security Center's regulatory compliance dashboard and all of its data.
+### What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?
+If you've got *any* of the Microsoft Defender plan enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
 
 
 ### How do I know which benchmark or standard to use?
@@ -209,7 +209,7 @@ Since we’ve released the Azure Security Benchmark, many customers have chosen 
 
 ## Next steps
 
-In this tutorial, you learned about using Security Center’s regulatory compliance dashboard to:
+In this tutorial, you learned about using Defender for Cloud’s regulatory compliance dashboard to:
 
 > [!div class="checklist"]
 > * View and monitor your compliance posture regarding the standards and regulations that are important to you.
@@ -220,4 +220,4 @@ The regulatory compliance dashboard can greatly simplify the compliance process,
 To learn more, see these related pages:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard. 
-- [Managing security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md) - Learn how to use recommendations in Security Center to help protect your Azure resources.
+- [Managing security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md) - Learn how to use recommendations in Defender for Cloud to help protect your Azure resources.

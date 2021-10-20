@@ -19,6 +19,10 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 [Learn how to export alerts](continuous-export.md).
 
+> [!NOTE]
+> Alerts from different sources might take different amounts of time to appear. For example, alerts that require analysis of network traffic might take longer to appear than alerts related to suspicious processes running on virtual machines.
+
+
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
 [Further details and notes](defender-for-servers-introduction.md)
