@@ -9,9 +9,9 @@
   expanded: true
   items: 
   - name: Get started with an individual Azure Dev/Test credit
-    href: how-to-individual-credit.md
+    href: quickstart-individual-credit.md
   - name: Create an enterprise Dev/Test subscription
-    href: create-enterprise-devtest-subscriptions.md    
+    href: quickstart-create-enterprise-devtest-subscriptions.md    
 - name: Concepts
   expanded: true
   items:

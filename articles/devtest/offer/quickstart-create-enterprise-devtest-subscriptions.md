@@ -5,7 +5,7 @@ author: jamestramel
 ms.author: jametra
 ms.prod: visual-studio-windows
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/20/2021
 ms.custom: devtestoffer
 ---
 
@@ -17,7 +17,7 @@ Enterprise Dev/Test Subscriptions are available for team development in large or
 - Enterprise-wide billing – no separate payments  
 - Create an enterprise dev/test offer subscription through the Azure Enterprise Portal  
 
-### Prerequisites
+## Prerequisites
 
 To create an enterprise Azure dev/test subscription, you must have an account owner role on an Enrollment Account to make the subscription. There are two ways to access this role:  
 
