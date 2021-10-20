@@ -43,4 +43,4 @@ This article describes how to assign contributor role on the Media Services.
 
 <!-- links -->
 [docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contributor
-[docs-role-administrator]: ../../role-based-access-control.md#user-access-administrator
+[docs-role-administrator]: ../../role-based-access-control/built-in-roles.md#user-access-administrator
