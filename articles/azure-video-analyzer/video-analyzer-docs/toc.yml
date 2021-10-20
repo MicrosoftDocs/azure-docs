@@ -6,7 +6,7 @@
     href: overview.md
   - name: About Video Analyzer for Media
     href: ../video-analyzer-for-media-docs/video-indexer-overview.md
-  - name: Video Analyzer terminology
+  - name: Terminology
     href: terminology.md
   - name: What's new
     items:
@@ -18,10 +18,10 @@
     items:
     - name: Get started 
       items:
+      - name: Use portal
+        href: edge/get-started-detect-motion-emit-events-portal.md      
       - name: Use ARM template
         href: edge/get-started-detect-motion-emit-events.md
-      - name: Use portal
-        href: edge/get-started-detect-motion-emit-events-portal.md
     - name: Detect motion and emit events    
       href: edge/detect-motion-emit-events-quickstart.md
     - name: Detect motion, record video
@@ -44,9 +44,7 @@
     items:
     - name: Get started 
       items:
-        - name: Using portal
-          href: overview.md
-        - name: Get Started with live pipelines - Azure Portal
+        - name: Use portal
           href: cloud/get-started-livepipelines-portal.md
         - name: Monitoring & logging
           href: cloud/monitor-log-cloud.md
@@ -76,15 +74,11 @@
       - name: With Spatial Analysis
         href: edge/computer-vision-for-spatial-analysis.md    
     - name: Visualize AI inference events
-      href: visualize-ai-events-power-bi.md
+      href: visualize-ai-events-power-bi.md   
   - name: Cloud pipelines
     items:
-    - name: Connect camera to cloud using portal  #??
-      href: overview.md
-    - name: Export a clip (batch pipeline)
+    - name: Export a video clip with portal
       href: cloud/export-portion-of-video-as-mp4.md
-  - name: Visualize AI inference events
-    href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
   - name: C# sample repository
