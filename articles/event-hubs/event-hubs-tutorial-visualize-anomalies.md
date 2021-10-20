@@ -2,7 +2,7 @@
 title: Azure Event Hubs - Visualize data anomalies in real-time events
 description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
 ms.topic: tutorial
-ms.date: 09/29/2021 
+ms.date: 10/20/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
