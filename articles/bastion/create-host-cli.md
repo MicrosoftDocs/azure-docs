@@ -20,7 +20,7 @@ Optionally, you can create an Azure Bastion host by using the following methods:
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
 
-[!INCLUDE [Note about SKU limitations for preview.](../../includes/bastion-preview-sku-note.md)]
+[!INCLUDE [About skus](../../includes/bastion-sku-note.md)]
 
 ## Prerequisites
 
