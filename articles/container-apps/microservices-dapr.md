@@ -214,7 +214,7 @@ az containerapp create \
   --dapr-app-id pythonapp
 ```
 
-Run the command below to deploy `pythonapp` which also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. Note that since this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
+This command deploys `pythonapp` which also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. Note that since this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
 
 ## Verify the result
 
