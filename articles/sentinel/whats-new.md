@@ -71,7 +71,7 @@ For more information, see [Plan and manage costs for Azure Sentinel](azure-senti
 
 ### Content hub and new solutions (Public preview)
 
-Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel out-of-the-box solutions to your Azure Sentinel workspace. Search for solutions by name, filter them by content included, support, categories, and more.
+Azure Sentinel now provides a **Content hub**, a centralized location to find and deploy Azure Sentinel out-of-the-box (built-in) content and solutions to your Azure Sentinel workspace. Find the content you need by filtering for content type, support models, categories and more, or use the powerful text search.
 
 Under **Content management**, select **Content hub**. Select a solution to view more details on the right, and then click **Install** to install it in your workspace.
 
@@ -122,19 +122,15 @@ For more information, see:
 - [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 
->[!TIP]
-> We've also updated our data connector reference with data connectors available only in solutions. For more information, see [Find your data connector](data-connectors-reference.md).
->
-
 ### Enable continuous deployment from your content repositories (Public preview)
 
-The new Azure Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspaces. This capability introduces a more streamlined and automated approach for managing and deploying content across Azure Sentinel workspaces.
+The new Azure Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, as an alternative to managing them in the Azure portal. This capability introduces a more streamlined and automated approach for managing and deploying content across Azure Sentinel workspaces.
 
-If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
+If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you add, create, or edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
 
-For more information, see [Enable continuous deployment from your content repositories](ci-cd.md).
+For more information, see [Manage custom content in your own repository](ci-cd.md).
 
-### Enriched threat intelligence with Geolocation and WhoIs data
+### Enriched threat intelligence with Geolocation and WhoIs data (Public preview)
 
 Now, any threat intelligence data that you bring in to Azure Sentinel via data connectors and logic app playbooks, or create in Azure Sentinel, is automatically enriched with GeoLocation and WhoIs information.
 
@@ -159,7 +155,7 @@ For more information, see:
 - [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 
-### Use notebooks with Azure Synapse Analytics in Azure Sentinel
+### Use notebooks with Azure Synapse Analytics in Azure Sentinel (Public preview)
 
 Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-scale security analytics scenarios.
 
