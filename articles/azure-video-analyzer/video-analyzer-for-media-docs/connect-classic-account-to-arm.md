@@ -64,6 +64,6 @@ If there are invited users you wish to remove their access before the end of the
 Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
   
 <!-- links -->
-[docs-arm-overview]: ../../azure-resource-manager/management/overview
-[docs-rbac-overview]: ../../role-based-access-control/overview
-[docs-rbac-assignment]: ../../role-based-access-control/role-assignments-portal
+[docs-arm-overview]: ../../azure-resource-manager/management/overview.md
+[docs-rbac-overview]: ../../role-based-access-control/overview.md
+[docs-rbac-assignment]: ../../role-based-access-control/role-assignments-portal.md
