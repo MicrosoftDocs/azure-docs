@@ -98,7 +98,7 @@ To start training your model:
 3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-splits)
+    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-split)
     > * Training can take up to a few hours.
 
 ## Deploy your model
@@ -130,8 +130,4 @@ After your model is deployed, you can start using it for entity extraction. Use 
 
 ## Clean up resources
 
-<<<<<<< HEAD
-When you don't need your project anymore, you can delete your project using [Language Studio](https://language.azure.com/customText/projects/extraction). Select **Custom Named Entity Recognition (NER)** in the left navigation menu, select project you want to delete and click on **Delete**.
-=======
 When you don't need your project anymore, you can delete your project using [Language Studio](https://aka.ms/custom-extraction). Select **Custom Named Entity Recognition (NER)** in the left navigation menu, select project you want to delete and click on **Delete**.
->>>>>>> magrefaat/patch-44

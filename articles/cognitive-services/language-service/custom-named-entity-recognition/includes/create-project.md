@@ -18,7 +18,7 @@ Once your resource and storage container are configured, create a new custom NER
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
     
-    :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
+    :::image type="content" source="../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
 
 4.  After you click, **Create new project**, a screen will appear to let you connect your storage account. If you cannot find your storage account, make sure you created a resource using the steps above. 
@@ -29,7 +29,7 @@ Once your resource and storage container are configured, create a new custom NER
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
     
-    :::image type="content" source="../../media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../media/connect-storage.png":::
+    :::image type="content" source="../media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../media/connect-storage.png":::
 
 <!--If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**.--> 
 

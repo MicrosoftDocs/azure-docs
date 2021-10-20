@@ -19,7 +19,7 @@ Use this article to learn about some of the definitions and terms you may encoun
 ## Project
 
 A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and other people who have contributor access to the Azure resource you are using.
-As a prerequisite to creating a custom entity extraction project, you have to connect your resource to a storage account with your dataset when you [create a new project](../quickstart.md). Your project automatically includes all the `.txt` files available in your container.
+As a prerequisite to creating a custom entity extraction project, you have to connect your resource to a storage account with your dataset when you [create a new project](how-to/create-project.md). Your project automatically includes all the `.txt` files available in your container.
 
 Within your project you can do the following:
 
@@ -53,5 +53,5 @@ For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entitie
 ## Next steps
 
 * [Data and service limits](limits.md).
-* [Recommended practices](recommended-practices.md)
+* [Recommended practices](concepts/recommended-practices.md)
 * [Custom NER overview](../overview.md).

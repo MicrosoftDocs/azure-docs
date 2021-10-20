@@ -75,4 +75,4 @@ To examine data distribution in your dataset:
 
 ## Next steps
 
-Once you're satisfied with how your model performs, you can start [sending entity extraction requests](submit-task.md) using the runtime API.
+Once you're satisfied with how your model performs, you can start [sending entity extraction requests](call-api.md) using the runtime API.

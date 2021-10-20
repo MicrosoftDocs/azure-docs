@@ -31,5 +31,5 @@ In this article, we use the Language studio to demonstrate key concepts of custo
 
 ## Next steps
 
-* After you've tested your model, you can start [sending NER requests](how-to/submit-task.md).
+* After you've tested your model, you can start [sending NER requests](how-to/call-api.md).
 * As you create your own custom NER projects, see the [recommended practices](concepts/recommended-practices.md). 

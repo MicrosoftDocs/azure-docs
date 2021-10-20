@@ -12,11 +12,9 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-Deploy a model and extract entities from text using the runtime API.
+# Deploy a model and extract entities from text using the runtime API.
 
-# Submit a Custom Named Entity Recognition (NER) task
-
-After deploying your model, it is ready to be used. You can only send entity recognition tasks through the API, not from Language Studio.
+Once you are satisfied with how your model performs, it is ready to be deployed, and used to recognize entities in text. You can only send entity recognition tasks through the API, not from Language Studio.
 
 ## Prerequisites
 

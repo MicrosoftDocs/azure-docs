@@ -27,7 +27,7 @@ Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to
 
 ## What are the service limits?
 
-See the [service limits article](concepts/data-limits.md) for more information.
+See the [service limits article](limits.md) for more information.
 
 ## What to do if my model scores poorly?
 
