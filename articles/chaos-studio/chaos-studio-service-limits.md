@@ -5,6 +5,7 @@ author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
 ms.date: 11/01/2021
+ms.topic: reference
 ---
 
 # Azure Chaos Studio service limits
