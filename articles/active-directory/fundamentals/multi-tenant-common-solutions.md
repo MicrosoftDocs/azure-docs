@@ -42,7 +42,7 @@ This customer had the following goals:
 
 * Users can access applications and resources in the resource tenant.
 
-* Users can self-serve access requests to resources
+* Users can self-serve access requests to resources.
 
 ### Solution architecture 
 
