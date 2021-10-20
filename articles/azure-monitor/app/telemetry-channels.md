@@ -145,6 +145,11 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 1. In Web Apps on Windows, the default disk-storage location is D:\local\LocalAppData. This location isn't persisted. It's wiped out in app restarts, scale-outs, and other such operations, leading to loss of any telemetry stored there. You can override the default and specify storage to a persisted location like D:\home. However, such persisted locations are served by remote storage and so can be slow.
 
+Though less likely, it is also possible that channel can cause duplicate
+telemetry items. This occurs when `ServerTelemetryChannel` retries due to
+network failure/timeout, when the telemetry was actually delivered to the
+backend, but the response was lost due to network issues or there was timeout.
+
 ### Does ServerTelemetryChannel work on systems other than Windows?
 
 Although the name of its package and namespace includes "WindowsServer," this channel is supported on systems other than Windows, with the following exception. On systems other than Windows, the channel doesn't create a local storage folder by default. You must create a local storage folder and configure the channel to use it. After local storage has been configured, the channel works the same way on all systems.
