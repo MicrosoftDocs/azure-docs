@@ -45,7 +45,7 @@ Metric rules for virtual machines can use the following data:
 ### Target resource and impacted resource
 
 > [!NOTE]
-> Resource-centric log alert rules, currently in public preview, simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule, which better identifies it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or description. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
+> Resource-centric log alert rules, currently in public preview, simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule, which better identifies it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or subscription. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
 > 
 Each alert in Azure Monitor has an **Affected resource** property, which is defined by the target of the rule. For metric alert rules, the affected resource is the computer, which allows you to easily identify it in the standard alert view. Log query alerts are associated with the workspace resource instead of the machine, even when you use a metric measurement alert that creates an alert for each computer. You need to view the details of the alert to view the computer that was affected.
 
