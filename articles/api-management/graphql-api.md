@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 10/20/2021
 ms.custom:  
 ---
 
@@ -16,7 +16,7 @@ GraphQL is an open-source, industry-standard query language for APIs. Unlike end
 
 API Management tackles the security, authentication, and authorization challenges that come with publishing GraphQL APIs. Using API Management to expose your GraphQL APIs, you can:
 * Add a GraphQL service as APIs via Azure portal.  
-* Secure GraphQL APIs by applying both existing access control policies and new policies to secure and protect against GraphQL-specific attacks. 
+* Secure GraphQL APIs by applying both existing access control policies and [new policies](graphql-validation-policies.md) to secure and protect against GraphQL-specific attacks. 
 * Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals. 
 * Gain insights into their GraphQL APIs usage via query frequency reports. 
 * Improve GraphQL API performance by caching queries and responses in API Management. 
@@ -46,7 +46,7 @@ In this article, you'll:
     |----------------|-------|
     | Display name | The name by which your GraphQL API will be displayed. |
     | Name | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. For example: *https://example.com/your-GraphQL-name* |
+    | GraphQL API endpoint | The base URL with your GraphQL API endpoint name. <br /> For example: *https://example.com/your-GraphQL-name*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
     | Upload schema file | Select to browse and upload your schema file. |
     | Description | Add a description of your API. |
     | URL scheme | Select HTTP, HTTPS, or Both. Default selection: *Both*. |
@@ -72,7 +72,7 @@ In this article, you'll:
     1. Delete headers using the **trashcan icon**.
 1. If you've added a product to your GraphQL API, apply product scope under **Apply product scope**.
 1. Under **Query editor**, either:
-    1. Select a query, mutation, or subscription to the test console from the list in the side menu.
+    1. Select at least one field or subfield from the list in the side menu. The fields and subfields you select appear in the query editor.
     1. Start typing in the query editor to compose a query.
 1. Under **Query variables**, add variables to reuse the same query or mutation and pass different values.
 1. Click **Send**.
@@ -82,13 +82,8 @@ In this article, you'll:
 
 ## Limitations
 
-### Can I use API Management to create a GraphQL from existing REST APIs?
-
-No. Only GraphQL pass through is supported.  
-
-### Can I use API Management to compose a GraphQL API from two or more GraphQL services? 
-
-No. A single GraphQL API in API Management corresponds to a single GraphQL backend endpoint. 
+* Only GraphQL pass through is supported. 
+* A single GraphQL API in API Management corresponds to only a single GraphQL backend endpoint.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

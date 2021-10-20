@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 10/07/2021
+ms.date: 10/20/2021
 ms.author: danlep
 ---
 
@@ -47,7 +47,6 @@ The following example validates a GraphQL query. Requests larger than 100 kb or 
     <authorize path="/" action="allow" /> 
     <authorize path="/__*" action="reject" /> 
     <authorize path="/Query/list Users" action="reject" /> 
-    </authorize> 
 </validate-graphql-request> 
 ```
 
