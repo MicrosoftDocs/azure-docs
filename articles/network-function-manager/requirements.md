@@ -12,6 +12,8 @@ ms.author: prmitt
 
 # Network Function Manager prerequisites and requirements
 
+This article helps you understand the prerequisites and requirements that are necessary in order to configure and use Azure Network Function Manager.
+
 ## <a name="edge-pro"></a>Azure Stack Edge Pro with GPU installed and activated
 
 Verify that you have the following prerequisites:
