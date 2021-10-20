@@ -26,7 +26,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Maximum allowed length for your file sis 128,000 characters, which is approximately 28,000 words or 56 pages.
 
-* Your [training dataset](../how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
+* Your [training dataset](how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
 
 
 ## APIs limits
@@ -46,7 +46,7 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can have up to 500 projects per resource.
 
-* Project names have to be unique within the same resource across both custom NER and [custom text classification](../../custom-classification/overview.md).
+* Project names have to be unique within the same resource across both custom NER and [custom text classification](../custom-classification/overview.md).
 
 * Custom NER is only available in the following regions:    
     * West US 2

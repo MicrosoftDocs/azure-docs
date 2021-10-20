@@ -49,9 +49,6 @@ conceptualContent:
           text: Personally Identifiable Information (PII) detection
           url:  personally-identifiable-information/overview.md
         - itemType: overview
-          text: Custom text extraction
-          url:  custom-text-extraction/overview.md
-        - itemType: overview
           text: Custom Named Entity Recognition (NER)
           url:  custom-named-entity-recognition/overview.md
         - itemType: overview
