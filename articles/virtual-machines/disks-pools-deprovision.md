@@ -18,7 +18,8 @@ This article covers the deletion process for an Azure disk pool (preview) and ho
 You can stop a disk pool to save costs and preserve all configurations. When a disk pool is stopped, you can no longer connect to it over iSCSI. The managed resources deployed to support the disk pool will not be deleted. You must disconnect all clients with iSCSI connections to the disk pool first before stopping a disk pool. You can start a disk pool at any time. This will reactivate the iSCSI target exposed on this disk pool.
 # [Portal](#tab/azure-portal)
 
-Not currently supported in the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to your disk pool, and select **Stop**.
 
 # [PowerShell](#tab/azure-powershell)
 

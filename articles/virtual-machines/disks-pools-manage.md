@@ -23,10 +23,23 @@ Your disk must meet the following requirements in order to be added to the disk 
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to your disk pool, and select **Disks** under **Settings**.
 1. Select **Attach existing disk** and select your disks.
 1. When you have chosen all the disks you'd like to attach, select **Save**.
+
+    :::image type="content" source="media/disk-pools-manage/manage-disk-pool-add.png" alt-text="Screenshot of the disks blade for your disk pool.":::
+
+    Now that you've attached your disk, you must enable their LUNS.
+
+1. Select **iSCSI** under **Settings**.
+1. Select **Add LUN** under **Disks enabled for iSCSI**.
+1. Select the disk you attached earlier.
+1. Select **Save**.
+
+    :::image type="content" source="media/disk-pools-manage/enable-disk-luns.png" alt-text="Screenshot of iSCSI blade, disk luns added and enabled.":::
+
+Now that you've attached your disk and enabled the LUN, you must create and attach it as an iSCSI datastore to your Azure VMware Solution private cloud. See blank for details.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -145,10 +158,18 @@ Before you disable iSCSI support on a disk, confirm there is no outstanding iSCS
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal.
-1. Navigate to your disk pool, and select **Disks** under **Settings**.
-1. Select **Remove disk from disk pool** and select your disks.
-1. When you have chosen all the disks you'd like to remove, select **Save**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to your disk pool and select **iSCSI** under **Settings**.
+1. Under **Disks enabled for iSCSI** select the disk you'd like to remove and select **Remove LUN**.
+1. Select **Save** and wait for the operation to complete.
+
+    Now that you've disabled the LUN, you can remove your disk from the disk pool.
+
+1. Select **Disks** under **Settings**.
+1. Select **Remove disk from disk pool** and select your disk.
+1. Select **Save**.
+
+When the operation completes, your disk will have been completely removed from the disk pool.
 
 # [PowerShell](#tab/azure-powershell)
 
