@@ -68,7 +68,7 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
 
 Azure Arc-enabled Kubernetes has a cluster extension functionality that enables you to install various agents including Azure Policy definitions, monitoring, machine learning, and many others. Azure Machine Learning requires the use of the *Microsoft.AzureML.Kubernetes* cluster extension to deploy the Azure Machine Learning agent on the Kubernetes cluster. Once the Azure Machine Learning extension is installed, you can attach the cluster to an Azure Machine Learning workspace and use it for the following scenarios:
 
-* [Training](#training). 
+* [Training](#training)
 * [Real-time inferencing only](#inferencing)
 * [Training and inferencing](#training-inferencing)
 
@@ -304,42 +304,13 @@ Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-c
 **AKS**
 
 ```azurecli
-az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.Kubernetes/managedclusters/\<cluster-name\>" --type kubernetes --file advanced-attach.yml --no-wait
+az ml compute attach --resource-group \<resource-group-name\> --workspace-name \<workspace-name\> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/managedclusters/<cluster-name>" --type aks --file advanced-attach.yml --no-wait
 ```
 
 **Azure Arc enabled Kubernetes**
 
-az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.Kubernetes/connectedClusters/\<cluster-name\>" --type kubernetes --file advanced-attach.yml --no-wait
-
-#### Advanced compute attach scenarios
-
-Kubernetes compute targets allow you to specify an attach configuration file for advanced compute target capabilities. The following is an example of an attach configuration YAML file:
-
-```yaml
-instance_types: 
--   name: gpu_instance
-    node_selector: 
-        accelerator: nvidia-tesla-k80
-    resources: 
-        requests:
-          cpu: 1
-          memory: 4Gi
-          "nvidia.com/gpu": 1
-        limits:
-          cpu: 1
-          memory: 4Gi
-          "nvidia.com/gpu": 1
--   name: big_cpu_sku
-    node_selector: null
-    resources: 
-        requests:
-          cpu: 4
-          memory: 16Gi
-          "nvidia.com/gpu": 0
-        limits:
-          cpu: 4
-          memory: 16Gi
-          "nvidia.com/gpu": 0
+```azurecli
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/connectedClusters/<cluster-name>" --type kubernetes --file advanced-attach.yml --no-wait
 ```
 
 ---
