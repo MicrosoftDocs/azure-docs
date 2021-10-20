@@ -135,7 +135,7 @@ Once your Azure Blob Storage account is created, you will need to use the follow
 
 **accountName** will be the value of `STORAGE_ACCOUNT` that you chose above.
 
-**containerName** will be the value of `STORAGE_ACCOUNT_CONTAINER` defined above (e.g. mycontainer). Dapr will create a container with this name if it doesn't exist.
+**containerName** will be the value of `STORAGE_ACCOUNT_CONTAINER` defined above (e.g. mycontainer). Dapr will create a container with this name if it doesn't already exist in your Azure Storage account.
 
 Get an **accountKey** with the following command.
 
