@@ -4,7 +4,6 @@ description: Understand the throttling and usage limits for Azure Chaos Studio
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: how-to
 ms.date: 11/01/2021
 ---
 
@@ -30,7 +29,7 @@ Chaos Studio applies limits to the number of objects, duration of activities, an
 
 ## API throttling limits
 
-Chaos Studio applies limits to all ARM operations. Requests made over the limit are throttled. All request limits are applied for a five minute interval unless otherwise specified.
+Chaos Studio applies limits to all ARM operations. Requests made over the limit are throttled. All request limits are applied for a five-minute interval unless otherwise specified.
 
 | Operation | Requests |
 | -- | -- |
