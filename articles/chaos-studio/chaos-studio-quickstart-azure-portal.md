@@ -1,4 +1,4 @@
-# Quickstart:Create and run a chaos experiment that uses a VM Shutdown fault 
+# Quickstart: Create and run a chaos experiment that uses a VM Shutdown fault 
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
 
 ## Sign in to Azure portal 
@@ -15,7 +15,7 @@ Sign in to the Azure portal at https://portal.azure.com
     
 3. In **Create a virtual machine** provide values for the **Reasource group**, and **Virtual machine name**.
 
-![Click start in virtual machine](images/create-virtual-machine.PNG)
+![Click start in virtual machine](images/quickstart-create-virtual-machine.PNG)
 
 4. Click **Review + create**, then create.
 
