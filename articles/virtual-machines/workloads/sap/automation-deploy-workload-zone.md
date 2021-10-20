@@ -96,7 +96,7 @@ Running the command below will deploy the SAP Workload Zone.
 > Perform this task from the deployer.
 
 ```azurecli-interactive
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
 subscriptionID=<subscriptionID>
 appId=<appID>
@@ -107,7 +107,7 @@ storageaccount=<storageaccountName>
 statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                                  \
-        --parameter_file LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE/DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars           \
+        --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars           \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                     \
         --keyvault $keyvault                                                                                    \
         --state_subscription $statefile_subscription                                                            \
@@ -127,9 +127,9 @@ $keyvault=<keyvaultName>
 $storageaccount=<storageaccountName>
 $statefile_subscription=<statefile_subscription>
 
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
+cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
 
-New-SAPWorkloadZone -Parameterfile .\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE\DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+New-SAPWorkloadZone -Parameterfile .DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
 -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```

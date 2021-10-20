@@ -85,7 +85,7 @@ The table below contains the parameters related to the deployer virtual machine.
 | `deployer_enable_public_ip`   | Optional	   | Defined if the deployer has a public IP|
 
 The Virtual Machine image is defined using a json structure: 
-```json 
+```python 
 { 
 os_type=""
 source_image_id=""
