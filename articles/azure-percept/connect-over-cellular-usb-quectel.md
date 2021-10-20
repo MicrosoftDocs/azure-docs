@@ -199,7 +199,7 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 1. Enable the modem.
 
-      Prior to establishing a connection, turn on the modem's radio or radios by runninge:
+      Prior to establishing a connection, turn on the modem's radio or radios by running:
 
       ```
       mmcli --modem 0 --enable
