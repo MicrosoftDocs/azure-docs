@@ -31,6 +31,11 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
 * Fulfill [Azure Arc-enabled Kubernetes cluster extensions prerequisites](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version >= 2.24.0
   * Azure CLI k8s-extension extension version >= 1.0.0
+* Fulfill [Azure Arc network requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements)
+
+    > [!IMPORTANT]
+    > Clusters running behind an outbound proxy server or firewall need additional network configurations. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
+
 * An Azure Machine Learning workspace. [Create a workspace](how-to-manage-workspace.md?tabs=python) before you begin if you don't have one already.
   * Azure Machine Learning Python SDK version >= 1.30
 * Log into Azure using the Azure CLI
@@ -58,9 +63,6 @@ Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-en
         * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
         * ```system:serviceaccount:azureml:azureml-fe```
         * ```system:serviceaccount:azureml:prom-prometheus```
-
-> [!IMPORTANT]
-> Clusters running behind an outbound proxy server or firewall need additional network configurations. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
 
 ## Deploy Azure Machine Learning extension
 
@@ -190,8 +192,11 @@ Once the Azure Machine Learning extension is deployed, the following resources a
 |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
 |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
 |nfd-master|Kubernetes deployment|**&check;**|N/A|**&check;**|
-|gateway|Kubernetes deployment|**&check;**|N/A|**&check;**|
+|gateway|Kubernetes deployment |**&check;**|**&check;**|**&check;**|
 |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|
+| fluent-bit (daemonset) | Kubernetes deployment |**&check;**|**&check;**|**&check;**| 
+| nvidiaDevicePlugin(daemonset) | Kubernetes deployment |**&check;**|**&check;**|**&check;**|
+| prometheus (statefulset, not prometheus-operator) | Kubernetes deployment |**&check;**|**&check;**|**&check;**|
 
 > [!IMPORTANT]
 > Azure ServiceBus and Azure Relay resources are under the same resource group as the Arc cluster resource. These resources are used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
