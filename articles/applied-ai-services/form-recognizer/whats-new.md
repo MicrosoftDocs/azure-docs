@@ -28,7 +28,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
 
-* [**Langauge Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+* [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 
 * **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
 
@@ -418,7 +418,7 @@ pip package version 3.1.0b4
 
     In addition to labeling tables, you can now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
 
-* **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
+* **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 

@@ -172,7 +172,7 @@ resource "azurerm_spring_cloud_service" "example" {
 You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-name>* placeholder refers to the name of your Azure Spring Cloud instance.
 
 To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
-   
+
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
@@ -182,7 +182,7 @@ az spring-cloud create \
 ```
 
 You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
-   
+
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
@@ -284,9 +284,14 @@ When data is stored in Application Insights, it contains the history of Azure Sp
   * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
   * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance, and Metrics.
   * Two instances in Live Metrics.
-
 ## See also
 
 * [Use distributed tracing with Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
+* [Application Map](/azure/azure-monitor/app/app-map)
+* [Live Metrics](/azure/azure-monitor/app/live-stream)
+* [Performance](/azure/azure-monitor/app/tutorial-performance)
+* [Failures](/azure/azure-monitor/app/tutorial-runtime-exceptions)
+* [Metrics](/azure/azure-monitor/essentials/tutorial-metrics-explorer)
+* [Logs](/azure/azure-monitor/logs/data-platform-logs)

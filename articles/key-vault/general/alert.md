@@ -83,7 +83,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
 4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds: 
 
     + Key Vault availability drops below 100 percent (static threshold)
-    + Key Vault latency is greater than 500 ms (static threshold) 
+    + Key Vault latency is greater than 1000 ms (static threshold) 
     + Overall vault saturation is greater than 75 percent (static threshold) 
     + Overall vault saturation exceeds average (dynamic threshold)
     + Total error codes are higher than average (dynamic threshold) 
@@ -103,7 +103,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    + Set **Threshold** to **Static**. 
    + Set **Operator** to **Greater than**.
    + Set **Aggregation type** to **Average**.
-   + Set **Threshold value** to **500**.
+   + Set **Threshold value** to **1000**.
    + Set **Aggregation granularity (Period)** to **5 minutes**.
    + Set **Frequency of evaluation** to **Every 1 Minute**.
 

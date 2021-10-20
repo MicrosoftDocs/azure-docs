@@ -35,7 +35,7 @@ This section provides an overview of physical sensor models that are available. 
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | Up to 4 RJ45 | Up to 5 RJ45 |
 | Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
-| Maximum protected devices | 10,000 | 15,000 | 1,000 | 800 |
+| Maximum protected devices | 10,000 | 10,000 | 1,000 | 800 |
 
 See [Appliance specifications](#appliance-specifications) for vendor details.
 

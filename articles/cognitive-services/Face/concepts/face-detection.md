@@ -31,6 +31,8 @@ Face landmarks are a set of easy-to-find points on a face, such as the pupils or
 
 The coordinates of the points are returned in units of pixels.
 
+The Detection_03 model currently has the most accurate landmark detection. The eye and pupil landmarks it returns are precise enough to enable gaze tracking of the face.
+
 ## Attributes
 
 Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:

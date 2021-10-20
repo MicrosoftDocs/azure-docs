@@ -630,12 +630,17 @@
         items:
         - name: Shard data on worker nodes
           href: tutorial-hyperscale-shard.md
-      - name: Design a multi-tenant database
-        href: tutorial-design-database-hyperscale-multi-tenant.md
-        displayName: hyperscale, tutorial, multi-tenant
-      - name: Design a real-time dashboard
-        href: tutorial-design-database-hyperscale-realtime.md
-        displayName: hyperscale, tutorial, real-time
+        - name: Design a multi-tenant database
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: hyperscale, tutorial, multi-tenant
+        - name: Design a real-time dashboard
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: hyperscale, tutorial, real-time
+      - name: Administer
+        items:
+        - name: Private access
+          href: tutorial-hyperscale-private-access.md
+          displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
     - name: Basic tier
@@ -651,11 +656,16 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-    - name: Security
+    - name: Data access and security
       items:
-      - name: Firewall rules
+      - name: Overview
+        href: concepts-hyperscale-security-overview.md
+      - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
+      - name: Private access
+        href: concepts-hyperscale-private-access.md
+        displayName: private, link, hyperscale
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
@@ -702,11 +712,18 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
-    - name: Firewall rules
+    - name: Data access and security
       items:
-      - name: Azure portal
-        href: howto-hyperscale-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
+      - name: Public access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-manage-firewall-using-portal.md
+          displayName: firewall rule, hyperscale
+      - name: Private access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-private-access.md
+          displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
     - name: Distributed data
