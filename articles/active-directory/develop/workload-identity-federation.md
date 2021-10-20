@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 10/20/2021
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: aaddev 
@@ -34,6 +34,7 @@ The following scenarios are supported for accessing Azure AD protected resources
 
 - GitHub Actions. First, [Configure a trust relationship](workload-identity-federation-create-trust-github.md) between your app in Azure AD and a GitHub repo in the Azure portal or using Microsoft Graph. Then configure a GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (which is described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
 - Workloads running on Kubernetes. Install the Azure AD workload identity webhook and establish a trust relationship between your app in Azure AD and a Kubernetes workload (described in the [Kubernetes](https://azure.github.io/azure-workload-identity/) content).
+- Workloads running in compute platforms outside of Azure, like GCP or AWS. By [configuring a trust relationship](workload-identity-federation-create-trust.md) between your Azure AD application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. This is accomplished through the [client credentials flow](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential], passing in the identity provider's JWT instead of crafting one themselves using a stored certificate. 
 
 ## How it works
 Create a trust relationship between the external IdP and an app in Azure AD by configuring a [federated identity credential](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true). The federated identity credential is used to indicate which token from the external IdP should be trusted by your application. You configure the federated identity credential on your app registration in the Azure portal or through Microsoft Graph.  The steps for configuring the trust relationship will differ, depending on the scenario and external IdP.
@@ -44,12 +45,12 @@ The workflow for exchanging an external token for an access token is the same, h
 
 1. The external workload (such as a GitHub Actions workflow) requests a token from the external IdP (such as GitHub).
 1. The external IdP issues a token to the external workload.
-1. The external workload (the login action in a GitHub workflow, for example) sends the token to Microsoft identity platform and requests an access token.
-1. Microsoft identity platform checks the [trust relationship on the app registration](/graph/api/resources/federatedidentitycredential?view=graph-rest-beta&preserve-view=true) and validates the external token against the Open ID Connect (OIDC) issuer URL on the external IdP.
+1. The external workload (the login action in a GitHub workflow, for example) [sends the token to Microsoft identity platform](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and requests an access token.
+1. Microsoft identity platform checks the [trust relationship](workload-identity-federation-create-trust.md) on the app registration and validates the external token against the Open ID Connect (OIDC) issuer URL on the external IdP.
 1. When the checks are satisfied, Microsoft identity platform issues an access token to the external workload.
 1. The external workload accesses Azure AD protected resources using the access token from Microsoft identity platform. A GitHub Actions workflow, for example, uses the access token to publish a web app to Azure App Service.
 
 ## Next steps
 Learn more about how workload identity federation works and:
-- How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#get-a-token) and a client assertion issued by another IdP to get a token.
-- How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true) on an app registration using Microsoft Graph.
+- how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
+- how to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true) on an app registration using Microsoft Graph.
