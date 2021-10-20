@@ -21,19 +21,18 @@ Sign in to the Azure portal at https://portal.azure.com
 1. Open the [Azure portal](https://portal.azure.com).
 2. Search for **Chaos Studio (preview)** in the search bar.
 3. Click on **Targets** and navigate to your VM created.
-![Targets view in the Azure portal](images/tutorial-service-direct-targets.png)
+
+![Targets view in the Azure portal](images/quickstart-service-direct-targets.PNG)
+
 4. Check the box next to your Cosmos DB account and click **Enable targets** then **Enable service-direct targets** from the dropdown menu.
+
 ![Enabling targets in the Azure portal](images/quickstart-service-direct-targets-enable.PNG)
+
 5. A notification will appear indicating that the resource(s) selected were successfully enabled.
+
 ![Notification showing target successfully enabled](images/tutorial-service-direct-targets-enable-confirm.png)
 
-You have now successfully onboarded your Cosmos DB account to Chaos Studio. In the **Targets** view you can also manage the capabilities enabled on this resource. Clicking the **Manage actions** link next to a resource will display the capabilities enabled for that resource.
-
-
-
-
-
-
+##Create an experiment
 
 
 7. Click **Add an experiment**.
