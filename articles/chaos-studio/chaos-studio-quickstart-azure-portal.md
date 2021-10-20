@@ -1,34 +1,24 @@
 # Quickstart: Create and run a chaos experiment that uses a VM Shutdown fault 
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
 
-## Sign in to Azure portal 
-Sign in to the Azure portal at https://portal.azure.com
-## Create a VM resource
-1. On the Azure portal menu or from the Home page, search for **Virtual machines** in the serach bar. 
-
-    ![Search a virtual machine](images/search-virtual-machine.PNG)
-    
-2. Click on **Create**
+## Prerequisites
+- Open the [Azure portal](https://portal.azure.com).
+- A virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
 
 
-    ![Click start in virtual machine](images/click-start-virtual-machine.PNG)
-    
-3. In **Create a virtual machine** provide values for the **Reasource group**, and **Virtual machine name**.
 
-![Click start in virtual machine](images/quickstart-create-virtual-machine.PNG)
 
-4. Click **Review + create**, then create.
 
-## Enable Chaos Studio on your VM created
+
+
+## Enable Chaos Studio on the Virtual Machine you created
 1. Open the [Azure portal](https://portal.azure.com).
 2. Search for **Chaos Studio (preview)** in the search bar.
 3. Click on **Targets** and navigate to your VM created.
 
-![Targets view in the Azure portal](images/quickstart-service-direct-targets.PNG)
+4. Check the box next to your VM created and click **Enable targets** then **Enable service-direct targets** from the dropdown menu.
 
-4. Check the box next to your Cosmos DB account and click **Enable targets** then **Enable service-direct targets** from the dropdown menu.
-
-![Enabling targets in the Azure portal](images/quickstart-service-direct-targets-enable.PNG)
+![Targets view in the Azure portal](images/quickstart-virtual-machine-enabled.PNG)
 
 5. A notification will appear indicating that the resource(s) selected were successfully enabled.
 
@@ -52,10 +42,20 @@ Sign in to the Azure portal at https://portal.azure.com
 
 ![Fault properties](images/quickstart-service-direct-add-fault.PNG)
 
-5. Click **Next: Target resources >**
+5. Click **Next: Target resources >**.
 ![Add a target](images/quickstart-service-direct-add-targets.PNG)
 
-6. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
+
+6. Click **Add**.
+
+
+![Add a target](images/quickstart-add-target.PNG)
+
+7. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
+
+
+![Add a target](images/quickstart-review-and-create.PNG)
+
 
 ## Run your experiment
 1. You are now ready to run the  experiment. 
@@ -67,6 +67,7 @@ Sign in to the Azure portal at https://portal.azure.com
 ![Select the VM](images/quickstart-cleanup.PNG)
 
 2. Click on **delete** to avoid being charged for the resource.
+![Select the VM](images/quickstart-cleanup-virtual-machine.PNG)
 
 ## Next steps
 Now that you have run a VM shutdown service-direct experiment, you are ready to:
