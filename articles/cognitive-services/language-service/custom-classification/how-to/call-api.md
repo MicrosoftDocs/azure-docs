@@ -19,10 +19,10 @@ After you're satisfied with your model, and made any necessary improvements, you
 ## Prerequisites
 
 * [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
-    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
+* (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
@@ -72,7 +72,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ### Using the API
 
-### Get your resource keys endpoint
+First you will need to get your resource key and endpoint
 
 1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 

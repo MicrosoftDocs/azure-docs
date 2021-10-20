@@ -21,7 +21,7 @@ Reviewing model evaluation is an important step in developing a custom classific
 
 Before you train your model you need:
 * [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
-    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
 

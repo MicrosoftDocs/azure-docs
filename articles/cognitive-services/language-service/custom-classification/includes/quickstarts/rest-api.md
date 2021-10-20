@@ -47,7 +47,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
 
-The provided sample dataset contains around 200 movie summaries that belongs to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action". You can also find 
+The provided sample dataset contains around 200 movie summaries that belongs to one or more of the following classes: "Mystery", "Drama", "Thriller", "Comedy", "Action".
 
 ### Get your resource keys and endpoint
 

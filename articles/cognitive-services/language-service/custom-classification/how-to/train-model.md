@@ -20,8 +20,9 @@ Training is the process where the model learns from your [tagged data](tag-data.
 ## Prerequisites
 
 Before you train your model you need:
+
 * [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
-    * Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
