@@ -24,7 +24,7 @@ You can use workload identity federation in scenarios such as GitHub Actions and
 
 ## Why use workload identity federation?
 
-Typically, a software workload (such as an application, service, script, or container-based application) needs an identity in order to authenticate and access resources or communicate with other services.  When these workloads run on Azure, you can use managed identities and the Azure platform manages the credentials for you.  For a software workload running outside of Azure, you use application credentials (a secret or certificate) to access Azure AD protected resources (such as Azure, Microsoft Graph, Microsoft 365, or third-party resources).  You manage these application credentials, which are a maintenance burden and adds the risk of leaking secrets or having certificates expire.
+Typically, a software workload (such as an application, service, script, or container-based application) needs an identity in order to authenticate and access resources or communicate with other services.  When these workloads run on Azure, you can use managed identities and the Azure platform manages the credentials for you.  For a software workload running outside of Azure, you need to use application credentials (a secret or certificate) to access Azure AD protected resources (such as Azure, Microsoft Graph, Microsoft 365, or third-party resources).  These credentials pose a security risk and have to be stored securely and rotated regularly. You also run the risk of service downtime if the credentials expire.
 
 You use workload identity federation to configure an Azure AD app registration to trust tokens from an external identity provider (IdP), such as GitHub.  Once that trust relationship is created, your software workload can exchange trusted tokens from the external IdP for access tokens from Microsoft identity platform.  Your software workload then uses that access token to access the Azure AD protected resources to which the workload has been granted access. This eliminates the maintenance burden of manually managing credentials and eliminates the risk of leaking secrets or having certificates expire.
 
@@ -36,22 +36,20 @@ The following scenarios are supported for accessing Azure AD protected resources
 - Workloads running on Kubernetes. Install the Azure AD workload identity webhook and establish a trust relationship between your app in Azure AD and a Kubernetes workload (described in the [Kubernetes](https://azure.github.io/azure-workload-identity/) content).
 
 ## How it works
-Create a trust relationship between the external IdP and an app in Azure AD by configuring a [federated identity credential](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta). The federated identity credential is used to indicate which token from the external identity provider should be trusted by your application. You configure the federated identity credential on your app registration in the Azure portal or through Microsoft Graph.  The steps for configuring the trust relationship will differ, depending on the scenario and external IdP.
+Create a trust relationship between the external IdP and an app in Azure AD by configuring a [federated identity credential](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true). The federated identity credential is used to indicate which token from the external IdP should be trusted by your application. You configure the federated identity credential on your app registration in the Azure portal or through Microsoft Graph.  The steps for configuring the trust relationship will differ, depending on the scenario and external IdP.
 
-The workflow for exchanging an external token for an access token is the same, however, for all scenarios. Let’s look at an example where GitHub will be the external IdP. You configure your GitHub Actions workflow to request a token from GitHub.  GitHub issues a token to the workflow when it runs. The login action in the workflow sends the GitHub token to Microsoft identity platform and requests to exchange it for an access token. Microsoft identity platform validates the token issued by GitHub and checks the trust relationship on the Azure AD app registration for which a token is requested. When the checks are satisfied, Microsoft identity platform returns an access token to the workflow. The workflow then performs specific actions against Azure, for example deploying an application from a GitHub repo to Azure Functions or Azure App Service.  
-
-The following diagram shows the general workflow of a workload exchanging an external token for an access token and then accessing Azure AD protected resources.
+The workflow for exchanging an external token for an access token is the same, however, for all scenarios. The following diagram shows the general workflow of a workload exchanging an external token for an access token and then accessing Azure AD protected resources.
 
 :::image type="content" source="media/workload-identity-federation/workflow.svg" alt-text="Shows an external token exchanged for an access token and accessing Azure" border="false":::
 
-1. The external workload requests a token from the external identity provider (IdP).
+1. The external workload (such as a GitHub Actions workflow) requests a token from the external IdP (such as GitHub).
 1. The external IdP issues a token to the external workload.
-1. The external workload sends the token to Microsoft identity platform and requests an access token.
-1. Microsoft identity platform checks the trust relationship on the app registration and validates the external token against the Open ID Connect (OIDC) issuer URL on the external IdP.
-1. Microsoft identity platform issues an access token to the external workload.
-1. The external workload accesses Azure AD protected resources (such as Azure, Microsoft Graph, Microsoft 365, or third-party resources) using the access token from Microsoft identity platform.
+1. The external workload (the login action in a GitHub workflow, for example) sends the token to Microsoft identity platform and requests an access token.
+1. Microsoft identity platform checks the [trust relationship on the app registration](/graph/api/resources/federatedidentitycredential?view=graph-rest-beta&preserve-view=true) and validates the external token against the Open ID Connect (OIDC) issuer URL on the external IdP.
+1. When the checks are satisfied, Microsoft identity platform issues an access token to the external workload.
+1. The external workload accesses Azure AD protected resources using the access token from Microsoft identity platform. A GitHub Actions workflow, for example, uses the access token to publish a web app to Azure App Service.
 
 ## Next steps
 Learn more about how workload identity federation works and:
-- how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#get-a-token) and a client assertion issued by another IdP to get a token.
-- how to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta) on an app registration using Microsoft Graph.
+- How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#get-a-token) and a client assertion issued by another IdP to get a token.
+- How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true) on an app registration using Microsoft Graph.
