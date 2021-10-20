@@ -80,10 +80,12 @@ sections:
   - name: Linux
     questions:
       - question: |
-          When I select my lab's [Settings](https://docs.microsoft.com/azure/lab-services/how-to-enable-shutdown-disconnect), why is this page blank? Or, why don't I see the **Disconnect users when VMs are idle** setting?
+          When I select my lab's automatic shutdown Settings, why is this page blank or why don't I see the setting to automatically disconnect users when VMs are idle?
         answer: |
-          Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.  Support also varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) image.
-          See the [Cost Management Guide](https://docs.microsoft.com/azure/lab-services/cost-management-guide) for more details.
+          In general, Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.  However, support for these settings also varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) image.
+          For more information on the shutdown settings, see the following articles:
+            - [How to enable shutdown settings](https://docs.microsoft.com/azure/lab-services/how-to-enable-shutdown-disconnect)
+            - [Automatic shutdown settings for cost control](https://docs.microsoft.com/azure/lab-services/cost-management-guide#automatic-shutdown-settings-for-cost-control)
       - question: |
           How can I use Ubuntu 18.04 Server LTS and install either the GNOME or MATE graphical desktops?
         answer: |
