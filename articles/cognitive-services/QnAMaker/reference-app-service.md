@@ -4,7 +4,7 @@ description: Understand how and where to configure resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 11/9/2020
+ms.date: 11/02/2021
 ---
 
 # Service configuration
