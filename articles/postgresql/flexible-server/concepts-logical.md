@@ -108,7 +108,7 @@ Here is an example of configuring pglogical at the provider database server and 
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. Please see [pglogical documentation](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs/#limitations-and-restrictions) for details.
+2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. 
    ```SQL
    GRANT azure_pg_admin, replication to myUser;
    ```
