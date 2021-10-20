@@ -20,7 +20,7 @@ The SGX Device plugin implements the Kubernetes device plugin interface for Encl
 
 ## PSM with SGX quote helper
 
-Enclave applications that do remote attestation need to generate a quote. The quote provides cryptographic proof of the identity and the state of the application, and the environment the enclave is running in.  Quote generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. You can use the PSW when requesting attestation quote from enclave apps. Using the AKS provided service helps better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
+Enclave applications that do remote attestation need to generate a quote. The quote provides cryptographic proof of the identity and the state of the application, along with the enclave's host environment. Quote generation relies on certain trusted software components from Intel, which are part of the SGX Platform Software Components (PSW/DCAP). This PSW is packaged as a daemon set that runs per node. You can use the PSW when requesting attestation quote from enclave apps. Using the AKS provided service helps better maintain the compatibility between the PSW and other SW components in the host. Read the feature details below.
 
 [Enclave applications](confidential-computing-enclaves.md) that do remote attestation require a generated quote. This quote provides cryptographic proof of the application's identity, state, and running environment. The generation requires trusted software components that are part of Intel's PSW.
 
