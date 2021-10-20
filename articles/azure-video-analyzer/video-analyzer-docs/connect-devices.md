@@ -98,7 +98,7 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
    * Return **BadRequest** if the connection fails
    * NOTE: hostname is typically **localhost**
 1. Open a web socket connection to the `remoteEndpoint` (through a proxy if configured on the device)
-   * Set the HTTP "Authorization" header as "Bearer <remoteAuthorizationToken>"
+   * Set the HTTP "Authorization" header as "Bearer (remoteAuthorizationToken)"
    * Set the header "TunnelConnectionSource" with value "PnpDevice"
    * Set User-Agent to a suitable value that would help you identify your implementation. 
       * For example, you may want to capture the architecture of the CPU, the OS, the model/make of the the device.
