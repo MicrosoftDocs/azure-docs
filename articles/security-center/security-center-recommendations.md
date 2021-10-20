@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 01/24/2021
+ms.date: 10/20/2021
 ms.author: memildin
 
 ---
@@ -53,12 +53,15 @@ Security Center analyzes the security state of your resources to identify potent
         > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
 
     1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select **View remediation logic** before applying the suggested fix to your resources.
+
     1. **Affected resources** - Your resources are grouped into tabs:
         - **Healthy resources** – Relevant resources which either aren't impacted or on which you've already  remediated the issue.
         - **Unhealthy resources** – Resources which are still impacted by the identified issue.
+        - **Removed** - Resources that were deleted between assessment cycles (as defined by the freshness interval).
         - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
+
     1. Action buttons to remediate the recommendation or trigger a logic app.
 
 
