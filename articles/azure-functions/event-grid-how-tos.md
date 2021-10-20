@@ -9,7 +9,11 @@ ms.service: azure-functions
 
 # How to work with Event Grid triggers and bindings in Azure Functions
 
+Azure Functions provides built-in integration with Azure Event Grid by using [triggers and bindings](functions-triggers-bindings.md). This article shows you how to configure and locally evaluate your Event Grid trigger and bindings. For more information about Event Grid trigger and output binding definitions and examples, see one of the following reference articles:
 
++ [Azure Event Grid bindings for Azure Functions](functions-bindings-event-grid.md)
++ [Azure Event Grid trigger for Azure Functions](functions-bindings-event-grid-trigger.md) 
++ [Azure Event Grid output binding for Azure Functions](functions-bindings-event-grid-output.md)  
 
 ## Create a subscription
 
@@ -31,27 +35,26 @@ For more information about how to create subscriptions by using the Azure portal
 
 To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) command.
 
-The command requires the endpoint URL that invokes the function. The following example shows the version-specific URL pattern:
+The command requires the endpoint URL that invokes the function, and the endpoint varies between version 1.x of the Functions runtime and later versions. The following example shows the version-specific URL pattern:
 
-#### Version 2.x (and higher) runtime
+# [v2.x+](#tab/v2)
 
 ```http
 https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 ```
 
-#### Version 1.x runtime
+# [v1.x](#tab/v1) 
 
 ```http
 https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 ```
+---
 
 The system key is an authorization key that has to be included in the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
 
 Here's an example that subscribes to a blob storage account (with a placeholder for the system key):
 
-#### Version 2.x (and higher) runtime
-
-# [Bash](#tab/bash)
+# [Bash](#tab/bash/v2)
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -62,7 +65,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
     --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-# [Cmd](#tab/cmd)
+# [Cmd](#tab/cmd/v2)
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup ^
@@ -73,11 +76,7 @@ az eventgrid resource event-subscription create -g myResourceGroup ^
     --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
----
-
-#### Version 1.x runtime
-
-# [Bash](#tab/bash)
+# [Bash](#tab/bash/v1)
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -88,7 +87,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
     --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-# [Cmd](#tab/cmd)
+# [Cmd](#tab/cmd/v1)
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup ^
@@ -107,19 +106,21 @@ For more information about how to create a subscription, see [the blob storage q
 
 You can get the system key by using the following API (HTTP GET):
 
-#### Version 2.x (and higher) runtime
+# [v2.x+](#tab/v2)
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### Version 1.x runtime
+# [v1.x](#tab/v1) 
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-This is an admin API, so it requires your function app [master key](functions-bindings-http-webhook-trigger.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
+---
+
+This is an administrator API, so it requires your function app [master key](functions-bindings-http-webhook-trigger.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
 
 Here's an example of the response that provides the system key:
 
@@ -195,17 +196,19 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
 * Set an `aeg-event-type: Notification` header.
 * Paste the RequestBin data into the request body.
 * Post to the URL of your Event Grid trigger function.
-  * For 2.x and higher use the following pattern:
+  
+    # [v2.x+](#tab/v2)
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
-
-  * For 1.x use:
-
+    # [v2.x+](#tab/v2)
+  
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
+
+    ---
 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
@@ -218,3 +221,10 @@ The following screenshots show the headers and request body in Postman:
 The Event Grid trigger function executes and shows logs similar to the following example:
 
 ![Sample Event Grid trigger function logs](media/functions-bindings-event-grid/eg-output.png)
+
+## Next steps
+
+TO learn more about Event Grid with Functions, see the following articleS:
+
++ [Azure Event Grid bindings for Azure Functions](functions-bindings-event-grid.md)
++ [Tutorial: Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json)
