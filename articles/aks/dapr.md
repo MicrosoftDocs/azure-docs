@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Dapr extension for Azure Kubernetes Service (AKS) (preview)
 
-Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks. Leveraging the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps with solving problems around services calling other services reliably and securely, building event-driven apps with pub-sub, and building applications that are portable across multiple cloud services and hosts (e.g., Kubernetes vs. a VM).
+[Dapr](https://dapr.io/) is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks. Leveraging the benefits of a sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps with solving problems around services calling other services reliably and securely, building event-driven apps with pub-sub, and building applications that are portable across multiple cloud services and hosts (e.g., Kubernetes vs. a VM).
 
 By using the AKS Dapr extension to provision Dapr on your AKS cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
 
@@ -25,7 +25,7 @@ The AKS Dapr extension uses the Azure CLI to provision the Dapr control plane on
 - **dapr-operator**: Manages component updates and Kubernetes services endpoints for Dapr (state stores, pub/subs, etc.)
 - **dapr-sidecar-injector**: Injects Dapr into annotated deployment pods and adds the environment variables `DAPR_HTTP_PORT` and `DAPR_GRPC_PORT` to enable user-defined applications to easily communicate with Dapr without hard-coding Dapr port values.
 - **dapr-placement**: Used for actors only. Creates mapping tables that map actor instances to pods
-- **dapr-sentry**: Manages mTLS between services and acts as a certificate authority. For more information read the security overview.
+- **dapr-sentry**: Manages mTLS between services and acts as a certificate authority. For more information read the [security overview][dapr-security].
 
 Once Dapr is installed on your AKS cluster, your application services now have the Dapr sidecar running alongside them. This enables you to immediately start using the Dapr building block APIs. For a more in-depth overview of the building block APIs and how to best use them, please see the [Dapr building blocks overview][building-blocks-concepts].
 
@@ -35,8 +35,9 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 ## Prerequisites 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
-- You will also need an [AKS cluster][deploy-cluster].
+- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
+- If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
+
 
 ## Register the `Extensions`, `AKS-ExtensionManager` and `AKS-Dapr` preview features
 
@@ -69,7 +70,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Create the extension and install Dapr on your AKS cluster
 
-Once your subscription is registered to use Kubernetes extensions, you can create the Dapr extension, which will install Dapr on your AKS cluster. For example:
+Once your subscription is registered to use Kubernetes extensions, you can create the Dapr extension, which installs Dapr on your AKS cluster. For example:
 
 ```azure-cli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -221,6 +222,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
-[building-blocks-concepts]: https://docs.dapr.io/concepts/building-blocks-concept
+[building-blocks-concepts]: https://docs.dapr.io/developing-applications/building-blocks/
 [dapr-configuration-options]: https://github.com/dapr/dapr/blob/master/charts/dapr/README.md#configuration
 [sample-application]: https://github.com/dapr/quickstarts/tree/master/hello-kubernetes#step-2---create-and-configure-a-state-store
+[dapr-security]: https://docs.dapr.io/concepts/security-concept/
