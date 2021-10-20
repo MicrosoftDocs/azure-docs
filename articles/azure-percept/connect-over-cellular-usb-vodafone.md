@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Connect Azure Percept DK over 5G and LTE by using a Vodafone USB Connect 4G v2 modem
 
-This article discusses how to connect your Azure Percept DK by using a Vodafone USB Connect 4G v2 modem.
+This article discusses how to connect Azure Percept DK by using a Vodafone USB Connect 4G v2 modem.
 
 For more information about this modem, go to the [Vodafone Integrated Terminals](https://www.vodafone.com/business/iot/iot-devices/integrated-terminals) page.
 
@@ -23,7 +23,7 @@ Before you begin, make sure that you've prepared Azure Percept DK for [connectin
 
 1. Plug the Vodafone modem into the Azure Percept USB A port.
 
-1. Power up Azure Percept.
+1. Power up Azure Percept DK.
 
 1. Connect to Azure Percept DK by using the Secure Shell (SSH) network protocol.
 
@@ -35,9 +35,11 @@ Before you begin, make sure that you've prepared Azure Percept DK for [connectin
 
     If you're successful, you'll get a result that's similar to the following:
 
-    *ModemManager.service - Modem Manager*
-    *Loaded: loaded (/lib/systemd/system/ModemManager.service; enabled; vendor preset: enabled)*
-    *Active: active (running) since Mon 2021-08-09 20:52:03 UTC; 23 s ago*
+    ```
+    ModemManager.service - Modem Manager
+    Loaded: loaded (/lib/systemd/system/ModemManager.service; enabled; vendor preset: enabled)
+    Active: active (running) since Mon 2021-08-09 20:52:03 UTC; 23 s ago
+    ```
 
 1. List the active modems.
 
@@ -49,7 +51,9 @@ Before you begin, make sure that you've prepared Azure Percept DK for [connectin
 
     You should get a result that's similar to the following. Here the modem ID is `0`, but your result might differ.
 
-    */org/freedesktop/ModemManager1/Modem/0 [Alcatel] Mobilebroadband*
+    ```
+    /org/freedesktop/ModemManager1/Modem/0 [Alcatel] Mobilebroadband
+    ```
 
 1. Get the modem details.
 
@@ -132,7 +136,7 @@ Before you begin, make sure that you've prepared Azure Percept DK for [connectin
     mmcli --modem 0 --enable
     ```
 
-    You should get a response like *successfully enabled the modem*.
+    You should get a response like "successfully enabled the modem."
 
     After some time, the modem should be registered to a cell tower, and you should see a modem status of `Status -> state: registered` after you run the following code:
 
@@ -148,11 +152,11 @@ Before you begin, make sure that you've prepared Azure Percept DK for [connectin
     mmcli --modem 0 --simple-connect="apn=internet4gd.gdsp"  
     ```
 
-    You should get a response like *successfully connected the modem*.
+    You should get a response like "successfully connected the modem."
 
 1. Get the modem status.
 
-    You should see a status of `Status -> state: connected` now and a new `Bearer` category at the end of the status message.
+    You should now see a status of `Status -> state: connected` and a new `Bearer` category at the end of the status message.
 
     ```
     mmcli --modem 0
@@ -223,13 +227,13 @@ Before you begin, make sure that you've prepared Azure Percept DK for [connectin
 
 1. Get the bearer details.
 
-    You need bearer details to connect the OS to the packet data connection that the modem has now established with the cellular network. At this point, the modem has an IP connection, but the OS is not yet configured to use it.
+    You need the bearer details to connect the operating system to the packet data connection that the modem has now established with the cellular network. At this point, the modem has an IP connection, but the operating system is not yet configured to use it.
 
     ```
     mmcli --bearer 0
     ```
 
-    Bearer details are listed in the following code:
+    The bearer details are listed in the following code:
 
     ```
       --------------------------------
@@ -327,7 +331,7 @@ For general information about debugging, see [Connect by using a USB modem](./co
 
 To prevent the modem from enumerating in a non-supported mode, we suggest that you apply the following userspace/dev (udev) rules to have ModemManager ignore unwanted interfaces.
 
-File to create: `/usr/lib/udev/rules.d/77-mm-vodafone-port-types.rules`, with content as:
+Create a */usr/lib/udev/rules.d/77-mm-vodafone-port-types.rules* file with the following content:
 
 ```
 ACTION!="add|change|move|bind", GOTO="mm_vodafone_port_types_end"
