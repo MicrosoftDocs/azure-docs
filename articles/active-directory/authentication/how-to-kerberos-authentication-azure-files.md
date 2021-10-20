@@ -241,7 +241,7 @@ Follow these instructions to set up Azure files.
        ```
 
      1. Set the API permissions on the newly created application.
-        1. Go to Azure Portal -> Azure Active Directory -> App registrations -> All Applications
+        1. In the Azure portal, click **Azure Active Directory** > **App registrations** > **All Applications**.
         1. Find the application with the name matching your storage account.
         1. Add three permissions:
            - OpenId
@@ -249,9 +249,9 @@ Follow these instructions to set up Azure files.
              - Profile
            - User
              - User.Read
-        1. Also select **Grant Admin consent**:
+        1. Also select **Grant Admin consent**.
 
-           ![Screenshot showing how to grant Admin consent.](media\how-to-kerberos-authentication-azure-files\consent.png)
+        ![Screenshot showing how to grant Admin consent.](media\how-to-kerberos-authentication-azure-files\consent.png)
  
 1. Create a file share under the storage account. You can create a file share under the storage account by using the Azure portal or Powershell. 
 
@@ -298,36 +298,37 @@ Follow these instructions to set up Azure files.
 
 ## Validation Scenarios
 
+Run through the following validation scenarions to confirm Kerberos authentication is working for Azure Files. 
 
-### Part 1 Validating share mount
+### Share mount
 
-1. The validation process will be to execute the following command from a command line
+1. To validate share mounting, run the following command from a command line:
 
    ```comd
    net use <DriveLetter>: \\<your-storage-account-name>.file.core.windows.net\<your-share-name> /persistent:yes
    ```
 
-1. Open the drive letter from explorer and verify connectivity without any prompts.
+1. Open the drive letter from Explorer and verify connectivity without any prompts.
 1. Reboot the machine and log back into Windows.
 1. Verify the drive is reconnected.
 
-### Part 2: Validating share-level permissions
+### Share-level permissions
 
 In the section to set up Azure Files, there is a guide on how to assign share-level permissions to users’ Azure AD identities using Azure Portal.  We’d want to validate that these permissions are enforced by doing the following:
 
 1. Assign a user **Storage File Data SMB Share Reader** permissions to authorize them read access of the file share.
-1. Execute Part 1 above such that they have mounted the share.
+1. Validate they have mounted the share.
 1. Try to add a new file to the share – the expectation is that this fails.
 
-### Part 3: Validating file-level permissions
+### File-level permissions
 
 In the section to set up Azure Files, there is a guide on how to configure file-level permissions to assign granular access for users at the file and directory level.  We’d want to validate that these permissions are enforced by doing the following:
 
-1.	Mount the share using storage account and key.
-2.	Create a file.
-3.	Using the steps to srt up Azure Files, go through the steps to configure the file’s permission such that a user is denied access to that file.
-4.	Mount the share as the denied user.
-5.	Verify that they cannot access the file.  
+1. Mount the share using storage account and key.
+1. Create a file.
+1. Configure the file’s permission such that a user is denied access to that file.
+1. Mount the share as the denied user.
+1. Verify that they cannot access the file.  
 
 ## Troubleshooting 
 
@@ -357,12 +358,12 @@ In the section to set up Azure Files, there is a guide on how to configure file-
 Log collection for troubleshooting.
 
 1. Collect fiddler traces and Request Id or Correlation Id from response headers.
-1. Use aka.ms/logsminer to search for traces.
+1. Use [aka.ms/logsminer](aka.ms/logsminer) to search for traces.
 1. Collect Windows ETL traces from client.
 
 ## Collect logs with Feedback HUb
 
-Please collect logs using FeedBack Hub to share any feedback or report any issues while logging into the client:
+Please collect logs by using **FeedBack Hub** to share any feedback or report any issues while logging into the client:
 
 1. Open feedback hub and create a new feedback item.
 1. Select the **Security and Privacy** category, and then the **Logging into Your PC** subcategory.
