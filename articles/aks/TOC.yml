@@ -363,6 +363,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Use Dapr
+          href: dapr.md
           maintainContext: true
     - name: Deploy a service mesh
       items:
