@@ -60,7 +60,7 @@ Synapse roles can be assigned at the workspace scope or at finer-grained scopes 
 
 ### Git permissions
 
-When using Git-enabled development in Git mode, you need Git permissions in addition to the Synapse User (Synapse RBAC) role to read code artifacts, including linked service and credential definitions. To commit changes to code artifacts in Git mode, you need Git permissions and the Synapse Artifact Publisher (Synapse RBAC) role.
+When using Git-enabled development in Git mode, you need Git permissions in addition to the Synapse User (Synapse RBAC) role to read code artifacts, including linked service and credential definitions. To commit changes to code artifacts in Git mode, you need Git permissions, Azure Contributor (Azure RBAC) role on the workspace, and the Synapse Artifact Publisher (Synapse RBAC) role.
 
    
 ### Accessing data in SQL
@@ -90,7 +90,7 @@ To simplify managing access control, you can use security groups to assign roles
 
 Synapse Studio will behave differently based on your permissions and the current mode:
 - **Synapse live mode:** Synapse Studio will prevent you from seeing published content, publishing content, or taking other actions if you don't have the required permission.  In some cases, you'll be prevented from creating code artifacts that you can't use or save. 
-- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted even if you don't have permission to publish changes to the live service.  
+- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted if you have permission to publish changes to the live service (Synapse Artifact Publisher role), and the Azure Contributor role on the workspace.  
 
 In some cases, you are allowed to create code artifacts even without permission to publish or commit. This allows you to execute code (with the required execution permissions). [Learn more](./synapse-workspace-understand-what-role-you-need.md) about the roles required for common tasks. 
 
