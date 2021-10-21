@@ -13,7 +13,7 @@ ms.date: 11/02/2021
 > [!IMPORTANT]
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you choose the **Logic App (Standard)** resource type to create workflows that run in single-tenant Azure Logic Apps, App Service Environment v3, or outside Azure, you also need to create an Azure Storage account to save workflow-related artifacts, states, and runtime data. However, if you want more flexibility and control over your logic app workflows' runtime environment, throughput, scaling, performance, and management, you can use the SQL Storage Provider instead for workflow-related storage transactions. SQL doesn't replace Azure Storage as a storage solution for your logic app resources. You can choose to add SQL as the primary storage provider or continue to use only Azure Storage, which is still required for other runtime operations but provides more limited control over throughput, scale, and failover.
+When you choose the **Logic App (Standard)** resource type to create workflows that run in single-tenant Azure Logic Apps, App Service Environment v3, or outside Azure, you also need to create an Azure Storage account to save workflow-related artifacts, states, and runtime data. However, if you want more flexibility and control over your logic app workflows' runtime environment, throughput, scaling, performance, and management, you can use the SQL Storage Provider instead for workflow-related storage transactions. SQL doesn't replace Azure Storage as a storage solution for your logic app resources. You can choose to add SQL as a storage provider or continue to use only Azure Storage, which is still required for other runtime operations but provides more limited control over throughput, scale, and failover.
 
 This article provides an overview for why you might want to add SQL storage alongside Azure Storage and shows how to set up SQL for storage use either during logic app creation in the Azure portal or during logic app deployment from Visual Studio Code.
 
@@ -26,7 +26,7 @@ If you're new to logic apps, review the following documentation:
 
 ## Why use SQL
 
-As the first primary storage option for single-tenant Azure Logic Apps, SQL provides the following benefits:
+As the first additional storage option available for single-tenant Azure Logic Apps, SQL provides the following benefits:
 
 | Benefit | Description |
 |---------|-------------|
@@ -170,7 +170,7 @@ When you create your logic app using the **Logic App (Standard)** resource type 
 
 1. Finish the remaining creation steps in [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-When you're done, your new logic app resource and workflow is live in Azure and uses your SQL database as the primary storage provider.
+When you're done, your new logic app resource and workflow is live in Azure and uses your SQL database as a storage provider.
 
 <a name="set-up-sql-local-dev"></a>
 
@@ -206,7 +206,7 @@ The following steps show how to set up SQL as a storage provider for local devel
 
 You can directly publish your logic app project from Visual Studio Code to Azure. This action deploys your logic app project using the **Logic App (Standard)** resource type.
 
-- If you're publishing project as a new **Logic App (Standard)** resource in Azure, and you want to use SQL as your primary storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
+- If you're publishing project as a new **Logic App (Standard)** resource in Azure, and you want to use SQL as a storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
 
 - If you already set up your SQL settings, you can publish your logic app project to an already deployed **Logic App (Standard)** resource in Azure. This action overwrites your existing logic app.
 
@@ -293,7 +293,7 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 1. Finish the remaining deployment steps in [Publish to a new Logic App (Standard) resource](create-single-tenant-workflows-visual-studio-code.md#publish-new-logic-app).
 
-When you're done, your new logic app resource and workflow is live in Azure and uses your SQL database as the primary storage provider.
+When you're done, your new logic app resource and workflow is live in Azure and uses your SQL database as a storage provider.
 
 ## Validate deployments
 
