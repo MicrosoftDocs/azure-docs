@@ -20,42 +20,51 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ## Create an experiment
 
-1. Click on **Experiments**                 ---add the picture of the left part 
+1. Click on **Experiments**                
+ ![Go to experiment](images/quickstart-left-experiment.PNG)
+
 2. Click **Add an experiment**.
 
     ![Add an experiment in Azure portal](images/add-an-experiment.png)
 
-2. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a **Name**. Click **Next : Experiment designer >**
+3. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a **Name**. Click **Next : Experiment designer >**
 
 ![Add experiment basics](images/quickstart-service-direct-add-basics.PNG)
 
-3. You are now in the Chaos Studio experiment designer. Give a friendly name to your **Step** and **Branch**, then click **Add fault**.
+4. You are now in the Chaos Studio experiment designer. Give a friendly name to your **Step** and **Branch**, then click **Add fault**.
 
 ![Experiment designer](images/quickstart-service-direct-add-designer.PNG)
 
-4. Select VM Shutdown from the dropdown, then fill in the Duration with the number of minutes you want the failure to last. Click **Next: Target resources >**
+5. Select **VM Shutdown** from the dropdown, then fill in the **Duration** with the number of minutes you want the failure to last. 
 
 ![Fault properties](images/quickstart-service-direct-add-fault.PNG)
 
-5. Click **Next: Target resources >**.
+6. Click **Next: Target resources >**.
 ![Add a target](images/quickstart-service-direct-add-targets.PNG)
 
-6. Click **Add**.
+7. Click **Add**.
 
-![Add a target](images/quickstart-add-target.PNG)
+![Addt](images/quickstart-add-target.PNG)
 
-7. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
+8. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
 
-![Add a target](images/quickstart-review-and-create.PNG)
+![create the experiment](images/quickstart-review-and-create.PNG)
 
 ## Give experiment permission to your Virtual Machine
 1. Navigate to your Virtual Machine and click on **Access control (IAM).**
  ![Add role assignment](images/quickstart-acess-control.PNG)
-2. Click **Add** then click **Add role assignment**.
-3. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
- ![Add role assignment](images/quickstart-virtual-machine-contributor.PNG)
-4. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
- ![Add role assignment](images/quickstart-select-experiment-role-assignment.PNG)
+2. Click **Add**
+
+    ![Add button](images/add.png)
+
+3. Click **Add role assignment**
+
+    ![Add role assignment button](images/add-role-assignment.png)
+
+4. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
+ ![Add role to VM ](images/quickstart-virtual-machine-contributor.PNG)
+5. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
+ ![select the experiment](images/quickstart-select-experiment-role-assignment.PNG)
 6. Click **Review + assign** then **Review + assign.**
 
 
@@ -65,19 +74,13 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 1. Open the Azure portal:
     * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
-1. Check the box next to the experiments name and click **Start Experiment**.
+2. Check the box next to the experiments name and click **Start Experiment**.
     ![Start experiment](images/quickstart-experiment-start.PNG)
 
-1. Click **Yes** to confirm you want to start the chaos experiment.
+3. Click **Yes** to confirm you want to start the chaos experiment.
 
     ![Confirm you want to start experiment](images/start-experiment-confirmation.png)
-1. (Optional) Click on the experiment name to see a detailed view of the execution status of the experiment.
-
-
-
-
-
-
+4. (Optional) Click on the experiment name to see a detailed view of the execution status of the experiment.
 
 
 ## Clean up resources
