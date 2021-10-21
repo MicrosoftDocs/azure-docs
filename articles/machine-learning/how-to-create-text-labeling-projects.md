@@ -132,7 +132,7 @@ The **ML-assisted labeling** page lets you trigger automatic machine learning mo
 To use **ML-assisted labeling**:
 
 * Select **Enable ML assisted labeling**.
-* Select the **Dataset language** for the project. All languages supported by the [TextDNNLanguages Class](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py) are present in this list.
+* Select the **Dataset language** for the project. All languages supported by the [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) are present in this list.
 * Specify a compute target to use. If you don't have one in your workspace, a compute cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
 
 ### How does ML-assisted labeling work?
