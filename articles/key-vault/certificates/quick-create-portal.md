@@ -45,6 +45,7 @@ Once that you receive the message that the certificate has been successfully cre
 ![Certificate properties](../media/certificates/quick-create-portal/current-version-hidden.png)
 
 ## Export certificate from Key Vault
+
 By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate. 
 
 ![Certificate download](../media/certificates/quick-create-portal/current-version-shown.png)
