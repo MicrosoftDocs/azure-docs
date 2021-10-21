@@ -56,7 +56,7 @@ Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends th
 - Higher stability and availability.
 
 ## Ensure reliable outbound connectivity with VNet NAT
-Using default outbound connecitivty provided by a Standard Load Balancer or other Azure resources is not recommended for production workloads as this causes connection failures (also called SNAT port exhaustion). The recommended approach is using a VNet NAT which will prevent any failires of connecitivty in this regard. NAT can scale seamlessly to ensure your application is never out ports. [Learn more about VNet NAT](https://docs.microsoft.com/en-us/azure/virtual-network/nat-overview).
+Using default outbound connecitivty provided by a Standard Load Balancer or other Azure resources is not recommended for production workloads as this causes connection failures (also called SNAT port exhaustion). The recommended approach is using a VNet NAT which will prevent any failures of connectivty in this regard. NAT can scale seamlessly to ensure your application is never out ports. [Learn more about VNet NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview).
 
 ## Ensure virtual machine fault tolerance (temporarily disabled)
 
