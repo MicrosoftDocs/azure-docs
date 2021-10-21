@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 10/21/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
@@ -229,7 +229,7 @@ The error message displayed will be: "Due to a configuration change made by your
 
 ### UnableToAddPublisher
 
-The error message displayed is: "A verified publisher cannot be added to this application. Please contact your administrator for assistance."
+One of these error messages are displayed: "A verified publisher cannot be added to this application. Please contact your administrator for assistance.", or "You are unable to add a verified publisher to this application. Please contact your administrator for assistance."
 
 First, verify you've met the [publisher verification requirements](publisher-verification-overview.md#requirements).
 
