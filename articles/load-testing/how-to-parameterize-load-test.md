@@ -144,7 +144,7 @@ In a CI/CD workflow, you can provide environment variable by passing to the Azur
 
 No. The value of secrets are not stored by the Load testing service. If you have provided the Key Vault secret Uri, the secret Uri is stored and the value of the secret is fetched for every test run again. If you have provided the value of secrets in a CI/CD workflow, the secret values are not available after the test run. These need to be provided again for every test run.
 
-### What happens if I have parameters in my YAML configuration file as well as in the CI/CD workflow?
+### What happens if I have parameters both in my YAML configuration file as well as in the CI/CD workflow?
 
 For the same parameter, if a value exists in both the YAML configuration file and the Azure DevOps task / GitHub action, the latter will be used for the test run.
 
