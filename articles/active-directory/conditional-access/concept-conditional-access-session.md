@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/21/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -68,6 +68,17 @@ For more information, see the article [Configure authentication session manageme
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
 For more information, see the article [Configure authentication session management with Conditional Access](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions).
+
+## Customize continuous access evaluation
+
+For organizations who wish to disable or strictly enforce [continuous access evaluation](concept-continuous-access-evaluation.md), this is now an option in Conditional Access. 
+
+**Disable** works when **All cloud apps** are selected, and no conditions are selected.
+
+**Strict enforcement** means that any critical event and policy can be guaranteed to be enforced in real-time. All CAE-capable services always get CAE tokens, regardless of anything the client or user might ask for or do. There are two scenarios where CAE will not come into play when strict enforcement mode is turned on:
+
+- Non-CAE capable clients should not get a regular token for CAE-capable services.
+- Reject when IP seen by resource provider is not in the allowed range.
 
 ## Next steps
 
