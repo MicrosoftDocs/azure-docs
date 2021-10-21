@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Create and select Kubernetes instance types (preview)
 
-Learn how to create and select Kubernetes instances for Azure Machine Learning training and inferencing workloads.
+Learn how to create and select Kubernetes instances for Azure Machine Learning training and inferencing workloads on Azure Arc-enabled Kubernetes clusters.
 
 ## What are instance types?
 
@@ -156,6 +156,8 @@ In the above example, replace `<compute_target_name>` with the name of your Kube
 > [!TIP]
 > The default instance type purposefully uses little resources. To ensure all machine learning workloads run successfully with the adequate resources, it is highly recommended to create custom instance types.
 
-## Select an instance type for inferencing workloads
+## Next steps
 
-<!-- TODO -->
+- [Configure Azure Arc-enabled machine learning (preview)](how-to-attach-arc-kubernetes.md)
+- [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)
+- [Deploy and score a machine learning model by using an online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
