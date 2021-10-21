@@ -54,8 +54,6 @@ Use the Azure CLI [az spring-cloud connection]() command to list connection to y
 az spring-cloud connection list-configuration -sg <your-spring-cloud-resource-group> --spring-cloud <your-spring-cloud-name>
 ```
 
-Use the Azure CLI [az webapp connection]() command to create a service connection to a blob storage, providing the following information:
-
 
 ## Next steps
 
