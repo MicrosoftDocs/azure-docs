@@ -68,7 +68,7 @@ items:
       - name: ARM template
         displayname: Resource Manager
         href: quickstart-deployment-template-workspaces.md
-      displayName: quickstart
+        displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
       displayName: quickstart      
@@ -591,6 +591,12 @@ items:
       href: ./spark/apache-spark-data-visualization-tutorial.md
     - name: Analyze data with Apache Spark and Power BI
       href: ./spark/apache-spark-to-power-bi.md
+    - name: Read/write ADLS with Pandas
+      displayName: data prep, data preparation
+      href: ./spark/tutorial-use-pandas-spark-pool.md
+    - name: Read/write ADLS with filesystem spec
+      displayName: data prep, data preparation, fsspec
+      href: ./spark/tutorial-spark-pool-filesystem-spec.md
     - name: Create machine learning models
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
@@ -1290,12 +1296,6 @@ items:
     items:
     - name: Data access and preparation
       items:
-      - name: Read/write ADLS with Pandas
-        displayName: data prep, data preparation
-        href: ./spark/tutorial-use-pandas-spark-pool.md
-      - name: Read/write ADLS with filesystem spec
-        displayName: data prep, data preparation
-        href: ./spark/tutorial-spark-pool-filesystem-spec.md
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
@@ -1334,6 +1334,9 @@ items:
         - name: Form Recognizer with Apache Spark (MMLSpark)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
+        - name: Translator with Apache Spark (MMLSpark)
+          displayName: cognitive services, score model, applications
+          href: ./machine-learning/tutorial-translator-use-mmlspark.md
         - name: With Apache Spark (MMLSpark)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
