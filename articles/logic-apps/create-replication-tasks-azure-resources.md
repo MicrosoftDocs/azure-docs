@@ -230,12 +230,12 @@ This example shows how to create a replication task for Service Bus queues.
 
    1. To add the task workflow to an existing **Logic App (Standard)** resource, from the **Logic App** list, select the existing logic app. To create a new **Logic App (Standard)** resource instead, under the **Logic App** list, select **Create new**, and provide the name to use for the new logic app.
 
-     > [!NOTE]
-     > If you create a new logic app resource during replication task creation, the logic app is created in the 
-     > *same region as the source entity*, which is problematic if the source region becomes unavailable and won't 
-     > work in a failover scenario. The best practice is to create a **Logic App (Standard)** resource in a different 
-     > region than your source. When you create the replication task, select the existing logic app instead and 
-     > add the underlying stateless workflow to the existing logic app. For more information, review the [Prerequisites](#prerequisites).
+      > [!NOTE]
+      > If you create a new logic app resource during replication task creation, the logic app is created in the 
+      > *same region as the source entity*, which is problematic if the source region becomes unavailable and won't 
+      > work in a failover scenario. The best practice is to create a **Logic App (Standard)** resource in a different 
+      > region than your source. When you create the replication task, select the existing logic app instead and 
+      > add the underlying stateless workflow to the existing logic app. For more information, review the [Prerequisites](#prerequisites).
 
    1. When you're done, select **Review + create**.
 
