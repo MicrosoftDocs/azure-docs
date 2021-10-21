@@ -175,7 +175,7 @@ sections:
         answer: |
           Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
           
-           - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md#premium-ssd)
+           - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
            - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
            - [M-series](../virtual-machines/m-series.md)
            - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
