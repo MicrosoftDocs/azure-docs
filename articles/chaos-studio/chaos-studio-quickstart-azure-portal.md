@@ -1,5 +1,5 @@
 ---
-title: Create and run a chaos experiment using a VM Shutdown fault 
+title: Create and run a chaos experiment using Azure Chaos Studio
 description: Understand the steps to create and run a Chaos Studio experiment in 10mins
 services: chaos-studio
 author: prashabora
@@ -73,7 +73,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 4. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
 
-![Chose the role for the VM](images/quickstart-virtual-machine-contributor.PNG)
+![Choose the role for the VM](images/quickstart-virtual-machine-contributor.PNG)
 5. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
  ![select the experiment](images/quickstart-select-experiment-role-assignment.PNG)
  
