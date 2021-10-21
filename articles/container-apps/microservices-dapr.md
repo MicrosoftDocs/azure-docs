@@ -36,10 +36,10 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 This guide makes use of the following environment variables:
 
 ```bash
-RESOURCE_GROUP="containerapps-rg"
-LOCATION="northcentralus"
-CONTAINERAPPS_ENVIRONMENT="containerappsenv"
-LOG_ANALYTICS_WORKSPACE="containerappslogs"
+RESOURCE_GROUP="my-containerapps"
+LOCATION="eastus2"
+CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 STORAGE_ACCOUNT="<storage account name>"
 STORAGE_ACCOUNT_CONTAINER="mycontainer"
 ```
