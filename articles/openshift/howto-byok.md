@@ -16,6 +16,8 @@ By default, the OS disks of the virtual machines in an Azure Red Hat OpenShift c
 
 Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](../key-vault/general/basic-concepts.md) in the Microsoft Azure documentation.
 
+With host-based encryption, the data stored on the VM host of your AKS agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. By default, when using ARO, OS and data disks are encrypted at rest with platform-managed keys, meaning that the caches for these disks are also by default encrypted at rest with platform-managed keys. You can specify your own managed keys following the encryption steps below. The cache for these disks will then also be encrypted using the key that you specify in this step.
+
 > [!IMPORTANT]
 > ARO preview features are available on a self-service, opt-in basis. Preview features are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Preview features are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
 
