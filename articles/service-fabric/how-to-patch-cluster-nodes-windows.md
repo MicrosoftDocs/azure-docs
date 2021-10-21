@@ -15,7 +15,7 @@ Getting [automatic OS image upgrades on your Virtual Machine Scale Sets](../virt
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 -	An additional health probe or use of application health extension for Virtual Machine Scale Sets is not required.
--	Stateless nodetypes are the only exception, which have durability as Bronze, but automatic OS image upgrades can still be configured on them. Read more [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types).
+-	Stateless nodetypes are the only exception, which have durability as Bronze, but automatic OS image upgrades can still be configured on them. Read more [here](./service-fabric-stateless-node-types.md).
 
 Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 

@@ -93,7 +93,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
     - [Network Security Groups](../virtual-network/manage-network-security-group.md)
     - [Load balancers](../load-balancer/index.yml)
-    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
     For any other networking components, refer to the networking [documentation](../index.yml?pivot=products&panel=network).
 

@@ -277,7 +277,7 @@ For more information, see:
 
 - [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
 - [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel data normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
 - [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
 - [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)
