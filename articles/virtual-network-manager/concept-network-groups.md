@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 11/02/2021
 ms.custom: template-concept
 ---
 
