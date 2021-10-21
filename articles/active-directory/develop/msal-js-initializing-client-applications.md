@@ -21,7 +21,7 @@ ms.custom: aaddev, devx-track-js
 
 This article describes initializing the Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application.
 
-The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. Such clients do not store secrets because the browser context is openly accessible.
+The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. Such clients don't store secrets because the browser context is openly accessible.
 
 To learn more about the client application types and application configuration options, see [Public and confidential client apps in MSAL](msal-client-applications.md).
 
@@ -35,12 +35,12 @@ After registering your app, you'll need some or all of the following values that
 |:----- | :------: | :---------- |
 | Application (client) ID | Required | A GUID that uniquely identifies your application within the Microsoft identity platform. |
 | Authority | Optional | The identity provider URL (the *instance*) and the *sign-in audience* for your application. The instance and sign-in audience, when concatenated, make up the *authority*. |
-| Directory (tenant) ID | Optional | Specify this if you're building a line-of-business application solely for your organization, often referred to as a *single-tenant application*. |
+| Directory (tenant) ID | Optional | Specify Directory (tenant) ID if you're building a line-of-business application solely for your organization, often referred to as a *single-tenant application*. |
 | Redirect URI | Optional | If you're building a web app, the `redirectUri` specifies where the identity provider (the Microsoft identity platform) should return the security tokens it has issued. |
 
 ## Initialize MSAL.js 2.x apps
 
-Initialize the MSAL authentication context by instantiating a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object. The minimum required configuration property is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object. The minimum required configuration property is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
 
 Here's an example configuration object and instantiation of a `PublicClientApplication`:
 
@@ -105,14 +105,14 @@ Invoke [handleRedirectPromise][msal-js-handleredirectpromise] when your applicat
 There are three possible outcomes from the promise:
 
 - `.then` is invoked and `tokenResponse` is truthy: The application is returning from a redirect operation that was successful.
-- `.then` is invoked and `tokenResponse` is falsy (`null`): The application is not returning from a redirect operation.
+- `.then` is invoked and `tokenResponse` is Falsy (`null`): The application isn't returning from a redirect operation.
 - `.catch` is invoked: The application is returning from a redirect operation and there was an error.
 
 ## Initialize MSAL.js 1.x apps
 
 Initialize the MSAL 1.x authentication context by instantiating a [UserAgentApplication][msal-js-useragentapplication] with a configuration object. The minimum required configuration property is the `clientID` of your application, shown as the **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
 
-For authentication methods with redirect flows ([loginRedirect][msal-js-loginredirect] and [acquireTokenRedirect][msal-js-acquiretokenredirect]) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows do not return promises like the methods with a pop-up experience do. Registering the callback is *optional* in MSAL.js version 1.3.x and later.
+For authentication methods with redirect flows ([loginRedirect][msal-js-loginredirect] and [acquireTokenRedirect][msal-js-acquiretokenredirect]) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows don't return promises like the methods with a pop-up experience do. Registering the callback is *optional* in MSAL.js version 1.3.x and later.
 
 ```javascript
 // Configuration object constructed
@@ -139,11 +139,11 @@ msalInstance.handleRedirectCallback(authCallback);
 
 Both MSAL.js 1.x and 2.x are designed to have a single instance and configuration of the `UserAgentApplication` or `PublicClientApplication`, respectively, to represent a single authentication context.
 
-Multiple instances of `UserAgentApplication` or `PublicClientApplication` are not recommended as they cause conflicting cache entries and behavior in the browser.
+Multiple instances of `UserAgentApplication` or `PublicClientApplication` aren't recommended as they cause conflicting cache entries and behavior in the browser.
 
 ## Next steps
 
-This MSAL.js 2.x code sample on GitHub demonstrates instantiation of a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object:
+The MSAL.js 2.x code sample on GitHub demonstrates instantiation of a [PublicClientApplication][msal-js-publicclientapplication] with a [Configuration][msal-js-configuration] object:
 
 [Azure-Samples/ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2)
 
