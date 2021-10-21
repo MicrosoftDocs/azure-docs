@@ -1,6 +1,6 @@
 ---
-title: Application lifecycle management in Azure Container Apps
-description: Learn about the full application lifecycle in Azure Container Apps
+title: Application lifecycle management in Azure Container Apps Preview
+description: Learn about the full application lifecycle in Azure Container Apps Preview
 services: app-service
 author: craigshoemaker
 ms.service: app-service
@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 ms.author: cshoe
 ---
 
-# Application lifecycle management in Azure Container Apps
+# Application lifecycle management in Azure Container Apps Preview
 
 The Azure Container Apps application lifecycle revolves around [revisions](revisions.md).
 

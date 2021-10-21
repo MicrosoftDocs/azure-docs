@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a background processing application with Azure Container Apps'
+title: 'Tutorial: Deploy a background processing application with Azure Container Apps Preview'
 description: Learn to create an application that continuously runs in the background with Azure Container Apps
 services: app-service
 author: jorgearteiro
@@ -9,7 +9,7 @@ ms.date: 10/16/2021
 ms.author: joarteir
 ---
 
-# Tutorial: Deploy a background processing application with Azure Container Apps
+# Tutorial: Deploy a background processing application with Azure Container Apps Preview
 
 Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. In this tutorial, you deploy a sample application that reads messages from an Azure Storage Queue and logs the messages in Azure log Analytics workspace. Using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
 
