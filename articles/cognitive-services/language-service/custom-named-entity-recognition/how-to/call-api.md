@@ -23,7 +23,7 @@ Once you are satisfied with how your model performs, it is ready to be deployed,
 * [Tagged data](tag-data.md)
 * A [successfully trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory..
+    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory.
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
@@ -66,8 +66,18 @@ See the [application development lifecycle](../overview.md#application-developme
 6. Copy the retrieve request and replace `jobId` and submit the request.
 
     :::image type="content" source="../../custom-classification/media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../../custom-classification/media/get-prediction-url-3.png":::
+    
+ ## Retrieve the results of your job
 
- You can find more details about the results in the next section.
+1. Select **Retrieve** from the same window you got the example request you got earlier and copy the sample request into a text editor. 
+
+    :::image type="content" source="../media/get-prediction-retrieval-url.png" alt-text="Screenshot showing the prediction retrieval request and URL" lightbox="../media/get-prediction-retrieval-url.png":::
+
+2. Replace `<OPERATION_ID>` with the `jobId` from the previous step. 
+
+3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
+
+You can find more details about the results in the next section.
 
 # [Using the API](#tab/api)
 
@@ -84,7 +94,7 @@ See the [application development lifecycle](../overview.md#application-developme
 ### Submit custom NER task
 
 > [!NOTE]
-> Project names is case sensitive.
+> The project name is-case sensitive.
 
 Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
@@ -97,23 +107,6 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 |Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
 
 #### Body
-
-
-
-
-
-
-
-
-## Retrieve the results of your job
-
-1. Select **Retrieve** from the same window you got the example request you got earlier and copy the sample request into a text editor. 
-
-    :::image type="content" source="../media/get-prediction-retrieval-url.png" alt-text="Screenshot showing the prediction retrieval request and URL" lightbox="../media/get-prediction-retrieval-url.png":::
-
-2. Replace `<OPERATION_ID>` with the `jobId` from the previous step. 
-
-3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
 
 ```json
     {
@@ -165,7 +158,7 @@ You will receive a 202 response indicating success. In the response **headers**,
 
 You will use this endpoint in the next step to get the custom recognition task results.
 
-### Get the classification task status and results
+### Get task status and results
 
 Use the following **GET** request to query the status/results of the custom recognition task. You can use the endpoint you received from the previous step.
 
@@ -181,7 +174,7 @@ You can find more details about the results in the next section.
 
 ---
 
-#### Text classification task results
+#### Custom Extraction task results
 
 The response returned from the Get result call will be a JSON document with the following parameters:
 
@@ -205,7 +198,7 @@ The response returned from the Get result call will be a JSON document with the 
         "inProgress": 0,
         "total": 1,
         "tasks": {
-    "customMultiClassificationTasks": [
+    "customEntityRecognitionTasks": [
         {
             "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
             "name": "MyJobName",
