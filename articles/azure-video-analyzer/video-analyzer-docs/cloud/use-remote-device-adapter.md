@@ -61,7 +61,7 @@ In the Azure portal:
 
 ## Create remote device adapter to enable transparent gateway
 
-To enable the edge module to act as a transparent gateway for video between the camera and Video Analyzer, you must create a remote device adapter for each camera by invoking the **RemoteDeviceAdapterSet** direct method that requires the following values: 
+To enable the edge module to act as a transparent gateway for video between the camera and Video Analyzer, you must create a remote device adapter for each camera by invoking the **remoteDeviceAdapterSet** direct method that requires the following values: 
 
 * Device ID for the IoT device
 * Primary key for the IoT device
@@ -74,7 +74,7 @@ In the Azure portal:
 1. Select the corresponding edge device (Ex: ava-sample-device)
 1. Under modules, select **avaedge**
 1. Select **</> Direct Method** 
-1. Enter **RemoteDeviceAdapterSet** for Method Name
+1. Enter **remoteDeviceAdapterSet** for Method Name
 1. Enter the following for **Payload** :
 
 ```
