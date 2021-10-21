@@ -9,7 +9,7 @@ ms.date: 11/02/2021
 ms.custom: template-concept
 ---
 
-## Common issues seen with Azure Virtual Network Manager (Preview)
+# Common issues seen with Azure Virtual Network Manager (Preview)
 
 In this article, we'll cover common issues you may face when using Azure Virtual Network Manager and provide some possible solutions.
 
