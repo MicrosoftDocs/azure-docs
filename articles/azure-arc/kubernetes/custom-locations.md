@@ -217,7 +217,7 @@ Use `patch` command when you want to replace existing tags, cluster extension ID
 | Parameter name | Description |
 |--------------|------------|
 | `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to the custom location |
-| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension ids |
+| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags.Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Delete a custom location
@@ -230,5 +230,5 @@ Use `patch` command when you want to replace existing tags, cluster extension ID
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment. 
-- Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
+- Create an event grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 - Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions.md#currently-available-extensions).
