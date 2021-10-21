@@ -42,12 +42,12 @@ For the bot on Surface products, you can take the following steps to create a bo
 
 4. Now, in order to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the question answering REST API.
 
-The REST API prediction URL can be retrieved from the Deploy knowledge base pane:
-   
+    The REST API prediction URL can be retrieved from the Deploy knowledge base pane:
+
    >[!div class="mx-imgBorder"]
    >[![Screenshot of the Deploy knowledge base page with the prediction URL displayed.](../media/multiple-domains/prediction-url.png)](../media/multiple-domains/prediction-url.png#lightbox)
 
-    In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response among the QnA pairs with the same metadata. 
+    In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response among the QnA pairs with the same metadata.
 
     ```json
         {
