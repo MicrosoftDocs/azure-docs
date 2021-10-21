@@ -66,14 +66,14 @@ conceptualContent:
           text: 'AutoML: Train a classification model'
     
     # Card 
-      - title: Continuous regression testing
-        links:
-          - url: tutorial-continuous-regression-testing-cicd-github-actions.md
-            itemType: tutorial
-            text: Set up CI/CD workflow in GitHub
-          - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
-            itemType: tutorial
-            text: Set up CI/CD pipeline in Azure Pipelines
+    - title: Continuous regression testing
+      links:
+        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
+          itemType: tutorial
+          text: Set up CI/CD workflow in GitHub
+        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
+          itemType: tutorial
+          text: Set up CI/CD pipeline in Azure Pipelines
     
     # Card
     - title: How-tos
