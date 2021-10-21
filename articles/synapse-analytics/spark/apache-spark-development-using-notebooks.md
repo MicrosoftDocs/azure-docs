@@ -25,17 +25,6 @@ With a Synapse notebook, you can:
 
 This article describes how to use notebooks in Synapse Studio.
 
-### Variable explorer
-
-Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables will show up automatically as they are defined in the code cells. Clicking on each column header will sort the variables in the table.
-
-You can select the **Variables** button on the notebook command bar to open or hide the variable explorer.
-
-![Screenshot of azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
-
-> [!NOTE]
-> Variable explorer only supports python.
-
 
 ## Create a notebook
 
@@ -293,6 +282,19 @@ Notebook reference works in both interactive mode and Synapse pipeline.
 > - The referenced notebooks are required to be published. You need to publish the notebooks to reference them. Synapse Studio does not recognize the unpublished notebooks from the Git repo. 
 > - Referenced notebooks do not support statement that depth is larger than **five**.
 >
+
+---
+
+### Variable explorer
+
+Synapse notebook provides a built-in variables explorer for you to see the list of the variables name, type, length, and value in the current Spark session for PySpark (Python) cells. More variables will show up automatically as they are defined in the code cells. Clicking on each column header will sort the variables in the table.
+
+You can select the **Variables** button on the notebook command bar to open or hide the variable explorer.
+
+![Screenshot of azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+> [!NOTE]
+> Variable explorer only supports python.
 
 ---
 
