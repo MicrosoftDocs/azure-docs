@@ -190,6 +190,8 @@
         href: work-with-anomaly-rules.md
       - name: Manage template versions for analytics rules
         href: manage-analytics-rule-templates.md
+      - name: Get fine-tuning recommendations
+        href: detection-tuning.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
     - name: Work with SOC-ML anomaly rules
