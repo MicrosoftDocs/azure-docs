@@ -172,7 +172,7 @@
     href: drain-mode.md
   - name: Azure Virtual Desktop for Azure Stack HCI (preview)
     items:
-    - name: Set up Azure Virtual Desktop for Azure Stack HCI (preview)
+    - name: Azure Stack HCI setup (preview)
       href: azure-stack-hci.md
     - name: Azure Stack HCI FAQ (preview)
       href: azure-stack-hci-faq.yml
