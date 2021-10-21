@@ -29,7 +29,7 @@ Azure Stack Edge uses Windows Server Failover Clustering for its two-node cluste
 
 A quorum is always maintained on your Azure Stack Edge cluster to remain online in the event of a failure. If one of the nodes fails, then the majority of the surviving nodes must verify that the cluster remains online. The concept of majority only exists for clusters with an odd number of nodes. 
 
-For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with 2/3 votes - a majority). For more information on cluster quorum, see [](/windows-server/storage/storage-spaces/understand-quorum).
+For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster witness provides the third vote so that the cluster stays online (since the cluster is left with 2/3 votes - a majority). For more information on cluster quorum, see [Understand quorum](/windows-server/storage/storage-spaces/understand-quorum).
 
 A cluster witness is required on your Azure Stack Edge cluster. You can set up the witness in the cloud or in a local fileshare using the local UI of your device. 
 

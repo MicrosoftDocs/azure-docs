@@ -45,12 +45,18 @@ In order for the rebalanced pods to have enough capacity to run on the device no
 
 ## Failure modes and behavior
 
+Azure Stack Edge node failures or reboots
+
 | Node                 | Failures     | Responses                         |
 |----------------------|--------------|-----------------------------------|
-| <li>Node A has failures</li><li>(Node B has no failures)</li>       | Following possible failures can occur: <ul><li>Both PSUs fail</li><li>One or both Port 3, Port 4 fail</li><li>Core component fails, includes motherboard, DIMM, OS disk</li><li>Entire node fails</li><ul> | Following responses are seen for each of these failures:<ul><li>Kubernetes master VM fails over from node A to node B</li><li>Master VM takes few minutes to come up on node B</li><li>Pods from node A are rebalanced on node B</li><li>GPU workloads keep running if GPU is available on node B</ul> |
-| <li>Node A reboots</li><li>(Node B has no failures)</li> | Node reboots | After node A completes rebooting and the worker VM is available, master VM will rebalance the pods from node B.  |
-| <li>Node B has failures</li><li>(Node A has no failures)</li>   | Following possible failures can occur: <ul><li>Both PSUs fail</li><li>One or both Port 3, Port 4 fail</li><li>Core component fails, includes motherboard, DIMM, OS disk</li><li>Entire node fails</li><ul> | Following responses are seen for each of these failures: <ul><li>Kubernetes master VM rebalances pods from node B. This could take a few minutes.</li></ul>         |
-| <li>Node B reboots</li><li>(Node A has no failures)</li>      | Node reboots  | After node B completes rebooting and the worker VM is available, master VM will rebalance the pods from node B.  |
+| Node A has failures <br>(Node B has no failures)     | Following possible failures can occur: <ul><li>Both PSUs fail</li><li>One or both Port 3, Port 4 fail</li><li>Core component fails, includes motherboard, DIMM, OS disk</li><li>Entire node fails</li><ul> | Following responses are seen for each of these failures:<ul><li>Kubernetes master VM fails over from node A to node B</li><li>Master VM takes few minutes to come up on node B</li><li>Pods from node A are rebalanced on node B</li><li>GPU workloads keep running if GPU is available on node B</ul> |
+| Node A reboots <br>(Node B has no failures) | Node reboots | After node A completes rebooting and the worker VM is available, master VM will rebalance the pods from node B.  |
+| Node B has failures <br>(Node A has no failures)   | Following possible failures can occur: <ul><li>Both PSUs fail</li><li>One or both Port 3, Port 4 fail</li><li>Core component fails, includes motherboard, DIMM, OS disk</li><li>Entire node fails</li><ul> | Following responses are seen for each of these failures: <ul><li>Kubernetes master VM rebalances pods from node B. This could take a few minutes.</li></ul>         |
+| Node B reboots <br>(Node A has no failures)     | Node reboots  | After node B completes rebooting and the worker VM is available, master VM will rebalance the pods from node B.  |
+
+Azure Stack Edge node updates
+
+
 
 ## Next steps
 
