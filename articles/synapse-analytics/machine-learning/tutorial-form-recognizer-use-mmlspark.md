@@ -193,7 +193,7 @@ display(analyzeIDDocuments
 ## Clean up resources
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
 
-![screenshot-showing-stop-session](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
+![Screenshot showing the Stop session button on the status bar.](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
 
 ## Next steps
 
