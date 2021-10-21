@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 09/27/2021
+ms.date: 10/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
 ---
@@ -96,11 +96,12 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 |**Smaller&nbsp;than&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
 
 > [!TIP] 
-> You can use **test data** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
+> You can upload **test data** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
 > Learn how to: 
 > * [Pass in test data to your AutoMLConfig object](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 > * [Test the models automated ML generated for your experiment](#test-models-preview).
 >  
+> If you prefer a no-code experience, see [Set up AutoML with the studio UI](how-to-use-automated-ml-for-ml-models.md#test-your-model-preview)
 
 ### Large data 
 
@@ -510,7 +511,7 @@ RunDetails(run).show()
 ## Test models (preview)
 
 >[!IMPORTANT]
-> Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+> Testing your models with a test dataset to evaluate automated ML generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment.
 
@@ -532,8 +533,7 @@ dataset_id = test_run_details['outputDatasets'][0]['identifier']['savedId']
 test_run_predictions = Dataset.get_by_id(workspace, dataset_id)
 predictions_df = test_run_predictions.to_pandas_dataframe()
 
-# Alternatively, the test predictions can
-# be retrieved via the run outputs.
+# Alternatively, the test predictions can be retrieved via the run outputs.
 test_run.download_file("predictions/predictions.csv")
 predictions_df = pd.read_csv("predictions.csv")
 

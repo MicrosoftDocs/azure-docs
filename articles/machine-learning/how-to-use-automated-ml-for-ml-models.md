@@ -8,7 +8,7 @@ ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
+ms.date: 11/05/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
@@ -210,26 +210,28 @@ After your experiment completes, you can test the model(s) that automated ML gen
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
-To view the results of the test run, 
+To view the test run results of the recommended model, 
 1. Navigate to the **Models** page, select the best model. 
-1. Select the **Test results** tab. 
+1. Select the **Test results (preview)** tab. 
 1. Select the run you want, and view the **Details** tab.
 1. Navigate to the bottom of the page and select the link under **Outputs dataset** to open the dataset. 
 1. On the **Datasets** page, select the **Explore** tab to view the predictions from the test run.
-1. Alternatively, the prediction file can also be viewed/downloaded from the **Outputs + logs** tab, expand **Outputs** to locate your `predicted_true` file.
+    1. Alternatively, the prediction file can also be viewed/downloaded from the **Outputs + logs** tab, expand **Outputs** to locate your `predicted_true` file.
+
+![Test results tab of automatically tested, recommended model](./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png)
 
 If you want to test a different automated ML generated model, not the recommended model, you can do so with the following steps. 
 
 1. Select an existing automated ML experiment run.  
 1. Navigate to the **Models** tab of the run and select the completed model you want to test.
-1. On the model **Details** page, select the **Test model** button to open the **Test model** pane.
+1. On the model **Details** page, select the **Test model(preview)** button to open the **Test model** pane.
 1. On the **Test model** pane, select the compute cluster and a test dataset you want to use for your test run. 
 1. Select the **Test** button. The schema of the test dataset should match the training dataset, but the **target column** is optional.
 1. Upon successful creation of model test run, the **Details** page displays a success message. Select the **Test results** tab to see the progress of the run.
 1. Select the test run to open its **Details** page.
 1. After the run completes, select the **Output datasets** link to explore the predictions dataset.
 1. On the dataset **Details** tab, select **Explore** to preview the predictions csv file.
-1. Alternatively the prediction file can be also viewed/downloaded from **Outputs + logs** tab, expand **Outputs** to locate `predicted_true` file.
+    1. Alternatively the prediction file can be also viewed/downloaded from **Outputs + logs** tab, expand **Outputs** to locate `predicted_true` file.
 
 ## Model explanations (preview)
 
