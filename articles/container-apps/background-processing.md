@@ -5,7 +5,7 @@ services: app-service
 author: jorgearteiro
 ms.service: app-service
 ms.topic:  conceptual
-ms.date: 10/16/2021
+ms.date: 10/21/2021
 ms.author: joarteir
 ---
 
@@ -21,19 +21,13 @@ You learn how to:
 > * Deploy your background processing application as a container app
 > * Verify that the queue messages are processed by the container app
 
-<!-- ## Setup application and container
-
-## Configure auto-scaling
-
-## Upgrade to new version of background processing job -->
-
 ## Prerequisites
 
-You must satisfy the following requirements to complete this tutorial:
+The following items are required to complete this tutorial:
 
-- **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
-  - Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli)
-- **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell. 
+* **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
+  * Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli)
+* **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell.
   
 ## Setup
 
@@ -47,9 +41,9 @@ LOG_ANALYTICS_WORKSPACE="containerappslogs"
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
 ```
 
-Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step. 
+Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
 
-Next, signing in to Azure from the CLI.
+Next, sign in to Azure from the CLI.
 
 Run the following command, and follow the prompts to complete the authentication process.
 
@@ -67,7 +61,7 @@ Next, install the Azure Container Apps extension to the CLI.
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.1.6-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
 ```
 
 Create a resource group to organize the services related to your new container app.
@@ -115,8 +109,7 @@ az containerapp env create \
 
 ## Set up a storage queue
 
-
-### Create an Azure Storage account
+Create an Azure Storage account.
 
 ```azurecli
 az storage account create \
@@ -127,13 +120,14 @@ az storage account create \
   --kind StorageV2
 ```
 
-### Get queue ConnectionString 
+Next, get the queue's connection string.
 
 ```azurecli
 QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString -o tsv)
 ```
 
-### Create Queue
+Now you can create the queue.
+
 ```azurecli
 az storage queue create \
   --name "myqueue" \
@@ -141,7 +135,7 @@ az storage queue create \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
 
-### Send a message to the storage queue 
+Finally, you can send a message to the queue.
 
 ```azurecli
 az storage message put \
@@ -152,12 +146,11 @@ az storage message put \
 
 ## Deploy the background application
 
-### Create Container App's Scale Rule as a local YAML file 
+The first step is to define scale rules for the container app.
 
-Run the following command to generate a YAML file called *myscalerules.yaml* required by the next step
+Create a file named *myscalerules.yaml*, and pass the following configuration code in the file.
 
-```azurecli
-cat <<EOF > myscalerules.yaml
+```yml
 - name: myqueuerule
   type: azureQueue 
   queueName: myqueue
@@ -165,10 +158,10 @@ cat <<EOF > myscalerules.yaml
   auth:
   - secretRef: queueconnection
     triggerParameter: connection
-EOF
 ```
 
-### Deploy Container App 
+Now you can create and deploy your container app.
+
 ```azurecli
 az containerapp create \
   --name queuereaderapp \
@@ -186,12 +179,10 @@ az containerapp create \
 This command deploys the demo background application from the public container image called vturecek/dotnet-queuereader:v1 setting secrets and environments variables used by the application.
 Application will scale up to 10 replicas based on the queue length as defined on *myscalerules.yaml* file created on previous step.
 
-
 ## Verify the result
 
-### Query Log Analytics
+The container app is running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
 
-The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
 ```azurecli
@@ -202,12 +193,8 @@ az monitor log-analytics query \
 
 ## Clean up resources
 
-Once you are done, clean up your Container Apps resources by running the following command to delete your resource group.
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
 ```azurecli
-az group delete --resource-group $RESOURCE_GROUP --yes
+az group delete --resource-group $RESOURCE_GROUP
 ```
-
-This command deletes the entire resource group including the Container Apps instance, storage account, Log Analytics workspace, and any other resources in the resource group.
-
-
