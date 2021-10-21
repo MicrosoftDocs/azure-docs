@@ -70,7 +70,7 @@ In the Azure portal:
 ```
  {
    "@apiVersion" : "1.1",
-   "name": "remoteDeviceAdapterCamera1",
+   "name": "<name of remote device adapter such as remoteDeviceAdapterCamera1>",
    "properties": {
      "target": {
        "host": "<Camera's IP address>"
