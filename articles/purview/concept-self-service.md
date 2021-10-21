@@ -6,7 +6,7 @@ ms.author: blessonj
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/21/2021
 ---
 
 # Concepts for Azure Purview Self-Service data discovery and access (Preview)
