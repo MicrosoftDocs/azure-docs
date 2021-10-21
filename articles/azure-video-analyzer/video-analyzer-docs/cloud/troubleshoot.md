@@ -74,4 +74,4 @@ Configure your Video Analyzer module to collect Verbose logs by setting the `log
 
 ## Next steps
 
-[Tutorial: Event-based video recording to cloud and playback from cloud](<ToDo>)
+Tutorial: Event-based video recording to cloud and playback from cloud - ToDo
