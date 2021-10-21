@@ -167,12 +167,18 @@
         href: dv2-dsv2-series.md
       - name: Dv3 and DSv3-series
         href: dv3-dsv3-series.md
+      - name: Dv4 and Dsv4-series
+        href: dv4-dsv4-series.md
       - name: Dav4 and Dasv4-series
         href: dav4-dasv4-series.md
       - name: Ddv4 and Ddsv4-series
         href: ddv4-ddsv4-series.md
-      - name: Dv4 and Dsv4-series
-        href: dv4-dsv4-series.md
+      - name: Dv5 and Dsv5-series
+        href: dv5-dsv5-series.md
+      - name: Ddv5 and Ddsv5-series
+        href: ddv5-ddsv5-series.md
+      - name: Dasv5 and Dadsv5-series
+        href: dasv5-dadsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -197,6 +203,14 @@
         href: edv4-edsv4-series.md
       - name: Ev4 and Esv4-series
         href: ev4-esv4-series.md
+      - name: Ev5 and Esv5-series
+        href: ev5-esv5-series.md
+      - name: Edv5 and Edsv5-series
+        href: edv5-edsv5-series.md
+      - name: Easv5 and Eadsv5-series
+        href: easv5-eadsv5-series.md
+      - name: Ebsv5 and Ebdsv5-series
+        href: ebsv5-ebdsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
@@ -1598,7 +1612,7 @@
       - name: Portal
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-portal.md
-  - name: Automatic VM guest patching (Preview)
+  - name: Automatic VM guest patching
     items:
     - name: Overview
       displayName: Automatic VM guest patching, guest, OS, patching
