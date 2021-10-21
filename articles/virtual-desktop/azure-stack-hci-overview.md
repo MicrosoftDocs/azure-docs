@@ -38,7 +38,8 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 ## Pricing
 
 The following things affect how much it costs to run Azure Virtual Desktop for Azure Stack HCI:
-
+ - Infrastructure costs. You'll pay monthly service fees for Azure Stack HCI. Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
+ 
 - User access rights for Azure Virtual Desktop. The same licenses that grant access to Azure Virtual Desktop in the cloud also apply to Azure Virtual Desktop for Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 - The Azure Virtual Desktop hybrid service fee. This fee requires you to pay for each active virtual CPU (vCPU) of Azure Virtual Desktop session hosts you're running on Azure Stack HCI. This fee will become active once the preview period ends.
@@ -47,18 +48,18 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 We're aware of the following issues affecting the public preview version of Azure Virtual Desktop for Azure Stack HCI:
 
+- A known issue prevents connections to session hosts running on Azure Stack HCI from using [RDP Shortpath](shortpath.md).
+
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
-    - User connections to session hosts using [RDP Shortpath (preview)](shortpath.md)
     - [Azure Monitor for Azure Virtual Desktop](azure-monitor.md)
-    - Automatic session host scaling
+    - [Session host scaling with Azure Automation](set-up-scaling-script.md)
+    - [Autoscale (preview)](autoscale-scaling-plan.md)
     - [Start VM on connect](start-virtual-machine-connect.md)
     - [Multimedia redirection (preview)](multimedia-redirection.md)
     - [Per-user access pricing](./remote-app-streaming/licensing.md)
 
 - The Azure Virtual Desktop tab in the Azure portal can't create new virtual machines directly on Azure Stack HCI infrastructure. Instead, admins must create on-premises virtual machines separately, then register them with an Azure Virtual Desktop host pool.
-
-- The team hasn't validated certain user profile storage options yet. As a result, these configurations may not work.
 
 - When connecting to a Windows 10 or 11 Enterprise multi-session virtual desktop, users may see a message that says "activation needed," even if they have an eligible license.
 
