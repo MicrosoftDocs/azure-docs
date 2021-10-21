@@ -134,7 +134,7 @@ Azure AD supports external identities which allow users without a Microsoft acco
 
 - [What is the identity secure score in Azure AD](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Specific roles that you need to operate Azure Virtual Desktop ](./faq.yml#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Specific roles that you need to operate Azure Virtual Desktop ](./faq.yml)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -252,7 +252,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Minimum admin permissions needed to manage Azure Virtual Desktop](./index.yml#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Minimum admin permissions needed to manage Azure Virtual Desktop](./index.yml)
 
 **Azure Security Center monitoring**: Currently not available
 
