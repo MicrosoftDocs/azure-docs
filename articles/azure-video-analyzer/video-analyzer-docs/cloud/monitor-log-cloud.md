@@ -103,7 +103,7 @@ Video Analyzer service emits following types of event data:
   "properties": {
     "subject": "/livePipelines/livepipesample/sources/rtspSource",
     "body": {
-        "sdp": "SDP:\nv=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=No Name\r\nt=0 0\r\na=tool:libavformat 58.76.100\r\nm=video 0 RTP/AVP 96\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1; sprop-parameter-sets=Z00AKeKQDwBE/LgLcBAQGkHiRFQ=,aO48gA==; profile-level-id=4D0029\r\na=control:streamid=0\r\n"
+        "sdp": "SDP:\nv=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=No Name\r\nt=0 0\r\na=tool:libavformat 58.76.100\r\nm=video 0 RTP/AVP 96\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1; sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX; profile-level-id=4D0029\r\na=control:streamid=0\r\n"
     }
   }
 }
@@ -122,7 +122,7 @@ Video Analyzer service emits following types of event data:
   "category": "Audit",
   "operationName": "Microsoft.VideoAnalyzer.Audit.ResourceGet",
   "level": "Warning",
-  "uri": "https://{GUID}.api.westcentralus-private1.videoanalyzer.azure.net/videos/batchjobsinknode",
+  "uri": "https://{GUID}.api.{region}.videoanalyzer.azure.net/videos/batchjobsinknode",
   "resultType": "Failed",
   "resultSignature": "403",
   "identity": [
@@ -133,9 +133,9 @@ Video Analyzer service emits following types of event data:
     },
     {
       "sub": "livetest1",
-      "aud": [ "https://{GUID}.streaming.westcentralus-private1.videoanalyzer.azure.net/{GUID}", "wss://{GUID}.rtsp-tunnel.westcentralus-private1.videoanalyzer.azure.net/{GUID}" ],
+      "aud": [ "https://{GUID}.streaming.{region}.videoanalyzer.azure.net/{GUID}", "wss://{GUID}.rtsp-tunnel.{region}.videoanalyzer.azure.net/{GUID}" ],
       "exp": 1633410145,
-      "iss": "https://westcentralus-private1.videoanalyzer.azure.net/"
+      "iss": "https://{region}.videoanalyzer.azure.net/"
     }
   ],
   "traceContext": "{\n  \"traceId\": \"4bb0dcf5-5c6d-4aa3-8c03-3f3d7e2c6210\"\n}",
@@ -207,7 +207,7 @@ Follow the steps to enable monitoring and events collection with Azure Monitor:
     "properties": {
         "subject": "/livePipelines/livepipe/sources/rtspSource",
         "body": {
-            "sdp": "SDP:\nv=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=No Name\r\nt=0 0\r\na=tool:libavformat 58.76.100\r\nm=video 0 RTP/AVP 96\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1; sprop-parameter-sets=Z00AKeKQDwBE/LgLcBAQGkHiRFQ=,aO48gA==; profile-level-id=4D0029\r\na=control:streamid=0\r\n" 
+            "sdp": "SDP:\nv=0\r\no=- 0 0 IN IP4 127.0.0.1\r\ns=No Name\r\nt=0 0\r\na=tool:libavformat 58.76.100\r\nm=video 0 RTP/AVP 96\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1; sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX; profile-level-id=4D0029\r\na=control:streamid=0\r\n" 
         }
     }
 ```
