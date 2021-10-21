@@ -29,17 +29,15 @@ When used with data encryption at rest and in transit, confidential computing el
 ## Reducing the attack surface
 The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical". If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people. Azure confidential computing aims to lower the TCB for your cloud workloads by offering TEEs. 
 
-### Reducing the TCB in Azure
+### Reducing your TCB in Azure
 
-When you deploy Azure confidential virtual machines, you can reduce cloud operators from your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, this requires no code or app changes. 
-
-Azure also offers confidential VMs with application enclaves. These solutions require some changes to configuration policies, or application code. Typically, application enclaves allow developers to build solutions with a smaller TCB. Enclaves remove both cloud operators and your own company operators from the TCB. Application enclaves like what Intel SGX provides, reduces your TCB to only trusted runtime binaries, code, and libraries. 
+When you deploy Azure confidential virtual machines, you can reduce your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, you can lift-and-shift existing workloads and protect data from the cloud operator with VM-level confidentiality. Confidential VMs with Intel SGX application enclaves provides line-of-code control in applications to minimize your TCB and protect data from both cloud operators and your operators.  Application enclaves with Intel SGX may require some changes to configuration policies or application code.  You can also leverage an Independent Software Vendor (ISV) partner or open source software (OSS) to run your existing apps inside an application enclave. 
 
 ### Trust ladder
 
 Azure offers different virtual machines for confidential computing IaaS workloads and customers can choose what's best for them depending on their preferred security posture. The "trust ladder" figure shows what customers can expect from a security posture perspective on these IaaS offerings.
 
-![Screenshot of the Azure trust ladder, showing enclaves with Intel SGX at the top.](media/overview-azure-products/trust-ladder.jpg)
+![Screenshot of the Azure trust ladder, showing enclaves with Intel SGX at the top.](media/overview-azure-products/trust-ladder.png)
 
 ## Azure offerings
 
