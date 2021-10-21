@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Use Text Analytics for health containers
 
-Containers enable you to run Text Analytics for health in your own environment and are great for your specific security and data governance requirements.
+Containers enable you to host the Text Analytics for health API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Text Analytics for health remotely, then containers might be a good option.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
