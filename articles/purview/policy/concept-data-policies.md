@@ -1,6 +1,6 @@
 ---
-title: Azure Purview Data Policies Concepts
-description: Understand Azure Purview Data Policies
+title: Azure Purview access policies concepts
+description: Understand Azure Purview access policies
 author: vlrodrig
 ms.author: vlrodrig
 ms.service: purview
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ---
 
-# Concept guide: Azure Purview Data Policies
-This article helps you understand Azure Purview Data Policies.
+# Concept guide: Azure Purview access policies
+This article helps you understand Azure Purview data access policies.
 
 ## Overview
 
-Azure Purview now enables you to manage access to different data systems across your entire data estate. This is done by creating data policies through the **Policy management** app in Purview Studio. These policies are then enforced on data systems that have been registered with Azure Purview Data Policies.
+Azure Purview now enables you to manage access to different data systems across your entire data estate. This is done by creating data policies through the **Policy management** app in Purview Studio. These policies are then enforced on data systems that have been registered with Azure Purview for policy.
 > [!Note]
 > This capability is different from access control in Azure Purview itself, which is described in [Access control in Azure Purview](../catalog-permissions.md).
 
@@ -89,7 +89,7 @@ A policy published to a data source could contain references to an asset belongi
 
 ## Azure Purview to data source action mapping
 
-The following table illustrates how actions in Azure Purview Data Policies map to specific actions in data systems.
+The following table illustrates how actions in Azure Purview data policies map to specific actions in data systems.
 
 | **Purview policy action** | **Data source specific actions**                                                                |
 |---------------------------|-------------------------------------------------------------------------------------------------|
@@ -122,8 +122,8 @@ The following table illustrates how actions in Azure Purview Data Policies map t
 ## Next steps
 Check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
 
-[How to create data access policies for Azure Storage](how-to-storage-access-policies.md)
+[Dataset provisioning by data owner for Azure Storage](how-to-storage-access-policies.md)
 
 <!--
-[How to create data access policies for Azure SQL DB](how-to-sql-access-policies.md)
+[Dataset provisioning by data owner for Azure SQL DB](how-to-sql-access-policies.md)
 -->
