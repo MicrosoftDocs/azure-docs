@@ -59,7 +59,7 @@ Extract text and layout information from a given document. The input document mu
 
 ### Example input
 
-![example_input_for_layout1](./media/tutorial-form-recognizer/layout1.jpg)
+![Photograph of an example purchase order.](./media/tutorial-form-recognizer/layout1.jpg)
 
 ```python
 from pyspark.sql.functions import col, flatten, regexp_replace, explode, create_map, lit
