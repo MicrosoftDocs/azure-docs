@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Scope-level Azure Hybrid Benefit management FAQ
-  titleSuffix: Azure Cost Management + Billing
+  titleSuffix: Cost Management + Billing
   description: Frequently asked questions and answers.
   author: bandersmsft
   ms.reviewer: chrisrin
@@ -18,7 +18,7 @@ sections:
     questions:
       - question: Which Azure SQL resources are supported?
         answer: |
-          The scope-level Azure Hybrid Benefit management experience is part of Azure Cost Management + Billing. It automatically applies qualifying SQL Server licenses under Azure Hybrid Benefit to the following Azure resources. The total number of normalized core licenses (NCL) created by SQL license assignment for a specific scope is applied. For more information about NCL, see [How Azure applies assigned SQL licenses to hourly usage](manage-licenses-centrally.md).
+          The scope-level Azure Hybrid Benefit management experience is part of Cost Management + Billing. It automatically applies qualifying SQL Server licenses under Azure Hybrid Benefit to the following Azure resources. The total number of normalized core licenses (NCL) created by SQL license assignment for a specific scope is applied. For more information about NCL, see [How Azure applies assigned SQL licenses to hourly usage](manage-licenses-centrally.md).
 
           - SQL databases
           - SQL elastic pools

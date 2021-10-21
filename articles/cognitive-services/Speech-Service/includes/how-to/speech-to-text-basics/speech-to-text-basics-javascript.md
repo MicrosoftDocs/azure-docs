@@ -197,7 +197,7 @@ With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api
 recognizer.startContinuousRecognitionAsync();
 
 // make the following call at some point to stop recognition.
-// recognizer.StopContinuousRecognitionAsync();
+// recognizer.stopContinuousRecognitionAsync();
 ```
 
 ### Dictation mode

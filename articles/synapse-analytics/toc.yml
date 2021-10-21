@@ -1191,7 +1191,9 @@ items:
       items:
       - name: Pipeline runs
         href: monitoring/how-to-monitor-pipeline-runs.md
-      - name: Monitor pipelines with Microsoft Teams notifications
+      - name: Send email from a pipeline
+        href: ../data-factory/how-to-send-email.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Send Microsoft Teams notifications from a pipeline
         href: ../data-factory/how-to-send-notifications-to-teams.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Create integration runtime
       items:
@@ -1240,6 +1242,8 @@ items:
           href: ../data-factory/connector-troubleshoot-dynamics-dataverse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: FTP, SFTP and HTTP
           href: ../data-factory/connector-troubleshoot-ftp-sftp-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: Hive
+          href: ../data-factory/connector-troubleshoot-hive.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Oracle
           href: ../data-factory/connector-troubleshoot-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: ORC format
