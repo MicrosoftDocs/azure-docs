@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: Form Recognizer client library for JavaScript"
+title: "Use Form Recognizer client library for JavaScript"
 description: Use the Form Recognizer client library for JavaScript to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 10/20/2021
 ms.author: lajanuar
 ms.custom: "devx-track-js"
 ---
@@ -17,7 +17,7 @@ ms.custom: "devx-track-js"
 
 > [!IMPORTANT]
 >
-> This guide targets API version **2.1**.
+> This project targets Form Recognizer REST API version **2.1**.
 
 [Reference documentation](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -25,9 +25,9 @@ ms.custom: "devx-track-js"
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/)
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You will paste your key and endpoint into the code below later in the quickstart.
+  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You will paste your key and endpoint into the code below later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -414,7 +414,7 @@ Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted
 
 ## Run the application
 
-Run the application with the `node` command on your quickstart file.
+Run the application with the `node` command on your project file.
 
 ```console
 node index.js
@@ -441,7 +441,7 @@ For more detailed instructions on how to enable logs, see the [@azure/logger pac
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer JavaScript client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
+For this project, you used the Form Recognizer JavaScript client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](../../build-training-data-set.md)
@@ -449,4 +449,5 @@ In this quickstart, you used the Form Recognizer JavaScript client library to tr
 ## See also
 
 * [What is Form Recognizer?](../../overview.md)
-* The sample code from this guide can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
+
+* The sample code from this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).

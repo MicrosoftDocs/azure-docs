@@ -38,7 +38,7 @@ items:
   items:
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
-  - name: Use the client libraries and SDKs
+  - name: Use the SDKs and REST API
     href: how-to-guides/try-sdk-rest-api.md  
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
