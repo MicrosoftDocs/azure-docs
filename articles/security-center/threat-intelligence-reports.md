@@ -5,14 +5,12 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 06/15/2021
 ms.author: memildin
-
 ---
 # Microsoft Defender for Cloud threat intelligence report
 
 This page explains how Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
-
 
 ## What is a threat intelligence report?
 
@@ -39,8 +37,6 @@ Defender for Cloud has three types of threat reports, which can vary according t
 
 This type of information is useful during the incident response process, where there's an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue in the future.
 
-
-
 ## How to access the threat intelligence report?
 
 1. From Defender for Cloud's menu, open the **Security alerts** page.
@@ -58,8 +54,6 @@ This type of information is useful during the incident response process, where t
 
     >[!TIP]
     > The amount of information available for each security alert will vary according to the type of alert.
-
-
 
 ## Next steps
 
