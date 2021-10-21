@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Sentiment analysis with Cognitive Services (preview)
+# Tutorial: Sentiment analysis with Cognitive Services
 
 In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../cognitive-services/index.yml). You'll use the [Text Analytics](../../cognitive-services/text-analytics/index.yml) capabilities to perform sentiment analysis. 
 
