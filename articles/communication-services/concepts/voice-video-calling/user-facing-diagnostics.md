@@ -1,4 +1,19 @@
 
+---
+title: Azure Communication Services User Facing Diagnostics
+titleSuffix: An Azure Communication Services concept document
+description: Provides an overview of the User Facing Diagnostics feature.
+author: probableprime
+ms.author: rifox
+manager: chpalm
+
+services: azure-communication-services
+ms.date: 10/21/2021
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+
 # User Facing Diagnostics
 
 When working with calls in Azure Communication Services, problems may arise that cause issues for your customers. To aid with that we have a feature called "User Facing Diagnostics" which enables you to examine various properties of a Call to determine what the issue might be.
