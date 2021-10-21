@@ -1,6 +1,6 @@
 ---
 title: Configure custom partitioning to partition analytical store data (Preview)
-description: 
+description: Learn how to trigger custom partitioning from Azure Synapse Spark notebook using Azure Synapse link for Azure Cosmos DB. It explains the configuration options.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual

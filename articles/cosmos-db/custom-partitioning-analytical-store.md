@@ -81,6 +81,14 @@ Similarly, if you configured [customer-managed keys on analytical store](how-to-
 
 * Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. We do not support selecting custom storage accounts at this point.
 
+## Pricing
+
+In addition to the [Azure Synapse Link pricing](https://docs.microsoft.com/azure/cosmos-db/synapse-link#pricing), you will incur the following charges when using custom partitioning:
+
+* You are [billed](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for using Synapse Apache Spark pools when you run partitioning jobs on analytical store.
+
+* The partitioned data is stored in the primary Azure Data Lake Storage Gen2 account associated with your Azure Synapse Analytics workspace. You will incur the costs associated with using the ADLS Gen2 storage and transactions. These costs are determined by the storage required by partitioned analytical data and data processed for analytical queries in Synapse respectively. For more information on pricing, please visit the [Azure Data Lake Storage pricing page](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+
 ## Frequently asked questions
 
 ### How often should I run the custom partitioning job?
