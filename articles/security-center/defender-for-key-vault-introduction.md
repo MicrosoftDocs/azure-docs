@@ -35,7 +35,7 @@ When anomalous activities occur, Azure Defender shows alerts and optionally send
 ## Microsoft Defender for Key Vault alerts
 When you get an alert from Microsoft Defender for Key Vault, we recommend you investigate and respond to the alert as described in [Respond to Microsoft Defender for Key Vault](defender-for-key-vault-usage.md). Microsoft Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to check the situation surrounding every alert.
 
-The alerts appear in Key Vault's **Security** page, the Workload protections, and Security Center's alerts page.
+The alerts appear in Key Vault's **Security** page, the Workload protections, and Defender for Cloud's alerts page.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault's security page":::
 
@@ -108,5 +108,5 @@ In this article, you learned about Microsoft Defender for Key Vault.
 For related material, see the following articles: 
 
 - [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Microsoft Defender for Cloud alerts
-- [Continuously export Security Center data](continuous-export.md)
+- [Continuously export Defender for Cloud data](continuous-export.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)

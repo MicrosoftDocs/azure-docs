@@ -1,6 +1,6 @@
 ---
 title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template)
-description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Security Center alerts by using an Azure Resource Manager template (ARM template).
+description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: memildin
 ms.service: azure-resource-manager
@@ -37,7 +37,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 - [**Microsoft.Security/automations**](/azure/templates/microsoft.security/automations): The automation that will trigger the logic app, upon receiving a Microsoft Defender for Cloud alert that contains a specific string.
 - [**Microsoft.Logic/workflows**](/azure/templates/microsoft.logic/workflows): An empty triggerable Logic App.
 
-For other Security Center quickstart templates, see these [community contributed templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security&pageNumber=1&sort=Popular).
+For other Defender for Cloud quickstart templates, see these [community contributed templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
@@ -65,9 +65,9 @@ For other Security Center quickstart templates, see these [community contributed
 
 Use the Azure portal to check the workflow automation has been deployed.
 
-1. From the [Azure portal](https://portal.azure.com), open **Security Center**.
+1. From the [Azure portal](https://portal.azure.com), open **Defender for Cloud**.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
-1. From Security Center's sidebar, open **workflow automation** and check for your new automation.
+1. From Defender for Cloud's menu, open **workflow automation** and check for your new automation.
     :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="List of configured automations." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > If you have many workflow automations on your subscription, use the **filter by name** option.
@@ -76,9 +76,9 @@ Use the Azure portal to check the workflow automation has been deployed.
 
 When no longer needed, delete the workflow automation using the Azure portal.
 
-1. From the [Azure portal](https://portal.azure.com), open **Security Center**.
+1. From the [Azure portal](https://portal.azure.com), open **Defender for Cloud**.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
-1. From Security Center's sidebar, open **workflow automation** and find the automation to be deleted.
+1. From Defender for Cloud's menu, open **workflow automation** and find the automation to be deleted.
     :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steps for removing a workflow automation." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Select the checkbox for the item to be deleted.
 1. From the toolbar, select **Delete**.

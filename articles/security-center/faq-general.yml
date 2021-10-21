@@ -27,13 +27,13 @@ sections:
         answer: |
           Microsoft Defender for Cloud helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
           
-          Security Center uses the Log Analytics agent to collect and store data. For in-depth details, see [Data collection in Microsoft Defender for Cloud](security-center-enable-data-collection.md).
+          Defender for Cloud uses the Log Analytics agent to collect and store data. For in-depth details, see [Data collection in Microsoft Defender for Cloud](enable-data-collection.md).
           
           
       - question: |
           How do I get Microsoft Defender for Cloud?
         answer: |
-          Microsoft Defender for Cloud is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To access it, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**.
+          Microsoft Defender for Cloud is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To access it, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Defender for Cloud**.
           
           
       - question: |
@@ -50,7 +50,7 @@ sections:
       - question: |
           How can I see the current security state of my Azure resources?
         answer: |
-          The **Security Center Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing identified security vulnerabilities. Clicking each tile displays a list of security issues identified by Security Center, along with an inventory of the resources in your subscription.
+          The **Defender for Cloud Overview** page shows the overall security posture of your environment broken down by Compute, Networking, Storage & data, and Applications. Each resource type has an indicator showing identified security vulnerabilities. Clicking each tile displays a list of security issues identified by Defender for Cloud, along with an inventory of the resources in your subscription.
           
           
           
@@ -100,4 +100,4 @@ sections:
         answer: |
           The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Microsoft Defender for Cloud or the Azure subscription owner if a security contact is not specified.
           
-          Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard.
+          Defender for Cloud is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Defender for Cloud dashboard.

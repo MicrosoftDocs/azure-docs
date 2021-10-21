@@ -25,7 +25,7 @@ In this tutorial, you will learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Defender for Cloud](security-center-get-started.md) walks you through how to upgrade.
+To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
 
 
 ## Triage security alerts
@@ -33,11 +33,11 @@ Defender for Cloud provides a unified view of all security alerts. Security aler
 
 Triage your alerts from the **Security alerts** page:
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
+:::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
 Use this page to review the active security alerts in your environment to decide which alert to investigate first.
 
-When triaging security alerts, prioritize alerts based on the alert severity by addressing alerts with higher severity first. Learn more about alerts severity in [How are alerts classified?](security-center-alerts-overview.md#how-are-alerts-classified).
+When triaging security alerts, prioritize alerts based on the alert severity by addressing alerts with higher severity first. Learn more about alerts severity in [How are alerts classified?](alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
 > You can connect Microsoft Defender for Cloud to most popular SIEM solutions including Microsoft Sentinel and consume the alerts from your tool of choice. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).

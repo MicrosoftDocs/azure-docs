@@ -15,7 +15,7 @@ This article lists the security alerts you might get from Microsoft Defender for
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
 
-[Learn how to respond to these alerts](security-center-managing-and-responding-alerts.md).
+[Learn how to respond to these alerts](managing-and-responding-alerts.md).
 
 [Learn how to export alerts](continuous-export.md).
 
@@ -530,7 +530,7 @@ Azure Defender alerts for container hosts aren't limited to the alerts below. Ma
 
 ## <a name="alerts-fusion"></a>Security incident alerts
 
-[Further details and notes](security-center-alerts-overview.md#cloud-smart-alert-correlation-incidents)
+[Further details and notes](alerts-overview.md#cloud-smart-alert-correlation-incidents)
 
 | Alert                                                | Description                                                                                                                                                                         | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
@@ -572,6 +572,6 @@ Defender for Cloud's supported kill chain intents are based on [version 7 of the
 ## Next steps
 To learn more about Azure Defender security alerts, see the following:
 
-- [Security alerts in Microsoft Defender for Cloud](security-center-alerts-overview.md)
-- [Manage and respond to security alerts in Microsoft Defender for Cloud](security-center-managing-and-responding-alerts.md)
+- [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)

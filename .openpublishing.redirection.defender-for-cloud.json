@@ -69,6 +69,121 @@
             "source_path_from_root": "/articles/security-center/defender-for-key-vault-usage.md",
             "redirect_url": "/azure/security-center/defender-for-key-vault-introduction#respond-to-microsoft-defender-for-key-vault-alerts",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-services.md",
+            "redirect_url": "/azure/security-center/supported-machines-endpoint-solutions-clouds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-threat-report.md",
+            "redirect_url": "/azure/security-center/threat-intelligence-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-data-security.md",
+            "redirect_url": "/azure/security-center/data-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-remediate-recommendations.md",
+            "redirect_url": "/azure/security-center/implement-security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-permissions.md",
+            "redirect_url": "/azure/security-center/permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-cross-tenant-management.md",
+            "redirect_url": "/azure/security-center/cross-tenant-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-management-groups.md",
+            "redirect_url": "/azure/security-center/management-groups-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-info-protection-policy.md",
+            "redirect_url": "/azure/security-center/sql-information-protection-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-troubleshooting-guide.md",
+            "redirect_url": "/azure/security-center/troubleshooting-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-endpoint-protection.md",
+            "redirect_url": "/azure/security-center/endpoint-protection-recommendations-technical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-recommendations.md",
+            "redirect_url": "/azure/security-center/review-security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-privacy.md",
+            "redirect_url": "/azure/security-center/privacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-powershell-onboarding.md",
+            "redirect_url": "/azure/security-center/powershell-onboarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-partner-integration.md",
+            "redirect_url": "/azure/security-center/partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-provide-security-contacts",
+            "redirect_url": "/azure/security-center/configure-email-notifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-get-started.md",
+            "redirect_url": "/azure/security-center/get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-network-recommendations.md",
+            "redirect_url": "/azure/security-center/protect-network-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-compliance-dashboard.md",
+            "redirect_url": "/azure/security-center/regulatory-compliance-dashboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-pricing.md",
+            "redirect_url": "/azure/security-center/enhanced-security-features-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-enable-data-collection.md",
+            "redirect_url": "/azure/security-center/enable-data-collection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-alerts-overview.md",
+            "redirect_url": "/azure/security-center/alerts-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-alert-validation.md",
+            "redirect_url": "/azure/security-center/alert-validation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-adaptive-network-hardening.md",
+            "redirect_url": "/azure/security-center/adaptive-network-hardening",
+            "redirect_document_id": false
         }
     ]
 }

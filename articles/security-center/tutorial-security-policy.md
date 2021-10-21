@@ -71,7 +71,7 @@ When your security initiative triggers a recommendation that's irrelevant for yo
 
 The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Defender for Cloud's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
 
-For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
+For more information about recommendations, see [Managing security recommendations](review-security-recommendations.md).
 
 1. From Defender for Cloud's menu, select **Security policy**.
 

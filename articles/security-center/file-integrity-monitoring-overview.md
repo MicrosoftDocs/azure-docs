@@ -23,10 +23,10 @@ Learn how to configure file integrity monitoring (FIM) in Microsoft Defender for
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) enabled devices.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).|
 |||
 
-## What is FIM in Security Center?
+## What is FIM in Defender for Cloud?
 File integrity monitoring (FIM), also known as change monitoring, examines operating system files, Windows registries, application software, Linux system files, and more, for changes that might indicate an attack. 
 
-Security Center recommends entities to monitor with FIM, and you can also define your own FIM policies or entities to monitor. FIM informs you about suspicious activity such as:
+Defender for Cloud recommends entities to monitor with FIM, and you can also define your own FIM policies or entities to monitor. FIM informs you about suspicious activity such as:
 
 - File and registry key creation or removal
 - File modifications (changes in file size, access control lists, and hash of the content)
@@ -48,13 +48,13 @@ The Log Analytics agent uploads data to the Log Analytics workspace. By comparin
 FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When file integrity monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
-> If you remove the **Change Tracking** resource, you will also disable the file integrity monitoring feature in Security Center.
+> If you remove the **Change Tracking** resource, you will also disable the file integrity monitoring feature in Defender for Cloud.
 
 ## Which files should I monitor?
 
 When choosing which files to monitor, consider the files that are critical for your system and applications. Monitor files that you don’t expect to change without planning. If you choose files that are frequently changed by applications or operating system (such as log files and text files) it'll create a lot of noise, making it difficult to identify an attack.
 
-Security Center provides the following list of recommended items to monitor based on known attack patterns.
+Defender for Cloud provides the following list of recommended items to monitor based on known attack patterns.
 
 |Linux files|Windows files|Windows registry keys (HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
@@ -91,11 +91,11 @@ Security Center provides the following list of recommended items to monitor base
 
 ## Enable file integrity monitoring 
 
-FIM is only available from Security Center's pages in the Azure portal. There is currently no REST API for working with FIM.
+FIM is only available from Defender for Cloud's pages in the Azure portal. There is currently no REST API for working with FIM.
 
 1. From the **Workload protections** dashboard's **Advanced protection** area, select **File integrity monitoring**.
 
-   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Launching FIM." lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+   :::image type="content" source="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png" alt-text="Launching FIM." lightbox="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png":::
 
     The **File integrity monitoring** configuration page opens.
 
@@ -110,11 +110,11 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
     - Access and view the status and settings of each workspace
 
-    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon Indicates that the workspace or subscription isn't protected with Microsoft Defender for servers. To use the FIM features, your subscription must be protected with this plan. For more information, see [Microsoft Defender for Cloud's enhanced security features](security-center-pricing.md).
+    - ![Upgrade plan icon.][4] Upgrade the workspace to use enhanced security features. This icon Indicates that the workspace or subscription isn't protected with Microsoft Defender for servers. To use the FIM features, your subscription must be protected with this plan. For more information, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
     - ![Enable icon][3] Enable FIM on all machines under the workspace and configure the FIM options. This icon indicates that FIM is not enabled for the workspace.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Enabling FIM for a specific workspace.":::
+        :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-list-fim.png" alt-text="Enabling FIM for a specific workspace.":::
 
 
     > [!TIP]
@@ -123,7 +123,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
 1. Select **ENABLE**. The details of the workspace including the number of Windows and Linux machines under the workspace is shown.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="FIM workspace details page.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/workspace-fim-status.png" alt-text="FIM workspace details page.":::
 
    The recommended settings for Windows and Linux are also listed.  Expand **Windows files**, **Registry**, and **Linux files** to see the full list of recommended items.
 
@@ -140,7 +140,7 @@ FIM is only available from Security Center's pages in the Azure portal. There is
 
 The **File integrity monitoring** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **file integrity monitoring** window that already has FIM enabled.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="The FIM dashboard and its various informational panels.":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/fim-dashboard.png" alt-text="The FIM dashboard and its various informational panels.":::
 
 The FIM dashboard for a workspace displays the following details:
 
@@ -151,7 +151,7 @@ The FIM dashboard for a workspace displays the following details:
 
 Select **Filter** at the top of the dashboard to change the time period for which changes are shown.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Time period filter for the FIM dashboard.":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/dashboard-filter.png" alt-text="Time period filter for the FIM dashboard.":::
 
 The **Servers** tab lists the machines reporting to this workspace. For each machine, the dashboard lists:
 
@@ -160,7 +160,7 @@ The **Servers** tab lists the machines reporting to this workspace. For each mac
 
 When you select a machine, the query appears along with the results that identify the changes made during the selected time period for the machine. You can expand a change for more information.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/query-machine-changes.png" alt-text="Log Analytics query showing the changes identified by Microsoft Defender for Cloud's file integrity monitoring" lightbox="./media/security-center-file-integrity-monitoring/query-machine-changes.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="Log Analytics query showing the changes identified by Microsoft Defender for Cloud's file integrity monitoring" lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
 
 The **Changes** tab (shown below) lists all changes for the workspace during the selected time period. For each entity that was changed, the dashboard lists the:
 
@@ -169,17 +169,17 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 - Category of change (modified, added, removed)
 - Date and time of change
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/changes-tab.png" alt-text="Microsoft Defender for Cloud's file integrity monitoring changes tab" lightbox="./media/security-center-file-integrity-monitoring/changes-tab.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/changes-tab.png" alt-text="Microsoft Defender for Cloud's file integrity monitoring changes tab" lightbox="./media/file-integrity-monitoring-overview/changes-tab.png":::
 
 **Change details** opens when you enter a change in the search field or select an entity listed under the **Changes** tab.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/change-details.png" alt-text="Microsoft Defender for Cloud's file integrity monitoring showing the details pane for a change" lightbox="./media/security-center-file-integrity-monitoring/change-details.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/change-details.png" alt-text="Microsoft Defender for Cloud's file integrity monitoring showing the details pane for a change" lightbox="./media/file-integrity-monitoring-overview/change-details.png":::
 
 ## Edit monitored entities
 
 1. From the **File integrity monitoring dashboard** for a workspace, select **Settings** from the toolbar. 
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="Accessing the file integrity monitoring settings for a workspace." lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png" alt-text="Accessing the file integrity monitoring settings for a workspace." lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-dashboard-settings.png":::
 
    **Workspace Configuration** opens with tabs for each type of element that can be monitored:
 
@@ -189,9 +189,9 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
       - File content
       - Windows services
 
-      Each tab lists the entities that you can edit in that category. For each entity listed, Security Center identifies whether FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
+      Each tab lists the entities that you can edit in that category. For each entity listed, Defender for Cloud identifies whether FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Workspace configuration for file integrity monitoring in Microsoft Defender for Cloud.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Workspace configuration for file integrity monitoring in Microsoft Defender for Cloud.":::
 
 1. Select an entry from one of the tabs and edit any of the available fields in the **Edit for Change Tracking** pane. Options include:
 
@@ -216,7 +216,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
         In this example, we selected **Linux Files**.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-add-element.png" alt-text="Adding an element to monitor in Microsoft Defender for Cloud's file integrity monitoring" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-add-element.png":::
+        :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png" alt-text="Adding an element to monitor in Microsoft Defender for Cloud's file integrity monitoring" lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png":::
 
 1. Select **Add**. **Add for Change Tracking** opens.
 
@@ -237,17 +237,17 @@ To disable FIM:
 
 1. From the **File integrity monitoring dashboard** for a workspace, select **Disable**.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="Disable file integrity monitoring from the settings page.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/disable-file-integrity-monitoring.png" alt-text="Disable file integrity monitoring from the settings page.":::
 
 1. Select **Remove**.
 
 ## Next steps
-In this article, you learned to use file integrity monitoring (FIM) in Security Center. To learn more about Security Center, see the following pages:
+In this article, you learned to use file integrity monitoring (FIM) in Defender for Cloud. To learn more about Defender for Cloud, see the following pages:
 
 * [Setting security policies](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+* [Managing security recommendations](review-security-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Azure Security blog](/archive/blogs/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
-[3]: ./media/security-center-file-integrity-monitoring/enable.png
-[4]: ./media/security-center-file-integrity-monitoring/upgrade-plan.png
+[3]: ./media/file-integrity-monitoring-overview/enable.png
+[4]: ./media/file-integrity-monitoring-overview/upgrade-plan.png

@@ -16,16 +16,16 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Onboarding your GCP accounts into Security Center, integrates GCP Security Command and Microsoft Defender for Cloud. Security Center thus provides visibility and protection across both of these cloud environments to provide:
+Onboarding your GCP accounts into Defender for Cloud, integrates GCP Security Command and Microsoft Defender for Cloud. Defender for Cloud thus provides visibility and protection across both of these cloud environments to provide:
 
 - Detection of security misconfigurations
-- A single view showing Security Center recommendations and GCP Security Command Center findings
-- Incorporation of your GCP resources into Security Center's secure score calculations
-- Integration of GCP Security Command Center recommendations based on the CIS standard into the Security Center's regulatory compliance dashboard
+- A single view showing Defender for Cloud recommendations and GCP Security Command Center findings
+- Incorporation of your GCP resources into Defender for Cloud's secure score calculations
+- Integration of GCP Security Command Center recommendations based on the CIS standard into the Defender for Cloud's regulatory compliance dashboard
 
-In the screenshot below you can see GCP projects displayed in Security Center's overview dashboard.
+In the screenshot below you can see GCP projects displayed in Defender for Cloud's overview dashboard.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="3 GCP projects listed on Security Center's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="3 GCP projects listed on Defender for Cloud's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 
 ## Availability
@@ -40,14 +40,14 @@ In the screenshot below you can see GCP projects displayed in Security Center's 
 
 ## Connect your GCP account
 
-Create a connector for every organization you want to monitor from Security Center.
+Create a connector for every organization you want to monitor from Defender for Cloud.
 
 When connecting your GCP accounts to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
 - You can connect your GCP accounts to ASC in the *organization* level
 - You can connect multiple organizations to one Azure subscription
 - You can connect multiple organizations to multiple Azure subscriptions
-- When you connect an organization, all *projects* within that organization are added to Security Center
+- When you connect an organization, all *projects* within that organization are added to Defender for Cloud
 
 Follow the steps below to create your GCP cloud connector. 
 
@@ -83,14 +83,14 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 1. In the **Navigation menu**, Under **IAM & admin** options, select **Service accounts**.
 1. Select **CREATE SERVICE ACCOUNT**.
 1. Enter an account name, and select **Create**.
-1. Specify the **Role** as **Security Center Admin Viewer**, and select **Continue**.
+1. Specify the **Role** as **Defender for Cloud Admin Viewer**, and select **Continue**.
 1. The **Grant users access to this service account** section is optional. Select **Done**.
 1. Copy the **Email value** of the created service account, and save it for later use.
 1. In the **Navigation menu**, Under **IAM & admin** options, select **IAM**
     1. Switch to organization level.
     1. Select **ADD**.
     1. In the **New members** field, paste the **Email value** you copied earlier.
-    1. Specify the role as **Security Center Admin Viewer** and then select **Save**.
+    1. Specify the role as **Defender for Cloud Admin Viewer** and then select **Save**.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions.":::
 
 
@@ -103,7 +103,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 1. Save this JSON file for later use.
 
 
-### Step 5. Connect GCP to Security Center
+### Step 5. Connect GCP to Defender for Cloud
 1. From Defender for Cloud's menu, select **Cloud connectors**.
 1. Select add GCP account.
 1. In the onboarding page, do the following and then select **Next**.
@@ -117,32 +117,32 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 When the connector is successfully created and GCP Security Command Center has been configured properly:
 
-- The GCP CIS standard will be shown in the Security Center's regulatory compliance dashboard.
-- Security recommendations for your GCP resources will appear in the Security Center portal and the regulatory compliance dashboard 5-10 minutes after onboard completes:
-    :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP resources and recommendations in Security Center's recommendations page":::
+- The GCP CIS standard will be shown in the Defender for Cloud's regulatory compliance dashboard.
+- Security recommendations for your GCP resources will appear in the Defender for Cloud portal and the regulatory compliance dashboard 5-10 minutes after onboard completes:
+    :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP resources and recommendations in Defender for Cloud's recommendations page":::
 
 
 ## Monitoring your GCP resources
 
 As shown above, Microsoft Defender for Cloud's security recommendations page displays your GCP resources together with your Azure and AWS resources for a true multi-cloud view.
 
-To view all the active recommendations for your resources by resource type, use Security Center's asset inventory page and filter to the GCP resource type in which you're interested:
+To view all the active recommendations for your resources by resource type, use Defender for Cloud's asset inventory page and filter to the GCP resource type in which you're interested:
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
 
 
 ## FAQ - Connecting GCP accounts to Microsoft Defender for Cloud
 
-### Can I connect multiple GCP organizations to Security Center?
-Yes. Security Center's GCP connector connects your Google Cloud resources at the *organization* level. 
+### Can I connect multiple GCP organizations to Defender for Cloud?
+Yes. Defender for Cloud's GCP connector connects your Google Cloud resources at the *organization* level. 
 
-Create a connector for every GCP organization you want to monitor from Security Center. When you connect an organization, all projects within that organization are added to Security Center.
+Create a connector for every GCP organization you want to monitor from Defender for Cloud. When you connect an organization, all projects within that organization are added to Defender for Cloud.
 
 Learn about the Google Cloud resource hierarchy in [Google's online docs](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
 
 
-### Is there an API for connecting my GCP resources to Security Center?
-Yes. To create, edit, or delete Security Center cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/connectors).
+### Is there an API for connecting my GCP resources to Defender for Cloud?
+Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/connectors).
 
 ## Next steps
 

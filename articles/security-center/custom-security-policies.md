@@ -14,7 +14,7 @@ zone_pivot_groups: manage-asc-initiatives
 
 To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
-With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
+With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
@@ -55,7 +55,7 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
     1. Click **Add** and assign it to your subscription.
 
     > [!NOTE]
-    > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Microsoft Defender for Cloud](security-center-permissions.md).
+    > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Microsoft Defender for Cloud](permissions.md).
 
     Your new initiative takes effect and you can see the impact in the following two ways:
 

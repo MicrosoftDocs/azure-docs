@@ -11,7 +11,7 @@ ms.date: 06/07/2021
 
 # Quickstart: Enable enhanced security features
 
-To learn about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](security-center-pricing.md).
+To learn about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
     > [!TIP]
     > You'll notice that each Microsoft Defender plan is priced separately and can be individually set to on or off. For example, you might want to turn off Defender for App Service on subscriptions that don't have an associated Azure App Service plan. 
 
-    :::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal":::
+    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal":::
 
 - To enable enhanced security on multiple subscriptions or workspaces:
 
@@ -76,4 +76,4 @@ If you need to disable enhanced security features for a subscription, the proced
 
 ## Next steps
 
-Now that you've enabled enhanced security features, enable the necessary agents and extensions to perform automatic data collection as described in [auto provisioning agents and extensions](security-center-enable-data-collection.md).
+Now that you've enabled enhanced security features, enable the necessary agents and extensions to perform automatic data collection as described in [auto provisioning agents and extensions](enable-data-collection.md).

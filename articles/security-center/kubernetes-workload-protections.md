@@ -17,7 +17,7 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-Security Center offers more container security features if you enable Azure Defender. Specifically:
+Defender for Cloud offers more container security features if you enable Azure Defender. Specifically:
 
 - Scan your container registries for vulnerabilities with [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
 - Get real-time threat detection alerts for your K8s clusters [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
@@ -47,9 +47,9 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 
 To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
 
-- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
 
-    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Security Center's auto provisioning tool to install the policy add-on for Kubernetes":::
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Defender for Cloud's auto provisioning tool to install the policy add-on for Kubernetes":::
 
 - To manually deploy the add-on:
 
@@ -67,7 +67,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 ### Step 2: View and configure the bundle of recommendations
 
-1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
+1. Approximately 30 minutes after the add-on installation completes, Defender for Cloud shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
     > [!NOTE]
     > If you're installing the add-on for the first time, these recommendations will appear as new additions in the list of recommmendations. 
@@ -103,7 +103,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
     1. From Defender for Cloud's menu, select **Security policy**.
     1. Select the relevant subscription.
-    1. From the **Security Center default policy** section, select **View effective policy**.
+    1. From the **Defender for Cloud default policy** section, select **View effective policy**.
     1. Select the default policy for the scope you're updating.
     1. Open the **Parameters** tab and modify the values as required.
 
@@ -125,7 +125,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 1. To see which recommendations apply to your clusters:
 
-    1. Open Security Center's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
+    1. Open Defender for Cloud's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
 
     1. Select a cluster to investigate and review the available recommendations available for it. 
 
@@ -258,6 +258,6 @@ In this article, you learned how to configure Kubernetes workload protection.
 
 For other related material, see the following pages: 
 
-- [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
+- [Defender for Cloud recommendations for compute](recommendations-reference.md#recs-compute)
 - [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
 - [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

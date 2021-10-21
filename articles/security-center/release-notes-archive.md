@@ -111,7 +111,7 @@ Two new recommendations have been added to simplify the process of enabling [Azu
 Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
 
 > [!TIP]
-> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 
 ### Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted
@@ -128,8 +128,8 @@ You can assign these to your subscriptions as described in [Customize the set of
 
 Learn more in:
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
-- [Tutorial: Improve your regulatory compliance](security-center-compliance-dashboard.md)
-- [FAQ - Regulatory compliance dashboard](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+- [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
+- [FAQ - Regulatory compliance dashboard](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### Four new recommendations related to guest configuration (in preview)
 
@@ -354,7 +354,7 @@ Now on the page you'll see:
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Enhancements to Azure Security Center's recommendations 'flat' list - March 2021" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
 
-Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
+Learn more in [Security recommendations in Azure Security Center](review-security-recommendations.md).
 
 ## February 2021
 
@@ -380,9 +380,9 @@ Azure Security Center's security alerts page has been redesigned to provide:
 - **Better performance** for large alerts lists.
 - **Keyboard navigation** through the alert list.
 - **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
-- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-azure-defender-alerts).
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+:::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 
 ### Kubernetes workload protection recommendations released for general availability (GA)
@@ -398,7 +398,7 @@ For example, you can mandate that privileged containers shouldn't be created, an
 Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 > [!NOTE]
-> While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+> While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 
 ### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview)
@@ -603,7 +603,7 @@ Learn more in [Exempting resources and recommendations from your secure score](e
 
 If a user doesn't have permissions to see Security Center data, they'll now see a link to request permissions from their organization's global administrator. The request includes the role they'd like and the justification for why it's necessary.
 
-:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
+:::image type="content" source="media/management-groups-roles/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
 
 Learn more in [Request tenant-wide permissions when yours are insufficient](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient).
 
@@ -615,7 +615,7 @@ Learn more in [Request tenant-wide permissions when yours are insufficient](tena
 To increase the coverage of this benchmark, the following 35 preview recommendations have been added to Security Center.
 
 > [!TIP]
-> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 | Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -644,9 +644,9 @@ With this announcement, we're changing the behavior of the **Download to CSV** b
 
 For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file.":::
+:::image type="content" source="media/managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file.":::
 
-Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
+Learn more in [Security recommendations in Azure Security Center](review-security-recommendations.md).
 
 
 ### "Not applicable" resources now reported as "Compliant" in Azure Policy assessments
@@ -755,9 +755,9 @@ Azure Security Center's security alerts page has been redesigned to provide:
 
 To access the new experience, use the 'try it now' link from the banner at the top of the security alerts page.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience.":::
+:::image type="content" source="media/managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience.":::
 
-To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-azure-defender-alerts).
 
 
 ### Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance 
@@ -814,7 +814,7 @@ The filters added this month provide options to refine the recommendations list 
     > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
     > 
     > Learn more about each of these response options:
-    > - [Fix button](security-center-remediate-recommendations.md#fix-button)
+    > - [Fix button](implement-security-recommendations.md#fix-button)
     > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control." lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -857,7 +857,7 @@ Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guide
 
 The following 29 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
 
-Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
 
 | Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -913,7 +913,7 @@ You can now configure the auto provisioning of:
 - (New) Azure Policy Add-on for Kubernetes
 - (New) Microsoft Dependency agent
 
-Learn more in [Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md).
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](enable-data-collection.md).
 
 
 ### Secure score is now available in continuous export (preview)
@@ -1019,7 +1019,7 @@ Azure Resource Graph is a service in Azure that is designed to provide efficient
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
-- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.
 
@@ -1301,7 +1301,7 @@ The following areas of the emails regarding security alerts have been improved:
 - We're proactively notifying subscription owners by default on high-severity alerts (which have a high-probability of being genuine breaches)
 - We've removed the phone number field from the email notifications configuration page
 
-Learn more in [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+Learn more in [Set up email notifications for security alerts](configure-email-notifications.md).
 
 
 ### Secure score doesn't include preview recommendations 
@@ -1841,7 +1841,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](security-center-identity-access.md).
+Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 
 
@@ -2135,7 +2135,7 @@ See which recommendations have quick fix enabled in the [reference guide to secu
 
 Security Center now supports cross-tenant management scenarios as part of Azure Lighthouse. This enables you to gain visibility and manage the security posture of multiple tenants in Security Center. 
 
-[Learn more about cross-tenant management experiences](security-center-cross-tenant-management.md).
+[Learn more about cross-tenant management experiences](cross-tenant-management.md).
 
 
 ## July 2019
@@ -2153,4 +2153,4 @@ Azure Security Center (ASC) has launched new networking recommendations and impr
 
 One of the biggest attack surfaces for workloads running in the public cloud are connections to and from the public Internet. Our customers find it hard to know which Network Security Group (NSG) rules should be in place to make sure that Azure workloads are only available to required source ranges. With this feature, Security Center learns the network traffic and connectivity patterns of Azure workloads and provides NSG rule recommendations, for Internet facing virtual machines. This helps our customer better configure their network access policies and limit their exposure to attacks. 
 
-[Learn more about adaptive network hardening](security-center-adaptive-network-hardening.md).
+[Learn more about adaptive network hardening](adaptive-network-hardening.md).

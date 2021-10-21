@@ -68,6 +68,6 @@ If you have Azure DDoS Protection enabled, your DDoS alerts are streamed to Defe
 To learn more about the security alerts from these threat protection features, see the following articles:
 
 * [Reference table for all Defender for Cloud alerts](alerts-reference.md)
-* [Security alerts in Defender for Cloud](security-center-alerts-overview.md)
-* [Manage and respond to security alerts in Defender for Cloud](security-center-managing-and-responding-alerts.md)
+* [Security alerts in Defender for Cloud](alerts-overview.md)
+* [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
 * [Continuously export Defender for Cloud data](continuous-export.md)

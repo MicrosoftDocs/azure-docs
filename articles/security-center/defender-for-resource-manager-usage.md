@@ -47,4 +47,4 @@ This page explained the process of responding to an alert from Microsoft Defende
 
 - [Introduction to Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
-- [Continuously export Security Center data](continuous-export.md)
+- [Continuously export Defender for Cloud data](continuous-export.md)

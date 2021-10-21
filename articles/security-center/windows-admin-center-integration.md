@@ -22,40 +22,40 @@ Windows Admin Center is a management tool for your Windows servers. It's a singl
 When you've successfully onboarded a server from Windows Admin Center to Microsoft Defender for Cloud, you can:
 
 * View security alerts and recommendations inside the Security Center extension in Windows Admin Center
-* View the security posture and retrieve additional detailed information of your Windows Admin Center managed servers in Security Center within the Azure portal (or via an API)
+* View the security posture and retrieve additional detailed information of your Windows Admin Center managed servers in Defender for Cloud within the Azure portal (or via an API)
 
-By combining these two tools, Security Center becomes your single pane of glass to view all your security information, whatever the resource: protecting your Windows Admin Center managed on-premises servers, your VMs, and any additional PaaS workloads.
+By combining these two tools, Defender for Cloud becomes your single pane of glass to view all your security information, whatever the resource: protecting your Windows Admin Center managed on-premises servers, your VMs, and any additional PaaS workloads.
 
-## Onboard Windows Admin Center managed servers into Security Center
+## Onboard Windows Admin Center managed servers into Defender for Cloud
 
 1. From Windows Admin Center, select one of your servers, and in the **Tools** pane, select the Azure Security Center extension:
 
     ![Azure Security Center extension in Windows Admin Center.](./media/windows-admin-center-integration/onboarding-from-wac.png)
 
     > [!NOTE]
-    > If the server is already onboarded to Security Center, the set-up window will not appear.
+    > If the server is already onboarded to Defender for Cloud, the set-up window will not appear.
 
 1. Click **Sign in to Azure and set up**.
-    ![Onboarding Windows Admin Center extension to Azure Security Center.](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
+    ![Onboarding Windows Admin Center extension to Defender for Cloud.](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
 
-1. Follow the instructions to connect your server to Security Center. After you've entered the necessary details and confirmed, Security Center makes the necessary configuration changes to ensure that all of the following are true:
+1. Follow the instructions to connect your server to Defender for Cloud. After you've entered the necessary details and confirmed, Defender for Cloud makes the necessary configuration changes to ensure that all of the following are true:
     * An Azure Gateway is registered.
     * The server has a workspace to report to and an associated subscription.
-    * Security Center's Log Analytics solution is enabled on the workspace. This solution provides Azure Defender's features for *all* servers and virtual machines reporting to this workspace.
+    * Defender for Cloud's Log Analytics solution is enabled on the workspace. This solution provides Azure Defender's features for *all* servers and virtual machines reporting to this workspace.
     * Microsoft Defender for servers is enabled on the subscription.
     * The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 
     > [!NOTE]
-    > It may take some time after onboarding for recommendations to appear. In fact, depending on on your server activity you may not receive *any* alerts. To generate test alerts to test your alerts are working correctly, follow the instructions in [the alert validation procedure](security-center-alert-validation.md).
+    > It may take some time after onboarding for recommendations to appear. In fact, depending on on your server activity you may not receive *any* alerts. To generate test alerts to test your alerts are working correctly, follow the instructions in [the alert validation procedure](alert-validation.md).
 
 
 ## View security recommendations and alerts in Windows Admin Center
 
 Once onboarded, you can view your alerts and recommendations directly in the Azure Security Center area of Windows Admin Center. Click a recommendation or an alert to view them in the Azure portal. There, you'll get additional information and learn how to remediate issues.
 
-[![Security Center recommendations and alerts as seen in Windows Admin Center.](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
+[![Defender for Cloud recommendations and alerts as seen in Windows Admin Center.](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## View security recommendations and alerts for Windows Admin Center managed servers in Security Center
+## View security recommendations and alerts for Windows Admin Center managed servers in Defender for Cloud
 From Microsoft Defender for Cloud:
 
 * To view security recommendations for all your Windows Admin Center servers, open [asset inventory](asset-inventory.md) and filter to the machine type that you want to investigate. select the **VMs and Computers** tab.

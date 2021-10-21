@@ -115,7 +115,7 @@ When you enable Defender for Cloud, the Azure Security Benchmark initiative is r
 
 Defender for Cloud helps you **identify Shadow IT subscriptions**. By looking at subscriptions labeled **not covered** in your dashboard, you can know immediately when there are newly created subscriptions and make sure they are covered by your policies, and protected by Defender for Cloud.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Defender for Cloud policy dashboard.":::
+:::image type="content" source="./media/defender-for-cloud-introduction/sc-policy-dashboard.png" alt-text="Defender for Cloud policy dashboard.":::
 
 
 ### Optimize and improve security by configuring recommended controls
@@ -128,13 +128,13 @@ In this way, Defender for Cloud enables you not just to set security policies, b
 
 The recommendations help you to reduce the attack surface across each of your resources.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Defender for Cloud recommendation example.":::
+:::image type="content" source="./media/defender-for-cloud-introduction/sc-recommendation-example.png" alt-text="Defender for Cloud recommendation example.":::
 
 Defender for Cloud continuously discovers new resources that are being deployed across your workloads and assesses whether they are configured according to security best practices, if not, they're flagged and you get a prioritized list of recommendations for what you need to fix to protect your resources. This list of recommendations is enabled and supported by [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored, Azure-specific, set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 To help you understand how important each recommendation is to your overall security posture, Defender for Cloud groups the recommendations into security controls and adds a **secure score** value to each control. This is crucial in enabling you to **prioritize your security work**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Defender for Cloud secure score.":::
+:::image type="content" source="./media/defender-for-cloud-introduction/sc-secure-score.png" alt-text="Defender for Cloud secure score.":::
 
 
 ## Protect against threats

@@ -28,7 +28,7 @@ Use this view and its filters to address such questions as:
 The asset management possibilities for this tool are substantial and continue to grow. 
 
 > [!TIP]
-> The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md).
+> The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
 
 
 ## Availability
@@ -51,7 +51,7 @@ The inventory page provides the following tools:
 Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
 - **Total resources**: The total number of resources connected to Defender for Cloud.
-- **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](security-center-recommendations.md).
+- **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](review-security-recommendations.md).
 - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
 - **Unregistered subscriptions**: Any subscription in the selected scope that haven't yet been connected to Microsoft Defender for Cloud.
 
@@ -141,7 +141,7 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
 
 1. Open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
 
 1. Select the following subscription scope: securityresources/softwareinventories
 

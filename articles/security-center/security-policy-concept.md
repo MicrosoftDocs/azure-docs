@@ -38,7 +38,7 @@ Defender for Cloud offers the following options for working with security initia
 
 - **Add your own custom initiatives** - If you want to customize the security initiatives applied to your subscription, you can do so within Defender for Cloud. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security initiatives and policies](custom-security-policies.md).
 
-- **Add regulatory compliance standards as initiatives** - Defender for Cloud's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). For more information, see [Improve your regulatory compliance](security-center-compliance-dashboard.md).
+- **Add regulatory compliance standards as initiatives** - Defender for Cloud's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). For more information, see [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 ## What is a security recommendation?
 

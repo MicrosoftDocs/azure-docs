@@ -14,7 +14,7 @@ ms.author: memildin
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 > [!TIP]
-> Learn more about Defender for Cloud's regulatory compliance dashboard in the [frequently asked questions](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
+> Learn more about Defender for Cloud's regulatory compliance dashboard in the [frequently asked questions](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
 
 ## How are regulatory compliance standards represented in Defender for Cloud?
 
@@ -90,7 +90,7 @@ To add standards to your dashboard:
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/regulatory-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/regulatory-compliance-dashboard/compliance-dashboard.png":::
 
 ## Remove a standard from your dashboard
 
@@ -123,5 +123,5 @@ In this article, you learned how to **add compliance standards** to monitor your
 For related material, see the following pages:
 
 - [Azure Security Benchmark](/security/benchmark/azure/introduction)
-- [Defender for Cloud regulatory compliance dashboard](security-center-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
+- [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
 - [Working with security policies](tutorial-security-policy.md)

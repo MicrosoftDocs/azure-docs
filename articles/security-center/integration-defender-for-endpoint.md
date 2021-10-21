@@ -197,7 +197,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 
 1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-1. Open the [Microsoft Defender Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Microsoft Defender Security Center portal overview](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Open the [Defender for Endpoint Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Defender for Endpoint Security Center portal overview](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 
 
@@ -289,4 +289,4 @@ Full instructions for switching from a non-Microsoft endpoint solution are avail
 ## Next steps
 
 - [Platforms and features supported by Microsoft Defender for Cloud](security-center-os-coverage.md)
-- [Learn how recommendations help you protect your Azure resources](security-center-recommendations.md)
+- [Learn how recommendations help you protect your Azure resources](review-security-recommendations.md)

@@ -32,7 +32,7 @@ sections:
       - question: |
           Why doesn't Microsoft Defender for Cloud recognize the antimalware solution running on my Azure VM?
         answer: |
-          Microsoft Defender for Cloud has visibility into antimalware installed through Azure extensions. For example, Security Center is not able to detect antimalware that was pre-installed on an image you provided or if you installed antimalware on your virtual machines using your own processes (such as configuration management systems).
+          Microsoft Defender for Cloud has visibility into antimalware installed through Azure extensions. For example, Defender for Cloud is not able to detect antimalware that was pre-installed on an image you provided or if you installed antimalware on your virtual machines using your own processes (such as configuration management systems).
           
           
       - question: |
@@ -42,18 +42,18 @@ sections:
           
           
       - question: |
-          How often does Security Center scan for operating system vulnerabilities, system updates, and endpoint protection issues?
+          How often does Defender for Cloud scan for operating system vulnerabilities, system updates, and endpoint protection issues?
         answer: |
-          Below are the latency times for Security Center scans of vulnerabilities, updates, and issues:
+          Below are the latency times for Defender for Cloud scans of vulnerabilities, updates, and issues:
           
           - Operating system security configurations – data is updated within 48 hours
           - System updates – data is updated within 24 hours
           - Endpoint Protection issues – data is updated within 8 hours
           
-          Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
+          Defender for Cloud typically scans for new data every hour, and refreshes the recommendations accordingly. 
           
           > [!NOTE]
-          > Security Center uses the Log Analytics agent to collect and store data. To learn more, see [Microsoft Defender for Cloud Platform Migration](./security-center-enable-data-collection.md).
+          > Defender for Cloud uses the Log Analytics agent to collect and store data. To learn more, see [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md).
           
           
       - question: |

@@ -27,11 +27,11 @@ There are Azure-native tools for ensuring you can view your alert data in all of
 
 ## Stream alerts to Microsoft Sentinel 
 
-Security Center natively integrates with Microsoft Sentinel, Azure's cloud-native SIEM and SOAR solution. 
+Defender for Cloud natively integrates with Microsoft Sentinel, Azure's cloud-native SIEM and SOAR solution. 
 
 [Learn more about Microsoft Sentinel](../sentinel/overview.md).
 
-### Microsoft Sentinel's connectors for Security Center
+### Microsoft Sentinel's connectors for Defender for Cloud
 
 Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels:
 
@@ -49,7 +49,7 @@ Learn more in [Connect Defender for Cloud alerts from Microsoft Defender for Clo
 
 ### Configure ingestion of all audit logs into Microsoft Sentinel 
 
-Another alternative for investigating Security Center alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
+Another alternative for investigating Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
     - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
     - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
     - [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
@@ -60,7 +60,7 @@ Another alternative for investigating Security Center alerts in Microsoft Sentin
 
 ## Stream alerts with Microsoft Graph Security API
 
-Security Center has out-of-the-box integration with Microsoft Graph Security API. No configuration is required and there are no additional costs. 
+Defender for Cloud has out-of-the-box integration with Microsoft Graph Security API. No configuration is required and there are no additional costs. 
 
 You can use this API to stream alerts from your **entire tenant** (and data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
 
@@ -75,9 +75,9 @@ You can use this API to stream alerts from your **entire tenant** (and data from
 
 ## Stream alerts with Azure Monitor 
 
-To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Security Center with Azure monitor via Azure Event Hubs:
+To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Defender for Cloud with Azure monitor via Azure Event Hubs:
 
-1. Enable [continuous export](continuous-export.md) to stream Security Center alerts into a dedicated Azure Event Hub at the subscription level. 
+1. Enable [continuous export](continuous-export.md) to stream Defender for Cloud alerts into a dedicated Azure Event Hub at the subscription level. 
     > [!TIP]
     > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
@@ -94,5 +94,5 @@ To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, *
 This page explained how to ensure your Microsoft Defender for Cloud alert data is available in your SIEM, SOAR, or ITSM tool of choice. For related material, see:
 
 - [What is Microsoft Sentinel?](../sentinel/overview.md)
-- [Alert validation in Microsoft Defender for Cloud](security-center-alert-validation.md) - Verify your alerts are correctly configured
-- [Continuously export Security Center data](continuous-export.md)
+- [Alert validation in Microsoft Defender for Cloud](alert-validation.md) - Verify your alerts are correctly configured
+- [Continuously export Defender for Cloud data](continuous-export.md)

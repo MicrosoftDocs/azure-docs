@@ -21,16 +21,16 @@ To assign yourself tenant-level permissions:
 
 1. As a Global Administrator user without an assignment on the root management group of the tenant, open Defender for Cloud's **Overview** page and select the **tenant-wide visibility** link in the banner. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Enable tenant-level permissions in Microsoft Defender for Cloud.":::
+    :::image type="content" source="media/management-groups-roles/enable-tenant-level-permissions-banner.png" alt-text="Enable tenant-level permissions in Microsoft Defender for Cloud.":::
 
 1. Select the new Azure role to be assigned. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Form for defining the tenant-level permissions to be assigned to your user.":::
+    :::image type="content" source="media/management-groups-roles/enable-tenant-level-permissions-form.png" alt-text="Form for defining the tenant-level permissions to be assigned to your user.":::
 
     > [!TIP]
     > Generally, the Security Admin role is required to apply policies on the root level, while Security Reader will suffice to provide tenant-level visibility. For more information about the permissions granted by these roles, see the [Security Admin built-in role description](../role-based-access-control/built-in-roles.md#security-admin) or the [Security Reader built-in role description](../role-based-access-control/built-in-roles.md#security-reader).
     >
-    > For differences between these roles specific to Defender for Cloud, see the table in [Roles and allowed actions](security-center-permissions.md#roles-and-allowed-actions).
+    > For differences between these roles specific to Defender for Cloud, see the table in [Roles and allowed actions](permissions.md#roles-and-allowed-actions).
 
     The organizational-wide view is achieved by granting roles on the root management group level of the tenant.  
 
@@ -62,17 +62,17 @@ To request elevated permissions from your global administrator:
 
 1. If you see the banner "You're seeing limited information." select it.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
+    :::image type="content" source="media/management-groups-roles/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
 
 1. In the detailed request form, select the desired role and the justification for why you need these permissions.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Details page for requesting tenant-wide permissions from your Azure global administrator.":::
+    :::image type="content" source="media/management-groups-roles/request-tenant-permissions-details.png" alt-text="Details page for requesting tenant-wide permissions from your Azure global administrator.":::
 
 1. Select **Request access**.
 
     An email is sent to the global administrator. The email contains a link to Defender for Cloud where they can approve or reject the request.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions.":::
+    :::image type="content" source="media/management-groups-roles/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions.":::
 
     After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user. 
 
@@ -80,4 +80,4 @@ To request elevated permissions from your global administrator:
 
 Learn more about Defender for Cloud permissions in the following related page:
 
-- [Permissions in Microsoft Defender for Cloud](security-center-permissions.md)
+- [Permissions in Microsoft Defender for Cloud](permissions.md)

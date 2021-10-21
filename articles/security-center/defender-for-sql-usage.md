@@ -45,7 +45,7 @@ To enable this plan:
 
 ### Step 2. Provision the Log Analytics agent on your SQL server's host:
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server on Azure Arc** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Defender for Cloud recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”.
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
@@ -77,7 +77,7 @@ To enable this plan:
 
 1. Optionally, configure email notification for security alerts. 
 
-    You can set a list of recipients to receive an email notification when Defender for Cloud alerts are generated. The email contains a direct link to the alert in Microsoft Defender for Cloud with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+    You can set a list of recipients to receive an email notification when Defender for Cloud alerts are generated. The email contains a direct link to the alert in Microsoft Defender for Cloud with all the relevant details. For more information, see [Set up email notifications for security alerts](configure-email-notifications.md).
 
 
 ## Microsoft Defender for SQL alerts
@@ -94,7 +94,7 @@ Microsoft Defender for SQL alerts are available in Defender for Cloud's alerts p
     * Enable SQL Server's auditing feature for further investigations. If you're a Microsoft Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * To improve your security posture, use Defender for Cloud's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 
 
-    [Learn more about managing and responding to alerts](security-center-managing-and-responding-alerts.md).
+    [Learn more about managing and responding to alerts](managing-and-responding-alerts.md).
 
 
 ## FAQ - Microsoft Defender for SQL servers on machines
@@ -116,5 +116,5 @@ The subscription *status*, shown in the SQL server page in the Azure portal, ref
 For related material, see the following article:
 
 - [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
-- [Set up email notifications for security alerts](security-center-provide-security-contact-details.md)
+- [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)

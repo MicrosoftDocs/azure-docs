@@ -71,8 +71,8 @@ When the recommendations are released to general availability, they will replace
     - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
 
 Learn more:
-- [Defender for Cloud's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
-- [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
+- [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
+- [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
 
 

@@ -22,7 +22,7 @@ and the [National Institute of Standards and Technology (NIST)](https://www.nist
 cloud-centric security.
 
 To learn about how to respond to these recommendations, see
-[Remediate recommendations in Microsoft Defender for Cloud](security-center-remediate-recommendations.md).
+[Remediate recommendations in Microsoft Defender for Cloud](implement-security-recommendations.md).
 
 Your secure score is based on the number of Defender for Cloud recommendations you've completed. To
 decide which recommendations to resolve first, look at the severity of each one and its potential
@@ -81,4 +81,4 @@ impact on your secure score.
 To learn more about recommendations, see the following:
 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](security-center-recommendations.md)
+- [Review your security recommendations](review-security-recommendations.md)

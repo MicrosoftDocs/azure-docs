@@ -5,6 +5,8 @@
   items:
   - name: What is Microsoft Defender for Cloud?
     href: defender-for-cloud-introduction.md
+  - name: What are the enhanced security features?
+    href: enhanced-security-features-overview.md
   - name: What's new?
     displayName: changelog, news, release notes
     href: release-notes.md
@@ -17,25 +19,23 @@
       displayName: coverage
       href: security-center-os-coverage.md
     - name: Coverage by OS, machine type, and cloud
-      href: security-center-services.md
+      href: supported-machines-endpoint-solutions-clouds.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
     - name: User roles and permissions
       displayName: RBAC
-      href: security-center-permissions.md
-    - name: What's in the paid plan?
-      href: security-center-pricing.md
+      href: permissions.md
 
 - name: Quickstarts
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
-    href: security-center-get-started.md
+    href: get-started.md
   - name: 2. Enable the enhanced protections
     href: enable-enhanced-security.md
   - name: 3. Configure auto provisioning
-    href: security-center-enable-data-collection.md
+    href: enable-data-collection.md
   - name: 4. Set up email notifications
-    href: security-center-provide-security-contact-details.md
+    href: configure-email-notifications.md
   - name: 5. Connect your hybrid and multi-cloud machines
     items:
     - name: Connect non-Azure machines
@@ -63,7 +63,7 @@
   - name: Investigate and respond to security alerts
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
-    href: security-center-compliance-dashboard.md
+    href: regulatory-compliance-dashboard.md
   - name: Manage security policies
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
@@ -87,7 +87,7 @@
   - name: Cloud Workload Protection concepts
     items:
     - name: Security alerts and incidents
-      href: security-center-alerts-overview.md
+      href: alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
 
@@ -108,9 +108,9 @@
   - name: Use security recommendations to improve security
     items:
     - name: Review your security recommendations
-      href: security-center-recommendations.md
+      href: review-security-recommendations.md
     - name: Remediate recommendations
-      href: security-center-remediate-recommendations.md
+      href: implement-security-recommendations.md
     - name: Prevent misconfigurations with Enforce/Deny
       displayName: recommendations
       href: prevent-misconfigurations.md
@@ -180,7 +180,7 @@
         href: file-integrity-monitoring-usage.md
     - name: Improve your network security posture
       displayName: anh, adaptive network hardening
-      href: security-center-adaptive-network-hardening.md
+      href: adaptive-network-hardening.md
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
@@ -203,7 +203,7 @@
       displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
     - name: Customize SQL information protection policy
       displayName: sql, database, data discovery
-      href: security-center-info-protection-policy.md
+      href: sql-information-protection-policy.md
   - name: Protect your containerized environments
     displayName: Azure Defender
     items:
@@ -263,31 +263,31 @@
   - name: Protect your Windows Admin Center servers
     href: windows-admin-center-integration.md
   - name: Integrate security solutions and data sources
-    href: security-center-partner-integration.md
+    href: partner-integration.md
   - name: Protect network resources
-    href: security-center-network-recommendations.md
+    href: protect-network-resources.md
   - name: Enforce and manage MFA
     displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
-    href: security-center-identity-access.md
+    href: multi-factor-authentication-enforcement.md
   - name: Additional threat protections
     href: other-threat-protections.md
   - name: Manage subscriptions, users, and permissions
     items:
     - name: Organize management groups and subscriptions
-      href: security-center-management-groups.md
+      href: management-groups-roles.md
     - name: Grant and request tenant-wide permissions
       displayName: global admin, Azure Active Directory (AD), AAD
       href: tenant-wide-permissions-management.md
     - name: Enable Defender for Cloud for a management group
       href: onboard-management-group.md
     - name: Set up cross-tenant management
-      href: security-center-cross-tenant-management.md
+      href: cross-tenant-management.md
     - name: Automate onboarding using PowerShell
-      href: security-center-powershell-onboarding.md
+      href: powershell-onboarding.md
   - name: Manage alerts, incidents, and threat reports
     items:
     - name: Respond to security alerts
-      href: security-center-managing-and-responding-alerts.md
+      href: managing-and-responding-alerts.md
     - name: Create and manage alerts suppression rules
       href: alerts-suppression-rules.md
     - name: Export alerts and recommendations
@@ -303,12 +303,12 @@
       - name: Alerts schemas
         href: alerts-schemas.md
     - name: Manage security incidents
-      href: security-center-incident.md
+      href: incidents.md
     - name: Generate threat intelligence reports
-      href: security-center-threat-report.md
+      href: threat-intelligence-reports.md
     - name: Validate your alert configuration
       displayname: eicar, Kubernetes, Linux
-      href: security-center-alert-validation.md
+      href: alert-validation.md
     - name: Automate responses to alerts
       displayName: workflow
       href: workflow-automation.md
@@ -319,7 +319,7 @@
     displayName: changelog, news
     href: release-notes-archive.md
   - name: How Microsoft secures customer data
-    href: security-center-data-security.md
+    href: data-security.md
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
@@ -342,7 +342,7 @@
   - name: Azure roadmap blog
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Endpoint protection assessment and recommendations
-    href: security-center-endpoint-protection.md
+    href: endpoint-protection-recommendations-technical.md
   - name: Azure CLI
     href: /cli/azure/security
   - name: Azure PowerShell
@@ -352,7 +352,7 @@
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?term=securityS
   - name: Manage user data
-    href: security-center-privacy.md
+    href: privacy.md
   - name: Microsoft Defender for IoT documentation
     href: /azure/asc-for-iot/
   - name: Azure security documentation
@@ -372,4 +372,4 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Troubleshooting guide
-    href: security-center-troubleshooting-guide.md
+    href: troubleshooting-guide.md

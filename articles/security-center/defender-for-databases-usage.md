@@ -40,7 +40,7 @@ When Microsoft Defender is enabled on your database, it detects anomalous activi
 - In the Azure portal:
     - **Microsoft Defender for Cloud's security alerts page** - Shows alerts for all resources protected by Defender for Cloud in the subscriptions you've got permissions to view.
     - The resource's **Microsoft Defender for Cloud** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable enhanced security](#enable-enhanced-security).
-- In the inbox of whoever in your organization has been [designated to receive email alerts](security-center-provide-security-contact-details.md).  
+- In the inbox of whoever in your organization has been [designated to receive email alerts](configure-email-notifications.md).  
 
 > [!TIP]
 > A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Defender for Cloud alerts page and get an overview of active threats detected on your databases.

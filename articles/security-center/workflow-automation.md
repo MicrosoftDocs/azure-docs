@@ -160,8 +160,8 @@ In this article, you learned about creating Logic Apps, automating their executi
 For related material, see: 
 
 - [The Microsoft Learn module on how to use workflow automation to automate a security response](/learn/modules/resolve-threats-with-azure-security-center/)
-- [Security recommendations in Microsoft Defender for Cloud](security-center-recommendations.md)
-- [Security alerts in Microsoft Defender for Cloud](security-center-alerts-overview.md)
+- [Security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md)
+- [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
 - [About Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 - [Connectors for Azure Logic Apps](../connectors/apis-list.md)
 - [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas)

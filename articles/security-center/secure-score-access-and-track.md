@@ -55,7 +55,7 @@ To access the secure score for multiple subscriptions with Azure Resource Graph:
 
 1. From the Azure portal, open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
 
 1. Enter your Kusto query (using the examples below for guidance).
 
@@ -107,6 +107,6 @@ The dashboard contains the following two reports to help you analyze your securi
 
 This article described how to access and track your secure score. For related material, see the following articles:
 
-- [Learn about the different elements of a recommendation](security-center-recommendations.md)
-- [Learn how to remediate recommendations](security-center-remediate-recommendations.md)
+- [Learn about the different elements of a recommendation](review-security-recommendations.md)
+- [Learn how to remediate recommendations](implement-security-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

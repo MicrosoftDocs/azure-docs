@@ -48,7 +48,7 @@ Each of these options is explained in a separate tab below.
 
 ### Enable JIT on your VMs from Microsoft Defender for Cloud <a name="jit-asc"></a>
 
-:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configuring JIT VM access in Microsoft Defender for Cloud.":::
+:::image type="content" source="./media/just-in-time-access-usage/jit-config-security-center.gif" alt-text="Configuring JIT VM access in Microsoft Defender for Cloud.":::
 
 From Defender for Cloud, you can enable and configure the JIT VM access.
 
@@ -106,7 +106,7 @@ To edit the existing JIT rules for a VM:
 
 1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 
-    ![Editing a JIT VM access configuration in Microsoft Defender for Cloud.](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+    ![Editing a JIT VM access configuration in Microsoft Defender for Cloud.](./media/just-in-time-access-usage/jit-policy-edit-security-center.png)
 
 1. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port.
 
@@ -120,7 +120,7 @@ To edit the existing JIT rules for a VM:
 
 You can enable JIT on a VM from the Azure virtual machines pages of the Azure portal.
 
-![Configuring JIT VM access in Azure virtual machines.](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
+![Configuring JIT VM access in Azure virtual machines.](./media/just-in-time-access-usage/jit-config-virtual-machines.gif)
 
 > [!TIP]
 > If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Defender for Cloud, and view and change the settings.
@@ -150,7 +150,7 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 
     1. From the **Configured** tab, right-click on the VM to which you want to add a port, and select edit. 
 
-        ![Editing a JIT VM access configuration in Microsoft Defender for Cloud.](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+        ![Editing a JIT VM access configuration in Microsoft Defender for Cloud.](./media/just-in-time-access-usage/jit-policy-edit-security-center.png)
 
     1. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port.
 
@@ -236,7 +236,7 @@ Each of these options is explained in a separate tab below.
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Requesting JIT access from Defender for Cloud.":::
+:::image type="content" source="./media/just-in-time-access-usage/jit-request-security-center.gif" alt-text="Requesting JIT access from Defender for Cloud.":::
 
 1. From the **Just-in-time VM access** page, select the **Configured** tab.
 
@@ -263,7 +263,7 @@ When a VM has a JIT enabled, you have to request access to connect to it. You ca
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-  >![jit just-in-time request.](./media/security-center-just-in-time/jit-request-vm.png)
+  >![jit just-in-time request.](./media/just-in-time-access-usage/jit-request-vm.png)
 
 
 To request access from Azure virtual machines:
@@ -338,7 +338,7 @@ You can gain insights into VM activities using log search. To view the logs:
  
 1. Select **Activity Log** from the menu.
 
-   ![Select just-in-time JIT activity log.](./media/security-center-just-in-time/jit-select-activity-log.png)
+   ![Select just-in-time JIT activity log.](./media/just-in-time-access-usage/jit-select-activity-log.png)
 
    The activity log provides a filtered view of previous operations for that VM along with time, date, and subscription.
 
