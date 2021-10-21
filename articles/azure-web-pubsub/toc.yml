@@ -54,7 +54,7 @@
       href: howto-websocket-connect.md
   - name: Monitor
     items:
-    - name: Audit resource compliance using Azure Policy
+    - name: Audit compliance using Azure Policy
       href: howto-monitor-azure-policy.md
   - name: Secure
     items:

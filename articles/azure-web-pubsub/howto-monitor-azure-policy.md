@@ -1,5 +1,5 @@
 ---
-title: Compliance using Azure Policy
+title: Azure Web PubSub service Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure Web PubSub Service resources.
 author: JialinXin
 
