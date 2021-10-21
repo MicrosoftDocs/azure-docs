@@ -81,8 +81,8 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 ## Meet network requirements
 
 > [!IMPORTANT]
-> Azure Arc agents require both of the following protocols/ports/outbound URLs to function:
-> * TCP on port 443: `https://:443`
+> Azure Arc agents require the following outbound URLs on `https://:443` to function.
+> For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |

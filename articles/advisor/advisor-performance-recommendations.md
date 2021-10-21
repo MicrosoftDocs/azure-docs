@@ -177,6 +177,11 @@ Advisor detects that you have a host pool that has depth first set as the load b
 
 To learn more about load balancing in Windows Virtual Desktop, see [Configure the Windows Virtual Desktop load-balancing method](../virtual-desktop/troubleshoot-set-up-overview.md).
 
+## Upgrade to the latest version of the Azure Communication Services SDKs
+
+Advisor has identified resources under this subscription using outdated versions of specific Azure Communication Services SDKs. Using the latest version of the Azure Communication Services SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your communication experiences.
+Learn more about [Azure Communication Services](../communication-services/overview.md) and the [integration with Azure Advisor](../communication-services/concepts/advisor-overview.md).
+
 ## How to access performance recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).

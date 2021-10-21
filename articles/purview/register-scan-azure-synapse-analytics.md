@@ -17,7 +17,7 @@ This article discusses how to register and scan an instance of Dedicated SQL poo
 
 ## Supported capabilities
 
-Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to capture the metadata and schema. Scans also classify the data automatically based on system and custom classification rules.
+Dedicated SQL pools (formerly SQL DW) supports full and incremental scans to capture the metadata and schema. Scans also classify the data automatically based on system and custom classification rules.
 
 ### Known limitations
 
@@ -27,11 +27,11 @@ Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 - You need to be an Azure Purview Data Source Admin
-- Networking access between the Purview account and Azure Synapse Analytics.
+- Networking access between the Purview account and the dedicated SQL pool in Azure Synapse Analytics.
  
 ## Setting up authentication for a scan
 
-There are three ways to set up authentication for Azure Synapse Analytics:
+There are three ways to set up authentication:
 
 - Managed Identity
 - SQL Authentication
@@ -42,7 +42,7 @@ There are three ways to set up authentication for Azure Synapse Analytics:
 
 ### Managed Identity (Recommended) 
    
-Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
+Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in the dedicated SQL pool with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Example SQL syntax to create user and grant permission:
 
@@ -82,9 +82,9 @@ It is required to get the Service Principal's application ID and secret:
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan 
 
-#### Granting the Service Principal access to your Azure Synapse Analytics (formerly SQL DW)
+#### Granting the Service Principal access
 
-In addition, you must also create an Azure AD user in Azure Synapse Analytics by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Example SQL syntax to create user and grant permission:
+In addition, you must also create an Azure AD user in the dedicated pool by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Example SQL syntax to create user and grant permission:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -99,7 +99,7 @@ GO
 
 ### SQL authentication
 
-You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) to create a login for Azure Synapse Analytics (formerly SQL DW) if you don't already have one.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) to create a login for your dedicated SQL pool (formerly SQL DW) if you don't already have one.
 
 When authentication method selected is **SQL Authentication**, you need to get your password and store in the key vault:
 
@@ -118,18 +118,16 @@ To register a new SQL dedicated pool in Purview, do the following:
 1. Navigate to your Purview account.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
-1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**.
+1. On **Register sources**, select **Azure Dedicated SQL Pool (formerly SQL DW)**.
 1. Select **Continue**
 
-On the **Register sources (Azure Synapse Analytics)** screen, do the following:
+On the **Register sources** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-2. Choose your Azure subscription to filter down Azure Synapse workspaces.
-3. Select an Azure Synapse workspace.
+2. Choose your Azure subscription to filter down dedicated SQL pools.
+3. Select your dedicated SQL pool.
 4. Select a collection or create a new one (Optional).
 5. Select **Register** to register the data source.
-
-:::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Creating and running a scan
 

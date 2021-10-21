@@ -1,9 +1,10 @@
 ---
-title: Tutorial - Issue Azure AD Verifiable Credentials from an Application
+title: Tutorial - Issue Azure AD Verifiable Credentials from an Application (preview)
 description: In this tutorial, you learn how to issue verifiable credentials using a sample app
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
@@ -34,7 +35,7 @@ The following diagram illustrates the Azure AD verifiable credentials architectu
 
 ## Prerequisites
 
-- Before you start, it's important to [Setup a tenant for Azure AD Verifiable Credential](https://tbd-link-to-the-tenant-config-article/).
+- Before you start, it's important to [Setup a tenant for Azure AD Verifiable Credential](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant).
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)

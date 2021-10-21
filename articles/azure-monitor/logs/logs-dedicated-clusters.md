@@ -48,21 +48,6 @@ If your workspace is using legacy Per Node pricing tier, when it is linked to a 
 
 Complete details are billing for Log Analytics dedicated clusters are available [here](./manage-cost-storage.md#log-analytics-dedicated-clusters).
 
-## Asynchronous operations and status check
-
-Some of the configuration steps run asynchronously because they can't be completed quickly. The status in response contains can be one of the following values: *InProgress*, *Updating*, *Deleting*, *Succeeded*, or *Failed* including the error code. When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with Azure-AsyncOperation property:
-
-```JSON
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
-```
-
-You can check the status of the asynchronous operation by sending a GET request to the Azure-AsyncOperation header value:
-
-```rest
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
-Authorization: Bearer <token>
-```
-
 ## Create a dedicated cluster
 
 You must specify the following properties when you create a new dedicated cluster:
@@ -86,12 +71,13 @@ You can have up to 2 active clusters per subscription per region. If the cluster
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
 
-# Wait for job completion
-az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+# Wait for job completion when `--no-wait` was used
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
+az resource wait --created --ids $clusterResourceId --include-response-body true
 ```
 
 **PowerShell**
@@ -101,7 +87,7 @@ Select-AzSubscription "cluster-subscription-id"
 
 New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
-# Check when the job is done
+# Check when the job is done when `-AsJob` was used
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
@@ -140,7 +126,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. Use one
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
 ```
@@ -224,17 +210,17 @@ Use the following commands to link a workspace to a cluster:
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
-
 # Find cluster resource ID
-$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")]" --query [].id --output table
+az account set --subscription "cluster-subscription-id"
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
 
-Set-AzContext -SubscriptionId "workspace-subscription-id"
-
+# Link workspace
+az account set --subscription "workspace-subscription-id"
 az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
 
-# Wait for job completion
-az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+# Wait for job completion when `--no-wait` was used
+$workspaceResourceId = az monitor log-analytics workspace list --resource-group "resource-group-name" --query "[?contains(name, "workspace-name")].[id]" --output tsv
+az resource wait --deleted --ids $workspaceResourceId --include-response-body true
 ```
 
 **PowerShell**
@@ -280,14 +266,11 @@ Content-type: application/json
 
 ### Check workspace link status
   
-When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state in two ways:
-
-- Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
-- Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*.
+When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
@@ -366,7 +349,7 @@ After you create your cluster resource and it is fully provisioned, you can edit
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
@@ -434,7 +417,7 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster list
 ```
@@ -469,7 +452,7 @@ When the data volume to your linked workspaces change over time and you want to 
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
@@ -537,7 +520,7 @@ Use the following commands to unlink a workspace from cluster:
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
@@ -571,7 +554,7 @@ Use the following commands to delete a cluster:
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
 ```
@@ -627,9 +610,7 @@ Authorization: Bearer <token>
 
 - If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
 
-- Some operations are long and can take a while to complete. These are *cluster create*, *cluster key update* and *cluster delete*. You can check the operation status in two ways:
-  - When using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-  - Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
+- Some operations are long and can take a while to complete. These are *cluster create*, *cluster key update* and *cluster delete*. You can check the operation status by sending GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
 
 - Workspace link to cluster will fail if it is linked to another cluster.
 
