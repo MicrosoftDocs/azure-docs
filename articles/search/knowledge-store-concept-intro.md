@@ -47,7 +47,7 @@ A knowledge store is defined inside a skillset definition and it has two compone
 The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
 
 ```json
-"knowledgeStore":{
+"knowledgeStore": {
    "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
    "projections":[
       {
@@ -61,6 +61,10 @@ The projections element is an array. You can create multiple sets of table-objec
 The type of projection you specify in this structure determines the type of storage used by knowledge store.
 
 + `tables` project enriched content into Table Storage. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` within the same projection group to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
+
+  Projected content is not aggregated or normalized. The following screenshot shows a table, sorted by key phrase, with the parent document indicated in the adjacent column. Plural forms and differences in casing are considered separate instances.
+
+  :::image type="content" source="media/kstore-keyphrases-per-document.png" alt-text="Screenshot of key phrases and documents in a table" border="true":::
 
 + `objects` project JSON document into Blob storage. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document.
 
