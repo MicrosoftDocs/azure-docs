@@ -13,8 +13,8 @@ This quickstart shows how to send events to and receive events from an event hub
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
-- **Complete Quickstart on Create schemas using Schema Registry**. Try out the schema creation quickstart and get familiarized with schema management.
-- **Complete Event Hubs quickstart**. This quickstart requires you to be familiar with sending event to and receiving event from event hubs using .NET. So you should try out with [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
+- **Complete [Event Hubs quickstart](event-hubs-dotnet-standard-getstarted-send.md).**. This quickstart requires you to be familiar with sending events to and receiving events from event hubs using .NET. So you should try out with [free trial]( https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
+- **Complete [quickstart on Create schemas using Schema Registry](create-schema-registry.md)**. Try out the schema creation quickstart and get familiarized with schema management.
 - **Microsoft Visual Studio 2019**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, it is recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 
 
@@ -57,7 +57,7 @@ To complete this quickstart, you need the following prerequisites:
     1. Select **Console Application** from the results list. 
     1. Then, select **Next**. 
 
-        :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/new-send-project.png" alt-text="Image showing the New Project dialog box":::
+        :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/new-send-project.png" alt-text="Image showing the New Project dialog box.":::
 1. Enter **OrderProducer** for the project name, **SRQuickStart** for the solution name, and then select **OK** to create the project. 
 
 
@@ -170,7 +170,7 @@ To complete this quickstart, you need the following prerequisites:
     ```
 1. In the Azure portal, you can verify that the event hub has received the events. Switch to **Messages** view in the **Metrics** section. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
-    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events." lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
 
 
