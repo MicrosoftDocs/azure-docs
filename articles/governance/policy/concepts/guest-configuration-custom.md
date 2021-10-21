@@ -62,6 +62,31 @@ Multiple benefits result from this change.
   manage shared dependencies across configurations.
 - It's not requird to manage multiple versions of any module in a central
   service.
+  
+## Artifacts are managed as packages
+
+The Azure Automation State Configuration feature includes artifact management
+for modules and configuration scripts. Once both are published in to the service,
+the script can be compiled to MOF format. Similarly, Windows Pull Server also required
+managing configurations and modules at the web service instance. By contrast, the
+DSC extension has a simplified model where all artifacts are packaged together
+and stored in a location accessible from the target machine using an HTTPS request
+(Azure Blob Storage is the popular option).
+
+Guest configuration only uses the simplified model where all artifacts
+are packaged together and accessed from the target machine over HTTPS.
+There is no need to publish modules, scripts, or compile in the service. One
+change is that the package should always include a compiled MOF. It is
+not possible to include a script file in the package and compile
+on the target machine.
+
+## Maximum size of custom configuration package
+
+In Azure Automation state configuration, DSC configurations were
+[limited in size](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
+Guest configuration supports a total package size of 100MB (before
+compression). There is no specific limit on the size of the MOF file within
+the package.
 
 ## Configuration mode is set in the package artifact
 
@@ -90,7 +115,15 @@ Parameters in Azure Policy that pass values to guest configuration
 assignments must be _string_ type. It isn't possible to pass arrays through
 parameters, even if the DSC resource supports arrays.
 
-## Sequence of events
+## Trigger Set from outside machine
+
+A challenge in previous versions of DSC has been correcting drift at scale
+without a lot of custom code and reliance on WinRM remote connections. Guest
+configuration solves this problem. Users of guest configuration have control
+over drift correction through
+[Remediation On Demand](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
+
+## Sequence includes Get method
 
 When guest configuration audits or configures a machine the same
 sequence of events is used for both Windows and Linux. The notable change in
@@ -110,22 +143,6 @@ the state of the machine.
 1. Last, the provider runs `Get` to return the current state of each setting so
    details are available both about why a machine isn't compliant and to confirm
    that the current state is compliant.
-
-## Trigger Set from outside machine
-
-A challenge in previous versions of DSC has been correcting drift at scale
-without a lot of custom code and reliance on WinRM remote connections. Guest
-configuration solves this problem. Users of guest configuration have control
-over drift correction through
-[Remediation On Demand](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
-
-## Maximum size of custom configuration package
-
-In Azure Automation state configuration, DSC configurations were
-[limited in size](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell).
-Guest configuration supports a total package size of 100MB (before
-compression). There is no specific limit on the size of the MOF file within
-the package.
 
 ## Special requirements for Get
 
