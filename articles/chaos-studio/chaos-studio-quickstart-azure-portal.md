@@ -1,3 +1,13 @@
+---
+title: Create and run a chaos experiment using a VM Shutdown fault 
+description: Understand the steps to create and run a Chaos Studio experiment in 10mins
+services: chaos-studio
+author: prashabora
+ms.topic: article
+ms.date: 10/21/2021
+ms.author: prashabora
+ms.service: chaos-studio
+---
 # Quickstart: Create and run a chaos experiment using a VM Shutdown fault 
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
 
