@@ -78,7 +78,7 @@ Some of the common errors that you'll encounter with the Video Analyzer service 
 
 - If you are using a [remote device adapter](./use-remote-device-adapter.md), then try the following steps.
 
-   - Verify that your [IoT hub is attached to your Video Analyzer account](../managed-identity.md). It is required for using a remote device adapter.
+   - Verify that your [IoT hub is attached to your Video Analyzer account](../create-video-analyzer-account.md#post-deployment-steps). It is required for using a remote device adapter.
    - Run `remoteDeviceAdapterList` direct method on the edge module and verify IP address. Sample request and response are shown [here](../edge/direct-methods.md)
    - Examine the response for the remote device adapter that you are using in the live pipeline that is experiencing the issue, and compare with the example in [this article](use-remote-device-adapter.md). Check that the IP address of the camera is correct
    - Go to Azure portal->Video Analyzer account -> Live -> Pipelines -> Edit live pipeline -> reenter the RTSP user name and password. Check that the RTSP URL you provide begins with `rtsp://localhost:554/…`. Here, the use of `localhost` is required.
