@@ -1,9 +1,11 @@
 ---
-title: "Universal Phone Sets" Required; page title is displayed in search results. Include the brand.
-description: Phone Sets used to customize pronunciation of words in Speech-to-Text. #Required; article description that is displayed in search results. 
+title: "Universal Phone Sets"
+titleSuffix: Azure Cognitive Services
+description: Phone Sets used to customize pronunciation of words in Speech-to-Text. 
 author: ut-karsh #Required; your GitHub user alias, with correct capitalization.
 ms.author: umaheshwari #Required; microsoft alias of author; optional team alias.
-ms.service: cognitive-services #Required; service per approved list. slug assigned by ACOM.
+ms.service: cognitive-services
+ms.subservice: speech-service
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 10/19/2021 #Required; mm/dd/yyyy format.
 ---

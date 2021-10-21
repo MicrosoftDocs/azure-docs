@@ -101,7 +101,7 @@ When you train a new custom model, start by adding plain text sentences of relat
 
 ### Add structured text data
 
-You can use structured text data in markdown format similarly to plain text sentences, but you would use structured text data when your data follows a particular pattern in particular utterances that only differ by words or phrases from a list. See  [Structured text data for training](how-to-custom-speech-test-and-train.md#structured-text-data-for-training) for more information. 
+You can use structured text data in markdown format similarly to plain text sentences, but you would use structured text data when your data follows a particular pattern in particular utterances that only differ by words or phrases from a list. See  [Structured text data for training](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview) for more information. 
 
 > [!NOTE]
 > Training with structured text is only supported for these locales: en-US, de-DE, en-UK, en-IN, de-DE, fr-FR, fr-CA, es-ES, es-MX and you must use the latest base model for these locales. See Language support for a list of base models that support training with structured text data.

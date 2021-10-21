@@ -46,7 +46,7 @@ This table lists accepted data types, when each data type should be used, and th
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
-| [Structured tex](#structured-text-data-for-training) (Public Preview) | No | N/a | Yes | Up to 20 classes with up to 2000 items <br> and up to 50,000 training sentences |
+| [Structured tex](#structured-text-data-for-training-public-preview) (Public Preview) | No | N/a | Yes | Up to 20 classes with up to 2000 items <br> and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
@@ -185,7 +185,7 @@ Additionally, you'll want to account for the following restrictions:
 * For some languages (for example Japanese or Korean), importing large amounts of text data can take very long or time out. Please consider to divide the uploaded data into text files of up to 20.000 lines each.
 
 ## Structured text data for training (Public Preview)
-Often the expected utterances follow a certain pattern. One common pattern is that you have utterances that only differ by words or phrases from a list. Examples of this could be “I have a question about `product`”, where `product` is a list of possible products. Or “Make that `object` `color`”, where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown format shares its format with the .lu markdown used to train Language Understanding models, in particular list entities and example utterances. See the <a href="https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">.lu file format</a> doc for more information on the complete .lu markdown. 
+Often the expected utterances follow a certain pattern. One common pattern is that you have utterances that only differ by words or phrases from a list. Examples of this could be “I have a question about `product`”, where `product` is a list of possible products. Or “Make that `object` `color`”, where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown format shares its format with the .lu markdown used to train Language Understanding models, in particular list entities and example utterances. See the <a href="https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">.lu file format</a> doc for more information on the complete .lu markdown. 
 Here is an example of the markdown format:
 ```markdown
 // This is a comment
@@ -230,7 +230,7 @@ Here is an example of the markdown format:
 ```
 
 Like plain text, training with structured text typically takes a few minutes. Also, your example sentences, and lists should reflect the type of spoken input you expect in production.
-For pronunciation entries see the description of the [Universal Phone Set](universal-phone-set.md).
+For pronunciation entries see the description of the [Universal Phone Set](phone-sets.md).
 
 The table below specifies the limits and other properties for the markdown format:
 
