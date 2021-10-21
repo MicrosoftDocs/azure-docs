@@ -26,7 +26,7 @@ sections:
           > [!Note] 
           > System.Runtime.DateTime and System.Runtime.PreciseDateTime cannot be used as part of the name of an Azure Video Analyzer video resource, in a video sink node. These variables can be used in a [FileSink](../pipeline.md#file-sink), for naming the file.
 
-          **What is the difference between Live pipeline and Batch pipeline jobs of Video Analyzer service?**
+          **What is the difference between live pipeline and batch pipeline jobs of Video Analyzer service?**
 
           Live topologies, as the name suggests, are used for the ingestion of live video from cameras to cloud. Batch topologies are used to process or export the recorded videos from Video Analyzer service. For more information, see [pipeline](../pipeline.md#pipeline-topologies) and rules on the [use of nodes in pipelines](../pipeline.md#rules-on-the-use-of-nodes)
 
@@ -36,7 +36,7 @@ sections:
 
           **Do we have AI models or AI inferencing capability for Video Analyzer service?**
 
-          It is not currently available for Video Analyser cloud pipelines. However, the Video Analyzer edge module can be used with other Azure IoT Edge modules such as Stream Analytics, Cognitive Services, and other Azure cloud services such as Event Hub and Cognitive Services to build powerful hybrid (that is, edge + cloud) applications. This extensible edge module seamlessly integrates with various AI edge modules such as Azure Cognitive Services containers or custom edge modules built using open-source machine learning models and your training data. For e.g see [here](../edge/analyze-live-video-use-your-model-grpc.md)
+          It is not currently available for Video Analyzer cloud pipelines. However, the Video Analyzer edge module can be used with other Azure IoT Edge modules such as Stream Analytics, Cognitive Services, and other Azure cloud services such as Event Hub and Cognitive Services to build powerful hybrid (that is, edge + cloud) applications. This extensible edge module seamlessly integrates with various AI edge modules such as Azure Cognitive Services containers or custom edge modules built using open-source machine learning models and your training data. For e.g see [here](../edge/analyze-live-video-use-your-model-grpc.md)
 
       - question: Configuration and deployment
         answer: |
@@ -46,7 +46,7 @@ sections:
 
           **How do I simulate RTSP stream if I don’t have RTSP camera?**
 
-          You can simulate RTSP stream by deploying RTSP camera simulalator using a Azure Linux VM. For more details, please see [RTSP camera simulator](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator)
+          You can simulate RTSP stream by deploying RTSP camera simulator using a Azure Linux VM. For more details, please see [RTSP camera simulator](./get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator)
 
           **How can I add more sample video files to RTSP camera simulator?**
 
