@@ -99,11 +99,11 @@ The following steps describe specific actions required for the **Azure Sentinel 
     After the solution is installed, the following items are displayed:
 
     - A link to your **SOCHTManagement** workbook. You may have modified this name on the **Workbooks** tab earlier in this procedure.
-    - The URL for the custom ARM template, which you can use to deploy the **SOCHTManagement** to multiple management groups.
+    - The URL for a custom ARM template. You can use this ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
 
 1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute an Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
 
-    Use the URL displayed in the installation output to go to the linked ARM template's **Custom deployment** page. Leave this browser tab open for now, and return after you've deployed your honeytokens and tested the solution functionality.
+    Use the custom ARM template URL shown in the installation output to open the linked template's **Custom deployment** page. Leave this browser tab open for now, and return after you've deployed your honeytokens and tested the solution functionality.
 
     For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook) and [Distribute audit recommendations via Azure Security Center](#distribute-audit-recommendations-via-azure-security-center).
 
