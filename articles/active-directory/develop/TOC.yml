@@ -739,9 +739,9 @@
   - name: Videos
     href: identity-videos.md
   - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/en-us/identity/blogs/
+    href: https://developer.microsoft.com/identity/blogs/
   - name: Azure AD blog
-    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+    href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Try Sign in with Microsoft

@@ -8,15 +8,13 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 10/20/2021
 ms.author: allensu
 # Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for. 
 ---
 # What is Virtual Network NAT?
 
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses.  Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
-
-> [!VIDEO https://www.youtube.com/embed/2Ng_uM0ZaB4]
 
 :::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix.":::
 
@@ -85,36 +83,15 @@ NAT is non zonal by default. When creating [availability zones](../../availabili
 :::image type="content" source="./media/nat-overview/az-directions.png" alt-text="Figure shows three zonal stacks, each of which contains a NAT gateway and a subnet.":::
 
 *Figure: Virtual Network NAT with availability zones*
-## Multi-dimensional metrics for observability
 
-You can monitor the operation of your NAT through multi-dimensional metrics exposed in Azure Monitor. These metrics can be used to observe the usage and for troubleshooting.  NAT gateway resources expose the following metrics:
+## Pricing and SLA
 
-- Bytes
-- Packets
-- Dropped Packets
-- Total SNAT connections
-- SNAT connection state transitions per interval.
+For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network). NAT data path is at least 99.9% available.
 
-Learn more about [NAT gateway metrics](./nat-metrics.md).
-## SLA
-
-At general availability, NAT data path is at least 99.9% available.
-
-## Pricing
-
-For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
-
-## Availability
-
-Virtual Network NAT and the NAT gateway resource are available in all regions of all Azure clouds [regions](https://azure.microsoft.com/global-infrastructure/regions/).
-
-## Suggestions
-
-We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 ## Limitations
 
-* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as basic load balancer, and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-* IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
+* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as Basic Load Balancer or Basic Public IP aren't compatible with NAT.  Basic resources must be placed on a subnet associated to a NAT Gateway.
+* NAT cannot be associated to an IPv6 sPublic IP address or IPv6 Public IP Prefix t. However, it can be associated to a dual stack subnet.
 * NAT can't span multiple virtual networks.
 * NAT cannot be deployed in a [Gateway Subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 
@@ -122,4 +99,4 @@ We want to know how we can improve the service. Propose and vote on what we shou
 
 * Learn [how to get better outbound connectivity using an Azure NAT Gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
-* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
+* Learn more about [NAT gateway metrics](./nat-metrics.md).
