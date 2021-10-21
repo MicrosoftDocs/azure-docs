@@ -94,7 +94,7 @@ display(analyzeLayout
 Detects and extracts data from receipts using optical character recognition (OCR) and our receipt model, enabling you to easily extract structured data from receipts such as merchant name, merchant phone number, transaction date, transaction total, and more.
 
 ### Example input
-![example_input_for_receipts](./media/tutorial-form-recognizer/receipt1.png)
+![Photograph of an example receipt.](./media/tutorial-form-recognizer/receipt1.png)
 
 ```python
 imageDf2 = spark.createDataFrame([
