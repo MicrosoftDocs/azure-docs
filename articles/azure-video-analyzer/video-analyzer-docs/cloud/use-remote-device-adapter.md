@@ -92,7 +92,7 @@ If successful, you will receive a response with a status code 201.
 
 ## Create pipeline topology in the Video Analyzer service
 
-When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology. See an example of such a [pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cloud-record-camera-behind-firewall)<!-- TODO: make sure link is correct -->.  
+When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology. See an example of such a [pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cloud-record-camera-behind-firewall).  
 
 [This quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) outlines the steps for creating a pipeline topology and live pipeline in Azure portal. Use the sample topology `Live capture, record, and stream from RTSP camera behind firewall`.
 
