@@ -3,6 +3,12 @@ external help file: SAPDeploymentUtilities-help.xml
 Module Name: SAPDeploymentUtilities
 online version: https://github.com/Azure/sap-hana
 schema: 2.0.0
+author: kimforss
+ms.author: kimforss
+ms.reviewer: kimforss
+ms.date: 10/21/2021
+ms.topic: Reference
+ms.service: virtual-machines-sap
 ---
 
 # New-SAPDeployer
@@ -46,7 +52,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-{{ Fill Silent Description }}
+Deploy without prompting
 
 ```yaml
 Type: SwitchParameter
