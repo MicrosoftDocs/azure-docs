@@ -45,7 +45,6 @@ LOCATION="eastus2"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
-STORAGE_ACCOUNT_QUEUE="myqueue"
 ```
 
 Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step. 
@@ -137,7 +136,7 @@ QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE
 ### Create Queue
 ```azurecli
 az storage queue create \
-  --name $STORAGE_ACCOUNT_QUEUE \
+  --name "myqueue" \
   --account-name $STORAGE_ACCOUNT \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
@@ -147,7 +146,7 @@ az storage queue create \
 ```azurecli
 az storage message put \
   --content "Hello Queue Reader App" \
-  --queue-name $STORAGE_ACCOUNT_QUEUE \
+  --queue-name "myqueue" \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
 
@@ -181,7 +180,7 @@ az containerapp create \
   --scale-rules "./myscalerules.yaml" \
   --secrets "queueconnection=$QUEUE_CONNECTION_STRING" \
   --image "vturecek/dotnet-queuereader:v1" \
-  --environment-variables "QueueName=$STORAGE_ACCOUNT_QUEUE,QueueConnectionString=secretref:queueconnection"
+  --environment-variables "QueueName=myqueue,QueueConnectionString=secretref:queueconnection"
 ```
 
 This command deploys the demo background application from the public container image called vturecek/dotnet-queuereader:v1 setting secrets and environments variables used by the application.
