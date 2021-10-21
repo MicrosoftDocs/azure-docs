@@ -141,7 +141,7 @@ The following is an example ARM template used to deploy a container app.
                             ],
                             "resources": {
                                 "cpu": 1,
-                                "memory": "500Mb"
+                                "memory": "1Gi"
                             }
                         }
                     ],
