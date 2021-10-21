@@ -84,6 +84,8 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.yml
+        - name: Custom partitioning
+          href: custom-partitioning-analytical-store.md
     - name: Backup and restore
       items:
         - name: Backup and restore introduction
