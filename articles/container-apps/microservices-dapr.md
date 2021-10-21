@@ -159,7 +159,7 @@ Save the following file as *serviceapp.json*:
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "North Central US (Stage)",
+            "defaultValue": "eastus",
             "type": "String"
         },
         "environment_name": {
@@ -252,7 +252,7 @@ Save the following file as *clientapp.json*:
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "North Central US (Stage)",
+            "defaultValue": "eastus",
             "type": "String"
         },
         "environment_name": {
