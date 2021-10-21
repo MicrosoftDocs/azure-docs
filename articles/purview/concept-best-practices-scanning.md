@@ -11,7 +11,7 @@ ms.date: 10/08/2021
 
 # Azure Purview scanning best practices
 
-Azure Purview supports automated scanning of on-prem, multi-cloud and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, as well as sensitivity labels if your Purview account is connected to a Microsoft 365 Security and Compliance Center(SCC). 
+Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security and Compliance Center(SCC). 
 
 ## Intended audience
 
@@ -20,7 +20,7 @@ Azure Purview supports automated scanning of on-prem, multi-cloud and SaaS data 
 - Data Source Administrator
 - Data Management and Governance Teams
 
-## Why do you need to to understand the best practices for registering and scanning data sources in Azure Purview?
+## Why do you need to understand the best practices for registering and scanning data sources in Azure Purview?
 
 The best practices enable you to optimize cost, build operational excellence, improve security compliance and performance efficiency.
 The design considerations and recommendations have been organized based on the key steps involved in the scanning process.
@@ -29,13 +29,13 @@ The design considerations and recommendations have been organized based on the k
 
 ### Design considerations
 
-- The hierarchy aligning with the organization’s strategy (geographical, business function, source of data, etc.,) defining the data sources to be registered and scanned needs to be created using Collections.
+- The hierarchy aligning with the organization’s strategy (geographical, business function, source of data, etc.) defining the data sources to be registered and scanned needs to be created using Collections.
 
 - By design, you cannot register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source.
 
 ### Design recommendations
 
-- If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection and create corresponding scans under each sub-collection, so relevant assets appear under each child collection. Sources without parents are grouped in a dotted box in the map view with no arrows linking them to parents.
+- If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection and create corresponding scans under each subcollection, so relevant assets appear under each child collection. Sources without parents are grouped in a dotted box in the map view with no arrows linking them to parents.
 
   :::image type="content" source="media/concept-best-practices/scanning-parent-child.png" alt-text="Screenshot that shows Azure Purview with data source registered at parent collection":::
 
@@ -52,7 +52,7 @@ For more details on defining a hierarchy for registering data sources, refer to 
 
 ### Design considerations
 
-- Once the data source is registered, you need to setup a scan to manage automated and secure metadata scanning and curation
+- Once the data source is registered, you need to set up a scan to manage automated and secure metadata scanning and curation
 - Scan set up includes configuring the name of the scan, scope of scan, integration runtime, scan trigger frequency, scan rule set, and resource set uniquely for each data source per scan frequency.
 - Before creating any credentials, consider your data source types and networking requirements to decide which authentication method and integration runtime is needed for your scenario.
 
@@ -65,11 +65,11 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
     - Use dictionary method if the list of values in data element is expected to conform to a given set of data.
     - For details, refer to the tutorial on how to [create a custom classification and classification rule](./create-a-custom-classification-and-classification-rule.md)
 
-2. The classification process could lead to longer scan duration resulting in additional cost. Hence it is recommended to only select those classification rules that are relevant for the data source you are scanning.
+2. The classification process could lead to longer scan duration resulting in extra cost. Hence it is recommended to only select those classification rules that are relevant for the data source you are scanning.
     - Create scan rule sets by source and select the relevant classification rules including system and custom classification rules configured
     - While setting up a scan rule set, ensure the below:
         - Verify if the system default scan rule set suffices for the data source being scanned, else define your custom scan rule set
-        - Custom scan rule set can include both system default as well as custom, hence uncheck those not relevant for the data assets being scanned
+        - Custom scan rule set can include both system default and custom, hence uncheck those not relevant for the data assets being scanned
         - Always verify the system default rules for classification against your specific industry, business, and / or regional requirement
         - Where necessary, create a custom rule set to exclude unwanted classification labels. For example, the system rule set contains generic government code patterns for the globe, not just the US; so, your data may match the pattern of some other type as well such as “Belgium Driver’s License Number”
         - Limit custom classification rules to most important and relevant labels, to avoid clutter(too many labels tagged to the asset)
@@ -79,24 +79,24 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
         - When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets forms a resource set. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog
         Refer to [How to create resource set pattern rules](./how-to-resource-set-pattern-rules.md) for more details. 
         > [!NOTE]
-        > This feature has cost considerations, please refer to the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/) for details
+        > This feature has cost considerations, refer to the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/) for details
 
 3. Set up a scan for the registered data source(s)
-    - **Scan name**: By default, Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice use a meaningful naming convention.  An instance could be naming the scan as **<ENV><SRC>-<Periodicity>-<Time>**, for example DEVODS-Daily-0200 which would represent a daily scan at 0200 hrs.
+    - **Scan name**: By default, Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice, use a meaningful naming convention.  An instance could be naming the scan as **<ENV><SRC>-<Periodicity>-<Time>**, for example DEVODS-Daily-0200, which would represent a daily scan at 0200 hrs.
     
     - **Authentication**
-        - Azure Purview offers various authentication method for scanning the data sources, depending on the type of sources (Azure cloud or on-prem or third-party sources). It is recommended to follow the least privilege principle for authentication method following below order of preference:
-            - Purview MSI - Managed Identity (e.g., for Azure Data Lake Gen2 sources)
+        - Azure Purview offers various authentication methods for scanning the data sources, depending on the type of sources (Azure cloud or on-prem or third-party sources). It is recommended to follow the least privilege principle for authentication method following below order of preference:
+            - Purview MSI - Managed Identity (for example, for Azure Data Lake Gen2 sources)
             - User-assigned Managed Identity
             - Service Principal
-            - SQL Authentication (e.g., for on-prem or Azure SQL sources)
-            - Account key or Basic Authentication (e.g., for SAP S/4HANA sources)
+            - SQL Authentication (for example, for on-prem or Azure SQL sources)
+            - Account key or Basic Authentication (for example, for SAP S/4HANA sources)
     > [!Note]
     > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
 
     - **Integration runtime**
         - Use Azure Auto Resolve Integration runtime, where feasible.
-        - If public endpoint is restricted for the data sources being scanned, you need to setup a Self-hosted integration runtime (SHIR) and create a credential. SHIR is a tool that is used to allow the customer to run the scan on their computer. It replaces the azure compute where the scan normally runs with the customer machine.
+        - If public endpoint is restricted for the data sources being scanned, you need to set up a Self-hosted integration runtime (SHIR) and create a credential. SHIR is a tool that is used to allow the customer to run the scan on their computer. It replaces the azure compute where the scan normally runs with the customer machine.
         - When you use a private endpoint for ingestion, you must use a Self-Hosted Integration Runtime for scanning the data sources
         - Ensure that [latest version](https://www.microsoft.com/en-us/download/details.aspx?id=39717) of SHIR is installed.
         - If SHIR is deleted, any ongoing scans relying on it will fail.
@@ -104,26 +104,26 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
         - In Azure Purview there is no concept of SHIR HA or Shared SHIR.
         -->
         - While using SHIR, ensure that the memory is sufficient for the data source being scanned. For example, when using SHIR for scanning SAP source, if you observe "out of memory error":
-            - Ensure the SHIR machine has enough memory (it is recommended to have 128GB)
-            - In the scan setting, set the maximum memory Available as some appropriate value (e.g., 100)
-            - For details, please refer to the 5.f in [this](./register-scan-sapecc-source.md#creating-and-running-a-scan) document
+            - Ensure the SHIR machine has enough memory (it is recommended to have 128 GB)
+            - In the scan setting, set the maximum memory Available as some appropriate value (for example, 100)
+            - For details, refer to the 5.f in [this](./register-scan-sapecc-source.md#creating-and-running-a-scan) document
 
     - **Scope scan**
-        - While setting up the scope for the scan, select only the assets which are relevant at granular level or parent level. This will ensure that the scan cost is optimal and performance is efficient. All future assets under a certain parent will be automatically selected if the parent is fully or partially checked. For example:
-            - For Azure SQL Database or ADLS Gen2, you can scope your scan to specific parts of the data source such as folders, sub-folders, collections or schemas by checking the appropriate items in the list.
+        - While setting up the scope for the scan, select only the assets, which are relevant at granular level or parent level. This will ensure that the scan cost is optimal and performance is efficient. All future assets under a certain parent will be automatically selected if the parent is fully or partially checked. For example:
+            - For Azure SQL Database or ADLS Gen2, you can scope your scan to specific parts of the data source such as folders, subfolders, collections, or schemas by checking the appropriate items in the list.
             - For Oracle, Hive Metastore Database and Teradata sources, specific list of schemas to be exported can be specified through semi-colon separated values or through schema name patterns using SQL LIKE expressions.
             - For Google Big query, specific list of datasets to be exported can be specified through semi-colon separated values.
             - When creating a scan for an entire AWS account, you can select specific buckets to scan. When creating a scan for a specific AWS S3 bucket, you can select specific folders to scan.
-            - For Erwin, you may scope your scan by providing a semi colon separated list of Erwin model locator strings.
+            - For Erwin, you may scope your scan by providing a semicolon separated list of Erwin model locator strings.
             - For Cassandra, specific list of keyspaces to be exported can be specified through semi-colon separated values or through keyspaces name patterns using SQL LIKE expressions.
-            - For Looker, you may scope your scan by providing a semi colon separated list of Looker projects.
+            - For Looker, you may scope your scan by providing a semicolon separated list of Looker projects.
             - For Power BI tenant, you may only specify whether to include or exclude personal workspace.
-            - In general, it is recommended to use 'ignore patterns' (where supported) based on wild card (e.g. for data lakes), to exclude temp, config files, RDMS system tables or backup / STG tables
-            - When scanning documents / unstructured data, avoid scanning huge number of such documents as the scan processes the first 20MB of such documents and may result in longer scan duration.
+            - In general, it is recommended to use 'ignore patterns' (where supported) based on wild card (for example, for data lakes), to exclude temp, config files, RDMS system tables or backup / STG tables
+            - When scanning documents / unstructured data, avoid scanning huge number of such documents as the scan processes the first 20 MB of such documents and may result in longer scan duration.
 
     - **Scan rule set**
         - While setting up scan rule set, ensure to configure relevant system / custom scan rule set created earlier
-        - There is an option to create custom filetypes and you can fill  the details accordingly. Currently Azure Purview supports only 1 character in Custom Delimiter. If you use custom delimiters such as ~ in your actual data, you need to create a new scan rule set
+        - There is an option to create custom filetypes and you can fill  the details accordingly. Currently Azure Purview supports only one character in Custom Delimiter. If you use custom delimiters such as ~ in your actual data, you need to create a new scan rule set
 
     - **Scan type and schedule**
         - The scan process can be configured to run full or incremental scans.
@@ -135,7 +135,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - If the classification / sensitivity labels are expected to be up to date on a weekly basis (may be due to regulatory reasons), then scan frequency should be weekly.
             For example, if partitions files are being added every week in a source data lake, then you may rather schedule monthly scans instead of weekly scans as there is no change in metadata (assuming there are no new classification scenarios)
             - When scheduling a scan that is to be run on the same day it is created, the start time must be before the scan time by at least one minute.
-            - The maximum duration that the scan may run is 7 days (possibly due to memory issues), this excludes the ingestion process. If progress has not been updated after 7 days, the scan will be marked as failed. The ingestion (into catalog) process currently does not have any such limitation.
+            - The maximum duration that the scan may run is seven days (possibly due to memory issues), this excludes the ingestion process. If progress has not been updated after seven days, the scan will be marked as failed. The ingestion (into catalog) process currently does not have any such limitation.
 
     - **Canceling scans**
         - Currently, scans can only be cancelled or paused if the status of the scan has transitioned into "In Progress" state from "Queued" after you trigger the scan.
@@ -147,7 +147,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
 
     - **Delete and update scenarios**
         - If a field / column, table, or a file is removed from the source system after the scan ran, it will only be reflected (removed) in Purview after the next scheduled full / incremental scan.
-        - An asset can be deleted from Azure Purview catalog using the **delete** icon under the name of the asset (this will not remove the object in the source). However, if you run full scan on the same source, it would get re-ingested in the catalog. If you have scheduled a weekly / monthly scan instead (incremental) the deleted asset will not be picked unless the object is modified at source (e.g. a column is added / removed from the table).
+        - An asset can be deleted from Azure Purview catalog using the **delete** icon under the name of the asset (this will not remove the object in the source). However, if you run full scan on the same source, it would get reingested in the catalog. If you have scheduled a weekly / monthly scan instead (incremental) the deleted asset will not be picked unless the object is modified at source (for example, a column is added / removed from the table).
         - If you make an asset level update such as adding a description, asset level classification, glossary term, or a contact to an asset, then subsequent scans will update the asset schema (new columns and classifications detected by the scanner in subsequent scan runs).
         - If you make a column level update, such as adding a description, column level classification, glossary term, or updating the data type or column name, then subsequent scans will not update the asset schema (new columns and classifications will not be detected by the scanner in subsequent scan runs).
 
