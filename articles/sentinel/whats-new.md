@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/21/2021
 ---
 
 # What's new in Azure Sentinel
@@ -162,13 +162,16 @@ Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-sca
 Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits, and libraries such as TensorFlow, as well as their own custom models, into security workflows.
 
 The new Azure Synapse integration provides extra analytic horsepower, which:
-- Leverages big-data processing
 
-- Operationalizes machine learning modules, using Azure Sentinel data with cost-effective Data Lake access
+- Leverages security big data analytics, using cost-optimized, a fully-managed Synapse Apache Spark compute pool
 
-- Runs cloud-scale, distributed processing for security analytic workloads, with extract, transform, load (ETL) pipeline capabilities combined with fully managed Apache Spark compute pools
+- Enables cost-effective Data Lake access to build analytics on historical data
 
-To support this integration solution, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunting on that data at scale.
+- Provides flexibility to integrate data sources into security operation workflows from multiple sources and formats
+
+- Leverages PySpark, a Python-based API for utilizing the Spark framework in combination with Python. This advantage is helpful when you'are already familiar with Python.
+
+To support this integration, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
 
 For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 
