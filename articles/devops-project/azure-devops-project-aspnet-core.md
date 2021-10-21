@@ -12,7 +12,7 @@ ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 02/23/2021
 ms.author: mlearned
 ms.custom: "devx-track-csharp, mvc"
 ---
@@ -38,7 +38,9 @@ DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Az
 1. Select the **.NET** sample application. The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
 
    ![.NET framework](_img/azure-devops-project-aspnet-core/select-dotnet.png)
-
+   
+   > [!NOTE]
+   > The default option for setting up DevOps starter is with **GitHub**, but this setting can be changed from the wizard.
 2. This sample is an ASP.NET Core MVC application. Select the **.NET Core** application framework, then select **Next**.    
     
 3. Select **Windows Web App** as a deployment target, then select **Next**. Optionally, you can choose other Azure services for your deployment. The application framework, which you chose previously, dictates the type of Azure service deployment target's available here.
@@ -61,9 +63,9 @@ DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Az
 
 DevOps Starter created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
-1. On the left of the DevOps Starter dashboard, select the link for your **master** branch. This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Starter dashboard, select the link for your **main** branch. This link opens a view to the newly created Git repository.
 
-2. In the next few steps, you can use the web browser to make and commit code changes directly to the **master** branch. You can also clone your Git repository in your favorite IDE by selecting **Clone** from the top right of the repository page. 
+2. In the next few steps, you can use the web browser to make and commit code changes directly to the **main** branch. You can also clone your Git repository in your favorite IDE by selecting **Clone** from the top right of the repository page. 
 
 3. On the left, navigate the application file structure to **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
@@ -128,7 +130,7 @@ You can delete Azure App Service and other related resources that you created wh
 To learn more about modifying the build and release pipelines to meet the needs of your team, see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](/azure/devops/pipelines/release/define-multistage-release-process)
 
 ## Videos
 

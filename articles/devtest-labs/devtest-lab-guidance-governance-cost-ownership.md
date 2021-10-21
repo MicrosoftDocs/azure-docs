@@ -1,7 +1,7 @@
 ---
-title: Manage cost and ownership in Azure DevTest Labs
+title: Manage cost and ownership
 description: This article provides information that helps you optimize for cost and align ownership across your environment.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---
@@ -29,9 +29,9 @@ Only active Visual Studio subscribers (standard subscriptions, annual cloud subs
 
 If you decide to use the DevTest offer, note that this benefit is exclusively for development and testing your applications. Usage within the subscription does not carry a financially-backed SLA, except for the use of Azure DevOps and HockeyApp.
 
-## Define a role-based access across your organization
+## Define role-based access across your organization
 ### Question
-How do I define role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work? 
+How do I define Azure role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work? 
 
 ### Answer
 There is a broad pattern, however the detail depends on your organization.

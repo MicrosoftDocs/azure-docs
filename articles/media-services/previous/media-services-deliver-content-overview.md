@@ -2,14 +2,14 @@
 title: Delivering content to customers
 description: This topic gives an overview of what is involved in delivering your content with Azure Media Services.
 services: media-services
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # Deliver content to customers
@@ -64,7 +64,7 @@ Locators have expiration dates. The Azure portal sets an expiration date 100 yea
 > 
 > 
 
-To update an expiration date on a locator, use [REST](/rest/api/media/operations/locator#update_a_locator) or [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use [REST](/rest/api/media/operations/locator#update_a_locator) or [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
 Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](/previous-versions/azure/dn282272(v=azure.100)).
 

@@ -1,15 +1,18 @@
 - name: Azure Active Directory for developers
   href: index.yml
 - name: Overview
-  href: v1-overview.md
-- name: Samples
-  href: sample-v1-code.md
-- name: Concepts
+  expanded: true
   items:
+  - name: Overview
+    href: v1-overview.md
   - name: Evolution of Microsoft identity platform
     href: about-microsoft-identity-platform.md
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
+- name: Samples
+  href: sample-v1-code.md
+- name: Concepts
+  items:
   - name: Application types
     items:
     - name: Types of applications
@@ -94,8 +97,6 @@
         href: howto-v1-enable-sso-android.md
       - name: Enable SSO on iOS
         href: howto-v1-enable-sso-ios.md
-      - name: Debug SAML-based SSO
-        href: howto-v1-debug-saml-sso-issues.md
     - name: Configure claims
       items:
       - name: Configure role claims
@@ -146,8 +147,6 @@
     items:
     - name: Publish to App Source
       href: howto-get-appsource-certified.md
-    - name: Publish to Azure AD App Gallery
-      href: howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
       href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
   - name: Azure Access Control Service

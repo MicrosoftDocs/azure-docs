@@ -2,11 +2,11 @@
 title: Python - Service-to-service authentication - Data Lake Storage Gen1
 description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using Python
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: has-adal-ref, devx-track-python
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using Python
@@ -35,7 +35,7 @@ To work with Data Lake Storage Gen1 using Python, you need to install three modu
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
 * The `azure-mgmt-datalake-store` module, which includes the Data Lake Storage Gen1 account management operations. For more information on this module, see [Azure Data Lake Storage Gen1 Management module reference](/python/api/azure-mgmt-datalake-store/).
-* The `azure-datalake-store` module, which includes the Data Lake Storage Gen1 filesystem operations. For more information on this module, see [azure-datalake-store Filesystem module reference](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
+* The `azure-datalake-store` module, which includes the Data Lake Storage Gen1 filesystem operations. For more information on this module, see [azure-datalake-store Filesystem module reference](/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Use the following commands to install the modules.
 

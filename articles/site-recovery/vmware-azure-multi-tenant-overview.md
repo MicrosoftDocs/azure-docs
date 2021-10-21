@@ -121,7 +121,7 @@ To restrict disaster recovery operations up until failover only (that is, withou
 
 As shown in the following diagram, the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![Diagram that shows the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Dedicated hosting scenario with multiple vCenters**
 
 ## Managed service solution

@@ -1,7 +1,7 @@
 ---
-title: Integrate environments into Azure Pipelines in Azure DevTest Labs
+title: Integrate environments into Azure Pipelines
 description: Learn how to integrate Azure DevTest Labs environments into your Azure DevOps continuous integration (CI) and continuous delivery (CD) pipelines. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -21,8 +21,8 @@ This section describes how to create and configure a lab where the Azure environ
 
 1. [Create a lab](devtest-lab-create-lab.md) if you don't already have one. 
 2. Configure the lab and create an environment template by following instructions from this article: [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md).
-3. For this example, use an existing Azure Quickstart Template [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
-4. Copy the **201-web-app-redis-cache-sql-database** folder into the **ArmTemplate** folder in the repository configured in the step 2.
+3. For this example, use an existing Azure Quickstart Template [https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database](https://azure.microsoft.com/resources/templates/web-app-redis-cache-sql-database).
+4. Copy the **web-app-redis-cache-sql-database** folder into the **ArmTemplate** folder in the repository configured in the step 2.
 
 ## Create a release definition
 To create the release definition, do the following:
@@ -67,4 +67,3 @@ See the following articles:
 - [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 - Quickstart Resource Manager templates for DevTest Labs automation from the [DevTest Labs GitHub repository](https://github.com/Azure/azure-quickstart-templates).
 - [VSTS Troubleshooting page](/azure/devops/pipelines/troubleshooting)
-

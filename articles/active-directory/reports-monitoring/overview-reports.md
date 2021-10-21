@@ -15,9 +15,9 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk  
+ms.reviewer: sarbar  
 
 # Customer intent: As an Azure AD administrator, I want to understand what Azure AD reports are available and how I can use them to gain insights into my environment. 
 ms.collection: M365-identity-device-management
@@ -67,6 +67,12 @@ Activity reports help you understand the behavior of users in your organization.
 - **Sign-ins** -  With the [sign-ins activity report](concept-sign-ins.md), you can determine, who has performed the tasks reported by the audit logs report.
 
 
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
+
+
 ### Audit logs report 
 
 The [audit logs report](concept-audit-logs.md) provides you with records of system activities for compliance. This data enables you to address common scenarios such as:
@@ -80,7 +86,7 @@ The [audit logs report](concept-audit-logs.md) provides you with records of syst
 
 #### What Azure AD license do you need to access the audit logs report?  
 
-The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. A deatiled feature comparison as per [different types of licenses](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) can be seen on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/). For more details, see [Azure Active Directory features and capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
+The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. A deatiled feature comparison as per [different types of licenses](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) can be seen on the [Azure Active Directory pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). For more details, see [Azure Active Directory features and capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### Sign-ins report
 

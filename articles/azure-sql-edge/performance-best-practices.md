@@ -22,13 +22,13 @@ Azure SQL Edge by default creates only one tempdb data file as part of the conta
 
 ### Use Clustered columnstore indexes where possible
 
-IoT and Edge devices tend to generate high volume of data that is typically aggregated over some time window for analysis. Individual data rows are rarely used for any analysis. Columnstore indexes are ideal for storing and querying such large datasets. This index uses column-based data storage and query processing to achieve gains up to 10 times the query performance over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size. For more information, see [Columnstore Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)
+IoT and Edge devices tend to generate high volume of data that is typically aggregated over some time window for analysis. Individual data rows are rarely used for any analysis. Columnstore indexes are ideal for storing and querying such large datasets. This index uses column-based data storage and query processing to achieve gains up to 10 times the query performance over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size. For more information, see [Columnstore Indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
 Additionally, other Azure SQL Edge features like data streaming and Data retention benefit from the columnstore optimizations around data insertion and data removal. 
 
 ### Simple recovery model
 
-Since storage can be constrained on edge devices, all user databases in Azure SQL Edge use the Simple Recovery model by default. Simple recovery model automatically reclaims log space to keep space requirements small, essentially eliminating the need to manage the transaction log space. On edge devices with limited storage available, this can be helpful. For more information on the simple recovery model and other recovery models available, see [Recovery Models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)
+Since storage can be constrained on edge devices, all user databases in Azure SQL Edge use the Simple Recovery model by default. Simple recovery model automatically reclaims log space to keep space requirements small, essentially eliminating the need to manage the transaction log space. On edge devices with limited storage available, this can be helpful. For more information on the simple recovery model and other recovery models available, see [Recovery Models](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 Operations like Log Shipping and Point-In-time-restores, that require transaction log backups are not supported by the simple recovery model.  
 
@@ -50,16 +50,9 @@ Transactions in Azure SQL Edge can be either fully durable, the SQL Server defau
 
 Fully durable transaction commits are synchronous and report a commit as successful and return control to the client only after the log records for the transaction are written to disk. Delayed durable transaction commits are asynchronous and report a commit as successful before the log records for the transaction are written to disk. Writing the transaction log entries to disk is required for a transaction to be durable. Delayed durable transactions become durable when the transaction log entries are flushed to disk. 
 
-In deployments where **some data loss** can be tolerated or on edge devices with slow storage, delayed durability can be used to optimize data ingestion and data retention-based cleanup. For more information, see [Control Transaction Durability](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability).
+In deployments where **some data loss** can be tolerated or on edge devices with slow storage, delayed durability can be used to optimize data ingestion and data retention-based cleanup. For more information, see [Control Transaction Durability](/sql/relational-databases/logs/control-transaction-durability).
 
 
 ### Linux OS configurations 
 
-Consider using the following [Linux Operating System configuration](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) settings to experience the best performance for a SQL Installation.
-
-
-
-
-
-
-
+Consider using the following [Linux Operating System configuration](/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) settings to experience the best performance for a SQL Installation.

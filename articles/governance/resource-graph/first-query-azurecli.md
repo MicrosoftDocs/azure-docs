@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Your first Azure CLI query"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
-ms.date: 08/10/2020
-ms.topic: quickstart 
+ms.date: 08/17/2021
+ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
 # Quickstart: Run your first Resource Graph query using Azure CLI
@@ -27,7 +27,7 @@ before you begin.
 To enable Azure CLI to query Azure Resource Graph, the extension must be added. This extension
 works wherever Azure CLI can be used, including [bash on Windows 10](/windows/wsl/install-win10),
 [Cloud Shell](https://shell.azure.com) (both standalone and inside the portal), the [Azure CLI
-Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
+Docker image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed,
    follow [these instructions](/cli/azure/install-azure-cli-windows).
@@ -52,8 +52,10 @@ Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally install
 ## Run your first Resource Graph query
 
 With the Azure CLI extension added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query will return the first five Azure resources with the **Name** and
-**Resource Type** of each resource.
+tenant-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource. To query by
+[management group](../management-groups/overview.md) or subscription, use the `--managementgroups`
+or `--subscriptions` arguments.
 
 1. Run your first Azure Resource Graph query using the `graph` extension and `query` command:
 

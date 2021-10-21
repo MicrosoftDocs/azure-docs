@@ -17,10 +17,10 @@ This tutorial is part four and the final part of a series. You learn how to moni
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Turn on logging and metrics
-> * Enable alerts for authorization errors
-> * Run test traffic with incorrect SAS tokens
-> * Download and analyze logs
+> - Turn on logging and metrics
+> - Enable alerts for authorization errors
+> - Run test traffic with incorrect SAS tokens
+> - Download and analyze logs
 
 [Azure storage analytics](../common/storage-analytics.md) provides logging and metric data for a storage account. This data provides insights into the health of your storage account. To collect data from Azure storage analytics, you can configure logging, metrics and alerts. This process involves turning on logging, configuring metrics, and enabling alerts.
 
@@ -38,7 +38,7 @@ Under **Diagnostics settings (classic)** set **Status** to **On**. Ensure all of
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Screenshot that highlights the section that contains the configuration settings for turning on logging and metrics.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## Enable alerts
 
@@ -78,11 +78,11 @@ The following image is an example alert that is based off the simulated failure 
 
 Storage logs store data in a set of blobs in a blob container named **$logs** in your storage account. This container does not show up if you list all the blob containers in your account but you can see its contents if you access it directly.
 
-In this scenario, you use [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) to interact with your Azure storage account.
+In this scenario, you use [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) to interact with your Azure storage account.
 
 ### Download Microsoft Message Analyzer
 
-Download [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
+Download [Microsoft Message Analyzer](/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
 
 Launch the application and choose **File** > **Open** > **From Other File Sources**.
 
@@ -92,7 +92,7 @@ In the **File Selector** dialog, select **+ Add Azure Connection**. Enter in you
 
 Once you are connected, expand the containers in the storage tree view to view the log blobs. Select the latest log and click **OK**.
 
-![Microsoft Message Analyzer - Add Azure Storage Connection Dialog](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Screenshot that shows the Microsoft Message Analyzer and highlights the selected log file.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 On the **New Session** dialog, click **Start** to view your log.
 
@@ -107,10 +107,10 @@ Once the log opens, you can view the storage events. As you can see from the fol
 In part four and the final part of the series, you learned how to monitor and troubleshoot your storage account, such as how to:
 
 > [!div class="checklist"]
-> * Turn on logging and metrics
-> * Enable alerts for authorization errors
-> * Run test traffic with incorrect SAS tokens
-> * Download and analyze logs
+> - Turn on logging and metrics
+> - Enable alerts for authorization errors
+> - Run test traffic with incorrect SAS tokens
+> - Download and analyze logs
 
 Follow this link to see pre-built storage samples.
 

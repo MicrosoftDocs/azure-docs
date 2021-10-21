@@ -1,9 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: AVS
-    tocHref: /azure/
-    topicHref: /azure/azure-vmware/index
-
-

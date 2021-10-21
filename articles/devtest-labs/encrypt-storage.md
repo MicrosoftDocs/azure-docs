@@ -1,5 +1,5 @@
 ---
-title: Encrypt an Azure storage account used by a lab in Azure DevTest Labs
+title: Encrypt an Azure storage account used by a lab
 description: Learn how to configure encryption of an Azure storage used by a lab in Azure DevTest Labs 
 ms.topic: how-to
 ms.date: 07/29/2020
@@ -31,13 +31,13 @@ Every lab created in Azure DevTest Labs is created with an associated Azure stor
 ## Encrypt the lab storage account
 Azure Storage automatically encrypts your data when it's persisted to the cloud. Azure Storage encryption protects your data and helps you to meet your organizational security and compliance commitments. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
-Data in the lab storage account is encrypted with a **Microsoft-managed key**. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys for the lab’s storage account, you can specify a **customer-managed key** with Azure Key Vault to use for encrypting/decrypting data in Blob storage and in Azure Files. For more information about customer-managed keys, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../storage/common/encryption-customer-managed-keys.md).
+Data in the lab storage account is encrypted with a **Microsoft-managed key**. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys for the lab’s storage account, you can specify a **customer-managed key** with Azure Key Vault to use for encrypting/decrypting data in Blob storage and in Azure Files. For more information about customer-managed keys, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../storage/common/customer-managed-keys-overview.md).
 
 To learn how to configure customer-managed keys for Azure Storage encryption, see the following articles: 
 
-- [Azure portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Azure CLI](../storage/common/storage-encryption-keys-cli.md)
+- [Azure portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure CLI](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 
 ## Manage the Azure Blob storage life cycle
@@ -60,7 +60,7 @@ These documents are used to support the option to both create formulas from exis
 - Creating a VM from a formula.
 
 ### Artifact results
-As artifacts are applied, the size of the respective artifact results can increase over time depending on the number and type of artifacts being run on lab VMs. So, as a lab owner, you may want to control the lifecycle of such documents. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md).
+As artifacts are applied, the size of the respective artifact results can increase over time depending on the number and type of artifacts being run on lab VMs. So, as a lab owner, you may want to control the lifecycle of such documents. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/lifecycle-management-overview.md).
 
 > [!IMPORTANT]
 > We recommend that you do this step to reduce expenses associated with the Azure Storage account. 
@@ -96,8 +96,6 @@ For example, the following rule is used to set a 90-day expiration rule specific
 ## Next steps
 To learn how to configure customer-managed keys for Azure Storage encryption, see the following articles: 
 
-- [Azure portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Azure CLI](../storage/common/storage-encryption-keys-cli.md)
-
-
+- [Azure portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure CLI](../storage/common/customer-managed-keys-configure-key-vault.md)

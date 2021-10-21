@@ -3,7 +3,7 @@ title: Troubleshoot Azure Red Hat OpenShift
 description: Troubleshoot and resolve common issues with Azure Red Hat OpenShift
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: troubleshooting
 ms.date: 05/08/2019
 ---
@@ -31,4 +31,4 @@ If creating a cluster results in an error that `No registered resource provider 
 
 - Try the [Red Hat OpenShift Help Center](https://help.openshift.com/) for more on OpenShift troubleshooting.
 
-- Find answers to [frequently asked questions about Azure Red Hat OpenShift](openshift-faq.md).
+- Find answers to [frequently asked questions about Azure Red Hat OpenShift](openshift-faq.yml).

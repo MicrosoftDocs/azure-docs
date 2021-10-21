@@ -1,25 +1,25 @@
 ---
-title: Query JSON files using SQL on-demand (preview) 
-description: This section explains how to read JSON files using SQL on-demand in Azure Synapse Analytics.
+title: Query JSON files using serverless SQL pool 
+description: This section explains how to read JSON files using serverless SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
-# Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics
+# Query JSON files using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
+In this article, you'll learn how to write a query using serverless SQL pool in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
 - Standard JSON files where multiple JSON documents are stored as a JSON array.
 - Line-delimited JSON files, where JSON documents are separated with new-line character. Common extensions for these types of files are `jsonl`, `ldjson`, and `ndjson`.
 
 ## Read JSON documents
 
-The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files, then this is enough. If you have classic JSON file, you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
+The easiest way to see to the content of your JSON file is to provide the file URL to the `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files, then this is enough. If you have classic JSON file, you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
 
 | doc |
 | --- |
@@ -28,7 +28,7 @@ The easiest way to see to the content of your JSON file is to provide file URL t
 |{"date_rep":"2020-07-26","day":26,"month":7,"year":2020,"cases":4,"deaths":0,"geo_id":"AF"}|
 |{"date_rep":"2020-07-27","day":27,"month":7,"year":2020,"cases":8,"deaths":0,"geo_id":"AF"}|
 
-If the file is publicly available, or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following examples.
+If the file is publicly available, or if your Azure AD identity can access this file, you should see the content of the file using the query like the one shown in the following examples.
 
 ### Read JSON files
 
@@ -53,11 +53,11 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-This query will return each JSON document as a separate row of the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+The JSON document in the preceding sample query includes an array of objects. The query returns each object as a separate row in the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
 ### Data source usage
 
-Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
+Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in the `OPENROWSET` function:
 
 ```sql
 create external data source covid
@@ -121,12 +121,13 @@ The query examples read *json* files containing documents with following structu
 
 ### Query JSON files using JSON_VALUE
 
-The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a JSON documents:
+The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (`date_rep`, `countries_and_territories`, `cases`) from a JSON documents:
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -139,9 +140,11 @@ from openrowset(
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
 
+Once you extract JSON properties from a JSON document, you can define column aliases and optionally cast the textual value to some type.
+
 ### Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve COVID statistics reported in Serbia:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest&preserve-view=true). It will retrieve COVID statistics reported in Serbia:
 
 ```sql
 select
@@ -161,6 +164,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+The results are functionally same as the results returned using the `JSON_VALUE` function. In some cases, `OPENJSON` might have advantage over `JSON_VALUE`:
+- In the `WITH` clause you can explicitly set the column aliases and the types for every property. You don't need to put the `CAST` function in every column in `SELECT` list.
+- `OPENJSON` might be faster if you are returning a large number of properties. If you are returning just 1-2 properties, the `OPENJSON` function might be overhead.
+- You must use the `OPENJSON` function if you need to parse the array from each document, and join it with the parent row.
 
 ## Next steps
 

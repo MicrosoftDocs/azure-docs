@@ -19,8 +19,8 @@ You can configure an instance of Azure SQL Edge as the push subscriber for one-w
   
 - The instance of Azure SQL Edge must be a push subscriber for a publisher.
 - The publisher and the distributor can be either:
-   - An instance of SQL Server running on-premises, or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server instances must be using a version later than SQL Server 2016.
-   - An instance of Azure SQL Managed Instance. SQL Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - An instance of SQL Server running on-premises, or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](../azure-sql/virtual-machines/index.yml). SQL Server instances must be using a version later than SQL Server 2016.
+   - An instance of Azure SQL Managed Instance. SQL Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - The distribution database and the replication agents can't be placed on an instance of Azure SQL Edge.  
 
@@ -31,7 +31,7 @@ You can configure an instance of Azure SQL Edge as the push subscriber for one-w
 
 The following requirements and best practices are important to understand as you configure replication:
 
-- You can configure replication by using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). You can also do so by running Transact-SQL statements on the publisher, by using either SQL Server Management Studio or [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
+- You can configure replication by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). You can also do so by running Transact-SQL statements on the publisher, by using either SQL Server Management Studio or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 - To replicate to an instance of Azure SQL Edge, you must use SQL Server authentication to sign in.
 - Replicated tables must have a primary key.
 - A single publication on SQL Server can support both Azure SQL Edge and SQL Server (on-premises and SQL Server in an Azure virtual machine) subscribers.  
@@ -77,15 +77,13 @@ The following options aren't supported for Azure SQL Edge subscriptions:
 
 Create a publication and a push subscription. For more information, see:
   
-- [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Edge server name and IP as the subscriber (for example, **myEdgeinstance,1433**), and a database name on the Azure SQL Edge instance as the destination database (for example, **AdventureWorks**).  
+- [Create a publication](/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a push subscription](/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Edge server name and IP as the subscriber (for example, **myEdgeinstance,1433**), and a database name on the Azure SQL Edge instance as the destination database (for example, **AdventureWorks**).  
 
 ## Next steps  
 
-- [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoring (replication)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initialize a subscription](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [Create a publication](/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a push subscription](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Types of replication](/sql/relational-databases/replication/types-of-replication)
+- [Monitoring (replication)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initialize a subscription](/sql/relational-databases/replication/initialize-a-subscription)

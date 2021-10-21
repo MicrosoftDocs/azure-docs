@@ -1,13 +1,14 @@
 ---
 title: Install TmaxSoft OpenFrame on Azure Virtual Machines
 description: Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter:
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 
 # Install TmaxSoft OpenFrame on Azure
@@ -160,7 +161,7 @@ When giving new individuals access the VM:
 
 3.  Click **Generate**.
 
-    ![PuTTY Key Generator dialog box](media/puttygen-02.png)
+    ![Screenshot that shows the PuTTY Key Generator dialog box and highlights the Generate button.](media/puttygen-02.png)
 
 4.  After generation, save both the public key and private key. Paste the contents of the public key in the **SSH public key** section of the **Create virtual machine \> Basics** pane (shown in steps 6 and 7 in the previous section).
 
@@ -187,7 +188,7 @@ When giving new individuals access the VM:
 
 7. For **Host Name**, type your username and the public IP address you copied. For example, **username\@publicip**.
 
-    ![PuTTY Configuration dialog box](media/putty-01.png)
+    ![Screenshot that shows the PuTTY Configuration dialog box and highlights the Host Name (or IP address) field.](media/putty-01.png)
 
 8. In the **Category** box, click **Connection \> SSH \> Auth**. Provide the path to your **private key** file.
 

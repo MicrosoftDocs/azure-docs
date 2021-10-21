@@ -2,7 +2,7 @@
 title: How to run Durable Functions as WebJobs - Azure
 description: Learn how to code and configure Durable Functions to run in WebJobs by using the WebJobs SDK.
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 05/12/2021
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand how to use the WebJobs SDK to create, publish, and manage Durable Functions as part of my Web Apps in Azure App Service, not as standalone Azure Functions.
 ---
@@ -33,7 +33,7 @@ To complete the steps in this article:
 
   (You can use [Visual Studio Code](https://code.visualstudio.com/) instead, but some of the instructions are specific to Visual Studio.)
 
-* Install and run [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) version 5.2 or later. An alternative is to update the *App.config* file with an Azure Storage connection string.
+* Install and run an [Azure Storage Emulator](../../storage/common/storage-use-emulator.md). An alternative is to update the *App.config* file with a real Azure Storage connection string.
 
 ## WebJobs SDK versions
 
@@ -54,7 +54,7 @@ You need NuGet packages for the WebJobs SDK, core bindings, the logging framewor
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.7
 ```
 
 You also need logging providers. The following commands install the Azure Application Insights provider and the `ConfigurationManager`. The `ConfigurationManager` lets you get the Application Insights instrumentation key from app settings.

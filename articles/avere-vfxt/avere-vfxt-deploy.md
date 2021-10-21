@@ -59,7 +59,7 @@ Fill in the following information:
 
 * **Controller username** - Set the root username for the cluster controller VM.
 
-* **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
+* **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](../virtual-machines/linux/ssh-from-windows.md) if you need help.
 
 * **Password** or **SSH public key** - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
 
@@ -80,7 +80,7 @@ The second page of the deployment template allows you to set the cluster size, n
 
 ![Second page of the deployment template](media/avere-vfxt-deploy-2.png)
 
-* **Avere vFXT cluster node count** - Choose the number of nodes in the cluster. The minimum is three nodes and the maximum is twelve.
+* **Avere vFXT cluster node count** - Choose the number of nodes in the cluster. The minimum is three nodes and the maximum is 20.
 
 * **Cluster administration password** - Create the password for cluster administration. This password is used with the username ```admin``` to sign in to the cluster control panel, where you can monitor the cluster and configure cluster settings.
 

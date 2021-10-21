@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
+ms.date: 08/11/2021
 ---
 
 # Apply SQL Transformation
@@ -25,11 +25,26 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html) for more information.  
+> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html).
+> This module will bump data to SQLite, which is in the memory DB, hence the module execution requires much more memory and may hit an `Out of memory` error. Make sure your computer has enough RAM.
 
 ## How to configure Apply SQL Transformation  
 
 The module can take up to three datasets as inputs. When you reference the datasets connected to each input port, you must use the names `t1`, `t2`, and `t3`. The table number indicates the index of the input port.  
+
+Following is sample code to show how to join two tables. t1 and t2 are two datasets connected to the left and middle input ports of **Apply SQL Transformation**:
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 The remaining parameter is a SQL query, which uses the SQLite syntax. When typing multiple lines in the **SQL Script** text box, use a semi-colon to terminate each statement. Otherwise, line breaks are converted to spaces.  
 
@@ -42,6 +57,8 @@ This section contains implementation details, tips, and answers to frequently as
 -   An input is always required on port 1.  
   
 -   For column identifiers that contain a space or other special characters, always enclose the column identifier in square brackets or double quotation marks when referring to the column in the `SELECT` or `WHERE` clauses.  
+
+-   If you have used **Edit Metadata** to specify the column metadata (categorical or fields) before **Apply SQL Transformation**, the outputs of **Apply SQL Transformation** will not contain these attributes. You need to use **Edit Metadata** to edit the column after **Apply SQL Transformation**.
   
 ### Unsupported statements  
 

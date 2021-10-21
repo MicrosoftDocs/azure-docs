@@ -1,20 +1,22 @@
 ---
-title: Overview of Azure IoT Hub Device Provisioning Service | Microsoft Docs
+title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: wesmc7777
-ms.author: wesmc
-ms.date: 04/04/2019
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/06/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
-manager: eliotgra
+manager: lizross
 ms.custom:  [amqp, mqtt]
 ---
 
-# Provisioning devices with Azure IoT Hub Device Provisioning Service
+# What is Azure IoT Hub Device Provisioning Service?
+
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. DPS enables the provisioning of millions of devices in a secure and scalable manner.
 
 ## When to use Device Provisioning Service
+
 There are many provisioning scenarios in which DPS is an excellent choice for getting devices connected and configured to IoT Hub, such as:
 
 * Zero-touch provisioning to a single IoT solution without hardcoding IoT Hub connection information at the factory (initial setup)
@@ -24,6 +26,14 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
+
+>[!NOTE]
+>**Data residency consideration:**
+>
+>DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
+>
+>To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
+
 
 ## Behind the scenes
 All the scenarios listed in the previous section can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following section describes what goes on behind the scenes to get a device provisioned. The first step is manual, all of the following steps are automated.
@@ -74,7 +84,7 @@ DPS has many features, making it ideal for provisioning devices.
 
 * **Secure attestation** support for both X.509 and TPM-based identities.
 * **Enrollment list** containing the complete record of devices/groups of devices that may at some point register. The enrollment list contains information about the desired configuration of the device once it registers, and it can be updated at any time.
-* **Multiple allocation policies** to control how DPS assigns devices to IoT hubs in support of your scenarios: Lowest latency, evenly weighted distribution (default), and static configuration via the enrollment list. Latency is determined using the same method as [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
+* **Multiple allocation policies** to control how DPS assigns devices to IoT hubs in support of your scenarios: Lowest latency, evenly weighted distribution (default), and static configuration via the enrollment list. Latency is determined using the same method as [Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#performance).
 * **Monitoring and diagnostics logging** to make sure everything is working properly.
 * **Multi-hub support** allows DPS to assign devices to more than one IoT hub. DPS can talk to hubs across multiple Azure subscriptions.
 * **Cross-region support** allows DPS to assign devices to IoT hubs in other regions.
@@ -103,20 +113,22 @@ DPS is available in many regions. The updated list of existing and newly announc
 ## Availability
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
-## Quotas
+## Quotas and Limits
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
+
+For more details on quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
-For more details on quota limits:
-* [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Related Azure components
-DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.
-> [!div class="nextstepaction"]
-> [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
-> [Create and provision a simulated device](quick-create-simulated-device.md)
-> [Set up device for provisioning](tutorial-set-up-device.md)
+
+[Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
+
+[Create and provision a simulated device](quick-create-simulated-device-tpm.md)
+
+[Set up device for provisioning](tutorial-set-up-device.md)

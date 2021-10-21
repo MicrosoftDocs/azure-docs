@@ -1,18 +1,20 @@
 ---
 title: InfiniBand driver extension - Azure Windows VMs 
 description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Windows.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 editor: ''
-
 ms.assetid:
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
-ms.author: amverma
+ms.date: 10/14/2021
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -26,15 +28,15 @@ An extension is also available to install InfiniBand drivers for [Linux VMs](hpc
 
 ### Operating system
 
-This extension supports the following OS distros, depending on driver support for specific OS version.
+This extension supports the following OS distros, depending on driver support for specific OS version. Note the appropriate InfiniBand NIC for the H and N-series VM sizes of interest.
 
-| Distribution | Version |
+| Distribution | InfiniBand NIC drivers |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2019 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
-| Windows Server 2012 | Core |
+| Windows 10 | CX3-Pro, CX5, CX6 |
+| Windows Server 2019 | CX3-Pro, CX5, CX6 |
+| Windows Server 2016 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 | CX3-Pro, CX5, CX6 |
 
 ### Internet connectivity
 
@@ -56,7 +58,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "InfiniBandDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.5",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,7 +73,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | InfiniBandDriverWindows | string |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.5 | int |
 
 
 
@@ -98,7 +100,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "InfiniBandDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.5",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -116,7 +118,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "InfiniBandDriverWindows" `
     -ExtensionType "InfiniBandDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.5 `
     -SettingString '{ `
 	}'
 ```
@@ -129,16 +131,16 @@ az vm extension set \
   --vm-name myVM \
   --name InfiniBandDriverWindows \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 
+  --version 1.5 
 ```
 
 ### Add extension to a Virtual Machine Scale Set
 
-The following example installs the latest version 1.2 InfiniBandDriverWindows extension on all RDMA-capable VMs in an existing virtual machine scale set named *myVMSS* deployed in the resource group named *myResourceGroup*:
+The following example installs the latest version 1.5 InfiniBandDriverWindows extension on all RDMA-capable VMs in an existing virtual machine scale set named *myVMSS* deployed in the resource group named *myResourceGroup*:
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.2"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.5"
   Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
 ```

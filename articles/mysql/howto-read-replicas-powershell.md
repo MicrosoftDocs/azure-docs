@@ -1,15 +1,17 @@
 ---
 title: Manage read replicas - Azure PowerShell - Azure Database for MySQL
 description: Learn how to set up and manage read replicas in Azure Database for MySQL using PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/24/2020
+ms.date: 06/17/2020 
 ms.custom: devx-track-azurepowershell
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 In this article, you learn how to create and manage read replicas in the Azure Database for MySQL
 service using PowerShell. To learn more about read replicas, see the
@@ -40,13 +42,15 @@ If you choose to use PowerShell locally, connect to your Azure account using the
 
 > [!IMPORTANT]
 > The read replica feature is only available for Azure Database for MySQL servers in the General
-> Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing
+> Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing
 > tiers.
+>
+>If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ### Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+> If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details. 
 
 A read replica server can be created using the following command:
 
@@ -70,19 +74,19 @@ Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
   New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
-To learn more about which regions you can create a replica in, visit the
-[read replica concepts article](concepts-read-replicas.md).
+> [!NOTE]
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
-By default, read replicas are created with the same server configuration as the master unless the
+By default, read replicas are created with the same server configuration as the source unless the
 **Sku** parameter is specified.
 
 > [!NOTE]
 > It is recommended that the replica server's configuration should be kept at equal or greater
-> values than the master to ensure the replica is able to keep up with the master.
+> values than the source to ensure the replica is able to keep up with the master.
 
-### List replicas for a master server
+### List replicas for a source server
 
-To view all replicas for a given master server, run the following command:
+To view all replicas for a given source server, run the following command:
 
 ```azurepowershell-interactive
 Get-AzMySqlReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -93,7 +97,7 @@ The `Get-AzMySqlReplica` command requires the following parameters:
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  The resource group where the replica server will be created to.  |
-| ServerName | mydemoserver | The name or ID of the master server. |
+| ServerName | mydemoserver | The name or ID of the source server. |
 
 ### Delete a replica server
 
@@ -103,17 +107,27 @@ Deleting a read replica server can be done by running the `Remove-AzMySqlServer`
 Remove-AzMySqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### Delete a master server
+### Delete a source server
 
 > [!IMPORTANT]
-> Deleting a master server stops replication to all replica servers and deletes the master server
+> Deleting a source server stops replication to all replica servers and deletes the source server
 > itself. Replica servers become standalone servers that now support both read and writes.
 
-To delete a master server, you can run the `Remove-AzMySqlServer` cmdlet.
+To delete a source server, you can run the `Remove-AzMySqlServer` cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+### Known Issue
+
+There are two generations of storage which the servers in General Purpose and Memory Optimized tier use, General purpose storage v1 (Supports up to 4-TB) & General purpose storage v2 (Supports up to 16-TB storage).
+Source server and the replica server should have same storage type. As [General purpose storage v2](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) is not available in all regions, please make sure you choose the correct replica region while you use location with the PowerShell for read replica creation. On how to identify the storage type of your source server refer to link [How can I determine which storage type my server is running on](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on). 
+
+If you choose a region where you cannot create a read replica for your source server, you will encounter the issue where the deployment will keep running as shown in the figure below and then will timeout with the error *“The resource provision operation did not complete within the allowed timeout period.”*
+
+[ :::image type="content" source="media/howto-read-replicas-powershell/replcia-ps-known-issue.png" alt-text="Read replica cli error":::](media/howto-read-replicas-powershell/replcia-ps-known-issue.png#lightbox)
+
 
 ## Next steps
 

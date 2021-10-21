@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect - MySQL Workbench - Azure Database for MySQL'
 description: This Quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MySQL.
-author: ajlam 
-ms.author: andrela
+author: savjani 
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
@@ -10,6 +10,8 @@ ms.date: 5/26/2020
 ---
 
 # Quickstart: Use MySQL Workbench to connect and query data in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL using the MySQL Workbench application.
 
@@ -105,6 +107,16 @@ To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
 4. Notice the **Output** list at the bottom of the page. The status of each command is shown. 
 
 Now, you have connected to Azure Database for MySQL by using MySQL Workbench, and you have queried data using the SQL language.
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## Next steps
 > [!div class="nextstepaction"]

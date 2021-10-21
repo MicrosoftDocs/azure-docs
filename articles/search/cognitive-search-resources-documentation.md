@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/16/2021
 ---
 # Documentation resources for AI enrichment in Azure Cognitive Search
 
@@ -29,7 +29,8 @@ The following is a consolidated list of the documentation for AI enrichment.
 
 ## Hands on walkthroughs
 
-+ [Quickstart: Create a cognitive skillset in the Azure portal](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create an OCR image skillset](cognitive-search-quickstart-ocr.md)
 + [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md)
 + [Tutorial: Diagnose, repair, and commit changes to your skillset with Debug Sessions](cognitive-search-tutorial-debug-sessions.md)
 
@@ -39,7 +40,7 @@ The following is a consolidated list of the documentation for AI enrichment.
 + [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md)
 + [View a knowledge store with Storage Explorer](knowledge-store-view-storage-explorer.md)
 + [Connect a knowledge store with Power BI](knowledge-store-connect-power-bi.md)
-+ [Projection examples (how to shape and export enrichments)](knowledge-store-projections-examples.md)
++ [Define projections in a knowledge store](knowledge-store-projections-examples.md)
 
 ## Custom skills (advanced)
 
@@ -66,11 +67,12 @@ The following is a consolidated list of the documentation for AI enrichment.
 + [Built-in skills](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
+  + [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md)
+  + [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
-  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md)
   + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
@@ -84,6 +86,8 @@ The following is a consolidated list of the documentation for AI enrichment.
 
 + [Deprecated skills](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
+  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
 
 ## APIs
 

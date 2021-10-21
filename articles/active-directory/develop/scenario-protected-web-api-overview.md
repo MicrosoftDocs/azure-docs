@@ -20,11 +20,7 @@ ms.custom: aaddev, identityplatformtop40
 
 In this scenario, you learn how to expose a web API. You also learn how to protect the web API so that only authenticated users can access it.
 
-To use your web API, you need to either enable authenticated users with both work and school accounts or enable Microsoft personal accounts.
-
-## Prerequisites
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+To use your web API, you either enable authenticated users with both work and school accounts or enable Microsoft personal accounts.
 
 ## Specifics
 
@@ -37,7 +33,11 @@ Here is specific information you need to know to protect web APIs:
 - The code configuration for the web API must validate the token used when the web API is called.
 - The code in the controller actions must validate the roles or scopes in the token.
 
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-protected-web-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-protected-web-api-app-registration.md).

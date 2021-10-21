@@ -10,7 +10,7 @@ ms.reviewer: olegan
 # Supported languages
 
 * [C#|VB (.NET)](./asp-net.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [JavaScript](./javascript.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
@@ -20,18 +20,18 @@ ms.reviewer: olegan
 ### Instrumentation for already-deployed applications (codeless, agent-based)
 * [Azure VM and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
-* [ASP.NET - for apps that are already live](./monitor-performance-live-website-now.md)
+* [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
 * [Azure Cloud Services](./cloudservices.md), including both web and worker roles
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
 ### Instrumentation through code (SDKs)
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Android](../learn/mobile-center-quickstart.md) (App Center)
-* [iOS](../learn/mobile-center-quickstart.md) (App Center)
-* [Java EE](./java-get-started.md)
+* [Android](../app/mobile-center-quickstart.md) (App Center)
+* [iOS](../app/mobile-center-quickstart.md) (App Center)
+* [Java EE](./java-in-process-agent.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](./opencensus-python.md)
-* [Universal Windows app](../learn/mobile-center-quickstart.md) (App Center)
+* [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
 * [Windows desktop applications, services, and worker roles](./windows-desktop.md)
 * [React](./javascript-react-plugin.md)
 * [React Native](./javascript-react-native-plugin.md)
@@ -39,7 +39,7 @@ ms.reviewer: olegan
 ## Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](./java-trace-logs.md)
+* [Java, Log4J, or Logback](java-2x-trace-logs.md)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 

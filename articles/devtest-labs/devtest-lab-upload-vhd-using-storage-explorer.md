@@ -1,7 +1,7 @@
 ---
 title: Upload VHD file to Azure DevTest Labs using Storage Explorer
 description: Upload VHD file to lab's storage account using Microsoft Azure Storage Explorer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -86,13 +86,13 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 
 	1. In the Storage Explorer right pane, you should see a listing of the blobs in the **uploads** blob container of the lab's storage account. On the blob editor toolbar, select **Upload** 
 		
-		![Upload button][6]
+		![Screenshot that shows the Storage Explorer right pane with the "Upload" button selected.][6]
 	
 	1. From the **Upload** drop-down menu, select **Upload files...**.
 	
 	1. On the **Upload files** dialog, select the ellipsis.
 		
-		![Select file][8]  
+		![Screenshot that shows the "Upload files" dialog with the ellipsis selected.][8]  
 
 	1. On the **Select files to upload** dialog, browse to the desired VHD file, select it, and then select **Open**.
 	

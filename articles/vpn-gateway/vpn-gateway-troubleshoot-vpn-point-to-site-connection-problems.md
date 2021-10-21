@@ -4,8 +4,6 @@ titleSuffix: Azure VPN Gateway
 description: Learn to troubleshoot and solve common point-to-site connection problems and other virtual private network errors and issues.
 services: vpn-gateway
 author: chadmath
-
-
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
@@ -68,11 +66,11 @@ To prepare Windows 10 or Server 2016 for IKEv2:
 1. Install the update.
 
    | OS version | Date | Number/Link |
-   |---|---|---|---|
+   |---|---|---|
    | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
-   |  |  |  |  |
+
 
 2. Set the registry key value. Create or set `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD key in the registry to 1.
 
@@ -294,7 +292,7 @@ This problem may occur if VPN client does not get the routes from Azure VPN gate
 
 ### Solution
 
-To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
+To resolve this problem, [reset Azure VPN gateway](./reset-gateway.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
 
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 
@@ -313,7 +311,7 @@ This error occurs if the RADIUS server that you used for authenticating VPN clie
 
 ### Solution
 
-Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure AD Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## "Error 405" when you download root certificate from VPN Gateway
 
@@ -337,9 +335,9 @@ Update the NIC driver:
 4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 5. Restart the computer and try the connection again.
 
-## VPN Client Error: Dialing VPN connection <VPN Connection Name>, Status = VPN Platform did not trigger connection
+## VPN Client Error: Dialing VPN connection \<VPN Connection Name\>, Status = VPN Platform did not trigger connection
 
-You may also see the following error in Event Viewer from RasClient: "The user <User> dialed a connection named <VPN Connection Name> which has failed. The error code returned on failure is 1460."
+You may also see the following error in Event Viewer from RasClient: "The user \<User\> dialed a connection named \<VPN Connection Name\> which has failed. The error code returned on failure is 1460."
 
 ### Cause
 

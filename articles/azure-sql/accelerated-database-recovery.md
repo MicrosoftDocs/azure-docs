@@ -3,19 +3,28 @@ title: Accelerated database recovery
 titleSuffix: Azure SQL 
 description: Accelerated database recovery provides fast and consistent database recovery, instantaneous transaction rollback, and aggressive log truncation for databases in the Azure SQL portfolio. 
 ms.service: sql-database
-ms.subservice: high-availability
+ms.subservice: backup-restore
 ms.custom: sqldbrb=4
 ms.devlang: 
 ms.topic: conceptual
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: carlrab
+author: kfarlee
+ms.author: kfarlee
+ms.reviewer: mathoma
 ms.date: 05/19/2020
 ---
 # Accelerated Database Recovery in Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Accelerated Database Recovery (ADR)** is a SQL Server database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL Server database engine recovery process. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VM, and databases in Azure Synapse Analytics (currently in preview). The primary benefits of ADR are:
+**Accelerated Database Recovery (ADR)** is a SQL Server database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL Server database engine recovery process. 
+
+ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, databases in Azure Synapse Analytics, and SQL Server on Azure VMs starting with SQL Server 2019. 
+
+> [!NOTE] 
+> ADR is enabled by default in Azure SQL Database and Azure SQL Managed Instance and disabling ADR for either product is not supported. 
+
+## Overview
+
+The primary benefits of ADR are:
 
 - **Fast and consistent database recovery**
 

@@ -6,13 +6,12 @@ summary: Azure Service Fabric is a distributed systems platform that makes it ea
 metadata:
   ms.service: service-fabric
   ms.topic: landing-page
-  author: erikadoyle
-  ms.author: edoyle
-  ms.date: 12/04/2019
+  ms.date: 05/10/2021
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+
   # Card
   - title: About Service Fabric
     linkLists:
@@ -34,7 +33,6 @@ landingContent:
             url: service-fabric-get-started-mac.md
           - text: Install the Azure Service Fabric CLI
             url: service-fabric-cli.md
-
       - linkListType: concept
         links:
           - text: Understanding microservices
@@ -45,13 +43,41 @@ landingContent:
             url: service-fabric-guest-executables-introduction.md
           - text: Reliable Services
             url: service-fabric-reliable-services-introduction.md
+          - text: Service Fabric differences between Linux and Windows
+            url: service-fabric-linux-windows-differences.md
       - linkListType: whats-new
         links:
           - text: Release notes
             url: release-notes.md
 
   # Card
-  - title: Get started with .NET applications and Windows
+  - title: Deploy a Service Fabric managed cluster
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Service Fabric managed clusters
+            url: overview-managed-cluster.md
+          - text: Service Fabric managed clusters FAQ
+            url: faq-managed-cluster.yml
+      - linkListType: quickstart
+        links:
+          - text: Create a managed cluster
+            url: quickstart-managed-cluster-template.md
+      - linkListType: learn
+        links:
+          - text: Scale out a managed cluster node type
+            url: tutorial-managed-cluster-scale.md
+          - text: Add and remove managed cluster node types
+            url: tutorial-managed-cluster-add-remove-node-type.md
+          - text: Deploy an app to a managed cluster
+            url: tutorial-managed-cluster-deploy-app.md
+          - text: Configure your managed cluster
+            url: how-to-managed-cluster-configuration.md
+          - text: Deploy managed cluster application secrets
+            url: how-to-managed-cluster-application-secrets.md
+
+  # Card
+  - title: Get started with Service Fabric applications
     linkLists:
       - linkListType: quickstart
         links:
@@ -61,12 +87,16 @@ landingContent:
             url: service-fabric-quickstart-containers.md
           - text: Create a guest executable app on Windows
             url: quickstart-guest-app.md
+          - text: Deploy a Linux container app to Service Fabric
+            url: service-fabric-quickstart-containers-linux.md
       - linkListType: tutorial
         links:
           - text: Create, deploy, and manage a Service Fabric .NET app
             url: service-fabric-tutorial-create-dotnet-app.md
           - text: Containerize an existing .NET app for Service Fabric
             url: service-fabric-host-app-in-a-container.md
+          - text: Create, deploy, and manage a Service Fabric Java app
+            url: service-fabric-tutorial-create-java-app.md
       - linkListType: how-to-guide
         links:
           - text: Develop apps with Visual Studio
@@ -77,32 +107,6 @@ landingContent:
             url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
           - text: Windows cluster diagnostics
             url: service-fabric-diagnostics-event-aggregation-wad.md
-
-  # Card
-  - title: Get started with Java applications and Linux
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Service Fabric differences between Linux and Windows
-            url: service-fabric-linux-windows-differences.md
-      - linkListType: quickstart
-        links:
-          - text: Deploy a Linux container app to Service Fabric
-            url: service-fabric-quickstart-containers-linux.md
-      - linkListType: tutorial
-        links:
-          - text: Create, deploy, and manage a Service Fabric Java app
-            url: service-fabric-tutorial-create-java-app.md
-      - linkListType: how-to-guide
-        links:
-          - text: Develop apps with Eclipse
-            url: service-fabric-get-started-eclipse.md
-          - text: Get started with Reliable Services (Java on Linux)
-            url: service-fabric-reliable-services-quick-start-java.md
-          - text: Create Linux clusters in an Azure virtual network
-            url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
-          - text: Linux cluster diagnostics
-            url: service-fabric-diagnostics-oms-syslog.md
 
   # Card
   - title: Secure your cluster
@@ -116,7 +120,7 @@ landingContent:
           - text: Cluster security
             url: service-fabric-cluster-security.md
           - text: Security controls for Service Fabric
-            url: service-fabric-security-controls.md
+            url: ./security-baseline.md
           - text: Service Fabric Secrets Store
             url: service-fabric-application-secret-store.md
       - linkListType: how-to-guide
@@ -147,32 +151,5 @@ landingContent:
             url: samples-cli.md
       - linkListType: whats-new
         links:
-          - text: Commonly asked Service Fabric questions
+          - text: Service Fabric FAQ
             url: service-fabric-common-questions.md
-
-  # Card
-  - title: Use Service Fabric on-premises
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview of standalone clusters
-            url: service-fabric-standalone-clusters-overview.md
-          - text: Contents of standalone package
-            url: service-fabric-cluster-standalone-package-contents.md
-      - linkListType: concept
-        links:
-          - text: Upgrading standalone clusters
-            url: service-fabric-cluster-upgrade-standalone.md
-          - text: Scaling standalone clusters
-            url: service-fabric-cluster-scaling-standalone.md
-      - linkListType: how-to-guide
-        links:
-          - text: Plan for standalone cluster deployment
-            url: service-fabric-cluster-standalone-deployment-preparation.md
-          - text: Create a standalone cluster running on Windows Server
-            url: service-fabric-cluster-creation-for-windows-server.md
-          - text: Configure periodic backups
-            url: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-          - text: Upgrade the Service Fabric runtime
-            url: service-fabric-cluster-upgrade-windows-server.md
-

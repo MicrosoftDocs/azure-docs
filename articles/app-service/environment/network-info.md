@@ -11,6 +11,10 @@ ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
+
 ## Overview ##
 
  Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network (VNet). There are two deployment types for an App Service environment (ASE):
@@ -40,7 +44,7 @@ The size of the subnet used to host an ASE cannot be altered after the ASE is de
    > [!NOTE]
    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
 
-When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. The original VMs removed only after the workloads have been migrated. If you had an ASE with 100 ASP instances, there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
+When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. The original VMs are removed only after the workloads have been migrated. If you had an ASE with 100 ASP instances, there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
 
 ## ASE dependencies ##
 
@@ -122,7 +126,7 @@ An ASE has a few IP addresses to be aware of. They are:
 - **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
 - **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the VNet, which aren't routed down a VPN.
 - **ILB IP address**: The ILB IP address only exists in an ILB ASE.
-- **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
+- **App-assigned IP-based TLS/SSL addresses**: Only possible with an External ASE and when IP-based TLS/SSL binding is configured.
 
 All these IP addresses are visible in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
 
@@ -156,7 +160,7 @@ The required entries in an NSG, for an ASE to function, are to allow traffic:
 * UDP to all IPs on port 53
 * UDP to all IPs on port 123
 * TCP to all IPs on ports 80, 443
-* TCP to the IP service tag AzureSQL on ports 1433
+* TCP to the IP service tag `Sql` on ports 1433
 * TCP to all IPs on port 12000
 * to the ASE subnet on all ports
 
@@ -236,7 +240,7 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop

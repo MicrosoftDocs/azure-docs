@@ -1,28 +1,23 @@
 ---
 title: Use private endpoints to create an Azure Data Factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to an Azure SQL database.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.author: jingwang
+ms.date: 07/05/2021
+ms.author: jianleishen
 ---
 
 # Copy data securely from Azure Blob storage to a SQL database by using private endpoints
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](./copy-activity-overview.md) table.
 
 > [!NOTE]
-> If you're new to Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
+> If you're new to Data Factory, see [Introduction to Azure Data Factory](./introduction.md).
 
 In this tutorial, you do the following steps:
 
@@ -32,8 +27,8 @@ In this tutorial, you do the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
-* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
+* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
+* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
 
 ### Create a blob and a SQL table
 
@@ -55,17 +50,17 @@ Now, prepare your blob storage and SQL database for the tutorial by performing t
 
 Use the following SQL script to create the **dbo.emp** table in your SQL database:
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
@@ -76,7 +71,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
-   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules).
+   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](./naming-rules.md).
 
 1. Select the Azure **subscription** in which you want to create the data factory.
 
@@ -85,7 +80,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
     - Select **Use existing**, and select an existing resource group from the drop-down list.
     - Select **Create new**, and enter the name of a resource group. 
      
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 
 1. Under **Version**, select **V2**.
 
@@ -95,24 +90,25 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. After the creation is finished, you see the notice in the Notifications center. Select **Go to resource** to go to the **Data Factory** page.
 
-1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Factory UI in a separate tab.
 
 ## Create an Azure integration runtime in Data Factory Managed Virtual Network
 In this step, you create an Azure integration runtime and enable Data Factory Managed Virtual Network.
 
 1. In the Data Factory portal, go to **Manage** and select **New** to create a new Azure integration runtime.
 
-   ![Screenshot that shows creating a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Choose to create an **Azure** integration runtime.
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="Screenshot that shows creating a new Azure integration runtime.":::
+1. On the **Integration runtime setup** page, choose what integration runtime to create based on required capabilities. In this tutorial, select **Azure, Self-Hosted** and then click **Continue**. 
+1. Select **Azure** and then click **Continue** to create an Azure Integration runtime.
 
-   ![Screenshot that shows a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="Screenshot that shows a new Azure integration runtime.":::
 1. Under **Virtual network configuration (Preview)**, select **Enable**.
 
-   ![Screenshot that shows enabling a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="Screenshot that shows enabling a new Azure integration runtime.":::
 1. Select **Create**.
 
 ## Create a pipeline
-In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal), you created a pipeline by following these steps:
+In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](./quickstart-create-data-factory-portal.md), you created a pipeline by following these steps:
 
 1. Create the linked service.
 1. Create input and output datasets.
@@ -120,21 +116,21 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 In this tutorial, you start by creating a pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
-   ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag the **Copy data** activity from the tool box to the pipeline designer surface. Enter **CopyFromBlobToSql** for the name.
 
-    ![Screenshot that shows the copy activity.](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png" alt-text="Screenshot that shows the copy activity.":::
 
 ### Configure a source
 
 >[!TIP]
->In this tutorial, you use **Account key** as the authentication type for your source data store. You can also choose other supported authentication methods, such as **SAS URI**,**Service Principal**, and **Managed Identity** if needed. For more information, see the corresponding sections in [Copy and transform data in Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties).
+>In this tutorial, you use **Account key** as the authentication type for your source data store. You can also choose other supported authentication methods, such as **SAS URI**,**Service Principal**, and **Managed Identity** if needed. For more information, see the corresponding sections in [Copy and transform data in Azure Blob storage by using Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
->To store secrets for data stores securely, we also recommend that you use Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>To store secrets for data stores securely, we also recommend that you use Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### Create a source dataset and linked service
 
@@ -150,7 +146,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. Make sure you enable **Interactive authoring**. It might take around one minute to be enabled.
 
-    ![Screenshot that shows Interactive authoring.](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/interactive-authoring.png" alt-text="Screenshot that shows Interactive authoring.":::
 
 1. Select **Test connection**. It should fail when the storage account allows access only from **Selected networks** and requires Data Factory to create a private endpoint to it that should be approved prior to using it. In the error message, you should see a link to create a private endpoint that you can follow to create a managed private endpoint. An alternative is to go directly to the **Manage** tab and follow instructions in the [next section](#create-a-managed-private-endpoint) to create a managed private endpoint.
 
@@ -168,7 +164,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. Select **OK**. It automatically goes to the pipeline page. On the **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**.
 
-    ![Screenshot that shows the source dataset.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/source-dataset-selected.png" alt-text="Screenshot that shows the source dataset.":::
 
 #### Create a managed private endpoint
 
@@ -183,7 +179,7 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 1. Select **+ New** under **Managed private endpoints**.
 
-    ![Screenshot that shows the Managed private endpoints New button.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoints New button."::: 
 
 1. Select the **Azure Blob Storage** tile from the list, and select **Continue**.
 
@@ -195,14 +191,14 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 1. Select the private endpoint that you created. You can see a hyperlink that will lead you to approve the private endpoint at the storage account level.
 
-    ![Screenshot that shows the Managed private endpoint pane.](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoint pane."::: 
 
 #### Approval of a private link in a storage account
 1. In the storage account, go to **Private endpoint connections** under the **Settings** section.
 
 1. Select the check box for the private endpoint you created, and select **Approve**.
 
-    ![Screenshot that shows the Approve button for the private endpoint.](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Screenshot that shows the Approve button for the private endpoint.":::
 
 1. Add a description, and select **yes**.
 1. Go back to the **Managed private endpoints** section of the **Manage** tab in Data Factory.
@@ -211,9 +207,9 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 ### Configure a sink
 >[!TIP]
->In this tutorial, you use **SQL authentication** as the authentication type for your sink data store. You can also choose other supported authentication methods, such as **Service Principal** and **Managed Identity** if needed. For more information, see corresponding sections in [Copy and transform data in Azure SQL Database by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties).
+>In this tutorial, you use **SQL authentication** as the authentication type for your sink data store. You can also choose other supported authentication methods, such as **Service Principal** and **Managed Identity** if needed. For more information, see corresponding sections in [Copy and transform data in Azure SQL Database by using Azure Data Factory](./connector-azure-sql-database.md#linked-service-properties).
 >
->To store secrets for data stores securely, we also recommend that you use Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+>To store secrets for data stores securely, we also recommend that you use Azure Key Vault. For more information and illustrations, see [Store credentials in Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### Create a sink dataset and linked service
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset.
@@ -239,9 +235,9 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 1. Go to the tab with the pipeline, and in **Sink dataset**, confirm that **OutputSqlDataset** is selected.
 
-    ![Screenshot that shows the Pipeline tab.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/pipeline-tab-2.png" alt-text="Screenshot that shows the Pipeline tab.":::
 
-You can optionally map the schema of the source to the corresponding schema of the destination by following [Schema mapping in copy activity](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping).
+You can optionally map the schema of the source to the corresponding schema of the destination by following [Schema mapping in copy activity](./copy-activity-schema-and-type-mapping.md).
 
 #### Create a managed private endpoint
 
@@ -251,7 +247,7 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 1. Go to the **Managed private endpoints** section.
 1. Select **+ New** under **Managed private endpoints**.
 
-    ![Screenshot that shows the Managed private endpoints New button.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoints New button."::: 
 
 1. Select the **Azure SQL Database** tile from the list, and select **Continue**.
 1. Enter the name of the SQL server you selected.
@@ -281,4 +277,3 @@ The pipeline in this sample copies data from Blob storage to SQL Database by usi
 
 * Create a data factory.
 * Create a pipeline with a copy activity.
-

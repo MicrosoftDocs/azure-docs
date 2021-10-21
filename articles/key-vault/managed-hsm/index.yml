@@ -4,7 +4,7 @@ title: Azure Key Vault Managed HSM documentation
 summary: Learn how to use Managed HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
 
 metadata:
-  title: Azure Manage HSM documentation
+  title: Azure Managed HSM documentation
   description: Learn how to use u to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
   ms.service: key-vault
@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Key Vault Managed HSM (preview)
+  - title: About Azure Key Vault Managed HSM
     linkLists:
       - linkListType: overview
         links:
@@ -52,6 +52,8 @@ landingContent:
         links:
           - text: Azure CLI
             url: quick-create-cli.md
+          - text: Azure PowerShell
+            url: quick-create-powershell.md
           - text: Azure Resource Manager
             url: quick-create-template.md
 
@@ -88,10 +90,10 @@ landingContent:
         links:
           - text: Key Vault overview
             url: ../general/overview.md
-          - text: Key vault basic concepts
+          - text: Basic concepts
             url: ../general/basic-concepts.md
+          - text: Security features
+            url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
-          - text: Security overview
-            url: ../general/overview-security.md
 

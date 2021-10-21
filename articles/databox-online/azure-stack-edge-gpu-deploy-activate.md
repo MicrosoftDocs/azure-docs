@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 07/14/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Activate Azure Stack Edge Pro with GPU
 
@@ -47,12 +47,12 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 4. Select **Apply**.
 
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. First the device is activated. You are then prompted to download the key file.
     
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Local web UI "Cloud details" page 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Select **Download and continue** and save the *device-serial-no.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. These keys may be needed to facilitate a future system recovery.
 
@@ -83,10 +83,31 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 6. Go to the **Overview** page. The device state should show as **Activated**.
 
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Local web UI "Cloud details" page 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 The device activation is complete. You can now add shares on your device.
 
+If you encounter any issues during activation, go to [Troubleshoot activation and Azure Key Vault errors](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
+
+
+
+## Deploy workloads
+
+After you have activated the device, the next step is to deploy workloads.
+
+- To deploy VM workloads, see [What are VMs on Azure Stack Edge?](azure-stack-edge-gpu-virtual-machine-overview.md) and the associated VM deployment documentation.
+- To deploy network functions as managed applications:
+    - Make sure that you create a Device resource for Azure Network Function Manager (NFM) that is linked to the Azure Stack Edge resource. The device resource aggregates all the network functions deployed on Azure Stack Edge device. For detailed instructions, see [Tutorial: Create a Network Function Manager Device resource (Preview)](../network-function-manager/create-device.md). 
+    - You can then deploy Network Function Manager as per the instructions in [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
+- To deploy IoT Edge and Kubernetes workloads:
+    - You'll need to first configure compute as described in [Tutorial: Configure compute on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-configure-compute.md). This step creates a Kubernetes cluster that acts as the hosting platform for IoT Edge on your device. 
+    - After a Kubernetes cluster is created on your Azure Stack Edge device, you can deploy application workloads on this cluster via any of the following methods:
+
+        - Native access via `kubectl`
+        - IoT Edge
+        - Azure Arc
+        
+        For more information on workload deployment, see [Kubernetes workload management on your Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-workload-management.md).
 
 ## Next steps
 
@@ -99,4 +120,4 @@ In this tutorial, you learned about:
 To learn how to transfer data with your Azure Stack Edge Pro device, see:
 
 > [!div class="nextstepaction"]
-> [Transfer data with Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Transfer data with Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-shares.md)

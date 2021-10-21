@@ -1,13 +1,15 @@
 ---
 title: VNet service endpoints - Azure Database for MySQL
 description: 'Describes how VNet service endpoints work for your Azure Database for MySQL server.'
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for MySQL server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for MySQL server.
 
@@ -82,7 +84,7 @@ There is a separation of security roles in the administration of Virtual Network
 - **Network Admin:** &nbsp; Turn on the endpoint.
 - **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the Azure Database for MySQL server.
 
-*RBAC alternative:*
+*Azure RBAC alternative:*
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
@@ -106,7 +108,7 @@ For Azure Database for MySQL, the virtual network rules feature has the followin
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
+- Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics.
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
@@ -146,7 +148,7 @@ For articles on creating VNet rules, see:
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

@@ -2,7 +2,7 @@
 title: Change the SKU for an Azure AD Domain Services | Microsoft Docs
 description: Learn how to the SKU tier for an Azure AD Domain Services managed domain if your business requirements change
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to change the SKU for my Azure AD Domain Services managed domain to use different features as my business requirements change.
 ---
@@ -40,7 +40,7 @@ You can change SKUs up or down after the managed domain has been deployed. Howev
 
 For example:
 
-* If you have created two forest trusts on the *Premium* SKU, you can't change down to the *Standard* SKU. The *Standard* SKU doesn't support forest trusts.
+* You can't change down to the *Standard* SKU. Azure AD DS resource forest doesn't support the *Standard* SKU. 
 * Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
 
 For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].

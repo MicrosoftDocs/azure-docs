@@ -2,7 +2,7 @@
 title: Configure IP firewall for Azure Event Grid topics or domains 
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 03/02/2021
 ---
 
 # Configure IP firewall for Azure Event Grid topics or domains 
@@ -18,7 +18,7 @@ This section shows you how to use the Azure portal to create inbound IP firewall
 
     You can restrict the traffic using IP-based firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
 
-    ![Public networks page](./media/configure-firewall/public-networks-page.png)
+    ![Screenshot that shows the "Public network access" page with "Public networks" selected.](./media/configure-firewall/public-networks-page.png)
 3. Select **Private endpoints only** to allow only private endpoint connections to access this resource. Use the **Private endpoint connections** tab on this page to manage connections. 
 
     ![Public networks page](./media/configure-firewall/private-endpoints-page.png)
@@ -29,19 +29,6 @@ This section shows you how to use the Azure portal to create inbound IP firewall
 ## Use Azure CLI
 This section shows you how to use Azure CLI commands to create topics with inbound IP rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
-
-### Prerequisites
-Update the Azure Event Grid extension for CLI by running the following command: 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-If the extension isn't installed, run the following command to install it: 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### Enable or disable public network access
 By default, the public network access is enabled for topics and domains. You can also enable it explicitly or disable it. You can restrict traffic by configuring inbound IP firewall rules. 

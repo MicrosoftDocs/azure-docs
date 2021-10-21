@@ -2,7 +2,7 @@
 title: Back up Azure file shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 10/08/2021
 ---
 
 # Back up Azure file shares
@@ -20,7 +20,7 @@ In this article, you'll learn how to:
 
 * [Learn](azure-file-share-backup-overview.md) about the Azure file share snapshot-based backup solution.
 * Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
-* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account that hosts the file share.
+* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -55,6 +55,9 @@ The following steps explain how you can configure backup for multiple file share
 1. From the list of discovered storage accounts, select an account, and select **OK**.
 
    ![Select from the discovered storage accounts](./media/backup-afs/select-discovered-storage-account.png)
+   
+   >[!NOTE]
+   > If a storage account is present in a different region than the vault, it won't be present in the list of discovered storage accounts.
 
 1. The next step is to select the file shares you want to back up. Select the **Add** button in the **FileShares to Backup** section.
 
@@ -77,9 +80,9 @@ The following steps explain how you can configure backup for multiple file share
 
          ![Create new policy](./media/backup-afs/create-new-policy.png)
 
-      1. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
+      1. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
 
-      1. After specifying the retention values and a valid policy name, select **OK**.<br>
+      1. After defining all attributes of the policy, click **OK**.
 
          ![Give policy name and retention values](./media/backup-afs/policy-name.png)
 
@@ -95,8 +98,6 @@ The following steps explain how you can configure backup for multiple file share
 
 After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
 
->[!NOTE]
->Azure Backup now supports policies with daily/weekly/monthly/yearly retention for Azure file share backup.
 
 ## Configure backup from the file share pane
 
@@ -127,7 +128,7 @@ The following steps explain how you can configure backup for individual file sha
        ![Create new vault](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
 
 1. For the **Backup Policy** selection, do one of the following:
 
@@ -141,9 +142,9 @@ The following steps explain how you can configure backup for individual file sha
 
          1. Select the **Create a new policy** link text.
 
-         2. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
+         2. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
 
-         3. After specifying the retention values and a valid policy name, select **OK**.
+         3. After defining all attributes of the policy, click **OK**.
 
             ![Create new backup policy](./media/backup-afs/create-new-backup-policy.png)
 

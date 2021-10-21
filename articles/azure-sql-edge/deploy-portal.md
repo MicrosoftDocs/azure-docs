@@ -20,8 +20,7 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Sign in to the [Azure portal](https://portal.azure.com/).
 * Create an [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Register an [IoT Edge Device from the Azure portal](../iot-edge/how-to-register-device-portal.md).
-* Prepare the IoT Edge device to [deploy IoT Edge module from the Azure portal](../iot-edge/how-to-deploy-modules-portal.md).
+* Create an [Azure IoT Edge device](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
@@ -57,7 +56,6 @@ Azure Marketplace is an online applications and services marketplace where you c
 
    |**Parameter**  |**Description**|
    |---------|---------|
-   | Name | Name for the module. |
    | MSSQL_SA_PASSWORD  | Change the default value to specify a strong password for the SQL Edge admin account. |
    | MSSQL_LCID   | Change the default value to set the desired language ID to use for SQL Edge. For example, 1036 is French. |
    | MSSQL_COLLATION | Change the default value to set the default collation for SQL Edge. This setting overrides the default mapping of language ID (LCID) to collation. |
@@ -105,7 +103,7 @@ Azure Marketplace is an online applications and services marketplace where you c
    
 8. On the **Update IoT Edge Module** pane, click **Update**.
 9. On the **Set modules on device** page click **Next: Routes >** if you need to define routes for your deployment. Otherwise click **Review + Create**. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
-11. On the **Update IoT Edge Module** pane, click **Create**.
+11. On the **Set modules on device** page, click **Create**.
 
 ## Connect to Azure SQL Edge
 
@@ -209,7 +207,7 @@ Now, run a query to return data from the `Inventory` table.
 
 ## Connect from outside the container
 
-You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](./connect.md).
 
 In this quickstart, you deployed a SQL Edge Module on an IoT Edge device. 
 

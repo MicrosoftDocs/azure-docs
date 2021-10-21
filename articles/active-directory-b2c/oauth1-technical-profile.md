@@ -3,14 +3,14 @@ title: Define an OAuth1 technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth 1.0 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -88,4 +88,4 @@ When you configure the redirect URI of your identity provider, enter `https://{t
 
 Examples:
 
-- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter-custom.md)
+- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter.md)

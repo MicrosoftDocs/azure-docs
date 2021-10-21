@@ -1,23 +1,16 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
 description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
-services: api-management
-documentationcenter: ''
-author: vladvino
-manager: erikre
-editor: ''
-
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
+author: dlepow
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: apimpm
+ms.date: 07/19/2021
+ms.service: api-management
+ms.author: danlep
 ---
 
 # API Management advanced policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="AdvancedPolicies"></a> Advanced policies
 
@@ -25,6 +18,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
+-   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
 -   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
@@ -74,7 +68,7 @@ The second control flow policy is in the outbound section and conditionally appl
 ```xml
 <policies>
     <inbound>
-        <set-variable name="isMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+        <set-variable name="isMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
         <base />
         <choose>
             <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">
@@ -152,7 +146,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ### Policy statement
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### Examples
@@ -251,6 +245,7 @@ This operation level policy does not forward requests to the backend service.
 | timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None    |
 | follow-redirects="false &#124; true"          | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | false   |
 | buffer-request-body="false &#124; true"       | When set to "true" request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| buffer-response="false &#124; true" | Affects processing of chunked responses. When set to "false" each chunk received from the backend is immediately returned to the caller. When set to "true" chunks are buffered (8KB, unless end of stream is detected) and only then returned to the caller. | No | true |
 | fail-on-error-status-code="false &#124; true" | When set to true triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | false   |
 
 ### Usage
@@ -356,6 +351,80 @@ Any string can be used as the value to be logged in Event Hubs. In this example 
 | logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                                  |
 | partition-id  | Specifies the index of the partition where messages are sent.             | Optional. This attribute may not be used if `partition-key` is used. |
 | partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. This attribute may not be used if `partition-id` is used.  |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
+-   **Policy scopes:** all scopes
+
+## Emit metrics
+
+The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
+
+> [!NOTE]
+> * Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
+> * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+
+### Policy statement
+
+```xml
+<emit-metric name="name of custom metric" value="value of custom metric" namespace="metric namespace"> 
+    <dimension name="dimension name" value="dimension value" /> 
+</emit-metric> 
+```
+
+### Example
+
+The following example sends a custom metric to count the number of API requests along with user ID, client IP, and API ID as custom dimensions.
+
+```xml
+<policies>
+  <inbound>
+    <emit-metric name="Request" value="1" namespace="my-metrics"> 
+        <dimension name="User ID" /> 
+        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
+        <dimension name="API ID" /> 
+    </emit-metric> 
+  </inbound>
+  <outbound>
+  </outbound>
+</policies>
+```
+
+### Elements
+
+| Element     | Description                                                                       | Required |
+| ----------- | --------------------------------------------------------------------------------- | -------- |
+| emit-metric | Root element. The value of this element is the string to emit your custom metric. | Yes      |
+| dimension   | Sub element. Add one or more of these elements for each dimension included in the custom metric.  | Yes      |
+
+### Attributes
+
+#### emit-metric
+| Attribute | Description                | Required | Type               | Default value  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Name of custom metric.      | Yes      | string, expression | N/A            |
+| namespace | Namespace of custom metric. | No       | string, expression | API Management |
+| value     | Value of custom metric.    | No       | int, expression    | 1              |
+
+#### dimension
+| Attribute | Description                | Required | Type               | Default value  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Name of dimension.      | Yes      | string, expression | N/A            |
+| value     | Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No       | string, expression | N/A |
+
+**Default dimension names that may be used without value:**
+
+* API ID
+* Operation ID
+* Product ID
+* User ID
+* Subscription ID
+* Location ID
+* Gateway ID
 
 ### Usage
 
@@ -849,7 +918,7 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 The following example demonstrates a set variable policy in the inbound section. This set variable policy creates an `isMobile` Boolean [context](api-management-policy-expressions.md#ContextVariables) variable that is set to true if the `User-Agent` request header contains the text `iPad` or `iPhone`.
 
 ```xml
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+<set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
 ```
 
 ### Elements
@@ -913,7 +982,7 @@ Expressions used in the `set-variable` policy must return one of the following b
 The `trace` policy adds a custom trace into the API Inspector output, Application Insights telemetries, and/or Resource Logs.
 
 -   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
--   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting.
+-   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 
 ### Policy statement
@@ -1037,4 +1106,4 @@ For more information working with policies, see:
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Policy expressions](api-management-policy-expressions.md)
 -   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy samples](./policy-reference.md)

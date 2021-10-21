@@ -24,7 +24,7 @@ For the common steps to register an app, see [Quickstart: Register an applicatio
 
 ## Accepted token version
 
-The Microsoft identity platform endpoint can issue v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md).
+The Microsoft identity platform can issue v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md).
 
 The token version your API may accept depends on your **Supported account types** selection when you create your web API application registration in the Azure portal.
 
@@ -41,7 +41,7 @@ After you create the application, you can determine or change the accepted token
 1. If you changed the token version, select **Save**.
 
 > [!NOTE]
-> The web API specifies which token version it accepts. When a client requests a token for your web API from the Microsoft identity platform (v2.0) endpoint, the client gets a token that indicates which token version the web API accepts.
+> The web API specifies which token version it accepts. When a client requests a token for your web API from the Microsoft identity platform, the client gets a token that indicates which token version the web API accepts.
 
 ## No redirect URI
 
@@ -55,17 +55,17 @@ Other settings specific to web APIs are the exposed API and the exposed scopes o
 
 Scopes usually have the form `resourceURI/scopeName`. For Microsoft Graph, the scopes have shortcuts. For example, `User.Read` is a shortcut for `https://graph.microsoft.com/user.read`.
 
-During app registration, you need to define these parameters:
+During app registration, define these parameters:
 
 - The resource URI
 - One or more scopes
 - One or more app roles
 
-By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique. The application registration portal will ensure that you use a [configured publisher domain](howto-configure-publisher-domain.md)
+By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique. The application registration portal will ensure that you use a [configured publisher domain](howto-configure-publisher-domain.md).
 
 To client applications, scopes show up as *delegated permissions* and app roles show up as *application permissions* for your web API.
 
-Scopes also appear on the consent window that's presented to users of your app. So you need to provide the corresponding strings that describe the scope:
+Scopes also appear on the consent window that's presented to users of your app. Therefore, provide the corresponding strings that describe the scope:
 
 - As seen by a user.
 - As seen by a tenant admin, who can grant admin consent.
@@ -96,7 +96,7 @@ In this section, you learn how to register your protected web API so that daemon
 
 #### Exposing application permissions (app roles)
 
-To expose application permissions, you need to edit the manifest.
+To expose application permissions, edit the manifest.
 
 1. In the application registration for your application, select **Manifest**.
 1. To edit the manifest, find the `appRoles` setting and add application roles. The role definitions are provided in the following sample JSON block.
@@ -109,16 +109,16 @@ The following sample shows the contents of `appRoles`, where the value of `id` c
 
 ```json
 "appRoles": [
-	{
-	"allowedMemberTypes": [ "Application" ],
-	"description": "Accesses the TodoListService-Cert as an application.",
-	"displayName": "access_as_application",
-	"id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
-	"isEnabled": true,
-	"lang": null,
-	"origin": "Application",
-	"value": "access_as_application"
-	}
+  {
+    "allowedMemberTypes": [ "Application" ],
+    "description": "Accesses the TodoListService-Cert as an application.",
+    "displayName": "access_as_application",
+    "id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
+    "isEnabled": true,
+    "lang": null,
+    "origin": "Application",
+    "value": "access_as_application"
+  }
 ],
 ```
 
@@ -150,5 +150,5 @@ To add this increased security:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App code configuration](scenario-protected-web-api-app-configuration.md)
+Move on to the next article in this scenario,
+[App code configuration](scenario-protected-web-api-app-configuration.md).

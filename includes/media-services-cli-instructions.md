@@ -12,9 +12,9 @@ ms.custom: include file
 
 ## Use CLI Shell
 
-It is recommended to use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) to execute CLI commands. **Cloud Shell** is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. It provides the flexibility of choosing the shell experience that best suits the way you work. Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
+It is recommended to use [Azure Cloud Shell](../articles/cloud-shell/overview.md) to execute CLI commands. **Cloud Shell** is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. It provides the flexibility of choosing the shell experience that best suits the way you work. Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
-You can also install the CLI locally. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions for your platform.
+You can also install the CLI locally. See [Install the Azure CLI](/cli/azure/install-azure-cli) for instructions for your platform.
 
 ### Sign in
 

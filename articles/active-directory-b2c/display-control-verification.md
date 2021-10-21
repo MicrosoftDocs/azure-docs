@@ -3,14 +3,14 @@ title: Verify claims with display controls
 titleSuffix: Azure AD B2C
 description: Learn how to use Azure AD B2C display controls to verify the claims in the user journeys provided by your custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -29,8 +29,6 @@ The verification display control consists of two steps (actions):
 1. After the code has been sent, the user reads the message, enters the verification code into the control provided by the display control, and selects **Verify Code**. By selecting **Verify Code**, the **VerifyCode Action** is executed to verify the code associated with the address. If the user selects **Send New Code**, the first action is executed again.
 
     ![Example page for verify code action](media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## VerificationControl required elements
 

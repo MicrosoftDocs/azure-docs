@@ -28,7 +28,8 @@ Azure SQL Edge exposes several different environment variables that can be used 
 The following new environment variables were added to Azure SQL Edge. 
 
 | Environment variable | Description | Values |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **PlanId** | Specifies the Azure SQL Edge SKU to be used during initialization. This environment variable is only required when deploying Azure SQL Edge using Azure IoT Edge. | **asde-developer-on-iot-edge** or **asde-premium-on-iot-edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Enable or disable usage and diagnostics data collection. | TRUE or FALSE |  
 | **MSSQL_TELEMETRY_DIR** | Sets the target directory for the usage and diagnostics data collection audit files. | Folder location within SQL Edge container. This folder can be mapped to a host volume using either mount points or data volumes. | 
 | **MSSQL_PACKAGE** | Specifies the location of the dacpac or bacpac package to be deployed. | Folder, file, or SAS URL containing the dacpac or bacpac packages. For more information, refer [Deploy SQL Database DACPAC and BACPAC packages in SQL Edge](deploy-dacpac.md). |
@@ -89,11 +90,11 @@ The following mssql.conf options aren't applicable to SQL Edge:
 |**Customer feedback** | Choose if SQL Server sends feedback to Microsoft. |
 |**Database mail profile** | Set the default database mail profile for SQL Server on Linux. |
 |**High availability** | Enable Availability Groups. |
-|**Microsoft Distributed Transaction Coordinator** | Configure and troubleshoot MSDTC on Linux. Additional distributed transaction-related configuration options aren't supported for SQL Edge. For more information on these additional configuration options, see [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**Microsoft Distributed Transaction Coordinator** | Configure and troubleshoot MSDTC on Linux. Additional distributed transaction-related configuration options aren't supported for SQL Edge. For more information on these additional configuration options, see [Configure MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**ML Services EULAs** | Accept R and Python EULAs for Azure Machine Learning packages. Applies to SQL Server 2019 only.|
 |**outboundnetworkaccess** |Enable outbound network access for [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python, and Java extensions.|
 
-The following sample mssql.conf file works for SQL Edge. For more information on the format for an mssql.conf file, see [mssql.conf format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+The following sample mssql.conf file works for SQL Edge. For more information on the format for an mssql.conf file, see [mssql.conf format](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

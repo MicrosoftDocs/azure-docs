@@ -1,10 +1,10 @@
 ---
 title: Sensor partner integration
 description: This article describes sensor partner integration.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: riyazp
 ---
 
 # Sensor partner integration
@@ -43,7 +43,7 @@ The APIs contain Swagger technical documentation. For more information on the AP
 
 FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Service provides built-in authentication and authorization support.
 
-For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+For more information, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
@@ -90,13 +90,13 @@ Here are the most common request headers that need to be specified when you make
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type | The request format (Content-Type: `application/<format>`). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
-To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: https://\<yourdatahub-website-name>.azurewebsites.net
+To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
@@ -196,7 +196,7 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Here's a sample Python code that sends telemetry as a client to a specified event hub.
 

@@ -3,8 +3,8 @@ title: Azure Defender for Key Vault - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
@@ -21,9 +21,9 @@ Enable **Azure Defender for Key Vault** for Azure-native, advanced threat protec
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
-|Pricing:|**Azure Defender for Key Vault** is billed as shown on [the pricing page](security-center-pricing.md)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Release state:|General availability (GA)|
+|Pricing:|**Azure Defender for Key Vault** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## What are the benefits of Azure Defender for Key Vault?
@@ -39,6 +39,11 @@ The alerts appear in Key Vault's **Security** page, the Azure Defender dashboard
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault's security page":::
 
+
+> [!TIP]
+> You can simulate Azure Defender for Key Vault alerts by following the instructions in [Validating Azure Key Vault threat detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
+
+
 ## Next steps
 
 In this article, you learned about Azure Defender for Key Vault.
@@ -46,5 +51,5 @@ In this article, you learned about Azure Defender for Key Vault.
 For related material, see the following articles: 
 
 - [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Azure Security Center alerts
-- [Exporting alerts to a SIEM](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)

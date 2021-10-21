@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+ms.topic: how-to
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/03/2019
 ---
 # Upgrade an app to use the latest elastic database client library
@@ -51,7 +51,7 @@ Performing these steps in order ensures that old versions of the client library 
 
 ***Option 2: Upgrade metadata using C#***
 
-Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) and [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) as in this example:
+Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) and [UpgradeGlobalStore](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) as in this example:
 
 ```csharp
     ShardMapManager smm =

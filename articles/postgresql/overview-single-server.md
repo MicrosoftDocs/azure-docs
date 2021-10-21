@@ -20,7 +20,7 @@ In this article, we will provide an overview and introduction to core concepts o
 
 ## Overview
 
-Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.5, 9.6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 
@@ -63,7 +63,7 @@ In addition to native authentication, the single server service supports Azure A
 
 [Audit logging]() (in preview) is available to track all database level activity.
 
-The single server service is complaint with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
+The single server service is compliant with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
 
 For more information about Azure Database for PostgreSQL security features, see the [security overview]().
 
@@ -75,8 +75,8 @@ The single server service is equipped with built-in performance monitoring and a
 
 The service runs community version of PostgreSQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on PostgreSQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like Pg_dump and Pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) for details.
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) and [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like Pg_dump and Pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](./howto-migrate-using-dump-and-restore.md) for details.
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) and [DMS via CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## Contacts
 
@@ -92,4 +92,3 @@ In addition, consider the following points of contact as appropriate:
 
 Now that you've read an introduction to Azure Database for PostgreSQL single server deployment mode, you're ready to:
 - Create your first server.
-  

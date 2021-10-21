@@ -1,7 +1,7 @@
 ---
-title: Security alerts for environments in Azure DevTest Labs
+title: Security alerts for environments
 description: This article shows you how to view security alerts for an environment in DevTest Labs and take an appropriate action. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -19,7 +19,7 @@ Currently, you can view security alerts only for platform as a service (PaaS) en
     ![Security alerts - overview](./media/environment-security-alerts/security-alerts-overview-page.png)
 2. Right-click on three dots (...) in the last column, and select **View security alerts**. 
 
-    ![View security alerts](./media/environment-security-alerts/view-security-alerts-menu.png)
+    ![Screenshot that shows the Security alerts page with "View security alerts" selected.](./media/environment-security-alerts/view-security-alerts-menu.png)
     
 3. You see more details about the alerts and advisor recommendations. Learn more on [managing and responding to security alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 

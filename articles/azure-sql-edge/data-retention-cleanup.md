@@ -61,7 +61,7 @@ Excellent data compression and efficient retention cleanup makes clustered colum
 
 ## Monitoring data retention cleanup
 
-Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
+Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](/sql/relational-databases/extended-events/extended-events). 
 
 The following six extended events help track the state of the cleanup operations. 
 

@@ -1,11 +1,13 @@
 ---
-title: Live Video Analytics on IoT Edg terminology - Azure
-description: This article provides an overview of Live Video Analytics on IoT Edge terminology.
+title: Azure Live Video Analytics on IoT Edge terminology 
+description: This article provides an overview of Azure Live Video Analytics on IoT Edge terminology.
 ms.topic: conceptual
 ms.date: 05/30/2020
 
 ---
-# Terminology
+# Live Video Analytics terminology
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article provides an overview of terminology related to [Live Video Analytics on IoT Edge](overview.md).
 
@@ -37,7 +39,7 @@ In the context of a video management system for security cameras, video recordin
 
 ## Streaming
 
-If you have watched video on a mobile device from services like Netflix, YouTube, and others, you have experienced streaming video. Playback begins soon after you hit “play” (if you have sufficient bandwidth), and you can seek back and forth along the timeline of the video. With streaming, the idea is to deliver only the portion of the video that is being watched, and to let the viewer start playing the video while the data is still being transferred from a server to the playback client. In the context of Azure Media Services, [streaming](https://en.wikipedia.org/wiki/Streaming_media) refers to the process of delivering media from [Azure Media Services](../azure-media-player/azure-media-player-overview.md) to a streaming client (for example, Azure Media Player). You can use Azure Media Services to stream video to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). HLS is supported by Azure Media Player, and web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by Azure Media Player, [find a list of clients on this page](https://dashif.org/clients/). 
+If you have watched video on a mobile device from services like Netflix, YouTube, and others, you have experienced streaming video. Playback begins soon after you hit “play” (if you have sufficient bandwidth), and you can seek back and forth along the timeline of the video. With streaming, the idea is to deliver only the portion of the video that is being watched, and to let the viewer start playing the video while the data is still being transferred from a server to the playback client. In the context of Azure Media Services, [streaming](https://en.wikipedia.org/wiki/Streaming_media) refers to the process of delivering media from [Azure Media Services](../azure-media-player/azure-media-player-overview.md) to a streaming client (for example, Azure Media Player). You can use Azure Media Services to stream video to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). HLS is supported by Azure Media Player, and web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by Azure Media Player, [find a list of clients on this page](https://dashif.org/members/). 
 
 By using [media graph](#media-graph)s to record videos to an asset in Azure Media Services, you can make use of Media Services streaming capability to deliver video streams in HLS and DASH. You can learn more about that in the [video playback](video-playback-concept.md) article.
 

@@ -4,12 +4,14 @@ description: Learn how you can prepay for software plans to save money over your
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ---
 # Prepay for Azure software plans
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 When you prepay for your SUSE and RedHat software usage in Azure, you can save money over your pay-as-you-go costs. The discounts only apply to SUSE and RedHat meters and not on the virtual machine usage. You can buy reservations for virtual machines separately for additional savings.
 
@@ -26,11 +28,12 @@ You can buy SUSE and RedHat software plans in the Azure portal. To buy a plan:
 Fill in the required fields. Any SUSE Linux VM or RedHat VM that matches the attributes of what you buy gets the discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
 The subscription payment method is charged the upfront costs for the reservation. The subscription type must be an Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-    - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+    - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
     - For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method.
 4. Select a scope. The scope can cover one subscription or multiple subscriptions (shared scope).
     - Single subscription - The plan discount is applied to matching usage in the subscription.
     - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For individual plan with pay-as-you-go pricing customers, the billing context is all individual plans with pay-as-you-go pricing subscriptions created by the account administrator.
+    - Management group - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
     - Single resource group - Applies the reservation discount to the matching resources in the selected resource group only.
 5. Select a product to choose the VM size and the image type. The discount applies to the selected VM size only.
 6. Select a one-year or three-year term.

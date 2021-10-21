@@ -9,7 +9,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
-ms.custom: fasttrack-new
+ms.custom: fasttrack-new, devx-track-azurepowershell
 ---
 # Revisions in Azure API Management
 
@@ -33,7 +33,7 @@ Each revision to your API can be accessed using a specially formed URL. Append `
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP whitelisting policy](./api-management-access-restriction-policies.md#RestrictCallerIPs) to prevent external callers from accessing a revision that is still under development.
+By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](./api-management-access-restriction-policies.md#RestrictCallerIPs) to prevent external callers from accessing a revision that is still under development.
 
 A revision can be taken offline, which makes it inaccessible to callers even if they try to access the revision through its URL. You can mark a revision as offline using the Azure portal. If you use PowerShell, you can use the `Set-AzApiManagementApiRevision` cmdlet and set the `Path` argument to `$null`.
 
@@ -51,6 +51,9 @@ You can set a revision as current using the Azure portal. If you use PowerShell,
 When you create a revision, you can set a description for your own tracking purposes. Descriptions aren't played to your API users.
 
 When you set a revision as current you can also optionally specify a public change log note. The change log is included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
+
+> [!NOTE]
+> Certain API properties such as **Display name** and the **API suffix** can only be updated in the current revision.
 
 ## Versions and revisions
 

@@ -1,14 +1,12 @@
 ---
-title: Tutorial to verify data upload from Azure Data Box Disk to storage account| Microsoft Docs
+title: Tutorial to verify data upload from Azure Data Box Disk to storage account
 description: Use this tutorial to learn how to verify the data uploaded from your Azure Data Box Disk to Azure storage account.
-services: databox
 author: alkohli
-
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high 
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -66,7 +64,12 @@ Verify that your data is in the storage account(s) before you delete it from the
 
       ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
+    > [!NOTE]
+    > If a page blob isn't successfully converted to a managed disk during a data copy, it stays in the storage account and you're charged for storage.
+
+  -  If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
+  
+
   
 ::: zone-end
 
@@ -78,9 +81,9 @@ After the data is uploaded to Azure, verify that your data is in the storage acc
 
 - Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
 
-    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+    - **For block blobs and page blobs**: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
 
-    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+    - **For Azure Files**: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 

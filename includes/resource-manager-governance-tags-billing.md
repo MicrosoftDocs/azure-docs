@@ -20,4 +20,4 @@ Then, filter by the tag value, and select **Apply**.
 
 ![View cost by tag](./media/resource-manager-governance-tags-billing/view-costs-by-tag.png)
 
-You can also use the [Azure Billing APIs](../articles/cost-management-billing/manage/usage-rate-card-overview.md) to programmatically view costs.
+You can also use the [Azure consumption API overview](../articles/cost-management-billing/manage/consumption-api-overview.md) to programmatically view costs.

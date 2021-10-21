@@ -1,13 +1,13 @@
 ---
-title: 'Download Azure Virtual WAN global or hub-based VPN profiles | Microsoft Docs'
-description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
+title: 'Download Azure Virtual WAN global or hub-based VPN profiles'
+description: Learn how Azure Virtual WAN offers two types of connectivity for remote users and how to download a profile. 
 services: virtual-wan
-author: kumudD
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 4/20/2020
-ms.author: alzam
+ms.date: 05/26/2021
+ms.author: cherylmc
 
 ---
 

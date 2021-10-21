@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 09/27/2021
 ---
 
 # Back up SAP HANA databases in Azure VMs
@@ -20,11 +20,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
->As of August 1st, 2020, SAP HANA backup for RHEL (7.4, 7.6, 7.7 & 8.1) is generally available.
-
->[!NOTE]
->**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
->To sign up for the preview, write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Refer to the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -43,6 +39,8 @@ The following table lists the various alternatives you can use for establishing 
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
 | Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
+| [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
@@ -52,7 +50,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for *Azure AD* and *Azure Storage*.  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -79,14 +77,23 @@ You can also use the following FQDNs to allow access to the required services fr
 | Service    | Domain  names to be accessed                             |
 | -------------- | ------------------------------------------------------------ |
 | Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
 | Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### Use an HTTP proxy server to route traffic
 
 When you back up an SAP HANA database running on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
 
+> [!NOTE]
+> There is no service level proxy support. That is, traffic via the proxy from only a few or selected services (Azure backup services) isn't supported. The entire data or traffic can either be routed by proxy or not.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+## Enable Cross Region Restore
+
+At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Learn more](/azure/backup/backup-azure-recovery-services-vault-overview) about Cross Region Restore.
 
 ## Discover the databases
 
@@ -139,7 +146,7 @@ Specify the policy settings as follows:
 1. In **Policy name**, enter a name for the new policy.
 
    ![Enter policy name](./media/backup-azure-sap-hana-database/policy-name.png)
-2. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
+1. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
    * **Daily**: Select the hour and time zone in which the backup job begins.
        * You must run a full backup. You can't turn off this option.
        * Select **Full Backup** to view the policy.
@@ -148,34 +155,39 @@ Specify the policy settings as follows:
 
    ![Select backup frequency](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. In **Retention Range**, configure retention settings for the full backup.
+1. In **Retention Range**, configure retention settings for the full backup.
     * By default all options are selected. Clear any retention range limits you don't want to use, and set those that you do.
     * The minimum retention period for any type of backup (full/differential/log) is seven days.
     * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
     * The backup for a specific day is tagged and retained based on the weekly retention range and setting.
     * The monthly and yearly retention ranges behave in a similar way.
 
-4. In the **Full Backup policy** menu, select **OK** to accept the settings.
-5. Select **Differential Backup** to add a differential policy.
-6. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
+1. In the **Full Backup policy** menu, select **OK** to accept the settings.
+1. Select **Differential Backup** to add a differential policy.
+1. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one differential backup per day.
     * Differential backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
 
     ![Differential backup policy](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Incremental backups aren't currently supported.
+    > You can choose either a differential or an incremental as a daily backup but not both.
+1. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
+    * At most, you can trigger one incremental backup per day.
+    * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
 
-7. Select **OK** to save the policy and return to the main **Backup policy** menu.
-8. Select **Log Backup** to add a transactional log backup policy,
+    ![Incremental backup policy](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+1. Select **OK** to save the policy and return to the main **Backup policy** menu.
+1. Select **Log Backup** to add a transactional log backup policy,
     * In **Log Backup**, select **Enable**.  This can't be disabled, since SAP HANA manages all log backups.
     * Set the frequency and retention controls.
 
     > [!NOTE]
     > Log backups only begin to flow after a successful full backup is completed.
 
-9. Select **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, select **OK**.
+1. Select **OK** to save the policy and return to the main **Backup policy** menu.
+1. After you finish defining the backup policy, select **OK**.
 
 > [!NOTE]
 > Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
@@ -186,7 +198,7 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 
 1. In the vault menu, select **Backup items**.
 2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained according to the policy associated with this backup item.
+3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 By default, the retention of on-demand backups is 45 days.

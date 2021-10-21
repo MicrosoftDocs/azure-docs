@@ -3,8 +3,8 @@ title: Deploy on dedicated host
 description: Use a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
+author: macolso
+ms.author: macolso
 ---
 
 # Deploy on dedicated hosts
@@ -14,6 +14,9 @@ ms.author: dekapur
 The dedicated sku is appropriate for container workloads that require workload isolation from a physical server perspective.
 
 ## Prerequisites
+
+> [!NOTE]
+> Due to some current limitations, not all limit increase requests are guaranteed to be approved.
 
 * The default limit for any subscription to use the dedicated sku is 0. If you would like to use this sku for your production container deployments, create an [Azure Support request][azure-support] to increase the limit.
 
@@ -141,8 +144,8 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 Within a few seconds, you should receive an initial response from Azure. A successful deployment takes place on a dedicated host.
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

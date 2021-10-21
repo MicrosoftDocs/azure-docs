@@ -3,14 +3,14 @@ title: Iterative app design - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: diberry
+
 ---
 
 # Iterative app design for LUIS
@@ -49,8 +49,6 @@ The intent schema type may have entities if it helps LUIS determine the user's i
 An entity schema focuses on entities, which is the data that is extracted from user utterances. For example, if a user was to say, "I'd like to order three pizzas." There are two entities that would be extracted: _three_ and _pizzas_. These are used to help fulfill the intention, which was to make an order.
 
 For an entity schema, the intention of the utterance is less important to the client application.
-
-A common method of organizing an entity schema is to add all example utterances to the **None** intent.
 
 ### Example of a mixed schema
 

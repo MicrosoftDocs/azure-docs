@@ -1,18 +1,24 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for Java - Azure DevOps Starter' 
-description: DevOps Starter makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
-ms.prod: devops
-ms.technology: devops-cicd
+title: 'Quickstart: Create a CI/CD pipeline for Java - Azure DevOps Starter'
+description: Learn to use the simplified Azure DevOps Starter experience to set up a continuous integration (CI) and continuous delivery (CD) pipeline for your Java app in Azure Pipelines.
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom:
+  - mvc
+  - seo-java-july2019
+  - seo-java-august2019
+  - seo-java-september2019
+  - devx-track-java
+  - mode-api
 ---
 
 # Set up a CI/CD pipeline for a Java app with Azure DevOps Starter
@@ -61,9 +67,9 @@ DevOps Starter automatically configured a CI build and release trigger.  You're 
 
 DevOps Starter creates a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
-1. On the left of the DevOps Starter dashboard, select the link for your master branch. This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Starter dashboard, select the link for your main branch. This link opens a view to the newly created Git repository.
 
-1. To view the repository clone URL, select **Clone** on the top right of the browser. You can clone your Git repository in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
+1. To view the repository clone URL, select **Clone** on the top right of the browser. You can clone your Git repository in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the main branch.
 
 1. On the left side of the browser, go to the **src/main/webapp/index.html** file.
 
@@ -126,4 +132,4 @@ You can delete Azure App Service and other related resources when you don't need
 When you configured your CI/CD process, build and release pipelines were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](/azure/devops/pipelines/release/define-multistage-release-process)

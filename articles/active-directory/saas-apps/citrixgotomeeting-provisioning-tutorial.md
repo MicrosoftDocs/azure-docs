@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ---
@@ -29,7 +29,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your GoToMeeting app. Once decided, you can assign these users to your GoToMeeting app by following the instructions here:
 
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to GoToMeeting
 
@@ -54,17 +54,14 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 
 1. Set the **Provisioning** Mode to **Automatic**. 
 
-    ![provisioning](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for GoToMeeting in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](https://user-images.githubusercontent.com/49566142/135871050-9d63861d-7963-47e0-bbdf-0e7c947e0b41.png)
 
-1. Under the Admin Credentials section, perform the following steps:
+
+1. Under the Admin Credentials section, click **Authorize** and log into GoToMeeting in pop-up windows that appears
    
-    a. In the **GoToMeeting Admin User Name** textbox, type the user name of an administrator.
-
-    b. In the **GoToMeeting Admin Password** textbox, the administrator's password.
 
 1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your GoToMeeting app. If the connection fails, ensure your GoToMeeting account has Team Admin permissions and try the **"Admin Credentials"** step again.
 
-1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox.
 
 1. Click **Save.**
 
@@ -84,6 +81,4 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
-
-
+* [Configure Single Sign-on](./citrix-gotomeeting-tutorial.md)

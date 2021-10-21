@@ -3,7 +3,7 @@ title: Azure API Management template data model reference | Microsoft Docs
 description: Learn about the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: apimpm
+ms.author: danlep
 ---
 # Azure API Management template data model reference
 This topic describes the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.  

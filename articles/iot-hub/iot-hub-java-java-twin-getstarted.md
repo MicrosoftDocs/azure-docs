@@ -2,7 +2,7 @@
 title: Get started with Azure IoT Hub device twins (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Java to implement the device app and the Azure IoT service SDK for Java to implement a service app that adds the tags and runs the IoT Hub query.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -26,7 +26,7 @@ In this tutorial, you create two Java console apps:
 
 ## Prerequisites
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -236,7 +236,7 @@ In this section, you create a Java console app that sets a reported property val
     > [!NOTE]
     > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but, if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) in the *Samples for the Azure IoT device SDK for Java* readme file.
+4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but, if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging) in the *Samples for the Azure IoT device SDK for Java* readme file.
 
     ```xml
     <dependency>
@@ -375,7 +375,7 @@ You are now ready to run the console apps.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Java IoT Hub service app to update tag values and run device queries](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Screenshot that shows the output from the command to run the add tags query service app.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     You can see the **plant** and **region** tags added to the device twin. The first query returns your device, but the second does not.
 
@@ -385,7 +385,7 @@ You are now ready to run the console apps.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![The device client adds the **connectivityType** reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![The device client adds the connectivity Type reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. At a command prompt in the **add-tags-query** folder, run the following command to run the **add-tags-query** service app a second time:
 
@@ -403,6 +403,6 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

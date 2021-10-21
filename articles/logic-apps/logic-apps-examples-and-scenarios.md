@@ -3,9 +3,9 @@ title: Examples & common scenarios
 description: Find examples, common scenarios, tutorials, and walkthroughs for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 07/20/2021
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
@@ -104,11 +104,12 @@ You can fully develop and deploy logic apps with Visual Studio, Azure DevOps, or
 * [Overview: Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Create Azure Resource Manager templates to automate deployment for Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Deploy Azure Resource Manager templates for Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
-* [Sample: Connect to Azure Service Bus queues from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Sample: Set up a function app action for Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Sample: Connect to an integration account from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
-* [Sample: Orchestrate Azure Pipelines by using Azure Logic Apps](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
+* [Sample: Set up an API Management action for Azure Logic Apps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/api-management-actions)
+* [Sample: Orchestrate Azure Pipelines by using Azure Logic Apps](https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration)
+* [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections)
+* [Sample: Connect to Azure Service Bus queues from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/service-bus-connections)
+* [Sample: Set up an Azure Functions action for Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/function-app-actions)
+* [Sample: Connect to an integration account from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/integration-account-connections)
 
 ### Manage
 
@@ -125,7 +126,7 @@ You can fully develop and deploy logic apps with Visual Studio, Azure DevOps, or
 
 ## Handle content types, conversions, and transformations
 
-You can access, convert, and transform multiple content types by using the many functions in the Azure Logic Apps [workflow definition language](https://aka.ms/logicappsdocs). For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. The Logic Apps engine preserves content types to support content transfer in a lossless manner between services.
+You can access, convert, and transform multiple content types by using the many functions in the Azure Logic Apps [workflow definition language](./logic-apps-workflow-definition-language.md). For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. The Logic Apps engine preserves content types to support content transfer in a lossless manner between services.
 
 * [Handle content types in Azure Logic Apps](../logic-apps/logic-apps-content-type.md), such as `application/`, `application/octet-stream`, and `multipart/formdata`
 * [Reference guide to using functions in expressions for Azure Logic Apps and Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)

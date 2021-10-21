@@ -1,7 +1,7 @@
 ---
 title: Xamarin iOS considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about considerations for using Xamarin iOS with Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using Xamarin iOS with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin iOS and MSAL.NET.
 ---
 
 # Considerations for using Xamarin iOS with MSAL.NET
 
-When you use Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
+When you use the Microsoft Authentication Library for .NET (MSAL.NET) on Xamarin iOS, you should:
 
 - Override and implement the `OpenUrl` function in `AppDelegate`.
 - Enable keychain groups.
@@ -75,6 +75,29 @@ Also enable keychain access in the `Entitlements.plist` file. Use either the fol
 When you use the `WithIosKeychainSecurityGroup()` API, MSAL automatically appends your security group to the end of the application's *team ID* (`AppIdentifierPrefix`). MSAL adds your security group because when you build your application in Xcode, it will do the same. That's why the entitlements in the `Entitlements.plist` file need to include `$(AppIdentifierPrefix)` before the keychain access group.
 
 For more information, see the [iOS entitlements documentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
+
+#### Troubleshooting KeyChain access
+
+If you get an error message similar to "The application cannot access the iOS keychain for the application publisher (the TeamId is null)", this means MSAL is not able to access the KeyChain. This is a configuration issue. To troubleshoot, try to access the KeyChain on your own, for example: 
+
+```csharp
+var queryRecord = new SecRecord(SecKind.GenericPassword)
+{
+    Service = "",
+    Account = "SomeTeamId",
+    Accessible = SecAccessible.Always
+};
+
+SecRecord match = SecKeyChain.QueryAsRecord(queryRecord, out SecStatusCode resultCode);
+
+if (resultCode == SecStatusCode.ItemNotFound)
+{
+    SecKeyChain.Add(queryRecord);
+    match = SecKeyChain.QueryAsRecord(queryRecord, out resultCode);
+}
+
+// Make sure that  resultCode == SecStatusCode.Success
+```
 
 ### Enable token cache sharing across iOS applications
 

@@ -3,8 +3,9 @@ title: OpenShift Container Platform 3.11 in Azure prerequisites
 description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
@@ -12,6 +13,8 @@ ms.author: haroldw
 ---
 
 # Common prerequisites for deploying OpenShift Container Platform 3.11 in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article describes common prerequisites for deploying OpenShift Container Platform or OKD in Azure.
 
@@ -129,7 +132,7 @@ Take note of the appId property and password returned from the command:
  > [!WARNING] 
  > Be sure to write down the secure password as it will not be possible to retrieve this password again.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+For more information on service principals, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## Prerequisites applicable only to Resource Manager template
 

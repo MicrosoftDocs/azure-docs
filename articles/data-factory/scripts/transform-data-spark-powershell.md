@@ -1,14 +1,13 @@
 ---
 title: Transform data in cloud using PowerShell
 description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster." 
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
 ---
 
@@ -37,7 +36,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
             .builder\
             .appName("PythonWordCount")\
             .getOrCreate()
-    		
+            
         lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
         counts = lines.flatMap(lambda x: x.split(' ')) \
             .map(lambda x: (x, 1)) \
@@ -47,7 +46,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
         spark.stop()
     
     if __name__ == "__main__":
-    	main()
+        main()
     ```
 2. Replace **&lt;storageAccountName&gt;** with the name of your Azure Storage account. Then, save the file. 
 3. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist. 
@@ -97,6 +96,6 @@ This script uses the following commands:
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
 Additional Azure Data Factory PowerShell script samples can be found in the [Azure Data Factory PowerShell samples](../samples-powershell.md).

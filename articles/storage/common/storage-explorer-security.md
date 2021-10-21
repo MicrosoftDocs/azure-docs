@@ -37,15 +37,15 @@ We recommend using Azure AD authentication whenever possible.
 
 This section describes the two Azure AD-based technologies that can be used to secure your storage resources.
 
-#### Role-based access control (RBAC)
+#### Azure role-based access control (Azure RBAC)
 
-[Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) give you fine-grained access control over your Azure resources. RBAC roles and permissions can be managed from the Azure portal.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) give you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
 
-Storage Explorer supports RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign RBAC roles that grant permission to list storage account keys.
+Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign Azure roles that grant permission to list storage account keys.
 
 #### Access control lists (ACLs)
 
-[Access control lists (ACLs)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) let you control file and folder level access in ADLS Gen2 blob containers. You can manage your ACLs using Storage Explorer.
+[Access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) let you control file and folder level access in ADLS Gen2 blob containers. You can manage your ACLs using Storage Explorer.
 
 ### Shared access signatures (SAS)
 
@@ -72,11 +72,11 @@ When using SAS in Storage Explorer, we recommend the following guidelines:
 
 ### Storage account keys
 
-Storage account keys grant unrestricted access to the services and resources within a storage account. For this reason, we recommend limiting the use of keys to access resources in Storage Explorer. Use RBAC features or SAS to provide access instead.
+Storage account keys grant unrestricted access to the services and resources within a storage account. For this reason, we recommend limiting the use of keys to access resources in Storage Explorer. Use Azure RBAC features or SAS to provide access instead.
 
-Some RBAC roles grant permission to retrieve storage account keys. Individuals with these roles can effectively circumvent permissions granted or denied by RBAC. We recommend not granting this permission unless it's necessary.
+Some Azure roles grant permission to retrieve storage account keys. Individuals with these roles can effectively circumvent permissions granted or denied by Azure RBAC. We recommend not granting this permission unless it's necessary.
 
-Storage Explorer will attempt to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support RBAC, such as working with Classic storage accounts. Such features still require keys and are not affected by this setting.
+Storage Explorer will attempt to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC, such as working with Classic storage accounts. Such features still require keys and are not affected by this setting.
 
 If you must use keys to access your storage resources, we recommend the following guidelines:
 
@@ -93,8 +93,8 @@ Storage Explorer allows you to modify the access level of your Azure Blob Storag
 When enabling public access for a blob container, we recommend the following guidelines:
 
 - **Don't enable public access to a blob container that may contain any potentially sensitive data.** Make sure your blob container is free of all private data.
-- **Don't upload any potentially sensitive data to a blob container with Blob or Container access.** 
+- **Don't upload any potentially sensitive data to a blob container with Blob or Container access.**
 
 ## Next steps
 
-- [Security recommendations](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Security recommendations](../blobs/security-recommendations.md)

@@ -16,7 +16,7 @@ ms.author: duau
 
 # Country/Region hierarchy used by Azure Traffic Manager for geographic traffic routing method
 
-This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+This article lists the countries and regions used by the **Geographic**  traffic routing method in Azure Traffic Manager. You can also obtain this information programmatically by calling the [Azure Traffic Manager’s REST API](/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
