@@ -554,7 +554,7 @@ For more information, see these topics:
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
-[azure-cosmos-db-doc]: /connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmosdb.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
 [azure-file-storage-doc]: /connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
