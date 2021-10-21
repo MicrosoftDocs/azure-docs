@@ -78,7 +78,7 @@ Forward compatibility allows the consumer code to use an old version of the sche
 
 
 ### No compatibility
-When the no compatibility mode is used, the schema registry doesn't to any compatibility checks when you update schemas. 
+When the ``None`` compatibility mode is used, the schema registry doesn't to any compatibility checks when you update schemas. 
 
 ## Client SDKs
 
