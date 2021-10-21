@@ -10,11 +10,11 @@ ms.date: 10/18/2021
 ms.author: Niharikadutta
 ---
 
-# Apache Spark on GPUs in Azure Synapse Analytics
+# Apache Spark GPU-enabled Pool in Azure Synapse Analytics
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
-Azure Synapse now offers the ability to create Apache Spark GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
+Azure Synapse now offers the ability to create Azure Synapse GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
 You can choose to turn on/off the RAPIDS based GPU acceleration for your workload or parts of your workload by setting this configuration:
 
 ```
