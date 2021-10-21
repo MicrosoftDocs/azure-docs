@@ -24,7 +24,7 @@ As part of this preview, the Azure Communication Services SDKs can be used to bu
 ## Enabling calling and chat interoperability in your Teams tenant
 To enable ad hoc calling and chat between your Communication Services users and your Teams tenant, use the new Teams PowerShell cmdlet [Set-CsTeamsAcsFederationConfiguration](https://docs.microsoft.com/powershell/module/teams/set-csteamsacsfederationconfiguration?view=teams-ps). This cmdlet is only available to participants in the private preview. 
 
-Custom applications built with Azure Communication Services to connect and communicate with Teams users may be used by end users or by bots, and there is no differentiation in how they appear to Teams users unless the developer of the application explicitly indicates this as part of the communication.
+Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there is no differentiation in how they appear to Teams users unless the developer of the application explicitly indicates this as part of the communication.
 
 To initiate a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users?view=graph-rest-1.0) or from your on-premises directory if you are using [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
 
