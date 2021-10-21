@@ -23,7 +23,7 @@ Within a Conditional Access policy, an administrator can make use of signals fro
 
 Multiple conditions can be combined to create fine-grained and specific Conditional Access policies.
 
-For example, when accessing a sensitive application an administrator may factor sign-in risk information from Identity Protection and location into their access decision in addition to other controls like multi-factor authentication.
+For example, when accessing a sensitive application an administrator may factor sign-in risk information from Identity Protection and location into their access decision in addition to other controls like multifactor authentication.
 
 ## Sign-in risk
 
@@ -56,7 +56,7 @@ When configuring location as a condition, organizations can choose to include or
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When selecting **any location**, administrators can choose to exclude **all trusted** or **selected locations**.
 
-For example, some organizations may choose to not require multi-factor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks.
+For example, some organizations may choose to not require multifactor authentication when their users are connected to the network in a trusted location such as their physical headquarters. Administrators could create a policy that includes any location but excludes the selected locations for their headquarters networks.
 
 More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
 
@@ -86,7 +86,7 @@ The **Configure** toggle when set to **Yes** applies to checked items, when set 
       - This option includes clients that use basic/legacy authentication protocols that do not support modern authentication.
          - Authenticated SMTP - Used by POP and IMAP client's to send email messages.
          - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
-         - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multifactor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
          - Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
          - IMAP4 - Used by IMAP email clients.
          - MAPI over HTTP (MAPI/HTTP) - Used by Outlook 2010 and later.
