@@ -14,40 +14,38 @@ ms.author: aahi
 
 # Train your Custom Named Entity Recognition (NER) model
 
-After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project. However, if you retrain a specific model, it will overwrite its previous version.
+Training is the process where the model learns from your [tagged data](tag-data.md). After training is completed, you will be able to [use the model evaluation metrics](../how-to/view-model-evaluation.md) to determine if you need to [improve your model](../how-to/improve-model.md).
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
+## Prerequisites
+
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
+    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
 ## Data split
 
-Before starting the training process, files in your dataset are divided into three groups at random: 
+Before starting the training process, files in your dataset are divided into two groups at random:
 
-* The training set contains 80% of the files in your dataset. It is the main set that is used to train the model.
+* The **training set** contains 80% of the files in your dataset. It is the main set that is used to train the model.
 
-* The validation set contains 10% and is introduced to the model during training. Later you can view the incorrect predictions made by the model on this set so you examine your data and tags and make necessary adjustments.
-
-* The Test set contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
-
-You must also have a [custom NER project](../quickstart.md) with at least 10 [tagged data](tag-data.md) files for evaluation to be successful.
+* The **test set** contains 20% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training.
 
 ## Train model in Language studio
 
->[!NOTE]
-> * You can only have up to 10 models per project.
-> * Training can take up to few hours.
-
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
+1. Go to your project page in [Language Studio](https://aka.ms/LanguageStudio).
 
 2. Select **Train** from the left side menu.
 
-3. Enter a new model name, or select an existing model from the **Model name** dropdown.
+3. To train a new model, select **Train a new model** and type in the model name in the text box below. You can **overwrite an existing model** by selecting this option and select the model you want from the dropdown below.
 
-    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model training screen." lightbox="../media/train-model.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
-4. Click on the **Train** button at the bottom of the page.
-
-5. If the model you selected is already trained, a window will appear to confirm overwriting the last model state.
+4. Select the **Train** button at the bottom of the page.
 
 ## Next steps
 
-After training is completed, you can [view the model's evaluation details](view-model-evaluation.md) and [improve your model](improve-model.md)
+After training is completed, you will be able to use the [model evaluation metrics](view-model-evaluation.md) to optionally [improve your model](improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](call-api.md) from text.

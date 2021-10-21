@@ -38,7 +38,7 @@ Search is foundational to any app that surfaces text content to users, with comm
 
 Instead of manually long text files to audit and apply organizational policies, custom NER can be used to help build automated solutions and apply necessary business rules. 
 
-## Development life cycle
+## Application development lifecycle
 
 Using Custom NER typically involves several different steps. 
 
@@ -59,7 +59,7 @@ Using Custom NER typically involves several different steps.
 
 6. **Deploy the model**: Deploying a model is to make it available for use.
 
-7. **Extract entities**: Use your custom modeled for entity extraction tasks.
+7. **Extract entities**: Use your custom models for entity extraction tasks.
 
 ## Next steps
 
