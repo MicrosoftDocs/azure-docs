@@ -412,7 +412,7 @@ The module will now write debug logs in a binary format to the device storage pa
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](./faq#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](./faq.yml).
 
 ## Next steps
 
