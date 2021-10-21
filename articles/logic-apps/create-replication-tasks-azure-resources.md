@@ -230,7 +230,7 @@ This example shows how to create a replication task for Service Bus queues.
 
 1. On **Review + create** tab, confirm the Azure resources that the replication task requires for operation.
 
-   - If you chose to create a new logic app resource for the replication task, the pane shows the required Azure resources that the replication task will create to operate. Although not listed, these resources include an Azure storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
+   - If you chose to create a new logic app resource for the replication task, the pane shows the required Azure resources that the replication task will create to operate. For example, these resources include an Azure Storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
 
      The following example shows the **Review + create** tab if you chose to create a new logic app:
 
@@ -418,7 +418,7 @@ If you want your replication task to process more events or messages per second 
 
 If you set up the geo-disaster recovery capabilities in Azure Event Hubs or Azure Service Bus, you can use replication tasks to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity, which becomes the new primary or source. So, if a disaster happens, and the primary entity fails over, the event publishing or message sending applications are redirected to the new primary (formerly secondary) source.
 
-When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't immediate. The *offset* is the position in the stream or sequence where the primary or source entity stopped reading. This offset is read by and kept in the Azure storage account that was created by the replication task. To make sure that your replication task starts reading can consume and replicate events from the new primary, you have to manually reconfigure the task to consume from the appropriate offset information at the start of the stream for the new primary namespace.
+When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't immediate. The *offset* is the position in the stream or sequence where the primary or source entity stopped reading. This offset is read by and kept in the Azure Storage account that was created by the replication task. To make sure that your replication task starts reading can consume and replicate events from the new primary, you have to manually reconfigure the task to consume from the appropriate offset information at the start of the stream for the new primary namespace.
 
 To enable failover from the primary or source entity and to make sure that the replication task starts reading from the secondary or target entity at the correct position, follow these steps:
 
@@ -431,7 +431,7 @@ To enable failover from the primary or source entity and to make sure that the r
 
 1. Go to the Azure resource group that contains the replication task resources.
 
-   This resource group includes the logic app resource and the Azure storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped when the primary's region became unavailable.
+   This resource group includes the logic app resource and the Azure Storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped when the primary's region became unavailable.
 
 1. Go to the storage account that's associated with the logic app resource. Delete the storage account by following these steps:
 
