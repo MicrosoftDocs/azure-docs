@@ -107,7 +107,7 @@ o	If issue is not resolved, gather the widget logs, and file a support ticket vi
 o	Gathering widget logs:
 1.	Hit F12 to enable Browser Developer tools, go to the Console TAB, enable "All levels" logging.   
 2.	From the Settings Icon , select Preferences --> Console --> Show timestamps 
- <image todo>
+![settings](<todo>)
 3.	Save the logs   
 
 ## Collect logs for submitting a support ticket
