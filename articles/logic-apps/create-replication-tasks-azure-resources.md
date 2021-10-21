@@ -79,9 +79,7 @@ For information about replication and federation in Azure Service Bus, review th
 
 ## Metadata and property mappings
 
-For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic.
-
-For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
+For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic. For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
 
 When a task replicates from Service Bus to Event Hubs, the task maps only the `User Properties` property to the `Properties` property. However, when the task replicates from Event Hubs to Service Bus, the task maps the following properties:
 
@@ -133,7 +131,7 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 - Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource that *contains only replication task workflows*, especially if you want to follow the [active-passive replication pattern](../service-bus-messaging/service-bus-federation-overview.md#active-passive-replication). Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-  Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new primary source, formerly the target or secondary entity, which is what the active-passive replication pattern tries to achieve.
+  Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new source, formerly the target entity, which is what the active-passive replication pattern tries to achieve.
 
 - Optional: The connection string for the target namespace. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
 
@@ -237,7 +235,7 @@ This example shows how to create a replication task for Service Bus queues.
 
 1. On **Review + create** tab, confirm the Azure resources that the replication task requires for operation.
 
-   - If you chose to create a new logic app resource for the replication task, the pane shows the required Azure resources that the replication task will create to operate. For example, these resources include an Azure Storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
+   - If you chose to create a new logic app resource for the replication task, the pane shows the required Azure resources that the replication task will create to operate. For example, these resources include an Azure Storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example with Event Hubs, this storage account contains checkpoint information and the position or *offset* in the stream where the source entity stops if the source region is disrupted or becomes unavailable.
 
      The following example shows the **Review + create** tab if you chose to create a new logic app:
 
@@ -421,13 +419,11 @@ If you want your replication task to process more events or messages per second 
 
 <a name="failover"></a>
 
-## Set up failover with replication tasks
+## Set up failover for Azure Event Hubs
 
-If you set up the geo-disaster recovery capabilities in Azure Event Hubs or Azure Service Bus, you can use replication tasks to protect against regional availability incidents or network disruptions. Any such failure scenario requires performing a failover from the primary or source entity to the secondary or target entity and then telling any affected producers and consumers to use the endpoint for the secondary or target entity, which becomes the new primary or source. So, if a disaster happens, and the primary entity fails over, the event publishing or message sending applications are redirected to the new primary (formerly secondary) source.
+For Azure Event Hubs replication between the same entity types, geo-disaster recovery requires performing a failover from the source entity to the target entity and then telling any affected event consumers and producers to use the endpoint for the target entity, which becomes the new source. So, if a disaster happens, and the source entity fails over, consumers and producers, including your replication task, are redirected to the new source. The storage account account that was created by your replication task contains checkpoint information and the position or offset in the stream where the source entity stops if the source region is disrupted or becomes unavailable.
 
-When the region for the primary or source becomes unavailable, failover to the secondary or target entity isn't immediate. The *offset* is the position in the stream or sequence where the primary or source entity stopped reading. This offset is read by and kept in the Azure Storage account that was created by the replication task. To make sure that your replication task starts reading can consume and replicate events from the new primary, you have to manually reconfigure the task to consume from the appropriate offset information at the start of the stream for the new primary namespace.
-
-To enable failover from the primary or source entity and to make sure that the replication task starts reading from the secondary or target entity at the correct position, follow these steps:
+To make sure that the storage account doesn't contain any legacy information from the original source and that your replication task begins reading and replicating events from the start of the stream in the new source, you have to manually reconfigure the replication task, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app resource or underlying workflow behind the replication task.
 
@@ -438,7 +434,7 @@ To enable failover from the primary or source entity and to make sure that the r
 
 1. Go to the Azure resource group that contains the replication task resources.
 
-   This resource group includes the logic app resource and the Azure Storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped when the primary's region became unavailable.
+   This resource group includes the logic app resource and the storage account that stores the checkpoint and stream offset information from the source entity.
 
 1. Go to the storage account that's associated with the logic app resource. To find this storage account, open the resource group that contains the logic app resource. Delete the storage account by following these steps:
 
@@ -451,11 +447,11 @@ To enable failover from the primary or source entity and to make sure that the r
 
    1. On the **azure-webjobs-eventhub** pane, select the namespace folder, which has a name with the following format: `<event-hub-name>.servicebus.windows.net`.
 
-   1. In the namespace folder, delete the source entity folder named `src` that holds checkpoint information for the former primary source entity.
+   1. In the namespace folder, delete the source entity folder named `src` that holds the checkpoint and offset information for the former source.
 
-1. Return to the logic app resource or workflow behind the replication task. Start the logic app or enable the workflow again.
+1. Return to the logic app resource or workflow behind the replication task. Restart the logic app or enable the workflow again.
 
-To force producers and consumers to use the secondary endpoint, you need to make information about the entity available to use and look up in a location that's easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should consult that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
+To make producers and consumers to use the new source endpoint, you need to make information about the new source entity available to use and find in a location that's easy to reach and update. If producers or consumers encounter frequent or persistent errors, they should check that location and adjust their configuration. There are numerous ways to share that configuration, but DNS and file shares are examples.
 
 For more information about geo-disaster recovery, review the following documentation:
 
