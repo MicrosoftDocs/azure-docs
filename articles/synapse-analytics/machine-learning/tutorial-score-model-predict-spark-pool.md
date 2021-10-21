@@ -88,7 +88,7 @@ Make sure all prerequisites are in place before following these steps for using 
    > [!NOTE]
    > Update tenant, client, subscription, resource group, AML workspace and linked service details in this script before running it.
 
-   1. **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. Service principal must have "Contributor" access to the AML workspace.
+   - **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. Service principal must have "Contributor" access to the AML workspace.
 
       ```PYSPARK
          #AML workspace authentication using service principal
@@ -114,7 +114,7 @@ Make sure all prerequisites are in place before following these steps for using 
          )
       ```
 
-   1. **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service principal" or "Managed Service Identity (MSI)" must have "Contributor" access to the AML workspace.
+   - **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service principal" or "Managed Service Identity (MSI)" must have "Contributor" access to the AML workspace.
 
       ```PYSPARK
          #AML workspace authentication using linked service
