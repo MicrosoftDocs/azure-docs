@@ -22,7 +22,7 @@ Pipelines let you ingest, process, and publish video within Azure Video Analyzer
 
 ## Pipeline topologies
 
-A pipeline topology enables you to describe how live video or [recorded videos](terminology.md#recording) should be processed and analyzed for your custom needs through a set of interconnected nodes. Video analyzer supports two kinds of topologies: live and batch. Live topologies, as the name suggests, are used with live video from cameras. Batch topologies are used to process recorded videos.
+A pipeline topology enables you to describe how live video or [recorded videos](terminology.md#recording) should be processed and analyzed for your custom needs through a set of interconnected nodes. It serves as a template or blueprint for your live video workflow. **Video analyzer supports two kinds of topologies: live and batch. Live topologies, as the name suggests, are used with live video from cameras. Batch topologies are used to process recorded videos.**
 
 **Pipeline** supports different types of nodes:
 
@@ -30,7 +30,7 @@ A pipeline topology enables you to describe how live video or [recorded videos](
 * **Processor nodes** enable processing of media within the pipeline.
 * **Sink nodes** enable delivering the results to services and apps outside the pipeline.
 
-You can create different topologies for different scenarios by selecting which nodes are in the topology, how they are connected, with parameters as placeholders for values. A pipeline is an individual instance of a specific pipeline topology. A pipeline is where media is actually processed. Pipelines can be associated with individual cameras or recorded videos through user defined parameters declared in the pipeline topology. Instances of a live topologies are called live pipelines, and instances of a batch topology are referred to as pipeline jobs.
+You can create different topologies for different scenarios by selecting which nodes are in the topology, how they are connected, with parameters as placeholders for values. A pipeline is an individual instance of a specific pipeline topology. A pipeline is where media is actually processed. Pipelines can be associated with individual cameras or recorded videos through user defined parameters declared in the pipeline topology. **Instances of a live topologies are called live pipelines, and instances of a batch topology are referred to as pipeline jobs.**
 
 As an example, if you want to record videos from multiple IP cameras, you can define a pipeline topology consisting of an RTSP source node and a video sink node. The RTSP source node can have RTSP URL, username, and password as parameters. The video sink node can have the video name as a parameter. Values for these parameters can be provided when creating multiple pipelines from the same topology - one pipeline per camera.
 
