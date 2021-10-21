@@ -271,7 +271,7 @@ az group delete --resource-group $RESOURCE_GROUP
 This will delete both container apps, the storage account, the container apps environment and any other resources in the resource group.
 
 > [!NOTE]
-> Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
+> Since `nodeapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
 ## Next steps
 
