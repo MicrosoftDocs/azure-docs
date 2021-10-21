@@ -84,6 +84,16 @@ sections:
         answer: |
           Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](logs/log-query-overview.md) and [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md).
           
+      - question: |
+           What am I seeing duplicate records in Azure Monitor Logs?
+        answer: |
+           You may on occasion notice duplicate records in Azure Monitor Logs. This will typically be from one of the following two conditions.
+           
+           - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this may result in duplicates for a very small percentage of telemetry items.
+           - If the duplicate records come from a virtual machine, then you may have both the Log Analytics agent and Azure Monitor agent installed. If you still need the Log Analytics agent installed, then configure the Log Analytics workspace to no longer collect data that’s also being collected by the data collection rule used by Azure Monitor agent.
+ 
+
+          
   - name: Solutions and insights
     questions:
       - question: |
