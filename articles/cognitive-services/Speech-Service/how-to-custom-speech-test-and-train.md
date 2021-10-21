@@ -210,7 +210,7 @@ Here is an example of the markdown format:
 - football
 
 // This is a list of phonetic pronunciations. 
-// This adjust the pronunciation of every instance of these word in both a list or example training sentences 
+// This adjusts the pronunciation of every instance of these word in both a list or example training sentences 
 @ speech:phoneticlexicon
 - cat/k ae t
 - cat/f iy l ai n
