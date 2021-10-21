@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/15/2021
 ---
 
 # Bicep functions
@@ -40,6 +40,7 @@ The following functions are available for working with arrays. All of these func
 * [empty](./bicep-functions-array.md#empty)
 * [first](./bicep-functions-array.md#first)
 * [intersection](./bicep-functions-array.md#intersection)
+* [items](./bicep-functions-array.md#items)
 * [last](./bicep-functions-array.md#last)
 * [length](./bicep-functions-array.md#length)
 * [min](./bicep-functions-array.md#min)
@@ -161,5 +162,5 @@ Bicep provides the following functions for working with strings. All of these fu
 ## Next steps
 
 * For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
-* To iterate a specified number of times when creating a type of resource, see [Deploy multiple instances of resources in Bicep](./loop-resources.md).
+* To iterate a specified number of times when creating a type of resource, see [Iterative loops in Bicep](loops.md).
 * To see how to deploy the Bicep file you've created, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md).

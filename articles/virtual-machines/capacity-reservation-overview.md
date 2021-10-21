@@ -72,7 +72,7 @@ Both used and unused capacity reservation are eligible for Reserved Instances te
 ## Difference between On-demand Capacity Reservation and Reserved Instances 
 
 
-| | On-demand Capacity Reservation | Reserved Instances|
+| Differences | On-demand Capacity Reservation | Reserved Instances|
 |---|---|---|
 | Term | No term commitment required. Can be created and deleted as per the customer requirement | Fixed term commitment of either one-year or three-years|
 | Billing discount | Charged at pay-as-you-go rates for the underlying VM size* | Significant cost savings over pay-as-you-go rates |
