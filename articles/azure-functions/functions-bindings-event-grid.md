@@ -113,11 +113,11 @@ You can add this version of the extension from the preview extension bundle v3 b
 
 To learn more, see [Update your extensions].
 
-# [Bundle v1.x](#tab/extensionv2)
+# [Bundle v2.x](#tab/extensionv2)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
 
-# [Functions 1.x](#tab/functionsv1/csharp-script)
+# [Functions 1.x](#tab/functionsv1)
 
 Functions 1.x apps automatically have a reference to the extension.
 
