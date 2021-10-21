@@ -27,13 +27,13 @@ When creating Conditional Access policies, administrators have asked for the abi
 There are multiple scenarios that organizations can now enable using Filter for devices condition. Below are some core scenarios with examples of how to use this new condition.
 
 - Restrict access to privileged resources like Microsoft Azure Management, to privileged users, accessing from [privileged or secure admin workstations](/security/compass/privileged-access-devices). For this scenario, organizations would create two Conditional Access policies:
-   - Policy 1: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multi-factor authentication and require device to be marked as compliant.
+   - Policy 1: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
    - Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding filters for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block.
 - Block access to organization resources from devices running an unsupported Operating System version like Windows 7. For this scenario, organizations would create the following two Conditional Access policies:
    - Policy 1:  All users, accessing all cloud apps and for Access controls, Grant access, but require device to be marked as compliant or require device to be hybrid Azure AD joined.
    - Policy 2: All users, accessing all cloud apps, including filters for devices using rule expression device.operatingSystem equals Windows and device.operatingSystemVersion startsWith "6.1" and for Access controls, Block.
-- Do not require multi-factor authentication for specific accounts like service accounts when used on specific devices like Teams phones or Surface Hub devices. For this scenario, organizations would create the following two Conditional Access policies:
-   - Policy 1: All users excluding service accounts, accessing all cloud apps, and for Access controls, Grant access, but require multi-factor authentication.
+- Do not require multifactor authentication for specific accounts like service accounts when used on specific devices like Teams phones or Surface Hub devices. For this scenario, organizations would create the following two Conditional Access policies:
+   - Policy 1: All users excluding service accounts, accessing all cloud apps, and for Access controls, Grant access, but require multifactor authentication.
    - Policy 2: Select users and groups and include group that contains service accounts only, accessing all cloud apps, excluding filters for devices using rule expression device.extensionAttribute2 not equals TeamsPhoneDevice and for Access controls, Block.
 
 ## Create a Conditional Access policy
@@ -45,7 +45,7 @@ Filter for devices is an option when creating a Conditional Access policy in the
 
 The following steps will help create two Conditional Access policies to support the first scenario under [Common scenarios](#common-scenarios). 
 
-Policy 1: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multi-factor authentication and require device to be marked as compliant.
+Policy 1: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
