@@ -116,6 +116,8 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
+    - name: Migrate to Premium using Stop/Start
+      href: premium-migrate-stop-start.md
     - name: Migrate to Premium using Terraform
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
     - name: Scale Outbound SNAT Ports
