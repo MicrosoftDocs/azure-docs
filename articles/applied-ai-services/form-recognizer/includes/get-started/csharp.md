@@ -102,13 +102,11 @@ FormRecognizerClient client = new FormRecognizerClient(new Uri(endpoint), new Az
 
     :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
-### Select a code sample to copy and paste into your application's Main method:
-
-### Select a code sample to copy and paste into your application's Main method:
-
-* [**Layout**](#try-it-layout-model)
-
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)
+1. Select a code sample to copy and paste into your application's Main method:
+    
+    * [**Layout**](#try-it-layout-model)
+    
+    * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >

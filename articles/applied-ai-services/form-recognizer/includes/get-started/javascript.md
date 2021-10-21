@@ -28,7 +28,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
-* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. 
+* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE.
 
 * The latest LTS version of [Node.js](https://nodejs.org/about/releases/)
 
@@ -57,17 +57,17 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 1. Install the `ai-form-recognizer`  client library npm package:
 
-```console
-npm install @azure/ai-form-recognizer
-```
+    ```console
+    npm install @azure/ai-form-recognizer
+    ```
 
-Your app's `package.json` file will be updated with the dependencies.
+    Your app's `package.json` file will be updated with the dependencies.
 
-Create a file named `index.js`, open it, and import the following libraries:
+1. Create a file named `index.js`, open it, and import the following libraries:
 
-```javascript
-const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
-```
+    ```javascript
+    const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
+    ```
 
 1. Create variables for your resource's Azure endpoint and key:
 
@@ -76,14 +76,14 @@ const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-rec
     const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
     ```
 
-At this point, your JavaScript application should contain the following lines of code:
+1. At this point, your JavaScript application should contain the following lines of code:
 
-```javascript
-const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
+    ```javascript
+    const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
 
-const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-```
+    const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
+    const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+    ```
 
 ### Select a code sample to copy and paste into your application:
 
@@ -168,7 +168,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 >
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URI value to the `invoiceUrl` variable at the top of the file.
-> * To analyze a given file at a URI, you'll use the `beginRecognizeInvoices` method. 
+> * To analyze a given file at a URI, you'll use the `beginRecognizeInvoices` method.
 > * For simplicity, all the fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
 ### Choose a prebuilt model
