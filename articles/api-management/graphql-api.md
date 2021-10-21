@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 10/21/2021
 ms.custom:  
 ---
 
@@ -38,7 +38,12 @@ In this article, you'll:
 1. Navigate to your API Management instance.
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Define a new API**, select the **GraphQL** icon.
+
+    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Selecting GraphQL icon from list of APIs":::
+
 1. In the dialog box, select **Full** and complete the required form fields.
+
+    :::image type="content" source="media/graphql-api/create-from-graphql-schema.png" alt-text="Demonstrate fields for creating GraphQL":::
 
     | Field | Description |
     |----------------|-------|
@@ -72,9 +77,15 @@ In this article, you'll:
 1. Under **Query editor**, either:
     1. Select at least one field or subfield from the list in the side menu. The fields and subfields you select appear in the query editor.
     1. Start typing in the query editor to compose a query.
+    
+        :::image type="content" source="media/graphql-api/test-graphql-query.png" alt-text="Demonstrating adding fields to the query editor":::
+
 1. Under **Query variables**, add variables to reuse the same query or mutation and pass different values.
 1. Click **Send**.
 1. View the **Response**.
+
+    :::image type="content" source="media/graphql-api/graphql-query-response.png" alt-text="View the test query response":::
+
 1. Repeat preceding steps to test different payloads.
 1. When testing is complete, exit test console.
 

@@ -7,11 +7,11 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 10/20/2021
+ms.date: 10/21/2021
 ms.author: danlep
 ---
 
-# API Management policies to validate and authorize GraphQL requests
+# API Management policies to validate and authorize GraphQL requests (preview)
 
 This article provides a reference for API Management policies to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
