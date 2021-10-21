@@ -9,11 +9,13 @@ ms.date: 11/01/2021
 
 Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, when motion is detected) or could be from an independent source (for example, a door sensor signals that the door has been opened). A few use cases related to EVR are described in this article.
 
+The timestamps for the recordings are stored in UTC.
+
 ## Suggested pre-reading  
 
-* [Continuous video recording](continuous-video-recording.md)
 * [Pipeline concept](pipeline.md)
-
+* [Video recording concept](video-recording.md) 
+* 
 ## Overview 
 
 You can use Video Analyzer to perform EVR in two ways:
@@ -55,7 +57,10 @@ In the diagram, the RTSP source node captures the live video feed from the camer
 
 The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node, where they can be further processed by the external logic module. If the inference service is capable of detecting vehicles, for example, the logic module could look for a specific vehicle such as a truck. When the logic module detects the object of interest, it can trigger the signal gate processor node by sending an event via the IoT Edge Hub to the IoT Hub message source node in the pipeline. The output from the signal gate is shown to go to a video sink node. Each time a truck is detected, video is recorded to the cloud (appended to the video resource).
 
-An enhancement to this example is to use a motion detector processor ahead of the HTTP extension processor node. This will reduce the load on the inference service, such as during night time when there may be long periods of time when there are no vehicles on the highway. 
+An enhancement to this example is to use a motion detector processor ahead of the HTTP extension processor node. This will reduce the load on the inference service, such as during night time when there may be long periods of time when there are no vehicles on the highway.
+
+## Resiliency
+See the [note on resilient recording](continuous-video-recording.md#resilient-recording) which also applies to EVR.
 
 ## Next steps
 
