@@ -18,13 +18,13 @@ Seamlessly move your VMware-based workloads from your Data Center to Azure and i
  
 1. Q. Can I migrate my existing Citrix desktops and apps to Azure VMware Solution, or operate a hybrid environment that consists of on-premises and Azure VMware Solution-based Citrix workloads? 
 
-    A. Yes.  You can use the same machine images, application packages, and processes you currently use. You’re able to seamlessly link on-premises and Azure VMware Solution-based environments together for a migration.Point to Deployment guide  
+    A. Yes. You can use the same machine images, application packages, and processes you currently use. You’re able to seamlessly link on-premises and Azure VMware Solution-based environments together for a migration.Point to Deployment guide  
 
 1. Q. Can Citrix be deployed as a standalone environment within Azure VMware Solution? 
 
     A. Yes. You’re free to migrate, operate a hybrid environment, or deploy a standalone directly into Azure VMware Solution 
 
-1. Q.Does Azure VMware Solution support both PVS and MCS? 
+1. Q. Does Azure VMware Solution support both PVS and MCS? 
 
     A. Yes 
 
@@ -34,7 +34,7 @@ Seamlessly move your VMware-based workloads from your Data Center to Azure and i
 
 1. Q. Is Azure VMware Solution supported with on-prem Citrix deployments or LTSR?  
 
-    A: No.  Azure VMware Solution is only supported with the Citrix Virtual Apps and Desktops service offerings.  
+    A. No.  Azure VMware Solution is only supported with the Citrix Virtual Apps and Desktops service offerings.  
 
 1. Q. Who do I call for support? 
 
@@ -42,8 +42,8 @@ Seamlessly move your VMware-based workloads from your Data Center to Azure and i
 
 1. Q. Can I use my Azure Virtual Desktop benefit from Microsoft with Citrix on Azure VMware Solution?
  
-    A. No. Azure Virtual Desktop benefits are applicable to native Microsoft Azure workloads only.  Citrix Virtual Apps and Desktops service, as a native Azure offering, can apply your Azure Virtual Desktop benefit alongside your Azure VMware Solution deployment. 
+    A. No. Azure Virtual Desktop benefits are applicable to native Microsoft Azure workloads only. Citrix Virtual Apps and Desktops service, as a native Azure offering, can apply your Azure Virtual Desktop benefit alongside your Azure VMware Solution deployment. 
 
-1. Q.How do I purchase Citrix Virtual Apps and Desktops service to use Azure VMware Solution? 
+1. Q. How do I purchase Citrix Virtual Apps and Desktops service to use Azure VMware Solution? 
     
-    A.You can purchase Citrix offerings via your Citrix partner or directly from the Azure Marketplace. 
+    A. You can purchase Citrix offerings via your Citrix partner or directly from the Azure Marketplace. 
