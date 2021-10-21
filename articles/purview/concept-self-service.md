@@ -69,4 +69,4 @@ generated and the data consumer is notified that the access request was declined
 
 ## Next steps
 
--  [Enroll for the Azure Purview self-service preview](https://aka.ms/opt-in-data-use-policy) 
+-  [Enroll for the Azure Purview self-service preview](https://aka.ms/opt-in-data-use-policy)
