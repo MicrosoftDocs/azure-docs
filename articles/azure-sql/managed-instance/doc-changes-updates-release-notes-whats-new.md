@@ -58,6 +58,13 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 Learn about significant changes to the Azure SQL Managed Instance documentation.
 
+### November 2021
+
+| Changes | Details |
+| --- | --- |  
+|Endpoint policies] It's now possible to configure an endpoint policy to restrict access from a SQL Managed Instance subnet to an Azure Storage account. This grants an extra layer of protection against inadvertent or malicious data exfiltration. See [Endpoint policies](../../azure-sql/managed-instance/service-endpoint-policies-configure.md) to learn more. |
+| | | 
+
 
 ### June 2021
 
