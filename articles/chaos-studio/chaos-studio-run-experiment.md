@@ -11,7 +11,7 @@ ms.service: chaos-studio
 
 # Run and manage an experiment in Azure Chaos Studio
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. This article provides an overview of how to use a chaos experiment that you have already created.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. This article provides an overview of how to use a chaos experiment that you have previously created.
 
 ## Start an experiment
 
