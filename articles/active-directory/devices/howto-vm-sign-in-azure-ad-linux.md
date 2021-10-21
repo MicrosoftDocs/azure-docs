@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/21/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -42,9 +42,9 @@ The following Linux distributions are currently supported during the preview of 
 | --- | --- |
 | CentOS | CentOS 7, CentOS 8 |
 | Debian | Debian 9, Debian 10 |
-| openSUSE | openSUSE Leap 42.3, openSUSE Leap 15 |
-| RedHat Enterprise Linux | RHEL 7.4 to RHEL 7.10, RHEL 8.3 onwards |
-| SUSE Linux Enterprise Server | SLES 12, SLES 15 |
+| openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
+| RedHat Enterprise Linux | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
+| SUSE Linux Enterprise Server | SLES 12, SLES 15.1+ |
 | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
 
 The following Azure regions are currently supported during the preview of this feature:
