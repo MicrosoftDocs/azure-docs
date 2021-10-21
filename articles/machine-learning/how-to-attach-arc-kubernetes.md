@@ -18,7 +18,7 @@ Learn how to configure Azure Arc-enabled machine learning for training and infer
 
 Azure Arc enables you to run Azure services in any Kubernetes environment, whether it’s on-premises, multicloud, or at the edge.
 
-Azure Arc-enabled machine learning lets you to configure and use an Azure Arc-enabled Kubernetes clusters to train, inference, and manage machine learning models in Azure Machine Learning.
+Azure Arc-enabled machine learning lets you configure and use an Azure Arc-enabled Kubernetes clusters to train, inference, and manage machine learning models in Azure Machine Learning.
 
 ## Prerequisites
 
@@ -150,7 +150,7 @@ Depending your network setup, Kubernetes distribution variant, and where your Ku
 
 Using a NodePort gives you the freedom to set up your own load balancing solution, to configure environments that are not fully supported by Kubernetes, or even to expose one or more nodes' IPs directly.
 
-When you deploy with NodePort service, the scoring url (or swagger url) will be responsed with one of Node IP (e.g. ```http://<NodeIP><NodePort>/<scoring_path>```) and remain unchanged even if the Node is unavailable. But you can replace it with any other Node IP.
+When you deploy with NodePort service, the scoring url (or swagger url) will be replaced with one of Node IP (e.g. ```http://<NodeIP><NodePort>/<scoring_path>```) and remain unchanged even if the Node is unavailable. But you can replace it with any other Node IP.
 
 * **HTTPS**
 
