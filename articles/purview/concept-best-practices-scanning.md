@@ -20,7 +20,7 @@ Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data
 - Data source administrator
 - Data engineer
 
-## Why do you need to understand the best practices for registering and scanning data sources in Azure Purview?
+## Why do you need best practices to manage data sources?
 
 The best practices enable you to optimize cost, build operational excellence, improve security compliance and performance efficiency.
 The design considerations and recommendations have been organized based on the key steps involved in the scanning process.
@@ -37,7 +37,7 @@ The design considerations and recommendations have been organized based on the k
 
 - If the metadata of the same data source is consumed by multiple teams, you can register and manage the data source at a parent collection and create corresponding scans under each subcollection, so relevant assets appear under each child collection. Sources without parents are grouped in a dotted box in the map view with no arrows linking them to parents.
 
-  :::image type="content" source="media/concept-best-practices/scanning-parent-child.png" alt-text="Screenshot that shows Azure Purview with data source registered at parent collection":::
+  :::image type="content" source="media/concept-best-practices/scanning-parent-child.png" alt-text="Screenshot that shows Azure Purview with data source registered at parent collection.":::
 
 - Use **Azure Multiple** option if you need to register multiple sources (Azure subscriptions or resource groups) on Azure cloud. Refer to the below documentation for more details:
     * [Scan multiple sources in Azure Purview](./register-scan-azure-multiple-sources.md)
@@ -74,7 +74,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
         - Where necessary, create a custom rule set to exclude unwanted classification labels. For example, the system rule set contains generic government code patterns for the globe, not just the US; so, your data may match the pattern of some other type as well such as “Belgium Driver’s License Number”
         - Limit custom classification rules to most important and relevant labels, to avoid clutter(too many labels tagged to the asset)
         - Update scenario: full scan would be triggered if you modify custom classification, or scan rule set. Hence it is recommended to configure classification and scan rule set appropriately to avoid rework and costly full scans
-        - Multi-lingual data classification is not supported yet (for example, scanning email ids is different languages)
+        - Multi-lingual data classification is not supported yet
         - While creating custom classification scan, ensure that the pattern rule and threshold has been verified and configured appropriately to prevent erroneous classification
         - When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets forms a resource set. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog
         Refer to [How to create resource set pattern rules](./how-to-resource-set-pattern-rules.md) for more details. 
@@ -91,14 +91,14 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - Service Principal
             - SQL Authentication (for example, for on-prem or Azure SQL sources)
             - Account key or Basic Authentication (for example, for SAP S/4HANA sources)
-    > [!Note]
-    > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+            > [!Note]
+            > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
 
     - **Integration runtime**
         - Use Azure Auto Resolve Integration runtime, where feasible.
-        - If public endpoint is restricted for the data sources being scanned, you need to set up a Self-hosted integration runtime (SHIR) and create a credential. SHIR is a tool that is used to allow the customer to run the scan on their computer. It replaces the azure compute where the scan normally runs with the customer machine.
+        - If public endpoint is restricted for the data sources being scanned, you need to set up a Self-hosted integration runtime (SHIR) and create a credential. SHIR is a tool that is used to allow the customer to run the scan on their computer. It replaces the Azure compute where the scan normally runs with the customer machine.
         - When you use a private endpoint for ingestion, you must use a Self-Hosted Integration Runtime for scanning the data sources
-        - Ensure that [latest version](https://www.microsoft.com/en-us/download/details.aspx?id=39717) of SHIR is installed.
+        - Ensure that [latest version](https://www.microsoft.com/download/details.aspx?id=39717) of SHIR is installed.
         - If SHIR is deleted, any ongoing scans relying on it will fail.
       <!--
         - In Azure Purview there is no concept of SHIR HA or Shared SHIR.
@@ -115,7 +115,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - For Google Big query, specific list of datasets to be exported can be specified through semi-colon separated values.
             - When creating a scan for an entire AWS account, you can select specific buckets to scan. When creating a scan for a specific AWS S3 bucket, you can select specific folders to scan.
             - For Erwin, you may scope your scan by providing a semicolon separated list of Erwin model locator strings.
-            - For Cassandra, specific list of keyspaces to be exported can be specified through semi-colon separated values or through keyspaces name patterns using SQL LIKE expressions.
+            - For Cassandra, specific list of key spaces to be exported can be specified through semi-colon separated values or through key spaces name patterns using SQL LIKE expressions.
             - For Looker, you may scope your scan by providing a semicolon separated list of Looker projects.
             - For Power BI tenant, you may only specify whether to include or exclude personal workspace.
             - In general, it is recommended to use 'ignore patterns' (where supported) based on wild card (for example, for data lakes), to exclude temp, config files, RDMS system tables or backup / STG tables
