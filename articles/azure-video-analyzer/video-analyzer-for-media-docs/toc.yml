@@ -15,7 +15,7 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Create a new ARM-Based account (preview)
+  - name: Create a new ARM account (Preview)
     href: create-video-analyzer-for-media-account.md
   - name: Create a new account
     href: connect-to-azure.md
@@ -57,7 +57,7 @@
       href: customize-person-model-overview.md
 - name: How to guides
   items:
-  - name: Connect an exsiting account to ARM(preview)
+  - name: Connect an exsiting account to ARM (Preview)
     href: connect-classic-account-to-arm.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
