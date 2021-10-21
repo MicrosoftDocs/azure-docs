@@ -16,7 +16,7 @@ This article explains how EA customers and partners can view marketplace charges
 
 ## Azure Marketplace for EA customers
 
-For direct customers, Azure Marketplace charges are visible on the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Azure Marketplace purchases and consumption are billed outside of Azure Prepayment on a quarterly or monthly cadence and in arrears. see [Manage Azure Marketplace on Azure portal](direct-ea-administration.md#enable-azure-marketplace-purchases).
+For direct customers, Azure Marketplace charges are visible on the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Azure Marketplace purchases and consumption are billed outside of Azure Prepayment on a quarterly or monthly cadence and in arrears. See [Manage Azure Marketplace on Azure portal](direct-ea-administration.md#enable-azure-marketplace-purchases).
 
 Indirect customers can find their Azure Marketplace subscriptions on the **Manage Subscriptions** page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their Licensing Solutions Provider (LSP) for information on Azure Marketplace charges.
 
