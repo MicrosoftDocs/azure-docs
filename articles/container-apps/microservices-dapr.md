@@ -241,7 +241,7 @@ You can confirm the services are working correctly by viewing data in your Azure
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
 
 ```azurecli
-az group delete --resource-group $RESOURCE_GROUP --yes
+az group delete --resource-group $RESOURCE_GROUP
 ```
 
 This will delete both container apps, the storage account, the container apps environment and any other resources in the resource group.
