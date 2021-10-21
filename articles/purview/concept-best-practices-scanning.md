@@ -16,9 +16,9 @@ Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data
 ## Intended audience
 
 - Data architecture team
-- Data Curator
-- Data Source Administrator
-- Data Management and Governance Teams
+- Data curator
+- Data source administrator
+- Data engineer
 
 ## Why do you need to understand the best practices for registering and scanning data sources in Azure Purview?
 
@@ -82,7 +82,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
         > This feature has cost considerations, refer to the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/) for details
 
 3. Set up a scan for the registered data source(s)
-    - **Scan name**: By default, Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice, use a meaningful naming convention.  An instance could be naming the scan as **<ENV><SRC>-<Periodicity>-<Time>**, for example DEVODS-Daily-0200, which would represent a daily scan at 0200 hrs.
+    - **Scan name**: By default, Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice, use a meaningful naming convention.  An instance could be naming the scan as **<environment><source>-<frequency>-<time>**, for example DEVODS-Daily-0200, which would represent a daily scan at 0200 hrs.
     
     - **Authentication**
         - Azure Purview offers various authentication methods for scanning the data sources, depending on the type of sources (Azure cloud or on-prem or third-party sources). It is recommended to follow the least privilege principle for authentication method following below order of preference:
