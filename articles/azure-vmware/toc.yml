@@ -187,27 +187,27 @@
     - name: General
       href: ./faq.yml
     - name: Billing
-      href: ./faq.yml#billing
+      href: ./faq.yml
     - name: Customer communication
-      href: ./faq.yml#customer-communication
+      href: ./faq.yml
     - name: Configuration and setup
-      href: ./faq.yml#configuration-and-setup
+      href: ./faq.yml
     - name: VMware software
-      href: ./faq.yml#vmware-software
+      href: ./faq.yml
     - name: Third-party backup solutions
-      href: ./faq.yml#third-party-backup-and-recovery
+      href: ./faq.yml
     - name: Compute
-      href: ./faq.yml#compute
+      href: ./faq.yml
     - name: Networking and interconnectivity
-      href: ./faq.yml#networking-and-interconnectivity
+      href: ./faq.yml
     - name: Storage
-      href: ./faq.yml#storage
+      href: ./faq.yml
     - name: Hosts, clusters, and private clouds
-      href: ./faq.yml#hosts,-clusters,-and-private-clouds
+      href: ./faq.yml
     - name: Identity management
-      href: ./faq.yml#identity-management
+      href: ./faq.yml
     - name: CSP and multi-tenancy
-      href: ./faq.yml#csp-and-multi-tenancy
+      href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist
