@@ -1,7 +1,7 @@
 ---
 title: Multi-user authorization using Resource Guard
-description: An overview of Multi-user authorization using Resource Guard .
-ms.topic: How-to
+description: An overview of Multi-user authorization using Resource Guard.
+ms.topic: how-to
 ms.date: 10/20/2021
 ---
 # Multi-user authorization using Resource Guard (Preview)
@@ -101,7 +101,7 @@ The **Security admin** creates the Resource Guard. It is recommended that you cr
    
     :::image type="content" source="./media/backup-multiple-user-authentication/portal-settings-directories-subscriptions.png" alt-text="Portal settings.":::
      
-   1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop down.
+   1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop-down.
     
     :::image type="content" source="./media/backup-multiple-user-authentication/resource-guards-preview.png" alt-text="Resource guards preview.":::
    
@@ -223,7 +223,7 @@ Using PIM, the Security admin can create an eligible assignment for the Backup a
 
 ## Setting up approvers for activating Contributor role
 
-By default, the setup above may not have an approvers (and an approval flow requirement) configured in PIM. To ensure that approvers are required for allowing only authorized requests to go through, the security admin must perform the following steps. 
+By default, the setup above may not have an approver (and an approval flow requirement) configured in PIM. To ensure that approvers are required for allowing only authorized requests to go through, the security admin must perform the following steps. 
 Note if this is not configured, any requests will be automatically approved without going through the security admins or a designated approver’s review. More details on this can be found [here](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
 
 1. In Azure AD PIM, select **Azure Resources** on the left navigation bar and select your Resource Guard.
