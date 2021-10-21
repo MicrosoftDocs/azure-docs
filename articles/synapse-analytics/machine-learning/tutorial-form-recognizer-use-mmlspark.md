@@ -87,7 +87,7 @@ display(analyzeLayout
 
 ### Expected results
 
-![expected_results_for_layout1](./media/tutorial-form-recognizer/layout1_output.png)
+![Screenshot of the expected results from analyzing the example purchase order.](./media/tutorial-form-recognizer/layout1_output.png)
 
 ## Analyze Receipts
 
