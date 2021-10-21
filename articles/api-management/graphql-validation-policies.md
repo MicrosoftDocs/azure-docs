@@ -1,6 +1,6 @@
 ---
-title: Azure API Management validation policies for GraphQL requests | Microsoft Docs
-description: Learn about policies you can use in Azure API Management to validate and authorize GraphQL requests.
+title: Azure API Management validation policy for GraphQL requests | Microsoft Docs
+description: Learn about a new policy you can use in Azure API Management to validate and authorize GraphQL requests.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -11,13 +11,13 @@ ms.date: 10/21/2021
 ms.author: danlep
 ---
 
-# API Management policies to validate and authorize GraphQL requests (preview)
+# API Management policy to validate and authorize GraphQL requests (preview)
 
-This article provides a reference for API Management policies to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
+This article provides a reference for a new API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
 For more information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
-## Validation policies
+## Validation policy
 
 | Policy | Description |
 | ------ | ----------- |
@@ -40,14 +40,13 @@ Because GraphQL queries use a flattened schema:
     * Interfaces
     * The schema element   
 
-
-**Authorization sub-policies**  
-You can use multiple authorization sub-policies. The most specific path is used to select the appropriate authorization rule for each leaf node in the query. 
+**Authorization elements**  
+You can use multiple authorization elements. The most specific path is used to select the appropriate authorization rule for each leaf node in the query. 
 * Each authorization can optionally provide a different action.
 * `if` clauses allow the admin to specify conditional actions. 
 
-**Introspection policy**   
-The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) policy. You can use it to reject introspection requests (`__schema`, `__type`, etc.).   
+**Introspection system**   
+The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) system. You can use it to reject introspection requests (`__schema`, `__type`, etc.).   
 
 ### Policy statement
 
@@ -62,7 +61,7 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 
 In the following example, we validate a GraphQL query and reject:
 * Requests larger than 100 kb or with query depth greater than 4. 
-* Access to the introspection path and the `list Users` query. 
+* Access to the introspection system and the `list Users` query. 
 
 ```xml
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
