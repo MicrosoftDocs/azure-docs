@@ -700,6 +700,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-javascript-react-docs",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-react-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-quickstart-code",
       "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master",
