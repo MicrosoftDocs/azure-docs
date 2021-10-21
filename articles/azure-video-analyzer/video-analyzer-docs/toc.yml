@@ -127,7 +127,7 @@
     items:     
     - name: Recorded video
       href: playback-recordings-how-to.md
-    - name: Use access policies for playback
+    - name: Create access policies for playback
       href: access-policies.md      
     - name: Enable video preview images
       href: edge/enable-video-preview-images.md
@@ -177,8 +177,6 @@
       href: embed-player-in-power-bi.md
 - name: Reference 
   items:
-  - name: Access policies
-    href: access-policies.md
   - name: Developer SDKs
     href: sdk.md
   - name: REST APIs
