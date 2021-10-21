@@ -21,18 +21,18 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-and-conditional-patch)
 
 * Conditional patch - [#2163](https://github.com/microsoft/fhir-server/pull/2163)
-* Add constional patch audit event - [#2213](https://github.com/microsoft/fhir-server/pull/2163)
+* Add conditional patch audit event - [#2213](https://github.com/microsoft/fhir-server/pull/2163)
 
 Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-in-bundles)
 
 * Allow search history bundles with patch requests - [#2156](https://github.com/microsoft/fhir-server/pull/2156)
-* Enable JSON patch in bundles leveraging Binary resources - [#2143](https://github.com/microsoft/fhir-server/pull/2143)
+* Enable JSON patch in bundles using Binary resources - [#2143](https://github.com/microsoft/fhir-server/pull/2143)
 
-Added new audit [OperationName sub-types](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
+Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
 
-[Reindex](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex) improvements
+[Reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex) improvements
 
-* Added [boundaries for reindex](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters - [#2103](https://github.com/microsoft/fhir-server/pull/2103)
+* Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters - [#2103](https://github.com/microsoft/fhir-server/pull/2103)
 * Update error message for reindex parameter boundaries - [#2109](https://github.com/microsoft/fhir-server/pull/2109)
 * Adds final reindex count check - [#2099](https://github.com/microsoft/fhir-server/pull/2099)
 

@@ -26,7 +26,7 @@ items:
       displayName: Resource Manager
       href: azure-api-fhir-resource-manager-template.md
   - name: Deploy Azure IoT Connector for FHIR (preview)
-    expanded: true
+    expanded: false
     items:
     - name: Using Portal
       href: iot-fhir-portal-quickstart.md
