@@ -62,9 +62,11 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
     ![Add role assignment button](images/add-role-assignment.png)
 
 4. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
- ![Add role to VM ](images/quickstart-virtual-machine-contributor.PNG)
+
+![Add role assignment button](images/quickstart-virtual-machine-contributor.PNG)
 5. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
  ![select the experiment](images/quickstart-select-experiment-role-assignment.PNG)
+ 
 6. Click **Review + assign** then **Review + assign.**
 
 
@@ -84,20 +86,20 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 
 ## Clean up resources
-1. Delete the experiment created. Click on **Delete**.
+
+1. Check the box next to the experiment name and click **Delete**.
 
 ![Select the experiment to be deleted](images/quickstart-delete-experiment.PNG)
 
-2. Search the VM that you created on the Azure portal serach bar.
+2. Click **Yes** to confirm you want to delete the experiment.
+
+3. Search the VM that you created on the Azure portal search bar.
 
 ![Select the VM](images/quickstart-cleanup.PNG)
 
-3. Click on **Delete** to avoid being charged for the resource.
+4. Click on **Delete** to avoid being charged for the resource.
 
-![Select the VM](images/quickstart-cleanup-virtual-machine.PNG)
-
-
-
+![delete the VM](images/quickstart-cleanup-virtual-machine.PNG)
 
 
 ## Next steps
