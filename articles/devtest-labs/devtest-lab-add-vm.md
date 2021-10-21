@@ -94,6 +94,8 @@ You can also add artifacts after the VM has been created.
 
 1. From here, the steps are basically the same as from [Add artifacts during installation](#add-artifacts-during-installation), above.
 
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Next steps
 
 * Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's pane.
