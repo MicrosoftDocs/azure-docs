@@ -163,13 +163,13 @@ Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure M
 
 The new Azure Synapse integration provides extra analytic horsepower, which:
 
-- Leverages security big data analytics, using cost-optimized, a fully-managed Synapse Apache Spark compute pool
+- **Security big data analytics**, using cost-optimized, fully-managed Azure Synapse Apache Spark compute pool.
 
-- Enables cost-effective Data Lake access to build analytics on historical data
+- **Cost-effective Data Lake access** to build analytics on historical data via Azure Data Lake Storage Gen2, which is a set of capabilities dedicated to big data analytics, built on top of Azure Blob Storage.
 
-- Provides flexibility to integrate data sources into security operation workflows from multiple sources and formats
+- **Flexibility to integrate data sources** into security operation workflows from multiple sources and formats.
 
-- Leverages PySpark, a Python-based API for utilizing the Spark framework in combination with Python. This advantage is helpful when you'are already familiar with Python.
+- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
 
 To support this integration, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
 
