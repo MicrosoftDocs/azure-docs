@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
 * Download this sample data
 
-## Create Custom NER project through Language studio
+## Create a custom NER project through Language studio
 
 1. Login through the [Language studio portal](https://language.azure.com/) and select **Custom entity extraction**.
 

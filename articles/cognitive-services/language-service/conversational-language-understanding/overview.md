@@ -12,27 +12,18 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# What is Conversational Language Understanding (preview)?
+# What is Conversational language understanding (preview)?
 
-Conversational Language Understanding is a cloud-based service that enables you to train conversational language models using state-of-the-art technology. 
+Conversational language understanding is a cloud-based service that enables you to train conversational language models using state-of-the-art technology. 
 
 The API is a part of [Azure Cognitive Services](../../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API, or the client libraries.
 
 ## Features
 
-Conversational Language Understanding applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
+Conversational language understanding applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
 * Advanced natural language understanding technology using advanced neural networks.
 * Robust and semantically aware classification and extraction models.
 * Simplified model building experience, using Language Studio.
 * Natively multilingual models that let you to train in one language, and test in others.
 * Orchestration project types that allow you to connect services including other Conversational Language Understanding projects, custom question answering knowledge bases, and LUIS applications.
-
-## Responsible AI 
-
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
-
-* [Transparency note for Language services](../overview.md)
-* [Transparency note for Conversational Language Understanding](../overview.md)
-* [Integration and responsible use](../overview.md)
-* [Data, privacy and security](../overview.md)
