@@ -45,16 +45,16 @@ Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safa
 
 If you're using Safari on macOS, your app won't be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
-#### Device will get muted and incoming video will stop rendering when an interruption occures that takes over device access.
-This problem may occur primarly from another application or OS taking over the control of microphone or camera, some examples can be seen bellow:
+#### Device will get muted and incoming video will stop rendering when an interruption occurs that takes over device access.
+This problem may occur primarily from another application or OS taking over the control of microphone or camera, some examples can be seen bellow:
 
 - User while is in the call, an incoming PSTN call arrives and captures the microphone device access.
-- User while is in the call, will navigate to another native application that will capture access to the microphone or camera, for example play a Youtube video or start a Facetime call.
+- User while is in the call, will navigate to another native application that will capture access to the microphone or camera, for example play a YouTube video or start a FaceTime call.
 - User while is in the call, will enable Siri which will capture access to the microphone again.
 
 To recover from all these cases user will have to go back to the application to unmute and start video in order to have the audio and video start flowing after the interruption.
 
-In some occations the devices (Microphone or camera) won't be released on time and that can cause issues with the original call, for example if user tries to unmute while watching a Youtube video or a PSTN call is active simultaniously. 
+In some occasions the devices (Microphone or camera) won't be released on time and that can cause issues with the original call, for example if user tries to unmute while watching a YouTube video or a PSTN call is active simultaneously. 
 
 <br/>Client library: Calling (JavaScript)
 <br/>Browsers: Safari
@@ -119,8 +119,8 @@ During an ongoing group call, _User A_ sends video and then _User B_ joins the c
 #### Using 3rd party libraries to access GUM during the call may result in audio loss
 Using getUserMedia separately inside the application will result in losing audio stream since a third party library takes over device access from ACS library.
 Developers are encouraged to do the following:
-1. Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
-2. If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
+- Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
+- If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
 
 <br/>Browsers: Safari
 <br/>Operating System: iOS
@@ -129,7 +129,7 @@ Developers are encouraged to do the following:
 In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  
 
 #### Support for Simulcast
-Simulcast is a technique by which a client encodes the same video stream twice in different resolutions and bitrates and letting the ACS intrastrucutre decide which stream a client should receive. The ACS calling library SDK for Windows, Android, or iOS support sending simulcast streams. The ACS Web SDK does not currently support sending simulcast streams out.
+Simulcast is a technique by which a client encodes the same video stream twice in different resolutions and bitrates and letting the ACS infrastructure decide which stream a client should receive. The ACS calling library SDK for Windows, Android, or iOS support sending simulcast streams. The ACS Web SDK does not currently support sending simulcast streams out.
 
 ## Azure Communication Services Call Automation APIs
 
