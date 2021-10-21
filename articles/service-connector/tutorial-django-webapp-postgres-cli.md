@@ -352,7 +352,6 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     az webapp ssh
     ```
 
-    If you cannot connect to the SSH session, then the app itself has failed to start. [Check the diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
 
 1. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
@@ -380,7 +379,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
     az webapp browse
     ```
 
-    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step, [Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database), or that those value contain errors. Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs](#6-stream-diagnostic-logs) to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
+    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step, [Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database), or that those value contain errors. Run the command `az webapp config appsettings list` to check the settings.
 
     After updating the settings to correct any errors, give the app a minute to restart, then refresh the browser.
 
