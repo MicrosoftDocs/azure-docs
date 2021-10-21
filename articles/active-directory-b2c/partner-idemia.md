@@ -17,18 +17,16 @@ zone_pivot_groups: b2c-policy-type
 # Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+::: zone pivot="b2c-user-flow"
 
-
-
+This feature is available only for custom policies. For setup steps, select **Custom policy** in the preceding selector.
 ::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [IDEMIA](https://www.idemia.com/). IDEMIA is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like face ID and fingerprinting eliminating fraud and credential reuse. IDEMIA’s Mobile ID allows citizens to benefit from a government-issued trusted digital ID, as a complement to their physical ID. This application is used to verify identity by using a self-selected PIN or touch ID/face ID. Mobile ID allows citizens to control their identities by allowing them to share only the information needed for a transaction and enables fraud protection.
 
-::: zone pivot="b2c-user-flow"
-This feature is available only for custom policies. For setup steps, select Custom policy in the preceding selector.
 
-::: zone-end
 
 ## Scenario description
 
@@ -62,7 +60,6 @@ The following diagram shows the implementation for web or on-premises scenarios:
 | 6. | IDEMIA router verifies the information provided by the user and replies to Azure AD B2C with the authentication result.|
 |7. | Based on the authentication result user is granted/denied access. |
 
-::: zone pivot="b2c-custom-policy"
 ## Onboard with IDEMIA
 
 Get in touch with [IDEMIA](https://www.idemia.com/get-touch/) to request a demo. While filling out the request form, in the message field indicate that you want to onboard with Azure AD B2C.
@@ -174,7 +171,6 @@ You can define IDEMIA as a claims provider by adding it to the **ClaimsProvider*
           </OutputClaimsTransformations>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
         </TechnicalProfile>
-        <!-- End IDEMIA -->
            
 ```
 
