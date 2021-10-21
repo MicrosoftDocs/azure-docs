@@ -38,7 +38,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
    - If you select ultra disks, use an Ultra Performance ExpressRoute virtual network gateway for the disk pool network connection to your Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
-   - If you select premium SSDs, use a Standard (1 Gbps) or High Performance (2 Gbps) ExpressRoute virtual network gateway for the disk pool network connection to your Azure VMware Solution private cloud.  
+   - If you select premium SSDs or standard SSDs, use a Standard (1 Gbps) or High Performance (2 Gbps) ExpressRoute virtual network gateway for the disk pool network connection to your Azure VMware Solution private cloud.  
 
 - You must use Standard\_DS##\_v3 to host iSCSI.  If you encounter quota issues, request an increase in [vCPU quota limits](../azure-portal/supportability/per-vm-quota-requests.md) per Azure VM series for Dsv3 series.
 
