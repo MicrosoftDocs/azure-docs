@@ -1,9 +1,7 @@
 ---
 title: Azure Active Directory integration with F5 BIG-IP for forms based authentication Single Sign-on 
 description: Learn how to integrate F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory for secure hybrid access to forms-based applications.
-services: active-directory
 author: gargi-sinha
-manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -25,7 +23,7 @@ Integrating BIG-IP published applications with Azure AD provides many benefits, 
 
 - Manage Identities and access from a single control plane - The [Azure portal](https://portal.azure.com)
 
-To learn about all of the benefits see the article on [F5 BIG-IP and Azure AD integration.](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all of the benefits see the article on [F5 BIG-IP and Azure AD integration.](f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](../active-directory-appssoaccess-whatis.md).
 
 ## Scenario description
 
@@ -67,31 +65,29 @@ Prior BIG-IP experience is not necessary, but you'll need:
 
 - An Azure AD free subscription or above
 
-- An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in
-  Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+- An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](f5-bigip-deployment-guide.md)
 
 - Any of the following F5 BIG-IP license SKUs
 
-  - F5 BIG-IP® Best bundle
+  - F5 BIG-IP&reg; Best bundle
 
-  - F5 BIG-IP Access Policy Manager™ (APM) standalone license
+  - F5 BIG-IP Access Policy Manager&trade; (APM) standalone license
 
-  - F5 BIG-IP Access Policy Manager™ (APM) add-on license on
-  existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  - F5 BIG-IP Access Policy Manager&trade; (APM) add-on license on
+  existing BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
 
   - 90-day BIG-IP full feature [trial
   license](https://www.f5.com/trial/big-ip-trial.php)
 
 - User identities
-    [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
+    [synchronized](../hybrid/how-to-connect-sync-whatis.md)
     from an on-premises directory to Azure AD
 
-- An account with Azure AD application admin
-    [permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+- An account with Azure AD application admin [permissions](../roles/permissions-reference.md#application-administrator)
 
-- [SSL certificate](https://docs.microsoft.com/zure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS or use default certs while testing
+- [SSL certificate](f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default certs while testing
 
-- An existing forms-based authentication application or [setup an IIS FBA app](https://docs.microsoft.com/troubleshoot/aspnet/forms-based-authentication) for testing
+- An existing forms-based authentication application or [setup an IIS FBA app](/troubleshoot/aspnet/forms-based-authentication) for testing
 
 ## Deployment modes
 
@@ -106,7 +102,7 @@ flexible approach at implementing secure hybrid access by manually creating all 
 
 ## Adding F5 BIG-IP from the Azure AD gallery
 
-Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing secure hybrid access. It establishes the integration required for BIG-IP to hand off pre-authentication and [CA](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing secure hybrid access. It establishes the integration required for BIG-IP to hand off pre-authentication and [CA](../conditional-access/overview.md)
 to Azure AD, before granting access to the published service.
 
 1. Sign-in to the **Azure portal** using an account with application administrative rights
@@ -150,7 +146,7 @@ to Azure AD, before granting access to the published service.
    ![Screenshot of federation metadata download link](./media/f5-big-ip-forms-advanced/saml-certificate.png)
 
    SAML signing certificates created by Azure AD have a lifespan of 3 years and should be managed using the published
-   [guidance](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
+   [guidance](manage-certificates-for-federated-single-sign-on.md).
 
 ### Azure AD authorization
 
@@ -386,7 +382,7 @@ If making a change to the app is a no go then consider having the BIG-IP listen 
 
 Your application should now be published and accessible via secure hybrid access, either directly via its URL or through Microsoft's application portals.
 
-The application should also be visible as a target resource in Azure AD CA. See the [guidance](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) for building CA policies.
+The application should also be visible as a target resource in Azure AD CA. See the [guidance](../conditional-access/concept-conditional-access-policies.md) for building CA policies.
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 

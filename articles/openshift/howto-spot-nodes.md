@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Use Azure Spot Virtual Machines in an Azure Red Hat OpenShift (ARO) cluster**
+# Use Azure Spot Virtual Machines in an Azure Red Hat OpenShift (ARO) cluster
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use Azure Spot Virtual Machines.
 
