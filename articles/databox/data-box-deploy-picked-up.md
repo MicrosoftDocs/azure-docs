@@ -136,25 +136,3 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
-<!--## [Korea](#tab/in-korea) 
-
-1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box. 
-3. Power off the device and remove the cables.
-4. Spool and securely place the power cord that was provided with the device in the back of the device. 
-
-Request pickup  
-If consignment note is present:  
-
-1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote Microsoft Azure pickup and the service request number to arrange for a collection.
-2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject Microsoft Azure Pickup and the service request number as reference.  
-3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements.  
-4. You will receive an email confirmation for the pickup schedule.  
-
-Exception process
-If the consignment note is not present:
-1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote Microsoft Azure pickup and the service request number. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number).
-2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject Microsoft Azure Pickup and the service request number as reference.
-3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements.
-4. You get a verbal confirmation if request is made via telephone. 
--->
