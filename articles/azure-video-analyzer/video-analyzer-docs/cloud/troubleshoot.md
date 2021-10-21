@@ -5,7 +5,7 @@ ms.topic: troubleshooting
 ms.date: 10/21/2021
 ---
 
-# Troubleshoot Azure Video Analyzer
+# Troubleshoot Azure Video Analyzer service
 
 This article covers troubleshooting steps for common error scenarios you might see whie using the service.
 
@@ -43,11 +43,11 @@ Some of the common errors that you'll encounter with the Video Analyzer service 
 
 ### Unable to play video after activating live pipeline
 
-- If you are using the Video Analyzer widget to play the video, try using the Azure portal if you have access to it. If the video plays in the Azure portal, but not in the widget, then you should proceed to check the widget section [below](#Playback-error-with-the-widget)
+- If you are using the Video Analyzer widget to play the video, try using the Azure portal if you have access to it. If the video plays in the Azure portal, but not in the widget, then you should proceed to check the widget section [below](#playback-error-with-the-widget)
 
 - If the video is not playing back in the Azure portal, check if the Video Analyzer service is receiving video data from the RTSP camera. Select the "Ingress Bytes" metric by navigating to Monitoring->Metrics section of the portal. If the aggregation is increasing, then the connection between the RTSP camera and the service is healthy, Ingress Bytes sum would be available below the graph. 
 
-- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#Viewing-diagnostics).
+- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#viewing-diagnostics).
 Please open a support ticket using the Azure portal with the relevant details, logs if issue is not resolved.
 
 ### Diagnostic logs have a ProtocolError with code 401
