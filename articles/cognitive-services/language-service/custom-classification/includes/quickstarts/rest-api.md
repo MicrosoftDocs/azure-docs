@@ -244,7 +244,7 @@ Once you send the request, you will get the following response.
 
 ## Deploy your model
 
-Create a **PUT** request using the following URL, headers, and JSON body to start deploting a text classification model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying a text classification model.
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}

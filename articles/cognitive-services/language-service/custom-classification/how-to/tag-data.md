@@ -34,7 +34,7 @@ As you tag your data, keep in mind:
 
 * In general, more tagged data leads to better results, provided the data is tagged accurately.
 
-* Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
+* Although we recommended having around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
 
 Use the following steps to tag your data
 
@@ -64,7 +64,7 @@ Use the following steps to tag your data
 
       :::image type="content" source="../media/tag-multi.png" alt-text="A screenshot showing the multiple label classification menu" lightbox="../media/tag-multi.png":::
 
-While tagging, your changes will be synced peridodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on Save tags button at the top of the page.
+While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on Save tags button at the top of the page.
 
 ## Remove tags
 
