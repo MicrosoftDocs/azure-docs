@@ -37,6 +37,12 @@ To check the rehydration priority while the rehydration operation is underway, c
 
 Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. A high-priority rehydration may take longer than one hour, depending on blob size and current demand. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
 
+While a standard-priority rehydration operation is pending, you can update the rehydration priority setting for a blob to High to rehydrate that blob more quickly. For example, if you are rehydrating a large number of blobs in bulk, you can specify Standard priority for all blobs for the initial operation, then increase the priority to High for any individual blobs that need to be brought online more quickly.
+
+The rehydration priority setting cannot be lowered from High to Standard for a pending operation. Keep in mind that updating the rehydration priority setting may have a billing impact.
+
+To learn how to set and update the rehydration priority setting, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
+
 For more information on pricing differences between standard-priority and high-priority rehydration requests, see [Pricing for Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Copy an archived blob to an online tier

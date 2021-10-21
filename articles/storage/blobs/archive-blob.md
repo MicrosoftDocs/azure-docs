@@ -46,9 +46,17 @@ Set-AzStorageBlobContent -Container $containerName `
     -StandardBlobTier Archive
 ```
 
-### [Azure CLI](#tab/azure-cli) 
+### [Azure CLI](#tab/azure-cli)
 
-
+```azurecli
+az storage blob upload \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --name <blob> \
+    --file <file> \
+    --tier archive \
+    --auth-mode login
+```
 
 ---
 

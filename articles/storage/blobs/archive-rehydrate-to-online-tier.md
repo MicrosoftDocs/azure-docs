@@ -188,13 +188,19 @@ az storage blob show \
 
 ## Change the rehydration priority of a pending operation
 
-While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob to High to raise the rehydration priority of that blob, so that it is likely to rehydrate more quickly.
-
-The rehydration priority setting cannot be lowered from High to Standard for a pending operation.
+While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from Standard to High to rehydrate that blob more quickly. Note that the rehydration priority setting cannot be lowered from High to Standard for a pending operation.
 
 ### [Azure portal](#tab/portal)
 
-N/A
+To change the rehydration priority for a pending operation with the Azure portal, follow these steps:
+
+1. Navigate to the blob for which you want to change the rehydration priority, and select the blob.
+1. Select the **Change tier** button to open the **Change tier** dialog.
+1. Set the access tier to the target online access tier for the rehydrating blob. The **Archive status** field shows the target online tier.
+1. In the **Rehydrate priority** dropdown, set the priority to *High*.
+1. Select **Save**.
+
+    :::image type="content" source="media/archive-rehydrate-to-online-tier/update-rehydration-priority-portal.png" alt-text="Screenshot showing how to update the rehydration priority for a rehydrating blob in Azure portal":::
 
 ### [PowerShell](#tab/powershell)
 
