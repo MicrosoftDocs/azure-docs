@@ -9,4 +9,4 @@ ms.date: 09/15/2021
 ---
 
 > [!NOTE]
-> Custom question answering is now generally available. For the latest features and capabilities check out [custom question answering enabled resources](../../language-service/custom-question-answering/overview.md). QnA Maker resources are no longer recommended for new projects, instead use custom question answering. For information on migrating your existing QnA Maker resources consult the migration guide.
+> A newer version of question and answering capability is now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/custom-question-answering/overview.md). For information on migrating consult the migration guide.
