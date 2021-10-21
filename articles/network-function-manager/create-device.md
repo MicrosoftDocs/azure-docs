@@ -1,30 +1,23 @@
 ---
-title: 'Tutorial: Create a device resource for Azure Network Function Manager'
-description: In this tutorial, learn about how to create a device resource for Azure Network Function Manager.
+title: 'Quickstart: Create a device resource for Azure Network Function Manager'
+description: In this quickstart, learn about how to create a device resource for Azure Network Function Manager.
 author: prmitt
 
 ms.service: network-function-manager
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: prmitt
 
 ---
-# Tutorial: Create a Network Function Manager Device resource
+# Quickstart: Create a Network Function Manager device resource
 
-In this tutorial, you create a **Device** resource for Azure Network Function Manager (NFM). The Network Function Manager device resource is linked to the Azure Stack Edge resource. The device resource aggregates all the network functions deployed on Azure Stack Edge device and provides common services for deployment, monitoring, troubleshooting, and consistent management operations for all network functions deployed on Azure Stack Edge. You are required to create the Network Function Manager device resource before you can deploy network functions to Azure Stack Edge device.
-
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Verify the  prerequisites
-> * Create a device resource
-> * Obtain a registration key
-> * Register the device
+In this quickstart, you create a **Device** resource for Azure Network Function Manager (NFM). The Network Function Manager device resource is linked to the Azure Stack Edge resource. The device resource aggregates all the network functions deployed on Azure Stack Edge device and provides common services for deployment, monitoring, troubleshooting, and consistent management operations for all network functions deployed on Azure Stack Edge. You are required to create the Network Function Manager device resource before you can deploy network functions to Azure Stack Edge device.
 
 ## <a name="pre"></a>Prerequisites
 
 Verify the following prerequisites:
 
+* Verify that you have an Azure account with an active subscription. If you need an account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * You have met all the prerequisites listed in the [Prerequisites and requirements](requirements.md) article.
 * You have the proper permissions assigned. For more information, see [Resource Provider registration and permissions](resources-permissions.md).
 * Review the [Region Availability](overview.md#regions) section before creating a Device resource.
