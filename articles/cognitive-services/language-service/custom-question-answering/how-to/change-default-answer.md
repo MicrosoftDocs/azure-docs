@@ -35,7 +35,7 @@ When you create a new knowledge base, the default answer text is one of the sett
 
 The knowledge base default answer is returned when no answer is returned from question answering.
 
-1. Sign in to the [Language Studio](https://aka.ms/languageStudio) and select your project from the list.
+1. Sign in to the [Language Studio](https://language.azure.com) and select your project from the list.
 1. Select **Settings** from the left navigation bar.
 1. Change the value of **Default answer when no answer found** > Select **Save**.
 

@@ -34,7 +34,7 @@ Typically there are three parameters you need to consider:
 
 * **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/pricing/details/search/) for your scenario. Typically, you decide the number of knowledge bases you need based on number of different subject domains. One subject domain (for a single language) should be in one knowledge base.
 
-    With custom question answering, you have a choice to set up your language resource in a single language or multiple languages. You can make this selection when you create your first project in the [Language Studio](https://aka.ms/languageStudio).
+    With custom question answering, you have a choice to set up your language resource in a single language or multiple languages. You can make this selection when you create your first project in the [Language Studio](https://language.azure.com/).
 
     > [!IMPORTANT]
     > You can publish N-1 knowledge bases of a single language or N/2 knowledge bases of different languages in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
