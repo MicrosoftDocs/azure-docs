@@ -1,8 +1,8 @@
 ---
-title: Deploy to an IoT Edge for Linux on Windows - Azure
+title: Deploy to a Windows device with EFLOW 
 description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device.
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 10/21/2021
 
 ---
 
@@ -10,7 +10,7 @@ ms.date: 08/25/2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](../pipeline.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](../pipeline.md) that detects motion in a video and emits such events to the IoT Hub. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 
@@ -41,7 +41,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
     
     `sudo iptables -I INPUT -p udp -j ACCEPT`
 
-    The Azure Video Analyzer needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    Video Analyzer needs certain local folders for storing application configuration data. For this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to the Video Analyzer module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
 
     The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
 
@@ -52,7 +52,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
     
-1. Now that you have the edge device set up, registered to the hub, and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the AVA module. The following deployment template will take care of the resource creation:
+1. Now that you have the edge device set up, registered to the hub, and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the Video Analyzer module. The following deployment template will take care of the resource creation:
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
     
