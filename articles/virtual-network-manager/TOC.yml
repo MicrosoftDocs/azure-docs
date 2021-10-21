@@ -63,6 +63,8 @@
     href: common-issues.md
 - name: Reference
   items:
+  - name: REST
+    href: /rest/api/networkmanager/
   - name: .NET SDK
     href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
 - name: Resources
