@@ -1,7 +1,7 @@
 ---
 title: Create a trust relationship between an app and an external identity provider
 titleSuffix: Microsoft identity platform
-description: Set up a trust relationship between an app in Azure AD and a GitHub repo.  This allows a GitHub Actions workflow to access Azure or Microsoft Graph resources without using secrets or certificates. 
+description: Set up a trust relationship between an app in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,7 +14,7 @@ ms.date: 10/18/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: keyam, udayh, vakarand
-#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure resources without managing secrets.
+#Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
 # Configure an app to trust an external identity provider (preview)
