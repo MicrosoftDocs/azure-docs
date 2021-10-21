@@ -19,27 +19,27 @@ The HTTP status code 403 represents the request is forbidden to complete.
 
 Data plane requests can come to Cosmos DB via the following 3 paths.
 
-1. Public internet (IPv4)
-1. Service endpoint
-1. Private endpoint
+- Public internet (IPv4)
+- Service endpoint
+- Private endpoint
 
 When a data plane request is blocked with 403 Forbidden, the error message will specify via which of the above 3 paths the request came to Cosmos DB.
 
-1. `Request originated from client IP {...} through public internet.`
-2. `Request originated from client VNET through service endpoint.`
-3. `Request originated from client VNET through private endpoint.`
+- `Request originated from client IP {...} through public internet.`
+- `Request originated from client VNET through service endpoint.`
+- `Request originated from client VNET through private endpoint.`
 
 ### Solution
 
-1. Understand via which path is the request **expected** to come to Cosmos DB.
-1. If the error message shows that the request did not come to Cosmos DB via the expected path, the issue is likely to be with client-side setup. Please double check your client-side setup following documentations.
-   1. Public internet: [Configure IP firewall in Azure Cosmos DB](../how-to-configure-firewall.md).
-   1. Service endpoint: [Configure access to Azure Cosmos DB from virtual networks (VNet)](../how-to-configure-vnet-service-endpoint.md). For example, if you expect to use service endpoint but request came to Cosmos DB via public internet, maybe the subnet that the client was running in did not enable service endpoint to Cosmos DB.
-   1. Private endpoint: [Configure Azure Private Link for an Azure Cosmos account](../how-to-configure-private-endpoints.md). For example, if you expect to use private endpoint but request came to Cosmos DB via public internet, maybe the DNS on the VM was not configured to resolve account endpoint to the private IP, so it went through account's public IP instead.
-1. If the request came to Cosmos DB via the expected path, request was blocked because the source network identity was not configured to be allowed for the account. Check account's settings depending on the path the request came to Cosmos DB.
-   1. Public internet: check account's [public network access](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) and IP range filter configurations.
-   1. Service endpoint: check account's [public network access](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) and VNET filter configurations.
-   1. Private endpoint: check account's private endpoint configuration and client's private DNS configuration. This could be due to accessing account from a private endpoint that is set up for a different account.
+Understand via which path is the request **expected** to come to Cosmos DB.
+   - If the error message shows that the request did not come to Cosmos DB via the expected path, the issue is likely to be with client-side setup. Please double check your client-side setup following documentations.
+      - Public internet: [Configure IP firewall in Azure Cosmos DB](../how-to-configure-firewall.md).
+      - Service endpoint: [Configure access to Azure Cosmos DB from virtual networks (VNet)](../how-to-configure-vnet-service-endpoint.md). For example, if you expect to use service endpoint but request came to Cosmos DB via public internet, maybe the subnet that the client was running in did not enable service endpoint to Cosmos DB.
+      - Private endpoint: [Configure Azure Private Link for an Azure Cosmos account](../how-to-configure-private-endpoints.md). For example, if you expect to use private endpoint but request came to Cosmos DB via public internet, maybe the DNS on the VM was not configured to resolve account endpoint to the private IP, so it went through account's public IP instead.
+   - If the request came to Cosmos DB via the expected path, request was blocked because the source network identity was not configured to be allowed for the account. Check account's settings depending on the path the request came to Cosmos DB.
+      - Public internet: check account's [public network access](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) and IP range filter configurations.
+      - Service endpoint: check account's [public network access](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) and VNET filter configurations.
+      - Private endpoint: check account's private endpoint configuration and client's private DNS configuration. This could be due to accessing account from a private endpoint that is set up for a different account.
 
 If you recently updated account's firewall configurations, keep in mind that changes can take **up to 15 minutes to apply**.
 
