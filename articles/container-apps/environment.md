@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps environments
+title: Azure Container Apps environments Preview
 description: Learn how environments are managed in Azure Container Apps.
 services: app-service
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 10/21/2021
 ms.author: cshoe
 ---
 
-# Azure Container Apps environments
+# Azure Container Apps Preview environments
 
 Individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps. Container Apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
