@@ -10,8 +10,6 @@ ms.author: pgibson
 
 # Disable Open Service Mesh (OSM) add-on for your AKS cluster
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 To disable the OSM add-on, run the following command:
 
 ```azurecli-interactive

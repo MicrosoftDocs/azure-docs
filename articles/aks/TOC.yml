@@ -378,7 +378,7 @@
                   href: open-service-mesh-deploy-addon-az-cli.md
                 - name: Use Bicep template
                   href: open-service-mesh-deploy-addon-bicep.md
-            - name: Download the OSM client binary
+            - name: Download and configure the OSM client binary
               href: open-service-mesh-binary.md
             - name: OSM Tutorials
               items:
