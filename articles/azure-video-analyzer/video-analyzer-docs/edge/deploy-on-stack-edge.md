@@ -18,19 +18,19 @@ In the article, we'll deploy Video Analyzer by using Azure IoT Hub, but the Azur
 
 * An Azure Video Analyzer account
 
-    This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
+    This [cloud service](../overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
 
 * A managed identity
 
-    This is the user-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) that you use to manage access to your storage account.
+    This is the user-assigned [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that you use to manage access to your storage account.
 
-* An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
+* An [Azure Stack Edge](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
 
-* An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md)
+* An [IoT hub](../../../iot-hub/iot-hub-create-through-portal.md)
 
 * A storage account
 
-    We recommend that you use a [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
+    We recommend that you use a [general-purpose v2 storage account](../../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
     
 * [Visual Studio Code](https://code.visualstudio.com/), installed on your development machine
 
@@ -44,15 +44,15 @@ Azure Stack Edge is a hardware-as-a-service solution and an AI-enabled edge comp
 
 To get started, do the following:
 
-1. [Create an Azure Stack Edge or Azure Data Box Gateway resource](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).  
-1. [Install and set up Azure Stack Edge Pro with GPU](../../databox-online/azure-stack-edge-gpu-deploy-install.md).  
+1. [Create an Azure Stack Edge or Azure Data Box Gateway resource](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).  
+1. [Install and set up Azure Stack Edge Pro with GPU](../../../databox-online/azure-stack-edge-gpu-deploy-install.md).  
 1. Connect and activate the resource by doing the following:
 
-    a. [Connect to the local web UI setup](../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
-    b. [Configure the network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
-    c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md).  
-    d. [Configure the certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
-    e. [Activate the device](../../databox-online/azure-stack-edge-gpu-deploy-activate.md).  
+    a. [Connect to the local web UI setup](../../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
+    b. [Configure the network](../../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
+    c. [Configure the device](../../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md).  
+    d. [Configure the certificates](../../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
+    e. [Activate the device](../../../databox-online/azure-stack-edge-gpu-deploy-activate.md).  
 
 1. [Attach an IoT hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute).
 
@@ -62,14 +62,14 @@ Before you continue, make sure that you've completed the following:
 
 * You've activated your Azure Stack Edge resource.
 * You have access to a Windows client system that's running PowerShell 5.0 or later to access the Azure Stack Edge resource.
-* To deploy Kubernetes clusters, you've configured your Azure Stack Edge resource on its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
+* To deploy Kubernetes clusters, you've configured your Azure Stack Edge resource on its [local web UI](../../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
 
     1. Connect and configure the resource by doing the following:
-        a. [Connect to the local web UI setup](../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
-        b. [Configure the network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
+        a. [Connect to the local web UI setup](../../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
+        b. [Configure the network](../../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
         c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)  
-        d. [Configure the certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
-        e. [Activate the device](../../databox-online/azure-stack-edge-gpu-deploy-activate.md).
+        d. [Configure the certificates](../../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
+        e. [Activate the device](../../../databox-online/azure-stack-edge-gpu-deploy-activate.md).
 
     1. To enable the compute, on the local web UI of your device, go to the **Compute** page.
     
@@ -79,7 +79,7 @@ Before you continue, make sure that you've completed the following:
         
         > [!div class="mx-imgBorder"]
 
-        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text="Screenshot of compute prerequisites on the Azure Stack Edge local UI.":::
+        > :::image type="content" source="../../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text="Screenshot of compute prerequisites on the Azure Stack Edge local UI.":::
 
         If Azure DNS isn't configured for the Kubernetes API and Azure Stack Edge resource, you can update your Windows host file by doing the following:
         
@@ -116,12 +116,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     
     > [!IMPORTANT]
     > Azure IoT Edge values are case-sensitive when you make calls to modules. Make note of the exact string you're using as the module name.
-
 1. Select the **Environment Variables** tab, and then enter the values, as shown in the following image:
    
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/environment-variables.png" alt-text="Screenshot of the 'Environment Variables' pane on the 'Add IoT Edge Module' page.":::
-
 1. Select the **Container Create Options** tab.
 
     > [!div class="mx-imgBorder"]
@@ -156,7 +154,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. Select the **Module Twin Settings** tab.
  
    To run, Video Analyzer edge module requires a set of mandatory twin properties, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md). 
-
 1. In the box on the **Module Twin Settings** pane, paste the following JSON code:    
     ```
     {
@@ -268,7 +265,7 @@ This section covers how to create a gateway user and set up file shares to view 
     > :::image type="content" source="./media/deploy-on-stack-edge/local-share.png" alt-text="Screenshot of the 'Add share' page for creating a local share.":::  
     
     > [!TIP]
-    > With your Windows client connected to your Azure Stack Edge device, follow the instructions in the "Connect to an SMB share" section of [Transfer data with Azure Stack Edge Pro FPGA](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
+    > With your Windows client connected to your Azure Stack Edge device, follow the instructions in the "Connect to an SMB share" section of [Transfer data with Azure Stack Edge Pro FPGA](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
 
 1. Create a *remote share* for file sync storage by doing the following:
 
@@ -370,7 +367,7 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
 * **Kubernetes API access (kubectl)**
 
-    * Configure your machine for access to the Kubernetes cluster by following the instructions in [Create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
+    * Configure your machine for access to the Kubernetes cluster by following the instructions in [Create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device](../../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * All deployed IoT Edge modules use the *iotedge* namespace. Be sure to include that name when you're using kubectl. 
 
 * **Module logs**
