@@ -1,5 +1,5 @@
 ---
-title: Use a virtual network in an Azure Container Apps environment
+title: Use a virtual network in an Azure Container Apps Preview environment
 description: Learn how to provide a VNET to an Azure Container Apps environment.
 services: app-service
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 ms.author: cshoe
 ---
 
-# Use a virtual network in an Azure Container Apps environment
+# Use a virtual network in an Azure Container Apps Preview environment
 
 As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
 

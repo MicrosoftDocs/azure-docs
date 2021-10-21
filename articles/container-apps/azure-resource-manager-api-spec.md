@@ -1,5 +1,5 @@
 ---
-title: Container Apps ARM template API specification
+title: Container Apps Preview ARM template API specification
 description: Explore the available properties in the Container Apps ARM template.
 services: app-service
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 10/21/2021
 ms.author: cshoe
 ---
 
-# Container Apps ARM template API specification
+# Container Apps Preview ARM template API specification
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. The following tables describe the properties available in the container app ARM template.
 

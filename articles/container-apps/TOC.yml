@@ -1,4 +1,4 @@
-- name: Azure Container Apps documentation
+- name: Azure Container Apps Preview documentation
   href: index.yml
 - name: Overview
   items:

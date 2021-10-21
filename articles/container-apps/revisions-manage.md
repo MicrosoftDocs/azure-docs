@@ -1,5 +1,5 @@
 ---
-title: Manage revisions in Azure Container Apps
+title: Manage revisions in Azure Container Apps Preview
 description: Manage revisions and traffic splitting  in Azure Container Apps.
 services: app-service
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 ms.author: cshoe
 ---
 
-# Manage revisions Azure Container Apps
+# Manage revisions Azure Container Apps Preview
 
 Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of [traffic sent to each revision](#traffic-splitting). Use the following commands to control of how your container app manages revisions.
 
