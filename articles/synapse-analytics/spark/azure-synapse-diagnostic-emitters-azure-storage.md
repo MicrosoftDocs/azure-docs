@@ -1,5 +1,5 @@
 ---
-title: Collect your Apache Spark applications logs and metrics using Azure Storage account(preview)
+title: Collect your Apache Spark applications logs and metrics using Azure Storage account
 description: This article shows how to use the Synapse Spark diagnostic emitter extension to collect logs, event logs and metrics.cluster and learn how to integrate the Grafana dashboards.
 services: synapse-analytics 
 author: hrasheed-msft
@@ -11,11 +11,11 @@ ms.subservice: spark
 ms.date: 08/31/2021
 ---
 
-# Collect your Apache Spark applications logs and metrics using Azure Storage account(preview)
+# Collect your Apache Spark applications logs and metrics using Azure Storage account
 
 The Synapse Apache Spark diagnostic emitter extension is a library that enables the Apache Spark application to emit the logs, event logs, and metrics to one or more destinations, including Azure Log Analytics, Azure Storage, and Azure Event Hubs. 
 
-In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs and metrics to your Azure storage account.
+In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs, and metrics to your Azure storage account.
 
 ## Collect logs and metrics to storage account
 
@@ -37,7 +37,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <storage-access-key>
 ```
 
 Fill in the following parameters in the configuration file: `<my-blob-storage>`, `<container-name>`, `<folder-name>`, `<storage-access-key>`.
-For more description of the parameters, please refer to [Azure Storage configurations](#available-configurations)
+For more description of the parameters, you can refer to [Azure Storage configurations](#available-configurations)
 
 ### Step 3: Upload the Apache Spark configuration file to Spark pool
 
@@ -50,7 +50,7 @@ For more description of the parameters, please refer to [Azure Storage configura
 
 After you submit a job to the configured Apache Spark pool, you should be able to see the logs and metrics files in destination storage account.
 The logs will be placed in corresponding paths according to different applications by `<workspaceName>.<sparkPoolName>.<livySessionId>`.
-All the logs files will be in JSON lines format (also called newline-delimited JSON, ndjson), which is very convenient for data processing.
+All the logs files will be in JSON lines format (also called newline-delimited JSON, ndjson), which is convenient for data processing.
 
 ## Available configurations
 
@@ -106,6 +106,6 @@ Azure Synapse Analytics workspaces support enabling data exfiltration protection
    > [!div class="mx-imgBorder"]
    > ![Create managed private endpoint 2](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-2.png)
 3. Wait a few minutes for private endpoint provisioning.
-4. Navigate to your storage account in Azure portal, on the **Networking** > **Private Endpoint connections** page, select the connection just provisioned and **Approve**.
+4. Navigate to your storage account in Azure portal, on the **Networking** > **Private Endpoint connections** page, select the connection provisioned and **Approve**.
 
 
