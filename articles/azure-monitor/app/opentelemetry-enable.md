@@ -286,7 +286,7 @@ with tracer.start_as_current_span("hello"):
 ---
 
 > [!TIP]
-> Add [Instrumentation Librariaes](#instrumentation-libraries) to auto-collect telemetry across popular frameworks/libraries.
+> Add [Instrumentation Libraries](#instrumentation-libraries) to auto-collect telemetry across popular frameworks/libraries.
 
 #### Set Application Insights connection string
 
