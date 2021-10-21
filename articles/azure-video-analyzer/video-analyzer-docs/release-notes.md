@@ -40,7 +40,8 @@ The ARM API version of the Video Analyzer service is:
 * When using Video Analyzer with [Computer Vision for spatial analysis](edge/computer-vision-for-spatial-analysis.md) AI service from Cognitive Services, you can generate and view new insights such as the speed, orientation, trail of persons in the live video
 * You can [discover ONVIF-capable devices](edge/camera-discovery.md) in the local subnet of your edge device
 * You can [capture and record live video directly in the cloud](cloud/connect-cameras-to-cloud.md)
-  * This includes the option of building an IoT PnP device implementation to install on your RTSP camera
+  * With [low latency streaming](playback-recordings-how-to.md#low-latency-streaming) you can view the live video from the RTSP camera with end-to-end latencies around 2 seconds
+  * You can build an IoT PnP device implementation to install on your RTSP camera, and connect it directly to Video Analyzer service
 * You can [export a desired portion of your recorded video](cloud/export-portion-of-video-as-mp4.md) to an MP4 file
 * You can specify a retention period for any of your recorded videos, where the service would periodically trim content older than the specified number of days
 
