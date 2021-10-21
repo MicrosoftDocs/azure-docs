@@ -20,6 +20,8 @@
       items:
         - name: Upgrade an ARO cluster
           href: howto-upgrade.md
+        - name: Use spot nodes
+          href: howto-spot-nodes.md
     - name: Networking
       items:
         - name: Create a private ARO cluster
