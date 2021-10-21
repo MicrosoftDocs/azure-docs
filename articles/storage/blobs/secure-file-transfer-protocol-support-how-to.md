@@ -54,7 +54,7 @@ Make sure to verify that the feature is registered before continuing with the ot
 
 ## Configure permissions
 
-Azure Storage doesn't support Shared Key, SAS, or Azure Active directory authentication for connecting SFTP clients. Instead, SFTP clients must use either a password or a secure shell (SSH) private key credential. To grant access to a connecting client, the storage account must have an identity associated with that credential. That identity is called a *local user*. 
+Azure Storage does not yet support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for connecting SFTP clients. Instead, SFTP clients must use either a password or a secure shell (SSH) private key credential. To grant access to a connecting client, the storage account must have an identity associated with that credential. That identity is called a *local user*. 
 
 In this section, you'll learn how to create a local user, create a credential for that local user, and then assign permissions for that user. 
 
@@ -67,7 +67,7 @@ To learn more about local users, see [Local users](secure-file-transfer-protocol
    > [!div class="mx-imgBorder"]
    > ![Add local users button](./media/secure-file-transfer-protocol-support-how-to/sftp-local-user.png)
 
-3. In the **Add local user** configuration page, add the name of a user, and then select which methods of authentication you'd like associate with this local user. You can associate a password and / or a secure shell (SSH) key. 
+3. In the **Add local user** configuration page, add the name of a user, and then select which methods of authentication you'd like associate with this local user. You can associate a password and / or an SSH key. 
 
    If you select **Secure with a password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration page.
 

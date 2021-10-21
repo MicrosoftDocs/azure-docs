@@ -28,13 +28,11 @@ This article describes limitations and known issues of SFTP protocol support in 
 
 - POSIX access control lists (ACL) are not yet supported.
  
-- Operations that attempt to change ACLs, such as chgrp, chmod, chown, put –p, are not yet supported.
+## Networking
 
-- Existing ACLs can be read.
+Q. Are partitioned DNS endpoints supported for SFTP?
 
-## Interoperability
-
-- If you enable the SFTP protocol on your account, you can't yet use any other protocols or tools (other than SFTP) to read, write, or delete blobs in your accounts. This includes REST APIs, Blob Storage or Data Lake Storage Gen2 SDKS, PowerShell, Azure CLI, Storage Explorer, Azure Portal, Network File System (NFS), or Hadoop File System (HDFS).
+A. Not for private preview
 
 ## Performance
 
@@ -47,6 +45,14 @@ This article describes limitations and known issues of SFTP protocol support in 
   - 32k message (OpenSSH default) * 50k blocks = 1.52GB
   - 100k message (OpenSSH Windows max) * 50k = 4.77GB
   - 256k message (OpenSSH Linux max) * 50k = 12.20GB
+
+Upload performance with default settings for some clients can be slow. Some of this is expected because of the many small blocks that are written by default. For Windows OpenSSH, increasing the buffer size option to 100,000 will help. ("-B 100000")
+sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net 
+Note: 262000 can be used for OpenSSH on Linux accompanied by -R 32
+
+There are unavoidable network bottlenecks due to the nature of both TCP and SSH protocols
+
+Solution? Use multiple connections to transfer data when possible (multi file uploads). With WinSCP for example, a max of 9 concurrent connections can be used to upload multiple files.
 
 ## Other
 

@@ -546,10 +546,10 @@ items:
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Transfer data by using SFTP
+        href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage by using SFTP
-        href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage from Linux using blobfuse
         href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
