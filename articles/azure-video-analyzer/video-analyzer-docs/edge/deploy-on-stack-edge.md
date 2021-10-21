@@ -40,7 +40,7 @@ In the article, we'll deploy Video Analyzer by using Azure IoT Hub, but the Azur
 
 ## Configure Azure Stack Edge to use Video Analyzer
 
-Azure Stack Edge is a hardware-as-a-service solution and an AI-enabled edge computing device with network data transfer capabilities. For more information, see [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). 
+Azure Stack Edge is a hardware-as-a-service solution and an AI-enabled edge computing device with network data transfer capabilities. For more information, see [Azure Stack Edge and detailed setup instructions](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md). 
 
 To get started, do the following:
 
@@ -54,7 +54,7 @@ To get started, do the following:
     d. [Configure the certificates](../../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
     e. [Activate the device](../../../databox-online/azure-stack-edge-gpu-deploy-activate.md).  
 
-1. [Attach an IoT hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute).
+1. [Attach an IoT hub to Azure Stack Edge](../../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute).
 
 ### Meet the compute prerequisites on the Azure Stack Edge local UI
 
@@ -67,7 +67,7 @@ Before you continue, make sure that you've completed the following:
     1. Connect and configure the resource by doing the following:
         a. [Connect to the local web UI setup](../../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
         b. [Configure the network](../../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
-        c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)  
+        c. [Configure the device](../../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)  
         d. [Configure the certificates](../../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md).  
         e. [Activate the device](../../../databox-online/azure-stack-edge-gpu-deploy-activate.md).
 
@@ -379,7 +379,6 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
     To view pod and node metrics, use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top). For example:
     <br/>`kubectl top pods -n iotedge` 
-
 * **Module networking**   
 
     For module discovery on Azure Stack Edge, the module must have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
@@ -392,12 +391,10 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
             }
         }
     }
-    ```
-    
+    ```    
 * **Volume mounting**
 
     A module will fail to start if the container is trying to mount a volume to an existing and non-empty directory.
-
 * **Shared memory when gRPC is used**
 
     Shared memory on Azure Stack Edge resources is supported across pods in any namespace when you use Host IPC.
@@ -451,7 +448,6 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
                     - mediaedge
                 topologyKey: "kubernetes.io/hostname"
         ```
-
 * **You get a 404 error code when you use the *rtspsim* module**  
     
     The container reads videos from exactly one folder within the container. If you map/bind an external folder into a folder that already exists within the container image, Docker hides the files present in the container image.
