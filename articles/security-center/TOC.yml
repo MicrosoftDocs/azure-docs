@@ -17,7 +17,7 @@
     items:
     - name: Supported platforms
       displayName: coverage
-      href: security-center-os-coverage.md
+      href: os-coverage.md
     - name: Coverage by OS, machine type, and cloud
       href: supported-machines-endpoint-solutions-clouds.md
     - name: Feature coverage for Azure PaaS resources
@@ -97,7 +97,7 @@
     displayName: overview, compliance, inventory
     href: overview-page.md
   - name: Use the Workload protections dashboard
-    href: azure-defender-dashboard.md
+    href: workload-protections-dashboard.md
   - name: Access and track your secure score
     href: secure-score-access-and-track.md
   - name: Manage your resources with asset inventory

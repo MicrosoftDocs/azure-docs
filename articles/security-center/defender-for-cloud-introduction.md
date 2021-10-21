@@ -169,7 +169,7 @@ Microsoft Defender for servers includes automatic, native integration with Micro
 
 ## Next steps
 
-- To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 
 - Defender for Cloud's free plan is enabled on all your current Azure subscriptions once you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable enhanced security features. For more information about a free 30 day trial, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 

@@ -24,8 +24,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change       | Estimated date for change |
 |----------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | October 2021|
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| October 2021|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | November 2021|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| November 2021|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | November 2021| 
 | [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | November 2021    |
@@ -35,7 +35,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
-**Estimated date for change:** October 2021
+**Estimated date for change:** November 2021
 
 We'll be deprecating the following preview alert:
 
@@ -48,7 +48,7 @@ We've created new alerts that provide this information and add to it. In additio
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** October 2021
+**Estimated date for change:** November 2021
 
 The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 

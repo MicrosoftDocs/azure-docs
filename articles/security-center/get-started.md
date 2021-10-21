@@ -5,9 +5,8 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/17/2021
+ms.date: 10/21/2021
 ms.author: memildin
-
 ---
 
 # Quickstart: Set up Microsoft Defender for Cloud
@@ -18,13 +17,13 @@ This quickstart section will walk you through all the recommended steps to enabl
 
 > [!div class="checklist"]
 > * Defender for Cloud enabled on your Azure subscriptions
-> * Enhanced security features enabled on your Azure subscriptions
+> * [Enhanced security features](enhanced-security-features-overview.md) enabled on your Azure subscriptions
 > * Automatic data collection set up
-> * Email notifications set up for security alerts
+> * [Email notifications set up](configure-email-notifications.md) for security alerts
 > * Your hybrid and multi-cloud machines connected to Azure
 
 ## Prerequisites
-To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+To get started with Defender for Cloud, you must have a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
 To enable enhanced security features on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
@@ -41,7 +40,9 @@ To enable enhanced security features on a subscription, you must be assigned the
 
     :::image type="content" source="./media/get-started/overview.png" alt-text="Defender for Cloud's overview dashboard" lightbox="./media/get-started/overview.png":::
 
-    **Defender for Cloud – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Defender for Cloud automatically, at no cost, enables any of your Azure subscriptions not previously onboarded by you or another subscription user.
+    **Defender for Cloud – Overview** provides a unified view into the security posture of your hybrid cloud workloads, helping you discover and assess the security of your workloads and to identify and mitigate risks. Learn more in [Microsoft Defender for Cloud's overview page](overview-page.md).
+
+    Defender for Cloud automatically, at no cost, enables any of your Azure subscriptions not previously onboarded by you or another subscription user.
 
 You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Defender for Cloud will adjust the display to reflect the security posture of the selected subscriptions. 
 

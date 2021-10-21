@@ -39,7 +39,7 @@ The following screenshot shows the asset inventory page and the various containe
 
 To monitor images in your Azure Resource Manager-based Azure container registries, enable [Microsoft Defender for container registries](defender-for-container-registries-introduction.md). Defender for Cloud scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
 
-When issues are found – by Qualys or Defender for Cloud – you'll get notified in the [Workload protections dashboard](azure-defender-dashboard.md). For every vulnerability, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Defender for Cloud's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-compute).
+When issues are found – by Qualys or Defender for Cloud – you'll get notified in the [Workload protections dashboard](workload-protections-dashboard.md). For every vulnerability, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Defender for Cloud's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-compute).
 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 

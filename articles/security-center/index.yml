@@ -90,4 +90,4 @@ landingContent:
           - text: Implement Adaptive Network Hardening
             url: adaptive-network-hardening.md
           - text: Use the Workload protections
-            url: azure-defender-dashboard.md
+            url: workload-protections-dashboard.md
