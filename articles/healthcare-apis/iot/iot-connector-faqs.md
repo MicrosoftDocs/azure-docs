@@ -18,7 +18,9 @@ Here are some of the frequently asked questions about IoT connector.
 
 ### What are the differences between the Azure API for FHIR IoT connector (preview) and the Azure Healthcare APIs IoT connector?
 
-Azure Healthcare APIs IoT connector is the successor to the Azure API for Fast Healthcare Interoperability Resources (FHIR&#174;) IoT connector (preview). Several improvements have been introduced including customer-hosted device message ingestion endpoints (for example: an Azure Event Hub) and the use of Managed Identities.
+Azure Healthcare APIs IoT connector is the successor to the Azure API for Fast Healthcare Interoperability Resources (FHIR&#174;) IoT connector (preview). 
+
+Several improvements have been introduced including customer-hosted device message ingestion endpoints (for example: an Azure Event Hub), the use of Managed Identities, and Role-Based Access Control.
 
 ### Can I use IoT connector with a different FHIR service other than the Azure Healthcare APIs FHIR service?
 
@@ -30,8 +32,8 @@ The IoT connector currently only supports the persistence of [HL7 FHIR&#174; R4]
 
 ### What are the subscription quota limits for IoT connector?
 
-* 25 IoT Connectors per Subscription (not adjustable)
-* 10 IoT Connectors per Workspace (not adjustable)
+* 25 IoT Connectors per Subscription (adjustable with an Azure support request)
+* 10 IoT Connectors per Workspace (adjustable with an Azure support request)
 * One FHIR Destination* per IoT Connector (not adjustable)
 
 (* - FHIR Destination is a child resource of IoT connector)
