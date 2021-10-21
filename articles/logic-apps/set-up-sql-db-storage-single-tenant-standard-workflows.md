@@ -295,8 +295,27 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 When you're done, your new logic app resource and workflow is live in Azure and uses your SQL database as the primary storage provider.
 
-## Troubleshooting
+## Validate deployments
 
+After you deploy your **Logic App (Standard)** resource to Azure, you can check whether your settings are correct:
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On the resource navigation menu, under **Settings**, select **Configuration**.
+
+1. On the **Configuration** pane, under **Application settings**, find the **Workflows.Sql.ConnectionString** app setting, and confirm that your SQL connection string appears and is correct.
+
+1. In your SQL environment, confirm that the SQL tables were created with the schema name starting with 'dt' and 'dq'.
+
+For example, the following screenshot shows the tables that the single-tenant Azure Logic Apps runtime created for a logic app resource with a single workflow:
+
+![Screenshot showing SQL tables created by the single-tenant Azure Logic Apps runtime.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/runtime-created-tables-sql.png)
+
+The single-tenant Azure Logic Apps service also creates user-defined table types. For example, the following screenshot shows user-defined table types that the single-tenant Azure Logic Apps runtime created for a logic app resource with a single workflow:
+
+![Screenshot showing SQL user-defined table types created by the single-tenant Azure Logic Apps runtime.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/runtime-created-user-defined-tables-sql.png)
 
 ## Next steps
 
+- [Create integration workflows with single-tenant Azure Logic Apps (Standard) in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
+- [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md)
