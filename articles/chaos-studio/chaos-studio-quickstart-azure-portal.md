@@ -73,7 +73,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 4. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
 
-![Add role assignment button](images/quickstart-virtual-machine-contributor.PNG)
+![Chose the role for the VM](images/quickstart-virtual-machine-contributor.PNG)
 5. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
  ![select the experiment](images/quickstart-select-experiment-role-assignment.PNG)
  
