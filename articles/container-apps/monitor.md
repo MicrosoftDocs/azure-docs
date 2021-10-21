@@ -5,30 +5,30 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic:  conceptual
-ms.date: 09/16/2021
+ms.date: 10/21/2021
 ms.author: cshoe
 ---
 
 # Monitor an app in Azure Container Apps
 
-Azure Container Apps gathers a broad set of data about yoru apps and stores it using [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). This article describes the available logs, and how to write and view logs.
+Azure Container Apps gathers a broad set of data about your container app and stores it using [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). This article describes the available logs, and how to write and view logs.
 
 ## Writing to a log
 
 When you write to the [Standard output (stdout) or standard error (stderr) streams](https://wikipedia.org/wiki/Standard_streams), the Container Apps logging agents write logs for each message.
 
-As a message is logged, the following information is gathered.
+As a message is logged, the following information is gathered in the log table:
 
-| Property | Description |
+| Property | Remarks |
 |---|---|
-| `RevisionName` | The revision's friendly name. |
-| `ContainerAppName` | The container app's friendly name. |
-| `ContainerGroupID` | TODO |
-| `ContainerGroupName` | TODO |
-| `ContainerImage` | The container image  |
+| `RevisionName` | |
+| `ContainerAppName` | |
+| `ContainerGroupID` | |
+| `ContainerGroupName` | |
+| `ContainerImage` | |
 | `ContainerID` | The container's unique identifier. You can use this value to help identify container crashes. |
 | `Stream` | Shows whether `stdout` or `stderr` is used for logging. |
-| `EnvironmentName` | The environment's friendly name. |
+| `EnvironmentName` | |
 
 ### Simple text vs structured data
 
