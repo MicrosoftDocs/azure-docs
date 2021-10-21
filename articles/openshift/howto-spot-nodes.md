@@ -24,8 +24,12 @@ Before getting started, ensure that you have an Azure Red Hat Openshift cluster 
 
 Machine management in Azure Red Hat Openshift is accomplished by leveraging MachineSet. MachineSet resources are groups of machines. MachineSets are to machines as ReplicaSets are to pods. If you need more machines or must scale them down, you change the *Replicas* field on the machine set to meet your compute need. To learn more, check out our OpenShift [MachineSet documentation](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
 
+<<<<<<< HEAD
 The use of Spot VMs is specified by adding the `spotVMOptions` field within the template spec of a MachineSet. 
 To get this MachineSet created, we will:
+=======
+## Add Spot VMs
+>>>>>>> 05d665b9857d3e8773a66ae21004f82f7d6177af
 
 1. Get a copy of a MachineSet running on your cluster.
 2. Create a modified MachineSet configuration.
@@ -109,7 +113,7 @@ aro-cluster-5t2dj-worker-eastus3           1         1         1       1        
 spot                                       1         1         1       1           2m47s
 ```
 
-## Scheduling interruptible workloads
+## Schedule interruptible workloads
 
 It's recommended to add a taint to the Spot nodes to prevent noninterruptible nodes from being scheduled on them, and to add tolerations of this taint to any pods that you want scheduled on them. You can taint the nodes via the MachineSet spec.
 
@@ -130,7 +134,7 @@ To learn more about applying taints and tolerations, please read [Controlling po
 
 Machines may go into a failed state due to quota issues if the quota for the machine type you are using is too low for a brief moment, even if it should eventually be enough (e.g. one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention.
 
-## Node Readiness
+## Node readiness
 
 As is explained in the Spot VM documentation linked above, VMs go into Deallocated provisioning state when they are no longer available, or no longer available at the maximum price specified.
 
