@@ -14,8 +14,6 @@ Confidential computing applies to various use cases for protecting data in regul
 
 ![Confidential computing use cases](media/use-cases-scenarios/use_cases.jpg)
 
-_Some of potential business use cases that confidential computing help address._
-
 This article provides an overview of several common scenarios for Azure confidential computing. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
 
 After reading this article, you'll be able to answer the following questions:
@@ -58,7 +56,7 @@ Through confidential computing, these financial institutions can increase fraud 
 
 Partnered health facilities contribute private health data sets to train an ML model. Each facility can only see their own data set. No other facility or even the cloud provider, can see the data or training model. All facilities benefit from using the trained model. By creating the model with more data, the model became more accurate. Each facility that contributed to training the model can use it and receive useful results.
 
-![confidential healthcare scenarios](media/use-cases-scenarios/confidential_healthcare.png)
+![Diagram of confidential healthcare scenarios, showing attestation between scenarios.](media/use-cases-scenarios/confidential_healthcare.png)
 
 ## Enhanced customer data privacy
 
