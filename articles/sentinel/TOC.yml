@@ -188,6 +188,8 @@
         href: import-export-analytics-rules.md
       - name: Work with SOC-ML anomaly rules
         href: work-with-anomaly-rules.md
+      - name: Manage template versions for analytics rules
+        href: manage-analytics-rule-templates.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
     - name: Work with SOC-ML anomaly rules
@@ -220,6 +222,8 @@
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
       href: playbook-triggers-actions.md
+    - name: Customize playbooks from templates
+      href: use-playbook-templates.md
   - name: Manage Azure Sentinel
     items:
     - name: Azure Sentinel for MSSPs

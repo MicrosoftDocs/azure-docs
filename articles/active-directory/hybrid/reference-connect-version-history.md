@@ -17,6 +17,14 @@ The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect wi
 
 This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
 
+## Looking for the latest versions?
+
+You can upgrade your AADConnect server from all supported versions with the latest versions:
+
+ - If you are using **Windows Server 2016 or newer** you should use ** Azure AD Connect V2.0**. You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594). The release notes for the latest V2.0 release are [here](reference-connect-version-history.md#20280)
+ - If you are still using an **older version of Windows Server** you should use** Azure AD Connect V1.6**. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). The release notes for the latest V1.6 release are [here](reference-connect-version-history.md#16160)
+ - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
+
 This table is a list of related topics:
 
 Topic |  Details
@@ -48,10 +56,18 @@ However, if you'd like all the latest features and updates, the best way to see 
 >Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
 
 
-## Download links
- - If you are using Windows Server 2016 or newer you should use Azure AD Connect V2.0. You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
- - If you are still using an older version of Windows Server you should use Azure AD Connect V1.6. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). 
- - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
+## 1.6.16.0
+>[!NOTE] 
+>This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server. 
+>This release is not supported on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31st 2022. You will need to upgrade your Server OS and AADConnect version before that date.
+>We will begin auto upgrading eligible tenants when this version is available for download, autoupgrade will take a few weeks to complete.
+
+### Release status
+10/13/2021: Released for download and auto upgrade.
+
+### Bug fixes
+- We fixed a bug where the Autoupgrade process attempted to upgrade AADConnect servers that are running older Windows OS version 2008 or 2008 R2 and failed. These versions of Windows Server are no longer supported. In this release we only attempt autoupgrade on machines that run Windows Server 2012 or newer.
+- We fixed an issue where, under certain conditions, miisserver would be crashing due to access violation exception.
 
 ## 2.0.28.0
 

@@ -39,7 +39,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     ![SOAP API](./media/restify-soap-api/wsdl-api.png)
 3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
-4. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a restful API, which returns JSON. APIM is converting each request into a SOAP call.
+4. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a RESTful API, which returns JSON. APIM is converting each request into a SOAP call.
 
     ![SOAP to REST](./media/restify-soap-api/soap-to-rest.png)
 

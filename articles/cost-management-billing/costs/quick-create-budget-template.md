@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
@@ -156,7 +156,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure budget the deployment. To learn more about Azure Cost Management and Billing and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure budget the deployment. To learn more about Cost Management and Billing and Azure Resource Manager, continue on to the articles below.
 
 - Read the [Cost Management and Billing](../cost-management-billing-overview.md) overview
 - [Create budgets](tutorial-acm-create-budgets.md) in the Azure portal

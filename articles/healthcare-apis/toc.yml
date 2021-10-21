@@ -9,7 +9,7 @@ items:
   items:
     - name: About Healthcare APIs
       href: healthcare-apis-overview.md
-    - name: About workspace
+    - name: About Workspace
       href: workspace-overview.md
     - name: FHIR service
       href: ./fhir/index.yml
@@ -54,9 +54,3 @@ items:
       href: healthcare-apis-faqs.md
     - name: GitHub projects
       href: github-projects.md
-
-
-
-
-
-

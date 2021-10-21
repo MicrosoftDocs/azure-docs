@@ -1,12 +1,12 @@
 ---
 title: Scale an app in ASE v1
 description: Scaling an app in an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
-author: ccompy
+author: madsd
 
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 
 ---
@@ -54,7 +54,7 @@ Before moving your ASP from one worker pool to another it is important to make s
 > 
 
 ## Getting started
-To get started with App Service Environments, see [How To Create An App Service Environment][HowtoCreateASE]
+To get started with App Service Environments, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png
@@ -64,7 +64,6 @@ To get started with App Service Environments, see [How To Create An App Service 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ScaleWebapp]: ../manage-scale-up.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../overview-hosting-plans.md
