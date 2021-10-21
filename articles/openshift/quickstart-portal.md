@@ -19,16 +19,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1.	On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2.	Select **Containers** > **Azure Red Hat OpenShift**.
 3.	On the **Basics** page, configure the following options:
-* **Project details**:
-    *	Select an **Azure Subscription**.
-    *	Select or create an **Azure Resource group**, such as *myResourceGroup*.
-* **Cluster details**:
-    * Select a **Region** for the ARO cluster.
-    *	Enter a OpenShift **cluster name**, such as *myAROCluster*.
-    *	Enter **Domain name**.
-    *	Select **Master VM Size** and **Worker VM Size**.
+    * **Project details**:
+        *	Select an **Azure Subscription**.
+        *	Select or create an **Azure Resource group**, such as *myResourceGroup*.
+    * **Cluster details**:
+        * Select a **Region** for the ARO cluster.
+        *	Enter a OpenShift **cluster name**, such as *myAROCluster*.
+        *	Enter **Domain name**.
+        *	Select **Master VM Size** and **Worker VM Size**.
 
-# TODO: Add image here
 4.	On the **Authentication page**, configure the following options:
     1) Choose **Select Existing** from the Service Principal Type selector (if it is already pre-selected no action is required and you can proceed further on the next steps).
     2) Search for Azure Red Hat Open Shift RP and select that one. 
@@ -49,6 +48,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 7.	Click **Review + create** and then **Create** when validation completes.
  
 8.	It takes approximately 35- 45 minutes to create the ARO cluster. When your deployment is complete, navigate to your resource by either:
-*	Clicking **Go to resource**, or
-*	Browsing to the ARO cluster resource group and selecting the ARO resource.
-    *	Per example cluster dashboard below: browsing for *myResourceGroup* and selecting *myAROCluster* resource.
+    *	Clicking **Go to resource**, or
+    *	Browsing to the ARO cluster resource group and selecting the ARO resource.
+        *	Per example cluster dashboard below: browsing for *myResourceGroup* and selecting *myAROCluster* resource.
