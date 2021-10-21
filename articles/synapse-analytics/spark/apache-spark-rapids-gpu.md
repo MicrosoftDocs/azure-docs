@@ -14,7 +14,7 @@ ms.author: Niharikadutta
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
-Azure Synapse now offers the ability to create Apache Spark pools using GPUs to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU pool.
+Azure Synapse now offers the ability to create Apache Spark GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that leverage the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
 You can choose to turn on/off the RAPIDS based GPU acceleration for your workload or parts of your workload by setting this configuration:
 
 ```
@@ -22,7 +22,7 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 ```
 
 > [NOTE]
-> Apache Spark on GPUs in Synapse Analytics is currently in Public Preview. These are all the regions this feature is currently available in: East US, East US2, West US2, West Europe.
+> Azure Synapse GPU-enabled pools are currently in Public Preview. These are all the regions this feature is currently available in: US East, Australia East and North Europe.
 
 ## RAPIDS Accelerator for Apache Spark
 
@@ -30,7 +30,7 @@ The Spark RAPIDS accelerator is a plugin that works by overriding the physical p
 
 ## Cluster configuration options
 
-The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs and executors. This means a Spark job would need to request executor and driver resources that can be accommodated by the pool resources (according to the number of available GPU and CPU cores). In order to meet this condition and ensure optimal utilization of all the pool resources, we require the following configuration of drivers and executors for a Spark application running on GPU pools:
+The RAPIDS Accelerator plugin only supports a one-to-one mapping between GPUs and executors. This means a Spark job would need to request executor and driver resources that can be accommodated by the pool resources (according to the number of available GPU and CPU cores). In order to meet this condition and ensure optimal utilization of all the pool resources, we require the following configuration of drivers and executors for a Spark application running on GPU-enabled pools:
 
 
 |Pool size | Driver size options | Driver cores | Driver Memory (GB) | Executor cores | Executor Memory (GB) | Number of Executors |
@@ -57,12 +57,12 @@ For example, using a Large pool with 3 nodes:
 }
 ```
 
-## Run a sample Spark job through notebook on a GPU pool
+## Run a sample Spark job through notebook on an Azure Synapse GPU-enabled pool
 
 It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Synapse Analytics before proceeding with this section. Let's walk through the steps to run a simple Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL and .NET for Spark (C#).
 
-1. Create a GPU pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
-2. Create a notebook and attach it to the GPU pool you created in the first step.
+1. Create a GPU-enabled pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
+2. Create a notebook and attach it to the GPU-enabled pool you created in the first step.
 3. Set the configurations as explained in the previous section.
 4. Create a sample dataframe by copying the below code in the first cell of your notebook:
 
@@ -154,8 +154,8 @@ resultDF.Show();
 
 Most Spark jobs can see improved performance through tuning configuration settings from defaults, and the same holds true for jobs leveraging the RAPIDS accelerator plugin for Apache Spark. [This documentation](https://nvidia.github.io/spark-rapids/docs/tuning-guide.html) provides guidelines on how to tune a Spark job to run on GPUs using the RAPIDS plugin.
 
-## Quotas and resource constraints in Apache Spark on GPUs for Azure Synapse
+## Quotas and resource constraints in Azure Synapse GPU-enabled pools
 
 ### Workspace level
 
-Every Azure Synapse workspace comes with a default quota of 50 GPU vCores that can be used for Spark. However if you want to increase your quota to be able to use more cores, please send an email to AzureSynapseGPU@microsoft.com with the total GPU quota required for your workload.
+Every Azure Synapse workspace comes with a default quota of 0 GPU vCores. In order to increase your quota of GPU cores, please send an email to AzureSynapseGPU@microsoft.com with your workspace name, the region and the total GPU quota required for your workload.

@@ -10,14 +10,14 @@ ms.date: 10/18/2021
 ms.author: Niharikadutta  
 ---
 
-# Quickstart: Create a new serverless Apache Spark GPU pool using the Azure portal
+# Quickstart: Create an Apache Spark GPU-enabled Pool in Azure Synapse Analytics using the Azure portal
 
 An Apache Spark pool provides open-source big data compute capabilities where data can be loaded, modeled, processed, and distributed for faster analytic insight. Synapse now offers the ability to create Apache Spark pools that use GPUs on the backend to run your Spark workloads on GPUs for accelerated processing.
 
-In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU pool in a Synapse workspace.
+In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU-enabled pool in an Azure Synapse Analytics workspace.
 
 > [NOTE]
-> Apache Spark on GPUs in Synapse Analytics is currently in Public Preview. These are all the regions this feature is currently available in: East US, East US2, West US2, West Europe.
+> Azure Synapse GPU-enabled pools are currently in Public Preview. These are all the regions this feature is currently available in: US East, Australia East and North Europe.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
