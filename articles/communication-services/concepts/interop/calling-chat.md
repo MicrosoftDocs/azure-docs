@@ -29,7 +29,7 @@ Custom applications built with Azure Communication Services to connect and commu
 To initiate a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
 
 ## Calling
-With ad hoc calling, an ACS user or endpoint can initiate a 1:1 call with a Teams, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other ACS users to instead call a Teams user.
+With ad hoc calling, a Communication Services user or endpoint can initiate a 1:1 call with a Teams, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
@@ -50,7 +50,7 @@ const call = callAgent.startCall([teamsCallee]);
 
 
 ## Chat
-With ad hoc chat, Communication Services users or endpoints can initiate 1:n chat with Teams users, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other ACS users, to instead create chats with Teams users:
+With ad hoc chat, Communication Services users or endpoints can initiate 1:n chat with Teams users, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
                                             
 [Quickstart: Add Chat to your App](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)
 
