@@ -100,7 +100,7 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Also make sure you have performed pre-requisite tasks listed above.
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed pre-requisite tasks listed above.
 
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
@@ -108,7 +108,7 @@ Here is an example of configuring pglogical at the provider database server and 
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. 
+2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. Please see [pglogical documentation](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) for details.
    ```SQL
    GRANT azure_pg_admin, replication to myUser;
    ```
