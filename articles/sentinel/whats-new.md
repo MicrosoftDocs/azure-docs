@@ -131,7 +131,7 @@ The new Azure Sentinel **Repositories** page provides the ability to manage and 
 
 If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you add, create, or edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
 
-For more information, see [Manage custom content in your own repository](ci-cd.md).
+For more information, see [Deploy custom content from your repository](ci-cd.md).
 
 ### Enriched threat intelligence with Geolocation and WhoIs data (Public preview)
 
