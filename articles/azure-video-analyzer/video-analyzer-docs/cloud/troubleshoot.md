@@ -7,13 +7,13 @@ ms.date: 10/21/2021
 
 # Troubleshoot Azure Video Analyzer service
 
-This article covers troubleshooting steps for common error scenarios you might see whie using the service.
+This article covers troubleshooting steps for common error scenarios you might see while using the service.
 
 ## Enabling diagnostics
 
 [Monitoring and logging](./monitor-log-cloud.md) should help in understanding the Video Analyzer service events taxonomy and how to generate logs that will help with debugging issues.
-- On Azure portal navigate to **Monitoring** section of your Video Analyzer account and select **Diagnostic settings**. 
-- Click on **Add diagnostic setting** to enable the logs of desired event types: `Diagnostics`, `Audit`, `Operational`. For more details refer [here](./monitor-log-cloud.md)
+- On Azure portal, navigate to **Monitoring** section of your Video Analyzer account and select **Diagnostic settings**. 
+- Click on **Add diagnostic setting** to enable the logs of desired event types: `Diagnostics`, `Audit`, `Operational`. For more details, refer [here](./monitor-log-cloud.md)
 
 
 ## Viewing diagnostics
@@ -29,7 +29,7 @@ Once you have enabled diagnostics, you can access the logs as follows:
 
 ## Viewing metrics 
 
-Video analyzer also emits metrics for ingestion & pipelines which can help in identifying issues as follows.
+Video analyzer also emits metrics for ingestion & pipelines, which can help in identifying issues as follows.
 - IngressBytes - The total number of bytes received by a pipeline. A steadily increasing value indicates the pipeline is healthy, and is receiving video data from the RTSP camera
 - Pipelines - Helps with checking pipeline status and counts.
 
@@ -48,7 +48,7 @@ Some of the common errors that you'll encounter with the Video Analyzer service 
 - If the video is not playing back in the Azure portal, check if the Video Analyzer service is receiving video data from the RTSP camera. Select the "Ingress Bytes" metric by navigating to Monitoring->Metrics section of the portal. If the aggregation is increasing, then the connection between the RTSP camera and the service is healthy, Ingress Bytes sum would be available below the graph. 
 
 - If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#viewing-diagnostics).
-Please open a support ticket using the Azure portal with the relevant details, logs if issue is not resolved.
+Open a support ticket using the Azure portal with the relevant details, logs if issue is not resolved.
 
 ### Diagnostic logs have a ProtocolError with code 401
 
@@ -79,10 +79,10 @@ Please open a support ticket using the Azure portal with the relevant details, l
 
 - If you are using a [remote device adapter](./use-remote-device-adapter.md), then try the following steps.
 
-   - Verify that your [IoT hub is attached to your Video Analyzer account](TODO – link to the md file . /managed-identity.md). It is required for using a remote device adapter.
-   - Run ‘remoteDeviceAdapterList’ direct method on the edge module and verify IP address. Sample request and response is shown [here](../edge/direct-methods.md)
+   - Verify that your [IoT hub is attached to your Video Analyzer account](./managed-identity.md). It is required for using a remote device adapter.
+   - Run ‘remoteDeviceAdapterList’ direct method on the edge module and verify IP address. Sample request and response are shown [here](../edge/direct-methods.md)
    - Examine the response for the remote device adapter that you are using in the live pipeline that is experiencing the issue, and compare with the example in [this article](use-remote-device-adapter.md). Check that the IP address of the camera is correct
-   - Go to Azure portal->Video Analyzer account -> Live -> Pipelines -> Edit live pipeline -> re-enter the RTSP user name and password. Check that the RTSP URL you provide begins with `rtsp://localhost:554/…`. Here, the use of `localhost` is required.
+   - Go to Azure portal->Video Analyzer account -> Live -> Pipelines -> Edit live pipeline -> reenter the RTSP user name and password. Check that the RTSP URL you provide begins with `rtsp://localhost:554/…`. Here, the use of `localhost` is required.
 
 - If the above steps do not help resolve the issue and video playback still does not work, then log into the Azure portal and open a support ticket. You may need to attach the logs from the Video Analyzer edge module, refer the 'Use support-bundle command' section of [edge troubleshooting doc](../edge/troubleshoot.md#common-error-resolutions)
 
@@ -100,7 +100,7 @@ To resolve this, either reduce the bitrate setting on the camera, or increase th
 
 If you get an 'Access Forbidden' error in the Video Analyzer widget, then you should see a warning event in the Audit log.
 
-- Make sure you have generated the Client API JWT Token and corresponding access policy, refer to the documentation for [creating-a-token](../access-policies.md) and [creating-an-access-policy](../access-policies.md#creating-an-access-policy). The player will not work if the access policy has not been setup correctly, and the JWT token does not match with the policy. 
+- Make sure you have generated the Client API JWT Token and corresponding access policy, refer to the documentation for [creating-a-token](../access-policies.md) and [creating-an-access-policy](../access-policies.md#creating-an-access-policy). The player will not work if the access policy has not been set up correctly, and the JWT token does not match with the policy. 
 - If issue is not resolved, gather the widget logs, and file a support ticket via Azure portal
 - Gathering widget logs:
     - Hit F12 to enable Browser Developer tools, go to the Console TAB, enable "All levels" logging.   
@@ -108,7 +108,7 @@ If you get an 'Access Forbidden' error in the Video Analyzer widget, then you sh
 
 ## Collect logs for submitting a support ticket
    
-When self-guided troubleshooting steps don't resolve your problem and there are any additional issues that you may need help with, please open a support ticket using the Azure portal with the relevant details & logs. You can also reach out to us by sending us an email at videoanalyzerhelp@microsoft.com.
+When self-guided troubleshooting steps don't resolve your problem and there are any more issues that you may need help with, please open a support ticket using the Azure portal with the relevant details & logs. You can also reach out to us by sending us an email at videoanalyzerhelp@microsoft.com.
    
 > [!WARNING]
 > The logs may contain personally identifiable information (PII) such as your IP address. All local copies of the logs will be deleted as soon as we complete examining them and close the support ticket.
