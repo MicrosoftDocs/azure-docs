@@ -49,7 +49,7 @@ For more details, please check out our [GitHub documentation](https://github.com
 
 ## Purge and Re-Install the Linux Agent
 
-We've seen that a clean re-install of the Agent will fix most issues. In fact this may be the first suggestion from Support to get the Agent into a uncurropted state from our support team. Running the troubleshooter, log collect, and attempting a clean re-install will help solve issues more quickly.
+We've seen that a clean re-install of the Agent will fix most issues. In fact this may be the first suggestion from Support to get the Agent into a uncorrupted state from our support team. Running the troubleshooter, log collect, and attempting a clean re-install will help solve issues more quickly.
 
 1. Download the purge script:
 - `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
