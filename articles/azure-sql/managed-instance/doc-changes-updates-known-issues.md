@@ -22,7 +22,7 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with-are-not-supported)|Oct 2021|||
+|[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|||
 |[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
