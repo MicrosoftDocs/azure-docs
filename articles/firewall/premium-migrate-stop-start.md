@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Migrate to Azure Firewall Premium using Stop/Start
 
-If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. If you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
+If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
  
 ## Migrate a VNET Hub Firewall
 
