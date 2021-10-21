@@ -124,9 +124,9 @@ Click on **Test model** on the left of the screen, and select the model link. Wr
 You now see the top intent as **Delete** with no entities.
 
 You can test other utterances such as:
-* "*attach my .docx file*", 
+* "*attach my docx file*", 
 * "*read the email by Jason*", 
-* "*attach the json file named CLU demo*".
+* "*attach the ppt file named CLU demo*".
 
 You can also test out utterances in other languages such as the following phrases:
 
