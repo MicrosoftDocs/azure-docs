@@ -1,7 +1,7 @@
 ---
-title: Speech Devices SDK microphone array recommendations
+title: Speech SDK microphone array recommendations
 titleSuffix: Azure Cognitive Services
-description: Speech Devices SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
+description: Speech SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,11 +13,11 @@ ms.date: 07/16/2019
 ms.author: pafarley
 ---
 
-# Speech Devices SDK Microphone array recommendations
+# Speech SDK Microphone array recommendations
 
-In this article, you learn how to design a microphone array for the Speech Devices SDK.
+In this article, you learn how to design a microphone array for the Speech SDK.
 
-The Speech Devices SDK works best with a microphone array that has been designed according to the following guidelines, including the microphone geometry and component selection. Guidance is also given on integration and electrical considerations.
+The Speech SDK works best with a microphone array that has been designed according to the following guidelines, including the microphone geometry and component selection. Guidance is also given on integration and electrical considerations.
 
 ## Microphone geometry
 
@@ -115,4 +115,4 @@ High-speed USB Audio Class 2.0 should be supported within any audio MCUs in orde
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the Speech devices SDK](speech-devices-sdk.md)
+> [Learn more about audio processing](audio-processing-overview.md)
