@@ -3,7 +3,7 @@ title: Register with SQL IaaS Agent Extension
 description: Register your Azure SQL Server virtual machine with the SQL IaaS Agent extension to enable features for SQL Server virtual machines deployed outside of Azure Marketplace, as well as compliance, and improved manageability. 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,9 +12,10 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/01/2021
-ms.author: mathoma
-ms.reviewer: jroth 
+ms.author: adbadram
+ms.reviewer: mathoma 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
+
 
 ---
 
@@ -380,4 +381,4 @@ For more information, see the following articles:
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)
