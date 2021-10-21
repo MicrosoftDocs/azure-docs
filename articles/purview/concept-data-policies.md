@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ---
 
-# Concept guide for Azure Purview access policies
+# Concepts for Azure Purview access policies
 This article helps you understand Azure Purview data access policies.
 
 ## Overview
