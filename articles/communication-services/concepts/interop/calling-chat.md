@@ -1,7 +1,7 @@
 ---
 title: Teams calling and chat interoperability
 titleSuffix: An Azure Communication Services concept document
-description:Teams calling and chat interoperability
+description: Teams calling and chat interoperability
 author: tomkau
 ms.author: tomkau
 ms.date: 10/15/2021
@@ -26,12 +26,12 @@ To enable ad hoc calling and chat between your Communication Services users and 
 
 Custom applications built with Azure Communication Services to connect and communicate with Teams users may be used by end users or by bots, and there is no differentiation in how they appear to Teams users unless the developer of the application explicitly indicates this as part of the communication.
 
-To initiate a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/users?view=graph-rest-1.0) or from your on-premises directory if you are using [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
+To initiate a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users?view=graph-rest-1.0) or from your on-premises directory if you are using [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
 
 ## Calling
 With ad hoc calling, an ACS user or endpoint can initiate a 1:1 call with a Teams, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other ACS users to instead call a Teams user.
  
-[Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../how-tos/calling-sdk/manage-calls?pivots=platform-web)
+[Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls?pivots=platform-web)
 
 Calling another ACS user:
 ```js
@@ -52,7 +52,7 @@ const call = callAgent.startCall([teamsCallee]);
 ## Chat
 With ad hoc chat, Communication Services users or endpoints can initiate 1:n chat with Teams users, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other ACS users, to instead create chats with Teams users:
                                             
-[Quickstart: Add Chat to your App](../quickstarts/chat/get-started?pivots=programming-language-javascript)
+[Quickstart: Add Chat to your App](../../quickstarts/chat/get-started?pivots=programming-language-javascript)
 
 Creating a chat with a Teams user:
 ```js
