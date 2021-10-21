@@ -59,7 +59,7 @@ The following tables summarize operations and typical overall durations, based o
 |Operation  |Long-running segment  |Estimated duration  |
 |---------|---------|---------|
 |First instance in an empty subnet|Virtual cluster creation|90% of operations finish in 4 hours.|
-|First instance of another hardware generation in a non-empty subnet (for example, first Gen 5 instance in a subnet with Gen 4 instances)|Virtual cluster creation<sup>1</sup>|90% of operations finish in 4 hours.|
+|First instance of another hardware generation in a non-empty subnet (for example, first Gen5 instance in a subnet with Gen4 instances)|Virtual cluster creation<sup>1</sup>|90% of operations finish in 4 hours.|
 |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours.|
 | | | 
 
