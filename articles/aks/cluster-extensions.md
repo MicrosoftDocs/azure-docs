@@ -22,7 +22,7 @@ In this article, you will learn about:
 > * Available cluster extensions on AKS.
 > * How to view, list, update, and delete extension instances.
 
-A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes)[arc-k8s-extensions] article.
+A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes][arc-k8s-extensions] article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
