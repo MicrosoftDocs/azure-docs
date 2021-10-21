@@ -32,28 +32,29 @@ To be able to create a project in more than one language, the multiple language 
 
 2. Fill out enter basic information page and select **Next** > **Create project**.
 
-|Setting| Value|
-|---|----|
-|Name | Unique name for your project|
-|Description | Unique description to help identify the project |
-|Source language | For this tutorial, select German |
-|Default answer | Default answer when no answer is returned |
+    |Setting| Value|
+    |---|----|
+    |Name | Unique name for your project|
+    |Description | Unique description to help identify the project |
+    |Source language | For this tutorial, select German |
+    |Default answer | Default answer when no answer is returned |
 
-> [!div class="mx-imgBorder"]
-> [ ![Screenshot of UI for create project with the german laungague selected.]( ../media/multiple-languages/choose-german.png) ](../media/multiple-languages/choose-german.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of UI for create project with the german laungague selected.]( ../media/multiple-languages/choose-german.png) ](../media/multiple-languages/choose-german.png#lightbox)
 
 3. **Add source** > **URLs** > **Add url** > **Add all**.
 
     |Setting| Value |
+    |----|------|
     | Url Name | Surface Pen German |
     | URL | https://support.microsoft.com/de-de/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98 |
     | Classify file structure | Auto-detect |
-
-Question answering reads the document and extracts question answer pairs from the source URL to create the project/knowledge base in the German language. If you select the link to the source, the knowledge base page opens where we can edit the contents.
-
-> [!div class="mx-imgBorder"]
-> [ ![Screenshot of UI with German questions and answers](../media/multiple-languages/german-language.png) ]( ../media/multiple-languages/german-language.png#lightbox)
-
+    
+    Question answering reads the document and extracts question answer pairs from the source URL to create the project/knowledge base in the German language. If you select the link to the source, the knowledge base page opens where we can edit the contents.
+    
+    > [!div class="mx-imgBorder"]
+    > [ ![Screenshot of UI with German questions and answers](../media/multiple-languages/german-language.png) ]( ../media/multiple-languages/german-language.png#lightbox)
+    
 ## Create project in English
 
 We now repeat the above steps from before but this time select English and provide an English URL as a source.
@@ -62,16 +63,17 @@ We now repeat the above steps from before but this time select English and provi
 
 2. Fill out enter basic information page and select **Next** > **Create project**.
 
-|Setting| Value|
-|---|----|
-|Name | Unique name for your project|
-|Description | Unique description to help identify the project |
-|Source language | For this tutorial, select English |
-|Default answer | Default answer when no answer is returned |
+    |Setting| Value|
+    |---|----|
+    |Name | Unique name for your project|
+    |Description | Unique description to help identify the project |
+    |Source language | For this tutorial, select English |
+    |Default answer | Default answer when no answer is returned |
 
 3. **Add source** > **URLs** > **Add url** > **Add all**.
 
     |Setting| Value |
+    |-----|-----|
     | Url Name | Surface Pen German |
     | URL | https://support.microsoft.com/en-us/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98 |
     | Classify file structure | Auto-detect |
