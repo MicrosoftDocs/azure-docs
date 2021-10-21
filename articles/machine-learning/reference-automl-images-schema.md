@@ -57,6 +57,8 @@ Example of a JSONL file for multi-class image classification:
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": "water_bottle"}
   ```
 
+![Image example for image classification multi-class.](media/reference-automl-images-schema/multiclass-predictions.jpg)
+
 ### Image classification multi-label
 
 The following is an example of input data format/schema in each JSON Line for image classification.
@@ -101,6 +103,8 @@ Example of a JSONL file for Image Classification Multi-label:
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "1024px", "height": "768px"}, "label": ["carton","milk_bottle","water_bottle"]}
   ```
+
+![Image example for image classification multi-label.](media/reference-automl-images-schema/multilabel-predictions.jpg)
 
 ### Object detection
 
@@ -169,7 +173,9 @@ Example of a JSONL file for object detection:
 .
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "carton", "topX": 0.0180, "topY": 0.297, "bottomX": 0.380, "bottomY": 0.836, "isCrowd": 0}, {"label": "milk_bottle", "topX": 0.454, "topY": 0.348, "bottomX": 0.613, "bottomY": 0.683, "isCrowd": 0}, {"label": "water_bottle", "topX": 0.667, "topY": 0.279, "bottomX": 0.841, "bottomY": 0.615, "isCrowd": 0}]}
-  ```
+```
+
+![Image example for object detection.](media/reference-automl-images-schema/object-detect-predictions.jpg)
 
 ### Instance segmentation
 
@@ -218,6 +224,8 @@ Example of a JSONL file for Instance Segmentation:
 .
 {"image_url": "AmlDatastore://image_data/Image_n.jpg", "image_details": {"format": "jpg", "width": "499px", "height": "666px"}, "label": [{"label": "water_bottle", "isCrowd": 0, "polygon": [[0.334, 0.626, 0.304, 0.621, 0.254, 0.603, 0.164, 0.605, 0.158, 0.602, 0.146, 0.602, 0.142, 0.608, 0.094, 0.612, 0.084, 0.599, 0.080, 0.585, 0.080, 0.539, 0.082, 0.536, 0.092, 0.533, 0.126, 0.530, 0.132, 0.533, 0.144, 0.533, 0.162, 0.525, 0.172, 0.525, 0.186, 0.521, 0.196, 0.521 ]]}, {"label": "milk_bottle", "isCrowd": 0, "polygon": [[0.392, 0.773, 0.380, 0.732, 0.379, 0.767, 0.367, 0.755, 0.362, 0.735, 0.362, 0.714, 0.352, 0.644, 0.352, 0.611, 0.362, 0.597, 0.40, 0.593, 0.444,  0.494, 0.588, 0.515, 0.585, 0.621, 0.588, 0.671, 0.582, 0.713, 0.572, 0.753 ]]}]}
 ```
+
+![Image example for instance segmentation.](media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
 
 ## Data format for inference
 
@@ -384,6 +392,9 @@ In instance segmentation, output consists of multiple boxes with their scaled to
    ]
 }
 ```
+
+> [!NOTE]
+> The images used in this article are from the fridge objects dataset that is made available through the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE).
 
 ## Next steps
 
