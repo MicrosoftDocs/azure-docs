@@ -22,7 +22,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
-* Install the **connectedk8s** Azure CLI extension of version >= 1.0.0:
+* Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
   ```console
   az extension add --name connectedk8s
@@ -43,8 +43,6 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
-
-* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -83,8 +81,8 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 ## Meet network requirements
 
 > [!IMPORTANT]
-> Azure Arc agents require both of the following protocols/ports/outbound URLs to function:
-> * TCP on port 443: `https://:443`
+> Azure Arc agents require the following outbound URLs on `https://:443` to function.
+> For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
@@ -92,9 +90,10 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
 | `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
-| `https://gbl.his.arc.azure.com` |  Required to get the regional endpoint for pulling system-assigned Managed Service Identity (MSI) certificates. |
-| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Service Identity (MSI) certificates. |
+| `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
+| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 
 ## 1. Register providers for Azure Arc-enabled Kubernetes
 

@@ -40,7 +40,7 @@ To add Application Insights to your ASP.NET website, you need to:
 
 This section will guide you through automatically adding Application Insights to a template-based ASP.NET web app. From within your ASP.NET web app project in Visual Studio:
 
-1. Select **Add Application Insights Telemetry** > **Application Insights Sdk (local)** > **Next** > **Finish** > **Close**.
+1. Select **Project** > **Add Application Insights Telemetry** > **Application Insights Sdk (local)** > **Next** > **Finish** > **Close**.
 2. Open the *ApplicationInsights.config* file. 
 3. Before the closing `</ApplicationInsights>` tag, add a line that contains the instrumentation key for your Application Insights resource.  You can find your instrumentation key on the overview pane of the newly created Application Insights resource that you created as part of the prerequisites for this article.
 

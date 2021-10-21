@@ -3,7 +3,7 @@ title: Configure availability group listeners and load balancer (PowerShell)
 description: Configure Availability Group listeners on the Azure Resource Manager model, using an internal load balancer with one or more IP addresses.
 services: virtual-machines
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -12,9 +12,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: "seo-lt-2019, devx-track-azurepowershell"
-
+ms.reviewer: mathoma
 ---
 # Configure one or more Always On availability group listeners - Resource Manager
 
@@ -132,7 +132,8 @@ foreach($VMName in $VMNames)
 
 ## <a name="Add-IP"></a> Example script: Add an IP address to an existing load balancer with PowerShell
 
-To use more than one availability group, add an additional IP address to the load balancer. Each IP address requires its own load-balancing rule, probe port, and front port.
+To use more than one availability group, add an additional IP address to the load balancer. Each IP address requires its own load-balancing rule, probe port, and front port. 
+Add only the primary IP address of the VM to the back-end pool of the load balancer as the [secondary VM IP address does not support floating IP](/azure/load-balancer/load-balancer-floating-ip).
 
 The front-end port is the port that applications use to connect to the SQL Server instance. IP addresses for different availability groups can use the same front-end port.
 

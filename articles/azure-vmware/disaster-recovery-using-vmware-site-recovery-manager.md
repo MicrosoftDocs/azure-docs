@@ -2,7 +2,7 @@
 title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 10/04/2021
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager
@@ -54,6 +54,8 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Diagram showing the deployment workflow for VMware Site Recovery Manager on Azure VMware Solution." border="false":::
 
 ## Prerequisites
+
+Make sure you've explicitly provided the remote user the VRM administrator and SRM administrator roles in the remote vCenter.
 
 ### Scenario: On-premises to Azure VMware Solution 
 

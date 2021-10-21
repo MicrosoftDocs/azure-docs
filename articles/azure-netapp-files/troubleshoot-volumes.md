@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot volume errors for Azure NetApp Files | Microsoft Docs
-description: Describes error messages you might encounter when creating or managing Azure NetApp Files volumes. 
+description: Describes error messages and resolutions that can help you troubleshoot Azure NetApp Files volumes.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/15/2021
+ms.date: 10/04/2021
 ms.author: b-juche
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 
-This article describes error messages you might encounter when creating or managing volumes.
+This article describes error messages and resolutions that can help you troubleshoot Azure NetApp Files volumes. 
 
 ## General errors for volume creation or management 
 
@@ -70,11 +70,21 @@ This article describes error messages you might encounter when creating or manag
 | Error when creating an LDAP-enabled NFS volume: <br> `Could not query DNS server` <br> `Sample error message:` <br> `"log": time="2020-10-21 05:04:04.300" level=info msg=Res method=GET url=/v2/Volumes/070d0d72-d82c-c893-8ce3-17894e56cea3  x-correlation-id=9bb9e9fe-abb6-4eb5-a1e4-9e5fbb838813 x-request-id=c8032cb4-2453-05a9-6d61-31ca4a922d85 xresp="200:  {\"created\":\"2020-10-21T05:02:55.000Z\",\"lifeCycleState\":\"error\",\"lifeCycleStateDetails\":\"Error when creating - Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available.\",\"name\":\"smb1\",\"ownerId\ \":\"8c925a51-b913-11e9-b0de-9af5941b8ed0\",\"region\":\"westus2stage\",\"volumeId\":\"070d0d72-d82c-c893-8ce3-` |  This error occurs because DNS is unreachable. <br> <ul><li> Check if you have configured the correct site (site scoping) for Azure NetApp Files. </li><li> The reason that DNS is unreachable might be an incorrect DNS IP address or networking issues. Check the DNS IP address entered in the AD connection to make sure that it is correct. </li><li> Make sure that the AD and the volume are in the same region and the same VNet. If they are in different VNets, ensure that VNet peering is established between the two VNets.</li></ul> |
 | Error when creating volume from a snapshot: <br> `Aggregate does not exist` | Azure NetApp Files doesn’t support provisioning a new, LDAP-enabled volume from a snapshot that belongs to an LDAP-disabled volume. <br> Try creating new an LDAP-disabled volume from the given snapshot. |
 
+## Errors for volume allocation 
+
+When you create a new volume or resize an existing volume in Azure NetApp Files, Microsoft Azure allocates storage and networking resources to your subscription. You might occasionally experience resource allocation failures because of unprecedented growth in demand for Azure services in specific regions.
+
+This section explains the causes of some of the common allocation failures and suggests possible remedies.
+
+|     Error conditions    |     Resolutions    |
+|-|-|
+|Error when creating new volumes or resizing existing volumes. <br> Error message: `There was a problem locating [or extending] storage  for the volume. Please retry the operation. If the problem persists, contact Support.` | The error indicates that the service ran into an error when attempting to allocate resources for this request. <br> Retry the operation after some time. Contact Support if the issue persists.|
+|Out of storage or networking capacity in a region for regular volumes. <br> Error message: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` | The error indicates that there are insufficient resources available in the region to create or resize volumes. <br> Try one of the following workarounds: <ul><li>Create the volume under a new VNet. Doing so will avoid hitting networking-related resource limits.</li> <li>Retry after some time. Resources may have been freed in the cluster, region, or zone in the interim.</li></ul> |
+|Out of storage capacity when creating a volume with network features set to `Standard`. <br> Error message: `No storage available with Standard network features, for the provided VNet.` | The error indicates that there are insufficient resources available in the region to create volumes with `Standard` networking features. <br> Try one of the following workarounds: <ul><li>If `Standard` network features are not required, create the volume with `Basic` network features.</li> <li>Try creating the volume under a new VNet. Doing so will avoid hitting networking-related resource limits</li><li>Retry after some time.  Resources may have been freed in the cluster, region, or zone in the interim.</li></ul> |
 
 ## Next steps  
 
-* [Create an NFS volume](azure-netapp-files-create-volumes.md)
-* [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
-* [Create a dual-protocol volume](create-volumes-dual-protocol.md)
-* [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
-* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+* [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
+* [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md) 
+* [Configure network features for a volume](configure-network-features.md)

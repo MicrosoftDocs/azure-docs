@@ -304,7 +304,7 @@ The final section to complete is to be able to deploy the test drives automatica
    If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 3. Provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
-    1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps?view=azps-6.3.0).
+    1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps).
     1. Add the Service Principal for Microsoft Test-Drive application.
         1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](/azure/active-directory/roles/permissions-reference#global-administrator). 
         1. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.

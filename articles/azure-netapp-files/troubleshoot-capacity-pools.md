@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot capacity pool errors for Azure NetApp Files | Microsoft Docs
-description: Describes potential issues you might have when managing capacity pools and provides solutions for the errors. 
+description: Describes potential issues you might have when managing capacity pools and provides solutions for the issues. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -38,7 +38,7 @@ This article describes resolutions to issues you might have when managing capaci
 
 ## Next steps  
 
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md)
 * [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md)
 * [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)

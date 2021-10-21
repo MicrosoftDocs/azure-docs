@@ -359,7 +359,7 @@ You can't back up and restore serverless SQL pool databases and Spark pools. As 
 
 ## Step 6: Deploy artifacts and pipelines by using CI/CD 
 
- To learn how to integrate an Azure Synapse workspace with Azure DevOps or GitHub and how to deploy the artifacts to a target region workspace, follow the steps in [Continuous integration and continuous delivery (CI/CD) for an Azure Synapse workspace](cicd/continuous-integration-deployment.md). 
+ To learn how to integrate an Azure Synapse workspace with Azure DevOps or GitHub and how to deploy the artifacts to a target region workspace, follow the steps in [Continuous integration and continuous delivery (CI/CD) for an Azure Synapse workspace](cicd/continuous-integration-delivery.md). 
 
 After the workspace is integrated with Azure DevOps, you'll find a branch with the name workspace_publish. This branch contains the workspace template that includes definitions for the artifacts like Notebooks, SQL Scripts, Datasets, Linked Services, Pipelines, Triggers, and Spark job definition.
 
