@@ -45,7 +45,7 @@ LOCATION="eastus2"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
-STORAGE_ACCOUNT_QUEUE="demoqueue"
+STORAGE_ACCOUNT_QUEUE="myqueue"
 ```
 
 Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step. 
@@ -161,7 +161,7 @@ Run the following command to generate a YAML file called *myscalerules.yaml* req
 cat <<EOF > myscalerules.yaml
 - name: myqueuerule
   type: azureQueue 
-  queueName: $STORAGE_ACCOUNT_QUEUE
+  queueName: myqueue
   queueLength: 100
   auth:
   - secretRef: queueconnection
@@ -170,15 +170,11 @@ EOF
 ```
 
 ### Deploy Container App 
-
 ```azurecli
 az containerapp create \
   --name queuereaderapp \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --enable-dapr false \
-  --cpu 0.2 \
-  --memory 100Mi \
   --revisions-mode single \
   --min-replicas 1 \
   --max-replicas 10 \
