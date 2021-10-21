@@ -66,7 +66,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
    * Under **Local accounts**, select one of the following: **Email signup**, **User ID signup**, **Phone signup**, **Phone/Email signup**, or **None**. [Learn more](sign-in-options.md).
    * Under **Social identity providers**, select any of the external social or enterprise identity providers you've set up. [Learn more](add-identity-provider.md).
-1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
+1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multifactor authentication (MFA). [Learn more](multi-factor-authentication.md).
 1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. Under **User attributes and token claims**, choose the attributes you want to collect from the user during sign-up and the claims you want returned in the token. For the full list of values, select **Show more**, choose the values, and then select **OK**.
 
