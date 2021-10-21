@@ -1,7 +1,7 @@
 ---
 title: How to perform sentiment analysis and opinion mining 
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to detect sentiment, and mine for opinions in text using the Azure Language Services API.
+description: This article will show you how to detect sentiment, and mine for opinions in text.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining
 ---
 
-# How to: Sentiment analysis and Opinion Mining using Language Services
+# How to: Use Sentiment analysis and Opinion Mining 
 
 Sentiment analysis and opinion mining are two ways of detecting positive and negative sentiment. Using sentiment analysis, you can get sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. Opinion Mining provides granular information about the opinions related to words (such as the attributes of products or services) in the text.
 
@@ -64,10 +64,10 @@ When you submit documents to be processed by sentiment analysis, you can specify
 
 Sentiment analysis and opinion mining produce a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. 
 
-To send an API request, You will need your Language service resource endpoint and key.
+To send an API request, You will need your Language resource endpoint and key.
 
 > [!NOTE]
-> You can find the key and endpoint for your Language service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
+> You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
 Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits section below.
 

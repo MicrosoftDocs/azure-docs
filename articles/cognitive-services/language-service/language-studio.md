@@ -23,13 +23,13 @@ Language Studio provides you with a platform to try several service features, an
 
 ## Language Studio pre-configured features
 
-The Language Service offers multiple features that use prebuilt, pre-configured models for performing various tasks such as: entity linking, language detection, and key phrase extraction. See the [Azure Cognitive Service for Language overview](overview.md) to see the list of features offered by the service. 
+The Language service offers multiple features that use prebuilt, pre-configured models for performing various tasks such as: entity linking, language detection, and key phrase extraction. See the [Azure Cognitive Service for Language overview](overview.md) to see the list of features offered by the service. 
 
 Each of these features has a demo-like experience inside Language Studio that lets you input text, and presents the response both visually, and in JSON. These demos help you quickly test these prebuilt features without using code.
 
 ## Language Studio customizable features
 
-The Language Service also offers multiple features that let you create, train, and deploy custom models to better fit your data. For example, custom content classification and custom question answering. For features with customization, Language Studio offers workflows that let developers and subject matter experts build models without needing machine learning expertise. 
+The Language service also offers multiple features that let you create, train, and deploy custom models to better fit your data. For example, custom content classification and custom question answering. For features with customization, Language Studio offers workflows that let developers and subject matter experts build models without needing machine learning expertise. 
 
 ## Clean up resources
 

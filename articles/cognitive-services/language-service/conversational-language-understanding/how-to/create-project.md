@@ -18,7 +18,7 @@ ms.custom: language-service-clu
 Conversational Language Understanding allows you to create two types of projects: **Conversation** and **Orchestration Workflow** projects.
 
 ## Sign in to Language Studio
-To get started, you have to first sign in to [Language Studio](https://aka.ms/languageStudio) and Text Analytics resource. Press Done once selection is complete.
+To get started, you have to first sign in to [Language Studio](https://aka.ms/languageStudio) and create a Language resource. Select **Done** once selection is complete.
 
 ## Navigate to Conversational Language Understanding
 

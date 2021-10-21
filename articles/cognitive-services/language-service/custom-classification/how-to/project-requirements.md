@@ -109,7 +109,7 @@ You should have the owner or contributor role assigned on your Azure resource.
 
 ## Enable identity management for your resource
 
-Your Language Services resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://aka.ms/languageStudio):
+Your Language resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://aka.ms/languageStudio):
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
 3. Select **Managed Identity** for your Azure resource.

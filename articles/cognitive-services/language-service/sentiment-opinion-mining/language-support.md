@@ -15,7 +15,7 @@ ms.custom: language-service-sentiment-opinion-mining
 
 # Sentiment Analysis and Opinion Mining language support 
 
-Use this article to learn which natural languages are supported by the Sentiment Analysis and Opinion Mining features of Language Services.
+Use this article to learn which natural languages are supported by Sentiment Analysis and Opinion Mining.
 
 > [!NOTE]
 > Languages are added as new [model versions](how-to/call-api.md#specify-the-sentiment-analysis-model) are released. The current model version for Sentiment Analysis is `2020-04-01`.

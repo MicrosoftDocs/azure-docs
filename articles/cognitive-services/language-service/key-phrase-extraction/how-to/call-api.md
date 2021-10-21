@@ -1,7 +1,7 @@
 ---
-title: Key Phrase Extraction using Language Services
+title: how to call the Key Phrase Extraction API 
 titleSuffix: Azure Cognitive Services
-description: How to extract key phrases by using the Key Phrase Extraction API from Language Services.
+description: How to extract key phrases by using the Key Phrase Extraction API.
 services: cognitive-services
 author: aahill
 manager: nitinme

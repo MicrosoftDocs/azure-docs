@@ -62,10 +62,10 @@ Currently the Text Analytics for health only [supports](../language-support.md) 
 
 ## Submitting data
 
-To send an API request, You will need your Language Service resource endpoint and key.
+To send an API request, You will need your Language resource endpoint and key.
 
 > [!NOTE]
-> You can find the key and endpoint for your Language Service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
+> You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
 Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits below.
 

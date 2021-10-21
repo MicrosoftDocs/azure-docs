@@ -33,7 +33,7 @@ To use Language Studio, you will need an Azure resource for language for authent
 
     :::image type="content" source="../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-resource.png":::
 
-4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. For example, select **Find linked entities**.
+4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language service. For example, select **Find linked entities**.
 
     :::image type="content" source="../media/language-studio-main-screen.png" alt-text="A screenshot showing the main screen in Language Studio." lightbox="../media/language-studio-main-screen.png":::
 

@@ -1,7 +1,7 @@
 ---
 title: Custom classification evaluation metrics 
 titleSuffix: Azure Cognitive Services
-description: Learn about evaluation metrics in custom entity extraction, which is a part of Language Services.
+description: Learn about evaluation metrics in custom entity extraction.
 services: cognitive-services
 author: aahill
 manager: nitinme

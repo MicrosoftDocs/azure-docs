@@ -1,7 +1,7 @@
 ---
-title: Definitions used in custom classification in Language Services - Azure Cognitive Services
+title: Definitions used in custom text classification
 titleSuffix: Azure Cognitive Services
-description: Learn about definitions used in custom text classification with the Language Services API.
+description: Learn about definitions used in custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification
 
 # Terms and definitions used in custom text classification 
 
-Learn about definitions used in the custom text classification feature of Language Services. 
+Learn about definitions used in custom text classification. 
 
 ## Project
 

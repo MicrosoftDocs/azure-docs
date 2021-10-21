@@ -20,7 +20,7 @@ ms.custom: language-service-summarization
 
 In general, there are two approaches for automatic text summarization: extractive and abstractive. This API provides extractive summarization.
 
-Extractive summarization is a feature in Azure Language Services that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
+Extractive summarization is a feature that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
 
 This feature is designed to shorten content that users consider too long to read. Extractive summarization condenses articles, papers, or documents to key sentences.
 
@@ -35,7 +35,7 @@ The extractive summarization API uses natural language processing techniques to 
 
 Extractive summarization returns a rank score as a part of the system response along with extracted sentences and their position in the original documents. A rank score is an indicator of how relevant a sentence is determined to be, to the main idea of a document. The model gives a score between 0 and 1 (inclusive) to each sentence and returns the highest scored sentences per request. For example, if you request a three-sentence summary, the service returns the three highest scored sentences.
 
-There is another feature in Language Services, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
+There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
 * key phrase extraction returns phrases while extractive summarization returns sentences
 * extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
 

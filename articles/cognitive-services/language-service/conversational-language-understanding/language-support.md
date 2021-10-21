@@ -15,7 +15,7 @@ ms.custom: language-service-clu
 
 # Conversational Language Understanding language support 
 
-Use this article to learn which natural languages are supported by the Conversational Language Understanding feature of Language Services.
+Use this article to learn which natural languages are supported by the Conversational Language Understanding feature.
 
 ### Supported languages for conversation projects
 

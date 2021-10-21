@@ -1,7 +1,7 @@
 ---
 title: What is Custom Named Entity Recognition (NER) in Azure Cognitive Service for Language (preview)
 titleSuffix: Azure Cognitive Services
-description: Learn how use Custom Named Entity Recognition (NER) with the Language Services API.
+description: Learn how use Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme

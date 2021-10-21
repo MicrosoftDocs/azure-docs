@@ -42,7 +42,7 @@ Before you can use custom text classification, you will need to create an Azure 
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language Service resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
 
 1. [Download sample data](https://go.microsoft.com/fwlink/?linkid=2175083) for this quickstart from GitHub.
 
@@ -54,7 +54,7 @@ The provided sample dataset contains around 200 movie summaries that belong to o
 
 Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-1. Log in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step.
+1. Log in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
 
 2. Under the **Classify text** section of Language Studio, select **custom text classification** from the available services, and select it.
 

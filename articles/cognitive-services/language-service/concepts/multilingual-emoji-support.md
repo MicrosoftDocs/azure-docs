@@ -1,7 +1,7 @@
 ---
-title: Multilingual and emoji support in Language Services
+title: Multilingual and emoji support in Azure Cognitive Service for Language
 titleSuffix: Azure Cognitive Services
-description: Learn about offsets caused by multilingual and emoji encodings in Language Services.
+description: Learn about offsets caused by multilingual and emoji encodings in Language service features.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,11 +12,11 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# Multilingual and emoji support in Language Services
+# Multilingual and emoji support in Language service features
 
 Multilingual and emoji support has led to Unicode encodings that use more than one [code point](https://wikipedia.org/wiki/Code_point) to represent a single displayed character, called a grapheme. For example, emojis like 🌷 and 👍 may use several characters to compose the shape with additional characters for visual attributes, such as skin tone. Similarly, the Hindi word `अनुच्छेद` is encoded as five letters and three combining marks.
 
-Because of the different lengths of possible multilingual and emoji encodings, Language Services may return offsets in the response.
+Because of the different lengths of possible multilingual and emoji encodings, Language service features may return offsets in the response.
 
 ## Offsets in the API response
 
@@ -32,7 +32,7 @@ Offsets can cause problems when using character-based substring methods, for exa
 
 In .NET, consider using the [StringInfo](/dotnet/api/system.globalization.stringinfo) class, which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also look for grapheme splitter libraries in your preferred software environment. 
 
-The Language Services returns these textual elements as well, for convenience.
+The Language service features returns these textual elements as well, for convenience.
 
 Endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
 
@@ -44,4 +44,4 @@ If the `stringIndexType` requested matches the programming environment of choice
 
 ## See also
 
-* [Language Services overview](../overview.md)
+* [Language service overview](../overview.md)

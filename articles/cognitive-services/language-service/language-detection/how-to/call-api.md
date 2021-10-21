@@ -1,7 +1,7 @@
 ---
 title: How to perform language detection 
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to detect the language of written text, using Azure Language Services.
+description: This article will show you how to detect the language of written text using language detection.
 services: cognitive-services
 author: aahill
 manager: nitinme
