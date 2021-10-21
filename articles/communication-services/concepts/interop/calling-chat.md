@@ -17,7 +17,7 @@ ms.subservice: teams-interop
 >
 > Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As part of this preview, the Azure Communication Services SDKs can be used to build applications that enable bring your own identity (BYOI) users to initiate ad hoc 1:1 calls or ad hoc 1:1 and group chats with Teams users. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself.
+As part of this preview, the Azure Communication Services SDKs can be used to build applications that enable bring your own identity (BYOI) users to initiate ad hoc 1:1 calls or ad hoc 1:n chats with Teams users. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself.
 
 
 
