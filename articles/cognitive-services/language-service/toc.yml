@@ -509,8 +509,6 @@ items:
       href: custom-question-answering/how-to/manage-knowledge-base.md
     - name: Filter responses
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Manage resources
-      href: custom-question-answering/how-to/manage-resources.md
     - name: Network isolation and private endpoints
       href: custom-question-answering/how-to/network-isolation.md
   - name: Concepts
@@ -519,10 +517,6 @@ items:
       href: custom-question-answering/concepts/azure-resources.md
     - name: Precise answering
       href: custom-question-answering/concepts/precise-answering.md
-    - name: Development lifecycle
-      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Data sources and content
-      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language-service/context/context
     - name: Confidence score
       href: custom-question-answering/concepts/confidence-score.md
     - name: Best practices
