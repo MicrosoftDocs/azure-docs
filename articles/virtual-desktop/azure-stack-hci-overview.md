@@ -27,7 +27,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 - Improve performance for Azure Virtual Desktop users in areas with poor connectivity to the Azure public cloud by giving them session hosts closer to their location.
 
-- Meet data locality requirements by keeping app and user data on-premises.
+- Meet data locality requirements by keeping app and user data on-premises.  For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 - Improve access to legacy on-premises apps and data sources by keeping virtual desktops and apps in the same location.
 
@@ -48,7 +48,7 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 We're aware of the following issues affecting the public preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- A known issue prevents connections to session hosts running on Azure Stack HCI from using [RDP Shortpath](shortpath.md).
+- Azure Virtual Desktop deployments using [RDP Shortpath](shortpath.md) currently can't connect to session hosts running on Azure Stack HCI.
 
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     

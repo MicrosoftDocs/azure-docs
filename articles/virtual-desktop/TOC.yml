@@ -171,11 +171,7 @@
   - name: Set drain mode
     href: drain-mode.md
   - name: Azure Virtual Desktop for Azure Stack HCI (preview)
-    items:
-    - name: Azure Stack HCI setup (preview)
-      href: azure-stack-hci.md
-    - name: Azure Stack HCI FAQ (preview)
-      href: azure-stack-hci-faq.yml
+    href: azure-stack-hci.md
 - name: Concepts
   items:
   - name: Management recommendations
@@ -235,7 +231,11 @@
       - name: Screen capture protection
         href: screen-capture-protection.md
   - name: Azure Virtual Desktop for Azure Stack HCI (preview)
-    href: azure-stack-hci-overview.md
+    items:
+      - name: Overview (preview)
+        href: azure-stack-hci-overview.md
+      - name: Azure Stack HCI FAQ (preview)
+        href: azure-stack-hci-faq.yml
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
