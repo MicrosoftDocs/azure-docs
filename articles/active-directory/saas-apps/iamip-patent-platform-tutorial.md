@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/20/2021
+ms.date: 10/21/2021
 ms.author: jeedes
 ---
 
@@ -87,8 +87,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://accounts.iamip.com/sso-login` |
     | `https://accounts.iamip.com/sso-logout` |
 
-    c. In the **Sign-on URL** text box, type the URL:
-    `https://accounts.iamip.com/login`
+    c. In the **Sign-on URL** text box, type one of the following URLs:
+
+    | **Sign-on URL** |
+    |------|
+    | `https://accounts.iamip.com/login` |
+    | `https://patents.iamip.com/login-user` |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
