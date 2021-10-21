@@ -215,9 +215,13 @@ Azure AD B2C requests claims from the claims endpoint and returns those claims i
 At this point, the IdP has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
 
 1. Open the `TrustFrameworkBase.xml` file from the starter pack.
+
 2. Find and copy the entire contents of the **UserJourneys** element that includes `ID=SignUpOrSignIn`.
+
 3. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
+
 4. Paste the entire content of the **UserJourney** element that you copied as a child of the UserJourneys element.
+
 5. Rename the ID of the user journey. For example, `ID=CustomSignUpSignIn`.
 
 ### Part 5 - Add the IdP to a user journey
@@ -263,17 +267,25 @@ In the following example, for the `CustomSignUpOrSignIn` user journey, the **Ref
 ### Part 7 - Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+
 2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+
 3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+
 4. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+
 5. Under Policies, select **Identity Experience Framework**.
+
 Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
 
 ### Part 8 - Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+
 2. For **Application**, select a web application that you [previously registered](./tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
+
 3. Select the **Run now** button.
+
 4. From the sign-up or sign-in page, select **IDEMIA** to sign in with an IDEMIA - US State issued mID (Mobile ID Credential).
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
