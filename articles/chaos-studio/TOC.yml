@@ -9,7 +9,7 @@
  - name: Quickstart
   items:
   - name: Create and run a chaos experiment using Azure Chaos Studio 
-     href: chaos-studio-quickstart-azure-portal.md
+    href: chaos-studio-quickstart-azure-portal.md
 - name: Tutorials
   items:
   - name: Run and manage experiment
