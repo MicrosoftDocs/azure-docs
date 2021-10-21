@@ -8,7 +8,7 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 10/20/2021
 
 ---
 
@@ -16,23 +16,22 @@ ms.date: 03/11/2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Ev5 and Esv5-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
+The Ev5 and Esv5-series virtual machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors in a [hyper-threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration featuring an all core Turbo clock speed of 3.5 GHz. These VMs are ideal for various memory-intensive enterprise applications and feature up to 672GiB of RAM.
 
 > [!NOTE]
 > For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
 ## Ev5-series
 
-Ev5-series sizes run on the Intel Xeon&reg; Platinum 8272CL (Ice Lake). The Ev5-series instances are ideal for memory-intensive enterprise applications. Ev5-series VMs feature Intel&reg; Hyper-Threading Technology.
+Ev5-series sizes run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors with [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Ev5 virtual machine sizes feature up to 672 GiB of RAM.
 
-Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Esv4 sizes. The pricing and billing meters for Esv5 sizes are the same as Ev5-series.
+These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs and Standard HDDs disk storage to these VMs. To use Premium SSD disk storage, select Esv5 VMs. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-[ACU](acu.md): 195 - 210<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
@@ -47,15 +46,16 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 | Standard_E32_v5             | 32 | 256 | Remote Storage Only | 32 | 8 | 16000 |
 | Standard_E48_v5             | 48 | 384 | Remote Storage Only | 32 | 8 | 24000 |
 | Standard_E64_v5             | 64 | 512 | Remote Storage Only | 32 | 8 | 30000 |
-| Standard_E96_v5             | 96 | 768 | Remote Storage Only | 32 | 8 | 30000 |
+| Standard_E96_v5             | 96 | 672 | Remote Storage Only | 32 | 8 | 30000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Esv5-series
 
-Esv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake). The Esv5-series instances are ideal for memory-intensive enterprise applications. Evs5-series VMs feature Intel&reg; Hyper-Threading Technology. Remote Data disk storage is billed separately from virtual machines.
+Esv5-series sizes run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors with [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Esv5 virtual machine sizes feature up to 672 GiB of RAM.
 
-[ACU](acu.md): 195-210<br>
+These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
@@ -75,7 +75,7 @@ Esv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake). Th
 | Standard_E32s_v5             | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8 | 16000 |
 | Standard_E48s_v5             | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8 | 24000 |
 | Standard_E64s_v5             | 64 | 512 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
-| Standard_E96s_v5             | 96 | 768 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
+| Standard_E96s_v5             | 96 | 672 | Remote Storage Only | 32 | 80000/1200 | 8 | 30000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
@@ -92,7 +92,7 @@ Esv5-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake). Th
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps

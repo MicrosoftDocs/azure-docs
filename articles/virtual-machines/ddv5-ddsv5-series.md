@@ -19,17 +19,17 @@ The Ddv5 and Ddsv5-series Virtual Machines run on the 3rd Generation Intel&reg; 
 
 
 ## Ddv5-series
+The Ddv5 series virtual machines are based on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor in a [hyper-threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration. This custom processor can reach an all core Turbo clock speed of up to 3.5 GHz and features [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Ddv5 virtual machine sizes include high performance, large local SSD storage (up to 2,400 GiB) and provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class).
 
-Ddv5-series sizes run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake). The Ddv5-series offer a combination of vCPU, memory and temporary disk for most production workloads. D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
+The Ddv5 VM sizes offer a combination of vCPUs, memory, and temporary storage able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more.
 
-The new Ddv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. You can attach Standard SSDs and Standard HDDs storage to the Ddv5 VMs. Remote Data disk storage is billed separately from virtual machines.
+The Ddv5 series supports Standard SSD and Standard HDD disk types. To use Premium SSD or Ultra Disk storage, select Ddsv5 VMs. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-[ACU](acu.md): 195<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 2<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
@@ -43,22 +43,23 @@ The new Ddv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 | Standard_D32d_v5             | 32 | 128 | 1200 | 32 | 308000/1936 | 8 | 16000 |
 | Standard_D48d_v5             | 48 | 192 | 1800 | 32 | 462000/2904 | 8 | 24000 |
 | Standard_D64d_v5             | 64 | 256 | 2400 | 32 | 615000/3872 | 8 | 30000 |
-| Standard_D96d_v5             | 96 | 384 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+| Standard_D96d_v5             | 96 | 384 | 3600 | 32 | 615000/3872 | 8 | 35000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
 ## Ddsv5-series
 
-Ddsv5-series run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake). The Ddsv5-series offer a combination of vCPU, memory and temporary disk for most production workloads.
+The Ddsv5 series virtual machines are based on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor in a hyper-threaded configuration. This custom processor can reach an all core Turbo clock speed of up to 3.5 GHz and features(https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Ddsv5 virtual machine sizes feature high performance, large local SSD storage (up to 2,400 GiB) and provide a better value proposition for most general-purpose workloads compared to the prior generation (for example., increased scalability and an upgraded CPU class).
 
-The new Ddsv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. 
+The Ddsv5 VM sizes offer a combination of vCPUs, memory, and temporary storage able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more.
 
-[ACU](acu.md): 195 <br>
+The Ddsv5 series virtual machines support Standard SSDs Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 2<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
@@ -72,7 +73,7 @@ The new Ddsv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 | Standard_D32ds_v5             | 32 | 128 | 1200 | 32 | 154000/968(400)   | 32000/800  | 8 | 8000  |
 | Standard_D48ds_v5             | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 80000/2000 | 8 | 24000 |
 | Standard_D64ds_v5             | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
-| Standard_D96ds_v5             | 96 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 30000 |
+| Standard_D96ds_v5             | 96 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/2000 | 8 | 35000 |
 
 <sup>1</sup> Accelerated networking can only be applied to a single NIC.
 
@@ -89,7 +90,7 @@ The new Ddsv5 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps
