@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with Data Management Service (Preview)
+description: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with Azure Database Migration Service (Preview)
 services: dms
 author: mokabiru
 ms.author: mokabiru
@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 10/05/2021
 ---
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with DMS (Preview)
 
@@ -75,25 +75,23 @@ To complete this tutorial, you need to:
 
 1. Open Azure Data Studio and select the server icon to connect to your on-premises SQL Server (or SQL Server on Azure Virtual Machine).
 1. On the server connection, right-click and select **Manage**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/manage-sql-server.png" alt-text="Manage SQL Server":::
 1. On the server's home page, Select **Azure SQL Migration** extension.
 1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
 1. In the first step of the migration wizard, link your Azure account if you've signed in to Azure Data Studio already or link a new Azure account.
 
 ## Run database assessment and select target
+
 1. Select the database(s) to run assessment and select **Next**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/select-database-for-assessment.png" alt-text="Select database for assessment":::
 1. Select Azure SQL Managed Instance as the target.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/assessment-issues-details.png" alt-text="Database assessment details":::
 1. Specify your **target Azure SQL Managed Instance** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/specify-target-sql-managed-instance.png" alt-text="Specify target Azure SQL Managed Instance":::
 
 ## Configure migration settings
+
 1. Select **Online migration** as the migration mode.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/select-migration-mode.png" alt-text="Select online migration":::
     > [!NOTE]
     > In the offline migration mode, the source SQL Server database is not available for read and write activity while database backups are restored on target Azure SQL Managed Instance. Application downtime needs to be considered till the migration completes.
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
@@ -102,7 +100,6 @@ To complete this tutorial, you need to:
     > If your database backups are provided in an on-premises network share, DMS will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
 
 1. After selecting the backup location, provide details of your source SQL Server and source backup location.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/configure-backup-location-details.png" alt-text="Configure backup location":::
 
     |Field    |Description  |
     |---------|-------------|
@@ -118,17 +115,15 @@ To complete this tutorial, you need to:
 > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
 
 ## Create Azure Database Migration Service
+
 1. Create a new Azure Database Migration Service or reuse an existing Service that you previously created.
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
 1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown will list any existing DMS in the selected resource group.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/configure-dms.png" alt-text="Configure DMS":::
 1. To reuse an existing DMS, select it from the dropdown list and the status of the self-hosted integration runtime will be displayed at the bottom of the page.
 1. To create a new DMS, select **Create new**. On the **Create Azure Database Migration Service**, screen provide the name for your DMS and select **Create**.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/create-dms-complete.png" alt-text="Setup Integration Runtime":::
 1. After successful creation of DMS, you'll be provided with details to set up **integration runtime**.
 1. Select on **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the pre-requisites of connecting to source SQL Server and the location containing the source backup.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/register-integration-runtime.png" alt-text="Register Integration Runtime":::
 1. After the installation is complete, the **Microsoft Integration Runtime Configuration Manager** will automatically launch to begin the registration process.
 1. Copy and paste one of the authentication keys provided in the wizard screen in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in the Integration Runtime Configuration Manager indicating that you can continue to **Register**.
 1. After successfully completing the registration of self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
@@ -161,9 +156,8 @@ After all database backups are restored on Azure SQL Managed Instance, an automa
 > [!IMPORTANT]
 > After the migration, availability of SQL Managed Instance with Business Critical service tier can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
-
 ## Next steps
 
-- For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](../azure-sql/managed-instance/restore-sample-database-quickstart.md).
-- For information about SQL Managed Instance, see [What is SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- For information about connecting apps to SQL Managed Instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).
+* For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](../azure-sql/managed-instance/restore-sample-database-quickstart.md).
+* For information about SQL Managed Instance, see [What is SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+* For information about connecting apps to SQL Managed Instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).

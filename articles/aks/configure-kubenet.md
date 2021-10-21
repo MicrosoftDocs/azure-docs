@@ -50,7 +50,7 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet, and can dire
 * Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
 * Direct pod addressing isn't supported for kubenet due to kubenet design.
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
-* If you provide your own subnet, you have to manage the Network Security Groups (NSG) associated with that subnet. AKS will not modify any of the NSGs associated with that subnet. You also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR.
+* AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups][aks-network-nsg].
 * Features **not supported on kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
    * [Windows node pools](./windows-faq.md)
@@ -250,6 +250,7 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-network-concepts]: concepts-network.md
+[aks-network-nsg]: concepts-network.md#network-security-groups
 [az-group-create]: /cli/azure/group#az_group_create
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

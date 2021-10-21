@@ -1,7 +1,7 @@
 ---
-title: Azure AD secure hybrid access with F5 | Microsoft Docs
+title: Secure hybrid access with F5
+titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
-services: active-directory
 author: davidmu1
 manager: martinco
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
 ---
 
-# F5 BIG-IP Access Policy Manager and Azure Active Directory integration for secure hybrid access
+# Integrate F5 BIG-IP with Azure Active Directory
 
 The proliferation of mobility and evolving threat landscape is placing extra scrutiny on resource access and governance, putting [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) front and center of all modernization programs.
 At Microsoft and F5, we realize this digital transformation is typically a multi-year journey for any business, potentially leaving critical resources exposed until modernized. The genesis behind F5 BIG-IP and Azure Active Directory Secure Hybrid Access (SHA) aims not only at improving remote access to on-premises applications, but also at strengthening the overall security posture of these vulnerable services.
@@ -29,7 +29,7 @@ Having Azure AD pre-authenticate access to BIG-IP published services provides ma
 [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md),
 and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
 
-- Preemptive [Conditional Access](../conditional-access/overview.md) and [Multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md)
+- Preemptive [Conditional Access](../conditional-access/overview.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
 - [Identity Protection](../identity-protection/overview-identity-protection.md) - Adaptive control through user and session risk profiling
 
@@ -141,6 +141,10 @@ The following tutorials provide detailed guidance on implementing some of the mo
 - [F5 BIG-IP APM and Azure AD SSO to Header-based applications](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
+
+- [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
+
+- [Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication SSO](f5-big-ip-forms-advanced.md)
 
 ## Additional resources
 

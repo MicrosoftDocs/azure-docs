@@ -161,7 +161,7 @@ import requests
 uri = service.scoring_uri
 image_path = 'test.jpg'
 files = {'image': open(image_path, 'rb').read()}
-response = requests.post(url, files=files)
+response = requests.post(uri, files=files)
 
 print(response.json)
 ```

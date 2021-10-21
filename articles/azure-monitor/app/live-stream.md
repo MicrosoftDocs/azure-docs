@@ -242,7 +242,7 @@ However, if you recognize and trust all the connected servers, you can try the c
 | .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
 | .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
-| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | **Not Supported**   | **Not Supported**    |
+| Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | Supported (V3.2.0+) | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**   | Supported (V1.3.0+) | **Not Supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.

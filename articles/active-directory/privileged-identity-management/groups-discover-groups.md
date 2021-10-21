@@ -4,7 +4,7 @@ description: Learn how to onboard role-assignable groups to manage as privileged
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
@@ -13,6 +13,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 

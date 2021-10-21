@@ -15,9 +15,6 @@ ms.author: helohr
 
 This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premises or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
-> [!NOTE]
-> Azure AD-joined VMs are currently only supported in the Azure Commercial cloud.
-
 ## Supported configurations
 
 The following configurations are currently supported with Azure AD-joined VMs:
@@ -46,6 +43,7 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when [creating
 > [!NOTE]
 > - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
 > - The host pool VMs must be Windows 10 single-session or multi-session, version 2004 or later.
+> - Managing Azure Virtual Desktop session hosts using Microsoft Endpoint Manager (Intune) is currently only supported in the Azure Public cloud.
 
 ### Assign user access to host pools
 

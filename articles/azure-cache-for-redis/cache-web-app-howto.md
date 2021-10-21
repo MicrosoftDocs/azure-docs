@@ -1,18 +1,18 @@
 ---
 title: Create an ASP.NET web app with Azure Cache for Redis
 description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.topic: quickstart
 ms.date: 09/29/2020
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
 
 ---
-# Quickstart: Use Azure Cache for Redis with an ASP.NET web app 
+# Quickstart: Use Azure Cache for Redis with an ASP.NET web app
 
 In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
@@ -44,7 +44,7 @@ If you want to skip straight to the code, see the [ASP.NET quickstart](https://g
 4. Verify that **.NET Framework 4.6.1** or higher is selected.
 
 5. Select **Create**.
-   
+
 6. Select **MVC** as the project type.
 
 7. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
@@ -59,7 +59,7 @@ Next, you create the cache for the app.
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-#### To edit the *CacheSecrets.config* file
+### To edit the *CacheSecrets.config* file
 
 1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
@@ -84,26 +84,27 @@ Next, you create the cache for the app.
 
 In this section, you update the application to support a new view that displays a simple test against Azure Cache for Redis.
 
-* [Update the web.config file with an app setting for the cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* Configure the application to use the StackExchange.Redis client
-* Update the HomeController and Layout
-* Add a new RedisCache view
+- [Update the web.config file with an app setting for the cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
+- Configure the application to use the StackExchange.Redis client
+- Update the HomeController and Layout
+- Add a new RedisCache view
 
 ### Update the web.config file with an app setting for the cache
 
-When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Cache for Redis instance. Later you deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file. 
+When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Cache for Redis instance. Later you deploy this application to Azure. At that time, you configure an app setting in Azure that the application uses to retrieve the cache connection information instead of this file.
 
 Because the file *CacheSecrets.config* isn't deployed to Azure with your application, you only use it while testing the application locally. Keep this information as secure as possible to prevent malicious access to your cache data.
 
 #### To update the *web.config* file
+
 1. In **Solution Explorer**, double-click the *web.config* file to open it.
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
 2. In the *web.config* file, find the `<appSetting>` element. Then add the following `file` attribute. If you used a different file name or location, substitute those values for the ones that are shown in the example.
 
-* Before: `<appSettings>`
-* After:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+- Before: `<appSettings>`
+- After:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 
@@ -117,7 +118,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
     Install-Package StackExchange.Redis
     ```
 
-3. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the StackExchange.Azure Cache for Redis client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
+3. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the StackExchange.Azure Cache for Redis client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis` package.
 
 ### To update the HomeController and Layout
 
@@ -337,7 +338,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 4. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
     Replace:
-    
+
     ```csharp
     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
@@ -397,6 +398,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 By default, the project is configured to host the app locally in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
 
 ### To run the app locally
+
 1. In Visual Studio, select **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
 
 2. In the browser, select **Azure Cache for Redis Test** on the navigation bar.
@@ -438,9 +440,9 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 ### Add the app setting for the cache
 
-After the new app has been published, add a new app setting. This setting is used to store the cache connection information. 
+After the new app has been published, add a new app setting. This setting is used to store the cache connection information.
 
-#### To add the app setting 
+#### To add the app setting
 
 1. Type the app name in the search bar at the top of the Azure portal to find the new app you created.
 
@@ -462,7 +464,7 @@ Select **Azure Cache for Redis Test** on the navigation bar to test cache access
 
 If you're continuing to the next tutorial, you can keep the resources that you created in this quickstart and reuse them.
 
-Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges. 
+Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.

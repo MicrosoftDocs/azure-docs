@@ -31,9 +31,15 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
+### Multiple workspaces in the same VNet
+
+The template doesn't support multiple Azure Machine Learning workspaces deployed in the same VNet. This is because the template creates new DNS zones during deployment.
+
+If you want to create a template that deploys multiple workspaces in the same VNet, set this up manually (using the Azure Portal or CLI) and then [use the Azure portal to generate a template](/azure/azure-resource-manager/templates/export-template-portal).
+
 ## Workspace Resource Manager template
 
-The Azure Resource Manager template used throughout this document can be found in the [machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
+The Azure Resource Manager template used throughout this document can be found in the [microsoft.machineleaerningservices/machine-learning-workspace-vnet](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
 
 This template creates the following Azure services:
 

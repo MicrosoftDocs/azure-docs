@@ -89,7 +89,6 @@ Create a file named *kv_secrets.py* that contains this code.
 
 ```python
 import os
-import cmd
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
