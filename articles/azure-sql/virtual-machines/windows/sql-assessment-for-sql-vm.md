@@ -24,7 +24,7 @@ Once the SQL Assessment feature is enabled, your SQL Server instance and databas
 
 Assessment results are uploaded to your [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) using [Microsoft Monitoring Agent (MMA)](../../../azure-monitor/agents/log-analytics-agent.md). If your VM is already configured to use Log Analytics, the SQL Assessment feature uses the the existing connection.  Otherwise, the MMA extension is installed to the SQL Server VM and connected to the specified Log Analytics workspace.
 
-Assessment run time depends on your environment (number of databases, objects, etc), with a duration from a few minutes, up to an hour. Similarly, the size of the assessment result also depends on your environment. 
+Assessment run time depends on your environment (number of databases, objects, and so on), with a duration from a few minutes, up to an hour. Similarly, the size of the assessment result also depends on your environment. 
 
 ## Prerequisites
 
@@ -87,7 +87,7 @@ View detailed information for each recommendation by selecting the **Message** f
  
 ### Trends page
 
-There are three charts on the **Trends** page to show changes over time: all issues, new issues, and resolved issues. The charts help you see yor progress. Ideally, the number of recommendations should go down while the number of resolved issues goes up. The legend shows the average number of issues for each severity level. Hover over the bars to see the individual vales for each run. 
+There are three charts on the **Trends** page to show changes over time: all issues, new issues, and resolved issues. The charts help you see your progress. Ideally, the number of recommendations should go down while the number of resolved issues goes up. The legend shows the average number of issues for each severity level. Hover over the bars to see the individual vales for each run. 
 
 If there are multiple runs in a single day, only the latest run is included in the graphs on the **Trends** page. 
 
