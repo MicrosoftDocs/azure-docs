@@ -151,10 +151,44 @@ compute:
   instance_type: <instance_type_name>
 ```
 
-In the above example, replace `<compute_target_name>` with the name of your Kubernetes compute target and `<instance_type_name>` with the name of the instance type you wish to select.
+In the example above, replace `<compute_target_name>` with the name of your Kubernetes compute target and `<instance_type_name>` with the name of the instance type you wish to select.
 
 > [!TIP]
 > The default instance type purposefully uses little resources. To ensure all machine learning workloads run successfully with the adequate resources, it is highly recommended to create custom instance types.
+
+## Select an instance type for inferencing workloads
+
+To select an instance type for inferencing workloads using the Azure Machine Learning 2.0 CLI, specify its name as part of the `deployments` section.  For example:
+
+```yaml
+type: online
+auth_mode: key
+target: azureml:<your compute target name>
+traffic:
+  blue: 100
+
+deployments:
+  - name: blue
+    app_insights_enabled: true
+    model: 
+      name: sklearn_mnist_model
+      version: 1
+      local_path: ./model/sklearn_mnist_model.pkl
+    code_configuration:
+      code: 
+        local_path: ./script/
+      scoring_script: score.py
+    instance_type: <instance_type_name>
+    environment: 
+      name: sklearn-mnist-env
+      version: 1
+      path: .
+      conda_file: file:./model/conda.yml
+      docker:
+        image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1
+```
+
+In the example above, replace `<instance_type_name>` with the name of the instance type you wish to select.
 
 ## Next steps
 
