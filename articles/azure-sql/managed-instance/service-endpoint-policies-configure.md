@@ -67,7 +67,7 @@ You'll first need to create your service endpoint policy, and then associate the
 
 
 > [!NOTE]
-> - SQL Managed Instance subnets require policies to contain the /Services/Azure/ManagedInstance service alias (See step 4). 
+> - SQL Managed Instance subnets require policies to contain the /Services/Azure/ManagedInstance service alias (See step 5). 
 > - Managed instances deployed to a subnet that already contains service endpoint policies will be automatically upgraded the /Services/Azure/ManagedInstance service alias.
 
 ### Create a service endpoint policy
