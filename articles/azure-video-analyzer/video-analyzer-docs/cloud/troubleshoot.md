@@ -47,8 +47,7 @@ Some of the common errors that you'll encounter with the Video Analyzer service 
 
 - If the video is not playing back in the Azure portal, check if the Video Analyzer service is receiving video data from the RTSP camera. Select the "Ingress Bytes" metric by navigating to Monitoring->Metrics section of the portal. If the aggregation is increasing, then the connection between the RTSP camera and the service is healthy, Ingress Bytes sum would be available below the graph. 
 
-- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#viewing-diagnostics).
-Open a support ticket using the Azure portal with the relevant details, logs if issue is not resolved.
+- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#viewing-diagnostics).You are likely to see an error such as a [ProtocolError](#diagnostic-logs-have-a-protocolerror-with-code-401), and you can troubleshoot further as discussed below.
 
 ### Diagnostic logs have a ProtocolError with code 401
 
@@ -80,7 +79,7 @@ Open a support ticket using the Azure portal with the relevant details, logs if 
 - If you are using a [remote device adapter](./use-remote-device-adapter.md), then try the following steps.
 
    - Verify that your [IoT hub is attached to your Video Analyzer account](../managed-identity.md). It is required for using a remote device adapter.
-   - Run ‘remoteDeviceAdapterList’ direct method on the edge module and verify IP address. Sample request and response are shown [here](../edge/direct-methods.md)
+   - Run `remoteDeviceAdapterList` direct method on the edge module and verify IP address. Sample request and response are shown [here](../edge/direct-methods.md)
    - Examine the response for the remote device adapter that you are using in the live pipeline that is experiencing the issue, and compare with the example in [this article](use-remote-device-adapter.md). Check that the IP address of the camera is correct
    - Go to Azure portal->Video Analyzer account -> Live -> Pipelines -> Edit live pipeline -> reenter the RTSP user name and password. Check that the RTSP URL you provide begins with `rtsp://localhost:554/…`. Here, the use of `localhost` is required.
 
