@@ -69,7 +69,9 @@ Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no lo
 
 Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. Be sure to test extensively before changing the major version in production apps.
 
-### Local
+### Upgrading a project
+
+#### Local
 
 # [C\#](#tab/csharp)
  
@@ -82,11 +84,11 @@ To update a .NET app to .NET 6 and Azure Functions 4.x, update the `TargetFramew
 
 Also, ensure the NuGet packages references by your app are updated to the latest versions. See [breaking changes](#migrating-from-3x-to-4x) for more information.
 
-#### .NET 6 in-process
+##### .NET 6 in-process
 
 * [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 4.0.0 or later
 
-#### .NET 6 isolated
+##### .NET 6 isolated
 
 * [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) 1.5.2 or later
 * [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) 1.2.0 or later
@@ -119,7 +121,7 @@ To update your Python app to Azure Functions 4.x, update your local installation
 ---
 
 
-### Azure
+#### Azure
 
 To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
