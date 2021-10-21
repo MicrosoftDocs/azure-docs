@@ -53,7 +53,7 @@ You can use the Azure portal to validate the Azure Video Analyzer for Media acco
 
 ![Image of overview](media/create-video-analyzer-for-media-account/OveviewScreenshot.png)
 
-Clich on *Explore Video Analyzer for Media's portal* to view your new account on the [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
+Click on *Explore Video Analyzer for Media's portal* to view your new account on the [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
 
 ### Management API
 
@@ -65,7 +65,7 @@ This token can be used to authenticate API calls for this account. Each token is
 Choose the following:
 * Permission type: **Contributor** or **Reader**
 * Scope: **Account**, **Project** or **Video**
-    * For **project** and **Video** you should also insert the matching ID
+    * For **Project** or **Video** you should also insert the matching ID
 * Click **Generate**
 
 ---
