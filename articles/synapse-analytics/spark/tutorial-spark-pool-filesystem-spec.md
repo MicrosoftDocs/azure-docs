@@ -124,12 +124,12 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
        data.to_csv(f) 
    ```
 
-## Upload file from local file system to Synapse workspace default ADLS storage account 
+## Upload file from local file system to default ADLS storage account of Synapse workspace
 
-FSSPEC can upload file from local file system to Synapse workspace default ADLS storage account.
+FSSPEC can upload a file from the local file system to a Synapse workspace default ADLS storage account.
 
 
-Run the below code.
+Run the following code.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
