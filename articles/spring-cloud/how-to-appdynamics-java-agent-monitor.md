@@ -216,4 +216,4 @@ To understand the limitations of the AppDynamics Agent, see [Monitor Azure Sprin
 
 ## Next steps
 
-* [Use distributed tracing with Azure Spring Cloud](how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights)
