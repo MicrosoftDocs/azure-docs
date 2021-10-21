@@ -11,7 +11,7 @@ ms.author: micraft
 
 # Deploy an Azure Service Fabric cluster node-type with Managed data disks(Preview)
 
-Service Fabric node types generally use the temporary disk attached with the underlying virtual machine scale set for its purposes. However, for higher resiliency and data storage requirements customers might want to use Managed data disks as the dataPath for the node-type. This also helps when the temporary disk size of the VM Sku is insufficient for Service Fabric. The following document provides steps to leverage native support from Service fabric to use and configure Managed data disks as default data Path. Using this, Service Fabric will automatically formats the raw disk drive for the first time, mounts it to correct location, and use it as SF dataPath. It also takes care of situations where VM's or the virutal machine scale set is reimaged.
+Service Fabric node types generally use the temporary disk attached with the underlying virtual machine scale set for its purposes. However, for higher resiliency and data storage requirements customers might want to use Managed data disks as the dataPath for the node-type. This also helps when the temporary disk size of the VM Sku is insufficient for Service Fabric. The following document provides steps to leverage native support from Service fabric to use and configure Managed data disks as default data Path. Using this, Service Fabric will automatically formats the raw disk drive for the first time, mounts it to correct location, and use it as SF dataPath. It also takes care of situations where VM's or the virtual machine scale set is reimaged.
 
 * Minimum size requirements for the managed data disk still remains to be atleast 50GB.
 * In scenarios where more than 1 managed data disk is attached, customer needs to manage the data disks on their own.
@@ -19,7 +19,7 @@ Service Fabric node types generally use the temporary disk attached with the und
 ## Configuring virtual machine scale set to use managed data disks in Service fabric
 To enable using managed data disks in node types, you should configure the underlying virtual machine scale set resource in the following way:
 
-* Add a managed disk in the data disks section of the ARM template for the virtual machine scale set. 
+* Add a managed disk in the data disks section of the template for the virtual machine scale set. 
 * Update the Service fabric extension with following settings: 
     * For Windows - **useManagedDataDisk: true** and **dataPath: 'K:\\\\SvcFab'** .  Note, the drive letter "K" is just a representation, it can be any drive Letter lexicographically greater than all the drive Letter present in the virtual machine scale set SKU.
     * For Linux - **useManagedDataDisk:true** and **dataPath: '\mnt\sfdataroot'** .
@@ -27,7 +27,7 @@ To enable using managed data disks in node types, you should configure the under
 >[!NOTE]
 > Support for Managed Data disks for Linux Service Fabric clusters is currently not available for Production, but customers can try it out by using Test Service Fabric extension for Linux.
 
-Service Fabric Extension ARM template
+Service Fabric Extension Azure Resource Manager template
 ```json
 {
     "virtualMachineProfile": {
