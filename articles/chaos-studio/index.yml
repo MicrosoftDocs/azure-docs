@@ -49,4 +49,4 @@ landingContent:
         - text: Fault providers
           url: chaos-studio-fault-providers.md
         - text: REST API documentation
-          url: https://aka.ms/chaosRESTAPI
+          url: https://docs.microsoft.com/rest/api/chaosstudio
