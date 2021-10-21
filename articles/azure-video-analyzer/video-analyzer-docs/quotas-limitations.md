@@ -57,14 +57,12 @@ You can only use IP Cameras that support RTSP protocol. You can find IP cameras 
 
 You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
 
-Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported.
-
-Bitrate must be between 500 and 3000 Kbps. If true ingestion bitrate is above this threshold, ingestion will be disconnected and reconnected with exponential backoff. 
+Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported. 
 
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
 
-## Quotas and limitations - Cloud pipeline
+## Quotas and limitations - live and batch pipeline
 
 This section enumerates the quotas and limitations of Video Analyzer cloud pipelines. 
 
@@ -116,11 +114,19 @@ Following are the different nodes that can be connected together in a pipeline t
    *  Must be immediately downstream from RTSP source or encoder processor node. 
    *  When used in a pipeline topology of batch kind, it will produce an MP4 file as an output.
 
- ### Support for batch video export 
+### Support for batch video export 
 
 * Segment selection 
    * The time sequence, that is the start and end timestamp of the portion of the archived video to be exported, should be specified in UTC time. 
    * The maximum span of the time sequence (end timestamp - start timestamp) must be less than or equal to 24 hours. 
+
+### Supported cameras
+
+You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T. 
+
+You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. Video encoding bitrate must be between 500 and 3000 Kbps. If true ingestion bitrate is above this threshold, ingestion will be disconnected and reconnected with exponential backoff.
+
+Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported. 
 
 ### Support for video AI 
 
