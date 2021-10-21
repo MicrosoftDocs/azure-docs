@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Video - Azure
+title: Troubleshoot Azure Video
 description: This article covers troubleshooting steps for Azure Video Analyzer service.
 ms.topic: troubleshooting
 ms.date: 07/15/2021
@@ -49,7 +49,7 @@ Video Analyzer is deployed as an IoT Edge module on the IoT Edge device, and it 
 If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
 
 
-### Collect logs for submitting a support ticket
+### Collect logs to submit support ticket
 
 When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](../../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
@@ -59,7 +59,7 @@ When self-guided troubleshooting steps don't resolve your problem, go the Azure 
 
 
 
-   1. Attach the _debugLogs.zip_ file to the support ticket.
+- Attach the _debugLogs.zip_ file to the support ticket.
 
 
 ### Configure Video Analyzer module to collect Verbose Logs
@@ -74,4 +74,4 @@ Configure your Video Analyzer module to collect Verbose logs by setting the `log
 
 ## Next steps
 
-Tutorial: Event-based video recording to cloud and playback from cloud - ToDo
+Tutorial: Event-based video recording to cloud and playback from cloud <!-- ToDo - Add LINK -->
