@@ -1,6 +1,6 @@
 ---
-title: Create a function app that uses identity-based Azure service connections
-description: Learn how to use identity-based connections with Azure Functions without having the handle service-specific connection strings.
+title: Create a function app without default storage secrets in its definition
+description: Learn how to remove Storage connection strings from your function app definition.
 ms.topic: tutorial
 ms.date: 10/20/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
@@ -137,7 +137,7 @@ The portal experience for creating a function app does not interact with Azure K
 
 1. In the template page, select **Deploy**, then in the Custom deployment page, select **Edit template**.
 
-    :::image type="content" source="./media/functions-identity-connections-tutorial/1-function-create-deploy.png" alt-text="Screenshot of where to find the deploy button for creating a Function.":::
+    :::image type="content" source="./media/functions-identity-connections-tutorial/function-app-template-deploy-button.png" alt-text="Screenshot of where to find the deploy button at the top of the template screen.":::
 
 ### Edit the template
 
@@ -299,8 +299,6 @@ Next you will update your function app to use its system-assigned identity when 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
 1. Under **Settings**, select **Configuration**.
-
-    :::image type="content" source="./media/functions-identity-connections-tutorial/13-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
 
 1. Select the **Edit** button next to the **AzureWebJobsStorage** application setting, and change it based on the following values.
 

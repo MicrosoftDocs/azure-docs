@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use identity-based connections instead of secrets with triggers and bindings
-description: Learn how to use identity-based connections instead of connection strings with a Service Bus queue trigger, and how to use managed identities locally.
+title: Use identity-based connections instead of secrets with triggers and bindings
+description: Learn how to use identity-based connections instead of connection strings with a Service Bus queue trigger
 ms.topic: tutorial
 ms.date: 10/20/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
@@ -29,9 +29,13 @@ In Part 2, you'll learn how to:
 
 ## Prerequisite
 
-> [!div class="checklist"]
->
-> * Have an existing function app with a system-assigned identity. For steps on how to do this follow part 1 of the tutorial: [Create a function app with identity-based connections][previous tutorial].
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
+
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
+
++ Have an existing function app with a system-assigned identity. For steps on how to do this follow part 1 of the tutorial: [Create a function app with identity-based connections][previous tutorial].
 
 ## Create a service bus and queue
 

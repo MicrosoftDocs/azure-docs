@@ -93,10 +93,12 @@
           href: functions-create-private-site-access.md
         - name: Use an outbound NAT gateway
           href: functions-how-to-use-nat-gateway.md
-    - name: Use identity for host connections
-      href: functions-identity-based-connections-tutorial.md
-    - name: Use identity for trigger and binding connections
-      href: functions-identity-based-connections-tutorial-2.md
+    - name: Identity-based connections
+      items:
+        - name: Use identity for host connections
+          href: functions-identity-based-connections-tutorial.md
+        - name: Use identity for triggers and bindings
+          href: functions-identity-based-connections-tutorial-2.md
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
