@@ -213,7 +213,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
-        "articles/aks/**/*.md": "mlearned",
+        "articles/aks/**/*.md": "zr-msft",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -562,7 +562,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
-        "articles/aks/**/*.md": "mlearned",
+        "articles/aks/**/*.md": "zarhoads",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
