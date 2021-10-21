@@ -177,6 +177,8 @@ Now that your subscription has been properly registered, you can connect your di
 
 When the connection succeeds, you will see the datastores added in vCenter.
 
+:::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/vsphere-datastores.png" alt-text="Screenshot of the vSphere experience, disk pools have been attached as datastores." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/vsphere-datastores.png":::
+
 ---
 
 ## Disconnect a disk pool from your private cloud
