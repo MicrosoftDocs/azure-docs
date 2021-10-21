@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 * [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
     * You can use any tier, and any region for this service.
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
-* Download this [sample data]()
+* Download this [sample data](https://go.microsoft.com/fwlink/?linkid=2175226).
 
 ## Create a custom NER project through Language studio
 
