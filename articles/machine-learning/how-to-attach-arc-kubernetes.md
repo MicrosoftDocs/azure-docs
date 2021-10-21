@@ -192,11 +192,14 @@ Once the Azure Machine Learning extension is deployed, the following resources a
 |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
 |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
 |nfd-master|Kubernetes deployment|**&check;**|N/A|**&check;**|
-|gateway|Kubernetes deployment |**&check;**|**&check;**|**&check;**|
+|gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
 |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|
-| fluent-bit (daemonset) | Kubernetes deployment |**&check;**|**&check;**|**&check;**| 
-| nvidiaDevicePlugin(daemonset) | Kubernetes deployment |**&check;**|**&check;**|**&check;**|
-| prometheus (statefulset, not prometheus-operator) | Kubernetes deployment |**&check;**|**&check;**|**&check;**|
+|csi-blob-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|
+|fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|
+|k8s-host-device-plugin-daemonset|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|
+|nfd-worker|Kubernetes daemonset|**&check;**|N/A|**&check;**|
+|prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|
+|frameworkcontroller|Kubernetes statefulset|**&check;**|N/A|**&check;**|
 
 > [!IMPORTANT]
 > Azure ServiceBus and Azure Relay resources are under the same resource group as the Arc cluster resource. These resources are used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
@@ -296,22 +299,29 @@ Use the `identity_type` parameter to enable `SystemAssigned` or `UserAssigned` m
 
 You can attach an AKS or Azure Arc enabled Kubernetes cluster using the Azure Machine Learning 2.0 CLI (preview).
 
-Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) command and set the --type argument to `kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) command and set the `--type` argument to `kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
 
 > [!NOTE]
 > Compute attach support for AKS or Azure Arc enabled Kubernetes clusters requires a version of the Azure CLI `ml` extension >= 2.0.1a4. For more information, see [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
+The following commands show how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
+
 **AKS**
 
 ```azurecli
-az ml compute attach --resource-group \<resource-group-name\> --workspace-name \<workspace-name\> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/managedclusters/<cluster-name>" --type aks --file advanced-attach.yml --no-wait
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/managedclusters/<cluster-name>" --type kubernetes --identity-type UserAssigned --user-assigned-identities "subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>" --no-wait
 ```
 
 **Azure Arc enabled Kubernetes**
 
 ```azurecli
-az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/connectedClusters/<cluster-name>" --type kubernetes --file advanced-attach.yml --no-wait
+az ml compute attach --resource-group <resource-group-name> --workspace-name <workspace-name> --name amlarc-compute --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Kubernetes/connectedClusters/<cluster-name>" --type kubernetes --user-assigned-identities "subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>" --no-wait
 ```
+
+Use the `identity_type` argument to enable `SystemAssigned` or `UserAssigned` managed identities.
+
+> [!IMPORTANT]
+> `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
 
 ---
 
