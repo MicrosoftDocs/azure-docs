@@ -28,7 +28,7 @@ This article provides an overview about replication tasks powered by Azure Logic
 
 ## What is a replication task?
 
-A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Generally, replication tasks move the content unchanged, but replication tasks powered by Azure Logic Apps also add replication-related properties. If the source and target protocols differ, these tasks also perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
+A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Generally, replication tasks move the content unchanged, but replication tasks powered by Azure Logic Apps also add [replication properties](#replication-properties). If the source and target protocols differ, these tasks also perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
 
 When you use the available replication task templates, each replication task that you create has an underlying [stateless workflow](single-tenant-overview-compare.md#stateful-stateless) in a **Logic App (Standard)** resource, which can include multiple workflows for replication tasks. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. For more information about replication and federation, review the following documentation:
 
@@ -74,6 +74,8 @@ For information about replication and federation in Azure Service Bus, review th
 
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
+
+<a name="replication-properties"></a>
 
 ## Metadata and property mappings
 
@@ -468,7 +470,7 @@ This section describes possible ways that replication can fail or stop working:
 
 - Message size limits
 
-  Make sure to send messages smaller than 1 MB. Otherwise, if the message size is larger than the size of events that can be sent to an Event Hubs entity after the task adds replication properties, the replication process fails.
+  Make sure to send messages smaller than 1 MB, including any added [replication properties](#replication-properties). Otherwise, if the message size is larger than the size of events that can be sent to an Event Hubs entity after the task adds replication properties, the replication process fails.
 
   For example, suppose the event size is 1 MB. After the task adds replication properties, the message size is larger than 1 MB. The outbound call that attempts to send the message will fail.
 
