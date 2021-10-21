@@ -34,7 +34,6 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | [Instance pools](instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL Server instances to the cloud. |
 | [Maintenance window](../database/maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule for your Azure SQL Managed Instance. |
 | [Migration with Log Replay Service](log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
-| [Move instance to different subnet](vnet-subnet-move-instance.md)| Move SQL Managed Instance to a different subnet using the Azure portal, Azure PowerShell or the Azure CLI.  |
 | [Long-term backup retention](long-term-backup-retention-configure.md) | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. |
 | [Service Broker cross-instance message exchange](/sql/database-engine/configure-windows/sql-server-service-broker) | Support for cross-instance message exchange using Service Broker on Azure SQL Managed Instance. |
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. |
@@ -49,6 +48,7 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
+| [Move instance to different subnet](vnet-subnet-move-instance.md)| November 2021 | Move SQL Managed Instance to a different subnet using the Azure portal, Azure PowerShell or the Azure CLI.  |
 | [Machine Learning Service](machine-learning-services-overview.md) | March 2021 | Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. |
 | [Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
@@ -57,6 +57,13 @@ The following table lists the features of Azure SQL Managed Instance that have t
 ## Documentation changes
 
 Learn about significant changes to the Azure SQL Managed Instance documentation.
+
+### June 2021
+
+| Changes | Details |
+| --- | --- |
+| **Move instance to different subnet** | It's now possible to move your SQL Managed Instance to a different subnet. See [Move instance to different subnet](vnet-subnet-move-instance.md) to learn more. |
+| | | 
 
 
 ### June 2021
