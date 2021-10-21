@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Connect applications in Azure Container Apps Preview
 
-Azure Container Apps exposes each container app through a domain name. If [ingress](overview.md) is enabled, this location is publicly available. However, if ingress is disabled, the location is internal and only available to other container apps in the same [environment](environment.md).
+Azure Container Apps exposes each container app through a domain name. If [ingress](ingress.md) is enabled, this location is publicly available. However, if ingress is disabled, the location is internal and only available to other container apps in the same [environment](environment.md).
 
 Once you know a container app's domain name, then you can call the location within your application code to connect multiple container apps together.
 

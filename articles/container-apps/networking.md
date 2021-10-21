@@ -15,7 +15,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 - You control the subnet range used by the container app.
 - Once the environment is created, the subnet range is immutable.
-- Each [revision pod](overview.md) is assigned an IP address in the subnet.
+- Each [revision pod](revisions.md) is assigned an IP address in the subnet.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 

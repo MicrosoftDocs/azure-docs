@@ -19,7 +19,7 @@ A revision is an immutable snapshot of a container app.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
-Revisions are most useful when you enable [ingress](overview.md) to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+Revisions are most useful when you enable [ingress](ingress.md) to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
 The following diagram shows a container app with two revisions.
 
@@ -27,10 +27,10 @@ The following diagram shows a container app with two revisions.
 
 The scenario shown above presumes the container app is in following state:
 
-- [Ingress](overview.md) is enabled, which makes the container app available via HTTP.
+- [Ingress](ingress.md) is enabled, which makes the container app available via HTTP.
 - The first revision is deployed as _Revision 1_.
 - After the container was updated, a new revision was activated as _Revision 2_.
-- [Traffic splitting](overview.md) rules are configured so that _Revision 1_ receives 80% of the requests, while _Revision 2_ receives the remaining 20%.
+- [Traffic splitting](revisions-manage.md#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, while _Revision 2_ receives the remaining 20%.
 
 ## Change types
 
@@ -49,12 +49,12 @@ The following types of changes create a new revision:
 
 The following types of changes do not create a new revision:
 
-- Changes to [traffic splitting rules](overview.md)
-- Turning [ingress](overview.md) on or off
+- Changes to [traffic splitting rules](revisions-manage.md#traffic-splitting)
+- Turning [ingress](ingress.md) on or off
 - Changes to [secret values](secure-app.md)
 - Any change outside the `template` section of the configuration
 
-While changes to secrets are an application-scope change, revisions must be [restarted](overview.md) before a container recognizes new secret values.
+While changes to secrets are an application-scope change, revisions must be [restarted](revisions.md) before a container recognizes new secret values.
 
 ## Activation state
 
