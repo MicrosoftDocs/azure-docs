@@ -39,7 +39,7 @@ Read about our language support [here](./language-support.md).
 Follow the recommended guidelines [here](./how-to/build-schema.md#guidelines-and-recommendations).
 
 ### How do I get predictions in different languages?
-Yes. When you train and deploy a conversation project in any language, you can immediately try querying it with different languages. You may get varied results for different languages. To improve the accuracy of any language, simply add utterances to your project in that language to introduce the trained model to more syntax of that language. Learn more about predicting in multiple languages [here](./concepts/multiple-languages.md)
+Yes. When you train and deploy a conversation project in any language, you can immediately try querying it with different languages. You may get varied results for different languages. To improve the accuracy of any language, simply add utterances to your project in that language to introduce the trained model to more syntax of that language. Learn more about predicting in multiple languages [here](./concepts/multiple-languages.md).
 
 ### How many intents, entities, utterances can I add to a project?
 Learn more about service limits [here](./service-limits.md). 
