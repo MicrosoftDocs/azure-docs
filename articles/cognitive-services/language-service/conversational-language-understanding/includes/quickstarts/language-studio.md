@@ -18,12 +18,11 @@ ms.author: aahi
 1. Go to the [Language Studio](https://aka.ms/languageStudio) and sign in with your Azure account. 
 
 2. In the **Choose a language resource** window that appears, find your Azure subscription, and choose your Language resource. If you don't have a resource, you can create a new one.
-quickstart-language-resource
 
-> [!NOTE]
-> Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
-
-:::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::
+    > [!NOTE]
+    > Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
+    
+    :::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::
 
 ## Create a conversation project
 
