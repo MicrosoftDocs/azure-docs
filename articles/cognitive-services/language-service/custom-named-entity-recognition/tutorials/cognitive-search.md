@@ -24,18 +24,18 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure Language [resource connected to an Azure blob storage account](../../custom-classification/how-to/project-requirements.md).
+* [An Azure Language resource connected to an Azure blob storage account](../how-to/project-requirements.md).
     * we recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
 * [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
     * You can use any tier, and any region for this service.
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
-* Download this sample data
+* Download this [sample data]()
 
 ## Create a custom NER project through Language studio
 
-1. Login through the [Language studio portal](https://language.azure.com/) and select **Custom entity extraction**.
+1. Login through the [Language studio portal](https://aka.ms/LanguageStudio) and select **Custom entity extraction**.
 
-2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/project-requirements.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
+2. Select your Language resource. Make sure you have [enabled identity management](../how-to/project-requirements.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
 
 3. From the top of the projects screen, select **Create new project**. If requested, choose your storage account from the menu that appears.
 
@@ -52,16 +52,17 @@ In this tutorial, you learn how to:
     > [!NOTE]
     > If your documents will be in multiple languages, select the **multiple languages** option in project creation, and set the **language** option to the language of the majority of your documents.
 
+5. For this tutorial, use an **existing tags file** and select the tags file you downloaded form the sample data.
+
 ## Train your model
 
-1. Select **Train** from the left side menu.
-2. Enter a new model name or select an existing model from the **Model name** dropdown. You can only have up to 10 models per project.
-   
-    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model training screen in Language Studio." lightbox="../media/train-model.png":::
-     
-3. Click on the **Train** button at the bottom of the page. Training can take up to few hours.
+2. Select **Train** from the left side menu.
 
-4. If the model you selected is already trained, a window will appear to confirm overwriting the last model state.
+3. To train a new model, select **Train a new model** and type in the model name in the text box below.
+
+    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
+
+4. Select the **Train** button at the bottom of the page.
 
 5. After training is completed, you can [view the model's evaluation details](../how-to/view-model-evaluation.md) and [improve the model](../how-to/improve-model.md)
 
@@ -70,8 +71,6 @@ In this tutorial, you learn how to:
 1. Select **Deploy model** from the left side menu.
 
 2. Select the model you want to deploy and from the top menu click on **Deploy model**. You can only see models that have completed training successfully.
-
-3. After you deploy your model, you will see a **Model ID** next to it. Save this ID for later.
 
 ## Prepare your secrets for the Azure function
 
@@ -82,9 +81,11 @@ Next you will need to prepare your secrets for your Azure function. Your project
 
 ### Get your custom NER project secrets
 
-1. Select **Deploy model** from the left side menu.
+* You will ned your **Project name**, Project names are case senstivie.
 
-2. If your model is deployed, you will see a **Model ID**.
+* You will also need the deployment slot. 
+   * If you have deployed your model via Lnaguage studion, your deplyment slot will be `prod` by default. 
+   * If you have deplyed it using APIs this is the deployment name you assigned in your request.
 
 ### Get your resource keys endpoint
 
@@ -96,7 +97,7 @@ Next you will need to prepare your secrets for your Azure function. Your project
    
 ## Edit and deploy your Azure Function
 
-1. Download and use the [provided sample function]().
+1. Download and use the [provided sample function](https://aka.ms/ct-cognitive-search-integration-tool).
 
 2. After you download the sample function, open the *program.cs* file and enter your app secrets.
 
@@ -132,11 +133,7 @@ In the following sections, you will use the [Cognitive Search Integration tool](
 
 In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/app-schema.json). Open it in a text editor. 
 
-The entries in the `entityNames` array will be the entity names you have assigned while creating your project.
-
-You can either: 
-* Copy and paste them from your project in [Language Studio](https://language.azure.com/customText/projects/extraction), or 
-* Get them from a tags file directly.
+The entries in the `entityNames` array will be the entity names you have assigned while creating your project. You can copy and paste them from your project in [Language Studio](https://aka.ms/custom-extraction), or 
 
 ### Run the `Index` command
 
