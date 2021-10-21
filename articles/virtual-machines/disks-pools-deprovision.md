@@ -34,33 +34,6 @@ az disk-pool stop --name "<yourDiskPool>" --resource-group "<yourResourceGroup>"
 ```
 ---
 
-## Delete a disk pool
-
-When you delete a disk pool, all the resources in the managed resource group are also deleted. If there are outstanding iSCSI connections to the disk pool, you cannot delete the disk pool. You must disconnect all clients with iSCSI connections to the disk pool first. Disks that have been added to the disk pool will not be deleted.
-
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Search for **Disk pool** and select it, then select the disk pool you want to delete.
-1. Select **Delete** at the top of the pane.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Stop-AzDiskPool -Name "<yourDiskPoolName>" -ResourceGroupName "<yourResourceGroup>"
-
-Remove-AzDiskPool -Name "<yourDiskPoolName>" -ResourceGroupName "<yourResourceGroup>
-Remove-AzDiskPool -Name "<yourDiskpoolName>" -ResourceGroupName "<yourResourceGroup>"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az disk-pool delete --name "<yourDiskPool>" --resource-group "<yourResourceGroup>"
-```
-
----
-
 ## Disable iSCSI support
 
 If you disable iSCSI support on a disk pool, you can no longer connect to a disk pool.
@@ -85,6 +58,32 @@ Remove-AzDiskPoolIscsiTarget -DiskPoolName "<yourDiskpoolName>" -Name "<youriSCS
 
 ```azurecli
 az disk-pool iscsi-target delete --disk-pool-name "<yourDiskPool>" --name "<yourIscsiTarget>" --resource-group "<yourResourceGroup>"
+```
+---
+
+## Delete a disk pool
+
+When you delete a disk pool, all the resources in the managed resource group are also deleted. If there are outstanding iSCSI connections to the disk pool, you cannot delete the disk pool. You must disconnect all clients with iSCSI connections to the disk pool first. Disks that have been added to the disk pool will not be deleted.
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for **Disk pool** and select it, then select the disk pool you want to delete.
+1. Select **Delete** at the top of the pane.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Stop-AzDiskPool -Name "<yourDiskPoolName>" -ResourceGroupName "<yourResourceGroup>"
+
+Remove-AzDiskPool -Name "<yourDiskPoolName>" -ResourceGroupName "<yourResourceGroup>
+Remove-AzDiskPool -Name "<yourDiskpoolName>" -ResourceGroupName "<yourResourceGroup>"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az disk-pool delete --name "<yourDiskPool>" --resource-group "<yourResourceGroup>"
 ```
 
 ---

@@ -110,7 +110,6 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 1. Select the **iSCSI** pane.
 1. Select **Enable iSCSI**.
 1. Enter the name of the iSCSI target, the iSCSI target IQN will generate based on this name.
-    - If you want to disable the iSCSI target for an individual disk, select **Disable** under **Status** for an individual disk.
     - The ACL mode is set to **Dynamic** by default. To use your disk pool as a storage solution for Azure VMware Solution, the ACL mode must be set to **Dynamic**.
 1. Select **Review + create**.
 

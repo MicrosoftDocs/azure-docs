@@ -50,11 +50,11 @@ Refer to the [Networking planning checklist for Azure VMware Solution](../azure-
 
 The following example should give you an idea of how the different performance factors work together:
 
-As an example, if you add two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a disk pool, you can achieve 2 x 5000  = 10,000 IOPS. However, throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, you can deploy more disk pools to scale out for extra throughput. Your network throughput will limit the effectiveness of scaling out.
+As an example, if you add two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a standard disk pool, you can achieve 2 x 5000  = 10,000 IOPS. However, throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, you can deploy more disk pools to scale out for extra throughput. Your network throughput will limit the effectiveness of scaling out.
 
 ## Availability
 
-Disk pools are currently in preview, and shouldn't be used for production workloads. Disk pools with support for premium and standard SSDs are based on a highly available architecture, with duplicates hosting the iSCSI endpoint. Disk pools with support for ultra disks are hosted on a single instance deployment.
+Disk pools are currently in preview, and shouldn't be used for production workloads. Disk pools with support for premium and standard SSDs are based on a highly available architecture, with multiples hosting the iSCSI endpoint. Disk pools with support for ultra disks are hosted on a single instance deployment.
 
 If your disk pool becomes inaccessible to your Azure VMware Solution cloud for any reason, you will experience the following:
 
