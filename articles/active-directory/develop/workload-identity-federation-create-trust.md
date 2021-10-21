@@ -44,7 +44,7 @@ Run the following command to [create a new federated identity credential](/graph
 
 *audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform should accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
 
-*subject* identifies the   When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the values in the federated identity credential are checked against the claims provided in the external token.
+*subject* is the identifier of the external software workload within the external identity provider.  Like the audience value, it has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The value here *must* match the `sub` claim within the token presented to Azure AD. 
 
 *name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
 
