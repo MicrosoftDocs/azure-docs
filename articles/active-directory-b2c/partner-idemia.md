@@ -1,7 +1,7 @@
 ---
-title: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile IDs
+title: Configure IDEMIA with Azure Active Directory B2C 
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with IDEMIA
+description: Learn how to integrate Azure AD B2C authentication with IDEMIA for relying party to consume IDEMIA or US State issued mobile IDs
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
