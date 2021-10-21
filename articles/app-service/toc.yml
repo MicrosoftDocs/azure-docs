@@ -72,8 +72,12 @@
           href: tutorial-custom-container.md
         - name: Multi-container app
           href: tutorial-multi-container-app.md
-    - name: Access SQL DB securely
-      href: app-service-web-tutorial-connect-msi.md
+    - name: secretless backend connectivity
+      items:
+        - name: Access SQL DB with managed identity
+          href: tutorial-connect-msi-sqldatabase.md
+        - name: Access services without managed identity support
+          href: tutorial-connect-msi-keyvault.md
     - name: Host a RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: Map custom domain

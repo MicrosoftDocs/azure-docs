@@ -4,7 +4,7 @@ description: Learn how to make database connectivity more secure by using a mana
 
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 04/27/2021
 ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
@@ -15,6 +15,8 @@ ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 - [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
+
+![scenario architecture](./media/tutorial-connect-msi-sqldatabase/architecture.png)
 
 > [!NOTE]
 > The steps covered in this tutorial support the following versions:
@@ -323,7 +325,11 @@ What you learned:
 > * Configure Entity Framework to use Azure AD authentication with SQL Database
 > * Connect to SQL Database from Visual Studio using Azure AD authentication
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
-
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-keyvault.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
