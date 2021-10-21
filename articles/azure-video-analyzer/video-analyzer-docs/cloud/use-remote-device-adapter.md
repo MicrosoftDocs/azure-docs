@@ -36,6 +36,8 @@ In order to connect a camera to the Video Analyzer service using a remote device
 1. Create a device adapter on the Video Analyzer edge module to act as the transparent gateway for the above device
 1. Use the IoT device and the device adapter when creating a live pipeline in the Video Analyzer service to capture and record video from the camera
 
+
+
 ## Create an IoT device
 
 Create an IoT device to represent each RTSP camera that needs to be connected to the Video Analyzer service. In the Azure portal:
@@ -176,6 +178,8 @@ After creating the live pipeline, the pipeline can be activated to start recordi
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Screenshot of the live video captured by live pipeline in the cloud.":::
+
+If you encounter errors while attempting to playback the video, follow the steps in [this troubleshooting guide](troubleshoot.md#unable-to-play-video-after-activating-live-pipeline).
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
