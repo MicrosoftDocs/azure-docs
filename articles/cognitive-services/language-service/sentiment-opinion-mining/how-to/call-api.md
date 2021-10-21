@@ -53,7 +53,7 @@ By default, sentiment analysis will use the latest available AI model on your te
 
 | Supported Versions | latest version |
 |--|--|
-| `2019-10-01`, `2020-04-01` | `2020-04-01`   |
+| `2019-10-01`, `2020-04-01`, `2021-10-01` | `2021-10-01`   |
 
 ### Input languages
 

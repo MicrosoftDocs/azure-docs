@@ -87,10 +87,11 @@ To run the Sentiment Analysis container, execute the following `docker run` comm
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | The endpoint for accessing the Language Services API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{LANGUAGE}** | The language of the container you want to run. Make sure this matches the `docker pull` command you used. Note the hyphen (`-`) used before the language in the example below. | `en` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment-{LANGUAGE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
