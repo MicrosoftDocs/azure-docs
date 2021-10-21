@@ -19,7 +19,7 @@ You can reuse some of the content of your existing LUIS applications in Conversa
 * Create LUIS applications that can be connected to orchestration workflow projects.  
   
 > [!NOTE]
-> This guide assumes you have created a Text Analytics resource. If you're getting started with the service, see the [quickstart article](../quickstart.md). 
+> This guide assumes you have created a Language resource. If you're getting started with the service, see the [quickstart article](../quickstart.md). 
 
 ## Import a LUIS application JSON file into Conversational Language Understanding
 
@@ -58,7 +58,7 @@ When importing the LUIS JSON application into CLU, certain features will be igno
 
 ## Use a published LUIS application in Conversational Language Understanding orchestration projects
 
-You can only connect to published LUIS applications that are owned by the same Text Analytics resource that you use for Conversational Language Understanding. You can change the authoring resource to a Text Analytics **S** resource in **West Europe** applications. See the [LUIS documentation](../../../luis/luis-how-to-azure-subscription.md#assign-luis-resources) for steps on assigning a different resource to your LUIS application. You can also export then import the LUIS applications into your Text Analytics resource. You must train and publish LUIS applications for them to appear in Conversational Language Understanding when you want to connect them to orchestration projects.
+You can only connect to published LUIS applications that are owned by the same Language resource that you use for Conversational Language Understanding. You can change the authoring resource to a Language **S** resource in **West Europe** applications. See the [LUIS documentation](../../../luis/luis-how-to-azure-subscription.md#assign-luis-resources) for steps on assigning a different resource to your LUIS application. You can also export then import the LUIS applications into your Language resource. You must train and publish LUIS applications for them to appear in Conversational Language Understanding when you want to connect them to orchestration projects.
 
 
 ## Next steps
