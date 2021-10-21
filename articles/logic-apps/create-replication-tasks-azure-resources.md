@@ -38,6 +38,26 @@ The following table lists the replication task templates currently available in 
 | Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Event Hub instance <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
 |||
 
+The following tables show the property mappings between Event Hubs and Service Bus:
+
+| Event Hubs property | Service Bus property |
+|---------------------|----------------------|
+| ContentType | ContentType |
+| CorrelationId | CorrelationId |
+| MessageId | MessageId |
+| PartitionKey | PartitionKey SessionId |
+| Properties | User Properties |
+| ReplyTo | ReplyTo |
+| ReplyToGroupName | ReplyToSessionId |
+| Subject | Label |
+| To | To |
+|||
+
+| Resource type | Replication source and target |
+|---------------|-------------------------------|
+| User Properties | Properties |
+|||
+
 <a name="replication-task"></a>
 
 ## What is a replication task?
@@ -161,7 +181,7 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing the "Add a task" pane with "Replicate to Service Bus" template selected.](./media/create-replication-tasks-azure-resources/select-replicate-service-bus-template.png)
 
-1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
+1. On the **Authenticate** tab, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
    This example shows the prompt to create the connection to the target Service Bus namespace where the target queue exists. The connection already exists for the source Service Bus namespace.
 
@@ -190,7 +210,7 @@ This example shows how to create a replication task for Service Bus queues.
 
 1. After you finish all the connections, select **Next: Configure**.
 
-1. Under **Configure**, provide a name for the task and any other information required for the task. When you're done, select **Review + create**.
+1. On the **Configure** tab, provide a name for the task and any other information required for the task.
 
    > [!NOTE]
    > You can't change the task name after creation, so consider a name that still applies if you 
@@ -200,13 +220,7 @@ This example shows how to create a replication task for Service Bus queues.
    > For example, if you name your task `fabrikam-rep-weu-wus`, but you later edit the underlying 
    > workflow for a different purpose, you can't change the task name to match.
 
-   ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
-
-1. On **Review + create** pane, confirm the Azure resources that the replication task requires for operation.
-
-   ![Screenshot showing "Review + create" pane with resource information for confirmation.](./media/create-replication-tasks-azure-resources/validate-replication-task.png)
-
-   - If you chose to create a new logic app resource for the replication task, the pane shows the required resources that the replication task will create to operate. Although not listed, these resources include an Azure storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
+   1. To add the task workflow to an existing **Logic App (Standard)** resource, from the **Logic App** list, select the existing logic app. To create a new **Logic App (Standard)** resource instead, under the **Logic App** list, select **Create new**, and provide the name to use for the new logic app.
 
      > [!NOTE]
      > If you create a new logic app resource during replication task creation, the logic app is created in the 
@@ -215,7 +229,23 @@ This example shows how to create a replication task for Service Bus queues.
      > region than your source. When you create the replication task, select the existing logic app instead and 
      > add the underlying stateless workflow to the existing logic app. For more information, review the [Prerequisites](#prerequisites).
 
-   - If you chose to use an existing logic app resource for the replication task, the pane shows the resources that the replication will reuse to operate.
+   1. When you're done, select **Review + create**.
+
+   ![Screenshot showing "Add a task" pane with replication task information, such as task name, source and target queue names, and name to use for the logic app resource.](./media/create-replication-tasks-azure-resources/configure-replication-task.png)
+
+1. On **Review + create** tab, confirm the Azure resources that the replication task requires for operation.
+
+   - If you chose to create a new logic app resource for the replication task, the pane shows the required Azure resources that the replication task will create to operate. Although not listed, these resources include an Azure storage account that contains configuration information for the logic app resource, workflow, and other runtime operations. For example, this storage account contains the position or *offset* in the stream or sequence where the primary or source entity stops reading if the primary's region become unavailable.
+
+     The following example shows the **Review + create** tab if you chose to create a new logic app:
+
+     ![Screenshot showing "Review + create" pane with resource information when creating a new logic app.](./media/create-replication-tasks-azure-resources/validate-replication-task-new-logic-app.png)
+
+   - If you chose to reuse an existing logic app resource for the replication task, the pane shows the Azure resources that the replication will reuse to operate.
+
+     The following example shows the **Review + create** tab if you chose to reuse an existing logic app:
+
+     ![Screenshot showing "Review + create" pane with resource information when reusing an existing logic app.](./media/create-replication-tasks-azure-resources/validate-replication-task-existing-logic-app.png)
 
    > [!NOTE]
    > If your source, target, or both are behind a virtual network, you have to set up permissions and access 
