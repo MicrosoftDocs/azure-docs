@@ -56,15 +56,15 @@ In this tutorial, you learn how to:
 
 ## Train your model
 
-2. Select **Train** from the left side menu.
+1. Select **Train** from the left side menu.
 
-3. To train a new model, select **Train a new model** and type in the model name in the text box below.
+2. To train a new model, select **Train a new model** and type in the model name in the text box below.
 
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
-4. Select the **Train** button at the bottom of the page.
+3. Select the **Train** button at the bottom of the page.
 
-5. After training is completed, you can [view the model's evaluation details](../how-to/view-model-evaluation.md) and [improve the model](../how-to/improve-model.md)
+4. After training is completed, you can [view the model's evaluation details](../how-to/view-model-evaluation.md) and [improve the model](../how-to/improve-model.md)
 
 ## Deploy your model
 
