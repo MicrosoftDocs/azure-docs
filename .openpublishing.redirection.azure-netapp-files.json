@@ -24,6 +24,6 @@
             "source_path_from_root": "/articles/azure-netapp-files/azure-netapp-files-faqs.md",
             "redirect_url": "/azure/azure-netapp-files/aq-nfs",
             "redirect_document_id": false
-        },
+        }
     ]
 }
