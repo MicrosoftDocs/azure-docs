@@ -1,24 +1,13 @@
 ---
-title: Quickstart - create a conversations project in Language Studio
-titleSuffix: Azure Cognitive Services
-description: Use this article to quickly get started with Conversational Language Understanding
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: quickstart
+ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ---
-
-# Quickstart: Build a conversations project in Language Studio (preview)
-
-In this quickstart, create a conversations project in Conversational Language Understanding (CLU), using Language Studio. Use this article to learn how to:
-* Create a project
-* Add intents, entities, and examples to your project
-* Train and deploy your project's model
-* Use your deployed model's endpoint. 
 
 ## Prerequisites
 
@@ -34,7 +23,7 @@ quickstart-language-resource
 > [!NOTE]
 > Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
 
-:::image type="content" source="../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../media/quickstart-language-resource.png":::
+:::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::
 
 ## Create a conversation project
 
@@ -43,7 +32,7 @@ Once you have a Language resource associated with your account, create a Convers
 1. In [Language Studio](https://language.azure.com/), scroll down and click on **Conversational conversational LU**. This will bring you to the **Conversations project** page. 
  
     
-    :::image type="content" source="../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../media/projects-page.png":::
+    :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::
 
 2. Click on **Create new project**. Select **Conversation project**, then click **Next**.
 
@@ -73,10 +62,10 @@ Once you're done, click **Next**, review the details, and click **create project
     - **FileType**
 
 
-Clicking on the intent will take you to the [tag utterances](how-to/tag-utterances.md) page, where you can add examples for intents and label them with entities.
+Clicking on the intent will take you to the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents and label them with entities.
 
 
-:::image type="content" source="../media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../media/quickstart-intents.png":::
+:::image type="content" source="../../media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../media/quickstart-intents.png":::
 
 ## Tag utterances
 
@@ -103,7 +92,7 @@ Add the rest of these utterances with the following intents and entities.
 
 When you're done, click on **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
 
-:::image type="content" source="../media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../media/quickstart-utterances.png":::
+:::image type="content" source="../../media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../media/quickstart-utterances.png":::
 
 ## Train your model and view its details
 

@@ -1,9 +1,25 @@
+---
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: include
+ms.date: 11/02/2021
+ms.author: aahi
+---
+
+## Prerequisites
+
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* The current version of [cURL](https://curl.haxx.se/).
+
 ## Get your resource keys and endpoint
 
 1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 2. From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
-:::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
+:::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../../media/azure-portal-resource-credentials.png":::
 
 ## Import a project
 
