@@ -4,7 +4,7 @@ description: Understand Azure Chaos Studio, an Azure service that helps you to m
 services: chaos-studio
 author: johnkemnetz
 ms.topic: overview
-ms.date: 10/07/2021
+ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.cutsom: template-overview

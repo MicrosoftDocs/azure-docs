@@ -3,7 +3,7 @@ title: Create an experiment that uses an AKS Chaos Mesh fault with Azure Chaos S
 description: Create an experiment that uses an AKS Chaos Mesh fault
 author: johnkemnetz
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to
