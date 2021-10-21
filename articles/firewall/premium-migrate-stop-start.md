@@ -36,7 +36,7 @@ If you use Azure Firewall Standard SKU with Firewall Policy, you can use the All
 
 ## Migrate a Secure Hub Firewall
 
-The minimal Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
+The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
 - Deallocate the Standard Firewall
 
