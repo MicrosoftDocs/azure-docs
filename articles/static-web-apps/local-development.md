@@ -86,8 +86,8 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 |--- | --- |
 | Serve a specific folder | `swa start ./output-folder` |
 | Use a running framework development server | `swa start http://localhost:3000` |
-| Start a Functions app in a folder | `swa start ./output-folder --api ./api` |
-| Use a running Functions app | `swa start ./output-folder --api http://localhost:7071` |
+| Start a Functions app in a folder | `swa start ./output-folder --api-location ./api` |
+| Use a running Functions app | `swa start ./output-folder --api-location http://localhost:7071` |
 
 ## Authorization and authentication emulation
 
@@ -124,9 +124,14 @@ The following steps show you a common scenario that uses development servers for
 
 1. Open the API application folder in Visual Studio Code and start a debugging session.
 
-1. Pass the addresses for the static server and API server to the `swa start` command by listing them in order.
+1. Start the Static Web Apps CLI using the following command.
 
-    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location=http://localhost:7071`
+
+    ```console
+    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location=http://localhost:7071
+    ```
+
+    Replace `<DEV-SERVER-PORT-NUMBER>` with the development server's port number.
 
 The following screenshots show the terminals for a typical debugging scenario:
 
