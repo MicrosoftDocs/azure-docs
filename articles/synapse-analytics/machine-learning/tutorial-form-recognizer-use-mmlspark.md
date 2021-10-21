@@ -163,7 +163,7 @@ display(analyzeInvoices
         .select("source", "documents"))
 ```
 ### Expected results
-![expected_results_for_invoice](./media/tutorial-form-recognizer/invoice2_output.png)
+![Screenshot of the expected results from analyzing the example invoice.](./media/tutorial-form-recognizer/invoice2_output.png)
 
 ## Analyze ID documents
 Detects and extracts data from identification documents using optical character recognition (OCR) and our ID document model, enabling you to easily extract structured data from ID documents such as first name, last name, date of birth, document number, and more.
