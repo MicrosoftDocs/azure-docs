@@ -3,7 +3,7 @@ title: Azure Video Analyzer terminology
 description: This article provides an overview of Azure Video Analyzer terminology.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/01/2021
 
 ---
 # Azure Video Analyzer terminology
@@ -16,7 +16,7 @@ A [pipeline topology](pipeline.md) lets you define where media should be capture
 
 ## RTSP
 
-[RTSP](https://tools.ietf.org/html/rfc2326) refers to Real-Time Streaming Protocol. It is an application-level protocol for control over the delivery of data with real-time properties. RTSP provides an extensible framework to enable controlled, on-demand delivery of real-time data, such as audio and video. Video Analyzer [supports](pipeline.md#rtsp-source) capturing, analyzing, and recording of video from IP cameras that support RTSP.
+[RTSP](https://tools.ietf.org/html/rfc2326) refers to the Real-Time Streaming Protocol. It is an application-level protocol for control over the delivery of data with real-time properties. RTSP provides an extensible framework to enable controlled, on-demand delivery of real-time data, such as audio and video. Video Analyzer [supports](pipeline.md#rtsp-source) capturing, analyzing, and recording of video from IP cameras that support RTSP.
 
 ## VMS
 
@@ -48,7 +48,7 @@ When you create an Video Analyzer account, you have to associate an Azure storag
 
 ## Low latency streaming
 
-Low latency video streaming is a beneficial capability of a VMS system. Azure Video Analyzer can stream videos with a 2-second delay. Latency means the delay between the instant when an event happens in front of the camera and when that event is seen on a playback device.
+Low latency video streaming is a beneficial capability of a VMS system. Video Analyzer can stream live video with a delay of around 2 seconds. Latency means the delay between the instant when an event happens in front of the camera and when that event is seen on a playback device.
 
 ## Next steps
 
