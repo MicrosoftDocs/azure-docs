@@ -5,7 +5,7 @@ description: Learn how to create and configure a Linux VM to sign in using Azure
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/11/2021
+ms.date: 10/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 # Deprecated: Login to a Linux virtual machine in Azure with Azure Active Directory using device code flow authentication
 
 > [!CAUTION]
-> **The public preview feature described in this article is being deprecated August 15th, 2021.**
+> **The public preview feature described in this article has been deprecated August 15th, 2021.**
 > 
 > This feature is being replaced with the ability to use Azure AD and SSH via certificate-based authentication. For more information see the article, [Preview: Login to a Linux virtual machine in Azure with Azure Active Directory using SSH certificate-based authentication](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). To migrate from the old version to this version, see [Migration from previous preview](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview)
 
