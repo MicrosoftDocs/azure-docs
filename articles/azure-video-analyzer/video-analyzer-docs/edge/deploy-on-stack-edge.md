@@ -65,7 +65,6 @@ Before you continue, make sure that you've completed the following:
 * To deploy Kubernetes clusters, you've configured your Azure Stack Edge resource on its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
 
     1. Connect and configure the resource by doing the following:
-    
         a. [Connect to the local web UI setup](../../databox-online/azure-stack-edge-gpu-deploy-connect.md).  
         b. [Configure the network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).  
         c. [Configure the device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)  
@@ -79,6 +78,7 @@ Before you continue, make sure that you've completed the following:
         c. Select **Apply**. The operation should take about two minutes.
         
         > [!div class="mx-imgBorder"]
+
         > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text="Screenshot of compute prerequisites on the Azure Stack Edge local UI.":::
 
         If Azure DNS isn't configured for the Kubernetes API and Azure Stack Edge resource, you can update your Windows host file by doing the following:
@@ -155,10 +155,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    
 1. Select the **Module Twin Settings** tab.
  
-   To run, Azure Video Analyzer requires a set of mandatory twin properties, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md).  
+   To run, Video Analyzer edge module requires a set of mandatory twin properties, as listed in [Module Twin configuration schema](module-twin-configuration-schema.md). 
 
 1. In the box on the **Module Twin Settings** pane, paste the following JSON code:    
-
     ```
     {
         "applicationDataDirectory": "/var/lib/videoanalyzer",
@@ -375,6 +374,7 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
     * All deployed IoT Edge modules use the *iotedge* namespace. Be sure to include that name when you're using kubectl. 
 
 * **Module logs**
+>>>>>>> 63d645256c40c2c4644b1317cdd40de13e09d6e9:articles/azure-video-analyzer/video-analyzer-docs/deploy-on-stack-edge.md
 
     If the *iotedge* tool is inaccessible for obtaining logs, use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) to view the logs or pipe to a file. For example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
 
