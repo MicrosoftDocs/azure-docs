@@ -35,7 +35,7 @@ This tutorial makes use of the following environment variables:
 
 ```bash
 RESOURCE_GROUP="containerapps-rg"
-LOCATION="eastus2"
+LOCATION="eastus"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
