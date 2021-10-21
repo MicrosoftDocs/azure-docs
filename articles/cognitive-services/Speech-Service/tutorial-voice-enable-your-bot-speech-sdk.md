@@ -224,14 +224,18 @@ You'll need to make a small configuration change so that your bot can communicat
 2. In the left navigation pane, under **Settings**, click **Configuration**.
 3. Select the **General settings** tab.
 4. Locate the toggle for **Web sockets** and set it to **On**.
+   
 5. Click **Save**.
+
+
+   ![enable web sockets](media/tutorial-voice-enable-your-bot-speech-sdk/bot-service-channel-directlinespeech-enablewebsockets.png "enable websockets")
 
 > [!TIP]
 > You can use the controls at the top of your Azure App Service page to stop or restart the service. This may come in handy when troubleshooting.
 
-## Create a channel registration
+## Create an Azure Bot resource
 
-Now that you've created an Azure App Service to host your bot, the next step is to create an **Azure Bot**. Creating a channel registration is a prerequisite for registering your bot with Bot Framework channels, including Direct Line Speech channel. If you'd like to learn more about how bots use channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels).
+Now that you've created an Azure App Service to host your bot, the next step is to create an **Azure Bot**. Creating an Azure Bot resource is a prerequisite for registering your bot with Bot Framework channels, including Direct Line Speech channel. If you'd like to learn more about how bots use channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels).
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.AzureBot" target="_blank">Create an Azure Bot</a>
 1. You'll be prompted to provide some information:
@@ -295,7 +299,11 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 
 1. From the **Settings** navigation, click **Configuration**.
    * Check the box labeled **Enable Streaming Endpoint**. This is needed to create a communication protocol built on web sockets between your bot and the Direct Line Speech channel.
-   * Click **Save**.
+  
+  ![enable the streaming protocol](media/tutorial-voice-enable-your-bot-speech-sdk/StreamingEndpoint.png "enable streaming endpoint")
+   * Click **Save**. 
+
+ 
 
 > [!TIP]
 > If you'd like to learn more, see [Connect a bot to Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech). This page includes additional information and known issues.
