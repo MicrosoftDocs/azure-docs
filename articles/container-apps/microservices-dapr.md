@@ -29,7 +29,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 ## Prerequisites
 
-* [Azure CLI](../../cli/azure/install-azure-cli.md)
+* [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Before you begin
 
