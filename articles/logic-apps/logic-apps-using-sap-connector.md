@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/21/2021
 tags: connectors
 ---
 
@@ -1835,7 +1835,7 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 1. For **Transaction ID**, enter the name of your variable again. For example, `IDOCtransferID`.
 
-1. Optionally, validate the deduplication in your test environment. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step.
+1. Optionally, validate the deduplication in your test environment. Repeat the **\[IDOC] Send document to SAP** action with the same **Transaction ID** GUID that you used in the previous step. Use the **\[IDOC] Get IDOC list for transaction** action with the same **Transaction ID** and with direction **Receive** to validate which IDoc number got assigned after each call to **\[IDOC] Send document to SAP** action. If the same, single IDoc number is returned for both calls, then the IDoc has been de-duplicated.
 
    When you send the same IDoc twice, you can validate that SAP is able to identify the duplication of the tRFC call and resolve the two calls to a single inbound IDoc message.
 
