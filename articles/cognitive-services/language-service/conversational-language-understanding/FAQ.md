@@ -57,5 +57,5 @@ No, the service only supports JSON format. You can go to LUIS, import the .LU fi
 Yes, for predictions. Find the samples [here](https://aka.ms/cluSampleCode). There is currently no authoring support for the SDK.
 
 ### Are there APIs for this feature?
-Yes, all the APIs are available [here](./https://www.microsoft.com/en-us/).
+Yes, all the APIs are available [here](https://aka.ms/clu-apis).
 
