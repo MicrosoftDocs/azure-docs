@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 10/06/2021
+ms.date: 10/25/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -36,15 +36,15 @@ The following Azure AD roles that can be assigned with administrative unit scope
 
 | Role | Description |
 | -----| ----------- |
-| Authentication Administrator | Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only. |
-| Groups Administrator | Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only. |
-| Helpdesk Administrator | Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only. |
-| License Administrator | Can assign, remove, and update license assignments within the administrative unit only. |
-| Password Administrator | Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only. |
-| SharePoint Administrator * | Can manage all aspects of the SharePoint service. |
-| Teams Administrator * | Can manage the Microsoft Teams service. |
-| Teams Devices Administrator | Can perform management related tasks on Teams certified devices. |
-| User Administrator | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
+| [Authentication Administrator](permissions-reference.md#authentication-administrator) | Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only. |
+| [Groups Administrator](permissions-reference.md#groups-administrator) | Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only. |
+| [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only. |
+| [License Administrator](permissions-reference.md#license-administrator) | Can assign, remove, and update license assignments within the administrative unit only. |
+| [Password Administrator](permissions-reference.md#password-administrator) | Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only. |
+| [SharePoint Administrator](permissions-reference.md#sharepoint-administrator) * | Can manage all aspects of the SharePoint service. |
+| [Teams Administrator](permissions-reference.md#teams-administrator) * | Can manage the Microsoft Teams service. |
+| [Teams Devices Administrator](permissions-reference.md#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. |
+| [User Administrator](permissions-reference.md#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
 
 (*) The SharePoint Administrator and Teams Administrator roles can only be used for managing properties in the Microsoft 365 admin center. Teams admin center and SharePoint admin center currently do not support administrative unit-scoped administration.
 
