@@ -48,15 +48,13 @@ Once a service connection is created. Developers can validate and check connecti
 **Target Service:**
 - Azure Database for PostgreSQL
 - Azure Database for MySQL
-- Azure SQL DB
 - Azure Cosmos DB
 - Azure Storage (Blob, Queue, File and Table storage)
 - Azure Key Vault
 - Azure SignalR Service
-- Azure App Configuration
 - Azure Event Hubs
+- Azure Cache for Redis
 - Azure Service Bus
-- Azure Web Pub/Sub Service
 - Apache Kafka on Confluent Cloud
 
 ## How to use Service Connector?

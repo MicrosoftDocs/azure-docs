@@ -45,7 +45,7 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 Clone the sample repository:
 ```Bash
-git clone https://github.com/LianwMS/WebAppStorageMISample.git
+git clone https://github.com/Azure-Samples/serviceconnector-webapp-storageblob-dotnet.git
 ```
 
 and go to the root folder of repository:
@@ -95,7 +95,7 @@ In the terminal, run the following command to open the sample application in you
 az webapp browse --name <app-name> 
 ```
 
-Each time you visit this sample web app, it upload a blob, download it and then display the content. You will see "Hello Service Connector! Current is `{UTC Time Now}`", which indicates your web app is successfully connected to the blob storage with managed identity.
+The sample code is a web application. Each time you refresh the index page, it will create or update a blob with the text `Hello Service Connector! Current is {UTC Time Now}` to the storage container and read back to show it in the index page.
 
 ## Next steps
 

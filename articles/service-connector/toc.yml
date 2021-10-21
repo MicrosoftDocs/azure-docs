@@ -48,10 +48,8 @@ items:
       href: how-to-integrate-postgres.md
     - name: Azure Database for MySQL
       href: how-to-integrate-mysql.md
-    - name: Azure SQL DB
-      href: how-to-integrate-sql.md
     - name: Azure Cosmos DB
-      href: overview.md
+      href: how-to-integrate-cosmos-db.md
     - name: Azure Blob Storage
       href: how-to-integrate-storage-blob.md
     - name: Azure Queue Storage
@@ -68,10 +66,6 @@ items:
       href: how-to-integrate-service-bus.md
     - name: Azure SignalR Service
       href: how-to-integrate-signalr.md
-    - name: Azure App Configuration
-      href: how-to-integrate-app-config.md
-    - name: Azure Web Pub/Sub Service
-      href: how-to-integrate-web-pubsub.md
     - name: Azure Cache for Redis
       href: how-to-integrate-redis-cache.md
     - name: Apache Kafka on Confluent Cloud

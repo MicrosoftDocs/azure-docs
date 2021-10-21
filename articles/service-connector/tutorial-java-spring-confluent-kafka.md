@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/serviceconnector-springcloud-confluen
 Then navigate into that folder:
 
 ```Bash
-cd java-springboot
+cd serviceconnector-springcloud-confluent-springboot
 ```
 
 ## 3. Prepare cloud services
@@ -48,7 +48,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 ### 3.2 Create Kafka cluster and schema registry on Confluent Cloud
 
-1. login to Confluent Cloud by SSO provided by A
+1. Login to Confluent Cloud by SSO provided by Azure
 
     ![SSO Login](media/tutorial-java-spring-confluent-kafka/azure-confluent-sso.png)
 
@@ -67,7 +67,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
     ![Cluster setting](media/tutorial-java-spring-confluent-kafka/cluster-setting.png)
 
 1. Create API-keys for the cluster in **Data integration** -> **API Keys** -> **+ Add Key** with **Global access**. Take a note of the key and secret.
-1. Create a topic named `test1` with partitions 6 in **Topics** -> **+ Add topic**
+1. Create a topic named `test` with partitions 6 in **Topics** -> **+ Add topic**
 1. In default environment, click **Schema Registry** tab. Enable the Schema Registry and take a note of the **API endpoint**.
 1. Create API-keys for schema registry. Take a note of the key and secret.
 
@@ -134,6 +134,7 @@ Click **Service Connector (Preview)** Select or enter the following settings.
 
 Select **Review + Create** to review the connection settings. Then select **Create** to create start creating the service connection.
 
+::: zone-end
 
 ## 4.3 Deploy the Jar file for the app
 
@@ -143,9 +144,11 @@ Run the following command to upload the jar file (`build/libs/java-springboot-0.
 az spring-cloud app deploy -n hellospring -s <service-instance-name> -g <your-resource-group-name>  --artifact-path build/libs/java-springboot-0.0.1-SNAPSHOT.jar
 ```
 
-## 5. View sample application
+## 5. Validate the Kafka data ingestion
 
-Navigate to your Spring Cloud app's endpoint from Azure Portal, click the application URL. You will see "10 messages were produced to topic test1". Then go to the Confluent portal and the topic's page will show production throughput.
+Navigate to your Spring Cloud app's endpoint from Azure Portal, click the application URL. You will see "10 messages were produced to topic test". 
+
+Then go to the Confluent portal and the topic's page will show production throughput.
 
 :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-metrics.png" alt-text="Sample metrics":::
 

@@ -63,7 +63,7 @@ az extension add --name db-up
 Create an Azure Database for MySQL server using the following command:
 
 ```azurecli
-az mysql up -resource-group ServiceConnector-tutorial-rg -admin-user <admin-username> -admin-password <admin-password>
+az mysql up --resource-group ServiceConnector-tutorial-rg --admin-user <admin-username> --admin-password <admin-password>
 ```
 
 - For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this MySQL server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, #, %). The password cannot contain username.
@@ -106,13 +106,20 @@ Once your server is created, it comes with the following settings:
     az spring-cloud connection create mysql -g ServiceConnector-tutorial-rg -n mysqlconn
     ```
 
+1. Clone sample code
+
+    ```bash
+    git clone https://github.com/Azure-Samples/serviceconnector-springcloud-mysql-springboot.git
+    ```
+
 1. Build the project using maven.
 
     ```bash
+    cd serviceconnector-springcloud-mysql-springboot
     mvn clean package -DskipTests 
     ```
 
-1. Deploy the Jar file for the app (`build/libs/java-springboot-0.0.1-SNAPSHOT.jar`).
+1. Deploy the Jar file for the app (`target/demo-0.0.1-SNAPSHOT.jar`).
 
     ```azurecli
     az spring-cloud app deploy -n hellospring -s <service instance name> -g ServiceConnector-tutorial-rg  --artifact-path target/demo-0.0.1-SNAPSHOT.jar

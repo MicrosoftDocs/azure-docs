@@ -31,28 +31,31 @@ az spring-cloud connection list-support-types
 
 ## Create a service connection
 
-Use the Azure CLI [az spring-cloud connection]() command to create a service connection to a SQL database, providing the following information:
+Use the Azure CLI [az spring-cloud connection]() command to create a service connection to a blob storage, providing the following information:
 
 - **Source compute service resource group name:** The resource group name of the Spring Cloud.
 - **Spring Cloud name:** The name of your Spring Cloud that connects to the target service.
-- **Target service resource group name:** The resource group name of the SQL database.
-- **SQL DB name:** The server name of your SQL DB database.
-- **Connection name:** The connection name that identifies the connection between your Spring Cloud and target service.
+- **Target service resource group name:** The resource group name of the blob storage.
+- **Storage account name:** The account name of your blob storage.
 
 ```azurecli-interactive
-az spring-cloud connection create sql -sg "<your-spring-cloud-resource-group>" --spring-cloud "<your-spring-cloud-name>" -tg "<your-sql-db-resource-group>" --sql-name "<your-sql-database-name>" --name "<your-connection-name>"
+az spring-cloud connection create storage-blob -g <spring_cloud_resource_group> -n <spring_cloud_name> --tg <storage_resource_group> --account <storage_account_name> --system-identity
 ```
+
+> [!NOTE]
+> If you don't have a blob storage, you can run `az spring-cloud connection create storage-blob -g <app_service_resource_group> -n <app_service_name> --tg <storage_resource_group> --account <storage_account_name> --system-identity --new` to provision a new one and directly get connected to your app service.
 
 ## View connections
 
 Use the Azure CLI [az spring-cloud connection]() command to list connection to your Spring Cloud application, providing the following information:
 
-- **Source compute service resource group name:** The resource group name of the Spring Cloud.
-- **Spring Cloudname:** The name of your Spring Cloud that connects to the target service.
 
 ```azurecli-interactive
-az spring-cloud connection list-configuration -sg "<your-spring-cloud-resource-group>" --spring-cloud "<your-spring-cloud-name>"
+az spring-cloud connection list-configuration -sg <your-spring-cloud-resource-group> --spring-cloud <your-spring-cloud-name>
 ```
+
+Use the Azure CLI [az webapp connection]() command to create a service connection to a blob storage, providing the following information:
+
 
 ## Next steps
 

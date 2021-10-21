@@ -102,13 +102,13 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 Clone the sample repository:
 
 ```terminal
-git clone https://github.com/Azure-Samples/djangoapp
+https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django.git
 ```
 
 Then navigate into that folder:
 
 ```terminal
-cd djangoapp
+cd serviceconnector-webapp-postgresql-django
 ```
 
 ::: zone pivot="postgres-flexible-server"
@@ -210,7 +210,7 @@ When the command completes, it outputs a JSON object that contains different con
 1. Create a [resource group](../azure-resource-manager/management/overview.md#terminology) (you can change the name, if desired). The resource group name is cached and automatically applied to subsequent commands.
 
     ```azurecli
-    az group create --name Python-Django-PGFlex-rg --location centralus
+    az group create --name ServiceConnector-tutorial-rg --location centralus
     ```
 
 1. Create the database server (the process takes a few minutes):
@@ -227,7 +227,7 @@ When the command completes, it outputs a JSON object that contains different con
     - Create a PostgreSQL Flexible Server:
         - By default, the command uses a generated name like `server383813186`. You can specify your own name with the `--name` parameter. The name must be unique across all of Azure.
         - The command uses the lowest-cost `Standard_B1ms` pricing tier. Omit the `--sku-name` argument to use the default `Standard_D2s_v3` tier.
-        - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `Python-Django-PGFlex-rg` in the `centralus` region.
+        - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `ServiceConnector-tutorial-rg` in the `centralus` region.
     - Create an administrator account with a username and password. You can specify these values directly with the `--admin-user` and `--admin-password` parameters.
     - Create a database named `flexibleserverdb` by default. You can specify a database name with the `--database-name` parameter.
     - Enables complete public access, which you can control using the `--public-access` parameter.
@@ -309,7 +309,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
 
-The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`.
+The app code expects to find database information in four environment variables named `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, `AZURE_POSTGRESQL_USER`, and `AZURE_POSTGRESQL_PASS`.
 
 To set environment variables in App Service, create "app settings" with the following [az connection create]() command.
 
@@ -321,7 +321,7 @@ az webapp connection create postgres
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.
 
-- The command creates settings named "DB_HOST", "DB_NAME", "DB_PASSWORD", "DB_USER" as expected by the app code.
+- The command creates settings named "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER", "AZURE_POSTGRESQL_PASS" as expected by the app code.
 - If you forgot your admin credentials, the command would guide you to reset it.
 
 ::: zone-end
@@ -333,7 +333,7 @@ az webapp connection create postgres
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.
 
-- The command creates settings named "DB_HOST", "DB_NAME", "DB_PASSWORD", "DB_USER" as expected by the app code.
+- The command creates settings named "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER", "AZURE_POSTGRESQL_PASS" as expected by the app code.
 - If you forgot your admin credentials, the command would guide you to reset it.
 
 ::: zone-end
@@ -390,185 +390,16 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
 > [!NOTE]
 > App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](../app-service/configure-language-python.md).
 
-## 5. Make code changes and redeploy
 
-In this section, you make local changes to the app and redeploy the code to App Service. In the process, you set up a Python virtual environment that supports ongoing work.
-
-### 5.1 Run the app locally
-
-In a terminal window, run the following commands. Be sure to follow the prompts when creating the superuser:
-
-# [bash](#tab/bash)
-
-```bash
-# Configure the Python virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-# Run Django migrations
-python manage.py migrate
-# Create Django superuser (follow prompts)
-python manage.py createsuperuser
-# Run the dev server
-python manage.py runserver
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-# Configure the Python virtual environment
-py -3 -m venv venv
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
-venv\scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-# Run Django migrations
-python manage.py migrate
-# Create Django superuser (follow prompts)
-python manage.py createsuperuser
-# Run the dev server
-python manage.py runserver
-```
-
-# [CMD](#tab/cmd)
-
-```cmd
-:: Configure the Python virtual environment
-py -3 -m venv venv
-venv\scripts\activate
-
-:: Install dependencies
-pip install -r requirements.txt
-:: Run Django migrations
-python manage.py migrate
-:: Create Django superuser (follow prompts)
-python manage.py createsuperuser
-:: Run the dev server
-python manage.py runserver
-```
----
-
-Once the web app is fully loaded, the Django development server provides the local app URL in the message, "Starting development server at http://127.0.0.1:8000/. Quit the server with CTRL-BREAK".
-
-![Example Django development server output](../app-service/media/tutorial-python-postgresql-app/django-dev-server-output.png)
-
-Test the app locally with the following steps:
-
-1. Go to `http://localhost:8000` in a browser, which should display the message "No polls are available". 
-
-1. Go to `http://localhost:8000/admin` and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices. 
-
-1. Go to `http://localhost:8000` again and answer the question to test the app. 
-
-1. Stop the Django server by pressing **Ctrl**+**C**.
-
-When running locally, the app is using a local Sqlite3 database and doesn't interfere with your production database. You can also use a local PostgreSQL database, if desired, to better simulate your production environment.
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-### 5.2 Update the app
-
-In `polls/models.py`, locate the line that begins with `choice_text` and change the `max_length` parameter to 100:
-
-```python
-# Find this line of code and set max_length to 100 instead of 200
-choice_text = models.CharField(max_length=100)
-```
-
-Because you changed the data model, create a new Django migration and migrate the database:
-
-```
-python manage.py makemigrations
-python manage.py migrate
-```
-
-Run the development server again with `python manage.py runserver` and test the app at to *http:\//localhost:8000/admin*:
-
-Stop the Django web server again with **Ctrl**+**C**.
-
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-### 5.3 Redeploy the code to Azure
-
-Run the following command in the repository root:
-
-```azurecli
-az webapp up
-```
-
-This command uses the parameters cached in the *.azure/config* file. Because App Service detects that the app already exists, it just redeploys the code.
-
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-### 5.4 Rerun migrations in Azure
-
-Because you made changes to the data model, you need to rerun database migrations in App Service.
-
-Open an SSH session again in the browser by navigating to `https://<app-name>.scm.azurewebsites.net/webssh/host`. Then run the following command:
-
-```
-python manage.py migrate
-```
-
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-### 5.5 Review app in production
-
-Browse to the app again(using `az webapp browse` or navigating to `http://<app-name>.azurewebsites.net`)and test the app again in production. (Because you changed only the length of a database field, the change is only noticeable if you try to enter a longer response when creating a question.)
-
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 6. Stream diagnostic logs
-
-You can access the console logs generated from inside the container that hosts the app on Azure.
-
-Run the following Azure CLI command to see the log stream. This command uses parameters cached in the *.azure/config* file.
-
-```azurecli
-az webapp log tail
-```
-
-If you don't see console logs immediately, check again in 30 seconds.
-
-To stop log streaming at any time, type **Ctrl**+**C**.
-
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-> [!NOTE]
-> You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
->
-> `az webapp up` turns on the default logging for you. For performance reasons, this logging turns itself off after some time, but turns back on each time you run `az webapp up` again. To turn it on manually, run the following command:
->
-> ```azurecli
-> az webapp log config --docker-container-logging filesystem
-> ```
-
-## 7. Manage your app in the Azure portal
-
-In the [Azure portal](https://portal.azure.com), search for the app name and select the app in the results.
-
-![Navigate to your Python Django app in the Azure portal](../app-service/media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
-
-By default, the portal shows your app's **Overview** page, which provides a general performance view. Here, you can also perform basic management tasks like browse, stop, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
-
-![Manage your Python Django app in the Overview page in the Azure portal](../app-service/media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
-
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-## 8. Clean up resources
+## 5. Clean up resources
 
 If you'd like to keep the app or continue to the additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group created for this tutorial:
 
 ```azurecli
-az group delete --name Python-Django-PGFlex-rg --no-wait
+az group delete --name ServiceConnector-tutorial-rg --no-wait
 ```
 
 By deleting the resource group, you also deallocate and delete all the resources contained within it. Be sure you no longer need the resources in the group before using the command.
