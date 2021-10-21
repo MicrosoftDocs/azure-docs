@@ -25,7 +25,7 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
 1. Using the search bar at the top, enter **Video Analyzer for Media**.
 1. Click on *Video Analyzer for Media* under *Services*.
 
-    ![Image of search bar](media/create-video-analyzer-for-media-account/search-bar1.PNG)
+    ![Image of search bar](media/create-video-analyzer-for-media-account/search-bar1.png)
 
 1. Click **Create**.
 1. In the **Create a Video Analyzer for Media resource** section enter required values.
