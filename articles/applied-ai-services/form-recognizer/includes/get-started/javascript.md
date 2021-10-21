@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/17/2021
+ms.date: 10/21/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -79,6 +79,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 1. At this point, your JavaScript application should contain the following lines of code:
 
     ```javascript
+
     const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
 
     const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
@@ -106,55 +107,32 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 ### Add the following code to your layout application on the line below the `apiKey` variable
 
 ```javascript
+const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-function boundingBoxToString(box) {
-    let out = "[";
-    for (const {
-            x,
-            y
-        } of box) {
-        out += `(${x}, ${y}),`;
-    }
-    return out.slice(0, -1) + "]";
-}
-
-async function main() {
-
+async function recognizeContent() {
     const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
-
-    const poller = await client.beginRecognizeContent(formUrl);
+    const poller = await client.beginRecognizeContentFromUrl(formUrl);
     const pages = await poller.pollUntilDone();
 
-    if (pages.length === 0) {
-        throw new Error("Failed to recognize the content of at least one page.");
+    if (!pages || pages.length === 0) {
+        throw new Error("Expecting non-empty list of pages!");
     }
 
     for (const page of pages) {
-        console.log(`- Page number: ${page.pageNumber}`);
-        console.log("  Tables:");
-        for (const table of page.tables ?? []) {
-            console.log(`  - Table (${table.rowCount} x ${table.columnCount})`);
-
-            const tableBoundingBox = table.boundingBox ?
-                boundingBoxToString(table.boundingBox) :
-                "<undefined>";
-            console.log(`      boundingBox: ${tableBoundingBox}`);
-
+        console.log(
+            `Page ${page.pageNumber}: width ${page.width} and height ${page.height} with unit ${page.unit}`
+        );
+        for (const table of page.tables) {
             for (const cell of table.cells) {
-                console.log(`    cell (${cell.rowIndex},${cell.columnIndex}) ${cell.text}`);
+                console.log(`cell [${cell.rowIndex},${cell.columnIndex}] has text ${cell.text}`);
             }
-        }
-        console.log("  Selection Marks:");
-        for (const mark of page.selectionMarks ?? []) {
-            const box = boundingBoxToString(mark.boundingBox);
-            console.log(`  - ${mark.state} @${box} (${mark.confidence} confidence)`);
         }
     }
 }
 
-main().catch((err) => {
+recognizeContent().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
 
@@ -184,13 +162,13 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 
 ```javascript
 
-async function main() {
+const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-  sync function main() {
+async function recognizeInvoices() {
 
     const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 
-    const poller = await client.beginRecognizeContent(invoiceUrl);
+    const poller = await client.beginRecognizeInvoicesFromUrl(invoiceUrl);
     const [invoice] = await poller.pollUntilDone();
 
     if (invoice === undefined) {
@@ -259,9 +237,10 @@ async function main() {
     }
 }
 
-main().catch((err) => {
+recognizeInvoices().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
+
 ```
 
 Congratulations! In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
