@@ -73,11 +73,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **High availability within a single zone using Same-Zone High Availability**
 
-  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability).
+  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](./concepts-high-availability.md#same-zone-high-availability).
 
 - **Standby zone selection using Zone-Redundant High Availability**
 
-  The service now provides customers with the ability to choose the standby server zone location. Using this feature, customers can place their standby server in the zone of their choice. Colocating the standby database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+  The service now provides customers with the ability to choose the standby server zone location. Using this feature, customers can place their standby server in the zone of their choice. Colocating the standby database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](./concepts-high-availability.md#standby-zone-selection).
 
 - **Private DNS zone integration**
 
@@ -89,7 +89,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Point-In-Time Restore for a server in an availability zone**
 
-  The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Colocating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
+  The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Colocating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](./concepts-high-availability.md#standby-zone-selection).
 
 - **validate_password and caching_sha2_password plugin available in private preview**
 

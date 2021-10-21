@@ -85,7 +85,7 @@ Changes performed are summarized in the table.
 **Install the Windows Azure Guest Agent** <br/><br/> The Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. |  Set automatically for machines running Windows Server 2008 R2 or later. <br/> Configure manually for earlier operating systems. | Set automatically for machines running Windows Server 2008 R2 or later. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
-[Learn more](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
+[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
 
 #### Configure SAN policy
 
@@ -184,7 +184,7 @@ On on-premises Linux machines:
 
 After migration, complete these steps on the Azure VMs that are created:
 
-1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises machine. [Learn more](../virtual-network/virtual-network-public-ip-address.md).
+1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises machine. [Learn more](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 2. Check that network security group (NSG) rules on the VM allow incoming connections to the RDP or SSH port.
 3. Check [boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
 
