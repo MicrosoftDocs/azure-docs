@@ -3,7 +3,7 @@ title: Pipeline extension - Azure Video Analyzer
 description: Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. This article describes the pipeline extension node.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 10/21/2021
 
 ---
 
@@ -17,7 +17,7 @@ Video Analyzer supports the following pipeline extension processors:
 * [gRPC extension processor](pipeline.md#grpc-extension-processor)
 * [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor)
 
-The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
+The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md).
 
 [!INCLUDE [available-features](./includes/available-features.md)]
 
@@ -71,5 +71,5 @@ You can get started with one of our quickstarts that illustrate Video Analyzer w
 
 ## Next steps 
 
-Concept: [Event-based video recording](event-based-video-recording-concept.md)
+Concept: [Video recording](video-recording.md)
 
