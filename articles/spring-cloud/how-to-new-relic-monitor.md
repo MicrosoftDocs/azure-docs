@@ -94,13 +94,13 @@ You can also activate this agent from portal with the following procedure.
 
    [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png)
 
-
-## Automation
+## Automate provisioning
 
 You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
-### Terraform
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the <...> placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+### Automate provisioning using Terraform
+
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
@@ -114,7 +114,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 }
 ```
 
-### ARM template
+### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
@@ -129,16 +129,15 @@ To configure the environment variables in an ARM template, add the following cod
 }
 ```
 
+## View New Relic Java Agent logs
 
-## New Relic Java Agent Logging
+By default, Azure Spring Cloud will print the logs of the New Relic Java agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
-By default, Azure Spring Cloud will print the logs of the New Relic Java agent to `STDOUT`. It will be combined with the application logs. You can get the explicit agent version from the application logs.
+You can also get the logs of the New Relic agent from the following locations:
 
-You can also get the logs of the New Relic agent from:
-
-* Azure Spring Cloud Logs.
-* Azure Spring Cloud Application Insights.
-* Azure Spring Cloud LogStream.
+* Azure Spring Cloud logs
+* Azure Spring Cloud Application Insights
+* Azure Spring Cloud LogStream
 
 You can leverage some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
