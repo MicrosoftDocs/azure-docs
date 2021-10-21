@@ -34,11 +34,11 @@ If there are invited users you wish to remove their access before the end of the
 3. Select the Video Analyzer for Media classic account you wish to connect to ARM (Classic accounts will be tagged with a *classic tag*).
 4. Click **Settings**
 
-  ![select-classic](media/connect-classic-account-to-arm/user-account-settings.png)
+  ![account-settings](media/connect-classic-account-to-arm/user-account-settings.png)
    
 5. Click **Connect to an ARM-based account**.
 
-  ![connect-to-arm](media/connect-classic-account-to-arm/connect-button.png)
+  ![connect-button](media/connect-classic-account-to-arm/connect-button.png)
 
 7. Sign to Azure portal
 8. The Video Analyzer for Media create blade will open
