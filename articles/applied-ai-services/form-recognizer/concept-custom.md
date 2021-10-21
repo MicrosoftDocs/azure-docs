@@ -20,8 +20,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
-
+:::image type="content" source="media/analyze-studio.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 ## What is a custom model?
 
@@ -31,7 +30,7 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -40,7 +39,7 @@ With composed models, you can assign multiple custom models to a composed model 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
 
@@ -74,8 +73,8 @@ In the Form Recognizer UI:
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
   > [!TIP]
   > **Training data**
@@ -86,7 +85,7 @@ In the Form Recognizer UI:
   >* If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -104,23 +103,23 @@ In the Form Recognizer UI:
 
 ### Try signature detection
 
-1. [**Build your training data set**](build-training-data-set.md#custom-model-input-requirements).
+1. Build your training data set.
 
-1. Navigate to the [**Form Recognizer sample labeling tool**](https://fott-preview-private.azurewebsites.net) and select **Use Custom to train a models with labels and get key value pairs**:
+1. Navigate to the Form Recognizer Studio and select Custom form under Custom models:
 
-    :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtools selection of the custom option.":::
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select custom form.":::
 
-1. In the next window, select **New project**:
+1. Follow the workflow to create a new project:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
+1. Follow the Custom model input requirements.
 
-1. Follow the  [**Custom model input requirements**](build-training-data-set.md#custom-model-input-requirements).
+1. Create a label with the type Signature.
 
-1. Create a label with the type **Signature**.
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
-1. **Label your documents**.  For signature fields, using region labeling is recommended for better accuracy.
+    :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot: Label signature field.":::
 
-1. Once your training set has been labeled, you can **train your custom model** and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
+Once your training set has been labeled, you can train your custom model and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
 
 ## Next steps
 

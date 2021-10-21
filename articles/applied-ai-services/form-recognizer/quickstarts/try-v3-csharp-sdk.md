@@ -29,7 +29,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt model (invoice)**](#try-it-prebuilt-model) Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ In this quickstart you'll use following features to analyze and extract data and
     > [!TIP] 
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You will paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -94,11 +94,11 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio create new project page.":::
+    :::image type="content" source="../media/quickstarts/create-new-project.png" alt-text="Screenshot: The Visual Studio create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio configure new project dialog window.":::
+    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: The Visual Studio configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 5.0 (Current)**, and then select **Create**.
 
@@ -114,9 +114,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Select the desired version from the dropdown menu and select **Install**.
-
-     This version of the client library defaults to the 2021-09-30-preview version of the service.
+ 1. Select version **4.0.0-beta.1** from the dropdown menu and select **Install**.
 
 <!-- --- -->
 ## Build your application
@@ -152,7 +150,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -355,7 +353,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## **Try it**: Prebuilt invoice model
+## **Try it**: Prebuilt model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
 
@@ -364,7 +362,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#key-value-pair-extraction) concept page.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
 ### Choose the invoice prebuilt model ID
 

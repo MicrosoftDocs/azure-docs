@@ -16,9 +16,9 @@ recommendations: false
 
 Azure Form Recognizer's Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
-##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
+##### Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
 
-:::image type="content" source="media/layout-demo.gif" alt-text="{alt-text}":::
+:::image type="content" source="media/layout-demo.gif" alt-text="Screenshot: Sample Labeling tool processing gif.":::
 
 **Data extraction features**
 
@@ -26,7 +26,11 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
+
+***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+
+:::image type="content" source="media/sample-layout-studio.png" alt-text="Screenshot: layout processing in Form Recognizer Studio.":::
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -35,7 +39,7 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how layout data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -48,7 +52,7 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
 * A form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
   In the Form Recognizer UI:
 
@@ -56,7 +60,7 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
   1. Select **Local file** from the dropdown menu.
   1. Upload your file and select **Run Layout**
 
-  :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: sample labeling tool dropdown layout file source selection menu.":::
+  :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: Sample Labeling tool dropdown layout file source selection menu.":::
 
 ## Input requirements
 
@@ -69,11 +73,11 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 

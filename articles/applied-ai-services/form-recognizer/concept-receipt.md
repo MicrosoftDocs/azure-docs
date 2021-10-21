@@ -17,11 +17,11 @@ recommendations: false
 
 The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns a structured JSON data representation.
 
-##### Sample receipt processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+***Sample receipt processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="./media/overview-receipt-studio.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -30,7 +30,7 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how receipt data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -43,14 +43,14 @@ You can see how receipt data is extracted by trying our Sample Labeling tool. Yo
 * A receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 In the Form Recognizer UI:
 
   1. Select **Use prebuilt model to get data**.
   1. Select **Receipt** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+  :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
 
 ## Input requirements
 
@@ -63,8 +63,8 @@ In the Form Recognizer UI:
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Supported languages and locales v2.1
 
@@ -75,7 +75,7 @@ In the Form Recognizer UI:
 |--------|:----------------------|:---------|
 |Receipt| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|

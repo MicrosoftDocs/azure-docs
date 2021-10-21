@@ -20,9 +20,9 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
 
@@ -92,7 +92,7 @@ Form Recognizer uses the [Layout](concept-layout.md) API to learn the expected s
 
 With the Model Compose operation, you can assign up to 100 trained custom models to a single model ID. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
-Using the Form Recognizer sample labeling tool, the REST API, or the Client-library SDKs, follow the steps below to set up a composed model:
+Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-library SDKs, follow the steps below to set up a composed model:
 
 1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
 1. [**Compose your custom models**](#compose-your-custom-models)
@@ -101,9 +101,9 @@ Using the Form Recognizer sample labeling tool, the REST API, or the Client-libr
 
 Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
 
-### [**Form Recognizer sample labeling tool**](#tab/fott)
+### [**Form Recognizer Sample Labeling tool**](#tab/fott)
 
-When you train models using the [**Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
+When you train models using the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
 
 :::image type="content" source="media/fott-training-results.png" alt-text="Screenshot: training results window.":::
 
@@ -131,9 +131,9 @@ The [**REST API**](quickstarts/client-library.md?pivots=programming-language-res
 
 After you have gathered your custom models corresponding to a single form type, you can compose them into a single model.
 
-### [**Form Recognizer sample labeling tool**](#tab/fott)
+### [**Form Recognizer Sample Labeling tool**](#tab/fott)
 
-The **sample labeling tool** enables you to quickly get started training models and  composing them to a single model ID.
+The **Sample Labeling tool** enables you to quickly get started training models and  composing them to a single model ID.
 
 After you have completed training, compose your models as follows:
 
@@ -171,7 +171,7 @@ Use the programming language code of your choice to create a composed model that
 
  The custom form **Analyze** operation requires you to provide the `modelID`  in the call to Form Recognizer. You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
-### [**Form Recognizer sample labeling tool**](#tab/fott)
+### [**Form Recognizer Sample Labeling tool**](#tab/fott)
 
 1. On the tool's left-pane menu, select the **Analyze icon** (lightbulb).
 

@@ -17,11 +17,11 @@ recommendations: false
 
  The invoice model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key fields and line items from sales invoices.  Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation.
 
-##### Sample invoice processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):
+**Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
-:::image type="content" source="media/overview-invoices.jpg" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
+:::image type="content" source="media/overview-invoices-studio.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -30,7 +30,7 @@ recommendations: false
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how invoice data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -43,14 +43,14 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 * An invoice document. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
   In the Form Recognizer UI:
 
   1. Select **Use prebuilt model to get data**.
   1. Select **Invoice** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-invoice.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+  :::image type="content" source="media/try-invoice.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
 
 ## Input requirements
 
@@ -63,11 +63,11 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -75,7 +75,7 @@ You can see how invoice data is extracted by trying our Sample Labeling tool. Yo
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:---:|

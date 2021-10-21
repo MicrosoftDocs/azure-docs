@@ -17,11 +17,11 @@ recommendations: false
 
 The ID document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents; extracts key information such as first name, last name, address, and date of birth; and returns a structured JSON data representation.
 
-***Sample U.S. Driver's License processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):***
+***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument):***
 
-:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+:::image type="content" source="./media/id-example-drivers-license-studio.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
@@ -30,7 +30,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how ID document data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -40,17 +40,17 @@ You can see how ID document data is extracted by trying our Sample Labeling tool
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* An ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
+* An ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 
 > [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 In the Form Recognizer UI:
 
   1. Select **Use prebuilt model to get data**.
   1. Select **Receipt** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-id-document.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+  :::image type="content" source="media/try-id-document.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
 
 ## Input requirements
 
@@ -63,11 +63,11 @@ In the Form Recognizer UI:
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales v2.1
 
@@ -75,7 +75,7 @@ In the Form Recognizer UI:
 |--------|:----------------------|:---------|
 |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|

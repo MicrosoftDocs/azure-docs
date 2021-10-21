@@ -19,20 +19,20 @@ recommendations: false
 
 The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
-***Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):***
+***Sample business card processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard):***
 
-:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+:::image type="content" source="./media/overview-business-card-studio.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio is available with the preview (v3.0) API.
 
 * Extract name, job title, address, email, company name, and more with our Form Recognizer Studio Business Card feature:
 
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
 
-## Try it: Sample Labeling tool
+## Sample Labeling tool
 
 You can see how business card data is extracted by trying our Sample Labeling tool. You'll need the following:
 
@@ -44,15 +44,15 @@ You can see how business card data is extracted by trying our Sample Labeling to
 
 * A business card document. You can use our [sample business card document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/businessCard.png).
 
-> [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+  > [!div class="nextstepaction"]
+  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
   In the Form Recognizer UI:
 
   1. Select **Use prebuilt model to get data**.
   1. Select **Business card** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-business-card.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+  :::image type="content" source="media/try-business-card.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
 
 ## Input requirements
 
@@ -65,11 +65,11 @@ You can see how business card data is extracted by trying our Sample Labeling to
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -80,7 +80,7 @@ You can see how business card data is extracted by trying our Sample Labeling to
 |--------|:----------------------|:---------|
 |Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description |Standardized output |
 |:-----|:----|:----|:----:|
