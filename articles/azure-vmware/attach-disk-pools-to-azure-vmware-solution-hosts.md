@@ -119,7 +119,6 @@ resourceGroupName='<yourRGName>'
 name='<desiredDataStoreName>'
 cluster='<desiredCluster>'
 privateCloud='<privateCloud>'
-diskPoolName='<diskPoolName>'
 lunName='<desiredLunName>'
 
 az vmware datastore disk-pool-volume create --name $name --resource-group $resourceGroupName --cluster $cluster --private-cloud $privateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name $lunName
