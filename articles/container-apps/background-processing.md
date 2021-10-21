@@ -253,6 +253,9 @@ az monitor log-analytics query \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'queuereaderapp' and Log_s contains 'Message ID'" 
 ```
 
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
 ## Clean up resources
 
 Once you are done, clean up your Container Apps resources by running the following command to delete your resource group.
