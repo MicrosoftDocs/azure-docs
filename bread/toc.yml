@@ -1050,10 +1050,10 @@
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-docs/   
       items:
-      - name: edge
+      - name: Edge
         tocHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
         topicHref: /azure/azure-video-analyzer/video-analyzer-docs/edge
-      - name: cloud
+      - name: Cloud
         tocHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud
         topicHref: /azure/azure-video-analyzer/video-analyzer-docs/cloud        
     - name: Video Analyzer for Media
