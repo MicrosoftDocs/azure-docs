@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 10/19/2021
+ms.date: 10/21/2021
 
 ms.author: justinha
 author: justinha
@@ -26,7 +26,9 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
 ## Prerequisites 
 
 - An Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- An account with *global administrator* privileges. 
+- An account with either:
+  - *Authentication Policy Admin* and *Hybrid Identity Admin* roles
+  - *Global administrator* role 
 - Azure AD configured for self-service password reset. If needed, complete this tutorial to enable Azure AD SSPR. 
 - An on-premises AD DS environment configured with Azure AD Connect cloud sync version 1.1.587 or later. If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
 - Enabling password writeback in Azure AD Connect cloud sync requires executing signed PowerShell scripts.
