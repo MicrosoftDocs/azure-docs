@@ -18,7 +18,7 @@ Below are the QPS usage limits for each Azure Maps service.
 
 | Azure Maps Service                                                                                         | QPS Limit   |
 | ---------------------------------------------------------------------------------------------------------- | ----------- |
-| Creator:  Alias, Tileset                                                                                   | 10 |
+| Creator:  Alias, GetTilesetDetails                                                                         | 10 |
 | Creator:  Conversion, Dataset, Feature State, WFS                                                          | 50 |
 | Data Service and Data Service v2                                                                           | 50 |
 | Elevation Service                                                                                          | 50 |
@@ -38,15 +38,4 @@ Below are the QPS usage limits for each Azure Maps service.
 | Traffic Service                                                                                            | 50 |
 | Weather Service                                                                                            | 50 |
 
-Create a **New Support Request** when in your Azure Maps resource in the [Azure portal](https://ms.portal.azure.com/) if you need to increase a specific QPS limit.
-
-<!--
-TO DO:
-- Details on how create an Azure Maps support request
-    - This is done at the resource level, not subscription or resource group level
-    - Need specific information entered into the following fields in the support request ticket:
-        -  Summary: Enter the specific Azure Maps Service and new QPS Limit desired
-        - Problem type: Quota
-        - Problem subtype: Quota increase
-- Get final QPS numbers from the dev team
-->
+Create an Azure Maps *Technical* Support Request in the [Azure portal](https://ms.portal.azure.com/) if you need to increase a specific QPS limit.
