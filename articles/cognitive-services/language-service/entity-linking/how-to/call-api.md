@@ -1,5 +1,5 @@
 ---
-title: Use entity linking with Language Services
+title: How to call the entity linking API
 titleSuffix: Azure Cognitive Services
 description: Learn how to identify and link entities found in text with the entity linking API.
 services: cognitive-services

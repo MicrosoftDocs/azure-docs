@@ -22,12 +22,6 @@ The following prebuilt components are available in Conversational Language Under
 
 | Type | Description | Supported languages |
 | --- | --- | --- |
-| Media.Artist | Well known music artists and groups | English, Chinese |
-| Media.Title | Popular song titles | English, Chinese |
-| Media.Genre | Music genres. For example: "Jazz", "Pop", "Rock" | English, Chinese |
-| Person.Name | A person's partial or full name. For example: "John", "Mary" | English, Chinese |
-| Car.Part | Parts of a vehicle. For example: "Headlights", "Side mirror" | English, Chinese |
-| Geography.Location | Geographical locations or places of interest. For example: "London" | English, Chinese |
 | Quantity.Age | Age of a person or thing. For example: "30 years old", "9 months old" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | Quantity.Number | A cardinal number in numeric or text form. For example: "Thirty", "23", "14.5", "Two and a half" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
 | Quantity.Percentage | A percentage using the symbol % or the word "percent". For example: "10%", "5.6 percent" | English, Chinese, French, Italian, German, Brazilian Portuguese, Spanish |
@@ -46,4 +40,4 @@ In multilingual conversation projects,  you can enable any of the prebuilt compo
 
 ## Next steps
 
-[entity components](concepts/entity-components.md) 
+[Entity components](concepts/entity-components.md) 

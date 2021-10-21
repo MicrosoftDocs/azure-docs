@@ -129,6 +129,8 @@ items:
     href: conversational-language-understanding/quickstart.md
   - name: Language support
     href: conversational-language-understanding/language-support.md
+  - name: FAQ
+    href: conversational-language-understanding/faq.md
   - name: How-to guides
     items:
       - name: Create projects
@@ -151,6 +153,8 @@ items:
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
         href: conversational-language-understanding/concepts/evaluation-metrics.md
+      - name: Using multiple languages
+        href: conversational-language-understanding/concepts/multiple-languages.md
   - name: Reference
     items:
     - name: Prebuilt component reference
@@ -509,8 +513,6 @@ items:
       href: custom-question-answering/how-to/manage-knowledge-base.md
     - name: Filter responses
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Manage resources
-      href: custom-question-answering/how-to/manage-resources.md
     - name: Network isolation and private endpoints
       href: custom-question-answering/how-to/network-isolation.md
   - name: Concepts
@@ -519,10 +521,6 @@ items:
       href: custom-question-answering/concepts/azure-resources.md
     - name: Precise answering
       href: custom-question-answering/concepts/precise-answering.md
-    - name: Development lifecycle
-      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Data sources and content
-      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language-service/context/context
     - name: Confidence score
       href: custom-question-answering/concepts/confidence-score.md
     - name: Best practices

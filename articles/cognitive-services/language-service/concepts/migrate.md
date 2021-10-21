@@ -11,7 +11,7 @@ ms.date: 11/02/2021
 ms.author: aahi
 ---
 
-# What happened to LUIS, QnA Maker, and Text Analytics?
+# Migrating to Azure Cognitive Service for Language
 
 On November 2nd 2021, Azure Cognitive Service for Language was released into public preview. This language service unifies the Text Analytics, QnA Maker, and LUIS service offerings, and provides several new features as well. 
 

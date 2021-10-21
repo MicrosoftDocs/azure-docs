@@ -41,7 +41,7 @@ Before you can use custom NER, you will need to create an Azure Language resourc
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language Service resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
 
 1. [Download the example data](https://go.microsoft.com/fwlink/?linkid=2175226) for this quickstart from GitHub.
 

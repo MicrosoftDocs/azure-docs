@@ -1,7 +1,7 @@
 ---
 title: What is custom classification (preview) in Azure Cognitive Services for Language?
 titleSuffix: Azure Cognitive Services
-description: Learn how use custom text classification with the Language Services API.
+description: Learn how use custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -16,7 +16,7 @@ ms.author: aahi
 
 Custom text classification is one of the features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for text classification tasks. 
 
-Custom text classification is offered as part of the custom features within Azure Cognitive Language Services. This feature enables its users to build custom AI models to classify text into custom categories pre-defined by the user. By creating a Custom classification project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Custom text classification is offered as part of the custom features within Azure Cognitive for Language. This feature enables its users to build custom AI models to classify text into custom categories pre-defined by the user. By creating a Custom classification project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 Custom text classification supports two types of projects: 
 

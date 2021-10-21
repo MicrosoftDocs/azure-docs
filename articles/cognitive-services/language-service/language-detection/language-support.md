@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Language support for Language Detection
 
-Use this article to learn which natural languages are supported by the Language Detection feature of Language Services.
+Use this article to learn which natural languages are supported by Language Detection.
 
 
 > [!NOTE]

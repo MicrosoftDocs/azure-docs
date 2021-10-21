@@ -76,7 +76,7 @@ To run the container in your own environment after downloading the container ima
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the Language Services API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{ENDPOINT_URI}** | The endpoint for accessing the API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
@@ -457,7 +457,7 @@ If you run the container with an output [mount](configure-containers.md#mount-se
 
 ## Billing
 
-Text Analytics for health containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
+Text Analytics for health containers send billing information to Azure, using a _Language_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

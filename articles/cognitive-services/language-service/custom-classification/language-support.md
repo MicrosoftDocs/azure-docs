@@ -1,7 +1,7 @@
 ---
 title: Language support in custom text classification
 titleSuffix: Azure Cognitive Services
-description: Learn about which languages are supported by custom entity extraction, which is a part of Language Services.
+description: Learn about which languages are supported by custom entity extraction.
 services: cognitive-services
 author: aahill
 manager: nitinme

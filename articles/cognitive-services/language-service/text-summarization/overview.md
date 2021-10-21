@@ -1,7 +1,7 @@
 ---
 title: What is text summarization in Azure Cognitive Service for Language (preview)?
 titleSuffix: Azure Cognitive Services
-description: Learn about summarizing text with Language Services.
+description: Learn about summarizing text.
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -35,7 +35,7 @@ You must meet the following prerequisites before using Sentiment Analysis contai
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the available Language Services container. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the available container. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
@@ -86,7 +86,7 @@ To run the Sentiment Analysis container, execute the following `docker run` comm
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the Language Services API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{ENDPOINT_URI}** | The endpoint for accessing the API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | **{LANGUAGE}** | The language of the container you want to run. Make sure this matches the `docker pull` command you used. Note the hyphen (`-`) used before the language in the example below. | `en` |
 
 ```bash
@@ -128,7 +128,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 ## Billing
 
-The Sentiment Analysis containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
+The Sentiment Analysis containers send billing information to Azure, using a _Language_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

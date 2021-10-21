@@ -104,7 +104,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 ## Billing
 
-The language detection containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
+The language detection containers send billing information to Azure, using a _Language_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
