@@ -98,9 +98,9 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Flare Systems Firework
       - Forescout
       - Fortinet Fortigate
+      - Imperva Cloud FAW
    :::column-end:::
    :::column span="":::
-      - Imperva Cloud FAW
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
       - Lookout
