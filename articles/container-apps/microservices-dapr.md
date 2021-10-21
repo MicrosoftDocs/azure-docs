@@ -140,33 +140,16 @@ Once your Azure Blob Storage account is created, source the following values tha
 Get an **accountKey** with the following command.
 
 ```azurecli
-az storage account keys list \
-  --resource-group $RESOURCE_GROUP \
-  --account-name $STORAGE_ACCOUNT
+STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query [0].value --out json | tr -d '"'`
 ```
 
 ### Configure the state store component
 
-Using the properties you sourced from the steps above, create a config file named *components.yaml*. This file helps enable your Dapr app to access your state store. The following example shows how your *components.yaml* file should look when configured for your Azure Blob Storage account:
+Using the properties you sourced from the steps above, create an ARM template. The ARM template has the Container App definition and a Dapr component definition. The following example shows how your ARM template should look when configured for your Azure Blob Storage account:
 
-```yaml
-# components.yaml for Azure Blob storage component
-- name: statestore
-  type: state.azure.blobstorage
-  version: v1
-  metadata:
-  # Note that in a production scenario, account keys and secrets 
-  # should be securely stored. For more information, see
-  # https://docs.dapr.io/operations/components/component-secrets
-  - name: accountName
-    value: <YOUR_STORAGE_ACCOUNT_NAME>
-  - name: accountKey
-    value: <YOUR_KEY>
-  - name: containerName
-    value: <YOUR_CONTAINER_NAME>
+```json
+
 ```
-
-To use this file, make sure to replace the placeholder values between the `<>` brackets with your own values.
 
 > [!NOTE]
 > Container Apps currently does not support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example is the schema that is currently supported in Container Apps.
@@ -176,23 +159,12 @@ To use this file, make sure to replace the placeholder values between the `<>` b
 
 ## Deploy the service application (HTTP web server)
 
-Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the service container app.
+Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
 
 ```azurecli
-az containerapp create \
-  --name nodeapp \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image dapriosamples/hello-k8s-node:latest \
-  --target-port 3000 \
-  --ingress 'external' \
-  --min-replicas 1 \
-  --max-replicas 1 \
-  --enable-dapr \
-  --dapr-app-port 3000 \
-  --dapr-app-id nodeapp \
-  --dapr-components ./components.yaml
+az deployment group create --resource-group "$RESOURCE_GROUP" --template-file ./httpapp.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT" storage_account_name="$STORAGE_ACCOUNT" storage_account_key="$STORAGE_ACCOUNT_KEY" storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
 ```
+
 
 This command deploys the service (Node) app server on `--target-port 3000` (the app's port) along with its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation. Your state store is configured using `--dapr-components ./components.yaml`, which enables the sidecar to persist state.
 
@@ -202,16 +174,9 @@ This command deploys the service (Node) app server on `--target-port 3000` (the 
 Run the command below to deploy the client container app.
 
 ```azurecli
-az containerapp create \
-  --name pythonapp \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image dapriosamples/hello-k8s-python:latest \
-  --min-replicas 1 \
-  --max-replicas 1 \
-  --enable-dapr \
-  --dapr-app-id pythonapp
+az deployment group create --resource-group "$RESOURCE_GROUP" --template-file ./clientapp.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
 ```
+
 
 This command deploys `pythonapp` which also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. Note that since this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
 
@@ -271,7 +236,7 @@ az group delete --resource-group $RESOURCE_GROUP
 This will delete both container apps, the storage account, the container apps environment and any other resources in the resource group.
 
 > [!NOTE]
-> Since `nodeapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
+> Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
 ## Next steps
 
