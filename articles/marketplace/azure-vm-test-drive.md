@@ -15,12 +15,10 @@ A test drive lets customers try your offer prior to purchase by giving them acce
 
 For VM offers, Azure Resource Manager (ARM) deployment is the **only** test drive option available. The deployment template must contain all the Azure resources that comprise your solution.
 
-To see the **Test drive** tab in left-nav menu, select the **Test drive** check box on the [Offer setup](azure-vm-offer-setup.md#test-drive-optional) page and connect to your CRM system. After you select **Save**, the **Test drive** tab appear with two sub-tabs:
+To see the **Test drive** tab in left-nav menu, select the **Test drive** check box on the [Offer setup](azure-vm-offer-setup.md#test-drive-optional) page and connect to your CRM system. After you select **Save**, the **Test drive** tab appears with two sub-tabs:
 
-When you've done that, select **Test drive** to reveal two sub-pages:
-
-- **[Technical configuration](#technical-configuration)**, where you'll configure your test drive and provide your ARM template (next section below).
-- **[Marketplace listing](#marketplace-listing)**, where you'll provide additional details of your listing and supplemental resources for your customers, such as user manuals and videos.
+- **[Technical configuration](#technical-configuration)** – Configure your test drive and provide your ARM template (next section below).
+- **[Marketplace listing](#marketplace-listing)** – Provide additional details of your listing and supplemental resources for your customers, such as user manuals and videos.
 
 ## Technical configuration
 
@@ -38,27 +36,33 @@ Enter values between 0-99 in the boxes to indicate how many of Hot, Warm, or Col
 
 ### Technical configuration
 
-The ARM template for yoru test drive is a coded container of all the Azure resources that comprise your solution. Once your template is complete, return here to learn how to uploaded your ARM template and complete the configuration.
+The ARM template for your test drive is a coded container of all the Azure resources that comprise your solution. To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md). Once your template is complete, return here to learn how to uploaded your ARM template and complete the configuration.
 
-To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are by using an [online API tool](/rest/api/resources/deployments/validate) or with a [test deployment](/azure/azure-resource-manager/templates/deploy-portal).
-
-Drag your Test drive Azure Resource Manager template (.zip file) into the area indicated, or **Browse** for the file.
+To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are by using an [online API tool](/rest/api/resources/deployments/validate) or with a [test deployment](/azure/azure-resource-manager/templates/deploy-portal). Once you are ready to upload your template, drag .zip file into the area indicated, or **Browse** for the file.
 
 Enter a **Test drive duration**, in hours. This is the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends.
 
 ### Deployment subscription details
 
-For Microsoft to deploy the test drive on your behalf, you must connect to your Azure Subscription and Azure Active Directory (AD).
-
-Enter the content requested in the four fields, then select **Save draft**.
+For Microsoft to deploy the test drive on your behalf, connect to your Azure Subscription and Azure Active Directory (AAD) by entering the requested information in the four fields, then select **Save draft**.
 
 Complete your test drive solution by continuing to the next **Test drive** tab in the left-nav menu, **Marketplace listing**.
 
 ## Marketplace listing
 
-Use this page to provide details on the test drive description, access information, user manual, and demonstration video.
+Provide additional details of your listing and resources for your customers.
 
-For details on these fields, see [Test drive listings](test-drive-technical-configuration.md#test-drive-listings).
+**Description** – Describe your test drive, what will be demonstrated, features to explore, objectives for the user to experiment with, and other relevant information to help them determine if your offer is right for them (up to 3,000 characters).
+
+**Access information** – Explain what a customer needs to know to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access and use the features throughout the test drive (up to 10,000 characters).
+
+**User Manual** – Describe your test drive experience in detail. The manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for questions. It must be in PDF format with a name less than 255 characters in length.
+
+**Test drive demo video** (optional) – Reference a video hosted elsewhere with a link and thumbnail image. Videos are a great way to help customers better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits. Select **Add video** and include the following information:
+
+- **Name**
+- **URL** – YouTube or Vimeo only
+- **Thumbnail** – Image must be in PNG format, 533x324 pixels.
 
 Select **Save draft** before continuing with **Next steps** below.
 
