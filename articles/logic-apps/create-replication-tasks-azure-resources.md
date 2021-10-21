@@ -53,11 +53,6 @@ The following tables show the property mappings between Event Hubs and Service B
 | To | To |
 |||
 
-| Resource type | Replication source and target |
-|---------------|-------------------------------|
-| User Properties | Properties |
-|||
-
 <a name="replication-task"></a>
 
 ## What is a replication task?
