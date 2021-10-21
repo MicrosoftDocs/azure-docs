@@ -25,7 +25,7 @@ Azure Container Apps offers a fully managed version of the Dapr APIs when buildi
 
 In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart, which consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
 
-![Dapr architecture diagram for Hello World quickstart](https://github.com/dapr/quickstarts/raw/master/hello-kubernetes/img/Architecture_Diagram.png)
+:::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
 
 ## Prerequisites
 
