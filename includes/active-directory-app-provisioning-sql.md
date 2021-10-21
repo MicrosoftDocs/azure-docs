@@ -1,8 +1,8 @@
-This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  It covers  how to set up and use the generic SQL connector with the Azure AD ECMA Connector Host. 
+This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
-## Prerequisites for the Azure AD ECMA Connector Host
+## Prerequisites for provisioning to a SQL Database
 
 >[!IMPORTANT]
 > The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
@@ -11,7 +11,6 @@ For important details on what this service does, how it works, and frequently as
 ### On-premises prerequisites
 
  - A target system, such as a SQL database, in which users can be created, updated, and deleted.
- - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have a SQL Server instance in your environment and use the generic SQL connector.
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
 
@@ -202,7 +201,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      ![Screenshot that shows the Deprovisioning page.](.\media\active-directory-app-provisioning-sql\conn-14.png)</br>
 
 
-## Ensure ECMA2Host service is running
+## Ensure the ECMA2Host service is running
  1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
  2. Enter **run** and enter **services.msc** in the box.
  3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
