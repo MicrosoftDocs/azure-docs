@@ -42,12 +42,16 @@ This detection is enabled by default in Azure Sentinel. To check or change its s
 
 1. In the **General** tab of the **Analytics rule wizard**, note the status (Enabled/Disabled), or change it if you want.
 
-If you changed the status but have no further changes to make, select the **Review and update** tab and select **Save**. 
-To further configure the Fusion detection rule, select **Next: Configure Fusion**.
+    If you changed the status but have no further changes to make, select the **Review and update** tab and select **Save**. 
+    To further configure the Fusion detection rule, select **Next: Configure Fusion**.
 
-:::image type="content" source="media/configure-fusion-rules/configure-fusion-rule.png" alt-text="Screenshot of Fusion rule configuration." lightbox="media/configure-fusion-rules/configure-fusion-rule.png":::
+    :::image type="content" source="media/configure-fusion-rules/configure-fusion-rule.png" alt-text="Screenshot of Fusion rule configuration." lightbox="media/configure-fusion-rules/configure-fusion-rule.png":::
 
 1. **Configure source signals for Fusion detection**: we recommend you include all the listed source signals, with all severity levels, for the best result. By default they are already all included, but you have the option to make changes in the following ways:
+
+    > [!NOTE]
+    > If you exclude a particular source signal or an alert severity level, any Fusion detections that rely on signals from that source, or on alerts matching that severity level, will not be triggered. 
+    
     - **Exclude signals from Fusion detections**, including anomalies, alerts from various providers, and raw logs.
      
         *Use case:* if you are testing a specific signal source known to produce noisy alerts, you can temporarily turn off the signals from that particular signal source for Fusion detections.
@@ -56,27 +60,35 @@ To further configure the Fusion detection rule, select **Next: Configure Fusion*
      
         *Use case:* If you have a separate process for triaging and investigating high severity alerts and would prefer not to have these alerts included in Fusion, you can configure the source signals to exclude high severity alerts from Fusion detections. 
 
-    > [!NOTE]
-    > If you exclude a particular source signal or an alert severity level, any Fusion detections that rely on signals from that source, or on alerts matching that severity level, will not be triggered. 
 
-1. **Exclude specific detection patterns from Fusion detection**: certain Fusion detections may not be applicable to your environment, or may be prone to generating false positives. If you’d like to exclude a specific Fusion detection pattern, follow the instructions below:
 
-    1. Locate and open a Fusion incident of the kind you want to exclude.
-    1. In the **Description** section, select **Show more**.
-    1. Under **Exclude this specific detection pattern**, select **exclusion link**, which redirects you to the **Configure Fusion** tab in the analytics rule wizard.
-        :::image type="content" source="media/configure-fusion-rules/exclude-fusion-incident.png" alt-text="Screenshot of Fusion incident. Select the exclusion link.":::
+    - **Exclude specific detection patterns from Fusion detection**. Certain Fusion detections may not be applicable to your environment, or may be prone to generating false positives. If you’d like to exclude a specific Fusion detection pattern, follow the instructions below:
 
-- On the **Configure Fusion** tab, you'll see the detection pattern - a combination of alerts and anomalies in a Fusion incident - has been added to the exclusion list, along with the time when the detection pattern was added.
+        1. Locate and open a Fusion incident of the kind you want to exclude.
 
-- You can remove an excluded detection pattern any time by selecting the trashcan icon on that detection pattern.
-    :::image type="content" source="media/configure-fusion-rules/exclusion-patterns-list.png" alt-text="Screenshot of list of excluded detection patterns.":::
+        1. In the **Description** section, select **Show more**.
 
-- Incidents that match excluded detection patterns will still be triggered, but they will **not show up in your active incidents queue**. They will be auto-populated with the following values:
-    - **Status**: "Closed"
-    - **Closing classification**: “Undetermined”
-    - **Comment**: “Auto closed, excluded Fusion detection pattern”
-    - **Tag**: “ExcludedFusionDetectionPattern” - you can query on this tag to view all incidents matching this detection pattern.
-        :::image type="content" source="media/configure-fusion-rules/auto-closed-incident.png" alt-text="Screenshot of auto closed, excluded Fusion incident.":::
+        1. Under **Exclude this specific detection pattern**, select **exclusion link**, which redirects you to the **Configure Fusion** tab in the analytics rule wizard.
+
+            :::image type="content" source="media/configure-fusion-rules/exclude-fusion-incident.png" alt-text="Screenshot of Fusion incident. Select the exclusion link.":::
+
+        On the **Configure Fusion** tab, you'll see the detection pattern - a combination of alerts and anomalies in a Fusion incident - has been added to the exclusion list, along with the time when the detection pattern was added.
+
+        You can remove an excluded detection pattern any time by selecting the trashcan icon on that detection pattern.
+
+        :::image type="content" source="media/configure-fusion-rules/exclusion-patterns-list.png" alt-text="Screenshot of list of excluded detection patterns.":::
+
+        Incidents that match excluded detection patterns will still be triggered, but they will **not show up in your active incidents queue**. They will be auto-populated with the following values:
+
+        - **Status**: "Closed"
+        
+        - **Closing classification**: “Undetermined”
+
+        - **Comment**: “Auto closed, excluded Fusion detection pattern”
+
+        - **Tag**: “ExcludedFusionDetectionPattern” - you can query on this tag to view all incidents matching this detection pattern.
+
+            :::image type="content" source="media/configure-fusion-rules/auto-closed-incident.png" alt-text="Screenshot of auto closed, excluded Fusion incident.":::
 
 
 
