@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Set-SAPSecrets
-description:Sets the SPN Secrets in Azure Keyvault
+description: Sets the SPN Secrets in Azure Key vault
 ---
 
 # Set-SAPSecrets

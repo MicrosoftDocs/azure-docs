@@ -7,8 +7,10 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
-ms.topic: Reference
+ms.topic: reference
 ms.service: virtual-machines-sap
+title: New-SAPWorkloadZone
+description: Deploy a new SAP Workload Zone
 ---
 
 # New-SAPWorkloadZone
