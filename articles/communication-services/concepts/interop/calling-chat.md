@@ -70,9 +70,9 @@ const threadId = createChatThreadResult.chatThread.id; return threadId; }
 
 **Supported functionality**
 -	Send/receive messages (type: text, rich text, emoticons) 
--	Communication Services user cand edit sent messages
+-	Communication Services user can edit sent messages
 -	Delete sent messages
--	Receive real-time notifications via trouter (Thread and message related events supported by ACS currently)
+-	Receive real-time notifications (thread and message related events supported by ACS currently)
 -	Send & receive Typing indicators
 -	Send & receive Read receipts
 -	Add participant and share message history: Teams user can add Teams users only. Communication Services user can add Teams and Communication Services users.
