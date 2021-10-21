@@ -128,7 +128,7 @@ The following steps show you a common scenario that uses development servers for
 
 
     ```console
-    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location=http://localhost:7071
+    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
     ```
 
     Replace `<DEV-SERVER-PORT-NUMBER>` with the development server's port number.
