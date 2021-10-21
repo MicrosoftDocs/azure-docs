@@ -53,6 +53,19 @@ You can create a [Translator](https://ms.portal.azure.com/#create/Microsoft.Cogn
 
 ![Screenshot that shows Translator in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-translator.png)
 
+You can create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource in the Azure portal:
+
+![Screenshot that shows Computer Vision in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-computer-vision.png)
+
+
+You can create a [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) resource in the Azure portal:
+
+![Screenshot that shows Face in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-face.png)
+
+
+You can create a [Speech](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource in the Azure portal:
+
+![Screenshot that shows Speech in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-speech.png)
 
 ## Create a key vault and configure secrets and access
 

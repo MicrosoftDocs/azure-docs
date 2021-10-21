@@ -59,13 +59,13 @@ Extract text and layout information from a given document. The input document mu
 
 ### Example input
 
-![Photograph of an example purchase order.](./media/tutorial-form-recognizer/layout1.jpg)
+![Photograph of an example purchase order.](./media/tutorial-form-recognizer/layout.jpg)
 
 ```python
 from pyspark.sql.functions import col, flatten, regexp_replace, explode, create_map, lit
 
 imageDf = spark.createDataFrame([
-  ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/layout1.jpg",)
+  ("<replace with your file path>/layout.jpg",)
 ], ["source",])
 
 analyzeLayout = (AnalyzeLayout()
@@ -87,19 +87,18 @@ display(analyzeLayout
 
 ### Expected results
 
-![Screenshot of the expected results from analyzing the example purchase order.](./media/tutorial-form-recognizer/layout1_output.png)
+![Screenshot of the expected results from analyzing the example purchase order.](./media/tutorial-form-recognizer/layout-output.png)
 
 ## Analyze Receipts
 
 Detects and extracts data from receipts using optical character recognition (OCR) and our receipt model, enabling you to easily extract structured data from receipts such as merchant name, merchant phone number, transaction date, transaction total, and more.
 
 ### Example input
-![Photograph of an example receipt.](./media/tutorial-form-recognizer/receipt1.png)
+![Photograph of an example receipt.](./media/tutorial-form-recognizer/receipt.png)
 
 ```python
 imageDf2 = spark.createDataFrame([
-  ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/receipt1.png",),
-  ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/receipt1.png",)
+  ("<replace with your file path>/receipt1.png",)
 ], ["image",])
 
 analyzeReceipts = (AnalyzeReceipts()
@@ -114,16 +113,16 @@ display(results.select("image", "parsed_document"))
 ```
 
 ### Expected results
-![Screenshot of the expected results from analyzing the example receipt.](./media/tutorial-form-recognizer/receipt1_output.png)
+![Screenshot of the expected results from analyzing the example receipt.](./media/tutorial-form-recognizer/receipt-output.png)
 
 ## Analyze business cards
 Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more.
 ### Example input
-![Photograph of an example business card.](./media/tutorial-form-recognizer/business_card.jpg)
+![Photograph of an example business card.](./media/tutorial-form-recognizer/business-card.jpg)
 
 ```python
 imageDf3 = spark.createDataFrame([
-  ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/business_card.jpg",)
+  ("<replace with your file path>/business_card.jpg",)
 ], ["source",])
 
 analyzeBusinessCards = (AnalyzeBusinessCards()
@@ -139,16 +138,16 @@ display(analyzeBusinessCards
 ```
 
 ### Expected results
-![Screenshot of the expected results from analyzing the example business card.](./media/tutorial-form-recognizer/business_card_output.png)
+![Screenshot of the expected results from analyzing the example business card.](./media/tutorial-form-recognizer/business-card-output.png)
 
 
 ## Analyze invoices
 Detects and extracts data from invoices using optical character recognition (OCR) and our invoice understanding deep learning models, enabling you to easily extract structured data from invoices such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more.
 ### Example input
-![Photograph of an example invoice.](./media/tutorial-form-recognizer/invoice2.png)
+![Photograph of an example invoice.](./media/tutorial-form-recognizer/invoice.png)
 ```python
 imageDf4 = spark.createDataFrame([
-  ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/invoice2.png",)
+  ("<replace with your file path>/invoice.png",)
 ], ["source",])
 
 analyzeInvoices = (AnalyzeInvoices()
@@ -163,16 +162,16 @@ display(analyzeInvoices
         .select("source", "documents"))
 ```
 ### Expected results
-![Screenshot of the expected results from analyzing the example invoice.](./media/tutorial-form-recognizer/invoice2_output.png)
+![Screenshot of the expected results from analyzing the example invoice.](./media/tutorial-form-recognizer/invoice-output.png)
 
 ## Analyze ID documents
 Detects and extracts data from identification documents using optical character recognition (OCR) and our ID document model, enabling you to easily extract structured data from ID documents such as first name, last name, date of birth, document number, and more.
 ### Example input
-![Photograph of an example driver license ID.](./media/tutorial-form-recognizer/id1.jpg)
+![Photograph of an example driver license ID.](./media/tutorial-form-recognizer/id.jpg)
 
 ```python
 imageDf5 = spark.createDataFrame([
-  ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/id1.jpg",)
+  ("<replace with your file path>/id.jpg",)
 ], ["source",])
 
 analyzeIDDocuments = (AnalyzeIDDocuments()
@@ -188,7 +187,7 @@ display(analyzeIDDocuments
 
 ```
 ### Expected results
-![Screenshot of the expected results from analyzing the example driver license ID.](./media/tutorial-form-recognizer/id1_output.png)
+![Screenshot of the expected results from analyzing the example driver license ID.](./media/tutorial-form-recognizer/id-output.png)
 
 ## Clean up resources
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
