@@ -123,10 +123,10 @@
             href: faq-application-resilience.md
           - name: Data migration and protection FAQs
             href: faq-data-migration-protection.md
-          - name: Azure NetApp Files backup FAQs
-            href: faq-backup.md
           - name: Application volume group FAQs
             href: faq-application-volume-group.md
+          - name: Azure NetApp Files backup FAQs
+            href: faq-backup.md
           - name: Security FAQs
             href: faq-security.md
           - name: Integration FAQs
