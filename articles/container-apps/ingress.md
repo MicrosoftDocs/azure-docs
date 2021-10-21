@@ -81,7 +81,7 @@ In this example, replace the placeholders surrounded by `<>` with your values.
 The value returned from this command resembles a domain name like the following example:
 
 ```sh
-myapp.happyhill-70162bb9.eastus2.azurecontainerapps.io
+myapp.happyhill-70162bb9.eastus.azurecontainerapps.io
 ```
 
 > [!div class="nextstepaction"]
