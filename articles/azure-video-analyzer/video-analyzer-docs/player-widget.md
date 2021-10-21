@@ -1,9 +1,9 @@
 ---
-title: Use the Azure Video Analyzer player widget
-description: This reference article explains how to add a Video Analyzer player widget to your application.
+title: Use the Video Analyzer player widget
+description: This article explains how to add a Video Analyzer player widget to your application.
 ms.service: azure-video-analyzer
-ms.topic: reference
-ms.date: 11/01/2021
+ms.topic: how-to
+ms.date: 10/21/2021
 
 ---
 
@@ -266,10 +266,10 @@ In the **LIVE** view, you will:
 ### Video Clips
 Enables you to create video clips by selecting a start and end time.
 
-The `AVA widget video player` supports playing video clips by specifying a start and end date time as shown below:
+The Video Analyzer video player widget supports playing video clips by specifying a start and end date time as shown below:
 
 > [!Note] 
-> The AVA widget video player uses UTC time standard, therefore the selected start and end time needs to be converted to this format.
+> The Video Analyzer video player widget uses UTC time standard, therefore the selected start and end time needs to be converted to this format.
 
 Use the below code in your HTML file to open a video player that will load a video from the startTime and the endTime you will specify.
 
