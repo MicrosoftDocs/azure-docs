@@ -36,7 +36,7 @@ You can query the ARM API [`Videos`](https://github.com/Azure/azure-rest-api-spe
 
 ## Determining that a video recording is ready for viewing
 
-If your video resource represents the recording from an RTPS camera, you can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` flag that will be set to `true` for the video resource. Note that such videos will have `type` set to `archive`, and the URL for playback or streaming is returned in `archiveBaseUrl`. 
+If your video resource represents the recording from an RTSP camera, you can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` flag that will be set to `true` for the video resource. Note that such videos will have `type` set to `archive`, and the URL for playback or streaming is returned in `archiveBaseUrl`. 
 
 When you export a portion of a video recording to an MP4 file, the resulting video resource will have `type` set to `file` - and it will be available for playback or download once the video exporting job completes. The URL for playback or download of such files is returned in `downloadUrl`.
    > [!NOTE]
@@ -48,7 +48,7 @@ When using Video Analyzer edge module to record to a video resource, you will sp
 
 Consequently, streaming of the video from your Video Analyzer account will be delayed by at least that much time. 
 
-Another factor that determines end-to-end latency (the delay between the time an event occurs in front of the camera, to the time it is viewed on a playback device) is the group-of-pictures [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It is common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
+Another factor that determines end-to-end latency (the delay between the time an event occurs in front of the camera, to the time it is viewed on a playback device) is the group-of-pictures [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, the longer the GOP duration, the longer the latency. It is common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
 
 ## Low latency streaming
 
