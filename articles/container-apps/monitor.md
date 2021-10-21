@@ -46,7 +46,7 @@ Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` c
 Use the following CLI command to view logs on the command line.
 
 ```azurecli
-$ az monitor log-analytics query -w <workspace-d> --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
+az monitor log-analytics query -w <workspace-d> --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
