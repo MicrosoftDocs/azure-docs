@@ -37,22 +37,22 @@ Data replicated through the link feature from SQL Server to Azure SQL Managed In
 
 - **Use Azure services without migrating to the cloud** 
 - **Offload read-only workloads to Azure** 
-- **Migrating to Azure**
+- **Migrate to Azure**
 
 ![Managed Instance link main scenario](./media/managed-instance-link/mi-link-main-scenario.png)
 
 
-### Using Azure services 
+### Use Azure services 
 
-Use the link feature to leverage Azure services using SQL Server data without migrating to the cloud. Examples include reporting, analytics backups, machine learning, and other jobs that send data to Azure. 
+Use the link feature to leverage Azure services using SQL Server data without migrating to the cloud. Examples include reporting, analytics, backups, machine learning, and other jobs that send data to Azure. 
 
-### Offloading workloads to Azure 
+### Offload workloads to Azure 
 
 You can also use the link feature to offload workloads to Azure. For example, an application could use SQL Server for read / write workloads, while offloading read-only workloads to SQL Managed Instance in any of Azure's 60+ regions worldwide. Once the link is established, the primary database on SQL Server is read/write accessible, while replicated data to SQL Managed Instance in Azure is read-only accessible. This allows for various scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading read-only workloads to Azure. SQL Managed Instance, in parallel, can also host independent read/write databases. This allows for copying the replicated database to another read/write database on the same managed instance for further data processing.
 
 The link is database scoped (one link per one database), allowing for consolidation and deconsolidation of workloads in Azure. For example, you can replicate databases from multiple SQL Servers to a single SQL Managed Instance in Azure (consolidation), or replicate databases from a single SQL Server to multiple managed instances via a 1 to 1 relationship between a database and a managed instance -  to any of Azure's regions worldwide (deconsolidation). The latter provides you with an efficient way to quickly bring your workloads closer to your customers in any region worldwide, which you can use as read-only replicas.
 
-### Migration 
+### Migrate to Azure 
 
 The link feature also facilitates migrating from SQL Server to SQL Managed Instance, enabling: 
 
@@ -60,7 +60,6 @@ The link feature also facilitates migrating from SQL Server to SQL Managed Insta
 - True online migration to SQL Managed Instance in any service tier 
 
 Since the link feature enables minimum downtime migration, you can migrate to your managed instance while maintaining your primary workload online. While online migration was possible to achieve previously with other solutions when migrating to the general purpose service tier, the link feature now also allows for true online migrations to the business critical service tier as well. 
-
 
 ## How it works
 
