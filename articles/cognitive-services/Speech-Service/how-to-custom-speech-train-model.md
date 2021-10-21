@@ -22,7 +22,7 @@ If you're encountering recognition problems with a base model, you can use human
 
 | Use case | Data type |
 | -------- | --------- |
-| Improve recognition accuracy on industry-specific vocabulary and grammar, like medical terminology or IT jargon | Plain text or structured text data) |
+| Improve recognition accuracy on industry-specific vocabulary and grammar, like medical terminology or IT jargon | Plain text or structured text data |
 | Define the phonetic and displayed form of a word or term that has nonstandard pronunciation, like product names or acronyms | Pronunciation data or phonetic pronunciation in structured text |
 | Improve recognition accuracy on speaking styles, accents, or specific background noises | Audio + human-labeled transcripts |
 

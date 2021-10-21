@@ -46,7 +46,7 @@ This table lists accepted data types, when each data type should be used, and th
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
-| [Structured tex](#structured-text-data-for-training-public-preview) (Public Preview) | No | N/a | Yes | Up to 20 classes with up to 2000 items <br> and up to 50,000 training sentences |
+| [Structured text](#structured-text-data-for-training-public-preview) (Public Preview) | No | N/a | Yes | Up to 20 classes with up to 2000 items <br> and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
@@ -239,10 +239,10 @@ The table below specifies the limits and other properties for the markdown forma
 | Text encoding | UTF-8 BOM |
 | Maximum file size | 200 MB |
 | Maximum number of example sentences | 50,000 |
-| Maximum number of list classes | 20 |
-| Maximum number of items in a list class | 2,000 |
-| Maximum number of speech:phoneticlexicon entries | ?? |
-| Maximum number of pronunciations per word | ?? |
+| Maximum number of list classes | 10 |
+| Maximum number of items in a list class | 4,000 |
+| Maximum number of speech:phoneticlexicon entries | 15000 |
+| Maximum number of pronunciations per word | 2 |
 
 
 ## Pronunciation data for training
