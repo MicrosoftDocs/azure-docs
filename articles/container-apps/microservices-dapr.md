@@ -249,7 +249,7 @@ This will delete both container apps, the storage account, the container apps en
 > [!NOTE]
 > Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
-### Next steps
+### Next steps
 
 > [!div class="nextstepaction"]
 > [Monitor an app](monitor.md)
