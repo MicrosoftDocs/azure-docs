@@ -38,7 +38,7 @@ If there are invited users you wish to remove their access before the end of the
    
 5. Click **Connect to an ARM-based account**.
 
-  ![connect-button](media/connect-classic-account-to-arm/connect-button.png)
+  ![connect-button-portal](media/connect-classic-account-to-arm/connect-button.png)
 
 7. Sign to Azure portal
 8. The Video Analyzer for Media create blade will open
