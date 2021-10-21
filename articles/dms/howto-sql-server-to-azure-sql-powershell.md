@@ -79,7 +79,7 @@ $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 $service = New-AzDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
-  -Sku Basic_2vCores `  
+  -Sku Standard_2vCore `  
   -VirtualSubnetId $vSubNet.Id`
 ```
 
