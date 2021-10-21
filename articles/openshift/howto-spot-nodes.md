@@ -21,7 +21,7 @@ This article assumes you've already created a new cluster or have an existing cl
 It is also assumed you have an understanding of [how Spot VMs work](../virtual-machines/spot-vms.md).
 
 
-## Adding Spot VMs
+## Add Spot VMs
 
 The use of Spot VMs is specified by adding the `spotVMOptions` field within the template spec of a MachineSet.
 
@@ -70,7 +70,7 @@ spec:
 
 Once you've created the MachineSet successfully, you will see as many machines created as you specified. First the machines are provisioned, and then they are provisioned as a node. Once they are provisioned as a node, pods can be scheduled on them.
 
-## Scheduling interruptible workloads
+## Schedule interruptible workloads
 
 It's recommended to add a taint to the Spot nodes to prevent noninterruptible nodes from being scheduled on them, and to add tolerations of this taint to any pods that you want scheduled on them. You can taint the nodes via the MachineSet spec.
 
@@ -91,7 +91,7 @@ To learn more about applying taints and tolerations, please read [Controlling po
 
 Machines may go into a failed state due to quota issues if the quota for the machine type you are using is too low for a brief moment, even if it should eventually be enough (e.g. one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention. (See Troubleshooting section below).
 
-## Node Readiness
+## Node readiness
 
 As is explained in the Spot VM documentation linked above, VMs go into Deallocated provisioning state when they are no longer available, or no longer available at the maximum price specified.
 
