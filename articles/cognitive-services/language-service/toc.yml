@@ -129,6 +129,8 @@ items:
     href: conversational-language-understanding/quickstart.md
   - name: Language support
     href: conversational-language-understanding/language-support.md
+  - name: FAQ
+    href: conversational-language-understanding/faq.md
   - name: How-to guides
     items:
       - name: Create projects
@@ -151,6 +153,8 @@ items:
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
         href: conversational-language-understanding/concepts/evaluation-metrics.md
+      - name: Using multiple languages
+        href: conversational-language-understanding/concepts/multiple-languages.md
   - name: Reference
     items:
     - name: Prebuilt component reference
