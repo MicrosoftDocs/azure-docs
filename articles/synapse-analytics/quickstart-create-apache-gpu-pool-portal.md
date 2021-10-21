@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
-## Create new Apache Spark GPU pool
+## Create new Azure Synapse GPU-enabled pool
 
 1. In the Synapse workspace where you want to create the Apache Spark pool, select **New Apache Spark pool**.
     ![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
-3. Select **Next: additional settings** and review the default settings. Do not modify any default settings. Note that GPU pools can only be created with Apache Spark 3.1.
+3. Select **Next: additional settings** and review the default settings. Do not modify any default settings. Note that GPU pools can **only be created with Apache Spark 3.1**.
     ![Screenshot that shows the "Create Apache Spark pool" page with the "Additional settings" tab selected.](media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-02.png)
 
 4. Select **Next: tags**. Don't add any tags.
@@ -71,7 +71,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 7. At this point, the resource provisioning flow will start, indicating once it's complete.
     ![Screenshot that shows the "Overview" page with a "Your deployment is complete" message displayed.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
-8. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created Apache Spark pool.
+8. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created Azure Synapse GPU-enabled pool.
     ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/create-spark-gpu-pool-portal-04.png)
 
 9. At this point, there are no resources running, no charges for Spark, you have created metadata about the Spark instances you want to create.
