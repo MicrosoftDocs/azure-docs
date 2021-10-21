@@ -5,9 +5,9 @@ ms.topic: troubleshooting
 ms.date: 10/21/2021
 ---
 
-# Troubleshoot Azure Video Analyzer service
+# Troubleshoot Azure Video Analyzer
 
-This article covers troubleshooting steps for Azure Video Analyzer service.
+This article covers troubleshooting steps for common error scenarios you might see whie using the service.
 
 ## Enabling diagnostics
 
