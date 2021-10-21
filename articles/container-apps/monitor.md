@@ -1,5 +1,5 @@
 ---
-title: Monitor an app in Azure Container Apps
+title: Monitor an app in Azure Container Apps Preview
 description: Learn how applications are monitored and logged in Azure Container Apps.
 services: app-service
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 10/21/2021
 ms.author: cshoe
 ---
 
-# Monitor an app in Azure Container Apps
+# Monitor an app in Azure Container Apps Preview
 
 Azure Container Apps gathers a broad set of data about your container app and stores it using [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). This article describes the available logs, and how to write and view logs.
 
