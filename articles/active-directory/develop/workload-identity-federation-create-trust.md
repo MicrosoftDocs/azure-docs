@@ -48,7 +48,7 @@ Run the following command to [create a new federated identity credential](/graph
 
 *name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
 
-*description* is the un-validated, user-provided description of what the federated identity credential.
+*description* is the un-validated, user-provided description of the federated identity credential. 
 
 The following command configures a federated identity credential on an app and creates a trust relationship with a Kubernetes service account:
 
