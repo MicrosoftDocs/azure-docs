@@ -443,7 +443,7 @@ To make sure that the storage account doesn't contain any legacy information fro
 
    1. On the **azure-webjobs-eventhub** pane, select the namespace folder, which has a name with the following format: `<source-event-hub-name>.servicebus.windows.net`.
 
-   1. In the namespace folder, delete the source entity folder named `src` that holds the checkpoint and offset information for the former source.
+   1. In the namespace folder, delete the folder for the former source entity. This folder holds the checkpoint and offset information for the former source and usually has the name for that source.
 
 1. Return to the logic app resource or workflow behind the replication task. Restart the logic app or enable the workflow again.
 
