@@ -15,7 +15,7 @@ The steps below describe how to restrict public access to question answering res
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link.  Question answering provides you support to create private endpoints to the Azure Search Service.
 
-Private endpoints are provided by [Azure Private Link](../../../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page.](https://azure.microsoft.com/pricing/details/private-link/)
+Private endpoints are provided by [Azure Private Link](../../../../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page.](https://azure.microsoft.com/pricing/details/private-link/)
 
 ## Steps to enable private endpoint
 
@@ -52,12 +52,12 @@ This will establish a private endpoint connection between language resource and 
 
 ## Restrict access to Cognitive Search resource
 
-Follow the steps below to restrict public access to question answering language resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to question answering language resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 
 After restricting access to Cognitive Service resource based on VNet, To browse knowledge bases on the Language Studio portal from your on-premises network or your local browser.
-- Grant access to [on-premises network](../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
+- Grant access to [on-premises network](../../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
 - Grant access to your [local browser/machine](../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
 - Add the **public IP address of the machine  under the Firewall** section of the **Networking** tab. By default `portal.azure.com` shows the current browsing machine's public IP (select this entry) and then select **Save**.
 
      > [!div class="mx-imgBorder"]
-     > [ ![Screenshot of firewall and virtual networks configuration UI]( ../media/network-isolation/firewall.png) ](  ../media/network-isolation/firewall.png#lightbox)
+     > [ ![Screenshot of firewall and virtual networks configuration UI]( ../../../qnamaker/media/network-isolation/firewall.png) ](  ../../../qnamaker/media/network-isolation/firewall.png#lightbox)
