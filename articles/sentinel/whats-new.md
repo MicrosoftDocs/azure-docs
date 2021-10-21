@@ -195,7 +195,7 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
 
-### Defender for Office 365 events now available in the M365 Defender connector (Public preview)
+### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
 In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
