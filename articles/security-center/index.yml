@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What are the key capabilities of Defender for Cloud?
-            url: defender-for-cloud-introductionduction.md
+            url: defender-for-cloud-introduction.md
           - text: Which versions of Windows Server and Linux are supported?
             url: security-center-os-coverage.md
           - text: How do I get started with Defender for Cloud?

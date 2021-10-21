@@ -9,7 +9,6 @@ ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ---
-
 # Quickstart: Create an automatic response to a specific security alert using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation that triggers a logic app when specific security alerts are received by Microsoft Defender for Cloud.

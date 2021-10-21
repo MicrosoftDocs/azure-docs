@@ -2,19 +2,12 @@
 title: Defender for Cloud Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Defender for Cloud.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-
 ---
 # Defender for Cloud readiness roadmap
 This document provides you a readiness roadmap that will assist you to get started with Defender for Cloud.
@@ -25,7 +18,7 @@ Defender for Cloud provides unified security management and advanced threat prot
 Use the following resources to get started with Defender for Cloud.
 
 Articles
-- [Introduction to Defender for Cloud](defender-for-cloud-introductionduction.md)
+- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
 - [Defender for Cloud quickstart guide](get-started.md)
 
 Videos

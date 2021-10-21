@@ -8,7 +8,6 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: memildin
-
 ---
 # Microsoft Defender for Cloud data security
 
@@ -23,7 +22,6 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 - **Network traffic**: Uses sampled network traffic metadata from Microsoft’s infrastructure, such as source/destination IP/port, packet size, and network protocol.
 - **Partner solutions**: Uses security alerts from integrated partner solutions, such as firewalls and antimalware solutions.
 - **Your machines**: Uses configuration details and information about security events, such as Windows event and audit logs, and syslog messages from your machines.
-
 
 ## Data protection
 
@@ -66,9 +64,7 @@ You can specify the workspace and region where data collected from your machines
 
 
 ## Data consumption
-
 Customers can access Defender for Cloud related data from the following data streams:
-
 
 | Stream                                                                                | Data types                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -82,4 +78,4 @@ Customers can access Defender for Cloud related data from the following data str
 
 In this document, you learned how data is managed and safeguarded in Microsoft Defender for Cloud. 
 
-To learn more about Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](defender-for-cloud-introductionduction.md)
+To learn more about Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)

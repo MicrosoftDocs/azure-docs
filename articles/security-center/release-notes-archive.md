@@ -380,7 +380,7 @@ Azure Security Center's security alerts page has been redesigned to provide:
 - **Better performance** for large alerts lists.
 - **Keyboard navigation** through the alert list.
 - **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
-- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-azure-defender-alerts).
+- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-security-alerts).
 
 :::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
@@ -757,7 +757,7 @@ To access the new experience, use the 'try it now' link from the banner at the t
 
 :::image type="content" source="media/managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience.":::
 
-To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-azure-defender-alerts).
+To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-security-alerts).
 
 
 ### Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance 

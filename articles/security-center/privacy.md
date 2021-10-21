@@ -8,7 +8,6 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: memildin
-
 ---
 
 # Manage user data in Microsoft Defender for Cloud

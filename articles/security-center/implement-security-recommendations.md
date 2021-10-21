@@ -40,7 +40,7 @@ To implement a **Fix**:
 
 1. From the list of recommendations that have the **Fix** action icon, :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
 
-    :::image type="content" source="./media/implement-security-recommendations/review-security-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/review-security-recommendations-fix-action.png#lightbox":::
+    :::image type="content" source="./media/implement-security-recommendations/security-center-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/security-center-recommendations-fix-action.png":::
 
 1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Remediate**.
 

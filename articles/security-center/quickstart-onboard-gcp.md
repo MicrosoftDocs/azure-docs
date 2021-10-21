@@ -7,7 +7,6 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-
 ---
 
 #  Connect your GCP accounts to Microsoft Defender for Cloud

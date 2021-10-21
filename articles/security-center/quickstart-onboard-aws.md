@@ -7,7 +7,6 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-
 ---
 
 #  Connect your AWS accounts to Microsoft Defender for Cloud
@@ -132,13 +131,13 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 1. Configure the options in the **AWS authentication** tab:
     1. Enter a **Display name** for the connector.
     1. Confirm that the subscription is correct. It is the subscription that will include the connector and AWS Security Hub recommendations.
-    1. Depending on the authentication option, you chose in [Step 2. Set up authentication for Defender for Cloud in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Select  **Assume Role** and paste the ARN from [Create an IAM role for Defender for Cloud](#create-an-iam-role-for-security-center).
+    1. Depending on the authentication option, you chose in [Step 2. Set up authentication for Defender for Cloud in AWS](#step-2-set-up-authentication-for-defender-for-cloud-in-aws):
+        - Select  **Assume Role** and paste the ARN from [Create an IAM role for Defender for Cloud](#create-an-iam-role-for-defender-for-cloud).
             :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure portal.":::
 
             OR
 
-        - Select **Credentials** and paste the **access key** and **secret key** from the .csv file you saved in [Create an AWS user for Defender for Cloud](#create-an-aws-user-for-security-center).
+        - Select **Credentials** and paste the **access key** and **secret key** from the .csv file you saved in [Create an AWS user for Defender for Cloud](#create-an-aws-user-for-defender-for-cloud).
 1. Select **Next**.
 1. Configure the options in the **Azure Arc Configuration** tab:
 

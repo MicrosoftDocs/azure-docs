@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 08/09/2021
 ms.author: memildin
-
 ---
 # Tutorial: Improve your regulatory compliance
 

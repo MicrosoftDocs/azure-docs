@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: memildin
-
 ---
 
 # Prevent misconfigurations with Enforce/Deny recommendations

@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/15/2021
 ms.author: memildin
-
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
 

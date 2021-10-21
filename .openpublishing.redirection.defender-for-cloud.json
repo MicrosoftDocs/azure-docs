@@ -181,6 +181,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/security-center-provide-security-contact-details.md",
+            "redirect_url": "/azure/security-center/configure-email-notifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-managing-and-responding-alerts.md",
+            "redirect_url": "/azure/security-center/managing-and-responding-alerts",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-adaptive-network-hardening.md",
             "redirect_url": "/azure/security-center/adaptive-network-hardening",
             "redirect_document_id": false

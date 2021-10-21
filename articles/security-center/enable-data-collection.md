@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2021
 ms.author: memildin
-
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
@@ -81,9 +80,9 @@ To enable auto provisioning of the Log Analytics agent:
         > [!TIP]
         > For questions regarding default workspaces, see:
         >
-        > - [Am I billed for Azure Monitor logs on the workspaces created by Defender for Cloud?](./faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center-)
+        > - [Am I billed for Azure Monitor logs on the workspaces created by Defender for Cloud?](./faq-data-collection-agents.yml#am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-defender-for-cloud-)
         > - [Where is the default Log Analytics workspace created?](./faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created-)
-        > - [Can I delete the default workspaces created by Defender for Cloud?](./faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-security-center-)
+        > - [Can I delete the default workspaces created by Defender for Cloud?](./faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-defender-for-cloud-)
 
     - **Connect Azure VMs to a different workspace** - From the dropdown list, select the workspace to store collected data. The dropdown list includes all workspaces across all of your subscriptions. You can use this option to collect data from virtual machines running in different subscriptions and store it all in your selected workspace.  
 
@@ -267,7 +266,7 @@ To turn off automatic provisioning of an agent:
 
 
 > [!NOTE]
->  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Defender for Cloud](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-security-center-).
+>  Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent was provisioned. For information on removing the OMS extension, see [How do I remove OMS extensions installed by Defender for Cloud](./faq-data-collection-agents.yml#how-do-i-remove-oms-extensions-installed-by-defender-for-cloud-).
 >
 
 
