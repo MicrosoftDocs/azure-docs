@@ -10,6 +10,7 @@ ms.custom: references_regions
 In many event streaming and messaging scenarios, the event or message payload contains structured data. Schema-driven format such as [Apache Avro](https://avro.apache.org/) are often used to serialized or deserialize such structured data. 
 
 :::image type="content" source="./media/schema-registry-overview/schema-driven-ser-de.png" alt-text="Schema driven serialization/de-serialization":::
+
 The producer applications use schema document to serialize the event payload and publish it to an  event broker such as Event Hubs. Similarly the consumer applications read event payload from the broker and de-serialize it using the same schema document. So, both the producers and the consumers can validate the integrity of the data with a schema document. 
 
 
@@ -31,7 +32,9 @@ With schema-driven serialization frameworks like Apache Avro, externalizing seri
 The information flow when you use schema registry is the same for all the protocol that you use to publish or consume events from Azure Event Hubs. 
 The following diagram shows the information flow of a Kafka event producer and consumer scenario that users Schema Registry. 
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.png" alt-text="Schema Registry information flow":::
+:::image type="content" source="./media/schema-registry-overview/information-flow.png" lightbox="./media/schema-registry-overview/information-flow.png" alt-text="Schema Registry information flow":::
+
+
 The information flow starts from the producer side where Kafka producers serialize the data using the schema document. 
 - The Kafka producer application uses ``KafkaAvroSerializer`` to serialize event data using the schema specified at the client side. 
 - Producer application must provide the details of the schema registry endpoint and other optional parameters that are required for schema validation. 
