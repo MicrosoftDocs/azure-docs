@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * [An Azure Language resource connected to an Azure blob storage account](../how-to/project-requirements.md).
-    * we recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
+    * We recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
 * [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
     * You can use any tier, and any region for this service.
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 4. Enter the information for your project:
 
     | Key | Description |
-    |--| -- |
+    |--|--|
     | Name | The name of your project. You will not be able to rename your project after you create it. |
     | Description | A description of your project |
     | Language | The language of the files in your project.|
@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
     > [!NOTE]
     > If your documents will be in multiple languages, select the **multiple languages** option in project creation, and set the **language** option to the language of the majority of your documents.
 
-5. For this tutorial, use an **existing tags file** and select the tags file you downloaded form the sample data.
+5. For this tutorial, use an **existing tags file** and select the tags file you downloaded from the sample data.
 
 ## Train your model
 
@@ -81,11 +81,11 @@ Next you will need to prepare your secrets for your Azure function. Your project
 
 ### Get your custom NER project secrets
 
-* You will ned your **Project name**, Project names are case senstivie.
+* You will need your **Project name**, Project names are case sensitive.
 
 * You will also need the deployment slot. 
-   * If you have deployed your model via Lnaguage studion, your deplyment slot will be `prod` by default. 
-   * If you have deplyed it using APIs this is the deployment name you assigned in your request.
+   * If you have deployed your model via Language Studio, your deployment slot will be `prod` by default. 
+   * If you have deployed your model programmatically, using the API, this is the deployment name you assigned in your request.
 
 ### Get your resource keys endpoint
 
