@@ -331,7 +331,7 @@ npm package version 3.1.0-beta.3
 
     **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#beginRecognizeIdDocuments_FormRecognizerRequestBody__BeginRecognizeIdDocumentsOptions_)**
 
-    For a list of field values, _see_ [Fields extracted](./concept-id-document.md#fields-extracted) in our Form Recognizer documentation.
+    For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * **New field values added to the FieldValue interface**:
 
@@ -356,7 +356,7 @@ pip package version 3.1.0b4
 
   **[begin_recognize_id_documents](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true)**
 
-  For a list of field values, _see_ [Fields extracted](./concept-id-document.md#fields-extracted) in our Form Recognizer documentation.
+  For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * **New field values added to the [FieldValueType](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.fieldvaluetype?view=azure-python-preview&preserve-view=true) enum**:
 
