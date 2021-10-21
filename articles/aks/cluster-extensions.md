@@ -29,7 +29,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI version >= 2.16.0 installed](/cli/azure/install-azure-cli).
+* [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
 ### Register provider for cluster extensions
 
@@ -49,7 +49,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
     az provider show -n Microsoft.ContainerService -o table
     ```
 
-Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
+    Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ Once registered, you should see the `RegistrationState` state for these namespac
     Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
     ```
 
-Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
+    Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
 
 ---
 
@@ -175,7 +175,7 @@ az k8s-extension show --name azureml --cluster-name <clusterName> --resource-gro
 
 ### List all extensions installed on the cluster
 
-List all extensions installed on a cluster with `k8s-extension list`, passing in values for the mandatory parameters:
+List all extensions installed on a cluster with `k8s-extension list`, passing in values for the mandatory parameters.
 
 ```azurecli
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
