@@ -168,7 +168,7 @@ display(analyzeInvoices
 ## Analyze ID documents
 Detects and extracts data from identification documents using optical character recognition (OCR) and our ID document model, enabling you to easily extract structured data from ID documents such as first name, last name, date of birth, document number, and more.
 ### Example input
-![example_input_for_id](./media/tutorial-form-recognizer/id1.jpg)
+![Photograph of an example driver license ID.](./media/tutorial-form-recognizer/id1.jpg)
 
 ```python
 imageDf5 = spark.createDataFrame([
