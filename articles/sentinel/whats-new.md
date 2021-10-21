@@ -45,7 +45,7 @@ A playbook template is a pre-built, tested, and ready-to-use workflow that can b
 
 Playbook templates have been developed by the Azure Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, and you can find them in the **Playbook templates** tab (under **Automation**), as part of an [**Azure Sentinel Solution**](sentinel-solutions.md), or in the [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
 
-For more information, see [Create and customize playbooks from built-in templates](use-playbook-templates.md).
+See [Create and customize playbooks from built-in templates](use-playbook-templates.md) for more information about deploying a playbook template from the **Playbook templates** tab under **Automation**.
 
 ### Manage template versions for your scheduled analytics rules (Public preview)
 
