@@ -9,7 +9,7 @@ ms.topic: reference
 ---
 
 # Azure Chaos Studio service limits
-
+This article provides service limits for Azure Chaos Studio. 
 ## Experiment and target limits
 
 Chaos Studio applies limits to the number of objects, duration of activities, and retention of data.
