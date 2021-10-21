@@ -27,6 +27,8 @@
       href: how-to-compare-multiple-test-runs.md
     - name: Configure Azure Load Testing for high scale load testing
       href: how-to-configure-azure-load-testing-high-scale-load.md
+    - name: Parameterize load tests
+      href: how-to-parameterize-load-tests.md
 - name: Resources
   items: 
     - name: Azure roadmap
