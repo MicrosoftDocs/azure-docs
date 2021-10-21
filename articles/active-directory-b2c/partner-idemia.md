@@ -191,12 +191,9 @@ One of the following values must be selected:
 
 |Parameter value| Effect on user authentication process |
 |:------|:-------|
-|`loa-2`|  Crypto-based Multi-Factor Authentication only|
-|`loa-3`| Crypto-based Multi-Factor Authentication plus one additional factor|
-| `loa-4`| Crypto-based Multi-Factor Authentication with the requirement that the user must also perform pin-based and biometric authentication |
-
->[!NOTE]
->Additional parameter values may be added in the future to provide additional clarity and flexibility for RPs. For example, MFA, pin, faceID, in place of `loa-x`. When that happens, the new values will be published in the “acr_values_supported” section of discovery API referenced earlier in this document.
+|`loa-2`| Crypto-based Azure AD Multi-Factor Authentication only|
+|`loa-3`| Crypto-based Azure AD Multi-Factor Authentication plus one additional factor|
+|`loa-4`| Crypto-based Azure AD Multi-Factor Authentication with the requirement that the user must also perform pin-based and biometric authentication |
 
 The **/userinfo** endpoint provides the claims for the scope(s) requested in the authorization request. For the **<mt_scope>** this includes such claims as First Name, Last Name, and Driver's License Number, among other items. 
 The claims set for any given scope is published in the "scope_to_claims_mapping" section of the discovery API.
