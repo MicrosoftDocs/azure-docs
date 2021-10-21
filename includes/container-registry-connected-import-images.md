@@ -39,7 +39,11 @@ az acr import \
 
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/azureiotedge-api-proxy:latest
+  --source mcr.microsoft.com/azureiotedge-api-proxy:1.1.2
+
+az acr import \
+  --name $REGISTRY_NAME \
+  --source mcr.microsoft.com/azureiotedge-diagnostics:1.2.4
 ```
 
 ### Hello-world image
@@ -49,5 +53,5 @@ For testing the connected registry, import the `hello-world` image. This reposit
 ```azurecli
 az acr import \
   --name $REGISTRY_NAME \
-  --source mcr.microsoft.com/hello-world:latest
+  --source mcr.microsoft.com/hello-world:1.1.2
 ```

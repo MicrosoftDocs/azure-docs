@@ -7,13 +7,14 @@ ms.author: danlep
 ---
 ### Connected registry module settings
 
-* Use the token credentials and connection string from the previous sections to update the relevant JSON values. 
-* The `ACR_REGISTRY_CONNECTION_STRING` environment variable and optionally `ACR_REGISTRY_LOGIN_SERVER`  are defined in the `env` node. The following environment variables are also optional in this node:
+* Use the token credentials and connection string from the previous sections to update the relevant JSON values in the `env` node. 
+* The following environment variables are optional in the `env` node:
 
     |Variable  |Description  |
     |---------|---------|
+    | `ACR_REGISTRY_LOGIN_SERVER` |  Specifies a unique hostname or FQDN. If used, the connected registry only accepts requests made to this login server value. <br/><br/>If no value is provided, then the connected registry can be accessed with any login server value.  |
     |`ACR_REGISTRY_CERTIFICATE_VOLUME`     |   If your connected registry will be accessible via HTTPS, points to the volume where the HTTPS certificates are stored.<br/><br/>If not set, the default location is `/var/acr/certs`.      |
-    |`ACR_REGISTRY_DATA_VOLUME`     |  Overwrites the default location `/var/acr/data` where the images will be stored by the connected registry.<br><br>This location must match the volume bind for the container.       |
+    |`ACR_REGISTRY_DATA_VOLUME`     |  Overwrites the default location `/var/acr/data` where the images will be stored by the connected registry.<br/><br/>This location must match the volume bind for the container.       |
 
     > [!IMPORTANT]
     > If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value (if specified) must include the port. Example: `192.168.0.100:8080`.
@@ -50,8 +51,8 @@ ms.author: danlep
                     },
                     "IoTEdgeAPIProxy": {
                         "settings": {
-                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:latest",
-                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:1.1.2",
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
                         },
                         "type": "docker",
                         "env": {
@@ -87,7 +88,7 @@ ms.author: danlep
                 "systemModules": {
                     "edgeAgent": {
                         "settings": {
-                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.3",
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.4",
                             "createOptions": ""
                         },
                         "type": "docker",
@@ -99,8 +100,8 @@ ms.author: danlep
                     },
                     "edgeHub": {
                         "settings": {
-                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:1.2.3",
-                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:1.2.4",
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                         },
                         "type": "docker",
                         "status": "running",

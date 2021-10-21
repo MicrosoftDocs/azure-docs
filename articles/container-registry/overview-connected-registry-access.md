@@ -5,7 +5,7 @@ author: toddysm
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 10/07/2021
+ms.date: 10/21/2021
 ---
 
 # Understand access to a connected registry
@@ -45,8 +45,8 @@ Each connected registry uses a sync token to authenticate with its immediate par
 
 Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/az/acr#az_acr_token) and [az acr scope-map](/cli/az/acr#az_acr_scope-map) commands. Sync token updates are propagated automatically to the connected registry. Follow the standard practices of rotating passwords when updating the sync token.
 
-> [!WARNING]
-> Take care not to delete a sync token. Doing so will permanently prevent communication with the corresponding connected registry. You can disable a connected registry by setting the status of the sync token to `disabled`. 
+> [!NOTE]
+> The sync token cannot be deleted until the connected registry associated with the token is deleted. You can disable a connected registry by setting the status of the sync token to `disabled`. 
 
 ## Registry endpoints
 

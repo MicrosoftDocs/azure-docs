@@ -2,7 +2,7 @@
 title: Quickstart - Create connected registry using the portal
 description: Use Azure portal to create a connected Azure container registry resource that can synchronize images and other artifacts with the cloud registry.
 ms.topic: quickstart
-ms.date: 10/13/2021
+ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -84,7 +84,7 @@ Select a connected registry in the portal to view its properties, such as its co
 
 :::image type="content" source="media/quickstart-connected-registry-portal/connected-registry-properties.png" alt-text="View connected registry properties":::
 
-From this view, you can also generate a connection string, which contains [sync token](overview-connected-registry-access.md#sync-token) credentials used for synchronizing content with the parent registry.
+From this view, you can also generate a connection string and optionally generate passwords for the [sync token](overview-connected-registry-access.md#sync-token). A connection string contains configuration settings used for deploying a connected registry and synchronizing content with a parent registry.
 
 ## Next steps
 

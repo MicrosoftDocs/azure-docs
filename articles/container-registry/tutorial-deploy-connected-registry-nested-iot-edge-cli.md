@@ -2,7 +2,7 @@
 title: Tutorial - Deploy a connected registry to a nested IoT Edge device
 description: Use Azure CLI commands to deploy a connected Azure container registry to a nested Azure IoT Edge hierarchy.
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -24,10 +24,12 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 
 ## Retrieve connected registry configuration 
 
-To deploy each connected registry to the IoT Edge device in the hierarchy, you need to use the configuration from the connected registry resource in Azure. If needed, run the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command for each connected registry to retrieve the configuration.
+To deploy each connected registry to the IoT Edge device in the hierarchy, you need to retrieve configuration settings from the connected registry resource in Azure. If needed, run the [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command for each connected registry to retrieve the configuration. 
+
+By default, the settings information doesn't include the [sync token](overview-connected-registry-access.md#sync-token) password, which is also needed to deploy the connected registry. Optionally, generate one of the passwords by passing the `--generate-password 1` or `generate-password 2` parameter. Save the generated password to a safe location. It cannot be retrieved again.
 
 > [!WARNING]
-> If you previously retrieved the configuration for a connected registry, running `az acr connected-registry install renew-credentials` generates a new connection string with new sync token credentials.
+> Regenerating a password rotates the sync token credentials. If you configured a device using the previous password, you need to update the configuration.
 
 ```azurecli
 # Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry
@@ -35,31 +37,32 @@ REGISTRY_NAME=<container-registry-name>
 
 # Run the command for each registry resource in the hierarchy
 
-az acr connected-registry install renew-credentials \
+az acr connected-registry get-settings \
   --registry $REGISTRY_NAME \
   --name $CONNECTED_REGISTRY_RW \
   --parent-protocol https
 
-az acr connected-registry install renew-credentials \
+az acr connected-registry get-settings \
   --registry $REGISTRY_NAME \
   --name $CONNECTED_REGISTRY_RO \
   --parent-protocol https
 ```
 
-Each command returns the connection string for the connected registry, including a newly generated password for the [sync token](overview-connected-registry-access.md#sync-token).
-
 [!INCLUDE [container-registry-connected-connection-configuration](../../includes/container-registry-connected-connection-configuration.md)]
 
 ## Configure deployment manifests for the nested IoT Edge devices
 
-A deployment manifest is a JSON document that describes which modules to deploy to an IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
+A deployment manifest is a JSON document that describes which modules to deploy to an IoT Edge device. For more information, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
 
 To deploy the connected registry module on each IoT Edge device using the Azure CLI, save the following deployment manifests locally as JSON files. Use the information from the previous sections to update the relevant JSON values in each manifest. You will use the file paths in the next section when you run the command to apply the configuration to your device.
 
 ### Deployment manifest for the top layer
 
-For the device at the top layer, create a deployment manifest file `deploymentTopLayer.json` with the following content. This manifest is similar to the one used in [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md).
-.
+For the device at the top layer, create a deployment manifest file `deploymentTopLayer.json` with the following content. This manifest is similar to the one used in [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md). 
+
+> [!NOTE]
+> If you already deployed a connected registry to a top layer IoT Edge device using the [quickstart](quickstart-deploy-connected-registry-iot-edge-cli.md), you may use it at the top layer of a nested hierarchy. You will need to modify the deployment steps in this tutorial to configure it in the hierarchy (not shown).
+
 [!INCLUDE [container-registry-connected-iot-edge-manifest](../../includes/container-registry-connected-iot-edge-manifest.md)]
 
 ### Deployment manifest for the lower layer
@@ -85,7 +88,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                 "modules": {
                     "connected-registry": {
                         "settings": {
-                            "image": "$upstream:8000/acr/connected-registry:0.3.0",
+                            "image": "$upstream:8000/acr/connected-registry:0.5.0",
                             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"]}}"
                         },
                         "type": "docker",
@@ -101,13 +104,13 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                     "IoTEdgeApiProxy": {
                         "settings": {
                             "image": "$upstream:8000/azureiotedge-api-proxy:latest",
-                            "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\": \"443\"}]}}}"
+                            "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"8000/tcp\": [{\"HostPort\": \"8000\"}]}}}"
                         },
                         "type": "docker",
                         "version": "1.0",
                         "env": {
                             "NGINX_DEFAULT_PORT": {
-                                "value": "443"
+                                "value": "8000"
                             },
                             "CONNECTED_ACR_ROUTE_ADDRESS": {
                                 "value": "connected-registry:8080"
@@ -141,7 +144,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                 "systemModules": {
                     "edgeAgent": {
                         "settings": {
-                            "image": "$upstream:8000/azureiotedge-agent:1.2.3",
+                            "image": "$upstream:8000/azureiotedge-agent:1.2.4",
                             "createOptions": ""
                         },
                         "type": "docker",
@@ -153,7 +156,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                     },
                     "edgeHub": {
                         "settings": {
-                            "image": "$upstream:8000/azureiotedge-hub:1.2.3",
+                            "image": "$upstream:8000/azureiotedge-hub:1.2.4",
                             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                         },
                         "type": "docker",
@@ -201,7 +204,7 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
     tar -xvf iotedge_config.tar
     ```
 
-    This step creates the `iotedge_config_cli_release` folder in your tutorial directory. The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, there're two deployment manifests for top and lower layers: `deploymentTopLayer.json` and `deploymentLowerLayer.json` files. 
+    This step creates the `iotedge_config_cli_release` folder in your tutorial directory. The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, there are two deployment manifests for top and lower layers: `deploymentTopLayer.json` and `deploymentLowerLayer.json` files. 
 
 1. Edit `iotedge_config.yaml` with your information. This includes the `iothub_hostname`, `iot_name`, deployment manifest filenames for the top layer and lower layer, and the client token credentials you created to pull images from upstream from each layer. The following is a sample configuration
 
@@ -222,12 +225,12 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
         ## IoT Edge configuration template to use
     configuration:
         template_config_path: "./templates/tutorial/device_config.toml"
-        default_edge_agent: "$upstream:8000/azureiotedge-agent:1.2.3"
+        default_edge_agent: "$upstream:8000/azureiotedge-agent:1.2.4"
 
         ## Hierarchy of IoT Edge devices to create
     edgedevices:
         device_id: top-layer
-        edge_agent: "<REPLACE_WITH_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.3" ## Optional. If not provided, default_edge_agent will be used
+        edge_agent: "<REPLACE_WITH_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.4" ## Optional. If not provided, default_edge_agent will be used
         deployment: "./templates/tutorial/deploymentTopLayer.json" ## Optional. If provided, the given deployment file will be applied to the newly created device
             # hostname: "FQDN or IP" ## Optional. If provided, install.sh will not prompt user for this value nor the parent_hostname value
         container_auth: ## The token used to pull the image from cloud registry
@@ -321,10 +324,11 @@ To troubleshoot a deployment, run `iotedge check` on the affected device. For mo
 
 In this quickstart, you learned how to deploy a connected registry to a nested IoT Edge device. Continue to the next guide to learn how to pull images from the newly deployed connected registry.
 
+> [!div class="nextstepaction"]
 > [Pull images from a connected registry][pull-images-from-connected-registry]
 
 <!-- LINKS - internal -->
-[az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
+[az-acr-connected-registry-get-settings]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_get_settings
 [az-acr-connected-registry-show]: /cli/azure/acr/connected-registr#az_acr_connected_registry_show
 [az-acr-import]: /cli/azure/acr#az-acr-import
 [az-acr-token-credential-generate]: /cli/azure/acr/credential#az-acr-token-credential-generate

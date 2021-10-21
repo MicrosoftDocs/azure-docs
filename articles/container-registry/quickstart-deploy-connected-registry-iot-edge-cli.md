@@ -2,7 +2,7 @@
 title: Quickstart - Deploy a connected registry to an IoT Edge device
 description: Use Azure CLI commands and Azure portal to deploy a connected Azure container registry to an Azure IoT Edge device.
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -29,24 +29,27 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 
 ## Retrieve connected registry configuration
 
-Before deploying the connected registry to the IoT Edge device, you need to retrieve the configuration from the connected registry resource in Azure. You will need the information for the IoT Edge manifest used in a later section. 
+Before deploying the connected registry to the IoT Edge device, you need to retrieve configuration settings from the connected registry resource in Azure.
 
-Use the [az acr connected-registry install renew-credentials][az-acr-connected-registry-install-renew-credentials] command to retrieve the configuration. The following example specifies HTTPS as the parent protocol. This protocol is required when the parent registry is a cloud registry.
+Use the [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command to get the settings information required to install a connected registry. The following example specifies HTTPS as the parent protocol. This protocol is required when the parent registry is a cloud registry.
 
 ```azurecli
-az acr connected-registry install renew-credentials \
+az acr connected-registry get-settings \
   --registry $REGISTRY_NAME \
   --name $CONNECTED_REGISTRY_RW \
   --parent-protocol https
 ```
 
-This command returns the connection string for the connected registry, including a newly generated password for the [sync token](overview-connected-registry-access.md#sync-token). 
+By default, the settings information doesn't include the [sync token](overview-connected-registry-access.md#sync-token) password, which is also needed to deploy the connected registry. Optionally, generate one of the passwords by passing the `--generate-password 1` or `generate-password 2` parameter. Save the generated password to a safe location. It cannot be retrieved again.
+
+> [!WARNING]
+> Regenerating a password rotates the sync token credentials. If you configured a device using the previous password, you need to update the configuration.
 
 [!INCLUDE [container-registry-connected-connection-configuration](../../includes/container-registry-connected-connection-configuration.md)]
 
 ## Configure a deployment manifest for IoT Edge
 
-A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
+A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
 
 To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. You will use the file path in the next section when you run the command to apply the configuration to your device.
 
@@ -92,7 +95,7 @@ In this quickstart, you learned how to deploy a connected registry to an IoT Edg
 > [Tutorial: Deploy connected registry on nested IoT Edge devices][tutorial-connected-registry-nested]
 
 <!-- LINKS - internal -->
-[az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
+[az-acr-connected-registry-get-settings]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_get_settings
 [az-acr-connected-registry-show]: /cli/azure/acr/connected-registr#az_acr_connected_registry_show
 [az-acr-import]:/cli/azure/acr#az_acr_import
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential?#az_acr_token_credential_generate
