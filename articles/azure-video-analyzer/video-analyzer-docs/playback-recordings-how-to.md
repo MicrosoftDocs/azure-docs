@@ -8,8 +8,8 @@ ms.date: 09/30/2021
 ---
 # Viewing of videos
 
-## Pre-read  
-* [Azure Video Analyzer edge module and Video Analyzer service](overview.md)
+## Suggested pre-reading
+
 * [Video Analyzer video resource](terminology.md#video)
 * [Continuous video recording](continuous-video-recording.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
@@ -48,11 +48,11 @@ When using Video Analyzer edge module to record to a video resource, you will sp
 
 Consequently, streaming of the video from your Video Analyzer account will be delayed by at least that much time. 
 
-Another factor that determines playback latency (the delay between the time an event occurs in front of the camera, to the time it can be viewed on a playback device) is the group-of-pictures [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It is common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
+Another factor that determines end-to-end latency (the delay between the time an event occurs in front of the camera, to the time it is viewed on a playback device) is the group-of-pictures [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) duration. As [reducing the delay of live streams by using 3 simple techniques](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explains, longer the GOP duration, longer the latency. It is common to have IP cameras used in surveillance and security scenarios configured to use GOPs longer than 30 seconds. This has a large impact on the overall latency.
 
 ## Low latency streaming
 
-When using the Video Analyzer service to capture and record videos from RTSP cameras, you can view the video with latencies under 2 seconds using [low latency streaming](terminology.md#low-latency-streaming). The service makes available a websocket tunnel through which an RTSP-capable player such as the [Video Analyzer player widget](player-widget.md) can receive video using [RTSP protocol](https://datatracker.ietf.org/doc/html/rfc7826.html). Note that overall latency is dependent on the network bandwidth between the camera and cloud, as well as between the cloud and the playback device, as well as the processing power of the playback device. The URL for low latency streaming is returned in `rtspTunnelUrl`.
+When using the Video Analyzer service to capture and record videos from RTSP cameras, you can view the video with latencies of around 2 seconds using [low latency streaming](terminology.md#low-latency-streaming). The service makes available a websocket tunnel through which an RTSP-capable player such as the [Video Analyzer player widget](player-widget.md) can receive video using [RTSP protocol](https://datatracker.ietf.org/doc/html/rfc7826.html). Note that overall latency is dependent on the network bandwidth between the camera and cloud, as well as between the cloud and the playback device, as well as the processing power of the playback device. The URL for low latency streaming is returned in `rtspTunnelUrl`.
 
    > [!NOTE]
    > The above URL requires a [bearer token](./access-policies.md#creating-a-token). See the [Video Analyzer player widget](player-widget.md) documentation for more details.
@@ -84,4 +84,4 @@ When recording video using the Video Analyzer edge module, if your [pipeline](pi
 * [Understand access policies](access-policies.md)
 * [Use the Video Analyzer player widget](player-widget.md)
 * [Continuous video recording on the edge](edge/use-continuous-video-recording.md)
-<!--TODO: link to cloud quickstart -->
+* [Continuous video recording in the cloud](cloud/get-started-livepipelines-portal.md)
