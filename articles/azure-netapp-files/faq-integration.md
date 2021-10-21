@@ -1,5 +1,5 @@
 ---
-title: Product FAQs for Azure NetApp Files | Microsoft Docs
+title: Integration FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about using other products or services with Azure NetApp Files.
 ms.service: azure-netapp-files
 ms.workload: storage
@@ -8,7 +8,7 @@ author: b-juche
 ms.author: b-juche
 ms.date: 10/11/2021
 ---
-# Product FAQs for Azure NetApp Files
+# Integration FAQs for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about using other products or services with Azure NetApp Files. 
 
