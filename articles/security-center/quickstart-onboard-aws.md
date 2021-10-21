@@ -162,7 +162,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 When the connector is successfully created, and AWS Security Hub has been configured properly:
 
 - Defender for Cloud scans the environment for AWS EC2 instances, onboarding them to Azure Arc, enabling to install the Log Analytics agent and providing threat protection and security recommendations. 
-- The ASC service scans for new AWS EC2 instances every 6 hours and onboards them according to the configuration.
+- The Defender for Cloud service scans for new AWS EC2 instances every 6 hours and onboards them according to the configuration.
 - The AWS CIS standard will be shown in the Defender for Cloud's regulatory compliance dashboard.
 - If Security Hub policy is enabled, recommendations will appear in the Defender for Cloud portal and the  regulatory compliance dashboard 5-10 minutes after onboard completes.
     :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="AWS resources and recommendations in Defender for Cloud's recommendations page":::

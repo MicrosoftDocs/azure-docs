@@ -80,7 +80,7 @@ Asset inventory utilizes [Azure Resource Graph (ARG)](../governance/resource-gra
 
 ARG is designed to provide efficient resource exploration with the ability to query at scale.
 
-Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
+Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing Defender for Cloud data with other resource properties.
 
 
 ## How to use asset inventory

@@ -68,7 +68,7 @@ The toolbar on the recommendation details page includes an **Open query** button
 
 ARG is designed to provide efficient resource exploration with the ability to query at scale across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
 
-Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference ASC data with other resource properties.
+Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference Defender for Cloud data with other resource properties.
 
 For example, this recommendation details page shows fifteen affected resources:
 

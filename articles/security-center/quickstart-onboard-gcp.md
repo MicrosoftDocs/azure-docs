@@ -43,7 +43,7 @@ Create a connector for every organization you want to monitor from Defender for 
 
 When connecting your GCP accounts to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
-- You can connect your GCP accounts to ASC in the *organization* level
+- You can connect your GCP accounts to Defender for Cloud in the *organization* level
 - You can connect multiple organizations to one Azure subscription
 - You can connect multiple organizations to multiple Azure subscriptions
 - When you connect an organization, all *projects* within that organization are added to Defender for Cloud
