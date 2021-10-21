@@ -21,7 +21,7 @@ The new link feature in Azure SQL Managed Instance connects your SQL Servers h
 After a disastrous event, you can continue running your workloads on SQL Managed Instance in Azure. You can also choose to migrate one or more applications from SQL Server to SQL Managed Instance at the same time, at your own pace, and with the best possible minimum downtime compared to other solutions in Azure today.
 
 > [!NOTE]
-> The link feature is released in limited public preview with support for only SQL Server 2019 Enterprise Edition CU13 (or above) at this time. [Sign-up now](https://aka.ms/mi-link-signup) to participate in the limited public preview. 
+> The link feature is released in limited public preview with support for currently only SQL Server 2019 Enterprise Edition CU13 (or above). [Sign-up now](https://aka.ms/mi-link-signup) to participate in the limited public preview. 
 
 ## Overview
 
@@ -49,7 +49,7 @@ Use the link feature to leverage Azure services using SQL Server data without mi
 
 ### Offloading workloads to Azure 
 
-You can also use the link feature to offload workloads to Azure. For example, an application that uses SQL Server for read / write workloads, while offloading read-only workloads to SQL Managed Instance in any of Azure's 60+ regions worldwide. Once the link is established, the primary database on SQL Server is read/write accessible, while replicated data to SQL Managed Instance in Azure is read-only accessible. This allows for various scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading read-only workloads to Azure. SQL Managed Instance, in parallel, can also host independent read/write databases. This allows for copying the replicated database to another read/write database on the same managed instance for further data processing.
+You can also use the link feature to offload workloads to Azure. For example, an application could use SQL Server for read / write workloads, while offloading read-only workloads to SQL Managed Instance in any of Azure's 60+ regions worldwide. Once the link is established, the primary database on SQL Server is read/write accessible, while replicated data to SQL Managed Instance in Azure is read-only accessible. This allows for various scenarios where replicated databases on SQL Managed Instance can be used for read scale-out and offloading read-only workloads to Azure. SQL Managed Instance, in parallel, can also host independent read/write databases. This allows for copying the replicated database to another read/write database on the same managed instance for further data processing.
 
 The link is database scoped (one link per one database), allowing for consolidation and deconsolidation of workloads in Azure. For example, you can replicate databases from multiple SQL Servers to a single SQL Managed Instance in Azure (consolidation), or replicate databases from a single SQL Server to multiple managed instances via a 1 to 1 relationship between a database and a managed instance -  to any of Azure's regions worldwide (deconsolidation). The latter provides you with an efficient way to quickly bring your workloads closer to your customers in any region worldwide, which you can use as read-only replicas.
 
@@ -60,11 +60,11 @@ The link feature also facilitates migrating from SQL Server to SQL Managed Insta
 - The most performant minimum downtime migration compared to all other solutions available today
 - True online migration to SQL Managed Instance in any service tier 
 
-Since there is minimum downtime, you can migrate to your managed instance while maintaining your primary workload online. While this was possible to achieve previously with other solutions when migrating to the general purpose tier, the link feature now also allows for true online migrations to the business critical tier as well. 
+Since the link feature enables minimum downtime migration, you can migrate to your managed instance while maintaining your primary workload online. While online migration was possible to achieve previously with other solutions when migrating to the general purpose service tier, the link feature now also allows for true online migrations to the business critical service tier as well. 
 
 ### Disaster recovery 
 
-In the event of a disaster on-premises, you can rely on SQL Managed Instance as your safe DR site for business continuity – either for read-only access to your on-premises data until the primary node is back online, or to a full read/write node in Azure in case you decide to failover to the cloud on-demand.
+In the event of a disaster of your primary workload, you can rely on SQL Managed Instance as your safe DR site for business continuity – either for read-only access to your on-premises data until the primary node is back online, or to a full read/write node in Azure in case you decide to failover to the cloud on-demand. However, once failed over to the cloud, the link feature does not support failing back to SQL Server. 
 
 ## How it works
 
@@ -74,15 +74,15 @@ The underlying technology behind the link feature for SQL Managed Instance is di
 
 Secure connectivity, such is VPN or Express Route is used between an on-premises network and Azure. If SQL Server is hosted on an Azure VM, the internal Azure backbone can be used between the VM and managed instance – such is, for example, global VNet peering. The trust between the two systems is established using certificate-based authentication, in which SQL Server and SQL Managed Instance exchange their public keys.
 
-There could exist up to 100 links from the same, or various SQL Server sources to a single SQL Managed Instance. This limit is governed by the number of databases that could be hosted on a managed instance at this time. Likewise, a single SQL Server can establish multiple parallel database replication links with several managed instances in different Azure regions. The feature requires CU13 or higher to be installed on SQL Server 2019.
+There could exist up to 100 links from the same, or various SQL Server sources to a single SQL Managed Instance. This limit is governed by the number of databases that could be hosted on a managed instance at this time. Likewise, a single SQL Server can establish multiple parallel database replication links with several managed instances in different Azure regions in a 1 to 1 relationship between a database and a managed instance . The feature requires CU13 or higher to be installed on SQL Server 2019.
 
 ## Sign-up for link
 
 To use the link feature, you will need:
 
-- SQL Server 2019 Enterprise Edition with [CU13 (or above)](https://support.microsoft.com/topic/kb5005679-cumulative-update-13-for-sql-server-2019-5c1be850-460a-4be4-a569-fe11f0adc535) installed on-premises or on an Azure VM.
-- If SQL Server is running on-premises, a VPN link, or Express Route is required to connect on-premises network with Azure.
-- SQL Managed Instance provisioned in Azure on any service tier 
+- SQL Server 2019 Enterprise Edition with [CU13 (or above)](https://support.microsoft.com/topic/kb5005679-cumulative-update-13-for-sql-server-2019-5c1be850-460a-4be4-a569-fe11f0adc535) installed on-premises, or on an Azure VM.
+- Network connectivity between your SQL Server and managed instance is required. If your SQL Server is running on-premises, use a VPN link or Express route. If your SQL Server is running on Azure VM, establish a network connection by using something like VPN peering. 
+- Azure SQL Managed Instance provisioned on any service tier.
 
 Use the following link to sign-up for the limited preview of the link feature. Customers are on-boarded on a rolling basis as there is a limited number of seats currently available. You will be on-boarded at the first available opportunity. Managed instances deployed starting on 11/02/2021 are given priority, and though managed instances deployed before this date are supported, the onboarding may take longer. 
 
