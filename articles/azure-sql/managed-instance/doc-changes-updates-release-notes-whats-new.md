@@ -58,13 +58,21 @@ The following table lists the features of Azure SQL Managed Instance that have t
 
 Learn about significant changes to the Azure SQL Managed Instance documentation.
 
-### June 2021
+
+### November 2021
 
 | Changes | Details |
 | --- | --- |
 | **Move instance to different subnet** | It's now possible to move your SQL Managed Instance to a different subnet. See [Move instance to different subnet](vnet-subnet-move-instance.md) to learn more. |
 | | | 
 
+
+### October 2021
+
+| Changes | Details |
+| --- | --- |
+|**Split what's new** | The previously-combined **What's new** article has been split by product - [What's new in SQL Database](../database/doc-changes-updates-release-notes-whats-new.md) and [What's new in SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md), making it easier to identify what features are currently in preview, generally available, and significant documentation changes. Additionally, the [Known Issues in SQL Managed Instance](doc-changes-updates-known-issues.md) content has moved to its own page.  | 
+| | | 
 
 ### June 2021
 
