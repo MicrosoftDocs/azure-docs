@@ -39,7 +39,9 @@ After you have reviewed your [model's evaluation](view-model-evaluation.md), you
 
 Using Language Studio, you can review how your model performs against how you expected it to perform. You can review predicted and tagged classes for each model you have trained.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
 2. Select **Improve model** from the left side menu.
 
@@ -67,8 +69,9 @@ In [model evaluation](view-model-evaluation.md), entities that are over represen
 
 To examine data distribution in your dataset:
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
-
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Extract information**.
+    2. Select **Custom named entity extraction**. 
 2. Select **Improve model** from the left side menu.
 
 3. Select **Examine data distribution**.

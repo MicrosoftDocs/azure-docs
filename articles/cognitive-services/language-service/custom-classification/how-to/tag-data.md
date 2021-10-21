@@ -38,9 +38,11 @@ As you tag your data, keep in mind:
 
 Use the following steps to tag your data
 
-1. Go to your projects page in [Language Studio](https://language.azure.com/customText/projects/classifciation) and select your project.
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
-2. From the left side menu, select **Tag data**
+1. From the left side menu, select **Tag data**
 
 3. You can find a list of all .txt files available in your projects to the left. You can select the file you want to start tagging or you can use the Back and Next button from the bottom of the page to navigate.  
     

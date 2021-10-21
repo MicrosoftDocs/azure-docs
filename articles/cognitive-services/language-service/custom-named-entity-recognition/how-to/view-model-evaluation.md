@@ -28,7 +28,9 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## View the model's evaluation details
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Extract information**.
+    2. Select **Custom named entity extraction**.
 
 2. Select **View model details** from the menu on the left side of the screen.
 
