@@ -36,7 +36,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-    > [!TIP] 
+    > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
@@ -85,17 +85,18 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ```csharp
 using System;
-using System.Threading.Tasks;
+using Azure;
+using Azure.AI.FormRecognizer;
 using Azure.AI.FormRecognizer.Models;
+using System.Threading.Tasks;
 ```
 
 1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
 
 ```csharp
-string endpoint = "<your-endpoint>";
-string apiKey = "<your-apiKey>";
-
-FormRecognizerClient client = new FormRecognizerClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+private static readonly string endpoint = "your-form-recognizer-endpoint";
+private static readonly string apiKey = "your-api-key";
+private static readonly AzureKeyCredential credential = new AzureKeyCredential(apiKey);
 ```
 
 1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
@@ -103,9 +104,9 @@ FormRecognizerClient client = new FormRecognizerClient(new Uri(endpoint), new Az
     :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
 1. Select a code sample to copy and paste into your application's Main method:
-    
+
     * [**Layout**](#try-it-layout-model)
-    
+
     * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
@@ -119,17 +120,36 @@ Extract text, selection marks, text styles, and table structures, along with the
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * We've added the file URI value to the `formUri` variable at the top of the Main method.
-> * To extract the layout from a given file at a URI, use the `StartRecognizeContentFromUriAsync` method. 
+> * We've added the file URI value to the `formUri` variable.
+> * To extract the layout from a given file at a URI, use the `StartRecognizeContentFromUriAsync` method.
 
-### Add the following code to your layout application **Main** method
+### Add the following code to your layout application **Main** method:
 
 ```csharp
 
-Uri formUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
+FormRecognizerClient recognizerClient = AuthenticateClient();
 
-Response<FormPageCollection> response = await client.StartRecognizeContentFromUriAsync(formUri).WaitForCompletionAsync();
-            FormPageCollection formPages = response.Value;
+Task recognizeContent = RecognizeContent(recognizerClient);
+Task.WaitAll(recognizeContent);
+```
+
+### Add the following code below the **Main** method:
+
+```csharp
+
+private static FormRecognizerClient AuthenticateClient()
+            {
+                var credential = new AzureKeyCredential(apiKey);
+                var client = new FormRecognizerClient(new Uri(endpoint), credential);
+                return client;
+            }
+
+            private static async Task RecognizeContent(FormRecognizerClient recognizerClient)
+        {
+            string formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+            FormPageCollection formPages = await recognizerClient
+        .StartRecognizeContentFromUri(new Uri(formUrl))
+        .WaitForCompletionAsync();
 
             foreach (FormPage page in formPages)
             {
@@ -138,44 +158,17 @@ Response<FormPageCollection> response = await client.StartRecognizeContentFromUr
                 for (int i = 0; i < page.Lines.Count; i++)
                 {
                     FormLine line = page.Lines[i];
-                    Console.WriteLine($"  Line {i} has {line.Words.Count} {(line.Words.Count == 1 ? "word" : "words")}, and text: '{line.Text}'.");
-
-                    if (line.Appearance != null)
-                    {
-                        // Check the style and style confidence to see if text is handwritten.
-                        // Note that value '0.8' is used as an example.
-                        if (line.Appearance.Style.Name == TextStyleName.Handwriting && line.Appearance.Style.Confidence > 0.8)
-                        {
-                            Console.WriteLine("The text is handwritten");
-                        }
-                    }
-
-                    Console.WriteLine("    Its bounding box is:");
-                    Console.WriteLine($"    Upper left => X: {line.BoundingBox[0].X}, Y= {line.BoundingBox[0].Y}");
-                    Console.WriteLine($"    Upper right => X: {line.BoundingBox[1].X}, Y= {line.BoundingBox[1].Y}");
-                    Console.WriteLine($"    Lower right => X: {line.BoundingBox[2].X}, Y= {line.BoundingBox[2].Y}");
-                    Console.WriteLine($"    Lower left => X: {line.BoundingBox[3].X}, Y= {line.BoundingBox[3].Y}");
+                    Console.WriteLine($"    Line {i} has {line.Words.Count} word{(line.Words.Count > 1 ? "s" : "")}, and text: '{line.Text}'.");
                 }
 
                 for (int i = 0; i < page.Tables.Count; i++)
                 {
                     FormTable table = page.Tables[i];
-                    Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+                    Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
                     foreach (FormTableCell cell in table.Cells)
                     {
                         Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains text: '{cell.Text}'.");
                     }
-                }
-
-                for (int i = 0; i < page.SelectionMarks.Count; i++)
-                {
-                    FormSelectionMark selectionMark = page.SelectionMarks[i];
-                    Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
-                    Console.WriteLine("    Its bounding box is:");
-                    Console.WriteLine($"      Upper left => X: {selectionMark.BoundingBox[0].X}, Y= {selectionMark.BoundingBox[0].Y}");
-                    Console.WriteLine($"      Upper right => X: {selectionMark.BoundingBox[1].X}, Y= {selectionMark.BoundingBox[1].Y}");
-                    Console.WriteLine($"      Lower right => X: {selectionMark.BoundingBox[2].X}, Y= {selectionMark.BoundingBox[2].Y}");
-                    Console.WriteLine($"      Lower left => X: {selectionMark.BoundingBox[3].X}, Y= {selectionMark.BoundingBox[3].Y}");
                 }
             }
         }
@@ -192,7 +185,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 >
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URI value to the `invoiceUri` variable at the top of the Main method.
-> * To analyze a given file at a URI, use the `StartRecognizeInvoicesFromUriAsync` method. 
+> * To analyze a given file at a URI, use the `StartRecognizeInvoicesFromUriAsync` method.
 > * For simplicity, all the fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
 ### Choose a prebuilt model
@@ -207,126 +200,104 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 ### Add the following code to your prebuilt invoice application **Main** method
 
 ```csharp
+FormRecognizerClient recognizerClient = AuthenticateClient();
 
-Uri invoiceUri = new Uri("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
+            Task analyzeinvoice = AnalyzeInvoice(recognizerClient, invoiceUrl);
+            Task.WaitAll(analyzeinvoice);
+```
 
-var options = new RecognizeInvoicesOptions() { Locale = "en-US" };
+### Add the following code below the **Main** method:
 
-    RecognizeInvoicesOperation operation = await client.StartRecognizeInvoicesFromUriAsync(invoiceUri, options);
-    Response<RecognizedFormCollection> operationResponse = await operation.WaitForCompletionAsync();
-    RecognizedFormCollection invoices = operationResponse.Value;
+```csharp
+   private static FormRecognizerClient AuthenticateClient() {
+     var credential = new AzureKeyCredential(apiKey);
+     var client = new FormRecognizerClient(new Uri(endpoint), credential);
+     return client;
+   }
 
-    RecognizedForm invoice = invoices.Single();
+   static string invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-    if (invoice.Fields.TryGetValue("InvoiceId", out FormField invoiceIdField))
-    {
-        if (invoiceIdField.Value.ValueType == FieldValueType.String)
-        {
-            string invoiceId = invoiceIdField.Value.AsString();
-            Console.WriteLine($"Invoice Id: '{invoiceId}', with confidence {invoiceIdField.Confidence}");
-        }
-    }
+   private static async Task AnalyzeInvoice(FormRecognizerClient recognizerClient, string invoiceUrl) {
+     var options = new RecognizeInvoicesOptions() {
+       Locale = "en-US"
+     };
+     RecognizedFormCollection invoices = await recognizerClient.StartRecognizeInvoicesFromUriAsync(new Uri(invoiceUrl), options).WaitForCompletionAsync();
 
-    if (invoice.Fields.TryGetValue("VendorName", out FormField vendorNameField))
-    {
-        if (vendorNameField.Value.ValueType == FieldValueType.String)
-        {
-            string vendorName = vendorNameField.Value.AsString();
-            Console.WriteLine($"Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
-        }
-    }
+     RecognizedForm invoice = invoices[0];
 
-    if (invoice.Fields.TryGetValue("CustomerName", out FormField customerNameField))
-    {
-        if (customerNameField.Value.ValueType == FieldValueType.String)
-        {
-            string customerName = customerNameField.Value.AsString();
-            Console.WriteLine($"Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
-        }
-    }
+     FormField invoiceIdField;
+     if (invoice.Fields.TryGetValue("InvoiceId", out invoiceIdField)) {
+       if (invoiceIdField.Value.ValueType == FieldValueType.String) {
+         string invoiceId = invoiceIdField.Value.AsString();
+         Console.WriteLine($ "    Invoice Id: '{invoiceId}', with confidence {invoiceIdField.Confidence}");
+       }
+     }
 
-    if (invoice.Fields.TryGetValue("Items", out FormField itemsField))
-    {
-        if (itemsField.Value.ValueType == FieldValueType.List)
-        {
-            foreach (FormField itemField in itemsField.Value.AsList())
-            {
-                Console.WriteLine("Item:");
+     FormField invoiceDateField;
+     if (invoice.Fields.TryGetValue("InvoiceDate", out invoiceDateField)) {
+       if (invoiceDateField.Value.ValueType == FieldValueType.Date) {
+         DateTime invoiceDate = invoiceDateField.Value.AsDate();
+         Console.WriteLine($ "    Invoice Date: '{invoiceDate}', with confidence {invoiceDateField.Confidence}");
+       }
+     }
 
-                if (itemField.Value.ValueType == FieldValueType.Dictionary)
-                {
-                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
+     FormField dueDateField;
+     if (invoice.Fields.TryGetValue("DueDate", out dueDateField)) {
+       if (dueDateField.Value.ValueType == FieldValueType.Date) {
+         DateTime dueDate = dueDateField.Value.AsDate();
+         Console.WriteLine($ "    Due Date: '{dueDate}', with confidence {dueDateField.Confidence}");
+       }
+     }
 
-                    if (itemFields.TryGetValue("Description", out FormField itemDescriptionField))
-                    {
-                        if (itemDescriptionField.Value.ValueType == FieldValueType.String)
-                        {
-                            string itemDescription = itemDescriptionField.Value.AsString();
+     FormField vendorNameField;
+     if (invoice.Fields.TryGetValue("VendorName", out vendorNameField)) {
+       if (vendorNameField.Value.ValueType == FieldValueType.String) {
+         string vendorName = vendorNameField.Value.AsString();
+         Console.WriteLine($ "    Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
+       }
+     }
 
-                            Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
-                        }
-                    }
+     FormField vendorAddressField;
+     if (invoice.Fields.TryGetValue("VendorAddress", out vendorAddressField)) {
+       if (vendorAddressField.Value.ValueType == FieldValueType.String) {
+         string vendorAddress = vendorAddressField.Value.AsString();
+         Console.WriteLine($ "    Vendor Address: '{vendorAddress}', with confidence {vendorAddressField.Confidence}");
+       }
+     }
 
-                    if (itemFields.TryGetValue("UnitPrice", out FormField itemUnitPriceField))
-                    {
-                        if (itemUnitPriceField.Value.ValueType == FieldValueType.Float)
-                        {
-                            float itemUnitPrice = itemUnitPriceField.Value.AsFloat();
+     FormField customerNameField;
+     if (invoice.Fields.TryGetValue("CustomerName", out customerNameField)) {
+       if (customerNameField.Value.ValueType == FieldValueType.String) {
+         string customerName = customerNameField.Value.AsString();
+         Console.WriteLine($ "    Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
+       }
+     }
 
-                            Console.WriteLine($"  UnitPrice: '{itemUnitPrice}', with confidence {itemUnitPriceField.Confidence}");
-                        }
-                    }
+     FormField customerAddressField;
+     if (invoice.Fields.TryGetValue("CustomerAddress", out customerAddressField)) {
+       if (customerAddressField.Value.ValueType == FieldValueType.String) {
+         string customerAddress = customerAddressField.Value.AsString();
+         Console.WriteLine($ "    Customer Address: '{customerAddress}', with confidence {customerAddressField.Confidence}");
+       }
+     }
 
-                    if (itemFields.TryGetValue("Quantity", out FormField itemQuantityField))
-                    {
-                        if (itemQuantityField.Value.ValueType == FieldValueType.Float)
-                        {
-                            float quantityAmount = itemQuantityField.Value.AsFloat();
+     FormField customerAddressRecipientField;
+     if (invoice.Fields.TryGetValue("CustomerAddressRecipient", out customerAddressRecipientField)) {
+       if (customerAddressRecipientField.Value.ValueType == FieldValueType.String) {
+         string customerAddressRecipient = customerAddressRecipientField.Value.AsString();
+         Console.WriteLine($ "    Customer address recipient: '{customerAddressRecipient}', with confidence {customerAddressRecipientField.Confidence}");
+       }
+     }
 
-                            Console.WriteLine($"  Quantity: '{quantityAmount}', with confidence {itemQuantityField.Confidence}");
-                        }
-                    }
-
-                    if (itemFields.TryGetValue("Amount", out FormField itemAmountField))
-                    {
-                        if (itemAmountField.Value.ValueType == FieldValueType.Float)
-                        {
-                            float itemAmount = itemAmountField.Value.AsFloat();
-
-                            Console.WriteLine($"  Amount: '{itemAmount}', with confidence {itemAmountField.Confidence}");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    if (invoice.Fields.TryGetValue("SubTotal", out FormField subTotalField))
-    {
-        if (subTotalField.Value.ValueType == FieldValueType.Float)
-        {
-            float subTotal = subTotalField.Value.AsFloat();
-            Console.WriteLine($"Sub Total: '{subTotal}', with confidence {subTotalField.Confidence}");
-        }
-    }
-
-    if (invoice.Fields.TryGetValue("TotalTax", out FormField totalTaxField))
-    {
-        if (totalTaxField.Value.ValueType == FieldValueType.Float)
-        {
-            float totalTax = totalTaxField.Value.AsFloat();
-            Console.WriteLine($"Total Tax: '{totalTax}', with confidence {totalTaxField.Confidence}");
-        }
-    }
-
-    if (invoice.Fields.TryGetValue("InvoiceTotal", out FormField invoiceTotalField))
-    {
-        if (invoiceTotalField.Value.ValueType == FieldValueType.Float)
-        {
-            float invoiceTotal = invoiceTotalField.Value.AsFloat();
-            Console.WriteLine($"Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
-        }
-    }
+     FormField invoiceTotalField;
+     if (invoice.Fields.TryGetValue("InvoiceTotal", out invoiceTotalField)) {
+       if (invoiceTotalField.Value.ValueType == FieldValueType.Float) {
+         float invoiceTotal = invoiceTotalField.Value.AsFloat();
+         Console.WriteLine($ "    Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
+       }
+     }
+   }
+ }
 }
 ```
 
