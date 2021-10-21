@@ -51,6 +51,8 @@ Ensure that the data copy from the device is complete and **Prepare to ship** ru
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
+ **If you're shipping from Germany or Switzerland,** you can also use self-managed shipping.<!--Restor internal link after Self-Managed tab is converted to a subsection.-->
+
 ## [Australia](#tab/in-australia)
 
 [!INCLUDE [data-box-shipping-in-australia](../../includes/data-box-shipping-in-australia.md)]
