@@ -36,9 +36,9 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
 - [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
 
-   - If you select ultra disks, use an Ultra Performance ExpressRoute virtual network gateway for the diskpool network connection to your Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+   - If you select ultra disks, use an Ultra Performance ExpressRoute virtual network gateway for the disk pool network connection to your Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
-   - If you select premium SSDs, use a Standard (1 Gbps) or High Performance (2 Gbps) ExpressRoute virtual network gateway for the diskpool network connection to your Azure VMware Solution private cloud.  
+   - If you select premium SSDs, use a Standard (1 Gbps) or High Performance (2 Gbps) ExpressRoute virtual network gateway for the disk pool network connection to your Azure VMware Solution private cloud.  
 
 - You must use Standard\_DS##\_v3 to host iSCSI.  If you encounter quota issues, request an increase in [vCPU quota limits](../azure-portal/supportability/per-vm-quota-requests.md) per Azure VM series for Dsv3 series.
 
@@ -172,7 +172,7 @@ Now that your subscription has been properly registered, you can connect your di
 1. Select **Storage (preview)** under **Manage**.
 1. Select **Connect a disk pool**.
 1. Select the subscription you'd like to use.
-1. Select your disk pool, as well as the client cluster you'd like to connect it to.
+1. Select your disk pool, and the client cluster you'd like to connect it to.
 1. Enable your LUNs (if any), provide a datastore name (by default, the LUN is used), and select **Connect**.
 
 :::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool-temp.png" alt-text="Screenshot of the connect a disk pool experience." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/connect-a-disk-pool-temp.png":::
