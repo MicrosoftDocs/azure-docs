@@ -32,7 +32,7 @@ You learn how to:
 You must satisfy the following requirements to complete this tutorial:
 
 - **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
-  - Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](../cli/azure/install-azure-cli.md)
+  - Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli)
 - **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell. 
   
 ## Setup
