@@ -47,7 +47,7 @@ To update a container app, use `az containerapp update`.
 az containerapp update \
   --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
-  --secrets "storageconnectionstring=$CONNECTIONSTRING"
+  --image mcr.microsoft.com/azuredocs/containerapps-helloworld
 ```
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
@@ -124,8 +124,6 @@ Applied by assigning percentage values, you can decide how to balance traffic am
 
 The following example shows how to split traffic between three revisions.
 
-# [ARM Template](#tab/arm-template)
-
 ```json
 {
   ...
@@ -159,19 +157,6 @@ Each revision gets traffic based on the following rules:
 The sum total of all revision weights must equal 100.
 
 In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [list](#list) command.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az containerapp update \
-  --name <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME> \
-  --traffic-weight <REVISION1_NAME>=50,<REVISION2_NAME>=30,latest=20
-```
-
-In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [list](#list) command.
-
----
 
 ## Next steps
 

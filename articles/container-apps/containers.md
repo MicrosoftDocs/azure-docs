@@ -112,8 +112,6 @@ With this set up, the saved credentials can be used when you reference a contain
 
 The following example shows how to deploy an app from the Azure Container Registry.
 
-# [ARM template](#tab/arm-template)
-
 ```json
 {
   ...
@@ -134,29 +132,6 @@ The following example shows how to deploy an app from the Azure Container Regist
   }
 }
 ```
-
-# [Azure CLI](#tab/azure-cli)
-
-```sh
-# To create a container app
-az containerapp create --name myapp \
-  --resource-group $RESOURCE_GROUP_NAME \
-  --environment $CONTAINERAPPS_ENVIRONMENT_NAME \
-  --image myacr.azurecr.io/myrepo/api-service:v1 \
-  --registry-login-server myacr.azurecr.io \
-  --registry-username someuser \
-  --registry-password myacrpassword
-
-# To update an existing container app
-az containerapp update --name myapp \
-  --resource-group $RESOURCE_GROUP_NAME \
-  --image myacr.azurecr.io/myrepo/api-service:v1 \
-  --registry-login-server myacr.azurecr.io \
-  --registry-username someuser \
-  --registry-password myacrpassword
-```
-
----
 
 ## Limitations
 
