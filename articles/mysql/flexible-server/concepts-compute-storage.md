@@ -136,7 +136,7 @@ The maximum IOPS is dependent on the maximum available IOPS per compute size. Re
 > **Minimum IOPS** is 360 across all compute sizes<br>
 > **Maximum IOPS** is determined by the selected compute size. 
 
-You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.
+You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute then you need to scale your server's compute.
 
 ## Backup
 
