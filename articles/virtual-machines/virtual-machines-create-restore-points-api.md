@@ -14,32 +14,17 @@ ms.custom: template-how-to
 How-to article for for virtual machine restore point collection (API)
 -->
 
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
-
 # Create VM restore points using REST APIs (Preview)
 
-<!--
-    Differentiate the API method of backup
--->
-
-Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbackups across multiple regions. Azure VM restore point APIs are a lightweight option you can use to implement granular backup and retention policies than BCDR solutions.
-
-Azure compute backup and recovery APIs provide programmatic access to virtual machine (VM) backup and restore functions. Independent software vendors (ISVs) can use these APIs to develop BCDR solutions. The APIs are also useful for granular backup and restore operations, and for troubleshooting, debugging, and creating golden images of individual VMs.
+Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbackups across multiple regions. Azure VM restore point APIs are a lightweight option you can use to implement granular backup and retention policies.
 
 ## About VM restore points
 
-<!--
-    VM restore points in general, and the API method specifically
--->
+You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. An individual VM restore point stores the VM configuration. A VM restore point may also disk restore points. A disk restore point is a snapshot of an attached managed disk.
 
-You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. Individual VM restore point stores the VM configuration and a snapshot for any attached managed disks.
+VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM. 
 
-For more information on restore points, see [Backup and restore options for virtual machines in Azure](backup-recovery.md).
-
-The backup and recovery APIs allow you to programmatically create collections of VM restore points. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM. A VM restore point can then be used to create VMs, and the disk restore point can be used to create individual disks.
+The following image illustrates the relationship between restore point collections, VM restore points, and disk restore points.
 
 :::image type="content" source="media/virtual-machines-create-restore-points-api/restore-point-hierarchy.png" alt-text="A diagram illustrating the relationship between the restore point collection parent and the restore point child objects":::
 
@@ -52,112 +37,6 @@ Keep the following restrictions in mind when you work with VM restore points:
 - The restore points APIs work with managed disks only.
 - Ultra disks, Ephemeral OS Disks, and Shared Disks aren't supported.
 - The restore points APIs require API version 2021-0301 or better.
-
-<!--
-
-## About the preview
-
-To use the restore points APIs, you must register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features with your subscription. Complete the following steps to register these features.
-
-> [!IMPORTANT]
-> The restore points APIs are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-### Step 1: Register features
-
-To use the restore points APIs, you must register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features with your subscription.
-
-#### [PowerShell](#tab/powershell)
-
-1. Open a Windows PowerShell command window.
-
-1. Sign in to your Azure subscription with the `Connect-AzAccount` cmdlet and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-1. If your identity is associated with more than one subscription, then set your active subscription.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-1. Register the `RestorePointExcludeDisks` and `IncrementalRestorePoints` features by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName RestorePointExcludeDisks
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName IncrementalRestorePoints
-   ```
-
-#### [Azure CLI](#tab/azure-cli)
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-1. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-1. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Compute --name RestorePointExcludeDisks
-   az feature register --namespace Microsoft.Compute --name IncrementalRestorePoints
-   ```
-
----
-
-### Step 2: Verify feature registration
-
-#### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName RestorePointExcludeDisks
-Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName IncrementalRestorePoints
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name RestorePointExcludeDisks
-az feature show --namespace Microsoft.Compute --name IncrementalRestorePoints
-```
-
----
-
-### Step 3: Register the Azure Compute resource provider
-
-After your registration is approved, you must re-register the Azure Storage resource provider.
-
-#### [PowerShell](#tab/powershell)
-
-To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Compute'
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
-
-```azurecli
-az provider register --namespace 'Microsoft.Compute'
-```
-
----
-
--->
 
 ## Create VM restore points
 
