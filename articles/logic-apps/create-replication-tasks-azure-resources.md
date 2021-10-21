@@ -81,6 +81,10 @@ For information about replication and federation in Azure Service Bus, review th
 
 ## Metadata and property mappings
 
+For Event Hubs, the following items obtained from the source Event Hubs namespace are replaced by new service-assigned values in the target Event Hub namespace: service-assigned metadata of an event, original enqueue time, sequence number, and offset. However, for [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) and the replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string), `repl-sequence`, and `repl-offset`. These properties have the `string` type and contain the stringified value of the respective original properties. If the event is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Event replication task patterns](../event-hubs/event-hubs-federation-patterns.md#service-assigned-metadata).
+
+For Service Bus, the following items obtained from the source Service Bus queue or topic are replaced by new service-assigned values in the target Service Bus queue or topic: service-assigned metadata of a message, original enqueue time, and sequence number. However, for the default replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string) and `repl-sequence`. These properties have the `string` type and contain the stringified value of the respective original properties. If the message is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Message replication task patterns](../service-bus-messaging/service-bus-federation-patterns.md#service-assigned-metadata).
+
 When a task replicates from Service Bus to Event Hubs, the task maps only the `User Properties` property to the `Properties` property. However, when the task replicates from Event Hubs to Service Bus, the task maps the following properties:
 
 | From Event Hubs | To Service Bus |
@@ -96,15 +100,11 @@ When a task replicates from Service Bus to Event Hubs, the task maps only the `U
 | To | To |
 |||
 
-For Event Hubs, the following items obtained from the source Event Hubs namespace are replaced by new service-assigned values in the target Event Hub namespace: service-assigned metadata of an event, original enqueue time, sequence number, and offset. However, for [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) and the replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string), `repl-sequence`, and `repl-offset`. These properties have the `string` type and contain the stringified value of the respective original properties. If the event is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Event replication task patterns](../event-hubs/event-hubs-federation-patterns.md#service-assigned-metadata).
-
-For Service Bus, the following items obtained from the source Service Bus queue or topic are replaced by new service-assigned values in the target Service Bus queue or topic: service-assigned metadata of a message, original enqueue time, and sequence number. However, for the default replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string) and `repl-sequence`. These properties have the `string` type and contain the stringified value of the respective original properties. If the message is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons. For more information, review [Service-assigned metadata - Message replication task patterns](../service-bus-messaging/service-bus-federation-patterns.md#service-assigned-metadata).
-
 <a name="order-preservation"></a>
 
 ## Order preservation
 
-For Event Hubs, replication between the same number of partitions creates 1:1 clones with no changes in the evcents, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates.For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
+For Event Hubs, replication between the same number of partitions creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
@@ -332,7 +332,7 @@ To learn how you can build your own automated workflows so that you can integrat
 
 ## Monitor replication tasks
 
-To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
+To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
 
 <a name="edit-task"></a>
 
@@ -436,12 +436,12 @@ To make sure that the storage account doesn't contain any legacy information fro
 
    1. On the storage account navigation menu, under **Data storage**, select **Containers**.
 
-   1. On the **Containers** pane that opens, for a source that's an Event Hubs entity, select **azure-webjobs-eventhub**.
+   1. On the **Containers** pane that opens, for the Event Hubs source, select **azure-webjobs-eventhub**.
 
       > [!NOTE]
-      > If no **azure-webjobs-eventhub** entry exists, make sure that the task runs at least one time.
+      > If the **azure-webjobs-eventhub** entry doesn't exist, make sure that the task runs at least one time.
 
-   1. On the **azure-webjobs-eventhub** pane, select the namespace folder, which has a name with the following format: `<event-hub-name>.servicebus.windows.net`.
+   1. On the **azure-webjobs-eventhub** pane, select the namespace folder, which has a name with the following format: `<source-event-hub-name>.servicebus.windows.net`.
 
    1. In the namespace folder, delete the source entity folder named `src` that holds the checkpoint and offset information for the former source.
 
@@ -462,13 +462,13 @@ This section describes possible ways that replication can fail or stop working:
 
 - Message size limits
 
-  Make sure to send messages smaller than 1 MB, including any added [replication properties](#replication-properties). Otherwise, if the message size is larger than the size of events that can be sent to an Event Hubs entity after the task adds replication properties, the replication process fails.
+  Make sure to send messages smaller than 1 MB, including any added [replication properties](#replication-properties). Otherwise, if the message size is larger than the size of events that can be sent to an Event Hubs entity after the task adds [replication properties](#replication-properties), the replication process fails.
 
   For example, suppose the event size is 1 MB. After the task adds replication properties, the message size is larger than 1 MB. The outbound call that attempts to send the message will fail.
 
 - Partition keys
 
-  If any replication keys exist in events, replication between Event Hubs instances fails if those instances have the same number of partitions.
+  If any partition keys exist in the events, replication between Event Hubs instances fails if those instances have the same number of partitions.
 
 ## Next steps
 
