@@ -50,16 +50,32 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ## Give experiment permission to your Virtual Machine
 1. Navigate to your Virtual Machine and click on **Access control (IAM).**
+ ![Add role assignment](images/quickstart-acess-control.PNG)
 2. Click **Add** then click **Add role assignment**.
 3. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
-4. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. If there are multiple experiments in the same tenant with the same name, your experiment name will be truncated with random characters added.
-5. Click **Review + assign** then **Review + assign.**
+ ![Add role assignment](images/quickstart-virtual-machine-contributor.PNG)
+4. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
+ ![Add role assignment](images/quickstart-select-experiment-role-assignment.PNG)
+6. Click **Review + assign** then **Review + assign.**
 
 
-## Run your experiment
-1. You are now ready to run the  experiment. 
-2. In the Experiments view, click on your experiment, and click **Start**, then click **OK**.
-3. When the Status changes to Running, click Details for the latest run under History to see details for the running experiment
+
+## Run the chaos experiment
+
+1. Open the Azure portal:
+    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
+1. Check the box next to the experiments name and click **Start Experiment**.
+    ![Start experiment](images/quickstart-experiment-start.PNG)
+
+1. Click **Yes** to confirm you want to start the chaos experiment.
+
+    ![Confirm you want to start experiment](images/start-experiment-confirmation.png)
+1. (Optional) Click on the experiment name to see a detailed view of the execution status of the experiment.
+
+
+
+
 
 
 
