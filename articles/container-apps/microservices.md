@@ -13,7 +13,7 @@ ms.author: cshoe
 
 [Microservice architectures](https://azure.microsoft.com/solutions/microservice-applications/#overview) allow you to independently develop, upgrade, version, and scale core areas of functionality in an overall system. Azure Container Apps provides the foundation for deploying microservices featuring:
 
-- Independent [scaling](overview.md), [versioning](overview.md), and [upgrades](overview.md)
+- Independent [scaling](autoscale.md), [versioning](application-lifecycle-management.md), and [upgrades](application-lifecycle-management.md)
 - [Service discovery](connect-apps.md)
 - Native [Dapr integration](microservices-dapr.md)
 

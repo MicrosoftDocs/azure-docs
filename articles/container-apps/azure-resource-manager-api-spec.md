@@ -58,7 +58,7 @@ A resource's `properties.configuration` object has the following properties:
 | `ingress` | Object that defines public accessibility configuration of a container app. | object |
 | `registries` | Configuration object that references credentials for private container registries. Entries defined with `secretref` reference the secrets configuration object. | object |
 
-Changes made to the `configuration` section are [application-scope changes](overview.md), which doesn't trigger a new revision.
+Changes made to the `configuration` section are [application-scope changes](revisions.md#application-scope-changes), which doesn't trigger a new revision.
 
 ## properties.template
 
@@ -71,7 +71,7 @@ A resource's `properties.template` object has the following properties:
 | `scale` | Configuration object that defines scale rules for the container app. | object |
 | `dapr` | Configuration object that defines the Dapr settings for the container app. | object  |
 
-Changes made to the `template` section are [revision-scope changes](overview.md), which triggers a new revision.
+Changes made to the `template` section are [revision-scope changes](revisions.md#revision-scope-changes), which triggers a new revision.
 
 ## Example
 

@@ -48,7 +48,7 @@ landingContent:
           - text: Monitor an app
             url: monitor.md
           - text: Manage revisions
-            url: overview.md
+            url: revisions-manage.md
   - title: Build microservices
     linkLists:
       - linkListType: tutorial
