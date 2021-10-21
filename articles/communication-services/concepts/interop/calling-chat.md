@@ -13,7 +13,7 @@ ms.subservice: teams-interop
 # Teams Interoperability: Calling and chat
 
 > [!IMPORTANT]
-> Calling and chat interoperability is in private preview, and restricted to selected Azure Communication Services early adopters. To join early access program, <insert instructions/process>, and to request access to this preview, <insert instructions>, with details of your scenario to be considered for inclusion.
+> Calling and chat interoperability is in private preview, and restricted to selected Azure Communication Services early adopters.
 >
 > Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
