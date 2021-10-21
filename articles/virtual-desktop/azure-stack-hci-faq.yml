@@ -38,3 +38,7 @@ sections:
         answer: |
           No. Azure Virtual Desktop's on-premises capabilities only extend to session hosts running Azure Stack HCI infrastructure.
           
+      - question: |
+         Does using Azure Virtual Desktop for Azure Stack HCI mean all my data is stored on-premises?
+        answer: |
+          No, using Azure Virtual Desktop for Azure Stack HCI does not guarantee that all data is stored on-premises. Administrators can choose to store user data on-premises by locating session host virtual machines and associated services, such as file servers, on-premises. However, some customer data, diagnostic data, and service-generated data are still stored in a datacenter. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).

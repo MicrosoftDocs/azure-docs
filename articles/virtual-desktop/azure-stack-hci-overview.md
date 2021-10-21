@@ -13,9 +13,7 @@ manager: femila
 > Azure Virtual Desktop for Azure Stack HCI is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Virtual Desktop for Azure Stack HCI lets you deploy Azure Virtual
-Desktop session hosts to your on-premises Azure Stack HCI infrastructure.
-You can use Azure Virtual Desktop for Azure Stack HCI to update your on-premises infrastructure or expand your existing cloud-based deployment, all from the Azure portal.
+Azure Virtual Desktop for Azure Stack HCI lets you deploy Azure Virtual Desktop session hosts to your on-premises Azure Stack HCI infrastructure and to manage those session hosts from the Azure portal. If you already have an existing on-premises VDI deployment, Azure Virtual Desktop for Azure Stack HCI can improve your administrator and end-user experience. Or, if you're already using Azure Virtual Desktop in the cloud, you can extend your deployment onto your premises to better meet your performance or data locality needs.
 
 Azure Virtual Desktop for Azure Stack HCI is currently in public preview. Azure Stack HCI doesn't currently support certain important Azure Virtual Desktop features. Because of these limitations, we don't recommend using this feature for production workloads yet.
 
@@ -67,6 +65,7 @@ We're aware of the following issues affecting the public preview version of Azur
 
 - Session hosts on Azure Stack HCI don't support certain cloud-only Azure services.
 
+  - Due to the diversity of hardware supported by Azure Stack HCI and the diversity of on-premises networking capabilities, performance and user density may vary significantly from session hosts running in Azure cloud. Please note that Azure Virtual Desktop's [Virtual machine sizing guidelines](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context) are broad and should only be used for initial performance estimates.
 If there are any issues you encounter during the preview that aren't on this list, we encourage you to report them.
 
 ## Next steps
