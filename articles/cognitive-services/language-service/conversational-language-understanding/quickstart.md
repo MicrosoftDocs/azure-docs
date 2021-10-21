@@ -1,5 +1,5 @@
 ---
-title: Quickstart - create a Conversations project in Language Studio
+title: Quickstart - create a conversations language understanding project
 titleSuffix: Azure Cognitive Services
 description: Use this article to quickly get started with Conversational Language Understanding
 services: cognitive-services
@@ -10,9 +10,10 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
+zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Custom text classification (preview)
+# Quickstart: Conversational language understanding (preview)
 
 Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example for creating a model for classifying support tickets.
 
