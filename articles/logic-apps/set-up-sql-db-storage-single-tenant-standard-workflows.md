@@ -60,7 +60,21 @@ The following table describes some reasons why you might want to use SQL:
 
   1. Create a SQL server instance.
 
-     Supported types include [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads), [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database/), [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/), and others. If your SQL server isn't on Azure, you have to set up your server to let Azure services connect to your database. If you're using SQL Express for local development, connect to the default named instance `localhost\SQLExpress`.
+     Supported types include [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads), [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database/), [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/), and others.
+
+     - If your SQL server is hosted on Azure using one of the supported types, make sure to set up the following permissions:
+
+       1. In [Azure portal](https://portal.azure.com), go to your SQL server resource.
+
+       1. On the resource navigation menu, under **Security**, select **Firewalls and virtual networks**.
+
+       1. On the pane that opens, under **Allow Azure services and resources to access this server**, select **Yes**.
+
+       1. Save your changes.
+
+     - If your SQL server isn't hosted on Azure, make sure that any firewalls or network settings on your server allow Azure services and resources to access your server and database.
+
+     - If you're using SQL Express for local development, connect to the default named instance `localhost\SQLExpress`.
 
   1. Create or use an existing database.
 
@@ -68,7 +82,13 @@ The following table describes some reasons why you might want to use SQL:
 
   1. Now you can follow the [steps to set up your SQL environment](#set-up-sql-environment) in this article.
 
-- Optional: [Visual Studio Code](https://code.visualstudio.com/Download) installed on your local computer for local development. For more information, review [Create integration workflows with single-tenant Azure Logic Apps (Standard) in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+- Optional: [Visual Studio Code](https://code.visualstudio.com/Download) installed on your local computer for local development.
+
+  > [!NOTE]
+  > Make sure that you install the [latest version for the Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) 
+  > to ensure SQL support by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. 
+  > For more information about Visual Studio Code installation requirements, review 
+  > [Create integration workflows with single-tenant Azure Logic Apps (Standard) in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 <a name="set-up-sql-environment"></a>
 
@@ -215,7 +235,7 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 1. Select a location for your logic app. You can also start typing to filter the list.
 
-   - To deploy to Azure, select the Azure region where you want to deploy.
+   - To deploy to Azure, select the Azure region where you want to deploy. If you previously created an App Service Environment v3 (ASEv3) resource and want to deploy there, select your ASEv3.
 
    - To deploy to Azure Arc enabled Logic Apps, select your previously configured custom location.
 
@@ -223,22 +243,30 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
    ![Screenshot that shows the prompt to select a deployment location with available Azure regions and custom location for Azure Arc deployments.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-location.png)
 
-1. Specify a hosting plan for your new logic app. Either create a name for your plan, or select an existing plan. This example selects **Create new App Service Plan**.
+1. Select the hosting plan type for your new logic app.
 
-   ![Screenshot that shows the prompt to create a name for hosting plan with "Create new App Service plan" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-app-service-plan.png)
+   1. If you selected an ASEv3 as your app's location, select **App Service Plan**, and then select your ASEv3 resource. Otherwise, select **Workflow Standard**.
+
+      ![Screenshot that shows the prompt to select 'Workflow Standard' or 'App Service Plan'.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-hosting-plan.png)
+
+   1. Either create a name for your plan, or select an existing plan.
+
+      This example selects **Create new App Service Plan** as no existing plans are available.
+
+      ![Screenshot that shows the prompt to create a name for hosting plan with "Create new App Service plan" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-app-service-plan.png)
 
 1. Provide a name for your hosting plan, and then select a pricing tier for your selected plan.
 
    For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
-1. For optimal performance, select the same resource group as your project for the deployment.
+1. When you're prompted for an Azure resource group, for optimal performance, select the same Azure resource group as your project for your deployment.
 
    > [!NOTE]
    > Although you can create or use a different resource group, doing so might affect performance. 
    > If you create or choose a different resource group, but cancel after the confirmation prompt appears, 
    > your deployment is also canceled.
 
-1. When you're prompted to set up storage for your logic app, choose one of the following options:
+1. When you're prompted to select a storage account for your logic app, choose one of the following options:
 
    - If you previously selected a custom location, select the **SQL** option.
 
@@ -254,7 +282,7 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 1. When prompted, select **Create new storage account** or an existing storage account, if available.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-storage-account.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-storage.png)
 
 1. At SQL storage confirmation prompt, select **Yes**. At the connection string prompt, enter your SQL connection string.
 
