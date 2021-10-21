@@ -145,7 +145,7 @@ display(analyzeBusinessCards
 ## Analyze invoices
 Detects and extracts data from invoices using optical character recognition (OCR) and our invoice understanding deep learning models, enabling you to easily extract structured data from invoices such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more.
 ### Example input
-![example_input_for_invoice](./media/tutorial-form-recognizer/invoice2.png)
+![Photograph of an example invoice.](./media/tutorial-form-recognizer/invoice2.png)
 ```python
 imageDf4 = spark.createDataFrame([
   ("https://mmlspark.blob.core.windows.net/datasets/FormRecognizer/invoice2.png",)
