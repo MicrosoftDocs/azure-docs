@@ -30,7 +30,9 @@ This article provides an overview about replication tasks powered by Azure Logic
 
 A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Generally, replication tasks move the content unchanged, but replication tasks powered by Azure Logic Apps also add [replication properties](#replication-properties). If the source and target protocols differ, these tasks also perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
 
-When you use the available replication task templates, each replication task that you create has an underlying [stateless workflow](single-tenant-overview-compare.md#stateful-stateless) in a **Logic App (Standard)** resource, which can include multiple workflows for replication tasks. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. For more information about replication and federation, review the following documentation:
+When you use the available replication task templates, each replication task that you create has an underlying [stateless workflow](single-tenant-overview-compare.md#stateful-stateless) in a **Logic App (Standard)** resource, which can include multiple workflows for replication tasks. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. The single-tenant Azure Logic Apps runtime also uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
+
+For more information about replication and federation, review the following documentation:
 
 - [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
 - [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
@@ -46,7 +48,7 @@ Currently, replication task templates are available for [Azure Event Hubs](../ev
 | Resource type | Replication source and target |
 |---------------|-------------------------------|
 | Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
-| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Event Hub instance <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
+| Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Service Bus topic <br>- Service Bus queue to Event Hub instance <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
 |||
 
 ### Replication topology and workflow
@@ -79,8 +81,6 @@ For information about replication and federation in Azure Service Bus, review th
 
 ## Metadata and property mappings
 
-For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic. For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
-
 When a task replicates from Service Bus to Event Hubs, the task maps only the `User Properties` property to the `Properties` property. However, when the task replicates from Event Hubs to Service Bus, the task maps the following properties:
 
 | From Event Hubs | To Service Bus |
@@ -96,17 +96,17 @@ When a task replicates from Service Bus to Event Hubs, the task maps only the `U
 | To | To |
 |||
 
+For Event Hubs, the following items obtained from the source Event Hubs namespace are replaced by new service-assigned values in the target Event Hub namespace: service-assigned metadata of an event, original enqueue time, sequence number, and offset. However, for [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) and the replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string), `repl-sequence`, and `repl-offset`. These properties have the `string` type and contain the stringified value of the respective original properties. If the event is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons.
+
+For Service Bus, the following items obtained from the source Service Bus queue or topic are replaced by new service-assigned values in the target Service Bus queue or topic: service-assigned metadata of a message, original enqueue time, and sequence number. However, for the default replication tasks in the Azure-provided samples, the original values are preserved in the user properties: `repl-enqueue-time` (ISO8601 string) and `repl-sequence`. These properties have the `string` type and contain the stringified value of the respective original properties. If the message is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons.
+
+<a name="order-preservation"></a>
+
 ## Order preservation
 
-Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key. For simple source-to-target replication patterns, you can have duplicate events in Event Hubs and messages in Service Bus.
+For Event Hubs, replication between the same number of partitions creates 1:1 clones with no changes in the evcents, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates.For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
-- Event Hubs also sequentially [arranges messages with the same partition key in the same partition](../event-hubs/event-hubs-features.md#partitions). Event Hubs and Service Bus can also have duplicate events during replication.
-
-  If the partition count in the source and target Event Hubs entities is identical, all streams in the target map to the same partitions as in the source. However, if the partition count differs, which matters in some of the patterns described in [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md), the mapping differs, but streams are always kept together and in order. For example, if the source has 10 partitions and the destination has 12 partitions, the relative order of events is preserved based on their partition key. The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
-
-  For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
-
-- For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
+For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
@@ -121,7 +121,7 @@ To learn more about multi-site and multi-region federation for Azure services wh
 
 Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md#standard-pricing) and [Standard plan pricing tiers](logic-apps-pricing.md#standard-pricing-tiers).
 
-Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you change the Standard plan pricing tier accordingly so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
+Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you choose the appropriate Standard plan pricing tier so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
 
 ## Prerequisites
 
@@ -129,9 +129,17 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 - The source and target resources or entities, which should exist in different Azure regions so that you can test for the geo-disaster recovery failover scenario. These entities can vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
-- Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource that *contains only replication task workflows*, especially if you want to follow the [active-passive replication pattern](../service-bus-messaging/service-bus-federation-overview.md#active-passive-replication). Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+- A **Logic App (Standard)** resource that you can reuse when you create the replication task. That way, you can customize this resource specifically for your replication task, for example, by choosing the [hosting plan and pricing tier](#pricing) based on your replication scenario's needs, such as capacity, throughput, and scaling. Although you can create this resource when you create the replication task, you can't change the region, hosting plan, and pricing tier. The following list provides other reasons and best practices for a previously-created logic app resource:
 
-  Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new source, formerly the target entity, which is what the active-passive replication pattern tries to achieve.
+  - You can create this logic app resource in a region that differs from the source and target entities in your replication task.
+
+    Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a replication task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new source, formerly the target entity, which is what the [active-passive replication pattern](../service-bus-messaging/service-bus-federation-overview.md#active-passive-replication) tries to achieve.
+
+  - You can customize this logic app resource ahead of time by choosing the hosting plan and pricing tier, rather than using the default attributes. That way, your replication task can process more events or messages per second for faster replication. If you create this resource when you create the replication task, these default attributes are fixed.
+
+  - You can make sure that this logic app resource contains *only replication task workflows*, especially if you want to follow the active-passive replication pattern. When you use an existing logic app to create your replication task, this option adds the task (stateless workflow) to that logic app resource.
+
+  For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 - Optional: The connection string for the target namespace. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
 
@@ -404,18 +412,6 @@ You can edit the underlying workflow behind a replication task, which changes th
    ![Screenshot showing the workflow's run details with the trigger's inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-updated-run-details-trigger-inputs.png)
 
 1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
-
-<a name="edit-default-config"></a>
-
-## Increase replication speed and performance
-
-As previously stated, behind a replication task is a stateless workflow that's in a **Logic App (Standard)** resource. This resource is powered by the single-tenant Azure Logic Apps runtime, which uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
-
-If you want your replication task to process more events or messages per second for faster replication, you can edit the default configuration for the trigger and actions in the task workflow. To find this configuration, follow these steps:
-
-1. In the [Event Hubs `host.json` file settings](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) or [Service Bus `host.json` file settings](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).documentation, review the `prefetchCount` and `maxBatchSize` settings.
-
-1. To edit these settings in the `host.json` file settings for the **Logic App (Standard)** resource behind the replication task, follow the Azure portal steps in the [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md#azure-portal---hostjson) documentation.
 
 <a name="failover"></a>
 
