@@ -141,15 +141,15 @@ landingContent:
         - linkListType: quickstart
           links:
           - text: Using the .NET SDK
-            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-identity-documents
+            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp&tabs=preview%2cv2-1#analyze-identity-id-documents
           - text: Using the Python SDK
-            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-identity-documents
+            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-python&tabs=preview%2cv2-1#analyze-identity-id-documents
           - text: Using the Java SDK
-            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-identity-documents
+            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-java&tabs=preview%2cv2-1#analyze-identity-id-documents
           - text: Using the JavaScript SDK
-            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-identity-documents
+            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-javascript&tabs=preview%2cv2-1#analyze-identity-id-documents
           - text: Using the REST API (cURL)
-            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-identity-documents
+            url: ./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1#analyze-identity-id-documents
         - linkListType: get-started
           links:
             - text: Try Form Recognizer (analyze ID)
