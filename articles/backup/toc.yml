@@ -533,10 +533,12 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
-  - name: Access tier
+  - name: Archive tier
     items:
-    - name: Archive tier
+    - name: Overview
       href: archive-tier-support.md
+    - name: Use Archive tier
+      href: use-archive-tier-support.md
   - name: Troubleshoot
     items:
     - name: Azure VM
@@ -565,6 +567,8 @@
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
+    - name: Archive tier
+      href: troubleshoot-archive-tier.md
 - name: Reference
   items:
   - name: .NET
