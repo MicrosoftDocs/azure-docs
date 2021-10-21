@@ -50,6 +50,15 @@ Based on these assumptions, we focus mostly on the products and services present
 
 ## Recommendations
 
+### Summary
+
+- [1 - Use Federated Authentication in SAP Business Technology Platform and SAP SaaS applications through SAP Identity Authentication Service](#1---use-federated-authentication-in-sap-business-technology-platform-and-sap-saas-applications-through-sap-identity-authentication-service)
+- [2 - Use Azure AD for Authentication and IAS/BTP for Authorization](#2---use-azure-ad-for-authentication-and-iasbtp-for-authorization)
+- [3 - Use Azure AD groups for Authorization through Role Collections in IAS/BTP](#3---use-azure-ad-groups-for-authorization-through-role-collections-in-iasbtp)
+- [4 - Use a single BTP Subaccount only for applications that have similar Identity requirements](#4---use-a-single-btp-subaccount-only-for-applications-that-have-similar-identity-requirements)
+- [5 - Use the Production IAS tenant for all end user Authentication and Authorization](#5---use-the-production-ias-tenant-for-all-end-user-authentication-and-authorization)
+- [6 - Define a Process for Rollover of SAML Signing Certificates](#6---define-a-process-for-rollover-of-saml-signing-certificates)
+
 ### 1 - Use Federated Authentication in SAP Business Technology Platform and SAP SaaS applications through SAP Identity Authentication Service
 
 #### Context
