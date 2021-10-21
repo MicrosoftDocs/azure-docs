@@ -51,7 +51,7 @@ If your solution instead uses [SAML](/azure/active-directory/manage-apps/configu
 
 - **Alternate SAML approach**: Your customers can manually [create an OIDC application registration](../saas-apps/openidoauth-tutorial.md) in their Azure AD tenant and ensure that they set the right URIs, endpoints, and permissions specified later in this article.
 
-You'll want to use the [client_credentials grant type](../develop/v2-oauth2-client-creds-grant-flow.md#get-a-token/). It will require that your solution allows each customer to enter a client ID and secret into your user interface, and that you store this information. Get a JWT from Azure AD, and then use it to interact with Microsoft Graph.
+You'll want to use the [client_credentials grant type](../develop/v2-oauth2-client-creds-grant-flow.md#get-a-token). It will require that your solution allows each customer to enter a client ID and secret into your user interface, and that you store this information. Get a JWT from Azure AD, and then use it to interact with Microsoft Graph.
 
 If you choose this route, you should have ready-made documentation for your customer about how to create this application registration within their Azure AD tenant. This information includes the endpoints, URIs, and required permissions.
 
