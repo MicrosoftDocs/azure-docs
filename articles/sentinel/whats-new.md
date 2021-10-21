@@ -28,8 +28,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-<<<<<<< HEAD
-=======
 
 ## November 2021
 
@@ -191,7 +189,6 @@ For example:
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
->>>>>>> f0416ed5ca9b71eb4065ef7e22e6bfe4767c47c2
 ## October 2021
 
 - [Defender for Office 365 events now available in the M365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
