@@ -22,13 +22,24 @@ Virtual Network NAT is a fully managed and highly resilient Network Address Tran
 
 ## VNet NAT benefits
 
-* Fully managed, highly resilient - NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
-* Static IP addresses for outbound-only
+### Security
+With NAT, individual VMs (or other compute resources) do not need public IP addresses and can remain fully private. Such resources without a public IP address can still reach external sources outside the VNet. You can also associate a Public IP Prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be then configured based on this predictable IP list.
+
+### Resiliency 
+NAT is a fully managed and distributed service. It doesn't depend on any individual compute instances such as VMs or a single physical gateway device. It levergaes software defined networking making it highly resilient. 
+
+### Scalability
+NAT can be associated to a subnet and can be used by all compute resources in that subnet. Further, all subnets in a VNet can leverage the same resource. When associated to a Public Ip Prefix, it will automatically scale to the number of IP addresses needed for outbound.
+
+### Performance
+NAT will not impact the network bandwidth of your compute resources since it is a software defined networking service. Learn more about [NAT gateway's performance](nat-gateway-resource.md#performance).
 
 
 ## VNet NAT basics
 
 NAT can be created in a specific Availability Zone and has redundancy built in within the specificed zone. NAT is non zonal by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This is known as a zonal deployment.
+
+NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
 * Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource to use.  All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 * NAT supports TCP and UDP protocols only. ICMP is not supported.
