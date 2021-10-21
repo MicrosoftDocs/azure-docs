@@ -79,7 +79,7 @@ Open a support ticket using the Azure portal with the relevant details, logs if 
 
 - If you are using a [remote device adapter](./use-remote-device-adapter.md), then try the following steps.
 
-   - Verify that your [IoT hub is attached to your Video Analyzer account](./managed-identity.md). It is required for using a remote device adapter.
+   - Verify that your [IoT hub is attached to your Video Analyzer account](../managed-identity.md). It is required for using a remote device adapter.
    - Run ‘remoteDeviceAdapterList’ direct method on the edge module and verify IP address. Sample request and response are shown [here](../edge/direct-methods.md)
    - Examine the response for the remote device adapter that you are using in the live pipeline that is experiencing the issue, and compare with the example in [this article](use-remote-device-adapter.md). Check that the IP address of the camera is correct
    - Go to Azure portal->Video Analyzer account -> Live -> Pipelines -> Edit live pipeline -> reenter the RTSP user name and password. Check that the RTSP URL you provide begins with `rtsp://localhost:554/…`. Here, the use of `localhost` is required.
@@ -101,14 +101,14 @@ To resolve this, either reduce the bitrate setting on the camera, or increase th
 If you get an 'Access Forbidden' error in the Video Analyzer widget, then you should see a warning event in the Audit log.
 
 - Make sure you have generated the Client API JWT Token and corresponding access policy, refer to the documentation for [creating-a-token](../access-policies.md) and [creating-an-access-policy](../access-policies.md#creating-an-access-policy). The player will not work if the access policy has not been set up correctly, and the JWT token does not match with the policy. 
-- If issue is not resolved, gather the widget logs, and file a support ticket via Azure portal
+- If issue is not resolved, gather the widget logs, and file a support ticket using Azure portal
 - Gathering widget logs:
     - Hit F12 to enable Browser Developer tools, go to the Console TAB, enable "All levels" logging.   
     - From the Settings Icon , select Preferences --> Console --> Show timestamps. Save the logs.
 
 ## Collect logs for submitting a support ticket
    
-When self-guided troubleshooting steps don't resolve your problem and there are any more issues that you may need help with, please open a support ticket using the Azure portal with the relevant details & logs. You can also reach out to us by sending us an email at videoanalyzerhelp@microsoft.com.
+When self-guided troubleshooting steps don't resolve your problem and there are any more issues that you may need help with, please open a support ticket using the Azure portal with the relevant details & logs. You can also reach out to us by sending an email at videoanalyzerhelp@microsoft.com.
    
 > [!WARNING]
 > The logs may contain personally identifiable information (PII) such as your IP address. All local copies of the logs will be deleted as soon as we complete examining them and close the support ticket.
