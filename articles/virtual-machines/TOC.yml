@@ -1684,7 +1684,7 @@
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: ../azure-monitor/faq.yml#agents
+      href: ../azure-monitor/faq.yml
     - name: Azure Diagnostics extension
       items:
       - name: Overview
