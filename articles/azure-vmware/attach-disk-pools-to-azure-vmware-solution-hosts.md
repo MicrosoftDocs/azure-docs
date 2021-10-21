@@ -53,65 +53,65 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 # [Azure CLI](#tab/azure-cli)
 
-- Check if the subscription is registered to `Microsoft.AVS`.
+Check if the subscription is registered to `Microsoft.AVS`.
 
 ```azurecli
 az provider show -n "Microsoft.AVS" --query registrationState
 ```
 
-   - If it's not already registered, then register it.
+If it's not already registered, then register it.
 
-   ```azurecli
-   az provider register -n "Microsoft.AVS"
-   ```
+```azurecli
+az provider register -n "Microsoft.AVS"
+```
 
-- Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS.
+Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS.
 
 ```azurecli
 az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
 ```
 
-   - If it's not already registered, then register it.
+If it's not already registered, then register it.
 
-   ```azurecli
-   az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
-   ```
+```azurecli
+az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
+```
 
-   The registration may take approximately 15 minutes to complete, you can use the following command to check status:
-   
-   ```azurecli
-   az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
-   ```
+The registration may take approximately 15 minutes to complete, you can use the following command to check status:
 
-   >[!TIP]
-   >If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag.
-   >
-   >```azurecli
-   >az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
-   >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
-   >```
+```azurecli
+az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
+```
 
-- Check if the `vmware `extension is installed. 
+>[!TIP]
+>If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag.
+>
+>```azurecli
+>az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
+>az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
+>```
+
+Check if the `vmware `extension is installed. 
 
 ```azurecli
 az extension show --name vmware
 ```
 
-   - If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension.
+If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension.
 
-   ```azurecli
-   az extension update --name vmware
-   ```
+```azurecli
+az extension update --name vmware
+```
 
-   - If it's not already installed, install it.
+If it's not already installed, install it.
 
-   ```azurecli
-   az extension add --name vmware
-   ```
+```azurecli
+az extension add --name vmware
+```
 
 ### Attach the iSCSI LUN
 
-- Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
+Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
 
 ```bash
 #Initialize input parameters
@@ -135,13 +135,13 @@ az vmware datastore disk-pool-volume create --name $name --resource-group $resou
 
 To confirm that the attach succeeded, you can use the following commands:
 
-- Show the details of an iSCSI datastore in a private cloud cluster.
+Show the details of an iSCSI datastore in a private cloud cluster.
 
 ```azurecli
 az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
 ```
 
-- List all the datastores in a private cloud cluster.
+List all the datastores in a private cloud cluster.
 
 ```azurecli
 az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
