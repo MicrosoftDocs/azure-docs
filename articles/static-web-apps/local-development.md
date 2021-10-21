@@ -66,7 +66,9 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Install the CLI.
 
-    `npm install -g @azure/static-web-apps-cli`
+    ```console
+    npm install -g @azure/static-web-apps-cli
+    ```
 
 1. Build your app if required by your application.
 
@@ -76,7 +78,9 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Start the CLI.
 
-    `swa start`
+    ```console
+    swa start
+    ```
 
 1. Navigate to `http://localhost:4280` to view the app in the browser.
 
