@@ -11,7 +11,7 @@ ms.author: joarteir
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
 
-Azure Container Apps allows you to deploy and applications without requiring the exposure of public endpoints. In this tutorial, you deploy a sample application that reads messages from an Azure Storage Queue and logs the messages in a Azure log Analytics workspace. Using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
+Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. In this tutorial, you deploy a sample application that reads messages from an Azure Storage Queue and logs the messages in Azure log Analytics workspace. Using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
 
 You learn how to:
 
