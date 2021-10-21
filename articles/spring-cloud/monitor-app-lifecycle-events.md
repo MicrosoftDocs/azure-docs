@@ -18,7 +18,7 @@ Azure Spring Cloud provides built-in tools to monitor the status and health of y
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Azure Spring Cloud application](quickstart.md). 
+- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](quickstart.md). 
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
