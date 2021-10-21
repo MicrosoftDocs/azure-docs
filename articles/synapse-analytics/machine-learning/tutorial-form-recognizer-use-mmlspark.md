@@ -119,7 +119,7 @@ display(results.select("image", "parsed_document"))
 ## Analyze business cards
 Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more.
 ### Example input
-![example_input_for_business_cards](./media/tutorial-form-recognizer/business_card.jpg)
+![Photograph of an example business card.](./media/tutorial-form-recognizer/business_card.jpg)
 
 ```python
 imageDf3 = spark.createDataFrame([
