@@ -29,7 +29,7 @@ Service tier options in the vCore purchase model include General Purpose and Bus
 |**Use case**|**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
-|Storage|Uses remote storage. 32 GB - 16 TB depending on number of cores |Uses local SSD storage. <BR>- **Standard-series (Gen5):** 32 GB - 4 TB <BR>- **Premium-series:** 32 GB - 5.5 TB <BR>- **Premium-series memory optimized:** 32 GB - 16 TB |
+|Storage|Uses remote storage. 32 GB - 16 TB depending on number of cores |Uses local SSD storage. <BR>- **Standard-series (Gen5):** 32 GB - 4 TB <BR>- **Premium-series:** 32 GB - 5.5 TB <BR>- **Memory optimized premium-series:** 32 GB - 16 TB |
 |IOPS and throughput (approximate)|See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|
 |Availability|1 replica, no read-scale replicas|4 replicas total, 1 [read-scale replica](../database/read-scale-out.md),<br/> 2 high availability replicas (HA)|
 |Backups|[Read-access geo-redundant storage (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|

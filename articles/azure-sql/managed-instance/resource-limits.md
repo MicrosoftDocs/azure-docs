@@ -26,9 +26,9 @@ This article provides an overview of the technical characteristics and resource 
 SQL Managed Instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. SQL Managed Instance can be deployed on multiple hardware generations. 
 
 > [!NOTE]
-> The Gen5 hardware generation is now renamed to **standard-series (Gen5)**, and we are introducing two new hardware generations in limited preview: **premium-series** and **memory optimized premium-series**.
+> The Gen5 hardware generation has been renamed to the **standard-series (Gen5)**, and we are introducing two new hardware generations in limited preview: **premium-series** and **memory optimized premium-series**.
 
-For information on previous generation hardware generations, see [Previous generation hardware generation details](#previous-generation-hardware-generation-details) later in this article. 
+For information on previous generation hardware generations, see [Previous generation hardware generation details](#previous-generation-hardware) later in this article. 
 
 Hardware generations have different characteristics, as described in the following table:
 
@@ -44,7 +44,7 @@ Hardware generations have different characteristics, as described in the followi
 
 ### Regional support for premium-series hardware generations (preview)
 
-Support for the premium-series hardware generations (public preview) is currently available only in specific regions. Current preview availability for this feature is in these regions:
+Support for the premium-series hardware generations (public preview) is currently available only in these specific regions:
 
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
@@ -81,9 +81,9 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
-| Number of vCores\* | 4, 8, 16, 24, 32, 40, 64, 80 |  **Standard-series (Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium-series**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium-series - Memory Optimized**: 4, 8, 16, 24, 32, 40, 64<br/>\*Same number of vCores is dedicated for read-only queries. |
-| Max memory | **Standard-series (Gen5)**: 20.4 GB - 408 GB (5.1 GB/vCore)<BR> **Premium-series**: 28 GB - 560 GB (7 GB/vCore)<BR> **Premium-series - Memory Optimized**: 54.4 GB - 870.4 GB (13.6 GB/vCore) | **Standard-series (Gen5)**: 20.4 GB - 408 GB (5.1 GB/vCore) on each replica<BR> **Premium-series**: 28 GB - 560 GB (7 GB/vCore) on each replica<BR> **Premium-series - Memory Optimized**: 54.4 GB - 870.4 GB (13.6 GB/vCore) on each replica |
-| Max instance storage size (reserved) | - 2 TB for 4 vCores<br/>- 8 TB for 8 vCores<br/>- 16 TB for other sizes <BR> | **Standard-series (Gen5)**: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores <BR> **Premium-series**: <BR>- 1 TB for 4, 8 vCores<br/>- 2 TB for 16, 24 vCores<br/>- 4 TB for 32 vCores<br/>- 5.5 TB for 40, 64, 80 vCores<br/> **Premium-series memory optimized**: <BR>- 1 TB for 4, 8 vCores<br/>- 2 TB for 16, 24 vCores<br/>- 4 TB for 32 vCores<br/>- 5.5 TB for 40 vCores<br/>- 16 TB for 64 vCores<br/> |
+| Number of vCores\* | 4, 8, 16, 24, 32, 40, 64, 80 |  **Standard-series (Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium-series**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Memory optimized premium-series**: 4, 8, 16, 24, 32, 40, 64<br/>\*Same number of vCores is dedicated for read-only queries. |
+| Max memory | **Standard-series (Gen5)**: 20.4 GB - 408 GB (5.1 GB/vCore)<BR> **Premium-series**: 28 GB - 560 GB (7 GB/vCore)<BR> **Memory optimized premium-series**: 54.4 GB - 870.4 GB (13.6 GB/vCore) | **Standard-series (Gen5)**: 20.4 GB - 408 GB (5.1 GB/vCore) on each replica<BR> **Premium-series**: 28 GB - 560 GB (7 GB/vCore) on each replica<BR> **Memory optimized premium-series**: 54.4 GB - 870.4 GB (13.6 GB/vCore) on each replica |
+| Max instance storage size (reserved) | - 2 TB for 4 vCores<br/>- 8 TB for 8 vCores<br/>- 16 TB for other sizes <BR> | **Standard-series (Gen5)**: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores <BR> **Premium-series**: <BR>- 1 TB for 4, 8 vCores<br/>- 2 TB for 16, 24 vCores<br/>- 4 TB for 32 vCores<br/>- 5.5 TB for 40, 64, 80 vCores<br/> **Memory optimized premium-series**: <BR>- 1 TB for 4, 8 vCores<br/>- 2 TB for 16, 24 vCores<br/>- 4 TB for 32 vCores<br/>- 5.5 TB for 40 vCores<br/>- 16 TB for 64 vCores<br/> |
 | Max database size | Up to currently available instance size (depending on the number of vCores). | Up to currently available instance size (depending on the number of vCores). |
 | Max tempDB size | Limited to 24 GB/vCore (96 - 1,920 GB) and currently available instance storage size.<br/>Add more vCores to get more TempDB space.<br/> Log file size is limited to 120 GB.| Up to currently available instance storage size. |
 | Max number of databases per instance | 100 user databases, unless the instance storage size limit has been reached. | 100 user databases, unless the instance storage size limit has been reached. |
@@ -98,7 +98,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Max sessions | 30000 | 30000 |
 | Max concurrent workers (requests) | 105 * number of vCores + 800 | 105 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
-| Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Premium-series - Memory Optimized**: Supported for 64 vCores |
+| Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
 
 
 A few additional considerations: 
@@ -183,13 +183,13 @@ The following table shows the **default regional limits** for supported subscrip
 
 If you need more instances in your current regions, send a support request to extend the quota using the Azure portal. For more information, see [Request quota increases for Azure SQL Database](../database/quota-increase-request.md).
 
-## Previous generation hardware generation details
+## Previous generation hardware
 
-This section includes details on previous generation hardware generations. Consider [moving your instance of SQL Managed Instance to Gen5](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
+This section includes details on previous generation hardware generations. Consider [moving your instance of SQL Managed Instance to the standard-series (Gen5)](../database/service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
 - Gen4 is being phased out and is not available for new deployments. 
 
-### Previous generation hardware generation characteristics
+### Hardware generation characteristics
 
 |   | **Gen4** | 
 | --- | --- | 
@@ -199,7 +199,7 @@ This section includes details on previous generation hardware generations. Consi
 | **Max In-Memory OLTP memory** |  Instance limit: 1-1.5 GB per vCore |
 | **Max instance reserved storage** |  General Purpose: 8 TB <br/>Business Critical: 1 TB | 
 
-### Previous generation in-memory OLTP available space 
+### In-memory OLTP available space 
 
 The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists limits of memory that can be used for In-memory OLTP objects.
 
@@ -210,7 +210,7 @@ The amount of In-memory OLTP space in [Business Critical](../database/service-ti
 | 24    vCores |  36 GB |
 
 
-### Previous generation service tier characteristics
+### Service tier characteristics
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |

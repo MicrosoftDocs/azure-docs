@@ -65,7 +65,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 | Changes | Details |
 | --- | --- |
 |**New hardware generation** | There are now two new hardware generations for SQL Managed Instance: premium-series, and a memory optimized premium-series. Both offerings take advantage of a new generation of hardware powered by the latest Intel Ice Lake CPUs, and offer a higher memory to vCore ratio to support your most resource demanding database applications. As part of this announcement, the Gen5 hardware generation has been renamed to standard-series. The two new premium hardware generations are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
-| **16 TB support for Business Critical** | The Cusiness Critical service tier of SQL Managed Instance now provides increased maximum instance storage capacity of up to 16 TB with the new premium-series and memory optimized premium-series hardware generations, which are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
+| **16 TB support for Business Critical** | The Business Critical service tier of SQL Managed Instance now provides increased maximum instance storage capacity of up to 16 TB with the new premium-series and memory optimized premium-series hardware generations, which are currently in preview. See [resource limits](resource-limits.md#service-tier-characteristics) to learn more. | 
 | | | 
 
 
