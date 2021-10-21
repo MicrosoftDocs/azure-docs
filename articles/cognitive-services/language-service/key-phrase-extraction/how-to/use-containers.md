@@ -15,7 +15,9 @@ keywords: on-premises, Docker, container, natural language processing
 
 # Install and run Key Phrase Extraction containers
 
-Containers enable you to run the Key Phrase Extraction APIs in your own environment and are great for your specific security and data governance requirements. 
+
+Containers enable you to host the Key Phrase Extraction API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Key Phrase Extraction remotely, then containers might be a good option.
+
 
 > [!NOTE]
 > * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data Limits](call-api.md#data-limits).

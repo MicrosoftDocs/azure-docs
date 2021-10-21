@@ -15,7 +15,7 @@ keywords: on-premises, Docker, container
 
 # Use language detection Docker containers on-premises 
 
-Containers enable you to use the Language Detection API in your own environment and are great for your specific security and data governance requirements. 
+Containers enable you to host the Language Detection API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Language Detection remotely, then containers might be a good option.
 
 ## Prerequisites
 

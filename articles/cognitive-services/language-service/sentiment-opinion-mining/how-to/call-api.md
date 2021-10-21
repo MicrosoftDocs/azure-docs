@@ -33,7 +33,7 @@ The labels are *positive*, *negative*, and *neutral*. At the document level, the
 | At least one `negative` sentence and at least one `positive` sentence are in the document.    | `mixed`                 |
 | All sentences in the document are `neutral`.                                                  | `neutral`               |
 
-Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1. For more information, see the [Responsible AI transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
+Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative, and neutral) add up to 1. For more information, see the [Responsible AI transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## Opinion Mining
 
@@ -53,24 +53,24 @@ By default, sentiment analysis will use the latest available AI model on your te
 
 | Supported Versions | latest version |
 |--|--|
-| `2019-10-01`, `2020-04-01` | `2020-04-01`   |
+| `2019-10-01`, `2020-04-01`, `2021-10-01` | `2021-10-01`   |
 
 ### Input languages
 
-When you submit documents to be processed by sentiment analysis, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, sentiment analysis will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
+When you submit documents to be processed by sentiment analysis, you can specify which of [the supported languages](../language-support.md) they're written in. If you don't specify a language, sentiment analysis will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
 
 ## Submitting data
 
 Sentiment analysis and opinion mining produce a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. 
 
-To send an API request, You will need your Language resource endpoint and key.
+To send an API request, you will need your Language resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
 Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits section below.
 
-using the sentiment analysis and opinion mining features synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
+Using the sentiment analysis and opinion mining features synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
 When using the features asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
@@ -80,7 +80,7 @@ When you receive results from the API, the order of the returned key phrases is 
 
 Sentiment analysis returns a sentiment label and confidence score for the entire document, and each sentence within it. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1.
 
-Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). for example, the sentence "*The restaurant had great food and our waiter was friendly*" has two targets: *food* and *waiter*. Each target has an assessment. For example, the assessment for *food* would be *great*, and the assessment for *waiter* would be *friendly*.
+Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). For example, the sentence "*The restaurant had great food and our server was friendly*" has two targets: *food* and *server*. Each target has an assessment. For example, the assessment for *food* would be *great*, and the assessment for *server* would be *friendly*.
 
 The API returns opinions as a target (noun or verb) and an assessment (adjective).
 

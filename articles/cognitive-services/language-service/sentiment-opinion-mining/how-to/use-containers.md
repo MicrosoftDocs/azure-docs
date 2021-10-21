@@ -16,7 +16,7 @@ keywords: on-premises, Docker, container, sentiment analysis, natural language p
 
 # Install and run Sentiment Analysis containers
 
-Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements.
+Containers enable you to host the Sentiment Analysis API on your own infrastructure. If you have security or data governance requirements that can't be fulfilled by calling Sentiment Analysis remotely, then containers might be a good option.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -87,10 +87,11 @@ To run the Sentiment Analysis container, execute the following `docker run` comm
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Language resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | The endpoint for accessing the API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{LANGUAGE}** | The language of the container you want to run. Make sure this matches the `docker pull` command you used. Note the hyphen (`-`) used before the language in the example below. | `en` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment-{LANGUAGE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -127,7 +128,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 ## Billing
 
-The Sentiment Analysis containers send billing information to Azure, using a _Language_ resource on your Azure account. 
+The Sentiment Analysis containers send billing information to Azure, using a _Language_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
