@@ -59,6 +59,11 @@ sections:
           There are no changes to the design, architecture or components of web and worker roles. 
 
       - question: |
+          Role Instance Scaling keeps failing, how to mitigate this ?
+        answer: |
+          When multiple Scale calls happen on the same Cloud Service (for different roles) at the same approximate time, due to a race condition, the Microsoft Platform components go out of sync leading to failures. Microsoft is actively working on resolving this issue. The workaround suggested for the interim is not to auto scale all roles simultaneously.
+          
+      - question: |
           How are role instances changing?
         answer: |
           There are no changes to the design, architecture or components of the role instances. 
