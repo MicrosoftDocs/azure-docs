@@ -106,10 +106,6 @@ After your data is in Azure Data Lake Storage, you're ready to start running big
 
 Azure Sentinel provides the built-in **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook. Use this notebook as a template to get started with big data hunting with Azure Sentinel and Azure Synapse.
 
-> [!NOTE]
-> For more information on network beaconing detections, see our [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/detect-network-beaconing-via-intra-request-time-delta-patterns/ba-p/779586).
->
-
 **To detect potential network beaconing using Azure Sentinel and Azure Synapse**:
 
 1. In Azure Sentinel **Notebooks** page, select the **Templates** tab, and enter **Synapse** in the search bar to find the notebook.
