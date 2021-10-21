@@ -43,7 +43,7 @@ Private endpoints are provided by [Azure Private Link](../../../../private-link/
 
 This will establish a private endpoint connection between language resource and Azure Cognitive Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure Cognitive Search service instance. Once the whole operation is completed, you are good to use your language resource with question answering enabled.
 
-![Managed Networking Service](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
+![Managed Networking Service](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 ## Support details
  * We don't support changes to Azure Cognitive Search service once you enable private access to your Text Analytics service. If you change the Azure Cognitive Search service via 'Features' tab after you have enabled private access, the Text Analytics service will become unusable.
@@ -56,7 +56,7 @@ Follow the steps below to restrict public access to question answering language 
 
 After restricting access to Cognitive Service resource based on VNet, To browse knowledge bases on the Language Studio portal from your on-premises network or your local browser.
 - Grant access to [on-premises network](../../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
-- Grant access to your [local browser/machine](../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
+- Grant access to your [local browser/machine](../../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
 - Add the **public IP address of the machine  under the Firewall** section of the **Networking** tab. By default `portal.azure.com` shows the current browsing machine's public IP (select this entry) and then select **Save**.
 
      > [!div class="mx-imgBorder"]
