@@ -30,8 +30,8 @@ New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
 
 ## PARAMETERS
 
-### -Parameterfile
-This is the parameter file for the deployer
+### -Parameter file
+Parameter file for the deployer
 
 ```yaml
 Type: String

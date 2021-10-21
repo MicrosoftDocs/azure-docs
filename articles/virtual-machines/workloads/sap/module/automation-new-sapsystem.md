@@ -12,7 +12,9 @@ Deploy a new system.
 
 ## SYNTAX
 
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
 New-SAPSystem [-Parameterfile] <String> [-Type] <SAP_Types> [[-DeployerStateFileKeyName] <String>]
  [[-LandscapeStateFileKeyName] <String>] [[-StorageAccountName] <String>] [-Force] [-Silent] [-WhatIf]
  [-Confirm] [<CommonParameters>]
@@ -20,26 +22,27 @@ New-SAPSystem [-Parameterfile] <String> [-Type] <SAP_Types> [[-DeployerStateFile
 
 ## DESCRIPTION
 Deploy a new system.
-The type parameter controls the type of environment.
+Type of environment.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
-```
 
 New-SAPSystem -Parameterfile .\DEV-WEEU-SAP00-X00.tfvars -Type sap_system
+```
 
 ### EXAMPLE 2
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
-```
+
 
 New-SAPSystem -Parameterfile .\DEV-WEEU-SAP00-X00.tfvars -Type sap_system -DeployerStateFileKeyName MGMT-WEEU-DEP00-INFRASTRUCTURE.terraform.tfstate -LandscapeStateFileKeyName DEV-WEEU-SAP01-INFRASTRUCTURE.terraform.tfstate
+```
 
 ### EXAMPLE 3
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPSystem -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 ```
@@ -47,7 +50,7 @@ New-SAPSystem -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 ## PARAMETERS
 
 ### -Parameterfile
-This is the parameter file for the system
+Parameter file for the system
 
 ```yaml
 Type: String
@@ -62,7 +65,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-This is the type of the system, valid values are sap_deployer, sap_library, sap_landscape, sap_system
+Type of the system, valid values are sap_deployer, sap_library, sap_landscape, sap_system
 
 ```yaml
 Type: SAP_Types
@@ -78,7 +81,7 @@ Accept wildcard characters: False
 ```
 
 ### -DeployerStateFileKeyName
-This is the optional Deployer state file name
+Optional Deployer state file name
 
 ```yaml
 Type: String
@@ -93,7 +96,7 @@ Accept wildcard characters: False
 ```
 
 ### -LandscapeStateFileKeyName
-This is the optional Landscape state file name
+Optional Landscape state file name
 
 ```yaml
 Type: String
@@ -108,7 +111,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-This is the optional terraform state file storage account name
+Optional terraform state file storage account name
 
 ```yaml
 Type: String

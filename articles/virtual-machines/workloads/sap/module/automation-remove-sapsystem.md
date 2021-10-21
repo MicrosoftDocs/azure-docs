@@ -12,7 +12,9 @@ Removes a deployment
 
 ## SYNTAX
 
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
 Remove-SAPSystem [-Parameterfile] <String> [-Type] <String> [<CommonParameters>]
 ```
 
@@ -22,21 +24,23 @@ Removes a deployment
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
+
 Remove-System -Parameterfile .\PROD-WEEU-SAP00-X00.tfvars -Type sap_system
 ```
 
 ### EXAMPLE 2
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
+
 Remove-System -Parameterfile .\PROD-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 ```
 
 ## PARAMETERS
 
 ### -Parameterfile
-This is the parameter file for the system
+Parameter file for the system
 
 ```yaml
 Type: String
@@ -51,7 +55,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-This is the type of the system
+Type of the system
 
 ```yaml
 Type: String

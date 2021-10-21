@@ -12,7 +12,9 @@ Removes the SAP Control Plane (Deployer, Library)
 
 ## SYNTAX
 
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
 Remove-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile] <String>
  [<CommonParameters>]
 ```
@@ -23,15 +25,18 @@ Removes the SAP Control Plane  (Deployer, Library)
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
 Remove-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-SAP01-INFRASTRUCTURE\MGMT-WEEU-SAP01-INFRASTRUCTURE.tfvars 
  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
+
 ```
 
 ## PARAMETERS
 
 ### -DeployerParameterfile
-This is the parameter file for the Deployer
+Parameter file for the Deployer
 
 ```yaml
 Type: String
@@ -46,7 +51,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-This is the parameter file for the library
+Parameter file for the library
 
 ```yaml
 Type: String

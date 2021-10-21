@@ -12,7 +12,7 @@ Bootstrap a new SAP Library.
 
 ## SYNTAX
 
-```
+```powershell
 New-SAPLibrary [-Parameterfile] <String> [[-DeployerFolderRelativePath] <String>] [-Silent] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
@@ -24,15 +24,16 @@ The deployer VM has Ansible and Terraform installed and is used to deploy the SA
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
+
 New-SAPLibrary -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -DeployerFolderRelativePath ..\..\DEPLOYER\MGMT-WEEU-DEP00-INFRASTRUCTURE\
 ```
 
 ## PARAMETERS
 
 ### -Parameterfile
-This is the parameter file for the library
+Parameter file for the library
 
 ```yaml
 Type: String
@@ -47,7 +48,7 @@ Accept wildcard characters: False
 ```
 
 ### -DeployerFolderRelativePath
-This is the relative folder path to the folder containing the deployerparameter terraform.tfstate file
+TRelative folder path to the folder containing the deployer parameter terraform.tfstate file
 
 ```yaml
 Type: String
@@ -62,7 +63,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-{{ Fill Silent Description }}
+Silent deployment
 
 ```yaml
 Type: SwitchParameter

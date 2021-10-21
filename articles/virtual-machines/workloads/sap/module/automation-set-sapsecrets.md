@@ -12,7 +12,9 @@ Sets the SPN Secrets in Azure Keyvault
 
 ## SYNTAX
 
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
 Set-SAPSecrets [-Region] <String> [-Environment] <String> [-VaultName] <String> [-SPN_id] <String>
  [-SPN_password] <String> [-Tenant_id] <String> [-Workload] [<CommonParameters>]
 ```
@@ -23,18 +25,17 @@ Sets the secrets in Azure Keyvault that are required for the deployment automati
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
-#
-#
-# Import the module
+
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
+
 Set-SAPSecrets -Environment PROD -VaultName <vaultname> -SPN_id <appId> -SPN_password <clientsecret> -Tenant_id <Tenant_idID>
 ```
 
 ## PARAMETERS
 
 ### -Region
-This is the region name
+Region name
 
 ```yaml
 Type: String
@@ -49,7 +50,7 @@ Accept wildcard characters: False
 ```
 
 ### -Environment
-This is the name of the environment.
+Name of the environment.
 
 ```yaml
 Type: String
@@ -64,7 +65,7 @@ Accept wildcard characters: False
 ```
 
 ### -VaultName
-This is the name of the keyvault
+Name of the keyvault
 
 ```yaml
 Type: String
@@ -79,7 +80,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-This is the SPN Application ID
+SPN Application ID
 
 ```yaml
 Type: String
@@ -94,7 +95,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-This is the SAP Application password
+SPN password
 
 ```yaml
 Type: String
@@ -109,7 +110,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-This is the Tenant_id ID for the SPN
+Tenant_id ID
 
 ```yaml
 Type: String

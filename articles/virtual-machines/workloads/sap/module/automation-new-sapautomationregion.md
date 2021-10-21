@@ -24,13 +24,19 @@ Deploys the Control Plane (Deployer, Library)
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
+
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRASTRUCTURE\MGMT-WEEU-DEP01-INFRASTRUCTURE.tfvars 
  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
 ```
 
 ### EXAMPLE 2
-```
+
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRASTRUCTURE\MGMT-WEEU-DEP01-INFRASTRUCTURE.tfvars 
 -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
 -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -43,7 +49,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 ## PARAMETERS
 
 ### -DeployerParameterfile
-This is the parameter file for the Deployer
+Parameter file for the Deployer
 
 ```yaml
 Type: String
@@ -58,7 +64,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-This is the parameter file for the library
+Parameter file for the SAP library
 
 ```yaml
 Type: String
@@ -73,7 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-This is the subscription into which the deployment is performed
+Target subscription
 
 ```yaml
 Type: String
@@ -88,7 +94,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-This is the Service Principal App ID
+Service Principal App ID
 
 ```yaml
 Type: String
@@ -103,7 +109,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-This is the Service Principal password
+Service Principal password
 
 ```yaml
 Type: String
@@ -163,7 +169,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
-Performs a cleanup of local configuration before deployment
+Cleans up local configuration
 
 ```yaml
 Type: SwitchParameter
@@ -178,7 +184,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-Performs a silent deployment
+Silent deployment
 
 ```yaml
 Type: SwitchParameter

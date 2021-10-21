@@ -12,7 +12,10 @@ Updates the Terraform state file
 
 ## SYNTAX
 
-```
+```powershell
+
+Import-Module "SAPDeploymentUtilities.psd1"
+
 Update-TFState [-Parameterfile] <String> [-Type] <SAP_Types> [-TerraformStateFileName] <String>
  [-Subscription] <String> [-StorageAccountName] <String> [-TerraformResourceName] <String>
  [-AzureResourceID] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -24,7 +27,11 @@ This cmdlet can be used to update the Terraform state file to add missing/modifi
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
+```powershell
+
+Import-Module "SAPDeploymentUtilities.psd1"
+
 Update-TFState -Parameterfile .\DEV-WEEU-SAP01-X00.tfvars -Type sap_system
  -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
  -StorageAccountName devweeutfstate### 
@@ -36,7 +43,7 @@ Update-TFState -Parameterfile .\DEV-WEEU-SAP01-X00.tfvars -Type sap_system
 ## PARAMETERS
 
 ### -Parameterfile
-This is the parameter file for the system
+Parameter file for the system
 
 ```yaml
 Type: String
@@ -51,7 +58,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-This is the type of the system, valid values are sap_deployer, sap_library, sap_landscape, sap_system
+Type of the system, valid values are sap_deployer, sap_library, sap_landscape, sap_system
 
 ```yaml
 Type: SAP_Types
@@ -67,7 +74,7 @@ Accept wildcard characters: False
 ```
 
 ### -TerraformStateFileName
-This is the Terraform State file name
+Terraform State file name
 
 ```yaml
 Type: String
@@ -82,7 +89,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-This is the subscription containing the terraform state
+Subscription containing the terraform state
 
 ```yaml
 Type: String
@@ -97,7 +104,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-This is the terraform state file storage account name
+Terraform state file storage account name
 
 ```yaml
 Type: String
@@ -112,7 +119,7 @@ Accept wildcard characters: False
 ```
 
 ### -TerraformResourceName
-This is the name of the resource in the Terraform state file
+Name of the resource in the Terraform state file
 
 ```yaml
 Type: String
@@ -127,7 +134,7 @@ Accept wildcard characters: False
 ```
 
 ### -AzureResourceID
-This is the resource Identifier for the Azure resource to be imported
+Resource Identifier for the Azure resource to be imported
 
 ```yaml
 Type: String

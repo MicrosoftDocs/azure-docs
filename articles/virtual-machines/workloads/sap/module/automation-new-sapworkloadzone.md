@@ -12,7 +12,10 @@ Deploy a new SAP Workload Zone
 
 ## SYNTAX
 
-```
+```powershell
+Import-Module "SAPDeploymentUtilities.psd1"
+
+
 New-SAPWorkloadZone [-Parameterfile] <String> [[-Deployerstatefile] <String>] [[-Deployerenvironment] <String>]
  [[-State_subscription] <String>] [[-Vault] <String>] [[-StorageAccountName] <String>]
  [[-Subscription] <String>] [[-SPN_id] <String>] [[-SPN_password] <String>] [[-Tenant_id] <String>] [-Force]
@@ -26,14 +29,17 @@ The Workload Zone contains the shared resources for all the Virtual machines in 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+```powershell
+
 Import-Module "SAPDeploymentUtilities.psd1"
+
 New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ```
 
 ### EXAMPLE 2
-```
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
+
 New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
  -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  -SPN_id yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
@@ -44,7 +50,7 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ## PARAMETERS
 
 ### -Parameterfile
-This is the parameter file for the system
+Parameter file for the system
 
 ```yaml
 Type: String
@@ -59,7 +65,7 @@ Accept wildcard characters: False
 ```
 
 ### -Deployerstatefile
-This is the deployer terraform state file name
+Deployer terraform state file name
 
 ```yaml
 Type: String
@@ -74,7 +80,7 @@ Accept wildcard characters: False
 ```
 
 ### -Deployerenvironment
-This is the deployer environment name
+Deployer environment name
 
 ```yaml
 Type: String
@@ -89,7 +95,7 @@ Accept wildcard characters: False
 ```
 
 ### -State_subscription
-{{ Fill State_subscription Description }}
+Subscription ID for Terraform storage account
 
 ```yaml
 Type: String
@@ -119,7 +125,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-{{ Fill StorageAccountName Description }}
+Storage account name
 
 ```yaml
 Type: String
@@ -134,7 +140,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-{{ Fill Subscription Description }}
+Target subscriptopm
 
 ```yaml
 Type: String
@@ -149,7 +155,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-This is the Service Principal App ID
+Service Principal App ID
 
 ```yaml
 Type: String
@@ -164,7 +170,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-This is the Service Principal password
+Service Principal password
 
 ```yaml
 Type: String
@@ -179,7 +185,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-{{ Fill Tenant_id Description }}
+Tenant ID
 
 ```yaml
 Type: String
@@ -194,7 +200,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
-This is the parameter that forces the script to delete the local terrafrom state file artifacts
+Cleans up local configuration
 
 ```yaml
 Type: SwitchParameter
