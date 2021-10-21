@@ -83,7 +83,7 @@ Similarly, if you configured [customer-managed keys on analytical store](how-to-
 
 ## Pricing
 
-In addition to the [Azure Synapse Link pricing](https://docs.microsoft.com/azure/cosmos-db/synapse-link#pricing), you will incur the following charges when using custom partitioning:
+In addition to the [Azure Synapse Link pricing](synapse-link.md#pricing), you will incur the following charges when using custom partitioning:
 
 * You are [billed](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for using Synapse Apache Spark pools when you run partitioning jobs on analytical store.
 
