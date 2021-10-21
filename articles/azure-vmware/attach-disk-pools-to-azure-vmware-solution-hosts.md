@@ -203,8 +203,6 @@ Then, delete the private cloud datastore.
 
 :::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/disconnect-a-disk-pool.png" alt-text="Screenshot of the Azure VMware Solution storage page, list of attached disk pools with disconnect highlighted." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/disconnect-a-disk-pool.png":::
 
----
-
 ## Next steps
 
 Now that you've attached a disk pool to your Azure VMware Solution hosts, you may want to learn about:
