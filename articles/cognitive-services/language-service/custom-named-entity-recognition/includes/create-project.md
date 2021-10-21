@@ -11,7 +11,7 @@ ms.author: aahi
 
 Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-1. Sign into the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+1. Sign into the [Language Studio portal](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
 2. Find the **Entity extraction** section, and select **Custom named entity recognition** from the available services.
 

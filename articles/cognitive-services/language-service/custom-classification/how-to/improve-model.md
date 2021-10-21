@@ -32,7 +32,9 @@ See the [application development lifecycle](../overview.md#application-developme
 
 Using Language Studio, you can review how your model performs vs how you expected it to perform. You can review predicted and tagged classes side by side for each model you have trained.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio)).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
 2. Select **Improve model** from the left side menu.
 
@@ -56,7 +58,9 @@ In the [evaluation metrics](../concepts/evaluation.md), when a class is over rep
 
 To examine data distribution in your dataset:
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
 2. Select **Improve model** from the left side menu.
 

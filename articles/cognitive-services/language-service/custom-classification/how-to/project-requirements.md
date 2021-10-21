@@ -55,7 +55,7 @@ If it's your first time logging in, you'll see a window appear in [Language Stud
 
 To use custom classification, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Text Analytics resource. 
+Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -100,7 +100,7 @@ You can use an existing Language resource to get started with custom text classi
 
 To use custom classification, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
 
-Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Text Analytics resource. 
+Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
 ## Roles for your Azure resource
 

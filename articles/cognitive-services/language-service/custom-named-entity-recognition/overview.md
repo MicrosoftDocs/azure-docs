@@ -16,7 +16,7 @@ ms.author: aahi
 
 Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
 
-To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://language.azure.com). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 This documentation contains the following article types:
 

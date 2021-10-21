@@ -26,36 +26,37 @@ See the [application development lifecycle](../overview.md#application-developme
 
 <!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).-->
 
-
-
 ## Tag your data
 
-After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
+After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training. 
 
 As you tag your data, keep in mind:
 
 * In general, more tagged data leads to better results, provided the data is tagged accurately.
 
-* Although we recommended to have around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
+* Although we recommended having around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
 
 Use the following steps to tag your data
 
-1. Go to your projects page in [Language Studio](https://language.azure.com/customText/projects/classifciation) and select your project.
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
-2. From the left side menu, select **Tag data**
+1. From the left side menu, select **Tag data**
 
-3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button from the bottom of the page to navigate.
+3. You can find a list of all .txt files available in your projects to the left. You can select the file you want to start tagging or you can use the Back and Next button from the bottom of the page to navigate.  
     
 4.  You can either view all files or only tagged files by changing the view from the **Viewing** drop-down menu. 
 
     > [!NOTE]
     > If you enabled multiple languages for your project, you will find an additional **Language** drop-down menu. Select the language of each document.
 
+5. Before you start tagging, add classes to your project from the top-right corner
+
+
     :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
 
-6. Before you start tagging, add classes to your project from the top-right corner
-
-    :::image type="content" source="../media/tag-add-class.png" alt-text="A screenshot showing the menu to add entities to a tag" lightbox="../media/tag-add-class.png":::
+6. Start tagging your files.
 
     * **Single label classification**: your file can only be tagged with one class, you can do so by checking one of the radio buttons next to the class you want to tag this file with.
 
@@ -65,24 +66,22 @@ Use the following steps to tag your data
 
       :::image type="content" source="../media/tag-multi.png" alt-text="A screenshot showing the multiple label classification menu" lightbox="../media/tag-multi.png":::
 
+While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on Save tags button at the top of the page.
 
-While tagging, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save tags** button at the top of the page.
-
-:::image type="content" source="../media/tag-status.png" alt-text="The tag status" lightbox="../media/tag-status.png":::
+## Remove tags
 
 If you want to remove a tag, uncheck the button next to the class.
 
-To delete/rename a class,
-  * Select the class you want to edit from the right side menu
-  * Click on the three dots and select the option you want from the drop-down menu.
+## Delete or classes
 
-:::image type="content" source="../media/tag-edit-class.png" alt-text="Edit the tag class" lightbox="../media/tag-edit-class.png":::
+To delete/rename a class,
+
+1. Select the class you want to edit from the right side menu
+2. Click on the three dots and select the option you want from the drop-down menu.
 
 >[!NOTE]
 > The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 50 tagged files per classification and more as you go.
 
-As you tag your data, you can find a training readiness recommendation in the top-right corner of the page.
-:::image type="content" source="../media/tag-train-ready.png" alt-text="Readiness recommendation" lightbox="../media/tag-train-ready.png":::
 
 ## Next steps
 
