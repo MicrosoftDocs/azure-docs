@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 11/02/2021
 ---
 
 # Create replication tasks for Azure resources using Azure Logic Apps (preview)
@@ -99,7 +99,7 @@ For Event Hubs, the service-assigned metadata of an event obtained from the sour
 
 ## Pricing
 
-Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md) and [Standard plan pricing tiers](https://azure.microsoft.com/pricing/details/logic-apps/).
+Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md#standard-pricing) and [Standard plan pricing tiers](logic-apps-pricing.md#standard-pricing-tiers).
 
 Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you change the Standard plan pricing tier accordingly so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
 
@@ -167,13 +167,22 @@ This example shows how to create a replication task for Service Bus queues.
 
    ![Screenshot showing selected "Create" option for the connection to the target Service Bus namespace.](./media/create-replication-tasks-azure-resources/create-authenticate-connections.png)
 
-1. Provide the necessary information about the target.
-
-   To use a connection string instead, the target, or source based on where you started creating the replication task, is dynamically configured so that you only have to connect the target. Just add the connection string for the target namespace. This option enables having the target exist in a different subscription, so that you can set up cross-subscription replication.
+1. Provide the necessary information about the target, and then select **Create**.
 
    For this example, provide a display name for the connection, and then select the Service Bus namespace where the target queue exists.
 
    ![Screenshot showing "Connect" pane with the specified connection display name and the Service Bus namespace selected.](./media/create-replication-tasks-azure-resources/connect-target-service-bus-namespace.png)
+
+   > [!TIP]
+   > You can also create the connection with a connection string instead. This option 
+   > enables having the target in a different subscription, so that you can set up 
+   > cross-subscription replication. The target, or source based on where you started 
+   > creating the replication task, is dynamically configured so that you only have 
+   > to connect the target. To use a connection string, use the following steps:
+   >
+   > 1. On the **Connect** pane, select **Connect via connection string**.
+   >
+   > 2. In the **Connection String** box, enter the connection string for the target namespace.
 
    The following example shows the successfully created connection:
 
@@ -279,7 +288,7 @@ This example shows how to view a task's history of workflow runs along with thei
 
    ![Screenshot showing the trigger inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-trigger-inputs-outputs-properties.png)
 
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of replication tasks for Azure resources, see [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of replication tasks for Azure resources, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 <a name="monitor"></a>
 
@@ -330,7 +339,7 @@ To change a task, you have these options:
 
 ### Edit the task's underlying workflow
 
-If you change the underlying workflow for a replication task, your changes affect the original configuration for the task instance that you created, but not the task template. After you make and save your changes, the name that you provided for your original task might not accurately describe the task anymore, so you might have to recreate the task with a different name.
+You can edit the underlying workflow behind a replication task, which changes the original configuration for the task that you created but not the task template itself. After you make and save your changes, your edited task no longer performs the same function as the original task. If you want a task that performs the original functionality, you might have to create a new task with the same template. If you don't want to recreate the original task, avoid changing the workflow behind the task using the designer. Instead, create a **Logic App (Standard)** stateless workflow to meet your integration needs. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
