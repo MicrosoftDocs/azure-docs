@@ -23,7 +23,7 @@ The following video introduces the AppDynamics Java in-process agent.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/8o-xNoqUFsQ]
+> [!VIDEO https://www.youtube.com/embed/4dZuRX5bNAs]
 
 ## Prerequisites
 
