@@ -74,7 +74,7 @@ Container Apps can scale based of a wide variety of event types. Any event suppo
 
 Each event type features different properties in the `metadata` section of the KEDA definition. Use these properties to define a scale rule in Container Apps.
 
-The following example shows how to create a scale rule based on an [Azure Queue Storage](https://keda.sh/docs/scalers/azure-storage-queue/).
+The following example shows how to create a scale rule based on an [Azure Service Bus](https://keda.sh/docs/scalers/azure-service-bus/) trigger.
 
 ```json
 {
@@ -86,32 +86,28 @@ The following example shows how to create a scale rule based on an [Azure Queue 
       "template": {
         ...
         "scale": {
-          "minReplicas": 1,
-          "maxReplicas": 50, 
+          "minReplicas": "0",
+          "maxReplicas": "10",
           "rules": [
           {
-            "name": "queueScalingRule",
-            "azureQueue": {
-                "queueName": "myqueue",
-                "queueLength": 20,
-                "auth": [
-                    {
-                        "secretRef": "queueconnection",
-                        "triggerParameter": "connection"
-                    }
-                ]
-            }
-          }]
-        },
-      }
-    }
-  }
+            "name": "queue-based-autoscaling",
+            "custom": {
+              "type": "azure-servicebus",
+              "metadata": {
+                "queueName": "myServiceBusQueue",
+                "messageCount": "20"
+              },
+              "auth": [{
+                "secretRef": "servicebusconnectionstring",
+                "triggerParameter": "connection"
+              }]
+        }
+    }]
 }
 ```
 
 In this example, the container app scales according to the following behavior:
 
-- Code in the container app is run as new messages arrive in the queue.
 - As the messages count in the queue exceeds 20, new replicas are created.
 - The connection string to the queue is provided as a parameter to the configuration file and referenced via the `secretRef` property.
 
