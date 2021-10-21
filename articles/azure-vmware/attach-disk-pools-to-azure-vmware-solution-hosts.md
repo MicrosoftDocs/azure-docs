@@ -183,6 +183,27 @@ When the connection succeeds, you will see the datastores added in vCenter.
 
 ---
 
+## Disconnect a disk pool from your private cloud
+
+When you disconnect a disk pool, the disk pool resources aren't deleted. There's no maintenance window required for this operation. But, be careful when you do it.
+
+First, power off the VMs and remove all objects associated with the disk pool datastores, which includes:
+
+   - VMs (remove from inventory)
+
+   - Templates
+
+   - Snapshots
+
+Then, delete the private cloud datastore.
+
+1. Navigate to your Azure VMware Solution in the Azure portal.
+1. Select **Storage** under **Manage**.
+1. Select the disk pool you want to disconnect from and select **Disconnect**.
+
+:::image type="content" source="media/attach-disk-pools-to-azure-vmware-solution-hosts/disconnect-a-disk-pool.png" alt-text="Screenshot of the Azure VMware Solution storage page, list of attached disk pools with disconnect highlighted." lightbox="media/attach-disk-pools-to-azure-vmware-solution-hosts/disconnect-a-disk-pool.png":::
+
+---
 
 ## Next steps
 
