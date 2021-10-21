@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Quickstart: Get started with Language Studio
 
-[Language Studio](https://language.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Cognitive Service for Language into your applications.
+[Language Studio](https://aka.ms/languageStudio) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Cognitive Service for Language into your applications.
 
 Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
@@ -47,5 +47,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* Go to the [Language Studio](https://language.azure.com/) to begin using features offered by the service.
+* Go to the [Language Studio](https://aka.ms/languageStudio) to begin using features offered by the service.
 * For more information and documentation on the features offered, see the [Azure Cognitive Service for Language overview](overview.md). 

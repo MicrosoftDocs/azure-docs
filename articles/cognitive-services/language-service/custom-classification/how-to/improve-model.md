@@ -14,19 +14,27 @@ ms.author: aahi
 
 # Improve model performance
 
-After you've trained your model you reviewed its evaluation details, you can start to improve model performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
+After you've trained your model you reviewed its evaluation details, you can decide if you need to improve your model's performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart.md).
-* Completed [model training](train-model.md) successfully.
-* Viewed [model evaluation details](view-model-evaluation.md).
+To optionally improve a model, you will need to have:
+
+* [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md) to successfully [train a model](train-model.md)
+* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
+* Familiarized yourself with the [evaluation metrics](../concepts/evaluation.md) used for evaluation
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
 ## Review test set predictions
 
 Using Language Studio, you can review how your model performs vs how you expected it to perform. You can review predicted and tagged classes side by side for each model you have trained.
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio)).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
 2. Select **Improve model** from the left side menu.
 
@@ -50,7 +58,9 @@ In the [evaluation metrics](../concepts/evaluation.md), when a class is over rep
 
 To examine data distribution in your dataset:
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
 2. Select **Improve model** from the left side menu.
 
@@ -60,8 +70,6 @@ To examine data distribution in your dataset:
 
 4. Go back to the **Tag data** page, and make adjustments once you have formed an idea on how you should tag your data differently.
 
-You can [view recommended practices](../concepts/recommended-practices.md#data-tagging) for data tagging to help you improve your model.
-
 ## Next steps
 
-* [view recommended practices](../concepts/recommended-practices.md)
+* Once you're satisfied with how your model performs, you can start [sending text classification requests](call-api.md) using the runtime API.

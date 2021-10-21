@@ -35,8 +35,11 @@ items:
     href: custom-classification/faq.md
   - name: How-to guides
     items:
-    - name: Using Azure resources
-      href: custom-classification/how-to/use-azure-resources.md
+    - name: Create projects
+      href: custom-classification/how-to/project-requirements.md
+    - name: Data selection and schema design
+      href: custom-classification/concepts/recommended-practices.md
+      displayName: Best practices
     - name: Tag data
       href: custom-classification/how-to/tag-data.md
     - name: Train a model
@@ -45,20 +48,22 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Submit text classification tasks
-      href: custom-classification/how-to/run-inference.md
+    - name: Deploy a model and call the runtime API to classify text
+      href: custom-classification/how-to/call-api.md
   - name: Concepts
     items:
-    - name: Recommended practices
-      href: custom-classification/concepts/recommended-practices.md
-    - name: Definitions
-      href: custom-classification/definitions.md
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
-    - name: Data limits
-      href: custom-classification/concepts/data-limits.md
+    - name: Accepted data tag formats
+      href: custom-classification/concepts/data-formats.md
+      displayName: Data representation
   - name: Reference
     items:
+    - name: Glossary
+      href: custom-classification/definitions.md
+      displayName: Model, Project, Class
+    - name: Service limits
+      href: custom-classification/concepts/data-limits.md
     - name: Prediction
       items:
       - name: REST API
@@ -74,10 +79,14 @@ items:
     href: custom-named-entity-recognition/quickstart.md
   - name: Language support
     href: custom-named-entity-recognition/language-support.md
+  - name: FAQ
+    href: custom-named-entity-recognition/faq.md
   - name: How-to guides
     items:
-    - name: Use Azure resources
-      href: custom-classification/how-to/use-azure-resources.md
+    - name: Create projects
+      href: custom-named-entity-recognition/how-to/create-project.md
+    - name: Data selection and schema design
+      href: custom-named-entity-recognition/how-to/design-schema.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Train a model
@@ -86,8 +95,8 @@ items:
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Submit a Custom NER task
-      href: custom-named-entity-recognition/how-to/submit-task.md
+    - name: Deploy a model and call the runtime API to extract entities
+      href: custom-named-entity-recognition/how-to/call-api.md
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities
@@ -96,15 +105,17 @@ items:
     items:
       - name: Recommended practices
         href: custom-named-entity-recognition/concepts/recommended-practices.md
-      - name: Definitions
-        href: custom-named-entity-recognition/concepts/definitions.md
       - name: Evaluation metrics
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
-      - name: Data limits
-        href: custom-named-entity-recognition/concepts/limits.md
+      - name: Accepted data tag formats
+        href: custom-named-entity-recognition/concepts/data-formats.md
   - name: Reference
     items:
-    - name: Prediction
+    - name: Glossary
+      href: custom-named-entity-recognition/glossary.md
+    - name: Service limits
+      href: custom-named-entity-recognition/limits.md
+    - name: Prediction API
       items:
       - name: REST API
         items:
@@ -504,6 +515,8 @@ items:
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Manage resources
       href: custom-question-answering/how-to/manage-resources.md
+    - name: Network isolation and private endpoints
+      href: custom-question-answering/how-to/network-isolation.md
   - name: Concepts
     items:
     - name: Resource planning
@@ -515,7 +528,9 @@ items:
     - name: Data sources and content
       href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language-service/context/context
     - name: Confidence score
-      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language-service/context/context
+      href: custom-question-answering/concepts/confidence-score.md
+    - name: Best practices
+      href: custom-question-answering/concepts/best-practices.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot

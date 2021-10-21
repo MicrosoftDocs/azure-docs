@@ -15,7 +15,7 @@ ms.author: aahi
 
 ## Sign in to Language Studio
 
-1. Go to the [Language Studio](https://language.azure.com/) and sign in with your Azure account. 
+1. Go to the [Language Studio](https://aka.ms/languageStudio) and sign in with your Azure account. 
 
 2. In the **Choose a language resource** window that appears, find your Azure subscription, and choose your Language resource. If you don't have a resource, you can create a new one.
 quickstart-language-resource
@@ -29,7 +29,7 @@ quickstart-language-resource
 
 Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart you'll create a project that can identify commands for email, such as reading emails by certain people, deleting emails, and attaching a document to an email.
 
-1. In [Language Studio](https://language.azure.com/), scroll down and click on **Conversational conversational LU**. This will bring you to the **Conversations project** page. 
+1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand conversational language** and click on **Conversational language understanding**. This will bring you to the **Conversations project** page. 
  
     
     :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::

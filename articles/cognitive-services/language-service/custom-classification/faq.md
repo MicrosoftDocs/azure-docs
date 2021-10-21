@@ -23,7 +23,7 @@ Get started with this [quickstart](quickstart.md) and follow the [recommended pr
 
 ## How many tagged files are needed?
 
-Generally, diverse and representitive [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged entities that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your entities. Ambiguous entity types need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 200. 
+Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 50. 
 
 ## What are the service limits?
 
@@ -43,11 +43,15 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 
 ## How do I use the analyze API?
 
-After deploying your model, you [submit text classification tasks](how-to/run-inference.md). See the [Analyze API reference](https://aka.ms/ct-runtime-swagger) for more information.
+After deploying your model, you [call the runtime API](how-to/call-api.md). See the [Analyze API reference](https://aka.ms/ct-runtime-swagger) for more information.
 
 ## Data privacy and security
 
 Your data is only stored in your Azure storage account, Custom classification only has access to read from it during training and evaluation. 
+
+<!-- ## How to clone my project?
+
+To clone your project you need to [export]() project assests and then [import]() them into a new project. -->
 
 ## Next steps
 

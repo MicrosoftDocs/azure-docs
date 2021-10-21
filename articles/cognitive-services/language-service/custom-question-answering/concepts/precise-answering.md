@@ -1,6 +1,6 @@
 ---
-title: Precise answering using answer span detection - custom question answering
-description: Understand Precise answering feature available in custom question answering.
+title: Precise answering using answer span detection - question answering
+description: Understand Precise answering feature available in question answering.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
@@ -9,26 +9,29 @@ ms.date: 11/02/2021
 
 # Precise answering
 
-The precise answering feature introduced in Custom question answering (Preview), allows you to get the precise short answer from the best candidate answer passage present in the knowledge-base for any user query. This feature uses a deep learning model at runtime, which understands the intent of the user query and detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage.
+The precise answering feature introduced, allows you to get the precise short answer from the best candidate answer passage present in the knowledge base for any user query. This feature uses a deep learning model at runtime, which understands the intent of the user query and detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage.
 
-This feature is on by-default in the test pane, so that you can test the functionality specific to your scenario. This feature is extremely beneficial for both content developers as well as end users. Now, content developers don't need to manually curate specific QnA pairs for every fact present in the knowledge-base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query. You can fetch [precise answers via the Generate Answer API](../../../qnamaker/How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api). <!-- TODO: Replace Link-->
+This feature is beneficial for both content developers as well as end users. Now, content developers don't need to manually curate specific question answer pairs for every fact present in the knowledge base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query.
 
 ## Precise answering via the portal
 
-In the custom question answering portal, when you open the test-pane, you will see an option to **Display short answer** on the top. This option will be selected by-default.
+In the [Language Studio portal](https://aka.ms/languageStudio), when you open the test pane, you will see an option to **Include short answer response** on the top above show advanced options.
+
 When you enter a query in the test pane, you will see a short-answer along with the answer passage, if there is a short answer present in the answer passage.
 
-![Managed enabled test pane](../../../qnamaker/media/conversational-context/test-pane-with-managed.png)
+>[!div class="mx-imgBorder"]
+>[![Screenshot of test pane with short answer checked and a question containing a short answer response.](../media/precise-answering/short-answer.png)](../media/precise-answering/short-answer.png#lightbox)
 
-You can unselect the **Display short answer** option, if you want to see only the answer passage in the test pane.
+You can unselect the **Include short answer response** option, if you want to see only the **Long answer** passage in the test pane.
 
-The service also returns back the confidence score of the precise answer as an **Answer-span score** which you can check by selecting the **Inspect** option present just below the query in the test pane.
+The service also returns back the confidence score of the precise answer as an **Answer-span confidence score** which you can check by selecting the **Inspect** option and then selection **additional information**.
 
-![Managed answer span score](../../../qnamaker/media/conversational-context/inspect-precise-answer.png)
+>[!div class="mx-imgBorder"]
+>[![Screenshot of inspect pane with answer-span confidence score displayed.](../media/precise-answering/answer-confidence-score.png)](../media/precise-answering/answer-confidence-score.png#lightbox)
 
-## Publishing a custom question answering bot
+## Deploying a bot
 
-When you publish a bot, you get the precise answer enabled experience by default in your application, where you will see short answer along with the answer passage. Refer to the API reference for [Generate Answer](/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) to see how to use the precise answer (called AnswerSpan) in the response. User has the flexibility to choose other experiences by updating the template through the Bot app service.
+When you publish a bot, you get the precise answer enabled experience by default in your application, where you will see short answer along with the answer passage. Refer to the API reference for REST API to see how to use the precise answer (called AnswerSpan) in the response. User has the flexibility to choose other experiences by updating the template through the Bot app service.
 
 ## Language support
 

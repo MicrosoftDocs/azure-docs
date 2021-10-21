@@ -24,18 +24,18 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure Language [resource connected to an Azure blob storage account](../../custom-classification/how-to/use-azure-resources.md).
+* An Azure Language [resource connected to an Azure blob storage account](../../custom-classification/how-to/project-requirements.md).
     * we recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
 * [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
     * You can use any tier, and any region for this service.
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
 * Download this sample data
 
-## Create Custom NER project through Language studio
+## Create a custom NER project through Language studio
 
-1. Login through the [Language studio portal](https://language.azure.com/) and select **Custom entity extraction**.
+1. Login through the [Language studio portal](https://aka.ms/languageStudio) and select **Custom entity extraction**.
 
-2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/use-azure-resources.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
+2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/project-requirements.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
 
 3. From the top of the projects screen, select **Create new project**. If requested, choose your storage account from the menu that appears.
 

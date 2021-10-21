@@ -17,9 +17,20 @@ ms.author: aahi
 
 After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset. You must also have a [custom NER project](../quickstart.md) with a [trained model](train-model.md).
 
+## Prerequisites
+
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
+    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
+* [Tagged data](tag-data.md)
+* A [successfully trained model](train-model.md)
+
+See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+
 ## View the model's evaluation details
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/extraction).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Extract information**.
+    2. Select **Custom named entity extraction**.
 
 2. Select **View model details** from the menu on the left side of the screen.
 

@@ -16,7 +16,7 @@ ms.author: aahi
 
 Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
 
-To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://language.azure.com). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 This documentation contains the following article types:
 
@@ -38,7 +38,7 @@ Search is foundational to any app that surfaces text content to users, with comm
 
 Instead of manually long text files to audit and apply organizational policies, custom NER can be used to help build automated solutions and apply necessary business rules. 
 
-## Development life cycle
+## Application development lifecycle
 
 Using Custom NER typically involves several different steps. 
 
@@ -59,7 +59,7 @@ Using Custom NER typically involves several different steps.
 
 6. **Deploy the model**: Deploying a model is to make it available for use.
 
-7. **Extract entities**: Use your custom modeled for entity extraction tasks.
+7. **Extract entities**: Use your custom models for entity extraction tasks.
 
 ## Next steps
 
