@@ -32,11 +32,11 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 #### Create Azure Purview account
 
 Provision a new Purview account and Storage account in the isolated subscription. The new functionality will be enabled in these new accounts. To create a new Purview account, refer to the quick-start guide [Quickstart: Create an Azure Purview account in the
-Azure portal.](../create-catalog-portal.md)
+Azure portal.](create-catalog-portal.md)
 
 #### Create Azure Storage account
 
-To create a new Azure Storage account, refer to [Create a storage account - Azure Storage](../../storage/common/storage-account-create.md)
+To create a new Azure Storage account, refer to [Create a storage account - Azure Storage](../storage/common/storage-account-create.md)
 
 To confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
 
@@ -90,16 +90,16 @@ Create a new Azure Purview account in the regions where the new functionalit
 the new functionality.
 
 For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account in the Azure portal (preview) - Azure
-Purview \| Microsoft Docs](../create-catalog-portal.md)
+Purview \| Microsoft Docs](create-catalog-portal.md)
 
 ### Register and scan data sources in Purview
 
 The data source needs to be registered and scanned with Purview in order to define policies. Follow the Purview registration guides to
 register your storage account:
 
--   [How to scan Azure storage blob - Azure Purview](../register-scan-azure-blob-storage-source.md)
+-   [How to scan Azure storage blob - Azure Purview](register-scan-azure-blob-storage-source.md)
 
--   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](../register-scan-adls-gen2.md)
+-   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
 ### Configure permissions for policy management actions
 
