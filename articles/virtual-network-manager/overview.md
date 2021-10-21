@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: duongau
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 10/13/2021
+ms.date: 11/02/2021
 ms.author: duau
 ms.custom: references_regions
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
@@ -24,9 +24,9 @@ Azure Virtual Network Manager is a management service that enables you to group,
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Diagram of management group in Virtual Network Manager.":::
 
-During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. The scope can be defined at the subscription, [management group](../governance/management-groups/overview.md), or  [tenant](../active-directory/develop/quickstart-create-new-tenant.md) level. After defining the scope, you enable features such as *Connectivity* and the *SecurityAdmin* role for your Virtual Network Manager.
+During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. The scope can be defined at the subscription or [management group](../governance/management-groups/overview.md) level. After defining the scope, you enable features such as *Connectivity* and the *SecurityAdmin* role for your Virtual Network Manager.
 
-After you deploy the Virtual Network Manager instance, you then create a *network group* by using conditional statements to select virtual networks by name, tags, or IDs (dynamic membership). You can also select specific virtual networks (static membership). You then create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. 
+After you deploy the Virtual Network Manager instance, you then create a *network group* by using conditional statements to select virtual networks by name, tags, or IDs (dynamic membership). You can also select specific virtual networks (static membership). The network group rules defined are reflected in Azure Policy as a custom initiative definition and corresponding assignment that illustrate the rules you defined for virtual network membership. For more information about Azure Policy initiatives, see [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). These policies are available in read-only mode today. For more information about how to create, update, and delete these policies, see [Network groups and Azure Policy](concept-network-groups.md#network-group-and-azure-policy). You then create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. 
 
 A connectivity configuration enables you to create a mesh or a hub-and-spoke network topology. A security configuration allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created your desired network groups and configurations, you can deploy the configurations to any region of your choosing.
 
