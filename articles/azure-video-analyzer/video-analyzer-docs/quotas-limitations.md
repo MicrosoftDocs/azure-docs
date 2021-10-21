@@ -57,72 +57,80 @@ You can only use IP Cameras that support RTSP protocol. You can find IP cameras 
 
 You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
 
-Video Analyzer only supports RTSP with [interleaved RTP streams]( https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported.
+Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported. 
 
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
 
-## Quotas and limitations - Cloud pipeline
+## Quotas and limitations - live and batch pipeline
 
 This section enumerates the quotas and limitations of Video Analyzer cloud pipelines. 
-
-### Maximum number of Concurrent Live Pipeline Activations 
-
-At most 10 live pipelines per Video Analyzer account can be in activating state. 
 
 ### Maximum number of pipeline topologies 
 
 At most 5 pipeline topologies per Video Analyzer account are supported. 
 
-### Live Pipeline Activations per time window 
+### Limits on concurrent activation of live pipelines 
 
-At most 10 pipeline topologies per Video Analyzer account can be activated within a time window of 5 minutes.  
+At most 10 live pipelines can be activated over a time window of 5 minutes, and at most 10 such pipelines can be in an `Activating` state at any given time.
 
-### Maximum Live Pipelines per Topology	 
+These limits do not apply to pipeline jobs.  
+
+### Maximum live pipelines per topology	 
 
 At most 50 live pipelines per topology are supported.  
 
-### Concurrent Playback Sessions  
+### Concurrent low latency streaming sessions  
 
-At most 1 concurrent playback session is supported for a single Live Pipeline.  
+For each active live pipeline, there can be at most one client application viewing the [low latency stream](playback-recordings-how-to.md#low-latency-streaming). If another client attempts to connect, the request will be refused.  
 
 ### Limitations on designing pipeline topologies 
 
 Following are the different nodes that can be connected together in a pipeline topology and their limitations: 
 
-* RTSP source 
+* RTSP source
    * Only one RTSP source is allowed per pipeline topology.
 * Video source
-   * Used for batch video export to mp4, allows only Video Analyzer video recording to be used as a source. 
-* Encoder pocessor 
+   * Only one video source is allowed per pipeline topology.
+   * Can only be used in pipeline topologies of the [batch kind](pipeline.md#batch-pipeline). It can only accept a video resource of type `archive`. 
+* Encoder processor 
+   * Only one encoder processor is allowed per pipeline topology.
+   * Can only be used in pipeline topologies of the [batch kind](pipeline.md#batch-pipeline), and it must be immediately upstream of the video video sink node in such topologies.
+   * It only supports encoding video with H.264 codec and audio with AAC codec.
+   * Allows user to specify encoding properties when converting the recorded video into the desired format for downstream processing. Two types: (a) System Preset
+     (b) Custom Preset. The allowed configurations for each preset are listed in the table below: 
+     
+     | Configuration       | System Preset        | Custom Preset |
+     | -----------         | -----------          |----------- |
+     | Video encoder bitrate kbps      | same as source      | 200 to 16,000 kbps |
+     | Frame rate       | same as source      | 0 to 300 |
+     | Height    | same as source        | 1 to 4320 |
+     | Width    | same as source       | 1 to 8192 |
+     | Mode   | Pad        | Pad, PreserveAspectRatio, Stretch |     
+     | Audio encoder bitrate kbps  | same as source        | Allowed values: 96000, 112000, 128000, 160000, 192000, 224000, 256000 |
+     
 * Video sink 
-
-### Supported cameras 
-
-You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T. 
-
-You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. 
-
-Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported. 
-
-Bitrate Kbps must be between 500 and 3000 (0.5 Mbps and 3.0 Mbps). If true ingestion bitrate is above this threshold,ingestion will be disconnected and reconnected with exponential backoff.  
+   *  Only one video sink is allowed per pipeline topology.
+   *  Must be immediately downstream from RTSP source or encoder processor node. 
+   *  When used in a pipeline topology of batch kind, it will produce an MP4 file as an output.
 
 ### Support for batch video export 
 
-* Segment Selection 
-   * Video portion to be exported can selected through UTC time 
-   * The maximum duration of segment selection supported is 24hrs 
+* Segment selection 
+   * The time sequence, that is the start and end timestamp of the portion of the archived video to be exported, should be specified in UTC time. 
+   * The maximum span of the time sequence (end timestamp - start timestamp) must be less than or equal to 24 hours. 
 
-* Media Input 
-   * Input is a Video Analyzer Video resource of type ‘archive’ (segmented archive format)  
-   * Supported codecs: video - H.264, audio - AAC
+### Supported cameras
 
-* Media Output
-   * Video is exported as a single Mp4 file 
+You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T. 
+
+You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported. Video encoding bitrate must be between 500 and 3000 Kbps. If true ingestion bitrate is above this threshold, ingestion will be disconnected and reconnected with exponential backoff.
+
+Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported. 
 
 ### Support for video AI 
 
-Analyzing live cloud pipelines is currently not supported. 
+Analysis of live or recorded video is currently not supported.
 
 ## Quotas and limitations - Service
 
