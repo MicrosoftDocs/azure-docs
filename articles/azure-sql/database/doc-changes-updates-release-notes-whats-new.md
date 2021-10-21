@@ -30,7 +30,7 @@ The following table lists the features of Azure SQL Database that are currently 
 | [Change data capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Change data capture (CDC) lets you track all the changes that occur on a database. Though this feature has been available for SQL Server for quite some time, using it with Azure SQL Database is currently in preview. |
 | [Elastic jobs](elastic-jobs-overview.md) | The elastic jobs feature is the SQL Server Agent replacement for Azure SQL Database as a PaaS offering.  |
 | [Elastic queries](elastic-query-overview.md) | The elastic queries feature allows for cross-database queries in Azure SQL Database. |
-| [Elastic transactions](elastic-transactions-overview.md) | Elastic transactions can be distributed among cloud databases in Azure SQL Database and Azure SQL Managed Instance. |
+| [Distributed transactions](elastic-transactions-overview.md) | Elastic transactions can be distributed among cloud databases in Azure SQL Database. |
 | [Ledger](ledger-overview.md) | The Azure SQL Database ledger feature allows you to cryptographically attest to other parties, such as auditors or other business parties, that your data hasn't been tampered with. | 
 | [Maintenance window](maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule for your Azure SQL Database. |
 | [Query editor in the Azure portal](connect-query-portal.md) | The query editor in the portal allows you to run queries against your Azure SQL Database directly from the [Azure portal](https://portal.azure.com).|
@@ -51,9 +51,17 @@ The following table lists the features of Azure SQL Database that have transitio
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
 |||| 
 
+
 ## Documentation changes
 
 Learn about significant changes to the Azure SQL Database documentation.
+
+### November 2021
+
+| Changes | Details |
+| --- | --- |
+| **Azure AD-only authentication** |  Restricting authentication to your Azure SQL Database to Azure Active Directory users only is now generally available.To learn more, see [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). | 
+| | | 
 
 ### September 2021
 
