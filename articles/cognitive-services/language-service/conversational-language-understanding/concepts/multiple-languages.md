@@ -4,7 +4,7 @@
 
 When you enable multiple languages in a project, you can train the project primarily in one language and immediately get predictions in others. 
 
-For example, you can train your project entirely with English utterances, and query it in French, German, Mandarin, Japanese, Korean and others! Conversational language understanding makes it easy for you to scale out your projects to multiple languages by using multilingual technology to train your models. You should expect to get relatively accurate results for various languages in both intents and learned entity components, as those are both machine-learned and make use of advanced multilingual technology. 
+For example, you can train your project entirely with English utterances, and query it in French, German, Mandarin, Japanese, Korean and others! Conversational language understanding makes it easy for you to scale out your projects to multiple languages by using multilingual technology to train your models. You should expect to get relatively accurate results for various languages in both intents and learned entity components, as those are both machine-learned and make use of the advanced multilingual technology. 
 
 Whenever you identify that a particular language is not performing as well as other languages, you simply need to add utterances for that language in your project. Go to the [tag utterances](../how-to/tag-utterances.md) page and select the language of the utterance you're adding. When you introduce some examples for that language to the model, it is introduced to the syntax of that language more and learns to predict it better.
 
