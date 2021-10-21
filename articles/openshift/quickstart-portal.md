@@ -1,6 +1,6 @@
 ---
-title: Deploy an ARO cluster using the Azure Portal
-description: Deploy an ARO cluster using the Azure Portal
+title: Deploy an ARO cluster using the Azure portal
+description: Deploy an ARO cluster using the Azure portal
 author: rahulmehta
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 
 # Quickstart: Deploy an Azure Red Hat OpenShift (ARO) cluster using the Azure portal
 
-Azure Red Hat OpenShift (ARO) is a managed OpenShift service that lets you quickly deploy and manage clusters. In this quickstart, we'll deploy an ARO cluster using the Azure Portal.
+Azure Red Hat OpenShift (ARO) is a managed OpenShift service that lets you quickly deploy and manage clusters. In this quickstart, we'll deploy an ARO cluster using the Azure portal.
 
 ## Prerequisites
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
         *	Enter **Domain name**.
         *	Select **Master VM Size** and **Worker VM Size**.
 
-![**Basics** tab on Azure Portal](./media/portal-quickstart/basics-tab.jpg)
+![**Basics** tab on Azure portal](./media/portal-quickstart/basics-tab.jpg)
 
 4.	On the **Authentication page**, configure the following options:
     1) Choose **Select Existing** from the Service Principal Type selector (if it is already pre-selected no action is required and you can proceed further on the next steps).
@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 >[!NOTE]
 >Please ignore the "create new" button and other optional fields.
 
-![**Authentication** tab on Azure Portal](./media/portal-quickstart/authentication.jpg)
+![**Authentication** tab on Azure portal](./media/portal-quickstart/authentication.jpg)
 
 5.	On the **Networking** tab make sure to configure:
     * Virtual network
@@ -46,15 +46,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
     * API server visibility
     * Ingress visibility
 
-![**Networking** tab on Azure Portal](./media/portal-quickstart/networking.jpg)
+![**Networking** tab on Azure portal](./media/portal-quickstart/networking.jpg)
 
 6.	On the **Tags** section, add tags to organize your resources.
 
-![**Tags** tab on Azure Portal](./media/portal-quickstart/tags.jpg)
+![**Tags** tab on Azure portal](./media/portal-quickstart/tags.jpg)
  
 7.	Click **Review + create** and then **Create** when validation completes.
 
-![**Review + create** tab on Azure Portal](./media/portal-quickstart/review.jpg)
+![**Review + create** tab on Azure portal](./media/portal-quickstart/review.jpg)
  
 8.	It takes approximately 35- 45 minutes to create the ARO cluster. When your deployment is complete, navigate to your resource by either:
     *	Clicking **Go to resource**, or
