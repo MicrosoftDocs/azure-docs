@@ -40,7 +40,7 @@ For the bot on Surface products, you can take the following steps to create a bo
    >[!div class="mx-imgBorder"]
    >[![Screenshot of metadata example.](../media/multiple-domains/product-metadata.png)](../media/multiple-domains/product-metadata.png#lightbox)
 
-4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the question answering REST API.
+4. Now, in order to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the question answering REST API.
 
 The REST API prediction URL can be retrieved from the Deploy knowledge base pane:
    
