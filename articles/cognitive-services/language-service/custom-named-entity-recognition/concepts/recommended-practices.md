@@ -6,10 +6,11 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi
+ms.author: aahi 
+ms.custom: language-service-custom-ner
 ---
 
 # Recommended practices for Custom Named Entity Recognition (NER)

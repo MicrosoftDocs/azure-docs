@@ -6,10 +6,11 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: language-service-language-detection
 keywords: text mining, language detection
 zone_pivot_groups: programming-languages-text-analytics       
 ---
