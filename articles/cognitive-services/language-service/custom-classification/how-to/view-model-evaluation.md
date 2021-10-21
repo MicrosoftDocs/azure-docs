@@ -33,7 +33,9 @@ The evaluation process uses the trained model to predict user-defined classes fo
 
 ## View the model details using Language Studio
 
-1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
+1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+    1. Look for the section in Language Studio labeled **Classify text**.
+    2. Select **Custom text classification**. 
 
 2. Select **View model details** from the left side menu.
 

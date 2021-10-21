@@ -53,7 +53,7 @@ The provided sample dataset contains 20 loan agreements, each agreement includes
 
 Once your resource and storage container are configured, create a new conversational NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
 
-1. Sign into the [Language Studio portal](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+1. Sign into the [Language Studio portal](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
 
 2. Find the **Entity extraction** section, and select **Custom named entity recognition** from the available services.
 
@@ -123,7 +123,7 @@ After your model is deployed, you can start using it for entity extraction. Use 
 
 4. Click on **Run the test**.
 
-5. In the **Result** tab, you can see the extracted entities from your text and their types. You can also view the JSON response under the **JSON** tab. 
+5. In the **Result** tab, you can see the extracted entities from your text and their types. You can also view the JSON response under the **JSON** tab.
 
     :::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
 
