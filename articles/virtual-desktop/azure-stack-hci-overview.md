@@ -15,7 +15,7 @@ manager: femila
 
 Azure Virtual Desktop for Azure Stack HCI lets you deploy Azure Virtual
 Desktop session hosts to your on-premises Azure Stack HCI infrastructure.
-You can use Azure Virtual Desktop for Azure Stack HCI to update your on-premises infrastructure or expand your existing cloud-based deployment. Also, you can do it all from the Azure portal.
+You can use Azure Virtual Desktop for Azure Stack HCI to update your on-premises infrastructure or expand your existing cloud-based deployment, right from the Azure portal.
 
 Azure Virtual Desktop for Azure Stack HCI is currently in public preview. Azure Stack HCI doesn't currently support certain important Azure Virtual Desktop features. Because of these limitations, we don't recommend using this feature for production workloads yet.
 

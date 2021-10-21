@@ -17,9 +17,16 @@ sections:
   - name: Ignored
     questions:
       - question: |
-         What session host operating systems does this feature support?
+         What session host operating system images does this feature support?
         answer: |
-          Azure Virtual Desktop for Azure Stack HCI supports the same operating systems as regular Azure Virtual Desktop.
+          Azure Virtual Desktop for Azure Stack HCI supports the following x64 operating system images:
+            
+            - Windows 11 Enterprise multi-session (preview)
+            - Windows 11 Enterprise (preview)
+            - Windows 10 Enterprise multi-session
+            - Windows 10 Enterprise
+            - Windows Server 2022
+            - Windows Server 2019
           
       - question: |
          Which Azure Virtual Desktop clients does this feature support?

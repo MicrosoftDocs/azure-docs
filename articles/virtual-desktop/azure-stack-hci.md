@@ -33,18 +33,20 @@ To set up Azure Virtual Desktop for Azure Stack HCI:
 
 1. Create a new host pool with no virtual machines by following the instructions in [Begin the host pool setup process](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process). At the end of that section, come back to this article and start on step 2.
 
-2. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
+2. Follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information) to create a workspace for yourself.
+
+3. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
 
    >[!NOTE]
    >Install the Remote Desktop Session Host (RDSH) role if the VM is running a Windows Server OS.
 
-3. Enable Azure to manage the new virtual machine through Azure Arc by installing the Connected Machine agent to it. Follow the directions in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to install the Windows agent to the virtual machine.
+4. Enable Azure to manage the new virtual machine through Azure Arc by installing the Connected Machine agent to it. Follow the directions in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to install the Windows agent to the virtual machine.
 
-4. Install the [Azure Virtual Desktop Agent](agent-overview.md) and follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
+5. Add the virtual machine to the Azure Virtual Desktop host pool you created earlier by installing the [Azure Virtual Desktop Agent](agent-overview.md). After that, follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
 
-5. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md).
+6. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
 
-6. Go to [the web client](https://rdweb.wvd.microsoft.com/arm/webclient/index.html) and grant your users access to the new deployment.
+7. Go to [the web client](https://rdweb.wvd.microsoft.com/arm/webclient/index.html) and grant your users access to the new deployment.
 
 ## Optional configurations
 
