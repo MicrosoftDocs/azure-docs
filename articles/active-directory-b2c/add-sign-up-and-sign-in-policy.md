@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -77,6 +77,10 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 1. Follow the steps to [handle the flow for "Forgot your password?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) within the sign-up or sign-in policy.
+
+
+### Re-order the sign up form
+Learn [how to re-order user flow input fields for local accounts](customize-ui.md#re-order-input-fields-in-the-sign-up-form)
 
 ### Test the user flow
 
