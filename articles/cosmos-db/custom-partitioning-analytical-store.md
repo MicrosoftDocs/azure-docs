@@ -24,7 +24,7 @@ In this article, you will learn how to partition your data in Azure Cosmos DB an
 
 With custom partitioning, you can choose a single field or a combination of fields from your dataset as the analytical store partition key.
 
-The analytical store partitioning is completely independent of partitioning in the transactional store. By default, analytical store is not partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. we recommend that you create a partitioned store based on these keys.
+The analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store is not partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. we recommend that you create a partitioned store based on these keys.
 
 To trigger partitioning, you can periodically execute partitioning job from an Azure Synapse Spark notebook using Azure Synapse Link. You can schedule it to run as a background job at your convenient schedule.
 
@@ -49,11 +49,11 @@ Except for the workloads above, if you are querying live data using query filter
 
 ### Reduced data scanning from partition pruning
 
-Because the data corresponding to each unique partition key is co-located in the partitioned store, when you use the partition key as a query filter, the query executions can prune the underlying data and scan only the required data. By scanning limited data, partition pruning improves the analytical query performance.
+Because the data corresponding to each unique partition key is colocated in the partitioned store, when you use the partition key as a query filter, the query executions can prune the underlying data and scan only the required data. By scanning limited data, partition pruning improves the analytical query performance.
 
 ### Flexibility to partition your analytical data
 
-You can have multiple partitioning strategies for a given analytical store container where the analytical store data can be partitioned using separate partition keys. For example, the “store_sales” container can be partitioned using “sold_date” as key and can also be partitioned using “item” as key. You must have two separate partitioning jobs in this case, which will essentially partition the data into two separate partitioned stores. This partitioning strategy is beneficial if some of the queries use “sold_date” as the query filter and some other queries use “item” as the query filter.
+You can have multiple partitioning strategies for a given analytical store container where the analytical store data can be partitioned using separate partition keys. For example, the "store_sales" container can be partitioned using "sold_date" as key and can also be partitioned using "item" as key. You must have two separate partitioning jobs in this case, which will essentially partition the data into two separate partitioned stores. This partitioning strategy is beneficial if some of the queries use "sold_date" as the query filter and some other queries use "item" as the query filter.
 
 The data across different partition keys will be part of the same partitioned store and you can query based on the partition key to pick the corresponding data.
 
