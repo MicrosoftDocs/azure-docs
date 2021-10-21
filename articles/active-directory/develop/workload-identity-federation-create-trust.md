@@ -46,7 +46,7 @@ Run the following command to [create a new federated identity credential](/graph
 
 *subject* identifies the   When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the values in the federated identity credential are checked against the claims provided in the external token.
 
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable.
+*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
 
 *description* is the un-validated, user-provided description of what the federated identity credential.
 
