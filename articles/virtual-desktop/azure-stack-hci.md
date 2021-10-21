@@ -46,7 +46,7 @@ To set up Azure Virtual Desktop for Azure Stack HCI:
 
 6. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
 
-7. Go to [the web client](https://rdweb.wvd.microsoft.com/arm/webclient/index.html) and grant your users access to the new deployment.
+7. Go to [the web client](./user-documentation/connect-web.md) and grant your users access to the new deployment.
 
 ## Optional configurations
 
