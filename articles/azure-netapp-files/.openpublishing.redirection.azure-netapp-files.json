@@ -17,7 +17,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-netapp-files/manual-qos-capacity-pool-introduction.md",
-            "redirect_url": "/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy",
+            "redirect_url": "/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy#manual-qos-type",
             "redirect_document_id": false
         },
         {
