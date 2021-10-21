@@ -14,20 +14,20 @@ zone_pivot_groups: programming-languages-set-two
 ---
 # Azure Active Directory Authentication with the Speech SDK
 
-When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (AAD). This article describes how to configure the Speech resource and create a Speech SDK configuration object to use AAD for authentication.
+When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (Azure AD). This article describes how to configure the Speech resource and create a Speech SDK configuration object to use Azure AD for authentication.
 
-This article shows how to use AAD authentication with the Speech SDK by following four steps:
+This article shows how to use Azure AD authentication with the Speech SDK by following four steps:
 1) Create a Speech resource
-2) Configure the Speech resource for AAD Authentication
-3) Get an AAD token
+2) Configure the Speech resource for Azure AD Authentication
+3) Get an Azure AD token
 4) Create the appropriate SDK configuration object.
 
 ## Create a Speech resource
 To create a Speech resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
 
-## Configure the Speech resource for AAD Authentication
+## Configure the Speech resource for Azure AD Authentication
 
-Follow these steps to configure the Speech resource to be usable for AAD Authentication:
+Follow these steps to configure the Speech resource to be usable for Azure AD Authentication:
 1) Create a Custom Domain Name
 2) Assign Roles
 
@@ -35,15 +35,15 @@ Follow these steps to configure the Speech resource to be usable for AAD Authent
 [!INCLUDE [Custom Domain include](includes/how-to/custom-domain.md)]
 
 ### Assign roles
-AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
+Azure AD Authentication requires that the correct roles be assigned to the Azure AD user or application, for Speech resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
 
 You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
-## Get an AAD token
+## Get an Azure AD token
 ::: zone pivot="programming-language-csharp"
-To get an AAD token in C#, use the [Azure Idenity Client Library](/dotnet/api/overview/azure/identity-readme).
+To get an Azure AD token in C#, use the [Azure Identity Client Library](/dotnet/api/overview/azure/identity-readme).
 
-An example of using Azure.Identity to get an AAD Token from an interactive browser:
+An example of using Azure.Identity to get an Azure AD Token from an interactive browser:
 ```c#
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
@@ -53,9 +53,9 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-To get an AAD token in C++, use the [Azure Idenity Client Library](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity).
+To get an Azure AD token in C++, use the [Azure Identity Client Library](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity).
 
-An example of using Azure.Identity to get an AAD Token from a client secret credential:
+An example of using Azure.Identity to get an Azure AD Token from a client secret credential:
 ```cpp
 const std::string tenandId = "";
 const std::string clientId = "";
@@ -77,9 +77,9 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-To get an AAD token in Java, use the [Azure Idenity Client Library](/java/api/overview/azure/identity-readme).
+To get an Azure AD token in Java, use the [Azure Identity Client Library](/java/api/overview/azure/identity-readme).
 
-An example of using Azure.Identity to get an AAD Token from a browser:
+An example of using Azure.Identity to get an Azure AD Token from a browser:
 ```java
 TokenRequestContext context = new TokenRequestContext();
 context.addScopes("https://cognitiveservices.azure.com/.default");
@@ -94,9 +94,9 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-To get an AAD token in Java, use the [Azure Idenity Client Library](/python/api/overview/azure/identity-readme).
+To get an Azure AD token in Java, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
 
-An example of using Azure.Identity to get an AAD Token from an interactive browser:
+An example of using Azure.Identity to get an Azure AD Token from an interactive browser:
 ```Python
 from azure.identity import  InteractiveBrowserCredential
 ibc = InteractiveBrowserCredential()
@@ -105,13 +105,13 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-Find samples that get an AAD token in [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code).
+Find samples that get an Azure AD token in [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code).
 
 For programming languages where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
 ::: zone-end
 ## Get the Speech resource ID
 
-You'll need the Speech resource's ID to make SDK calls using AAD Authentication.
+You'll need the Speech resource's ID to make SDK calls using Azure AD Authentication.
 
 > [!NOTE]
 > For Intent Recognition use the ID for the LUIS Prediction Resource.
@@ -162,18 +162,18 @@ $resourceId = resource.Id
 ***
 
 ## Create the Speech SDK configuration object
-With an AAD token, you can now create the appropriate Speech SDK configuration object.
+With an Azure AD token, you can now create the appropriate Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK Config object varies by the object you'll be using.
 
 ### SpeechRecognizer, IntentRecognizer, ConversationTranscriber & SpeechSynthizer
 
-For these objects, build the authorization token from the Resource ID and the AAD Token and then use it to create a SpeechConfig object.
+For these objects, build the authorization token from the Resource ID and the Azure AD Token and then use it to create a SpeechConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
 string resourceId = "Your ResourceID";
-string aadToken = "Your AAD Token";
+string aadToken = "Your Azure AD Token";
 string region =  "Your Speech Region";
 
 var speechToken = $"aad#{resourceId}#{aadToken}";
@@ -184,7 +184,7 @@ var speechConfig = SpeechConfig.FromAuthorizationToken(speechToken, region);
 ::: zone pivot="programming-language-cpp"
 ```C++
 std::string resourceId = "Your ResourceID";
-std::string aadToken = "Your AAD Token";
+std::string aadToken = "Your Azure AD Token";
 std::string region = "Your Speech Region";
 
 auto speechToken = "aad#" + resourceId + "#" + aadToken;
@@ -215,12 +215,12 @@ speechConfig = SpeechConfig(auth_token=speechToken, region=region)
 
 ### TranslationRecognizer
 
-For the TranslationRecognizer, build the authorization token from the Resource ID and the AAD Token and then use it to create a SpeechTranslationConfig object.
+For the TranslationRecognizer, build the authorization token from the Resource ID and the Azure AD Token and then use it to create a SpeechTranslationConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
 string resourceId = "Your ResourceID";
-string aadToken = "Your AAD Token";
+string aadToken = "Your Azure AD Token";
 string region =  "Your Speech Region";
 
 var speechToken = $"aad#{resourceId}#{aadToken}";
@@ -231,7 +231,7 @@ var speechConfig = SpeechTranslationConfig.FromAuthorizationToken(speechToken, r
 ::: zone pivot="programming-language-cpp"
 ```cpp
 std::string resourceId = "Your ResourceID";
-std::string aadToken = "Your AAD Token";
+std::string aadToken = "Your Azure AD Token";
 std::string region = "Your Speech Region";
 
 auto speechToken = "aad#" + resourceId + "#" + aadToken;
@@ -262,12 +262,12 @@ translationConfig = SpeechTranslationConfig(auth_token=speechToken, region=regio
 
 ### DialogServiceConnector
 
-For the DialogServiceConnection, build the authorization token from the Resource ID and the AAD Token and then use it to create a CustomCommandsConfig or a BotFrameworkConfig object.
+For the DialogServiceConnection, build the authorization token from the Resource ID and the Azure AD Token and then use it to create a CustomCommandsConfig or a BotFrameworkConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
 string resourceId = "Your ResourceID";
-string aadToken = "Your AAD Token";
+string aadToken = "Your Azure AD Token";
 string region =  "Your Speech Region";
 string appId = "Your app ID";
 
@@ -279,7 +279,7 @@ var customCommandsConfig = CustomCommandsConfig.FromAuthorizationToken(appId, sp
 ::: zone pivot="programming-language-cpp"
 ```cpp
 std::string resourceId = "Your ResourceID";
-std::string aadToken = "Your AAD Token";
+std::string aadToken = "Your Azure AD Token";
 std::string region = "Your Speech Region";
 std::string appId = "Your app Id";
 
@@ -306,16 +306,16 @@ The DialogServiceConnector is not currently supported in Python
 ::: zone-end
 
 ### VoiceProfileClient
-To use the VoiceProfileClient with AAD Authentication, use the custom domain name created above.
+To use the VoiceProfileClient with Azure AD Authentication, use the custom domain name created above.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
 string customDomainName = "Your Custom Name";
 string hostName = $"https://{customDomainName}.cognitiveservices.azure.com/";
-string token = "Your AAD Token";
+string token = "Your Azure AD Token";
 
 var config =  SpeechConfig.FromHost(new Uri(hostName));
-var token = AzureSubscription.GetAADToken().Result;
+var token = AzureSubscription.GetAzure ADToken().Result;
 config.AuthorizationToken = token;
 ```
 ::: zone-end
@@ -323,7 +323,7 @@ config.AuthorizationToken = token;
 ::: zone pivot="programming-language-cpp"
 ```cpp
 std::string customDomainName = "Your Custom Name";
-std::string aadToken = "Your AAD Token";
+std::string aadToken = "Your Azure AD Token";
 
 auto speechConfig = SpeechConfig::FromHost("https://" + customDomainName + ".cognitiveservices.azure.com/");
 speechConfig->SetAuthorizationToken(aadToken);
@@ -332,7 +332,7 @@ speechConfig->SetAuthorizationToken(aadToken);
 
 ::: zone pivot="programming-language-java"
 ```Java
-String aadToken = "Your AAD Token";
+String aadToken = "Your Azure AD Token";
 String customDomainName = "Your Custom Name";
 String hostName = "https://" + customDomainName + ".cognitiveservices.azure.com/";
 SpeechConfig speechConfig = SpeechConfig.fromHost(new URI(hostName));
@@ -345,4 +345,4 @@ The VoiceProfileClient is not currently supported in Python.
 ::: zone-end
 
 > [!NOTE]
-> **ConversationTranslator** does not currently support AAD Authentication.
+> **ConversationTranslator** does not currently support Azure AD Authentication.
