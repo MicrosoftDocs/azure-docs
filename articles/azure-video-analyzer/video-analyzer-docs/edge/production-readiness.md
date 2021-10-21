@@ -1,8 +1,8 @@
 ---
 title: Production readiness and best practices
-description: This article provides guidance on how to configure and deploy the Azure Video Analyzer module in production environments.
+description: This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module in production environments.
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 
 ---
 # Production readiness and best practices
@@ -11,8 +11,7 @@ ms.date: 06/01/2021
 
 This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](../../../iot-edge/production-checklist.md) article on preparing your IoT Edge solution.
 
-> [!NOTE]
-> You should consult your organizations’ IT departments on aspects related to security.
+You should consult your organization's IT department on aspects related to security.
 
 ## Creating the Video Analyzer account
 
@@ -20,7 +19,7 @@ When you [create](../create-video-analyzer-account.md) a Video Analyzer account,
 
 1. The subscription owner should create a resource group under which all resources needed by Video Analyzer are to be created.
 1. Then, the owner should grant you [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) and [User Access Administrator](../../../role-based-access-control/built-in-roles.md#user-access-administrator) roles to that resource group.
-1. You can then create the relevant resources: Storage account, user-assigned managed identity, and Video Analyzer account under that resource group.
+1. You can then create the relevant resources: Storage account, IoT Hub, user-assigned managed identity, and Video Analyzer account under that resource group.
 
 ## Running the module as a local user
 
@@ -112,21 +111,19 @@ Next, in the create options for the edge module in the deployment manifest, you 
           "operationalEventsOutputName": "operational",
           "logLevel": "information",
           "LogCategories": "Application,Events",
-          "allowUnsecuredEndpoints": true,
+          "allowUnsecuredEndpoints": false,
           "telemetryOptOut": false
-          "allowUnsecuredEndpoints": false
     }
 }
 ```
 
 If you look at the sample pipelines for the quickstart, and tutorials such as [continuous video recording](use-continuous-video-recording.md), you will note that the media cache directory (`localMediaCachePath`) uses a subdirectory under `applicationDataDirectory`. This is the recommended approach, since the cache contains transient data.
 
-Also note that `allowedUnsecuredEndpoints` is set to `true`, as recommended for production environments where you will use TLS encryption to secure traffic.
+Also note that `allowedUnsecuredEndpoints` is set to `false`, as recommended for production environments where you will use TLS encryption to secure traffic.
 
 ### Tips about maintaining your edge device
 
-> [!Note]
-> The tips below are not an exhaustive list but should help with commonly known issues we have encountered.
+The tips below are not an exhaustive list but should help with commonly known issues we have encountered.
 
 The Linux VM that you are using as an IoT Edge device can become unresponsive if it is not managed on a periodic basis. It is essential to keep the caches clean, eliminate unnecessary packages and remove unused containers from the VM as well. To do this here is a set of recommended commands, you can use on your edge VM.
 
