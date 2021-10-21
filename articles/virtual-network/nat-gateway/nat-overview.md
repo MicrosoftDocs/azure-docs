@@ -26,7 +26,7 @@ Virtual Network NAT is a fully managed and highly resilient Network Address Tran
 With NAT, individual VMs (or other compute resources) do not need public IP addresses and can remain fully private. Such resources without a public IP address can still reach external sources outside the VNet. You can also associate a Public IP Prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be then configured based on this predictable IP list.
 
 ### Resiliency 
-NAT is a fully managed and distributed service. It doesn't depend on any individual compute instances such as VMs or a single physical gateway device. It levergaes software defined networking making it highly resilient. 
+NAT is a fully managed and distributed service. It doesn't depend on any individual compute instances such as VMs or a single physical gateway device. It leverages software defined networking making it highly resilient. 
 
 ### Scalability
 NAT can be associated to a subnet and can be used by all compute resources in that subnet. Further, all subnets in a VNet can leverage the same resource. When associated to a Public Ip Prefix, it will automatically scale to the number of IP addresses needed for outbound.
@@ -37,7 +37,7 @@ NAT will not impact the network bandwidth of your compute resources since it is 
 
 ## VNet NAT basics
 
-NAT can be created in a specific Availability Zone and has redundancy built in within the specificed zone. NAT is non zonal by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This is known as a zonal deployment.
+NAT can be created in a specific Availability Zone and has redundancy built in within the specified zone. NAT is non zonal by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone. This is known as a zonal deployment.
 
 NAT is fully scaled out from the start. There's no ramp up or scale-out operation required.  Azure manages the operation of NAT for you.  NAT always has multiple fault domains and can sustain multiple failures without service outage.
 
