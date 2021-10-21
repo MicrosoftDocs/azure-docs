@@ -2,13 +2,13 @@
 title: Tutorial - Use identity-based connections instead of secrets with triggers and bindings
 description: Learn how to use identity-based connections instead of connection strings with a Service Bus queue trigger, and how to use managed identities locally.
 ms.topic: tutorial
-ms.date: 10/20/21
+ms.date: 10/20/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
 ---
 
 # Tutorial: Use identity-based connections instead of secrets with triggers and bindings
 
-This tutorial shows you how to configure Azure Functions to trigger off of Azure Service Bus queues using managed identities instead of secrets stored in the function app settings. The tutorial is a continuation of the [Functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure Azure Functions to trigger off of Azure Service Bus queues using managed identities instead of secrets stored in the function app settings. The tutorial is a continuation of the [Create a function app without default storage secrets in its definition][previous tutorial] tutorial. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
@@ -100,8 +100,6 @@ You've granted your function app access to the service bus namespace using manag
     | ------------ | ---------------- | ----------- |
     | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connections your function app to the Service Bus use identity-based connections instead of secrets. |
 
-    To learn more, see [Connection properties](functions-reference.md#connection-properties).
-
 1. After you create the two settings, select **Save** > **Confirm**.
 
 Now that you've prepared the function app to connect to the service bus namespace using a managed identity, you can add a new function that uses a Service Bus trigger to your local project.
@@ -154,7 +152,7 @@ Now that you've prepared the function app to connect to the service bus namespac
     This code sample updates the queue name to `myinputqueue`, which is the same name as you queue you created earlier. It also sets the name of the Service Bus connection to `ServiceBusConnection`. This is the Service Bus namespace used by the identity-based connection `ServiceBusConnection__fullyQualifiedNamespace` you configured in the portal.
 
 > [!NOTE]  
-> If you try to run your functions now using `func start` you'll receive an error. This is because you don't have an identity-based connection defined locally. If you want to run your function locally, set the app setting `ServiceBusConnection__fullyQualifiedNamespace` in `local.settings.json` as you did in [the previous section](#connect-to-service-bus-in-your-function-app). In addition, you'll need to assign the role to your developer identity. For more details, please refer to the [local development with identity-based connections documentation](./functions-reference#local-development-with-identity-based-connections).
+> If you try to run your functions now using `func start` you'll receive an error. This is because you don't have an identity-based connection defined locally. If you want to run your function locally, set the app setting `ServiceBusConnection__fullyQualifiedNamespace` in `local.settings.json` as you did in [the previous section](#connect-to-service-bus-in-your-function-app). In addition, you'll need to assign the role to your developer identity. For more details, please refer to the [local development with identity-based connections documentation](./functions-reference.md#local-development-with-identity-based-connections).
 
 ## Publish the updated project
 
@@ -204,7 +202,6 @@ Use the following links to learn more Azure Functions with identity-based connec
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 - [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
-- [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 - [Functions documentation for local development](./functions-reference.md#local-development-with-identity-based-connections)
 
-[previous tutorial]: functions-managed-identity-tutorial.md
+[previous tutorial]: ./functions-identity-based-connections-tutorial.md
