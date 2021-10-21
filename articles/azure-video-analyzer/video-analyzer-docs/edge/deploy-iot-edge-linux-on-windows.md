@@ -35,9 +35,11 @@ The following depicts the overall flow of the document and in 5 simple steps you
     > [!TIP] 
     > To exit the EFLOW VM, type `exit` within the terminal.
 
-1. Log into the EFLOW VM via PowerShell and type in the following command:
+1. Log into the EFLOW VM via PowerShell and type in the following commands:
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
+    
+    `sudo iptables -I INPUT -p udp -j ACCEPT`
 
     The Azure Video Analyzer needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
 
