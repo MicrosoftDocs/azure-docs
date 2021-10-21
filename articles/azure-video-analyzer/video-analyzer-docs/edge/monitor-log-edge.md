@@ -131,7 +131,7 @@ You can control the [routing of all the preceding events](../../../iot-edge/modu
 ```json
  "$edgeHub": {
    "properties.desired": {
-     "schemaVersion": "1.0",
+     "schemaVersion": "1.1",
      "routes": {
        "moduleToHub": "FROM /messages/modules/avaedge/outputs/* INTO $upstream"
      },
