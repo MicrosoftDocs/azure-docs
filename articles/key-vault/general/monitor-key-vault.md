@@ -44,7 +44,7 @@ Key Vault insights provides comprehensive monitoring of your key vaults by deliv
 
 ## Monitoring data
 
-Key Vault collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources).
+Key Vault collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../../azure-monitor/essentials/monitor-azure-resource.md).
 
 See [Monitoring *Key Vault* data reference](monitor-key-vault-reference.md) for detailed information on the metrics and logs metrics created by Key Vault.
 
@@ -68,7 +68,7 @@ For a list of the platform metrics collected for Key Vault, see [Monitoring Key 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md#top-level-resource-logs-schema) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md) 
 
 The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
