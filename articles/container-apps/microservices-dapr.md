@@ -230,6 +230,12 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 1. Verify that you can see the file named `order` in the container.
 
+1. Click on the file.
+
+1. Click the **Edit** tab.
+
+1. Click the **Refresh** button to observe updates.
+
 ## Clean up resources
 
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
