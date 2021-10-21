@@ -147,7 +147,7 @@
       href: edge/use-azure-portal-to-invoke-direct-methods.md    
     - name: Discover ONVIF-capable cameras
       href: edge/camera-discovery.md      
-    - name: Visual Studio Code extension
+    - name: Use Visual Studio Code extension
       href: edge/use-visual-studio-code-extension.md
     - name: Monitor and logging
       href: edge/monitor-log-edge.md 
