@@ -65,7 +65,7 @@ With password writeback enabled in Azure AD Connect cloud sync, now verify, and 
 To verify and enable password writeback in SSPR, complete the following steps: 
 
 1. Sign into the Azure portal using a global administrator account. 
-1. The current Azure portal implementation is hidden behind a feature flag and can be accessed at password reset on-premises integration: [https://aka.ms/CloudSyncPasswordWritebackPreview](https://aka.ms/CloudSyncPasswordWritebackPreview).
+1. Navigate to Azure Active Directory, select **Password reset**, then choose **On-premises integration**. 
 1. Verify the Azure AD Connect cloud sync agent set up is complete.
 
    ![Screenshot showing how to enable cloud sync](media/tutorial-enable-sspr-cloud-sync-writeback/enable.png)
