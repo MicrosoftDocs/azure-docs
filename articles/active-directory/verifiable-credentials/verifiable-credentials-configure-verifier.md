@@ -29,14 +29,14 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Set up a tenant for Azure AD Verifiable Credentials](verifiable-credentials-configure-tenant.md)
-- If you want to clone the repository that hosts the sample up, install [GIT](https://git-scm.com/downloads)
-- [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor
-- [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
-- [ngrok](https://ngrok.com/) (free)
-- A mobile device with Microsoft Authenticator
-  - Android version 6.2108.5654 or later installed
-  - iOS version 6.5.82 or later installed
+- [Set up a tenant for Azure AD Verifiable Credentials](verifiable-credentials-configure-tenant.md).
+- If you want to clone the repository that hosts the sample app, install [Git](https://git-scm.com/downloads).
+- [Visual Studio Code](https://code.visualstudio.com/Download) or similar code editor.
+- [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
+- [ngrok](https://ngrok.com/) (free).
+- A mobile device with Microsoft Authenticator:
+  - Android version 6.2108.5654 or later installed.
+  - iOS version 6.5.82 or later installed.
 
 ## Gather tenant details to set up your sample application
 
