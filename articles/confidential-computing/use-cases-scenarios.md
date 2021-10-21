@@ -10,7 +10,6 @@ ms.date: 11/01/2021
 ms.author: jencook
 ---
 # Use cases and scenarios
-
 Confidential computing applies to various use cases for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
 ![Confidential computing use cases](media/use-cases-scenarios/use_cases.jpg)
@@ -21,6 +20,17 @@ After reading this article, you'll be able to answer the following questions:
 
 - What are some scenarios for Azure confidential computing?
 - What are the benefits of using Azure confidential computing for multi-party scenarios, enhanced customer data privacy, and blockchain networks?
+
+## Motivations
+Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware.  
+
+**Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
+
+**Regulatory compliance**: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
+
+**Secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
+
+**Isolated processing**: Offer a new wave of products that remove liability on private data with blind processing. User data cannot even be retrieved by the service provider. 
 
 ## Secure multi-party computation
 
@@ -72,7 +82,7 @@ Confidential computing can expand the number of workloads eligible for public cl
 
 The adoption of hardware secure modules (HSM) enables secure transfer of keys and certificates to a protected cloud storage - [Azure Key Vault Managed HSM](\..\key-vault\managed-hsm\overview.md) – without allowing the cloud service provider to access such sensitive information. Secrets being transferred never exist outside an HSM in plaintext form, enabling scenarios for sovereignty of keys and certificates that are client generated and managed, but still using a cloud-based secure storage.
 
-## Blockchain
+## Secure blockchain
 
 A blockchain network is a decentralized network of nodes. These nodes are run and maintained by operators or validators who wish to ensure integrity and reach consensus on the state of the network. The nodes themselves are replicas of ledgers and are used to track blockchain transactions. Each node has a full copy of the transaction history, ensuring integrity and availability in a distributed network.
 

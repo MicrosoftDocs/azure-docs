@@ -36,6 +36,5 @@ For more information, see [how to deploy Intel SGX VMs with hardware-based trust
 You can use various [software tools for developing applications that run in enclaves](application-development.md). These tools help you shield portions of your code and data inside the enclave. Make sure nobody outside your trusted environment can view or modify your data with these tools.
 
 ## Next Steps
-
 - [Deploy a DCsv2 or DCsv3/DCdsv3-series virtual machine](quick-create-portal.md)
 - [Develop an enclave-aware application](application-development.md) using the OE SDK
