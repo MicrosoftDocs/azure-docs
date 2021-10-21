@@ -64,5 +64,5 @@ If your disk pool becomes inaccessible to your Azure VMware Solution cloud for a
 
 ## Next steps
 
-[Deploy a disk pool](disks-pools-deploy.md).
-To learn about how Azure VMware Solutions integrates disk pools, see [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md).
+- [Deploy a disk pool](disks-pools-deploy.md).
+- To learn about how Azure VMware Solutions integrates disk pools, see [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md).
