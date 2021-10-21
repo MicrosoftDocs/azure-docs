@@ -74,15 +74,13 @@ sftp myaccount.myusername@myaccount.blob.core.windows.net
 put logfile.txt
 ```
 
-If you set the home directory of a user to `mycontainer/mydirectory`, then the `logfile.txt` file would be uploaded to `mycontainer/mydirectory`. If you did not set the home directory, then the connection attempt would fail. Instead, connecting clients would have to specify a container or directory along with the request. The following example shows this:
+If you set the home directory of a user to `mycontainer/mydirectory`, then the `logfile.txt` file would be uploaded to `mycontainer/mydirectory`. If you did not set the home directory, then the connection attempt would fail. Instead, connecting clients would have to specify a container along with the request and then use sftp commands to change to the target directory before uploading a file. The following example shows this:
 
 ```powershell
-sftp myaccount.mycontainer.mydirectory.myusername@myaccount.blob.core.windows.net
+sftp myaccount.mycontainer.myusername@myaccount.blob.core.windows.net
+cd mydirectory
+put logfile.txt  
 ```
-
-## Monitor use from SFTP clients
-
-Account metrics such as transactions and capacity are available. Filter these logs by operations to see SFTP activity. SFTP_Connect will show the number of connections. Change feed support for SFTP enabled accounts is expected in Q4 CY21 and is expected to include the connected users for some events. You can monitor connection activity by using Change feed. 
 
 ## Known issues and limitations
 
