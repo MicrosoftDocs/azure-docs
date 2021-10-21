@@ -33,7 +33,7 @@ It's important that you have the following prerequisites completed before you be
  
    ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png#lightbox)
 
-2. Select the **IoT connectors** blade.
+2. Select **Deploy IoT connectors**.
 
    ![Screenshot of IoT connectors blade.](media/iot-connector-blade.png#lightbox)
 
