@@ -117,8 +117,6 @@
   items:
   - name: Create an IoT Edge device
     items:
-    - name: Register device in IoT Hub
-      href: how-to-register-device.md
     - name: Manually provision a single device
       items:
       - name: X.509 certificate attestation
@@ -137,12 +135,6 @@
           href: how-to-provision-single-device-linux-on-windows-symmetric.md
         - name: Windows
           href: how-to-provision-single-device-windows-symmetric.md
-    - name: Install and provision IoT Edge
-      items:
-      - name: Install IoT Edge for Linux
-        href: how-to-install-iot-edge.md
-      - name: Install IoT Edge for Linux on Windows
-        href: how-to-install-iot-edge-on-windows.md
     - name: Update IoT Edge
       href: how-to-update-iot-edge.md
     - name: Manage device certificates
@@ -155,8 +147,6 @@
       href: gpu-acceleration.md
   - name: Alternative device scenarios
     items:
-    - name: Run IoT Edge with Windows containers
-      href: how-to-install-iot-edge-windows-on-windows.md
     - name: Run IoT Edge on Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
     - name: Deploy IoT Edge VM using an ARM template
@@ -323,8 +313,6 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ./index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps
