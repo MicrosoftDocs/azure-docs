@@ -2,7 +2,7 @@
 title: Azure Video Analyzer pipeline
 description: An Azure Video Analyzer pipeline you ingest, process, and publish video within Azure Video Analyzer edge and cloud. A pipeline consists of nodes that are connected to achieve the desired flow of data.
 ms.topic: conceptual
-ms.date: 10/17/2021
+ms.date: 10/31/2021
 
 ---
 # Pipeline
@@ -69,7 +69,7 @@ Multiple pipelines can be created from a single topology by supplying different 
 Video Analyzer allows you to define pipeline topologies with the following nodes.
 
 > [!NOTE]
-> Not all nodes are available in both Video Analyzer edge module and service. Please see [Rules on nodes usage](pipeline.md#rules-on-the-use-of-nodes)
+> Not all nodes are available in both Video Analyzer edge module and service. Please see [Rules on nodes usage](pipeline.md#rules-on-the-use-of-nodes).
 
 ### Sources
 
