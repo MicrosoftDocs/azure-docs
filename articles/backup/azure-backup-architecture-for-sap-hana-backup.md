@@ -21,7 +21,7 @@ Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enE
 
 Azure Backup stores the backed-up data in Recovery Services vaults. A vault is an online-storage entity in Azure that's used to store data, such as backup copies, recovery points, and backup policies.
 
-[Learn more](./backup-azure-backup-faq.yml#recovery-services-vault) about Recovery Services vault.
+[Learn more](./backup-azure-backup-faq.yml) about Recovery Services vault.
 
 ## Backup agents
 
