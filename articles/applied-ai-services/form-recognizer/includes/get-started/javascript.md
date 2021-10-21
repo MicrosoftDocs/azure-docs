@@ -107,7 +107,6 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 ### Add the following code to your layout application on the line below the `apiKey` variable
 
 ```javascript
-
 const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
 const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
@@ -241,6 +240,8 @@ async function recognizeInvoices() {
 recognizeInvoices().catch((err) => {
     console.error("The sample encountered an error:", err);
 });
+
+```
 
 Congratulations! In this quickstart, you used the Form Recognizer JavaScript SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
 
