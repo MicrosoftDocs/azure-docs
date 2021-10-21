@@ -51,7 +51,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
 
-#### [Azure PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 1. Enter the following commands:
 
@@ -137,12 +137,6 @@ Create a new extension instance with `k8s-extension create`, passing in values f
 az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True
 ```
 
-**Output:**
-
-```json
-TBD
-```
-
 > [!NOTE]
 > The Cluster Extensions service is unable to retain sensitive information for more than 48 hours. If the cluster extension agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension instance.
 
@@ -181,7 +175,7 @@ az k8s-extension show --name azureml --cluster-name <clusterName> --resource-gro
 
 ### List all extensions installed on the cluster
 
-List all extensions installed on a cluster with `k8s-extension list`, passing in values for the mandatory parameters.
+List all extensions installed on a cluster with `k8s-extension list`, passing in values for the mandatory parameters:
 
 ```azurecli
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
