@@ -3,8 +3,8 @@ title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
 description: In this tutorial, you create a .NET Core C# application to send messages to and receive messages from a Service Bus queue.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 08/16/2021
-ms.custom: contperf-fy21q4
+ms.date: 10/11/2021
+ms.custom: contperf-fy22q2
 ---
 
 # Get started with Azure Service Bus queues (.NET)
@@ -294,8 +294,7 @@ In this section, you'll add code to retrieve messages from the queue.
         return Task.CompletedTask;
     }
     ```
-4. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code. See code comments for more details. 
-    Here are the important steps from the code:
+4. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code. 
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the primary connection string to the namespace. 
     1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
     1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object. 
@@ -446,7 +445,7 @@ In this section, you'll add code to retrieve messages from the queue.
 1. Check the portal again. Wait for a few minutes and refresh the page if you don't see `0` for **Active** messages. 
 
     - The **Active** message count and **Current size** values are now **0**.
-    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
+    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages and three outgoing messages for the queue. 
     
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 

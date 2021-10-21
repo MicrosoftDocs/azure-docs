@@ -86,7 +86,7 @@ You need to apply the CORS policy to enable the interactive console in the devel
 ```
 
 ### Example
-This example demonstrates how to support pre-flight requests, such as those with custom headers or methods other than GET and POST. To support custom headers and additional HTTP verbs, use the `allowed-methods` and `allowed-headers` sections as shown in the following example.
+This example demonstrates how to support [pre-flight requests](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests), such as those with custom headers or methods other than GET and POST. To support custom headers and additional HTTP verbs, use the `allowed-methods` and `allowed-headers` sections as shown in the following example.
 
 ```xml
 <cors allow-credentials="true">

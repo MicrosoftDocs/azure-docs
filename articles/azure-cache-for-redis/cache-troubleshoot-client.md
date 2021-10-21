@@ -15,7 +15,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 - [Traffic burst](#traffic-burst)
 - [High client CPU usage](#high-client-cpu-usage)
 - [Client-side bandwidth limitation](#client-side-bandwidth-limitation)
-- [Large request or response size](#large-request-or-response-size)
+<!-- [Large request or response size](#large-request-or-response-size) -->
 
 ## Memory pressure on Redis client
 
@@ -72,6 +72,7 @@ Monitor how your Bandwidth usage change over time using [an example `BandwidthLo
 
 To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity.
 
+<!-- 
 ## Large request or response Size
 
 A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
@@ -100,6 +101,7 @@ Resolutions for large response sizes are varied but include:
 1. Increase the number of connection objects your application uses.
     - Use a round-robin approach to make requests over different connection objects.
 
+ -->
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)

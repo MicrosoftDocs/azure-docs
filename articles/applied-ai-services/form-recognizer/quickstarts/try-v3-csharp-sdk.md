@@ -153,11 +153,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
     ```
 
-1. Delete the line, `Console.Writeline("Hello World!");`.
-
-    :::image type="content" source="../media/quickstarts/csharp-console-hello-world.png" alt-text="Screenshot: Program.cs Hello World code in the Visual Studio code editor.":::
-
-1. Add the **Try It** code to the **Main** method in the **Program.cs** file:
+1. Delete the line, `Console.Writeline("Hello World!");` and ddd the **Try It** code to the **Main** method in the **Program.cs** file:
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 

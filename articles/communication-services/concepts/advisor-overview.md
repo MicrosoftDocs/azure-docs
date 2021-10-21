@@ -24,7 +24,7 @@ To ensure all the recent fixes and updates, it's recommended you always stay up 
 
 ![Azure Advisor example showing recommendation to update chat SDK.](./media/advisor-chat-sdk-update-example.png)
 
-The following SDKs are supported for this feature, along with all their supported languages. You can learn more about the [SDK options](./sdk-options.md) available.
+The following SDKs are supported for this feature, along with all their supported languages. Note that this feature will only send recommendations for the newest generally available major release versions of the SDKs. Beta or preview versions will not trigger any recommendations or alerts. You can learn more about the [SDK options](./sdk-options.md) available.
 
 * Calling (client)
 * Chat

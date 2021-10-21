@@ -57,12 +57,12 @@ items:
       href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
-      - name: Get started with Composites
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
-      - name: Get started with Stateful Client
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
-      - name: Get started with UI Components
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+    - name: Get started with Composites
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
+    - name: Get started with Stateful Client
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
+    - name: Get started with UI Components
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -123,8 +123,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
-      - name: Call diagnostics
-        href: concepts/voice-video-calling/call-diagnostics.md
+      - name: User-facing diagnostics
+        href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues
@@ -150,10 +150,28 @@ items:
   - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
-    href: concepts/teams-interop.md
+    items:
+      - name: Overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Service Events (EventGrid)
-    href: ../event-grid/event-schema-communication-services.md
-    maintainContext: true
+    items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: Chat Events
+        href: ../event-grid/communication-services-chat-events.md
+        maintainContext: true
+      - name: Telephony and SMS Events
+        href: ../event-grid/communication-services-telephony-sms-events.md
+        maintainContext: true
+      - name: Voice and video calling Events
+        href: ../event-grid/communication-services-voice-video-events.md
+        maintainContext: true
+      - name: Presence Events
+        href: ../event-grid/communication-services-presence-events.md
+        maintainContext: true
   - name: Logging and diagnostics
     href: concepts/logging-and-diagnostics.md
   - name: Metrics

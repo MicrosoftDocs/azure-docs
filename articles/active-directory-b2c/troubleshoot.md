@@ -2,14 +2,14 @@
 title: Troubleshoot custom policies and user flows in Azure Active Directory B2C
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/08/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -36,7 +36,7 @@ Azure AD B2C service can also return an error to your application when a user ca
 -  A user policy uses the recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
 - A user chooses to authenticate with an external identity provider such as [LinkedIn](identity-provider-linkedin.md). The user select **Cancel** button before authenticating to the identity provider itself. In this case, Azure AD B2C service returns error code `AADB2C90273` to your application. Learn more about [error codes Azure Active Directory B2C service return](error-codes.md).
 
-To handle this error, fetch the **error description** for the user and respond back with a new authentication request with the same user flow. 
+To handle this error, fetch the **error description** for the user and respond back with a new authentication request using the same user flow. 
 
 ::: zone-end
 
