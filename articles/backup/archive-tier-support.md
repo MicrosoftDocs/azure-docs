@@ -1,6 +1,6 @@
 ---
 title: Archive Tier support overview
-description: Learn about Archive Tier Support for Azure Backup
+description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
 ms.date: 10/21/2021
 ms.custom: devx-track-azurepowershell
@@ -35,8 +35,7 @@ Archive tier supports the following clients:
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 
-> :::video source="https://www.youtube.com/embed/nQnH5mpiz60":::
-> [!VIDEO https://www.youtube.com/embed/elODShatt-c]
+> [!VIDEO https://www.youtube.com/embed/nQnH5mpiz60]
 
 ## Archive recommendations (Only for Azure Virtual Machines)
 
