@@ -14,7 +14,7 @@ This article explains how to enable VM insights for Azure virtual machines or hy
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 > [!NOTE]
-> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md#vm-insights).
+> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
 VM insights provides builtin policy definitions to install the Log Analytics agent and Dependency agent on Azure virtual machines. The following built-in initiatives install both agents to enable full monitoring. Assign these initiatives to a management group, subscription, or resource group to automatically install the agents on any Windows or Linux Azure virtual machines in that scope.
