@@ -287,7 +287,6 @@ Select **Upload Custom Policy**, and then upload the two policy files that you c
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
-::: zone-end
 
 ## Next steps
 
@@ -298,3 +297,5 @@ For additional information, review the following articles:
 - [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
 
 - [Learn more about IDEMIA mID](https://www.idemia.com/mobile-id)
+
+::: zone-end
