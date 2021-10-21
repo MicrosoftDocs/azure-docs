@@ -16,19 +16,19 @@ ms.author: cavoeg
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
-### Feature and enhancements
+### Features and enhancements
 
-Added support for [conditional patch](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-and-conditional-patch)
+Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-and-conditional-patch)
 
 * Conditional patch - [#2163](https://github.com/microsoft/fhir-server/pull/2163)
 * Add constional patch audit event - [#2213](https://github.com/microsoft/fhir-server/pull/2163)
 
-Allow [JSON patch in bundles](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-in-bundles)
+Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-in-bundles)
 
 * Allow search history bundles with patch requests - [#2156](https://github.com/microsoft/fhir-server/pull/2156)
 * Enable JSON patch in bundles leveraging Binary resources - [#2143](https://github.com/microsoft/fhir-server/pull/2143)
 
-Added new audit [OperationName sub-types](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
+Added new audit [OperationName sub-types](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
 
 [Reindex](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex) improvements
 
