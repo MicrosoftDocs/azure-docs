@@ -34,13 +34,13 @@ Secret parameters can be provided while creating and running tests from Azure po
 
 To read secrets from Key Vault, you need an existing vault. Give your app permission to access it. App access to your vault is required if you're defining your secrets in Azure portal or a YAML configuration file.  
 
-1. Create an Azure key vault by following the [Key Vault quick-start](../azure/key-vault/secrets/quick-create-cli.md) or use an existing Key vault.  
+1. Create an Azure key vault by following the [Key Vault quick-start](/azure/key-vault/secrets/quick-create-cli.md) or use an existing Key vault.  
 
 1. [Add the secret to the Key Vault] (../azure/key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) , if it doesn't exist.  
 
-1. Create a [system assigned managed identity](../azure/active-directory/managed-identities-azure-resources/overview.md) for your Azure Load Testing resource from Azure portal.  
+1. Create a [system assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview.md) for your Azure Load Testing resource from Azure portal.  
 
-1. Create an [access policy in Key Vault](../azure/key-vault/general/rbac-guide.md) for the identity you created earlier. Enable the "Get" secret permission on this policy.  
+1. Create an [access policy in Key Vault](/azure/key-vault/general/rbac-guide.md) for the identity you created earlier. Enable the "Get" secret permission on this policy.  
 
 ### Providing secrets from Azure portal  
 
@@ -70,7 +70,7 @@ The secrets are fetched from the Key Vault for every test run.
 
 ### Providing secrets in CI/CD workflow  
 
-In a CI/CD workflow, if you're using Azure Key Vault for secrets storage, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-yaml-file). You can use any other secret store by fetching the secrets in the pipeline. You then pass them to the Azure Load Testing Task or Azure Load Testing Action. [Azure Pipeline variables](../azure/devops/pipelines/process/variables?view=azure-devops.md&tabs=yaml%2Cbatch#secret-variables) and [GitHub secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) are widely used secret stores in Azure DevOps Services and GitHub.  
+In a CI/CD workflow, if you're using Azure Key Vault for secrets storage, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-yaml-file). You can use any other secret store by fetching the secrets in the pipeline. You then pass them to the Azure Load Testing Task or Azure Load Testing Action. [Azure Pipeline variables](/azure/devops/pipelines/process/variables.md?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true) and [GitHub secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) are widely used secret stores in Azure DevOps Services and GitHub.  
 
 1. Add a step in the CI/CD workflow to fetch the relevant secrets from the secret store. For example, if your secrets use Azure Pipelines variables or GitHub secrets, add the name and value of the secrets. Don't provide an Azure Key Vault secret Uri in this case.  
 
