@@ -164,7 +164,7 @@ Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-sca
 
 Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits, and libraries such as TensorFlow, as well as their own custom models, into security workflows.
 
-The new Azure Synapse integration provides extra analytic horsepower, which:
+The new Azure Synapse integration provides extra analytic horsepower, such as:
 
 - **Security big data analytics**, using cost-optimized, fully-managed Azure Synapse Apache Spark compute pool.
 
