@@ -19,23 +19,16 @@ In the article, we'll deploy Video Analyzer by using Azure IoT Hub, but the Azur
 * An Azure Video Analyzer account
 
     This [cloud service](../overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
-
 * A managed identity
 
     This is the user-assigned [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that you use to manage access to your storage account.
-
 * An [Azure Stack Edge](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
-
 * An [IoT hub](../../../iot-hub/iot-hub-create-through-portal.md)
-
 * A storage account
 
     We recommend that you use a [general-purpose v2 storage account](../../../storage/common/storage-account-upgrade.md?tabs=azure-portal).  
-    
 * [Visual Studio Code](https://code.visualstudio.com/), installed on your development machine
-
 *  The [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools), installed in Visual Studio Code
-
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with your Azure IoT hub.
 
 ## Configure Azure Stack Edge to use Video Analyzer
@@ -205,13 +198,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     }
     ```
 1. Select **Add**.  
-
 1. Select **Next: Routes** to continue to the routes section. 
-
 1. To specify routes, under **Name**, enter **AVAToHub** and then, under **Value**, enter **FROM /messages/modules/avaedge/outputs/ INTO $upstream**.
-
 1. Select **Next: Review + create** to continue to the review section.
-
 1. Review your deployment information, and then select **Create** to deploy the module.
 
 #### Generate the provisioning token
@@ -222,7 +211,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/generate-provisioning-token.png" alt-text="Screenshot of the 'Add edge modules' pane for generating a token." lightbox="./media/deploy-on-stack-edge/generate-provisioning-token.png":::
-
 1. Copy the provisioning token, as shown in the following image:
 
     > [!div class="mx-imgBorder"]
@@ -249,7 +237,6 @@ This section covers how to create a gateway user and set up file shares to view 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/add-user.png" alt-text="Screenshot of the Azure Stack Edge resource 'Add user' page.":::
-
 1. Create a *local share* for Video Analyzer persistence by doing the following:
 
     a. Select **Cloud storage gateway** > **Shares**.  
@@ -266,7 +253,6 @@ This section covers how to create a gateway user and set up file shares to view 
     
     > [!TIP]
     > With your Windows client connected to your Azure Stack Edge device, follow the instructions in the "Connect to an SMB share" section of [Transfer data with Azure Stack Edge Pro FPGA](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
-
 1. Create a *remote share* for file sync storage by doing the following:
 
     a. Create an Azure Blob Storage account in the same region by selecting **Cloud storage gateway** > **Storage accounts**.  
@@ -369,12 +355,9 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
     * Configure your machine for access to the Kubernetes cluster by following the instructions in [Create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device](../../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * All deployed IoT Edge modules use the *iotedge* namespace. Be sure to include that name when you're using kubectl. 
-
 * **Module logs**
->>>>>>> 63d645256c40c2c4644b1317cdd40de13e09d6e9:articles/azure-video-analyzer/video-analyzer-docs/deploy-on-stack-edge.md
 
     If the *iotedge* tool is inaccessible for obtaining logs, use [kubectl logs](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) to view the logs or pipe to a file. For example: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
-
 * **Pod and node metrics**
 
     To view pod and node metrics, use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top). For example:
@@ -422,8 +405,7 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
     * **Option 1**: Use *node affinity* and built-in node labels for co-location.  
 
-    Currently, NodeSelector custom configuration doesn't appear to be an option, because users don't have access to set labels on the nodes. However depending on the users' topology and naming conventions, they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). To achieve co-location, you can add to the inference pod manifest a nodeAffinity section that references Azure Stack Edge resources with Video Analyzer.
-    
+    Currently, NodeSelector custom configuration doesn't appear to be an option, because users don't have access to set labels on the nodes. However depending on the users' topology and naming conventions, they might be able to use [built-in node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels). To achieve co-location, you can add to the inference pod manifest a nodeAffinity section that references Azure Stack Edge resources with Video Analyzer.    
     * **Option 2**: (Recommended) Use *pod affinity* for co-location.  
 
         Kubernetes supports [pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity), which can schedule pods on the same node. To achieve co-location, you can add to the inference pod manifest, a podAffinity section that references the Video Analyzer module.
