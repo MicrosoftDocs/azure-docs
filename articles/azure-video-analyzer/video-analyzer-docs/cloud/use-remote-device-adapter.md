@@ -61,7 +61,7 @@ In the Azure portal:
 
 1. Navigate to the IoT Hub
 1. Select the **IoT Edge** pane under **Automatic Device Management**
-1. Select the IoT edge device (such as **ava-sample-device**) to which Video Analyzer edge module has been deployed
+1. Select the IoT Edge device (such as **ava-sample-device**) to which Video Analyzer edge module has been deployed
 1. Under modules, select the Video Analyzer edge module (such as **avaedge**)
 1. Select **</> Direct Method** 
 1. Enter **remoteDeviceAdapterSet** for the Method Name
