@@ -183,4 +183,6 @@ The steps to publish a policy are as follows
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
 
 ## Next steps
-Check the [Concepts for Azure Purview access policies](concept-data-policies.md)
+Check these articles to understand concepts related to access policies
+[Concepts for Azure Purview access policies](concept-data-policies.md)
+[Concepts for Azure Purview Self-Service data discovery and access](concept-self-service.md)
