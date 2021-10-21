@@ -41,7 +41,7 @@
   - name: Service limits
     href: chaos-studio-service-limits.md
   - name: REST API documentation
-    href: https://aka.ms/chaosRESTAPI
+    href: https://docs.microsoft.com/rest/api/chaosstudio
 - name: Resources
   items:
   - name: Azure roadmap
