@@ -23,9 +23,11 @@ In Kubernetes clusters, instance types are defined by two elements:
 * [nodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) - A `nodeSelector` lets you specify which node a pod should run on.  The node must have a corresponding label.
 * [resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) - The `resources` section defines the compute resources (CPU, memory and Nvidia GPU) for the pod.
 
-## Create an instance type
+## Create instance types
 
 Instance types are represented in a custom resource definition (CRD) that is installed with the Azure Machine Learning extension.  
+
+### Create a single instance type
 
 To create a new instance type, create a new custom resource for the instance type CRD.  
 
@@ -58,12 +60,58 @@ kubectl apply -f my_instance_type.yaml
 This operation creates an instance type with the following properties:
 
 - Pods are scheduled only on nodes with label `mylabel: mylabelvalue`.
-- Pods are assigned resource requests of `700m` CPU and `1500Mi` memory.
+- Pods are assigned resource requests of `700m` CPU and `1500Mi` memory. 
 - Pods are assigned resource limits of `1` CPU, `2Gi` memory and `1` Nvidia GPU.
 
 > [!NOTE]
-> Nvidia GPU resources are only specified in the `limits` section.  For more information,
-please refer to the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins).
+> When you specify your CRD, consider make note of the following conventions:
+> - Nvidia GPU resources are only specified in the `limits` section.  For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins).
+> - CPU and memory resources are string values.
+> - CPU can be specified in millicores (`100m`) or in full numbers (`"1"` which is equivalent to `1000m`).
+> - Memory can be specified as a full number + suffix (`1024Mi` for `1024 MiB`).
+
+### Create multiple instance types
+
+You can also use CRDs to create multiple instance types at once.
+
+For example, given the CRD `my_instance_type.yaml`:
+
+```
+apiVersion: amlarc.azureml.com/v1alpha1
+kind: InstanceTypeList
+items:
+  - metadata:
+      name: cpusmall
+    spec:
+      resources:
+        limits:
+          cpu: "100m"
+          nvidia.com/gpu: 0
+          memory: "10Mi"
+        requests:
+          cpu: "100m"
+          memory: "1Gi"
+
+  - metadata:
+      name: defaultinstancetype
+    spec:
+      resources:
+        limits:
+          cpu: "1"
+          nvidia.com/gpu: 0
+          memory: "1Gi"
+        requests:
+          cpu: "1"
+          memory: "1Gi" 
+```
+
+Use the `kubectl apply` command to create multiple instance types.
+
+```bash
+kubectl apply -f my_instance_type.yaml
+``` 
+
+This operation creates two instance types, one called `defaultinstancetype` and the other `cpusmall` with different resource specifications. For more information on default instance types, see the [default instance types](#default-instance-types) section of this document.
 
 ## Default instance types
 
@@ -85,10 +133,9 @@ If no default instance type is defined, the following default behavior applies:
         cpu: "0.6"
         memory: "1536Mi"
     ```
-    
+
 > [!IMPORTANT]
-> The default instance type will not appear as an InstanceType custom resource in the cluster,
-but it will appear in all clients (UI, CLI, SDK).
+> The default instance type will not appear as an InstanceType custom resource in the cluster, but it will appear in all clients (Azure Machine Learning studio, Azure CLI, Python SDK).
 
 ## Select an instance type for training workloads
 
@@ -104,8 +151,10 @@ compute:
   instance_type: <instance_type_name>
 ```
 
-In the above example, replace `<compute_target_name>` with the name of your Kubernetes compute
-target and `<instance_type_name>` with the name of the instance type you wish to select.
+In the above example, replace `<compute_target_name>` with the name of your Kubernetes compute target and `<instance_type_name>` with the name of the instance type you wish to select.
+
+> [!TIP]
+> The default instance type purposefully uses little resources. To ensure all machine learning workloads run successfully with the adequate resources, it is highly recommended to create custom instance types.
 
 ## Select an instance type for inferencing workloads
 
