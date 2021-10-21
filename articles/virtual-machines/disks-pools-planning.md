@@ -23,7 +23,7 @@ If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra
 
 ## Optimize for high throughput
 
-If you're prioritizing throughput, begin by evaluating the number of disk pools required to deliver your throughput targets. Once you have the necessary targets, you can split it amongst each individual disk and their types. Currently, three disk types can be used in disk pools, premium and standard SSDs, or ultra disks. Premium SSDs can deliver high IOPS and MBps that scales with their storage capacity, whereas ultra disks can scale their performance independent of their storage capacity. Select the type that is the best fit for your cost and performance balance. Also, confirm the network connectivity from your clients to the disk pool is not a bottleneck, especially the throughput.
+If you're prioritizing throughput, begin by evaluating the performance targets of the different disk pool SKUs, as well as the number of disk pools required to deliver your throughput targets. If your performance needs exceed what a premium disk pool can provide, you can split your deployment across multiple disk pools. Then, you can decide how to best utilize the performance offered on a disk pool amongst each individual disk and their types. For a disk pool, you can either mix and match between premium and standard SSDs, or use ultra disks only. Ultra disks can't be used with premium or standard SSDs. Select the disk type that best fits your needs. Also, confirm the network connectivity from your clients to the disk pool is not a bottleneck, especially the throughput.
 
 
 ## Use cases
@@ -54,7 +54,9 @@ As an example, if you add two 1-TiB premium SSDs (P30, with a provisioned target
 
 ## Availability
 
-Disk pools are currently in preview, and shouldn't be used for production workloads. Disk pools with support for premium and standard SSDs are based on a highly available architecture, with multiples hosting the iSCSI endpoint. Disk pools with support for ultra disks are hosted on a single instance deployment.
+Disk pools are currently in preview, and shouldn't be used for production workloads. By default, a disk pool only supports premium and standard SSDs. You can enable support for ultra disks on a disk pool instead but, a disk pool with ultra disks isn't compatible with premium or standard SSDs.
+
+Disk pools with support for premium and standard SSDs are based on a highly available architecture, with multiples hosting the iSCSI endpoint. Disk pools with support for ultra disks are hosted on a single instance deployment.
 
 If your disk pool becomes inaccessible to your Azure VMware Solution cloud for any reason, you will experience the following:
 
