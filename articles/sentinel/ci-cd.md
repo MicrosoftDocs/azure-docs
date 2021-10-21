@@ -18,7 +18,7 @@ ms.date: 10/20/2021
 ms.author: bagol
 ---
 
-# Manage custom content in your own repository (Public preview)
+# Deploy custom content from your repository (Public preview)
 
 > [!IMPORTANT]
 >
@@ -26,14 +26,12 @@ ms.author: bagol
 
 Azure Sentinel *content* is Security Information and Event Management (SIEM) that assists customers with ingesting, monitoring, alerting, hunting, and more in Azure Sentinel. For example, Azure Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Azure Sentinel content and solutions](sentinel-solutions.md).
 
-You can use the built-in content provided in Azure Sentinel as is, customize it for your own needs, or create your own custom content from scratch.
+You can use the out-of-the-box (built-in) content provided in the Azure Sentinel Content hub and customize it for your own needs, or create your own custom content from scratch.
 
-When creating custom content, you can store and manage it in your own Azure Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. You can also package your content in solutions [via the Azure Sentinel GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) to have it displayed in the Azure Sentinel Content hub.
-
-This article describes how to manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspaces.
+When creating custom content, you can store and manage it in your own Azure Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. This article describes how to manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspaces.
 
 > [!TIP]
-> This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Azure Sentinel GitHub directory](https://github.com/Azure/Azure-Sentinel) for each content type.
+> This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Azure Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
 >
 
 ## Prerequisites and scope
@@ -56,7 +54,7 @@ Before connecting your Azure Sentinel workspace to an external source control re
 
 Deploying content to Azure Sentinel via a repository connection does not validate that content other than verifying that the data is in the correct ARM template format.
 
-We recommend that you validate your content templates using your regular validation process.
+We recommend that you validate your content templates using your regular validation process. You can leverage the [Azure Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to set up your own validation process.
 
 ## Connect a repository
 
@@ -290,7 +288,7 @@ Each Azure Sentinel App installation has a unique ID that's used when both addin
 
 ## Next steps
 
-Use your custom content in Azure Sentinel in the same way that you'd use built-in content.
+Use your custom content in Azure Sentinel in the same way that you'd use out-of-the-box content.
 
 For more information, see:
 

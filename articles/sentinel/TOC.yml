@@ -113,7 +113,7 @@
     items:
     - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
-    - name: Manage custom content in your repository
+    - name: Deploy custom content from your repository
       href: ci-cd.md
   - name: Collect data
     items:
