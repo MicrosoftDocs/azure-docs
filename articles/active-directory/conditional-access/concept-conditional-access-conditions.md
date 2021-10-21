@@ -188,18 +188,23 @@ For more information, see the following articles:
 By selecting **Other clients**, you can specify a condition that affects apps that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication.
 
 ## Device state (preview)
+> [!CAUTION]
+> **This preview feature is being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using Device state (preview) condition.
 
 The device state condition can be used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
    - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
 
+The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app excluding **Filter for devices** condition with the following rule **device.trustType -ne "ServerAD" -or device.isCompliant -ne True** and for *Access controls*, **Block**.
+- This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+
 > [!IMPORTANT]
 > Device state and filters for devices cannot be used together in Conditional Access policy. Filters for devices provides more granular targeting including support for targeting device state information through the `trustType` and `isCompliant` property.
 
-## Filters for devices (preview)
+## Filter for devices
 
-There is a new optional condition in Conditional Access called filters for devices. When configuring filters for devices as a condition, organizations can choose to include or exclude devices based on filters using a rule expression on device properties. The rule expression for filters for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information see the article, [Conditional Access: Filters for devices (preview)](concept-condition-filters-for-devices.md).
+There is a new optional condition in Conditional Access called filter for devices. When configuring filter for devices as a condition, organizations can choose to include or exclude devices based on a filter using a rule expression on device properties. The rule expression for filter for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information see the article, [Conditional Access: Filter for devices (preview)](concept-condition-filters-for-devices.md).
 
 ## Next steps
 
