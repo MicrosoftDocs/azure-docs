@@ -19,8 +19,9 @@ This article covers troubleshooting steps for Azure Video Analyzer service.
 
 ## Viewing diagnostics
 
-Once you have enabled diagnostics, you can access the logs as follows
-> [!NOTE] Recommend that at least one live pipeline be activated to emit events. 
+Once you have enabled diagnostics, you can access the logs as follows:
+
+>[!NOTE] Recommend that at least one live pipeline be activated to emit events. 
 
 •	In the portal, locate the storage account to which logs were written to
 •	Open the management blade for that storage account
@@ -107,7 +108,7 @@ o	If issue is not resolved, gather the widget logs, and file a support ticket vi
 o	Gathering widget logs:
 1.	Hit F12 to enable Browser Developer tools, go to the Console TAB, enable "All levels" logging.   
 2.	From the Settings Icon , select Preferences --> Console --> Show timestamps 
-![settings](<todo>)
+<!-- ToDo - Add image LINK -->
 3.	Save the logs   
 
 ## Collect logs for submitting a support ticket
