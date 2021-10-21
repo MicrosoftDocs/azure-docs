@@ -36,7 +36,7 @@ To read secrets from Key Vault, you need an existing vault. Give your app permis
 
 1. Create an Azure key vault by following the [Key Vault quick-start](/azure/key-vault/secrets/quick-create-cli.md) or use an existing Key vault.  
 
-1. [Add the secret to the Key Vault](../azure/key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) if it doesn't exist.  
+1. [Add the secret to the Key Vault](/azure/key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) if it doesn't exist.  
 
 1. Create a [system assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview.md) for your Azure Load Testing resource from Azure portal.  
 
