@@ -103,7 +103,7 @@ Azure Sentinel provides the built-in, **Azure Synapse - Configure Azure ML and A
 
 1. Run the cells in step 6, **Export Data from Azure Log Analytics to Azure Data Lake Storage Gen2**, to export your data you want to use for your queries from Azure Log Analytics to Azure Data Lake Storage.
 
-After your data is in Azure Data Lake Storage, you're ready to start running big data queries with Azure Synapse.
+After your data is in Azure Data Lake Storage, you're ready to start running big data queries with Azure Synapse. For more information, see [Log Analytics data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
 
 ## Hunt on historical data at scale
 
