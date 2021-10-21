@@ -95,7 +95,7 @@ userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener)
 userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
-## Get the latest user fadiagnostics
+## Get the latest user facing diagnostics
 
 - Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 
