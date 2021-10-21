@@ -20,6 +20,11 @@ ms.author: b-juche
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+<!-- Month TBD --> 
+
+* [Encrypted SMB connection to domain controller](create-active-directory-connections.md#create-an-active-directory-connection) 
+
  
 ## October 2021
 
@@ -41,10 +46,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     This public preview is currently available starting with **North Central US** and will roll out to other regions.  Stay tuned for further information through [Azure Update](https://azure.microsoft.com/updates/) as more regions and features become available.  
  
     To learn more, see [Configure network features for an Azure NetApp Files volume](configure-network-features.md).
-
-
-* [Encrypted SMB connection to domain controller](create-active-directory-connections.md#create-an-active-directory-connection) 
-
 
 ## September 2021
 
