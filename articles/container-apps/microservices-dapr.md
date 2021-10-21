@@ -386,4 +386,4 @@ This will delete both container apps, the storage account, the container apps en
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor an app](monitor.md)
+> [Application lifecycle management](application-lifecycle-management.md)
