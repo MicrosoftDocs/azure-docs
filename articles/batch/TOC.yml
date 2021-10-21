@@ -116,6 +116,8 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
+    - name: Use simplified compute node communication
+      href: simplified-compute-node-communication.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
