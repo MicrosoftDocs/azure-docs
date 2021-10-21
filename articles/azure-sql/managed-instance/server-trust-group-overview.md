@@ -61,7 +61,7 @@ Following section describes Server trust group deletion process.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirm Server trust group deletion":::
 
 > [!NOTE]
-> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes-whats-new.md?tabs=managed-instance#known-issues) for the latest updates on this.
+> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes-whats-new.md?tabs=managed-instance) for the latest updates on this.
 
 ## Limitations
 
