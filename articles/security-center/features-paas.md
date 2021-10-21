@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center features for supported Azure PaaS resources.
-description: This page shows the availability of Azure Security Center features for the supported Azure PaaS resources.
+title: Microsoft Defender for Cloud features for supported Azure PaaS resources.
+description: This page shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -11,7 +11,7 @@ ms.author: memildin
 ---
 # Feature coverage for Azure PaaS services <a name="paas-services"></a>
 
-The table below shows the availability of Azure Security Center features for the supported Azure PaaS resources.
+The table below shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 
 |Service|Recommendations (Free)|Security alerts (Azure Defender)|Vulnerability assessment (Azure Defender)|
 |:----|:----:|:----:|:----:|
