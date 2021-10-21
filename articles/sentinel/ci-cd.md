@@ -28,7 +28,7 @@ Azure Sentinel *content* is Security Information and Event Management (SIEM) tha
 
 You can use the out-of-the-box (built-in) content provided in the Azure Sentinel Content hub and customize it for your own needs, or create your own custom content from scratch.
 
-When creating custom content, you can store and manage it in your own Azure Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. This article describes how to manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspaces.
+When creating custom content, you can store and manage it in your own Azure Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. This article describes how to create and manage the connections between Azure Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Azure Sentinel, and have it automatically deployed to your workspaces.
 
 > [!TIP]
 > This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Azure Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
