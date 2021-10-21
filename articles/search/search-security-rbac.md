@@ -17,10 +17,10 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Use generally available roles for service administration.
 
-+ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available by request**](https://aka.ms/azure-cognitive-search/rbac-preview).
++ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available in preview**](#step-1-preview-sign-up).
 
 > [!NOTE]
-> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](https://aka.ms/azure-cognitive-search/rbac-preview).
+> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](#step-1-preview-sign-up).
 
 A few RBAC scenarios are **not** supported, or not covered in this article:
 
@@ -58,11 +58,18 @@ Skip this step if you are using generally available roles (Owner, Contributor, R
 
 New built-in preview roles provide a granular set of permissions over content on the search service. Although built-in roles are always visible in the Azure portal, service enrollment is required to make them operational.
 
-For enrollment into the preview program:
+To add your subscription to the preview:
 
-+ [Fill out this form](https://aka.ms/azure-cognitive-search/rbac-preview)
+1. Navigate to the **Subscriptions** page in the [Azure portal](https://portal.azure.com/).
+1. Select the subscription you want to use.
+1. On the left-hand side of the subscription page, select **Preview Features**.
+1. Use the search bar or filters to find and select **Role Based Access Control for Search Service (Preview)**
+1. Select **Register** to add the feature to your subscription.
 
-It can take up to two business days to process enrollment requests. You'll receive an email when your service is ready.
+![sign up for rbac on afec](media/search-howto-aad/rbac-signup-afec.png)
+
+For more information on adding preview features, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+
 
 ## Step 2: Preview configuration
 
