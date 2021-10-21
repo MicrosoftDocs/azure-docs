@@ -90,22 +90,26 @@ The following list includes highlights of new, out-of-the-box solutions added to
    :::column-end:::
    :::column span="":::
       - 365 Dynamics
+      - GCP Cloud DNS
+      - GCP CloudMonitor
+      - GCP Identity and Access Management
       - FalconForce
       - FireEye NX
+   :::column-end:::
+   :::column span="":::
       - Flare Systems Firework
       - Forescout
       - Fortinet Fortigate
-   :::column-end:::
-   :::column span="":::
       - Imperva Cloud FAW
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
-      - Lookout
    :::column-end:::
    :::column span="":::
+      - Lookout
+      - McaAfee Network Security PLatform
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
-      - Rapid7 Nexpose
+      - Rapid7 Nexpose / Insight VM
       - ReversingLabs
    :::column-end:::
    :::column span="":::
