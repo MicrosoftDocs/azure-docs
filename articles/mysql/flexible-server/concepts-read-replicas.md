@@ -92,7 +92,7 @@ Learn how to [stop replication to a replica](how-to-read-replicas-portal.md).
 
 There is no automated failover between source and replica servers.
 
-Read replicas is meant for scaling of read intensive workloads and is not designed to meet high availability needs of a server. There is no automated failover between source and replica servers. Stopping the replication on read replica to bring it online in read write mode is the means by which this manual failover is performed.
+Read replicas is meant for scaling of read intensive workloads and is not designed to meet high availability needs of a server. Stopping the replication on read replica to bring it online in read write mode is the means by which this manual failover is performed.
 
 Since replication is asynchronous, there is lag between the source and the replica. The amount of lag can be influenced by many factors like how heavy the workload running on the source server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
 
