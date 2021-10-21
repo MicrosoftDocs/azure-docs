@@ -76,7 +76,7 @@ You can also use CRDs to create multiple instance types at once.
 
 For example, given the CRD `my_instance_type.yaml`:
 
-```
+```yaml
 apiVersion: amlarc.azureml.com/v1alpha1
 kind: InstanceTypeList
 items:
