@@ -1,4 +1,20 @@
-# Multilingual conversation projects
+---
+title: Multilingual projects
+titleSuffix: Azure Cognitive Services
+description: Learn about which how to make use of multilingual projects in conversational language understanding
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: conceptual
+ms.date: 11/02/2021
+ms.author: aahi
+---
+
+# Multilingual projects
+
+Conversational language understanding makes it easy for you to extend your project to several languages at once. When you enable multiple languages in projects, you'll be able to add language specific utterances and synonyms to your project, and get multilingual predictions for your intents and entities. 
 
 ## Multilingual intent and learned entity components
 
