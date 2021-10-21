@@ -7,7 +7,7 @@
   - name: What is chaos engineering?
     href: chaos-studio-chaos-engineering-overview.md
  - name: Quickstart
-  items:
+   items:
   - name: Create and run a chaos experiment using Azure Chaos Studio 
     href: chaos-studio-quickstart-azure-portal.md
 - name: Tutorials
