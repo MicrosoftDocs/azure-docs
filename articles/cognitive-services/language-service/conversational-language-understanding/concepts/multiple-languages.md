@@ -21,7 +21,7 @@ Projects with multiple languages enabled will allow you to specify synonyms **pe
 "language": "{language code}"
 ```
 
-If you do not provide a language, it will fall back to the default language of your project. The different language codes are listed [here](./language-support.md).
+If you do not provide a language, it will fall back to the default language of your project. The different language codes are listed [here](../language-support.md).
 
-Prebuilt components are similar, where you should expect to get predictions for prebuilt components that are available in specific languages. The request's language again determines which components are attempting to be predicted. You can learn more about the language support for each of the prebuilt components [here](./prebuilt-reference.md). 
+Prebuilt components are similar, where you should expect to get predictions for prebuilt components that are available in specific languages. The request's language again determines which components are attempting to be predicted. You can learn more about the language support for each of the prebuilt components [here](../prebuilt-reference.md). 
 
