@@ -39,7 +39,7 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
 
 
-## Register the `Extensions`, `AKS-ExtensionManager` and `AKS-Dapr` preview features
+### Register the `Extensions`, `AKS-ExtensionManager` and `AKS-Dapr` preview features
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -66,6 +66,20 @@ When ready, refresh the registration of the *Microsoft.KubernetesConfiguration* 
 ```azurecli-interactive
 az provider register --namespace Microsoft.KubernetesConfiguration
 az provider register --namespace Microsoft.ContainerService
+```
+
+### Setup the Azure CLI extension for cluster extensions
+
+You will also need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
+  
+```azurecli-interactive
+az extension add --name k8s-extension
+```
+
+If the `k8s-extension` extension is already installed, you can update it to the latest version using the following command:
+
+```azurecli-interactive
+az extension update --name k8s-extension
 ```
 
 ## Create the extension and install Dapr on your AKS cluster
