@@ -178,7 +178,7 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 To issue, or verify a verifiable credential, follow these steps:
 
-1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](https://TBD), or your tenant name.
+1. Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your **tenant ID**, or your tenant name.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
@@ -233,7 +233,7 @@ Authorization: Bearer  <token>
 }
 ```  
 
-For the complete code, check out one of the following code samples, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
+For the complete code, check out one of the following code samples, [C#](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs) and [Node.js](https://github.com/Azure-Samples/active-directory-verifiable-credentials-node/blob/main/1-node-api-idtokenhint/issuer.js).
 
 ## Presentation request example
 
@@ -318,7 +318,7 @@ try
 }
 ```
 
-For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/1-asp-net-core-api-idtokenhint/VerifierController.cs) code on the GitHub repo.
+For the complete code, see the [issuance](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/IssuerController.cs) and [presentation](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet/blob/main/AspNetCoreVerifiableCredentials/VerifierController.cs) code on the GitHub repo.
 
 # [Node.js](#tab/nodejs)
 

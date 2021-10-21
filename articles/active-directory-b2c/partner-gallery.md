@@ -68,6 +68,7 @@ Microsoft partners with the following ISVs to provide secure hybrid access to on
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a Datawiza logo](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) enables SSO and granular access control for your applications and extends Azure AD B2C to protect on-premises legacy applications.  |
+| ![Screenshot of a F5 logo](./media/partner-gallery/f5-logo.png) | [F5](./partner-f5.md) enables legacy applications to securely expose to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA) and SSO.  |
 | ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
 | ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
 | ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |

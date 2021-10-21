@@ -4,7 +4,7 @@ description: Describes how to collect and analyze monitoring data from resources
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/08/2019
+ms.date: 10/14/2021
 
 ---
 
@@ -27,13 +27,13 @@ There is no cost for analyzing monitoring data that is collected by default. Thi
 - Collecting Activity log and analyzing it in the Azure portal.
 - Creating an Activity log alert rule.
 
-There are no Azure Monitor costs for collecting and exporting logs and metrics, but there may be related costs associated with the destination:
+There are no Azure Monitor costs for collecting and exporting metrics. There can be charges for exporting certain categories of resource logs as listed in [Resource log supported categories](/azure/azure-monitor/essentials/resource-logs-categories). There can also be related costs associated with the destination you choose for metrics and logs:
 
-- Costs associated with data ingestion and retention when collecting logs and metrics in Log Analytics workspace. See [Azure Monitor pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
-- Costs associated with data storage when collecting logs and metrics to an Azure storage account. See [Azure Storage pricing for blob storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
-- Costs associated with event hub streaming when forwarding logs and metrics to Azure Event Hubs. See [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+- Costs associated with data ingestion and retention when collecting metrics and logs in Log Analytics workspace. See [Azure Monitor pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+- Costs associated with data storage when collecting metrics and logs to an Azure storage account. See [Azure Storage pricing for blob storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- Costs associated with event hub streaming when forwarding metrics and logs to Azure Event Hubs. See [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-There may be Azure Monitor costs associated with the following. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/):
+There can be Azure Monitor costs associated with the following. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/):
 
 - Running a log query.
 - Creating a metric or log query alert rule.
