@@ -15,7 +15,7 @@ Custom speech allows you to provide different pronunciations for specific words 
 
 UPS pronunciations consist of a string of UPS phones, each separated by whitespace. The phone set is case-sensitive. UPS phone labels are all defined using ASCII character strings.
 
-For steps on implementing UPS, click [here.](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview)
+For steps on implementing UPS, see [Structured text data for training phone sets](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview)
 
 This structured text data is not the same as [pronunciation files](how-to-custom-speech-test-and-train.md#pronunciation-data-for-training), and they cannot be used together.
 

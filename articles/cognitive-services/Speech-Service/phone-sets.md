@@ -2,17 +2,17 @@
 title: "Universal Phone Sets"
 titleSuffix: Azure Cognitive Services
 description: Phone Sets used to customize pronunciation of words in Speech-to-Text. 
-author: ut-karsh #Required; your GitHub user alias, with correct capitalization.
-ms.author: umaheshwari #Required; microsoft alias of author; optional team alias.
+author: ut-karsh 
+ms.author: umaheshwari 
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 10/19/2021 #Required; mm/dd/yyyy format.
+ms.topic: conceptual 
+ms.date: 10/19/2021 
 ---
 
 # Universal Phone Set
 
-This page provides the Universal Phone Set used to customize pronunciation of words in Custom Speech. Click [here](customize-pronunciation.md) to learn more about customizing pronunciation using phone sets.
+This page provides the Universal Phone Set used to customize the pronunciation of words in Custom Speech. See [Customize pronunciation](customize-pronunciation.md) to learn more about customizing pronunciation using phone sets.
 
 
 ## English (United States)
@@ -77,5 +77,5 @@ This page provides the Universal Phone Set used to customize pronunciation of wo
 
 ## Next steps
 
- [Customizing Pronunciation](customize-pronunciation.md)
- [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md)
+* [Customizing Pronunciation](customize-pronunciation.md)
+* [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md)
