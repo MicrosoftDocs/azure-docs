@@ -1,14 +1,13 @@
 ## Get your resource keys and endpoint
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+2. From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
-* From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
-
-:::image type="content" source="../../media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../media/get-endpoint-azure.png":::
+:::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
 
 ## Import a project
 
-To get started, you can import a CLU JSON into the service. The quickstart will provide a sample JSON that sets up a couple of intents and entities for an email application called EmailProject. 
+To get started, you can import a CLU JSON into the service. The quickstart will provide a sample JSON that sets up a couple of intents and entities for an email application called "EmailProject". 
 
 Create a **POST** request using the following URL, headers, and JSON body to create your project.
 
@@ -213,7 +212,7 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following object in your request. the model will be named `MyModel` once training is complete.  
+Use the following object in your request. The model will be named `MyModel` once training is complete.  
 
 ```json
 {
@@ -358,7 +357,7 @@ Once you send the request, you will get the following response. Keep polling thi
 
 ## Query Model
 
-Once deployment suceeds, you can begin querying your project for predictions. 
+Once deployment succeeds, you can begin querying your project for predictions. 
 
 Create a **POST** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
 
