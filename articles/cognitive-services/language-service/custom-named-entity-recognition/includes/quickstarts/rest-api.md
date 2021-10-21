@@ -47,7 +47,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
 
-The provided sample dataset contains 20 loan agreements, each agrement is two parties a Lender and a Borrower. You can use the provided samle tags file to extract relevant information for both parties, agreement date, loan amount and interest rate.
+The provided sample dataset contains 20 loan agreements, each agreement is two parties a Lender and a Borrower. You can use the provided sample tags file to extract relevant information for both parties, an agreement date, a loan amount, and an interest rate.
 
 ### Get your resource keys endpoint
 

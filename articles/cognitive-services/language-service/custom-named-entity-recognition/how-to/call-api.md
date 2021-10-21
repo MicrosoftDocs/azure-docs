@@ -23,7 +23,7 @@ Once you are satisfied with how your model performs, it is ready to be deployed,
 * [Tagged data](tag-data.md)
 * A [successfully trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory..
+    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory.
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
@@ -94,7 +94,7 @@ You can find more details about the results in the next section.
 ### Submit custom NER task
 
 > [!NOTE]
-> Project names is case sensitive.
+> The project name is-case sensitive.
 
 Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
 
