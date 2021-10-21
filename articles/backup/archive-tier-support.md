@@ -6,7 +6,7 @@ ms.date: 10/21/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Archive Tier support
+# About Archive Tier support
 
 Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data as per the retention needs defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
@@ -35,7 +35,8 @@ Archive tier supports the following clients:
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 
-> :::video source="https://www.youtube.com/watch?v=nQnH5mpiz60":::
+> :::video source="https://www.youtube.com/embed/nQnH5mpiz60":::
+> [!VIDEO https://www.youtube.com/embed/elODShatt-c]
 
 ## Archive recommendations (Only for Azure Virtual Machines)
 
