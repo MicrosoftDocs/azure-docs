@@ -19,7 +19,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## October 2021
 
-- **Availability Zones Selection when creating Read replicas**
+- **Geo-redundant backup restore to geo-paired region for DR scenarios**
+
+    The service now provides the added flexibility to choose geo-redundant backup storage to provide higher data resiliency. Enabling geo-redundancy empowers customers to recover from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled, customers can perform geo-restore and deploy a new server to the geo-paired geographic region leveraging the original server’s latest available geo-redundant backup. [Learn more](../flexible-server/concepts-backup-restore.md). 
+
+-  **Availability Zones Selection when creating Read replicas**
 
     When creating Read replica you have an option to select the Availability Zones location of your choice. An Availability Zone is a high availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. [Learn more](../flexible-server/concepts-read-replicas.md).
 
@@ -44,6 +48,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Terraform Support for MySQL Flexible Server**
     
     Terraform support for MySQL Flexible Server is now released  with the [latest v2.81.0 release of azurerm](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md). The detailed reference document for provisioning and managing a MySQL Flexible Server using Terraform can be found [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server). Any bugs or known issues can be found or report [here](https://github.com/hashicorp/terraform-provider-azurerm/issues).
+
+- **Known Issues**
+    - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
 
 ## September 2021
 
