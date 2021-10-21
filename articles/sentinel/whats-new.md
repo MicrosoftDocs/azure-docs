@@ -87,33 +87,36 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Cisco Meraki
       - Cisco StealthWatch
       - Digital Guardian
+      - 365 Dynamics
+      - GCP Cloud DNS
    :::column-end:::
    :::column span="":::
-      - 365 Dynamics
+      - GCP CloudMonitor
+      - GCP Identity and Access Management
       - FalconForce
       - FireEye NX
       - Flare Systems Firework
       - Forescout
       - Fortinet Fortigate
+      - Imperva Cloud FAW
    :::column-end:::
    :::column span="":::
-      - Imperva Cloud FAW
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
       - Lookout
-   :::column-end:::
-   :::column span="":::
+      - McaAfee Network Security PLatform
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
-      - Rapid7 Nexpose
-      - ReversingLabs
    :::column-end:::
    :::column span="":::
+      - Rapid7 Nexpose / Insight VM
+      - ReversingLabs
       - RSA SecurID
       - Semperis
       - Tenable Nessus Scanner
       - Vectra Stream
       - Zero Trust
+   :::column-end:::
 :::row-end:::
 
 For more information, see:
@@ -142,7 +145,7 @@ You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for 
 
 For example:
 
-:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
@@ -181,7 +184,7 @@ The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where
 
 For example:
 
-:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page." lightbox="media/whats-new/notebooks-synapse.png":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
