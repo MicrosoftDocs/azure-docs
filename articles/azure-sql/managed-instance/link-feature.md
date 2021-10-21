@@ -18,7 +18,7 @@ ms.date: 11/02/2021
 
 The new link feature in Azure SQL Managed Instance connects your SQL Servers hosted anywhere to SQL Managed Instance, providing hybrid flexibility and database mobility. With an approach that uses near real-time data replication to the cloud, you can offload workloads to a read-only secondary in Azure to take advantage of Azure-only features, performance, and scale. 
 
-After a disastrous event, you can continue running your workloads on SQL Managed Instance in Azure. You can also choose to migrate one or more applications from SQL Server to SQL Managed Instance at the same time, at your own pace, and with the best possible minimum downtime compared to other solutions in Azure today.
+After a disastrous event, you can continue running your read-only workloads on SQL Managed Instance in Azure. You can also choose to migrate one or more applications from SQL Server to SQL Managed Instance at the same time, at your own pace, and with the best possible minimum downtime compared to other solutions in Azure today.
 
 > [!NOTE]
 > The link feature is released in limited public preview with support for currently only SQL Server 2019 Enterprise Edition CU13 (or above). [Sign-up now](https://aka.ms/mi-link-signup) to participate in the limited public preview. 
@@ -38,7 +38,6 @@ Data replicated through the link feature from SQL Server to Azure SQL Managed In
 - **Use Azure services without migrating to the cloud** 
 - **Offload read-only workloads to Azure** 
 - **Migrating to Azure**
-- **Disaster recovery**
 
 ![Managed Instance link main scenario](./media/managed-instance-link/mi-link-main-scenario.png)
 
@@ -62,9 +61,6 @@ The link feature also facilitates migrating from SQL Server to SQL Managed Insta
 
 Since the link feature enables minimum downtime migration, you can migrate to your managed instance while maintaining your primary workload online. While online migration was possible to achieve previously with other solutions when migrating to the general purpose service tier, the link feature now also allows for true online migrations to the business critical service tier as well. 
 
-### Disaster recovery 
-
-In the event of a disaster of your primary workload, you can rely on SQL Managed Instance as your safe DR site for business continuity – either for read-only access to your on-premises data until the primary node is back online, or to a full read/write node in Azure in case you decide to failover to the cloud on-demand. However, once failed over to the cloud, the link feature does not support failing back to SQL Server. 
 
 ## How it works
 
@@ -81,7 +77,7 @@ There could exist up to 100 links from the same, or various SQL Server sources t
 To use the link feature, you will need:
 
 - SQL Server 2019 Enterprise Edition with [CU13 (or above)](https://support.microsoft.com/topic/kb5005679-cumulative-update-13-for-sql-server-2019-5c1be850-460a-4be4-a569-fe11f0adc535) installed on-premises, or on an Azure VM.
-- Network connectivity between your SQL Server and managed instance is required. If your SQL Server is running on-premises, use a VPN link or Express route. If your SQL Server is running on Azure VM, establish a network connection by using something like VPN peering. 
+- Network connectivity between your SQL Server and managed instance is required. If your SQL Server is running on-premises, use a VPN link or Express route. If your SQL Server is running on an Azure VM, either deploy your VM to the same subnet as your managed instance, or use global VNet peering to connect two separate subnets. 
 - Azure SQL Managed Instance provisioned on any service tier.
 
 Use the following link to sign-up for the limited preview of the link feature. Customers are on-boarded on a rolling basis as there is a limited number of seats currently available. You will be on-boarded at the first available opportunity. Managed instances deployed starting on 11/02/2021 are given priority, and though managed instances deployed before this date are supported, the onboarding may take longer. 
