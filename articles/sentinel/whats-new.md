@@ -142,7 +142,7 @@ You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for 
 
 For example:
 
-:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
@@ -181,7 +181,7 @@ The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where
 
 For example:
 
-:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page." lightbox="media/whats-new/notebooks-synapse.png":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
