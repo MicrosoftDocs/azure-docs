@@ -10,7 +10,7 @@ ms.author: ponatara
 
 # Deploy and manage cluster extensions for Azure Kubernetes Service (AKS) (preview)
 
-Cluster extensions provides an Azure Resource Manager driven experience for installation and lifecycle management of services like Azure Machine Learning (ML) and Dapr on an AKS cluster. This feature enables:
+Cluster extensions provides an Azure Resource Manager driven experience for installation and lifecycle management of services like Azure Machine Learning (ML) on an AKS cluster. This feature enables:
 
 * Azure Resource Manager-based deployment of extensions, including at-scale deployments across AKS clusters.
 * Lifecycle management of the extension (Update, Delete) from Azure Resource Manager.
@@ -118,7 +118,6 @@ az extension update --name k8s-extension
 | Extension | Description |
 | --------- | ----------- |
 | [Azure Machine Learning](TBD) |TBD|
-| [Dapr](TBD) |TBD|
 
 ## Supported Regions
 
@@ -214,7 +213,7 @@ az k8s-extension update --name azureml-arc --extension-type Microsoft.AzureML.Ku
 | `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter is not set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
 
 >[!NOTE]
-> Refer to documentation of the extension type (Eg: Azure ML, Dapr) to learn about the specific settings under ConfigurationSetting and ConfigurationProtectedSettings that are allowed to be updated. For ConfigurationProtectedSettings, all settings are expected to be provided during an update of a single setting. If some settings are omitted, those settings would be considered obsolete and deleted.
+> Refer to documentation of the extension type (Eg: Azure ML) to learn about the specific settings under ConfigurationSetting and ConfigurationProtectedSettings that are allowed to be updated. For ConfigurationProtectedSettings, all settings are expected to be provided during an update of a single setting. If some settings are omitted, those settings would be considered obsolete and deleted.
 
 ### Delete extension instance
 
@@ -233,7 +232,6 @@ Learn more about the cluster extensions currently available for AKS:
 
 > [!div class="nextstepaction"]
 > [Azure Machine Learning][azure-ml-overview]
-> [Dapr][dapr-overview]
 
 <!-- LINKS -->
 <!-- INTERNAL -->
