@@ -33,11 +33,7 @@ In this tutorial, you learn how to:
 
 ## Create a custom NER project through Language studio
 
-<<<<<<< HEAD
 1. Login through the [Language studio portal](https://aka.ms/LanguageStudio) and select **Custom entity extraction**.
-=======
-1. Login through the [Language studio portal](https://aka.ms/languageStudio) and select **Custom entity extraction**.
->>>>>>> 970e7947a2dac28ee3f5b923345297fc7a3f810f
 
 2. Select your Language resource. Make sure you have [enabled identity management](../how-to/create-project.md#enable-identity-management-for-your-resource) and roles for your resource and storage account.
 
