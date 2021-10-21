@@ -114,7 +114,7 @@ display(results.select("image", "parsed_document"))
 ```
 
 ### Expected results
-![expected_results_for_receipt](./media/tutorial-form-recognizer/receipt1_output.png)
+![Screenshot of the expected results from analyzing the example receipt.](./media/tutorial-form-recognizer/receipt1_output.png)
 
 ## Analyze business cards
 Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more.
