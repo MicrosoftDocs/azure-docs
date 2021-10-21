@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/21/2021
 ---
 
 # What's new in Azure Sentinel
@@ -124,11 +124,11 @@ For more information, see:
 
 ### Enable continuous deployment from your content repositories (Public preview)
 
-The new Azure Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, instead of your Azure Sentinel workspaces. This capability introduces a more streamlined and automated approach for managing and deploying content across Azure Sentinel workspaces.
+The new Azure Sentinel **Repositories** page provides the ability to manage and deploy your custom content from GitHub or Azure DevOps repositories, as an alternative to managing them in the Azure portal. This capability introduces a more streamlined and automated approach for managing and deploying content across Azure Sentinel workspaces.
 
-If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you create and edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
+If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you add, create, or edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
 
-For more information, see [Enable continuous deployment from your content repositories](ci-cd.md).
+For more information, see [Manage custom content in your own repository](ci-cd.md).
 
 ### Enriched threat intelligence with Geolocation and WhoIs data (Public preview)
 
@@ -142,7 +142,7 @@ You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for 
 
 For example:
 
-:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
@@ -162,13 +162,16 @@ Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-sca
 Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits, and libraries such as TensorFlow, as well as their own custom models, into security workflows.
 
 The new Azure Synapse integration provides extra analytic horsepower, which:
-- Leverages big-data processing
 
-- Operationalizes machine learning modules, using Azure Sentinel data with cost-effective Data Lake access
+- **Security big data analytics**, using cost-optimized, fully-managed Azure Synapse Apache Spark compute pool.
 
-- Runs cloud-scale, distributed processing for security analytic workloads, with extract, transform, load (ETL) pipeline capabilities combined with fully managed Apache Spark compute pools
+- **Cost-effective Data Lake access** to build analytics on historical data via Azure Data Lake Storage Gen2, which is a set of capabilities dedicated to big data analytics, built on top of Azure Blob Storage.
 
-To support this integration solution, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunting on that data at scale.
+- **Flexibility to integrate data sources** into security operation workflows from multiple sources and formats.
+
+- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
+
+To support this integration, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
 
 For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 
@@ -178,7 +181,7 @@ The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where
 
 For example:
 
-:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page." lightbox="media/whats-new/notebooks-synapse.png":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
