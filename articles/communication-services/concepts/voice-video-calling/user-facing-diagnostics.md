@@ -18,11 +18,11 @@ ms.subservice: calling
 
 When working with calls in Azure Communication Services, problems may arise that cause issues for your customers. To aid with that we have a feature called "User Facing Diagnostics" which enables you to examine various properties of a Call to determine what the issue might be.
 
-**User facing diagnostics, is currently only supported for our JS / Web SDK.**
+**User-facing diagnostics, is currently only supported for our JS / Web SDK.**
 
 ## Accessing diagnostics
 
-User facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
+User-facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
 const userFacingDiagnostics = call.api(Features.UserFacingDiagnostics);
@@ -30,7 +30,7 @@ const userFacingDiagnostics = call.api(Features.UserFacingDiagnostics);
 
 ## Diagnostic values
 
-The following user facing diagnostics are available:
+The following user-facing diagnostics are available:
 
 ### Network values
 
@@ -74,7 +74,7 @@ The following user facing diagnostics are available:
 
 ## User Facing Diagnostic events
 
-- Subscribe to the `diagnosticChanged` event to monitor when any user facing diagnostic changes.
+- Subscribe to the `diagnosticChanged` event to monitor when any user-facing diagnostic changes.
 
 ```js
 /**
@@ -110,9 +110,9 @@ userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener)
 userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
-## Get the latest user facing diagnostics
+## Get the latest User Facing Diagnostics
 
-- Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
+- Get the latest diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 
 ```js
 const latestNetworkDiagnostics = userFacingDiagnostics.network.getLatest();
