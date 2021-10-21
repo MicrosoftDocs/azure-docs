@@ -58,7 +58,7 @@ Azure Storage does not yet support shared access signature (SAS), or Azure Activ
 
 In this section, you'll learn how to create a local user, create a credential for that local user, and then assign permissions for that user. 
 
-To learn more about local users, see [Local users](secure-file-transfer-protocol-support.md#local-users). 
+To learn more about the SFTP permissions model, see [SFTP Permissions model](secure-file-transfer-protocol-support.md#sftp-permissions-model). 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
 
