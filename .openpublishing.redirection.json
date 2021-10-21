@@ -46369,6 +46369,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/open-service-mesh-customize-add-on-experience.md",
+      "redirect_url": "/azure/aks/open-service-mesh-binary",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
       "redirect_document_id": false
