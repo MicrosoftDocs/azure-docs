@@ -20,7 +20,7 @@ This article provides you with information about:
 
 ## November 2, 2021
 
-This release is a public preview refresh release of the Video Analyzer edge module and the Video Analyzer service. The release tag for the edge module is:
+This release is an update to the Video Analyzer edge module and the Video Analyzer service. The release tag for the edge module is:
 
 ```
 mcr.microsoft.com/media/video-analyzer:1.1.0
@@ -40,10 +40,10 @@ The ARM API version of the Video Analyzer service is:
 * When using Video Analyzer with [Computer Vision for spatial analysis](edge/computer-vision-for-spatial-analysis.md) AI service from Cognitive Services, you can generate and view new insights such as the speed, orientation, trail of persons in the live video.
 * You can [discover ONVIF-capable devices](edge/camera-discovery.md) in the local subnet of your edge device.
 * You can [capture and record live video directly in the cloud](cloud/connect-cameras-to-cloud.md).
-  * With [low latency streaming](playback-recordings-how-to.md#low-latency-streaming) you can view the live video from the RTSP camera with end-to-end latencies of around 2 seconds
-  * You can build an IoT PnP device implementation to install on your RTSP camera, and connect it directly to the Video Analyzer service.
+  * You can use [low latency streaming](playback-recordings-how-to.md#low-latency-streaming) to view the live video from the RTSP camera with end-to-end latencies of around 2 seconds
+  * You can implement the [Video Analyzer IoT PnP contract](cloud/connect-devices.md) on your RTSP camera to enable video capture from your device to the Video Analyzer service.
 * You can [export the desired portion of your recorded video](cloud/export-portion-of-video-as-mp4.md) to an MP4 file.
-* You can specify a retention period for any of your recorded videos, where the service would periodically trim content older than the specified number of days.
+* You can specify a retention policy for any of your recorded videos, where the service would periodically trim content older than the specified number of days.
 * Videos recorded using Video Analyzer edge module can include [preview images](edge/enable-video-preview-images.md) or thumbnails periodically, enabling a better browsing experience.
 
 ## October 1, 2021
