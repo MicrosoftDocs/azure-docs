@@ -140,7 +140,7 @@ Once your Azure Blob Storage account is created, the following values are needed
 Get a **storage_account_key** with the following command.
 
 ```azurecli
-STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query [0].value --out json | tr -d '"'`
+STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out json | tr -d '"'`
 ```
 
 ### Create Azure Resource Manager (ARM) templates
