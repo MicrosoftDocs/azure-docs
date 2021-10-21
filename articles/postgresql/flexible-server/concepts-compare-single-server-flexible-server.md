@@ -107,7 +107,7 @@ The following table provides a high-level features and capabilities comparisons 
 | Azure defender | Yes | No |
 | Resource health | Yes | No |
 | Service health | Yes | Yes |
-| Performance insights (iPerf) | Yes | Yes (Preview) |
+| Performance insights (iPerf) | Yes | Yes |
 | Major version upgrades support | No | No |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 
