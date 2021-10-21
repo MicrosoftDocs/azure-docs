@@ -27,7 +27,7 @@ ms.custom: seodec18
 **Note**: Get started with the Speech SDK [here](speech-sdk.md#get-the-speech-sdk).
 
 **Highlights summary**
-- Ubuntu 16.04 reached end of life in April of 2021. In conjunction with Azure DevOps and Github, we will drop support for 16.04 in September 2021.  Please migrate ubuntu-16.04 workflows to ubuntu-18.04 or newer before then. 
+- Ubuntu 16.04 reached end of life in April of 2021. In conjunction with Azure DevOps and GitHub, we will drop support for 16.04 in September 2021.  Please migrate ubuntu-16.04 workflows to ubuntu-18.04 or newer before then. 
 
 #### New features
 
