@@ -314,6 +314,14 @@
       href: automation-naming.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
+  - name: Reference
+    items:               
+    - name: Powershell reference
+      href: automation-reference-powershell.md
+    - name: module
+      items:               
+      - name: Powershell reference
+        href: automation-reference-powershell.md
   - name: Plan deployment
     href: automation-plan-deployment.md
   - name: SAP Software

@@ -1,0 +1,83 @@
+---
+external help file: SAPDeploymentUtilities-help.xml
+Module Name: SAPDeploymentUtilities
+online version: https://github.com/Azure/sap-hana
+schema: 2.0.0
+---
+
+# Remove-SAPAutomationRegion
+
+## SYNOPSIS
+Removes the SAP Control Plane (Deployer, Library)
+
+## SYNTAX
+
+```
+Remove-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile] <String>
+ [<CommonParameters>]
+```
+
+## DESCRIPTION
+Removes the SAP Control Plane  (Deployer, Library)
+
+## EXAMPLES
+
+### EXAMPLE 1
+```
+Remove-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-SAP01-INFRASTRUCTURE\MGMT-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+ -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
+```
+
+## PARAMETERS
+
+### -DeployerParameterfile
+This is the parameter file for the Deployer
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LibraryParameterfile
+This is the parameter file for the library
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+## INPUTS
+
+## OUTPUTS
+
+## NOTES
+v0.1 - Initial version
+
+.
+
+
+
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+
+## RELATED LINKS
+
+[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
+
