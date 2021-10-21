@@ -75,7 +75,7 @@ Azure Red Hat OpenShift 4 supports worker node instances on the following virtua
 |Dsv3|Standard_D32s_v3|32|128|
 
 ### Day 2 worker node
-The following instance types are supported as a day 2 operation by configuring machinesets. For information on how to create a machineset, see [Creating a machineset in Azure](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
+The following instance types are supported as a day 2 operation by configuring machinesets. For information on how to create a machineset, see [Creating a machineset in Azure](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html).
 
 
 |Series|Size|vCPU|Memory: GiB|
