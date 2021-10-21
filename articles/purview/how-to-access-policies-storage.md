@@ -1,12 +1,12 @@
 ---
-title: How to create data access policies for Azure Storage
+title: Dataset provisioning by data owner for Azure Storage
 description: Step-by-step guide on how to integrate Azure Storage into Azure Purview access policies
 author: vlrodrig
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 10/21/2021
 ms.custom: references_regions
 ---
 
@@ -15,7 +15,7 @@ ms.custom: references_regions
 ## Supported capabilities
 
 The Purview policy authoring supports following capabilities:
--   Data policy for Azure Storage to control access to data stored in Blob or ADLS Gen2 files
+-   Data access policy for Azure Storage to control access to data stored in Blob or ADLS Gen2 files
 
 > [!IMPORTANT]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
@@ -24,41 +24,13 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Pre-requisites
 
 ### Provision new accounts in an isolated test subscription
-Provision a new Azure Purview account and a new Azure Storage account in an isolated test subscription. Then follow the steps below to enable the access policy functionality in these accounts.
-
-#### Create Azure Purview account
-
-To create a new Purview account, refer to the quick-start guide [Quickstart: Create an Azure Purview account in the Azure portal.](create-catalog-portal.md)
-
-#### Create Azure Storage account
-
-To create a new Azure Storage account, refer to [Create a storage account - Azure Storage](../storage/common/storage-account-create.md)
-
-To register and then confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
-
-```
-# Install the Az module
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-# Login into the subscription
-Connect-AzAccount -Subscription <SubscriptionID>
-# Register the feature
-Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
-```
-
-If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
-
-### Configure Azure Purview and Storage for data policies
-
-This section outlines the steps to configure Azure Purview and Storage for data policy validation.
-
-### Provision new accounts
-
-This feature is only available on new Azure Purview and Azure Storage accounts.
+Follow the steps below to create a new Azure Purview account and a new Azure Storage account in an isolated test subscription. Then enable the access policy functionality in these accounts.
 
 #### Supported regions
 
 > [!IMPORTANT]
-> The data policy feature is enabled following Azure regions for each product. To use the feature, you’ll need to use Azure Purview and Azure Storage accounts in the regions where this functionality is available.
+> 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
+> 2. This feature can only be used in the regions listed below, where access policy functionality is deployed.
 
 ##### Azure Purview 
 
@@ -80,14 +52,37 @@ This feature is only available on new Azure Purview and Azure Storage accounts.
 -   France Central
 -   Canada Central
 
-#### Create new Azure Purview account
+
+#### Create Azure Purview account
 
 Create a new Azure Purview account in the regions where the new functionality is enabled, under the subscription that is isolated for the new functionality.
 
-For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account in the Azure portal (preview) - Azure
-Purview \| Microsoft Docs](create-catalog-portal.md)
+To create a new Purview account, refer to  [Quickstart: Create an Azure Purview account in the Azure portal.](create-catalog-portal.md)
 
-### Register and scan data sources in Purview
+
+#### Create Azure Storage account
+
+To create a new Azure Storage account, refer to [Create a storage account - Azure Storage](../storage/common/storage-account-create.md)
+
+### Configure Azure Purview and Storage for access policies
+
+This section outlines the steps to configure Azure Purview and Storage to enable access policies.
+
+#### Register the access policies functionality in Azure Storage
+To register and confirm that this functionality is enabled for your subscription, execute following commands in PowerShell
+
+```
+# Install the Az module
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+# Login into the subscription
+Connect-AzAccount -Subscription <SubscriptionID>
+# Register the feature
+Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
+```
+
+If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
+
+#### Register and scan data sources in Purview
 
 The data source needs to be registered and scanned with Purview in order to define policies. Follow the Purview registration guides to
 register your storage account:
@@ -96,18 +91,25 @@ register your storage account:
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
-### Configure permissions for policy management actions
+During registration, enable the data source for Data use governance, as shown in the picture
+
+:::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
+
+#### Configure permissions for policy management actions
 
 -   A user needs to be part of Purview data curator role to perform policy authoring/management actions.
 -   A user needs to be part of Purview data source admin role to publish the policy.
 
+See the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md) 
+
+
 ## Policy authoring
 
-This section describes the steps for creating, updating, and publishing Purview data policies.
+This section describes the steps for creating, updating, and publishing Purview access policies.
 
-### Create new policy
+### Create a new policy
 
-Steps to create a new policy in Purview
+This section describes the steps to create a new policy in Azure Purview
 
 1.  Log in to Purview portal.
 
@@ -161,9 +163,9 @@ Steps to create a new policy in Purview are as follows.
 
     :::image type="content" source="./media/how-to-access-policies-storage/edit-policy-storage.png" alt-text="Image shows how a data owner can edit or delete a policy statement.":::
 
-## Policy publishing
+### Publish the policy
 
-A newly created policy is in the draft state. The process of publish is to associate the policy with one or more data sources under governance.
+A newly created policy is in the draft state. The process of publishing associates the new policy with one or more data sources under governance.
 The steps to publish a policy are as follows
 
 1.  Log in to Purview portal.
