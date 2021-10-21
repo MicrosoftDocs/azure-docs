@@ -562,6 +562,8 @@
               href: how-to-deploy-with-rest.md
             - name: Deploy an AutoML model with a managed online endpoint
               href: how-to-deploy-automl-endpoint.md
+            - name: Autoscale managed endpoints
+              href: how-to-autoscale-endpoints.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
@@ -582,8 +584,6 @@
               href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
-          - name: Autoscale managed endpoints
-            href: how-to-autoscale-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
