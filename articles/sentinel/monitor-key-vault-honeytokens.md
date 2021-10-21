@@ -65,7 +65,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 1. Back in Azure Sentinel, at the bottom of **Prerequisites** tab, enter the AAD app ID and secret into the relevant fields.
 
-1. Select **Click here** at the bottom of the page to grant admin consent to your new function app. A new browser tab opens in Azure AD application settings. 
+1. Select **Click here** at the bottom of the page to grant admin consent to your new function app. A new browser tab opens in Azure AD application settings.
 
     Select **Grant admin consent for `<your function app name>`** to continue. For more information, see [Grant admin consent in App registrations](/azure/active-directory/manage-apps/grant-admin-consent).
 
@@ -93,7 +93,6 @@ The following steps describe specific actions required for the **Azure Sentinel 
     |**Additional HoneyToken Probability**     |  Enter a value between `0` and `1`, such as `0.6`. This value defines the probability of more than one honeytoken being added to the Key Vault.       |
     |     |         |
 
-
 1. Select  **Next: Review + create** to finish installing your solution.
 
     After the solution is installed, the following items are displayed:
@@ -101,9 +100,9 @@ The following steps describe specific actions required for the **Azure Sentinel 
     - A link to your **SOCHTManagement** workbook. You may have modified this name on the **Workbooks** tab earlier in this procedure.
     - The URL for a custom ARM template. You can use this ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
 
-1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute an Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
+1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute the Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
 
-    Use the custom ARM template URL shown in the installation output to open the linked template's **Custom deployment** page. Leave this browser tab open for now, and return after you've deployed your honeytokens and tested the solution functionality.
+    Use the custom [ARM template URL](https://aka.ms/deploytoazurebutton) shown in the installation output to open the linked template's **Custom deployment** page.
 
     For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook) and [Distribute audit recommendations via Azure Security Center](#distribute-audit-recommendations-via-azure-security-center).
 
@@ -161,7 +160,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
 ---
 
-You may need to wait a few minutes as the data is populated. Refresh the page to show any new key vaults that now have honeytokens deployed.
+You may need to wait a few minutes as the data is populated and permissions are updated. Refresh the page to show any new key vaults that now have honeytokens deployed.
 
 ## Test the solution functionality
 
@@ -195,13 +194,17 @@ We recommend that you deploy honeytokens in as many key vaults as possible to en
 
 However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution).
 
-This procedure uses the **Custom deployment** page that you opened earlier from the **Post-deployment steps** tab in the [solution installation wizard](#install-the-solution).
+You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
 
-1. Obtain the link to your **SOCHTManagement** workbook. This is included in the solution deployment output, and also from the **SOCHTManagement** workbook.
+1. Select the following **Deploy to Azure** button to open the ARM template to the **Custom deployment** page. This is the same URL that was shown on the **Output** tab after the [solution installation](#install-the-solution).
+
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2faka.ms%2fsentinelhoneytokenspolicy)
+
+1. Obtain the link to your **SOCHTManagement** workbook. This is included in the solution deployment **Output** tab, and also directly from the **SOCHTManagement** workbook.
 
     For example, select  **Workbooks** > **My workbooks** > **SOCHTManagement**, and then select **Copy link** in the toolbar.
 
-1. On the **Custom deployment** page:
+1. On the ARM template's **Custom deployment** page:
 
     1. In the **Project details** area, select your management group value and region, and then paste the shared link to your **SOCHTManagement** workbook. Select **Review + create** to create the Azure policy.
 
@@ -214,16 +217,11 @@ This procedure uses the **Custom deployment** page that you opened earlier from 
 
         Make sure to select the **Remediation** checkbox to apply the tag to existing key vaults.
 
+1. In Azure Security Center:
 
-## Distribute audit recommendations via Azure Security Center
+    1. Select **Regulatory compliance > Manage compliance policies**, and then select the scope you need.
 
-Azure Security Center customers can also add an audit recommendation for relevant key vaults.
-
-In Azure Security Center:
-
-1. Select **Regulatory compliance > Manage compliance policies**, and then select the scope you need.
-
-1. Select **Add custom initiative**. In the **HoneyTokens** initiative row, select **Add**.
+    1. Select **Add custom initiative**. In the **HoneyTokens** initiative row, select **Add**.
 
 An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope. You may have modified this name [when installing the solution](#install-the-solution).
 
