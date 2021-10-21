@@ -42,7 +42,7 @@ Run the following command to [create a new federated identity credential](/graph
 
 *issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and should match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and should match the `sub` (`subject`) claim of the external token being exchanged. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
 
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what AAD should accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IDP to serve as the audience of this token. 
+*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform should accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
 
 *subject* identifies the   When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the values in the federated identity credential are checked against the claims provided in the external token.
 
@@ -71,8 +71,8 @@ And you get the response:
 }
 ```
 
-> [!NOTE]
-> If you accidentally configure someone else's external workload in the *subject* setting (for example, you enter a typo that matches someone elses GitHub repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
+> [!IMPORTANT]
+> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
 
 ### List federated identity credentials on an app
 
