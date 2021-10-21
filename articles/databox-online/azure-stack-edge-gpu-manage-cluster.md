@@ -1,17 +1,17 @@
 ---
-title: Overview of clustering on your Azure Stack Edge device
-description: Describes clustering on your Azure Stack Edge device.
+title: Cluster management on your tow-node Azure Stack Edge device
+description: Describes how to manage your Azure Stack Edge two-node device cluster.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 10/21/2021
 ms.author: alkohli
 ---
 
-# Clustering on your Azure Stack Edge Pro GPU device
+# Manage your Azure Stack Edge cluster
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
