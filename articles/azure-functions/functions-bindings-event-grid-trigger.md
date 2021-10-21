@@ -400,10 +400,7 @@ Requires you to define a custom type, or use a string. See the [Example section]
 ::: zone pivot="programming-language-java"
 The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property.
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-powershell"  
 The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
