@@ -11,7 +11,7 @@ ms.date: 10/16/2021
 This quickstart walks you through the steps to capture and record video from an Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
 You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy a RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
 
-The steps outlined in this document apply to cameras that are made accessible over the internet, and not shielded behind a firewall. The following diagram graphically represents the live [pipeline](../pipeline.md) that you will deploy to your Video Analyzer account.
+The steps outlined in this document apply to cameras that are made accessible over the internet and not shielded behind a firewall. The following diagram graphically represents the live [pipeline](../pipeline.md) that you will deploy to your Video Analyzer account.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/live-pipeline.svg" alt-text="Representation of a live pipeline on the cloud":::
@@ -39,7 +39,7 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 > References to third-party software are for informational and convenience purposes only. Microsoft does not endorse nor provide rights for the third-party software. For more information, see [Live555 Media Server](http://www.live555.com/mediaServer/).
 
 > [!WARNING]
-> Please note that this RTSP camera simulator endpoint is exposed over the internet, and hence will be accessible to anyone who knows the RTSP URL.
+> Please note that this RTSP camera simulator endpoint is exposed over the internet and hence will be accessible to anyone who knows the RTSP URL.
 
 **Deployment steps:**
 1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, dont have to install web server in linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
@@ -63,13 +63,13 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
     ```
 1. Once the RSTP server is running, clients can now connect to it via an RTSP URL:
 
-    - Go the 'Overview' page of your VM in Azure portal, and note down the value of 'Public IP address'
+    - Go the 'Overview' page of your VM in Azure portal and note down the value of 'Public IP address'
     
         - The RTSP URL is rtsp://{Public IP address}:554/media/camera-1800s.mkv, can be tested with a player from desktop e.g. VLC
 
 ## Create Azure resources
 
-The next step is to create the required Azure resources (Video Analyzer account, storage account, and user-assigned managed identity).
+The next step is to create the required Azure resources (Video Analyzer account, storage account and user-assigned managed identity).
 
 ### Create a Video Analyzer account in the Azure portal
 
@@ -81,7 +81,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
    - **Subscription**: Choose the subscription that you're using to create the Video Analyzer account.
    - **Resource group**: Choose a resource group where you're creating the Video Analyzer account, or select **Create new** to create a resource group.
-   - **Video Analyzer account name**: Enter a name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces, and 3 to 24 characters in length.
+   - **Video Analyzer account name**: Enter a name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces and 3 to 24 characters in length.
    - **Location**: Choose a location to deploy your Video Analyzer account (for example, **West US 2**).
    - **Storage account**: Create a storage account. We recommend that you select a [standard general-purpose v2](../../../storage/common/storage-account-overview.md#types-of-storage-accounts) storage account.
    - **User identity**: Create and name a new user-assigned managed identity.
@@ -90,7 +90,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 ### Deploy a live pipeline
 
 Once the Video Analyzer account is created, you can go ahead with next steps to create a live pipeline topology and a live pipeline.
-1. Go to Video Analyzer account, and locate the **Live** menu item at the bottom left, select it. 
+1. Go to Video Analyzer account and locate the **Live** menu item at the bottom left, select it. 
 1. In the Topologies plane, select the **Create** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
 
     - **Create a pipeline topology** wizard will appear on the portal
@@ -116,24 +116,23 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
     - Select live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Is in use** as pipeline is active and recording.
-1. After a few seconds, select the video, and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
+1. After a few seconds, select the video and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
 
     > [!NOTE]
-    > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect, and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
+    > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
 * If necessary, refer Activity log to quickly verify your deployment operations. Refer [here](./monitor-log-cloud.md) for monitoring and event logs.
 * To deactivate the pipeline recording go to your Video Analyzer account, on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then select **Deactivate** in pipeline grid, it will stop the recording. 
 * You can also continue to delete the pipeline & topology if they are not needed.
 
 ## Clean up resources
 
-If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and delete all the resources.
+If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
 
 ## Next steps
 
-- See supported cameras [here](ToDO Update link Quota & Limitations)
 - Learn more about managing video's [retention policy](../manage-retention-policy.md)
 - Try out different MKV sample files for media simulator from [here](https://github.com/Azure/video-analyzer/tree/main/media), bitrate of sample file should match with pipeline setup.
 - Learn more about [Monitoring & logging for cloud pipelines](./monitor-log-cloud.md).
