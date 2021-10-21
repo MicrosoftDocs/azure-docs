@@ -68,7 +68,6 @@ The diagram below depicts the high-level data flow:
 
 You can get started with one of our quickstarts that illustrate Video Analyzer with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).
 
-
 ## Next steps 
 
 Concept: [Video recording](video-recording.md)
