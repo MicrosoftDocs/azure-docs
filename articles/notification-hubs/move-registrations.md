@@ -52,4 +52,4 @@ The following articles are examples of other services that have a region-move ar
 - [Move NSGs to another region](../virtual-network/move-across-regions-nsg-portal.md)
 - [Move public IP addresses to another region](../virtual-network/move-across-regions-publicip-portal.md)
 - [Move a storage account to another region](../storage/common/storage-account-move.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Move resources across regions (from resource group)](../resource-mover/move-region-within-resource-group.md#:~:text=1%20In%20the%20Azure%20portal%2C%20open%20the%20relevant,you%20want%20to%20move.%20...%20More%20items...%20)
+- [Move resources across regions (from resource group)](../resource-mover/move-region-within-resource-group.md)
