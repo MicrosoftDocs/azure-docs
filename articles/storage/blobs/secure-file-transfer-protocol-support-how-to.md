@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Blob Storage using the SFTP protocol (preview) | Microsoft Docs
-description: Learn how to connect to an Azure Storage account by using an SFTP client.
+description: Learn how to enable SFTP support for your Azure Blob Storage account so that you can directly connect to your Azure Storage account by using an SFTP client.
 author: normesta
 ms.subservice: blobs
 ms.service: storage

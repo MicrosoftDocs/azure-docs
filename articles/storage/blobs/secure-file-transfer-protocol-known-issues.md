@@ -11,7 +11,7 @@ ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with Secure File Transfer (SFTP) protocol support in Azure Blob Storage (preview)
+# Known issues with Secure File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP protocol support in Azure Blob Storage.
 
