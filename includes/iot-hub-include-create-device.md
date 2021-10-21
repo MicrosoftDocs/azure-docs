@@ -5,7 +5,7 @@
  author: robinsh
  ms.service: iot-hub
  ms.topic: include
- ms.date: 11/06/2018
+ ms.date: 10/21/2021
  ms.author: robinsh
  ms.custom: include file
 ---
@@ -15,13 +15,13 @@ In this section, you create a device identity in the identity registry in your I
 
 1. In your IoT hub navigation menu, open **Devices**, then select **Add Device** to add a device in your IoT hub.
 
-:::image type="content" source="./media/iot-hub-include-create-device/create-identity-portal-vs2019.png" alt-text="Screen capture that shows how to create a device identity in the portal" border="true":::
+    :::image type="content" source="./media/iot-hub-include-create-device/create-identity-portal-vs2019.png" alt-text="Screen capture that shows how to create a device identity in the portal" border="true":::
 
 1. In **Create a device**, provide a name for your new device, such as **myDeviceId**, and select **Save**. This action creates a device identity for your IoT hub. Leave **Auto-generate keys** checked so that the primary and secondary keys will be generated automatically.
 
-:::image type="content" source="./media/iot-hub-include-create-device/create-a-device-vs2019.png" alt-text="Screen capture that shows how to add a new device" border="true":::
+    :::image type="content" source="./media/iot-hub-include-create-device/create-a-device-vs2019.png" alt-text="Screen capture that shows how to add a new device" border="true":::
 
-   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 1. After the device is created, open the device from the list in the **Devices** pane. Copy the **Primary Connection String**. This connection string is used by device code to communicate with the hub.
 
