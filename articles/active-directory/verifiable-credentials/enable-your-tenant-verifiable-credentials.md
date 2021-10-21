@@ -3,14 +3,15 @@ title: Tutorial - Configure Azure Active Directory to issue verifiable credentia
 description: In this tutorial, you build the environment needed to deploy verifiable credentials in your tenant.
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
 ms.date: 06/24/2021
 ms.author: barclayn
-ms.reviewer: 
+ms.reviewer:
+ROBOTS: NOINDEX 
 
 # Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure Active Directory.
 

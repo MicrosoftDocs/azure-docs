@@ -1,11 +1,12 @@
 ---
 title: Azure Virtual Desktop security best practices - Azure
+titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
-
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
+ms.service: virtual-desktop
 manager: femila
 ---
 # Security best practices

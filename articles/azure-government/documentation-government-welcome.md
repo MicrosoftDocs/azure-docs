@@ -4,9 +4,10 @@ description: Overview of Azure Government capabilities, including security and c
 ms.service: azure-government
 ms.topic: overview
 ms.workload: azure-government
+ms.custom: references_regions
 ms.author: stevevi
 author: stevevi
-ms.date: 09/19/2021
+ms.date: 10/01/2021
 ---
 
 # What is Azure Government?
@@ -15,7 +16,9 @@ US government agencies or their partners interested in cloud services that meet 
 
 Azure Government customers (US federal, state, and local government or their partners) are subject to validation of eligibility. If there is a question about eligibility for Azure Government, you should consult your account team. To sign up for trial, request your [trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial).
 
-The following video provides a good introduction to Azure Government: </br>
+The following video provides a good introduction to Azure Government:
+
+</br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Enable-government-missions-in-the-cloud-with-Azure-Government/player]
 
@@ -23,7 +26,16 @@ The following video provides a good introduction to Azure Government: </br>
 
 Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Azure Government includes geo-synchronous data replication, auto scaling, network, storage, data management, identity management, and many other services. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview.
 
-There are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. To see variations between Azure Government and global Azure, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md) and click on individual service.
+There are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure. To see feature variations and usage limitations between Azure Government and global Azure, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md) and click on individual service.
+
+## Region pairing
+
+Azure relies on [paired regions](../best-practices-availability-paired-regions.md) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
+
+|Geography|Regional Pair A|Regional Pair B|
+|---------|---------------|---------------|
+|US Government|US Gov Arizona|US Gov Texas|
+|US Government|US Gov Virginia|US Gov Texas|
 
 ## Get started
 

@@ -1,5 +1,6 @@
 ---
-title: App visibility and control with Microsoft Cloud App Security 
+title: App visibility and control with Microsoft Cloud App Security
+titleSuffix: Azure AD
 description: Learn ways to identify app risk levels, stop breaches and leaks in real time, and use app connectors to take advantage of provider APIs for visibility and governance.
 services: active-directory
 author: davidmu1
@@ -14,7 +15,7 @@ ms.collection: M365-identity-device-management
 ms.reviewer: bokacevi, dacurwin
 ---
 
-# Cloud app visibility and control
+# Cloud app visibility and control in Azure Active Directory
 
 To get the full benefit of cloud apps and services, an IT team must find the right balance of supporting access while maintaining control to protect critical data. Microsoft Cloud App Security provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyber threats across all your Microsoft and third-party cloud services.
 

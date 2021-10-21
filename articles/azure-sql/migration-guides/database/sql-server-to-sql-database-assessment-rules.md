@@ -128,9 +128,6 @@ This server uses the Database Mail feature, which is not supported in Azure SQL 
 **Recommendation**   
 Consider migrating to Azure SQL Managed Instance that supports Database Mail.  Alternatively, consider using Azure functions and Sendgrid to accomplish mail functionality on Azure SQL Database.
 
-More information: [Send email from Azure SQL Database using Azure Functions script](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)
-
-
 ## Database principal alias<a id="DatabasePrincipalAlias"></a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   

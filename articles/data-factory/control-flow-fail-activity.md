@@ -1,7 +1,7 @@
 ---
-title: Fail activity
+title: Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: The Fail activity in Azure Data Factory and Synapse Analytics intentionally throws an error in a pipeline
+description: This article discusses how a Fail activity in Azure Data Factory and Synapse Analytics intentionally throws an error in a pipeline.
 author: chez-charlie
 ms.author: chez
 ms.service: data-factory
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 09/22/2021
 ---
 
-# Execute fail activity in Azure Data Factory and Synapse Analytics (Preview)
+# Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
 
-Sometimes, you may want to intentionally throw an error in a pipeline: maybe [lookup activity](control-flow-lookup-activity.md) returns no matching data, or [custom activity](transform-data-using-dotnet-custom-activity.md) albeit returned 200, threw an internal error. Whatever the reason may be, now you can use a Fail activity in a pipeline, and customize both error code and error message.
+You might occasionally want to throw an error in a pipeline intentionally. A [Lookup activity](control-flow-lookup-activity.md) might return no matching data, or a [Custom activity](transform-data-using-dotnet-custom-activity.md) might finish with an internal error. Whatever the reason might be, now you can use a Fail activity in a pipeline and customize both its error message and error code.
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -34,39 +34,41 @@ Sometimes, you may want to intentionally throw an error in a pipeline: maybe [lo
 
 ## Type properties
 
-Property | Description | Allowed values | Required
--------- | ----------- | -------------- | --------
-name | Name of the `Fail` activity. | String | Yes
-type | Must be set to **Fail**. | String | Yes
-message | Error message surfaced in the fail activity. Can be dynamic content evaluated at runtime. | String | Yes
-errorCode | Error code categorizing the error type of the fail activity. Can be dynamic content evaluated at runtime. | String | yes
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| name | The name of the Fail activity. | String | Yes |
+| type | Must be set to **Fail**. | String | Yes |
+| message | The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated at runtime. | String | Yes |
+| errorCode | The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated at runtime. | String | Yes |
+| | |
 
-## Understand Fail Activity Error Code
+## Understand the Fail activity error code
 
-Typically, error code and error message of a fail activity are set by customers. Contact pipeline developer to understand the specific meanings of the error codes. However, in following edge cases, ADF will set the error code and/or error messages.
+The error message and error code of a Fail activity are ordinarily set by users. To understand the specific meanings of the error codes, contact the pipeline developer. However, in the following edge cases, Azure Data Factory sets the error message and/or error code.
 
-Situation Description | Error Message | Error Code
--------- | ----------- | --------------
-(Dynamic) content in `message` and `errorCode` interpreted correctly | Error message set by the user | Error code set by the user
-Dynamic content in both `message` and `errorCode` cannot be interpreted | 'Failed to interpret _<activity_name>_ fail message or error code | `ErrorCodeNotString`
-Dynamic content in `message` cannot be interpreted as a string | '_<activity_name>_ fail message parameter could not be interpreted as a string' | Error code set by the user
-Dynamic content in `message` resolves to null, empty string or white spaces | 'Failed to interpret _<activity_name>_ fail message or error code' | Error code set by the user
-Dynamic content in `errorCode` cannot be interpreted as a string | Error message set by the user | `ErrorCodeNotString`
-Dynamic content in `errorCode` resolves to null, empty string or white spaces | Error message set by the user | `ErrorCodeNotString`
-Value for `message` or `errorCode` provided by user isn't string-able * | Pipeline __fails__ with: 'Invalid value for property <`errorCode`/`message`>'
-Missing `message` field * | 'Fail message was not provided' | Error code set by the user
-Missing `errorCode` field * | Error message set by the user | `ErrorCodeNotString`
+| Situation description | Error message | Error code |
+| --- | --- | --- |
+The (dynamic) content in `message` and `errorCode` is interpreted correctly. | The error message that's set by the user | The error code that's set by the user |
+The dynamic content in both `message` and `errorCode` can't be interpreted. | "Failed to interpret _<activity_name>_ fail message or error code" | `ErrorCodeNotString` |
+| The dynamic content in `message` can't be interpreted as a string. | "_<activity_name>_ fail message parameter could not be interpreted as a string" | The error code that's set by the user |
+| The dynamic content in `message` resolves to null, an empty string, or white spaces. | "Failed to interpret _<activity_name>_ fail message or error code" | The error code that's set by the user |
+| The dynamic content in `errorCode` can't be interpreted as a string. | The error message that's set by the user | `ErrorCodeNotString` |
+| The dynamic content in `errorCode` resolves to null, an empty string, or white spaces. | The error message that's set by the user | `ErrorCodeNotString` |
+| The value for `message` or `errorCode` that's provided by the user isn't string-able.* | Pipeline _fails_ with: "Invalid value for property <`errorCode`/`message`>" | |
+| The `message` field is missing.* | "Fail message was not provided" | The error code that's set by the user |
+| The `errorCode` field is missing.* | The error message that's set by the user | `ErrorCodeNotString` |
+| | |
 
-Situations marked with * shouldn't occur if the pipeline is developed with web user interface (UI) of Data Factory.
+\* This situation shouldn't occur if the pipeline is developed with the web user interface (UI) of Data Factory.
 
 ## Next steps
 
 See other supported control flow activities, including:
 
-- [If Condition Activity](control-flow-if-condition-activity.md)
-- [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
-- [For Each Activity](control-flow-for-each-activity.md)
-- [Get Metadata Activity](control-flow-get-metadata-activity.md)
-- [Lookup Activity](control-flow-lookup-activity.md)
-- [Web Activity](control-flow-web-activity.md)
-- [Until Activity](control-flow-until-activity.md)
+- [If Condition activity](control-flow-if-condition-activity.md)
+- [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
+- [For Each activity](control-flow-for-each-activity.md)
+- [Get Metadata activity](control-flow-get-metadata-activity.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [Web activity](control-flow-web-activity.md)
+- [Until activity](control-flow-until-activity.md)

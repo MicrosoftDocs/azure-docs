@@ -27,6 +27,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
  - [Network Session](normalization-schema.md)
  - [DNS Activity](dns-normalization-schema.md)
+ - [DHCP Activity](dhcp-normalization-schema.md)
  - [Process Event](process-events-normalization-schema.md)
  - [Authentication Event](authentication-normalization-schema.md)
  - [Registry Event](registry-event-normalization-schema.md)
@@ -47,7 +48,7 @@ The following concepts help to understand the schema reference documents and ext
 |**Field types**     |  Each schema field has a type. The Log Analytics workspace has a limited set of data types. Therefore, Azure Sentinel uses a logical type for many schema fields, which Log Analytics does not enforce but is required for schema compatibility. Logical field types ensure that both values and field names are consistent across sources.  <br><br>For more information, see [Logical Types](#logical-types).     |
 |**Field class**     |Fields may have several classes, which define when the fields should be implemented by a parser: <br><br>-	**Mandatory** fields must appear in every parser. If your source does not provide information for this value, or the data cannot be otherwise added, it will not support most content items that reference the normalized schema.<br>-	**Recommended** fields should be normalized if available. However, they may not be available in every source, and any content item that references that normalized schema should take availability into account. <br>-	**Optional** fields, if available, can be normalized or left in their original form. Typically, a minimal parser would not normalize them for performance reasons.    |
 |**Entities**     | Events evolve around entities, such as users, hosts, processes, or files, and each entity may require several fields to describe it. For example, a host may have a name and an IP address. <br><br>A single record may include multiple entities of the same type, such as both a source and destination host. <br><br>The Azure Sentinel Information Model defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the network session schema does not include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). |
-|**Aliases**     |  In some cases, different users expect a field to have different names. For example, in DNS terminology, one would expect a field named `query`, while more generally, it holds a domain name. Aliases solve this issue of ambiguity by allowing multiple names for a specified value. The alias class would be the same as the field that it aliases.       |
+|**Aliases**     |  In some cases, different users expect a field to have different names. For example, in DNS terminology, one would expect a field named `query`, while more generally, it holds a domain name. Aliases solve this issue of ambiguity by allowing multiple names for a specified value. The alias class would be the same as the field that it aliases.<br><br>Note that Log Analytics does not support aliasing. To implement aliases parsers create a copy of the original value using the `extend` operator.        |
 | | |
 
 ## Logical types

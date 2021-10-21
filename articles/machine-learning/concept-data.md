@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to securely connect to your data storage on Azure with Azure Machine Learning datastores and datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam

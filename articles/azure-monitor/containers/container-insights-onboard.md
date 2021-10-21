@@ -12,7 +12,7 @@ ms.date: 06/30/2020
 This article provides an overview of the options that are available for setting up Container insights to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
-- [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
+- [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
    - [AKS engine](https://github.com/Azure/aks-engine)
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  

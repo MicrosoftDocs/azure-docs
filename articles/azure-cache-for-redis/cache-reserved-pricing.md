@@ -1,8 +1,8 @@
 ---
 title: Prepay for compute with reserved capacity - Azure Cache for Redis 
 description: Prepay for Azure Cache for Redis compute resources with reserved capacity
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020

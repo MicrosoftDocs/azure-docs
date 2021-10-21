@@ -3,7 +3,7 @@ title: Configure availability group listeners & load balancer (Azure portal)
 description: Step-by-step instructions for creating a listener for an Always On availability group for SQL Server in Azure virtual machines
 services: virtual-machines
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
@@ -14,9 +14,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
-ms.author: mathoma 
+ms.author: rsetlem 
 ms.custom: "seo-lt-2019"
-
+ms.reviewer: mathoma
 ---
 # Configure a load balancer for a SQL Server Always On availability group in Azure Virtual Machines
 
@@ -211,7 +211,7 @@ The SQLCMD connection automatically connects to the SQL Server instance that hos
 
 ## Create an IP address for an additional availability group
 
-Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. After you create an availability group, add the IP address to the load balancer, and then configure the listener.
+Each availability group uses a separate listener. Each listener has its own IP address. Use the same load balancer to hold the IP address for additional listeners. Add only the primary IP address of the VM to the back-end pool of the load balancer as the [secondary VM IP address does not support floating IP](/azure/load-balancer/load-balancer-floating-ip).
 
 To add an IP address to a load balancer with the Azure portal, do the following steps:
 

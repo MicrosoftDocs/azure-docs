@@ -7,8 +7,8 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: tutorial
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/27/2019
 ---

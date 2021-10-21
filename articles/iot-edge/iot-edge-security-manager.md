@@ -263,11 +263,11 @@ The IoT Edge security manager aims to identify and isolate the components that d
 
 Learn how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) using software or virtual TPMs:  
 
-Create and provision an [IoT Edge device with a virtual TPM on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md).
+Create and provision an [IoT Edge device with a virtual TPM on a Linux virtual machine](how-to-provision-devices-at-scale-linux-tpm.md).
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
-Create and provision an [IoT Edge device with a simulated TPM on Windows](how-to-auto-provision-simulated-device-windows.md).
+Create and provision an [IoT Edge device with a simulated TPM on Windows](how-to-provision-devices-at-scale-windows-tpm.md).
 :::moniker-end
 
 ## Next steps

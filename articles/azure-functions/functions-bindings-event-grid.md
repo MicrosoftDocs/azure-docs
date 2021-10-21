@@ -47,9 +47,9 @@ The functionality of the extension varies depending on the extension version:
 
 # [Extension v3.x](#tab/extensionv3/in-process)
 
-Supports new Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Azure.Messaging.EventGrid.EventGridEvent](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
+Preview version of the extension that supports new Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Azure.Messaging.EventGrid.EventGridEvent](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
 
-Add the extension to your project by installing the [NuGet package], version 3.x.
+Add the preview extension to your project by installing the [NuGet package], version 3.x.
 
 # [Extension v2.x](#tab/extensionv2/in-process)
 
@@ -97,13 +97,25 @@ Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJob
 
 The Event Grid extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
-# [Bundle v2.x](#tab/extensionv3)
+# [Bundle v3.x](#tab/extensionv3)
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
+You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+To learn more, see [Update your extensions].
 
 # [Bundle v1.x](#tab/extensionv2)
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 1.x.
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
