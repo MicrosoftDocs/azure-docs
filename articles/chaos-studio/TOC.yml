@@ -32,6 +32,8 @@
     href: chaos-studio-tutorial-agent-based.md
   - name: Create and run experiment - Chaos Mesh faults on AKS
     href: chaos-studio-tutorial-aks.md
+  - name: Troubleshoot common issues
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Fault library
