@@ -30,10 +30,8 @@ If the edge infrastructure is fine, you can look for issues with the deployment 
 1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
 
    - Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device.
-   - Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as pipelineTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer IoT Edge module is functionally OK.
+   - Use the [Direct methods] guide to call a few methods, especially simple ones such as pipelineTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer IoT Edge module is functionally OK.
 
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/troubleshoot/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot/direct-method.png":::
 
 1. If the **Specified in deployment** and **Reported by device** columns indicate _Yes_, you can invoke direct methods on the Video Analyzer module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following:
 
@@ -76,4 +74,4 @@ Configure your Video Analyzer module to collect Verbose logs by setting the `log
 
 ## Next steps
 
-[Tutorial: Event-based video recording to cloud and playback from cloud](record-event-based-live-video.md)
+[Tutorial: Event-based video recording to cloud and playback from cloud](<ToDo>)
