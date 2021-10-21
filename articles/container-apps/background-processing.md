@@ -90,9 +90,13 @@ az monitor log-analytics workspace create \
 
 Next, retrieve the Log Analytics Client ID and client secret.
 
+Make sure to run each query separately to give enough time for the request to complete.
+
 ```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
+```
 
+```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
 ```
 
@@ -123,10 +127,10 @@ az storage account create \
 Next, get the queue's connection string.
 
 ```azurecli
-QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString -o tsv)
+QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString --out json | tr -d '"'`
 ```
 
-Now you can create the queue.
+Now you can create the message queue.
 
 ```azurecli
 az storage queue create \
@@ -146,42 +150,100 @@ az storage message put \
 
 ## Deploy the background application
 
-The first step is to define scale rules for the container app.
+Create a file named *queue.json* and paste the following configuration code into the file.
 
-Create a file named *myscalerules.yaml*, and pass the following configuration code in the file.
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "East US",
+            "type": "String"
+        },
+        "environment_name": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "queueconnection": {
+            "defaultValue": "",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.Web/containerApps",
+        "apiVersion": "2021-03-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                {
+                    "name": "queueconnection",
+                    "value": "[parameters('queueconnection')]"
+                }]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "mcr.microsoft.com/azuredocs/containerapps-queuereader",
+                        "name": "queuereader",
+                        "env": [
+                            {
+                                "name": "QueueName",
+                                "value": "myqueue"
+                            },
+                            {
+                                "name": "QueueConnectionString",
+                                "secretref": "queueconnection"
+                            }
+                        ]
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 1,
+                    "maxReplicas": 10,
+                    "rules": [
+                        {
+                            "name": "myqueuerule",
+                            "azureQueue": {
+                                "queueName": "myqueue",
+                                "queueLength": 100,
+                                "auth": [
+                                    {
+                                        "secretRef": "queueconnection",
+                                        "triggerParameter": "connection"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }]
+}
 
-```yml
-- name: myqueuerule
-  type: azureQueue 
-  queueName: myqueue
-  queueLength: 100
-  auth:
-  - secretRef: queueconnection
-    triggerParameter: connection
 ```
 
 Now you can create and deploy your container app.
 
 ```azurecli
-az containerapp create \
-  --name queuereaderapp \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --revisions-mode single \
-  --min-replicas 1 \
-  --max-replicas 10 \
-  --scale-rules "./myscalerules.yaml" \
-  --secrets "queueconnection=$QUEUE_CONNECTION_STRING" \
-  --image "vturecek/dotnet-queuereader:v1" \
-  --environment-variables "QueueName=myqueue,QueueConnectionString=secretref:queueconnection"
+az deployment group create -g demo --template-file queue.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT" queueconnection="$QUEUE_CONNECTION_STRING"
 ```
 
-This command deploys the demo background application from the public container image called vturecek/dotnet-queuereader:v1 setting secrets and environments variables used by the application.
-Application will scale up to 10 replicas based on the queue length as defined on *myscalerules.yaml* file created on previous step.
+This command deploys the demo application from the public container image called `mcr.microsoft.com/azuredocs/containerapps-queuereader` and sets secrets and environments variables used by the application.
+
+The application scales up to 10 replicas based on the queue length as defined in the `scale` section of the ARM template.
 
 ## Verify the result
 
-The container app is running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
+The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
 
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
@@ -193,8 +255,10 @@ az monitor log-analytics query \
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+Once you are done, clean up your Container Apps resources by running the following command to delete your resource group.
 
 ```azurecli
 az group delete --resource-group $RESOURCE_GROUP
 ```
+
+This command deletes the entire resource group including the Container Apps instance, storage account, Log Analytics workspace, and any other resources in the resource group.
