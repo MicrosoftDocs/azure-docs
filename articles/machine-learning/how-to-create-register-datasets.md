@@ -331,7 +331,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 ## Create a dataset from pandas dataframe
 
 To create a TabularDataset from an in memory pandas dataframe
-use the [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactoryy#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
+use the [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
 
 ```python
 from azureml.core import Workspace, Datastore, Dataset

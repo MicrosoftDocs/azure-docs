@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc-enabled servers Connected Machine agent.
-ms.date: 08/17/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ---
 
@@ -120,13 +120,13 @@ You can download the latest agent package from Microsoft's [package repository](
 1. To update the local package index with the latest changes made in the repositories, run the following command:
 
     ```bash
-    apt update
+    sudo apt update
     ```
 
 2. To upgrade your system, run the following command:
 
     ```bash
-    apt upgrade
+    sudo apt upgrade azcmagent
     ```
 
 Actions of the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command, such as installation and removal of packages, are logged in the `/var/log/dpkg.log` log file.
@@ -136,13 +136,13 @@ Actions of the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command, 
 1. To update the local package index with the latest changes made in the repositories, run the following command:
 
     ```bash
-    yum check-update
+    sudo yum check-update
     ```
 
 2. To upgrade your system, run the following command:
 
     ```bash
-    yum update
+    sudo yum update azcmagent
     ```
 
 Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command, such as installation and removal of packages, are logged in the `/var/log/yum.log` log file. 
@@ -152,13 +152,13 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
 1. To update the local package index with the latest changes made in the repositories, run the following command:
 
     ```bash
-    zypper refresh
+    sudo zypper refresh
     ```
 
 2. To upgrade your system, run the following command:
 
     ```bash
-    zypper update
+    sudo zypper update azcmagent
     ```
 
 Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file.
