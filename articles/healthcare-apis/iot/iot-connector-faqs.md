@@ -41,8 +41,10 @@ The IoT connector currently only supports the persistence of [HL7 FHIR&#174; R4]
 Yes. IoT connector supports device messages from all these platforms. For more information, see the [Open-source projects](iot-git-projects.md) section.  
 
 ## More frequently asked questions
-[FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)
+[FAQs about the Azure Healthcare APIs](../healthcare-apis-faqs.md)
 
-[FAQs about Azure Healthcare APIs DICOM service](./dicom/dicom-services-faqs.yml)
+[FAQs about Azure Healthcare APIs FHIR service](../fhir/fhir-faq.md)
+
+[FAQs about Azure Healthcare APIs DICOM service](../dicom/dicom-services-faqs.yml)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
