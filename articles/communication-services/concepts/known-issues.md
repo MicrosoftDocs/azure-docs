@@ -45,15 +45,20 @@ Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safa
 
 If you're using Safari on macOS, your app won't be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
 
-#### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
-This problem may occur due to multiple reasons:
+#### Device will get muted and incoming video will stop rendering when an interruption occures that takes over device access.
+This problem may occur primarly from another application or OS taking over the control of microphone or camera, some examples can be seen bellow:
 
-- Some mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
-- Sometimes, an SMS or PSTN call captures the audio sound, and doesn't release audio back to the VoIP call. Apple fixed this issue in iOS versions 14.4.1+. 
+- User while is in the call, an incoming PSTN call arrives and captures the microphone device access.
+- User while is in the call, will navigate to another native application that will capture access to the microphone or camera, for example play a Youtube video or start a Facetime call.
+- User while is in the call, will enable Siri which will capture access to the microphone again.
+
+To recover from all these cases user will have to go back to the application to unmute and start video in order to have the audio and video start flowing after the interruption.
+
+In some occations the devices (Microphone or camera) won't be released on time and that can cause issues with the original call, for example if user tries to unmute while watching a Youtube video or a PSTN call is active simultaniously. 
 
 <br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari, Chrome
-<br/>Operating System: iOS, Android
+<br/>Browsers: Safari
+<br/>Operating System: iOS
 
 #### Repeatedly switching video devices may cause video streaming to temporarily stop
 
