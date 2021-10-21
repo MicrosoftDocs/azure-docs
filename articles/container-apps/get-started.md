@@ -233,10 +233,10 @@ az group delete `
   --name $RESOURCE_GROUP
 ```
 
+---
+
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
-
----
 
 ## Next steps
 
