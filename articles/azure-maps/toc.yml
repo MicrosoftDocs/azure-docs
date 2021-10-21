@@ -280,7 +280,15 @@ items:
   - name: Develop with the iOS SDK
     items:
     - name: Getting started with iOS map control
-      href: how-to-use-ios-map-control-library.md      
+      href: how-to-use-ios-map-control-library.md
+    - name: Add a polygon extrusion layer
+      href: add-polygon-extrusion-layer-map-ios.md
+    - name: Add heat map layer
+      href: add-heat-map-layer-ios.md
+    - name: Add an image layer
+      href: add-image-layer-to-map-ios.md
+    - name: Add a tile layer
+      href: add-tile-layer-to-map-ios.md       
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started
