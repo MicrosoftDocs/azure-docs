@@ -57,7 +57,7 @@ To complete this quickstart, you need the following prerequisites:
     1. Select **Console Application** from the results list. 
     1. Then, select **Next**. 
 
-        :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/new-send-project.png" alt-text="Image showing the New Project dialog box":::
+        :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/new-send-project.png" alt-text="Image showing the New Project dialog box.":::
 1. Enter **OrderProducer** for the project name, **SRQuickStart** for the solution name, and then select **OK** to create the project. 
 
 
@@ -170,7 +170,7 @@ To complete this quickstart, you need the following prerequisites:
     ```
 1. In the Azure portal, you can verify that the event hub has received the events. Switch to **Messages** view in the **Metrics** section. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
-    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events." lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
 
 

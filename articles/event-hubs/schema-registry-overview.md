@@ -32,7 +32,7 @@ With schema-driven serialization frameworks like Apache Avro, externalizing seri
 The information flow when you use schema registry is the same for all the protocol that you use to publish or consume events from Azure Event Hubs. 
 The following diagram shows the information flow of a Kafka event producer and consumer scenario that users Schema Registry. 
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.png" lightbox="./media/schema-registry-overview/information-flow.png" alt-text="Schema Registry information flow":::
+:::image type="content" source="./media/schema-registry-overview/information-flow.png" lightbox="./media/schema-registry-overview/information-flow.png" alt-text="Image showing the Schema Registry information flow.":::
 
 
 The information flow starts from the producer side where Kafka producers serialize the data using the schema document. 
@@ -46,11 +46,11 @@ The information flow starts from the producer side where Kafka producers seriali
 - Schema registry clients use caching to prevent redundant schema registry lookups.  
 
 
-## Schema Registry Elements
+## Schema Registry elements
 
 An Event Hubs namespace now can host schema groups alongside event hubs (or Kafka topics). It hosts a schema registry and can have multiple schema groups. In spite of being hosted in Azure Event Hubs, the schema registry can be used universally with all Azure messaging services and any other message or events broker. Each of these schema groups is a separately securable repository for a set of schemas. Groups can be aligned with a particular application or an organizational unit. 
 
-:::image type="content" source="./media/schema-registry-overview/elements.png" alt-text="Schema Registry elements.":::
+:::image type="content" source="./media/schema-registry-overview/elements.png" alt-text="Image showing the Schema Registry elements.":::
 
 
 ### Schema groups
@@ -61,7 +61,7 @@ The security boundary imposed by the grouping mechanism help ensures that trade 
 ### Schemas
 Schemas define the contract between the producers and the consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead. A schema has a name, type (example: record, array, and so on.), compatibility mode (none, forward, backward, full), and serialization type (only Avro for now). You can create multiple versions of a schema and retrieve and use a specific version of a schema. 
 
-## Schema Evolution 
+## Schema evolution 
 
 Schemas need to evolve with the business requirement of producers and consumers. Azure Schema Registry supports schema evolution by introducing compatibility modes at the schema group level. When you create a schema group, you can specify the compatibility mode of the schemas that you include in that schema group. When you update a schema, the change should  comply with the assigned compatibility mode and then only it creates a new version of the schema. 
 
