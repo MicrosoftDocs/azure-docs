@@ -154,6 +154,9 @@ az k8s-extension show --cluster-type managedClusters \
 
 ## Update configuration settings
 
+> [!NOTE]
+> High availability (HA) can be enabled at any time. However, once enabled, disabling it requires deletion and recreation of the extension. If you aren't sure if high availability is necessary for your use case, we recommend starting with it disabled to minimize disruption.
+
 To update your Dapr configuration settings, simply recreate the extension with the desired state. For example, assume we have previously created and installed the extension using the following configuration:
 
 ```azurecli-interactive
