@@ -1,7 +1,7 @@
 ---
 title: Recommended custom classification practices 
 titleSuffix: Azure Cognitive Services
-description: Learn about recommended practices when using custom classification, which is a part of Language Services.
+description: Learn about recommended practices when using custom classification.
 services: cognitive-services
 author: aahill
 manager: nitinme

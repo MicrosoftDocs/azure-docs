@@ -199,7 +199,7 @@ Click the Focus Mode tool in the report to get a better look at our word cloud. 
 
 ![A Word Cloud](../media/tutorials/power-bi/word-cloud.png)
 
-## More language services
+## Using other features
 
 Azure Cognitive Service for Language also provides sentiment analysis and language detection. The language detection in particular is useful if your customer feedback isn't all in English.
 

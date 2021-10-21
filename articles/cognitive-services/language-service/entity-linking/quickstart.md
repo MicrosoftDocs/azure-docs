@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Entity linking using the Language Services client library"
+title: "Quickstart: Entity linking using the client library and REST API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to perform Entity Linking, using Language Services from Azure Cognitive Services.
+description: Use this quickstart to perform Entity Linking, using C#, Python, Java, JavaScript, and the REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,9 +14,9 @@ keywords: text mining, entity linking
 zone_pivot_groups: programming-languages-text-analytics       
 ---
 
-# Quickstart: Entity Linking using the Language Services client library and REST API
+# Quickstart: Entity Linking using the client library and REST API
 
-Use this article to get started with Entity Linking using the Language Services client library and REST API. Follow these steps to try out examples code for mining text:
+Use this article to get started with Entity Linking using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 

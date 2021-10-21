@@ -21,7 +21,7 @@ Learn about the data, region, and throughput limits for the Conversational Langu
 - Conversational Language Understanding is only available in 2 regions: **West US 2** and **West Europe**. 
     - Orchestration workflow projects will enable **Conversation projects**, **QnA Maker** and **LUIS** connections in West Europe.
     - Orchestration workflow projects will enable **Conversation projects** and **QnA Maker** connections only in West US 2. There is no authoring West US 2 region for LUIS. 
-- The only available SKU to access CLU is the **Text Analytics** resource with the **S** sku.
+- The only available SKU to access CLU is the **Language** resource with the **S** sku.
 
 ## Data limits
 
