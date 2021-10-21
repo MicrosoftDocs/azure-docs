@@ -79,13 +79,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     a. In the **Sign on URL** (found in WorkPlace as the Recipient URL) text box, type a URL using the following pattern:
-    `https://.workplace.com/work/saml.php`
+    `https://.facebook.com/work/saml.php`
 
     b. In the **Identifier (Entity ID)** (found in WorkPlace as the Audience URL) text box, type a URL using the following pattern: 
-    `https://www.workplace.com/company/`
+    `https://www.facebook.com/company/`
 
     c. In the **Reply URL** (found in WorkPlace as the Assertion Consumer Service) text box, type a URL using the following pattern: 
-    `https://.workplace.com/work/saml.php`
+    `https://.facebook.com/work/saml.php`
 
     > [!NOTE]
     > These values are not the real. Update these values with the actual Sign-On URL, Identifier and Reply URL. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community, this is explained later in the tutorial.
