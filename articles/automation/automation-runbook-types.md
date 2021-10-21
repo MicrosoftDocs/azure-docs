@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/05/2021
+ms.date: 10/21/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -48,10 +48,11 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 * Can't convert to one of the [text formats](automation-runbook-types.md), nor can you convert a text runbook to graphical format. 
 * Can't view or directly edit PowerShell code that the graphical workflow creates. You can view the code you create in any code activities.
 * Can't run runbooks on a Linux Hybrid Runbook Worker. See [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+* Graphical runbooks can't be digitally signed.
 
 ## PowerShell runbooks
 
-PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 ### Advantages
 
