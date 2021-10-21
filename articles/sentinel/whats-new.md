@@ -87,37 +87,36 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Cisco Meraki
       - Cisco StealthWatch
       - Digital Guardian
-   :::column-end:::
-   :::column span="":::
       - 365 Dynamics
       - GCP Cloud DNS
+   :::column-end:::
+   :::column span="":::
       - GCP CloudMonitor
       - GCP Identity and Access Management
       - FalconForce
       - FireEye NX
-   :::column-end:::
-   :::column span="":::
       - Flare Systems Firework
       - Forescout
       - Fortinet Fortigate
       - Imperva Cloud FAW
-      - Insiders Risk Management
-      - IronNet CyberSecurity Iron Defense
    :::column-end:::
    :::column span="":::
+      - Insiders Risk Management
+      - IronNet CyberSecurity Iron Defense
       - Lookout
       - McaAfee Network Security PLatform
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
-      - Rapid7 Nexpose / Insight VM
-      - ReversingLabs
    :::column-end:::
    :::column span="":::
+      - Rapid7 Nexpose / Insight VM
+      - ReversingLabs
       - RSA SecurID
       - Semperis
       - Tenable Nessus Scanner
       - Vectra Stream
       - Zero Trust
+   :::column-end:::
 :::row-end:::
 
 For more information, see:
