@@ -7,8 +7,10 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/21/2021
-ms.topic: Reference
+ms.topic: reference
 ms.service: virtual-machines-sap
+title: New-SAPSystem
+description: Deploy a new system
 ---
 
 # New-SAPSystem
@@ -28,7 +30,6 @@ New-SAPSystem [-Parameterfile] <String> [-Type] <SAP_Types> [[-DeployerStateFile
 
 ## DESCRIPTION
 Deploy a new system.
-Type of environment.
 
 ## EXAMPLES
 
@@ -193,7 +194,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
