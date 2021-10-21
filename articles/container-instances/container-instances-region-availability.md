@@ -80,7 +80,7 @@ The following regions and maximum resources are available to container groups wi
 > [!IMPORTANT]
 > At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
 
-###  Windows Server 2016
+### Windows Server 2016
 
 > [!NOTE]
 > 1B and 2B hosts have been deprecated for Windows Server 2016. See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
@@ -107,7 +107,6 @@ The following regions and maximum resources are available to container groups wi
 | West Europe | 4 | 16 | 20 |
 | West US | 2 | 8 | 20 |
 | West US 2 | 2 | 3.5 | 20 |
-
 
 ### Windows Server 2019 LTSC
 
