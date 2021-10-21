@@ -82,7 +82,7 @@ The following table describes some reasons why you might want to use SQL:
 
   1. Now you can follow the [steps to set up your SQL environment](#set-up-sql-environment) in this article.
 
-- Optional: [Visual Studio Code](https://code.visualstudio.com/Download) installed on your local computer for local development.
+- For local development, [Visual Studio Code](https://code.visualstudio.com/Download) installed on your local computer.
 
   > [!NOTE]
   > Make sure that you install the [latest version for the Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) 
@@ -100,7 +100,7 @@ The following table describes some reasons why you might want to use SQL:
 
    Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Azure Active Directory (Azure AD) and managed identities is not available.
 
-   You must use an identity that has permissions to create and manage logic app artifacts in the target SQL database. For example, an administrator has all the required permissions to create and manage these artifacts. The following list describes the necessary permissions to work with logic app artifacts:
+   You must use an identity that has permissions to create and manage workflow-related artifacts in the target SQL database. For example, an administrator has all the required permissions to create and manage these artifacts. The following list describes the artifacts that the single-tenant Azure Logic Apps runtime tries to create using the SQL connection string that you provide. Make sure that the identity used in the SQL connection string has the necessary permissions to create the following artifacts:
 
    - Create and delete the following schemas: `dt`, `dc`, and `dq`.
    - Add, alter, and delete tables in these schemas.
@@ -156,9 +156,9 @@ When you create your logic app using the **Logic App (Standard)** resource type 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**. <p><p>- To deploy only to Azure, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md). <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- To use SQL for workflow configuration storage and Azure Storage for logic app configuration storage, select **SQL and Azure Storage**. <p><p>- To use only Azure Storage, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md). <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure Storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's definition, state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <p><p>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
-   | **SQL connection string** | Yes | <*sql-connection-string*> | Your SQL connection string. <p><p>**Note**: Make sure that you enter a correct connection string because Azure portal won't validate this string for you. |
+   | **SQL connection string** | Yes | <*sql-connection-string*> | Your SQL connection string, which currently supports only SQL authentication, not OAuth or managed identity authentication. <p><p>**Note**: Make sure that you enter a correct connection string because Azure portal won't validate this string for you. |
    | **Plan type** | Yes | <*hosting-plan*> | The hosting plan to use for deploying your logic app. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
    | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <p><p>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
