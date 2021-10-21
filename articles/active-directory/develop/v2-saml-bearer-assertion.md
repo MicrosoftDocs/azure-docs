@@ -31,10 +31,10 @@ Now let us understand on how we can actually fetch SAML assertion programaticall
 
 ### Prerequisites
 
-Establish a trust relationship between the authorization server/environment (Microsoft 365) and the identity provider, or issuer of the SAML 2.0 bearer assertion (ADFS). To configure ADFS for single sign-on and as an identity provider see,  [Setting up AD FS and Enabling Single Sign-On to Office 365](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
+Establish a trust relationship between the authorization server/environment (Microsoft 365) and the identity provider, or issuer of the SAML 2.0 bearer assertion. To configure ADFS for single sign-on and as an identity provider, see  [Setting up AD FS and Enabling Single Sign-On to Office 365](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 
 Register the application in the [portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
-1. Sign in to the [app registration blade of the portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in Azure portal. Otherwise we could have used the registrations in Azure AD). 
+1. Sign in to the [app registration page of the portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Please note that we are using the v2.0 endpoints for Graph API and hence need to register the application in Azure portal. Otherwise we could have used the registrations in Azure AD). 
 1. Select **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information: 
     1. **Name** - Enter a meaningful application name that will be displayed to users of the app.
@@ -42,7 +42,7 @@ Register the application in the [portal](https://ms.portal.azure.com/#blade/Micr
     1. **Redirect URI (optional)** - Select the type of app you're building, Web, or Public client (mobile & desktop), and then enter the redirect URI (or reply URL) for your application.
     1. When finished, select **Register**.
 1. Make a note of the application (client) ID.
-1. In the left pane, select **Certificates & secrets**. Click **New client secret** in the **Client secrets** section. Copy the new client secret, you won't be able to retrieve when you leave the blade.
+1. In the left pane, select **Certificates & secrets**. Click **New client secret** in the **Client secrets** section. Copy the new client secret, you won't be able to retrieve when you leave the page.
 1. In the left pane, select **API permissions** and then **Add a permission**. Select **Microsoft Graph**, then **delegated permissions**, and then select **Tasks.read** since we intend to use the Outlook Graph API. 
 
 Install [Postman](https://www.getpostman.com/), a tool required to test the sample requests.  Later, you can convert the requests to code.
