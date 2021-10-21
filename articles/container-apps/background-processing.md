@@ -5,7 +5,7 @@ services: app-service
 author: jorgearteiro
 ms.service: app-service
 ms.topic:  conceptual
-ms.date: 10/16/2021
+ms.date: 10/21/2021
 ms.author: joarteir
 ---
 
@@ -21,19 +21,13 @@ You learn how to:
 > * Deploy your background processing application as a container app
 > * Verify that the queue messages are processed by the container app
 
-<!-- ## Setup application and container
-
-## Configure auto-scaling
-
-## Upgrade to new version of background processing job -->
-
 ## Prerequisites
 
-You must satisfy the following requirements to complete this tutorial:
+The following items are required to complete this tutorial:
 
-- **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
-  - Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli)
-- **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell. 
+* **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
+  * Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli)
+* **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell.
   
 ## Setup
 
@@ -41,15 +35,15 @@ This tutorial makes use of the following environment variables:
 
 ```bash
 RESOURCE_GROUP="containerapps-rg"
-LOCATION="eastus2"
+LOCATION="eastus"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
 ```
 
-Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step. 
+Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
 
-Next, signing in to Azure from the CLI.
+Next, sign in to Azure from the CLI.
 
 Run the following command, and follow the prompts to complete the authentication process.
 
@@ -67,7 +61,7 @@ Next, install the Azure Container Apps extension to the CLI.
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.1.6-py2.py3-none-any.whl 
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
 ```
 
 Create a resource group to organize the services related to your new container app.
@@ -96,9 +90,13 @@ az monitor log-analytics workspace create \
 
 Next, retrieve the Log Analytics Client ID and client secret.
 
+Make sure to run each query separately to give enough time for the request to complete.
+
 ```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
+```
 
+```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
 ```
 
@@ -115,8 +113,7 @@ az containerapp env create \
 
 ## Set up a storage queue
 
-
-### Create an Azure Storage account
+Create an Azure Storage account.
 
 ```azurecli
 az storage account create \
@@ -127,13 +124,14 @@ az storage account create \
   --kind StorageV2
 ```
 
-### Get queue ConnectionString 
+Next, get the queue's connection string.
 
 ```azurecli
-QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString -o tsv)
+QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString --out json | tr -d '"'`
 ```
 
-### Create Queue
+Now you can create the message queue.
+
 ```azurecli
 az storage queue create \
   --name "myqueue" \
@@ -141,7 +139,7 @@ az storage queue create \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
 
-### Send a message to the storage queue 
+Finally, you can send a message to the queue.
 
 ```azurecli
 az storage message put \
@@ -152,46 +150,101 @@ az storage message put \
 
 ## Deploy the background application
 
-### Create Container App's Scale Rule as a local YAML file 
+Create a file named *queue.json* and paste the following configuration code into the file.
 
-Run the following command to generate a YAML file called *myscalerules.yaml* required by the next step
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "East US",
+            "type": "String"
+        },
+        "environment_name": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "queueconnection": {
+            "defaultValue": "",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.Web/containerApps",
+        "apiVersion": "2021-03-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                {
+                    "name": "queueconnection",
+                    "value": "[parameters('queueconnection')]"
+                }]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "mcr.microsoft.com/azuredocs/containerapps-queuereader",
+                        "name": "queuereader",
+                        "env": [
+                            {
+                                "name": "QueueName",
+                                "value": "myqueue"
+                            },
+                            {
+                                "name": "QueueConnectionString",
+                                "secretref": "queueconnection"
+                            }
+                        ]
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 1,
+                    "maxReplicas": 10,
+                    "rules": [
+                        {
+                            "name": "myqueuerule",
+                            "azureQueue": {
+                                "queueName": "myqueue",
+                                "queueLength": 100,
+                                "auth": [
+                                    {
+                                        "secretRef": "queueconnection",
+                                        "triggerParameter": "connection"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }]
+}
 
-```azurecli
-cat <<EOF > myscalerules.yaml
-- name: myqueuerule
-  type: azureQueue 
-  queueName: myqueue
-  queueLength: 100
-  auth:
-  - secretRef: queueconnection
-    triggerParameter: connection
-EOF
 ```
 
-### Deploy Container App 
+Now you can create and deploy your container app.
+
 ```azurecli
-az containerapp create \
-  --name queuereaderapp \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --revisions-mode single \
-  --min-replicas 1 \
-  --max-replicas 10 \
-  --scale-rules "./myscalerules.yaml" \
-  --secrets "queueconnection=$QUEUE_CONNECTION_STRING" \
-  --image "vturecek/dotnet-queuereader:v1" \
-  --environment-variables "QueueName=myqueue,QueueConnectionString=secretref:queueconnection"
+az deployment group create -g demo --template-file queue.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT" queueconnection="$QUEUE_CONNECTION_STRING"
 ```
 
-This command deploys the demo background application from the public container image called vturecek/dotnet-queuereader:v1 setting secrets and environments variables used by the application.
-Application will scale up to 10 replicas based on the queue length as defined on *myscalerules.yaml* file created on previous step.
+This command deploys the demo application from the public container image called `mcr.microsoft.com/azuredocs/containerapps-queuereader` and sets secrets and environments variables used by the application.
 
+The application scales up to 10 replicas based on the queue length as defined in the `scale` section of the ARM template.
 
 ## Verify the result
 
-### Query Log Analytics
-
 The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
+
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
 ```azurecli
@@ -200,14 +253,15 @@ az monitor log-analytics query \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'queuereaderapp' and Log_s contains 'Message ID'" 
 ```
 
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
 ## Clean up resources
 
 Once you are done, clean up your Container Apps resources by running the following command to delete your resource group.
 
 ```azurecli
-az group delete --resource-group $RESOURCE_GROUP --yes
+az group delete --resource-group $RESOURCE_GROUP
 ```
 
 This command deletes the entire resource group including the Container Apps instance, storage account, Log Analytics workspace, and any other resources in the resource group.
-
-
