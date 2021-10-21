@@ -216,7 +216,7 @@ Here is an example of the markdown format:
 // This adjusts the pronunciation of every instance of these word in both a list or example training sentences 
 @ speech:phoneticlexicon
 - cat/k ae t
-- cat/f iy l ai n
+- cat/f i l ai n
 
 // Here are example training sentences. They are grouped into two sections to help organize the example training sentences.
 // You can refer to one of the lists we declared above by using {@listname} and you can refer to multiple lists in the same training sentence
