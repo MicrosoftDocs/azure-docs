@@ -46,12 +46,13 @@ This table lists accepted data types, when each data type should be used, and th
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Structured tex](#structured-text-data-for-training) (Public Preview) | No | N/a | Yes | Up to 20 classes with up to 2000 items <br> and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
 > [!TIP]
-> When you train a new model, start with plain text. This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
+> When you train a new model, start with plain text data or structured text data. This data will improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
 
 > [!NOTE]
 > Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data. Even if a base model supports training with audio data, the service might use only part of the audio. Still it will use all the transcripts.
@@ -61,6 +62,11 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 > If you face the issue described in the paragraph above, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. The latter option is highly recommended if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 >
 > In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
+
+> [!NOTE]
+> Training with structured text is only supported for these locales: en-US, en-UK, en-IN, de-DE, fr-FR, fr-CA, es-ES, es-MX and you must use the latest base model for these locales. 
+>
+> For locales that don’t support training with structured text the service will take any training sentences that don’t reference any classes as part of training with plain text data.
 
 ## Upload data
 
@@ -178,6 +184,67 @@ Additionally, you'll want to account for the following restrictions:
 * URIs will be rejected.
 * For some languages (for example Japanese or Korean), importing large amounts of text data can take very long or time out. Please consider to divide the uploaded data into text files of up to 20.000 lines each.
 
+## Structured text data for training (Public Preview)
+Often the expected utterances follow a certain pattern. One common pattern is that you have utterances that only differ by words or phrases from a list. Examples of this could be “I have a question about `product`”, where `product` is a list of possible products. Or “Make that `object` `color`”, where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown format shares its format with the .lu markdown used to train Language Understanding models, in particular list entities and example utterances. See the <a href="https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">.lu file format</a> doc for more information on the complete .lu markdown. 
+Here is an example of the markdown format:
+```markdown
+// This is a comment
+
+// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 20 of these
+@ list food =
+- pizza
+- burger
+- ice cream
+- soda
+
+@ list pet =
+- cat
+- dog
+
+@ list sports =
+- soccer
+- tennis
+- cricket
+- basketball
+- baseball
+- football
+
+// This is a list of phonetic pronunciations. 
+// This adjust the pronunciation of every instance of these word in both a list or example training sentences 
+@ speech:phoneticlexicon
+- cat/k ae t
+- cat/f iy l ai n
+
+// Here are example training sentences. They are grouped into two sections to help organize the example training sentences.
+// You can refer to one of the lists we declared above by using {@listname} and you can refer to multiple lists in the same training sentence
+// A training sentence does not have to refer to a list.
+# SomeTrainingSentence
+- you can include sentences without a class reference
+- what {@pet} do you have
+- I like eating {@food} and playing {@sports}
+- my {@pet} likes {@food}
+
+# SomeMoreSentence
+- you can include more sentences without a class reference
+- or more sentences that have a class reference like {@pet} 
+```
+
+Like plain text, training with structured text typically takes a few minutes. Also, your example sentences, and lists should reflect the type of spoken input you expect in production.
+For pronunciation entries see the description of the [Universal Phone Set](universal-phone-set.md).
+
+The table below specifies the limits and other properties for the markdown format:
+
+| Property | Value |
+|----------|-------|
+| Text encoding | UTF-8 BOM |
+| Maximum file size | 200 MB |
+| Maximum number of example sentences | 50,000 |
+| Maximum number of list classes | 20 |
+| Maximum number of items in a list class | 2,000 |
+| Maximum number of speech:phoneticlexicon entries | ?? |
+| Maximum number of pronunciations per word | ?? |
+
+
 ## Pronunciation data for training
 
 If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation,
@@ -185,6 +252,9 @@ see **Pronunciation** in the **Customizations** column in [the Speech-to-text ta
 
 > [!IMPORTANT]
 > It is not recommended to use custom pronunciation files to alter the pronunciation of common words.
+
+> [!NOTE]
+> You cannot combine this type of pronunciation file with structured text training data. For structured text data use the phonetic pronunciation capability that is included in the structured text markdown format.
 
 Provide pronunciations in a single text file. This includes examples of a spoken utterance, and a custom pronunciation for each:
 
