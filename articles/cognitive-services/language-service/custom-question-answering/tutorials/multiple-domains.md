@@ -4,66 +4,71 @@ description: In this tutorial, create a no code FAQ Bot for production use cases
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.author: diagarw
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 11/02/2021
 ---
 
 # Add multiple domains to your FAQ bot
 
-When building a FAQ bot, you may encounter use cases that require you to address queries across multiple domains. Let's say the marketing team at Microsoft wants to build a customer support bot that answers common user queries on multiple Surface Products. For the sake of simplicity here, we will be using a FAQ URL each on [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the Knowledge Base.
+In this tutorial, you learn how to:
 
-You can design your bot to handle queries across multiple domains with QnA Maker in the following ways:
+> [!div class="checklist"]
+> * Create a project and tag question answer pairs into distinct domains with metadata
+> * Create a separate project for each domain
+> * Create a separate language resource for each domain
 
-* Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
-* Create a separate knowledge base for each domain.
-* Create a separate QnA Maker resource for each domain.
+When building a FAQ bot, you may encounter use cases that require you to address queries across multiple domains. Let's say the marketing team at Microsoft wants to build a customer support bot that answers common user queries on multiple Surface Products. For the sake of simplicity here, we will be using two FAQ URLs, [Surface Pen](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98), and [Surface Earbuds](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9) to create the project.
 
-## Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
+## Create project with domain specific metadata
 
-The content authors can use documents to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs into specific domains or categories, you can add [metadata](../../../qnamaker/How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
+The content authors can use documents to extract question answer pairs or add custom question answer pairs to the project/knowledge base. In order to group these question and answers into specific domains or categories, you can add metadata.
 
-For the bot on surface products, you can take the following steps to create a bot that answers queries for both product types:
+For the bot on Surface products, you can take the following steps to create a bot that answers queries for both product types:
 
-1. Add the following FAQ URLs on Surface products in the STEP 3 of the Create KB page and click on 'Create your KB'. A new knowledgebase is created after extracting QnA Pairs from these sources. 
+1. Add the following FAQ URLs as sources by selecting **Add source** > **URLs** > and then **Add all** once you have added each of the URLS below:
    
    [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98)<br>[Surface Earbuds FAQ](https://support.microsoft.com/surface/use-surface-earbuds-aea108c3-9344-0f11-e5f5-6fc9f57b21f9)
- 
-2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
-   >[!div class="mx-imgBorder"]
-   >[![Show Metadata](../media/multiple-domains/show-metadata.png)](../media/multiple-domains/show-metadata.png#lightbox)
+    >[!div class="mx-imgBorder"]
+    >[![Screenshot of add URL UI.](../media/multiple-domains/add-url.png)](../media/multiple-domains/add-url.png#lightbox)
 
-
-3. In this knowledge base, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. 
+2. In this knowledge base, we have question answer pairs on two products and we would like to distinguish between them such that we can search for responses among question and answers for a given product. In order to do this, we could update the metadata field for the question answer pairs.
 
    As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
    >[!div class="mx-imgBorder"]
-   >[![Metadata](../media/multiple-domains/metadata-example-2.png)](../media/multiple-domains/metadata-example-2.png#lightbox)
+   >[![Screenshot of metadata example.](../media/multiple-domains/product-metadata.png)](../media/multiple-domains/product-metadata.png#lightbox)
 
-4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
+4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the question answering REST API.
 
-    Learn [how to use the GenerateAnswer API](../../../qnamaker/How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
-    ```
-    https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
-    ```
+The REST API prediction URL can be retrieved from the Deploy knowledge base pane:
+   
+   >[!div class="mx-imgBorder"]
+   >[![Screenshot of the Deploy knowledge base page with the prediction URL displayed.](../media/multiple-domains/prediction-url.png)](../media/multiple-domains/prediction-url.png#lightbox)
 
     In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response among the QnA pairs with the same metadata. 
 
     ```json
-    {
-        "question": "What is the price?",
-        "top": 6,
-        "isTest": true,
-        "scoreThreshold": 30,
-        "rankerType": ""  // values: QuestionOnly
-        "strictFilters": [
         {
-            "name": "product",
-            "value": "surface_pen"
-        }],
-        "userId": "sd53lsY="
-    }
+          "question": "What is the price?",
+          "top": 3
+        },
+        "answerSpanRequest": {
+          "enable": true,
+          "confidenceScoreThreshold": 0.3,
+          "topAnswersWithSpan": 1
+        },
+        "filters": {
+          "metadataFilter": {
+            "metadata": [
+              {
+                "key": "product",
+                "value": "surface_pen"
+              }
+            ]
+          }
+        }
     ```
 
     You can obtain metadata value based on user input in the following ways: 
@@ -80,19 +85,18 @@ For the bot on surface products, you can take the following steps to create a bo
 
       ![Extract metadata from query](../media/multiple-domains/extract-metadata-from-query.png)
 
-### How large can our knowledge bases be? 
+### How large can our projects be?
 
-You add upto 50000 QnA pairs to a single knowledge base. If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledge base.
+You can add up to 50000 question answer pairs to a single project/knowledge base. If your data exceeds 50,000 question answer pairs, you should consider splitting the knowledge base.
 
-## Create a separate knowledge base for each domain
+## Create a separate project for each domain
 
-You can also create a separate knowledge base for each domain and maintain the knowledge bases separately. All APIs require for the user to pass on the knowledge base ID to make any update to the knowledge base or fetch an answer to the user's question.  
+You can also create a separate project/knowledge base for each domain and maintain the projects separately. All APIs require for the user to pass on the project ID to make any update to the knowledge base or fetch an answer to the user's question.  
 
-When the user question is received by the service, you would need to pass on the KB ID in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the knowledge base ID in the **Publish** page section as shown below.
+When the user question is received by the service, you would need to pass on the `projectName` in the REST API endpoint shown to fetch a response from the relevant knowledge base. You can locate the URL in the **Deploy knowledge base** page under **Get prediction URL**:
 
->[!div class="mx-imgBorder"]
->![Fetch KB ID](../media/multiple-domains/fetch-knowledge-base-identifier.png)
+`https://southcentralus.api.cognitive.microsoft.com/language/:query-knowledgebases?projectName=Test-Project-English&api-version=2021-10-01&deploymentName=production`
 
-## Create a separate QnA Maker resource for each domain.
+## Create a separate language resource for each domain
 
-Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two QnA Maker resources - one  for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource. Read more about [Role based access control](../../../qnamaker/How-To/manage-qna-maker-app.md).
+Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two QnA Maker resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.
