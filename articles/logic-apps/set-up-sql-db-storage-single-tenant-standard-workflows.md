@@ -13,9 +13,9 @@ ms.date: 11/02/2021
 > [!IMPORTANT]
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you choose the **Logic App (Standard)** resource type to create workflows that run in single-tenant Azure Logic Apps, App Service Environment v3, or outside Azure, you also need to create an Azure Storage account to save workflow-related artifacts, states, and runtime data. However, if you want more flexibility and control over your logic app workflows' runtime environment, throughput, scaling, performance, and management, you can use the SQL Storage Provider instead for workflow-related storage transactions. SQL doesn't replace Azure Storage as a storage solution for your logic app resources. You can choose to add SQL as a storage provider or continue to use only Azure Storage, which is still required for other runtime operations but provides more limited control over throughput, scale, and failover.
+When you choose the **Logic App (Standard)** resource type to create workflows that run in single-tenant Azure Logic Apps, App Service Environment v3, or outside Azure, you also need to create an Azure Storage account to save workflow-related artifacts, states, and runtime data. However, if you want more flexibility and control over your logic app workflows' runtime environment, throughput, scaling, performance, and management, you can use the SQL Storage Provider instead of Azure Storage for workflow-related storage transactions.
 
-This article provides an overview for why you might want to add SQL storage alongside Azure Storage and shows how to set up SQL for storage use either during logic app creation in the Azure portal or during logic app deployment from Visual Studio Code.
+This article provides an overview for why you might want to use SQL storage as the primary storage provider for Azure Logic Apps as an alternative to fsAzure Storage and shows how to set up SQL for storage use either during logic app creation in the Azure portal or during logic app deployment from Visual Studio Code.
 
 If you're new to logic apps, review the following documentation:
 
@@ -26,7 +26,7 @@ If you're new to logic apps, review the following documentation:
 
 ## Why use SQL
 
-As the first additional storage option available for single-tenant Azure Logic Apps, SQL provides the following benefits:
+As an alternative storage option available for single-tenant Azure Logic Apps, SQL provides the following benefits:
 
 | Benefit | Description |
 |---------|-------------|
@@ -156,7 +156,7 @@ When you create your logic app using the **Logic App (Standard)** resource type 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- To use SQL for workflow configuration storage and Azure Storage for logic app configuration storage, select **SQL and Azure Storage**. <p><p>- To use only Azure Storage, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md). <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure Storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's definition, state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- If you previously selected a custom location as your region, select **SQL**. <p><p>- If you previously selected an Azure region or ASEv3 location, select **SQL and Azure Storage**. <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure Storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's definition, state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <p><p>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
    | **SQL connection string** | Yes | <*sql-connection-string*> | Your SQL connection string, which currently supports only SQL authentication, not OAuth or managed identity authentication. <p><p>**Note**: Make sure that you enter a correct connection string because Azure portal won't validate this string for you. |
    | **Plan type** | Yes | <*hosting-plan*> | The hosting plan to use for deploying your logic app. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
