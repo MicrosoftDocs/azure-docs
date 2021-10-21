@@ -19,19 +19,18 @@ The direct methods are based on the following conventions:
 
 1. Direct methods have a version specified in MAJOR.MINOR format (as shown in the following example). It is the "@apiVersion" number where "1" is the MAJOR and "0" the MINOR in this example:
 
-```
-  {
-    "methodName": "pipelineTopologySet",
-    "payload": {
-        "@apiVersion": "1.1",
-        "name": "{TopologyName}",
-        "properties": {
-            // Desired Topology properties
-        }
+    ```
+    {
+      "methodName": "pipelineTopologySet",
+      "payload": {
+          "@apiVersion": "1.1",
+          "name": "{TopologyName}",
+          "properties": {
+              // Desired Topology properties
+          }
+      }
     }
-  }
-```
-
+    ```
 1. A given version of Video Analyzer module supports all minor versions of a direct method call up-to its current version. Support across major versions is not guaranteed.
 1. All direct methods are synchronous.
 1. Error results are based on the [OData error schema](http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse).
