@@ -13,7 +13,7 @@ This article shows you how to configure an auto-start policy for a lab. For info
 
 ## Configure auto-start settings for a lab 
 
-The policy doesn't automatically apply auto-start to any VMs in the lab. After configuring the policy, follow the steps from [Enable auto-start for a VM in the lab](#enable-auto-start-for-a-VM-in-the-lab).
+The policy doesn't automatically apply auto-start to any VMs in the lab. After configuring the policy, follow the steps from [Enable auto-start for a VM in the lab](#enable-auto-start-for-a-vm-in-the-lab).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -21,7 +21,7 @@ The policy doesn't automatically apply auto-start to any VMs in the lab. After c
 
 1. Under **Settings**, select **Configuration and policies**. 
 
-   :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Screenshot that shows the "Configuration and policies" menu in the DevTest Labs.":::
+   :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Screenshot that shows the 'Configuration and policies' menu in the DevTest Labs.":::
 
 1. On the **Configuration and policies** page, under **Schedules**, select **Auto-start**.
 
