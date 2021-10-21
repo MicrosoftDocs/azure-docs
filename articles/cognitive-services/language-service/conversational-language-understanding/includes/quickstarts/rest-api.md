@@ -23,7 +23,7 @@ ms.author: aahi
 
 ## Import a project
 
-To get started, you can import a CLU JSON into the service. The quickstart will provide a sample JSON that sets up a couple of intents and entities for an email application called "EmailProject". 
+To get started, you can import a CLU JSON into the service. The quickstart will provide a sample JSON below that sets up a couple of intents and entities for an email application called "EmailProject". 
 
 Create a **POST** request using the following URL, headers, and JSON body to create your project.
 
