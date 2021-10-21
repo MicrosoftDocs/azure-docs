@@ -548,6 +548,8 @@
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md
+            - name: Deploy a MLflow model with a managed online endpoint
+              href: how-to-deploy-mlflow-models-online-endpoints.md
             - name: Deploy a custom container with a managed online endpoint
               href: how-to-deploy-custom-container.md
             - name: Safe rollout for online endpoints
