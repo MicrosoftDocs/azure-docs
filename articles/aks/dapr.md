@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 By using the AKS Dapr extension to provision Dapr on your AKS cluster, you eliminate the overhead of downloading Dapr tooling and manually installing and managing the runtime on your AKS cluster. Additionally, the extension offers support for all [native Dapr configuration capabilities][dapr-configuration-options] through simple command-line arguments.
 
 > [!NOTE]
-> If you plan on installing Dapr in a Kubernetes production environment, please see our [guidelines for production usage][kubernetes-production] documentation page.
+> If you plan on installing Dapr in a Kubernetes production environment, please see the [Dapr guidelines for production usage][kubernetes-production] documentation page.
 
 ## How it works
 
