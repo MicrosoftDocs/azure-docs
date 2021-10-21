@@ -163,7 +163,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Setting | Value |
     | ------- | ----- |
     | Transitivity | Select the checkbox for **Enable peering within network group**. This setting will allow spoke virtual networks in the network group in the same region to communicate with each other directly. |
-    | Global Mesh | Leave this option unchecked. |
+    | Global Mesh | Leave this option **unchecked**. Since both spokes are in the same region this setting is not required. |
     | Gateway | Select **Use hub as a gateway**. |
 
 ## Deploy the connectivity configuration
