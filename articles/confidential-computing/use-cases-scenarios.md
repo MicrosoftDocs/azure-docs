@@ -15,8 +15,6 @@ Confidential computing applies to various use cases for protecting data in regul
 
 ![Confidential computing use cases](media/use-cases-scenarios/use_cases.jpg)
 
-_Some of potential business use cases that confidential computing help address._
-
 This article provides an overview of several common scenarios for Azure confidential computing. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
 
 After reading this article, you'll be able to answer the following questions:
@@ -36,7 +34,7 @@ Multiple sources can upload their data to one enclave in a virtual machine. One 
 
 In secure multi-party computing, encrypted data goes into the enclave. The enclave decrypts the data using a key, performs analysis, gets a result, and sends back an encrypted result that a party can decrypt with the designated key.
 
-**Anti-money laundering**
+### Anti-money laundering
 
 In this secure multi-party computation example, multiple banks share data with each other without exposing personal data of their customers. Banks run agreed-upon analytics on the combined sensitive data set. The analytics on the aggregated data set can detect the movement of money by one user between multiple banks, without the banks accessing each other's data.
 
@@ -44,11 +42,11 @@ Through confidential computing, these financial institutions can increase fraud 
 
 ![Multiparty data sharing for banks](media/use-cases-scenarios/mpc_banks.jpg)
 
-**Drug development in healthcare**
+### Drug development in healthcare
 
 Partnered health facilities contribute private health data sets to train an ML model. Each facility can only see their own data set. No other facility or even the cloud provider, can see the data or training model. All facilities benefit from using the trained model. By creating the model with more data, the model became more accurate. Each facility that contributed to training the model can use it and receive useful results.
 
-![confidential healthcare scenarios](media/use-cases-scenarios/confidential_healthcare.png)
+![Diagram of confidential healthcare scenarios, showing attestation between scenarios.](media/use-cases-scenarios/confidential_healthcare.png)
 
 ## Enhanced customer data privacy
 
@@ -60,17 +58,17 @@ Despite the security level provided by Microsoft Azure is quickly becoming one o
 
 Confidential computing goes in this direction by allowing customers incremental control over the TCB used to run their cloud workloads. Azure confidential computing allows customers to precisely define all the hardware and software that have access to their workloads (data and code), and it provides the technical mechanisms to verifiably enforce this guarantee. In short, customers retain full control over their secrets.
 
-**Data sovereignty**
+### Data sovereignty
 
 In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasingly adoption of confidential computing capabilities into PaaS services in Azure, this higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of factors makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
 
-**Reduced chain of trust**
+### Reduced chain of trust
 
 Enormous investment and revolutionary innovation in confidential computing has enabled the removal of the cloud service provider from the trust chain to an unprecedented degree. Azure confidential computing delivers the highest level of sovereignty available in the market today, This allows customer and governments to meet their sovereignty needs today and still leverage innovation tomorrow.
 
 Confidential computing can expand the number of workloads eligible for public cloud deployment. This can result in a rapid adoption of public services for migrations and new workloads, rapidly improving the security posture of customers, and quickly enabling innovative scenarios.
 
-**BYOK (Bring Your Own Key) scenarios**
+### BYOK (Bring Your Own Key) scenarios
 
 The adoption of hardware secure modules (HSM) enables secure transfer of keys and certificates to a protected cloud storage - [Azure Key Vault Managed HSM](\..\key-vault\managed-hsm\overview.md) – without allowing the cloud service provider to access such sensitive information. Secrets being transferred never exist outside an HSM in plaintext form, enabling scenarios for sovereignty of keys and certificates that are client generated and managed, but still using a cloud-based secure storage.
 

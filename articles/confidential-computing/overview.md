@@ -6,7 +6,7 @@ author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/01/2020
 ms.author: JenCook
 ---
 
@@ -57,7 +57,7 @@ The trusted computing base (TCB) refers to all of a system's hardware, firmware,
 
 ### Reducing the TCB in Azure
 
-When you deploy Azure confidential virtual machines, you can reduce cloud operators from your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, this requires no code or app changes. 
+When you deploy Azure confidential virtual machines, you can reduce cloud operators from your TCB. For confidential VM deployment solutions running on AMD SEV-SNP, you don't need to make code or app changes. 
 
 Azure also offers confidential VMs with application enclaves. These solutions require some changes to configuration policies, or application code. Typically, application enclaves allow developers to build solutions with a smaller TCB. Enclaves remove both cloud operators and your own company operators from the TCB. Application enclaves like what Intel SGX provides, reduces your TCB to only trusted runtime binaries, code, and libraries. 
 
