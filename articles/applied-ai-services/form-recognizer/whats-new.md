@@ -258,7 +258,7 @@ NuGet package version 3.1.0-beta.4
 
    **StartRecognizeIdDocumentsAsync**
 
-   For a list of field values, _see_ [Fields extracted](./concept-id-document.md#fields-extracted) in our Form Recognizer documentation.
+   For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * Expanded the set of document languages that can be provided to the **[StartRecognizeContent](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecontent?view=azure-dotnet-preview&preserve-view=true)** method.
 
@@ -293,7 +293,7 @@ Maven artifact package dependency version 3.1.0-beta.3
 
   **[beginRecognizeIdDocuments]**
 
-   For a list of field values, _see_ [Fields extracted](./concept-id-document.md#fields-extracted) in our Form Recognizer documentation.
+   For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
 
