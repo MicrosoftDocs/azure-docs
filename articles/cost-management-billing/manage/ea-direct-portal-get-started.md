@@ -49,9 +49,16 @@ If you’d like to view all the departments and accounts in your billing account
 
 ## View usage summary and download reports
 
-You can manage and act on your Azure EA invoice. Your invoice is a representation of your bill and should be reviewed for accuracy.
+You view a summary of your usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
+To view a usage summary, price sheet, and download reports, see [Review usage charges](direct-ea-azure-usage-charges-invoices.md#review-usage-charges).
 
-To view a usage summary, download reports, and manage enrollment invoices, see [Azure Enterprise enrollment invoices](direct-ea-azure-usage-charges-invoices.md).
+## View and download invoice
+
+You view and download your Azure EA invoice in the Azure portal. It's a self-serve capability and an EA admin of an enrollment has access to manage invoices. Your invoice is a representation of your bill and should be reviewed for accuracy. For more information, see [Download or view your Azure billing invoice](direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice).
+
+## View Microsoft Azure Consumption Commitment (MACC)
+
+You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azure portal. If your organization has a MACC for an EA billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal. For more information, see [MACC overview](track-consumption-commitment?tabs=portal.md#track-your-macc-commitment).
 
 ## Now that you're familiar with the basics, here are some more links to help you get onboarded
 
