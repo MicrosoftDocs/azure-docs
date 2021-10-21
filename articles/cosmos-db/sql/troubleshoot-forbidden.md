@@ -39,7 +39,7 @@ When a data plane request is blocked with 403 Forbidden, the error message will 
 1. If the request came to Cosmos DB via the expected path, request was blocked because the source network identity was not configured to be allowed for the account. Check account's settings depending on the path the request came to Cosmos DB.
    1. Public internet: check account's [public network access](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) and IP range filter configurations.
    1. Service endpoint: check account's [public network access](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) and VNET filter configurations.
-   1. Private endpoint: check account's private endpoint configuration. This could be due to accessing account from a private endpoint that is set up for a different account.
+   1. Private endpoint: check account's private endpoint configuration and client's private DNS configuration. This could be due to accessing account from a private endpoint that is set up for a different account.
 
 If you recently updated account's firewall configurations, keep in mind that changes can take **up to 15 minutes to apply**.
 
