@@ -77,9 +77,9 @@ Azure IoT Edge for Linux on Windows supports the following provisioning methods:
 
   * Choose the authentication method you want to use, and then follow the steps in the appropriate article to set up an instance of DPS and create an enrollment to provision your device or devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](../iot-dps/concepts-service.md#enrollment).
 
-    * [Provision an IoT Edge device with DPS and symmetric keys.](how-to-auto-provision-symmetric-keys.md)
-    * [Provision an IoT Edge device with DPS and X.509 certificates.](how-to-auto-provision-x509-certs.md)
-    * [Provision an IoT Edge device with DPS and TPM attestation.](how-to-auto-provision-tpm-linux-on-windows.md)
+    * [Provision an IoT Edge device with DPS and symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md).
+    * [Provision an IoT Edge device with DPS and X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md).
+    * [Provision an IoT Edge device with DPS and TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 ## Create a new deployment
 
@@ -236,9 +236,9 @@ You can use the Windows Admin Center or an elevated PowerShell session to provis
 
 * Automatic provisioning:
 
-  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-auto-provision-symmetric-keys.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [Automatic provisioning using DPS and X.509 certificates](how-to-auto-provision-x509-certs.md?tabs=eflow#configure-the-device-with-provisioning-information)
-  * [Automatic provisioning using DPS and TPM attestation](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md#configure-the-device-with-provisioning-information)
+  * [Automatic provisioning using DPS and TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md#configure-the-device-with-provisioning-information)
 
 ### Manual provisioning using the connection string
 

@@ -10,6 +10,7 @@ services: azure-communication-services
 ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 
 # Call diagnostics
@@ -36,7 +37,7 @@ The following users facing diagnostics are available:
 | ------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
 | noNetwork                 | There is no network available.                                  | - Set to `True` when a call fails to start because there is no network available. <br/> - Set to `False` when there are ICE candidates present.                                                                                                  | Device is not connected to a network.               |
 | networkRelaysNotReachable | Problems with a network.                                        | - Set to `True` when the network has some constraint that is not allowing you to reach ACS relays. <br/> - Set to `False` upon making a new call.                                                                                                | During a call when the WiFi signal goes on and off. |
-| networkReconnect          | The connection was lost and we are reconnecting to the network. | - Set to `Poor` when the media transport connectivity is lost <br/> - Set to `Bad` when the network is disconnected <br/> - Set to `Good` when a new session is connected.                                                                       | Low bandwidth, no internet                          |
+| networkReconnect          | The connection was lost and we are reconnecting to the network. | - Set to `Bad` when the network is disconnected <br/> - Set to `Poor`when the media transport connectivity is lost <br/> - Set to `Good` when a new session is connected.                                                                       | Low bandwidth, no internet                          |
 | networkReceiveQuality     | An indicator regarding incoming stream quality.                 | - Set to `Bad` when there is a severe problem with receiving the stream. quality <br/> - Set to `Poor` when there is a mild problem with receiving the stream. quality <br/> - Set to `Good` when there is no problem with receiving the stream. | Low bandwidth                                       |
 
 ### Audio values

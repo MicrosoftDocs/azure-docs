@@ -3,7 +3,7 @@ title: Advanced request throttling with Azure API Management
 description: Learn how to create and apply flexible quota and rate limiting policies with Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Advanced request throttling with Azure API Management

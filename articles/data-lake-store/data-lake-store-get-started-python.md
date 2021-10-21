@@ -2,11 +2,11 @@
 title: Manage an Azure Data Lake Storage Gen1 account with Python
 description: Learn how to use the Python SDK for Azure Data Lake Storage Gen1 account management operations.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 ms.custom: devx-track-python
 
 ---

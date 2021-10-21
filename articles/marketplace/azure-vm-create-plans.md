@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/26/2021
+ms.date: 10/13/2021
 ---
 
 # Create plans for a virtual machine offer
@@ -125,13 +125,13 @@ You can offer a one-, three-, or six-month **Free Trial** to your customers.
 
 ### Plan visibility
 
-You can design each plan to be visible to everyone or only to a preselected audience. Assign memberships in this restricted audience by using Azure subscription IDs.
+You can design each plan to be visible to everyone or only to a preselected audience. Assign memberships in this restricted audience by using Azure tenant IDs, subscription IDs, or both.
 
 **Public**: Your plan can be seen by everyone.
 
 **Private**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
 
-Assign the audience that will have access to this private plan using **Azure subscription ID**s. Optionally, include a **Description** of each Azure subscription ID that you assign. Add up to 10 subscription IDs manually or up to 20,000 if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs and all letters must be lowercase.
+Assign the audience that will have access to this private plan using *Azure tenant IDs*, *subscription IDs*, or both. Optionally, include a **Description** of each Azure tenant ID or subscription ID that you assign. Add up to 10 subscription IDs and tenant IDs manually or import a CSV spreadsheet if more than 10 IDs are required.
 
 > [!NOTE]
 > A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer *before* it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
@@ -154,7 +154,17 @@ Provide the images and other technical properties associated with this plan.
 
 ### Reuse technical configuration
 
-If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
+This option allows you to use the same technical configuration settings across plans within the same offer and therefore leverage the same set of images. If you enable the reuse technical configuration option, your plan will inherit the same technical configuration settings as the base plan you select.  When you change the base plan, the changes are reflected on the plan reusing the configuration.
+
+Some common reasons for reusing the technical configuration settings from another plan include:
+
+1. The same images are available for both *Pay as you go* and *BYOL*.
+2. To reuse the same technical configuration from a public plan for a private plan with a different price. 
+3. Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
+
+Leverage [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
+
+If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later. 
 
 ### Operating system
 
@@ -213,6 +223,9 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 3. To update an existing VM that has a Generation 1 already published, edit details on the **Technical configuration** page.
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+
+> [!NOTE]
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
 
 ### VM images
 

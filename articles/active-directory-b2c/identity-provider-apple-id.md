@@ -3,15 +3,15 @@ title: Set up sign-up and sign-in with an Apple ID
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Apple ID in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -74,7 +74,8 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 ## Configure Apple as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your Azure AD B2C tenant.
-1. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Apple (Preview)**.
 1. For the **Name**, enter **Sign in with Apple**. 
@@ -150,8 +151,9 @@ The Azure function responds with a properly formatted and signed client secret J
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
-2. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
 1. For **Options**, choose **Manual**.

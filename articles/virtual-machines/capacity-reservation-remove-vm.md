@@ -25,11 +25,6 @@ There are two ways to change an association:
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-
 ## Deallocate the VM
 
 The first option is to deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the VM. 
@@ -74,6 +69,27 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 1. Select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
     - The VM is no longer associated with the Capacity Reservation Group 
+
+### [CLI](#tab/cli1)
+
+1. Deallocate the Virtual Machine
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+    Once the status changes to **Stopped (deallocated)**, the virtual machine is deallocated.
+
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `capacity-reservation-group` property to None:
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
 
 ### [PowerShell](#tab/powershell1)
 
@@ -169,6 +185,28 @@ This option works well when the virtual machine can’t be deallocated and when 
 1. Go to your Virtual Machine and select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
     - Note that the VM is no longer associated with the Capacity Reservation Group
+
+### [CLI](#tab/cli2)
+
+1. Update reserved quantity to zero
+
+   ```azurecli-interactive
+   az capacity reservation update 
+   -g myResourceGroup
+   -c myCapacityReservationGroup 
+   -n myCapacityReservation 
+   --capacity 0
+   ```
+
+1. Update the VM to remove association with the Capacity Reservation Group by setting the `capacity-reservation-group` property to None:
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
+
 
 ### [PowerShell](#tab/powershell2)
 

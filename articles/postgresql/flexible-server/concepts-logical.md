@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 10/01/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
@@ -101,12 +100,21 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to [pglogical extension documentation](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs) for more details. Also make sure you have performed pre-requisite tasks listed above.
+
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
    \C myDB
    CREATE EXTENSION pglogical;
+   ```
+2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. Please see [pglogical documentation](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs/#limitations-and-restrictions) for details.
+   ```SQL
+   GRANT azure_pg_admin, replication to myUser;
+   ```
+   or
+   ```SQL
+   GRANT myAdminUser to myUser;
    ```
 2. At the **provider** (source/publisher) database server, create the provider node.
    ```SQL

@@ -3,14 +3,14 @@ title: Custom email verification with SendGrid
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with SendGrid to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -202,7 +202,9 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
 Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`. Make the following updates to the claims transformation XML:
 
 * Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
-* Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
+* Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam. 
+   > [!NOTE]
+   > This email address must be verified in SendGrid under Sender Authentication with either domain authentication or Single Sender Authentication.
 * Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
 ```xml

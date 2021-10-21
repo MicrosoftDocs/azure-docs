@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 09/27/2021
 ---
 
 # Back up SAP HANA databases in Azure VMs
@@ -20,11 +20,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
->As of August 1st, 2020, SAP HANA backup for RHEL (7.4, 7.6, 7.7 & 8.1) is generally available.
-
->[!NOTE]
->**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
->To sign up for the preview, write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Refer to the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -43,6 +39,8 @@ The following table lists the various alternatives you can use for establishing 
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
 | Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
+| [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
@@ -90,6 +88,12 @@ When you back up an SAP HANA database running on an Azure VM, the backup extensi
 > There is no service level proxy support. That is, traffic via the proxy from only a few or selected services (Azure backup services) isn't supported. The entire data or traffic can either be routed by proxy or not.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+## Enable Cross Region Restore
+
+At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Learn more](/azure/backup/backup-azure-recovery-services-vault-overview) about Cross Region Restore.
 
 ## Discover the databases
 

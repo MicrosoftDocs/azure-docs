@@ -22,7 +22,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
-Using the Anomaly Detector doesn't require any prior experience in machine learning, and the RESTful API enables you to easily integrate the service into your applications and processes.
+Using the Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 

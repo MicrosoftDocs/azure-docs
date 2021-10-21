@@ -1,5 +1,5 @@
 ---
-title: Time-based retention policies for immutable blob data 
+title: Time-based retention policies for immutable blob data
 titleSuffix: Azure Storage
 description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version (preview) or to a container.
 services: storage
@@ -24,7 +24,7 @@ The minimum retention interval for a time-based retention policy is one day, and
 
 When you configure a time-based retention policy, the affected objects will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for objects is equal to the difference between the blob's creation time and the user-specified retention interval. Because a policy's retention interval can be extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago, so the effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for _testblob2_ is five years from the time of its creation.
+For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, *testblob1*, was created one year ago, so the effective retention period for *testblob1* is four years. When a new blob, *testblob2*, is uploaded to the container, the effective retention period for *testblob2* is five years from the time of its creation.
 
 ## Locked versus unlocked policies
 
@@ -94,7 +94,7 @@ If the policy inherited by a previous version is unlocked, then the retention in
 
 If the policy inherited by a previous version is locked, then the retention interval can be lengthened. The policy cannot be deleted, nor can the retention interval be shortened.
 
-If there is no policy configured on the current version, then the previous version does not inherit any policy. You can configure a custom policy for the version.  
+If there is no policy configured on the current version, then the previous version does not inherit any policy. You can configure a custom policy for the version.
 
 If the policy on a current version is modified, the policies on existing previous versions remain unchanged, even if the policy was inherited from a current version.
 
@@ -120,9 +120,9 @@ Only time-based retention policies have an the **AllowProtectedAppendWrites** pr
 
 As this setting is part of a time-based retention policy, the append blobs remain in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's last modification time and the user-specified retention interval. Similarly, when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with the **AllowProtectedAppendWrites** property enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days, so that the effective retention period for _logblob1_ is 100 days from today (the time of its last append + 90 days).
+For example, suppose that a user creates a time-based retention policy with the **AllowProtectedAppendWrites** property enabled and a retention interval of 90 days. An append blob, *logblob1*, is created in the container today, new logs continue to be added to the append blob for the next 10 days, so that the effective retention period for *logblob1* is 100 days from today (the time of its last append + 90 days).
 
-Unlocked time-based retention policies allow the the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
+Unlocked time-based retention policies allow the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
 
 ## Audit logging
 

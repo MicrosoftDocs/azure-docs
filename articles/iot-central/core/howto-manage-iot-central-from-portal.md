@@ -28,13 +28,17 @@ To create an application, navigate to the [IoT Central Application](https://ms.p
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
 * **Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-
-  * Asia Pacific
-  * Australia
-  * Europe
-  * Japan
-  * United Kingdom
-  * United States
+    
+    * Australia
+    * East Central US
+    * East US
+    * East US 2
+    * Japan East
+    * North Europe
+    * Southeast Asia
+    * UK South
+    * West Europe
+    * West US
 
   Once you choose a location, you can't later move your application to a different location.
 

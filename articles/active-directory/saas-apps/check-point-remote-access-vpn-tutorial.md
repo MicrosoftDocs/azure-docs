@@ -235,7 +235,7 @@ There are two options:
     1. If you do not want to use an on-premises Active Directory (LDAP), select only External User Profiles and click OK.
     2. If you do want to use an on-premises Active Directory (LDAP), select only LDAP users and in the LDAP Lookup Type select email. Then click OK.
 
-    ![screenshot to manual configuration.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
+    ![Screenshot of manual configuration.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
 
 1. Configure the required settings in the management database:
 
@@ -273,47 +273,64 @@ There are two options:
 By default, the Windows client uses its embedded browser and the macOS client uses Safari to authenticate on the Identity Provider's portal.
 For Windows client to change this behavior to use Internet Explorer instead:
 
-    1.	On the client machine, open a plain-text editor as an Administrator.
-    2.	Open the trac.defaults file in the text editor.
-        * On 32-bit Windows:
-``%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults``
-        * On 64-bit Windows:
-``%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults``
-    3.	Change the idp_browser_mode attribute value from “embedded” to “IE”:
-    4.	Save the file.
-    5.	Restart the Check Point Endpoint Security VPN client service.
-Open the Windows Command Prompt as an Administrator and run these commands:
+   1. On the client machine, open a plain-text editor as an Administrator.
 
-        `# net stop TracSrvWrapper `
+   2. Open the `trac.defaults` file in the text editor.
 
-        `# net start TracSrvWrapper`
- 
+      - On 32-bit Windows:
+
+        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - On 64-bit Windows:
+
+        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+    3. Change the `idp_browser_mode` attribute value from `embedded` to `IE`.
+
+    4. Save the file.
+
+    5. Restart the Check Point Endpoint Security VPN client service.
+
+   Open the Windows Command Prompt as an Administrator and run these commands:
+
+   `# net stop TracSrvWrapper`
+
+   `# net start TracSrvWrapper`
 
 1. Start authentication with browser running in background:
 
-    1.	On the client machine, open a plain-text editor as an Administrator.
-    2.	Open the trac.defaults file in the text editor.
-        * On 32-bit Windows: `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
-        * On 64-bit Windows: `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+   1. On the client machine, open a plain-text editor as an Administrator.
 
-        * On macOS: `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/Trac.defaults`
+   2. Open the `trac.defaults` file in the text editor.
 
-    3.	Change the value of **idp_show_browser_primary_auth_flow** to **false**
-    4.	Save the file.
-    5.	Restart the Check Point Endpoint Security VPN client service
-        * On Windows clients
-Open the Windows Command Prompt as an Administrator and run these commands:
+      - On 32-bit Windows:
 
-            `# net stop TracSrvWrapper`
+        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - On 64-bit Windows:
+
+        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - On macOS:
+      
+        `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
+
+    3. Change the value of `idp_show_browser_primary_auth_flow` to `false`.
+
+    4. Save the file.
+
+    5. Restart the Check Point Endpoint Security VPN client service.
+       - On Windows clients, open the Windows Command Prompt as an Administrator and run these commands:
+
+         `# net stop TracSrvWrapper`
         
-            `# net start TracSrvWrapper`
+         `# net start TracSrvWrapper`
 
-        * On macOS clients
+       - On macOS clients, run:
 
-            `sudo launchctl stop com.checkpoint.epc.service`
+         `sudo launchctl stop com.checkpoint.epc.service`
 
-            `sudo launchctl start com.checkpoint.epc.service`
-
+         `sudo launchctl start com.checkpoint.epc.service`
 
 ### Create Check Point Remote Secure Access VPN test user
 
@@ -321,7 +338,7 @@ In this section, you create a user called Britta Simon in Check Point Remote Sec
 
 ## Test SSO 
 
-1. Open the VPN client and click **Connect to…**.
+1. Open the VPN client and click **Connect to...**.
 
     ![screenshot for Connect to.](./media/check-point-remote-access-vpn-tutorial/connect.png)
 
@@ -334,5 +351,3 @@ In this section, you create a user called Britta Simon in Check Point Remote Sec
 ## Next steps
 
 Once you configure Check Point Remote Secure Access VPN you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

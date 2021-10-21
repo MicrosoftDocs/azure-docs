@@ -4,12 +4,12 @@ description: How to create membership rules to automatically populate groups, an
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -128,7 +128,7 @@ For the properties used for device rules, see [Rules for devices](#rules-for-dev
 
 ## Supported expression operators
 
-The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The **Contains** operator does partial string matches but not item in a collection matches.
 
 | Operator | Syntax |
 | --- | --- |
@@ -199,7 +199,7 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. 
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
 
 The following are examples of properly constructed membership rules with multiple expressions:
 

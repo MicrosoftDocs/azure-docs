@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
-manager: daveba
+manager: KarenH444
 ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro

@@ -39,7 +39,6 @@ If you are unable to use a configuration metadata document, you will need to gat
 
 ## <a name="configure"> </a>Add provider information to your application
 
-
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
 1. Select **OpenID Connect** in the identity provider dropdown.

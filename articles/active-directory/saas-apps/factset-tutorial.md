@@ -74,10 +74,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
     a. In the **Identifier** text box, type the URL:
-    `https://login.factset.com`
+    `https://auth.factset.com`
 
     b. In the **Reply URL** text box, type the URL:
-    `https://login.factset.com/services/saml2/`
+    `https://auth.factset.com/sp/ACS.saml2`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
 

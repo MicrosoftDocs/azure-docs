@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -74,7 +74,24 @@ No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
-Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
+Azure Bastion currently supports the following keyboard layouts inside the VM:
+* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
+* de-de-qwertz
+* fr-be-azerty
+* fr-fr-azerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
+* ja-jp-qwerty
+* pt-br-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
+
+The default keyboard layout in the target VM will match your local language, which can be changed in your local computer settings.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
@@ -121,6 +138,9 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Global subscriptions filter." lightbox="./media/bastion-faq/global-subscriptions.png":::
+
+### Does Bastion support connectivity to Azure Virtual Desktop?
+No, Bastion connectivity to Azure Virtual Desktop is not supported.
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 

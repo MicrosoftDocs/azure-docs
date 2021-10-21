@@ -48,12 +48,14 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt.
 
-    ```npm init```
+   `npm init`
 
-    Answer the questions and your project will be ready to go.
+   Answer the questions and your project will be ready to go.
 
 2. Add a new file to the folder and name it ```index.js```.
+
 3. Install the necessary packages using one of the ```npm install``` options:
+
    * Mongoose: ```npm install mongoose@5 --save```
 
      > [!Note]
@@ -64,7 +66,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
      >[!Note]
      > The ```--save``` flag adds the dependency to the package.json file.
 
-4. Import the dependencies in your index.js file.
+4. Import the dependencies in your `index.js` file.
 
     ```JavaScript
    var mongoose = require('mongoose');
@@ -87,7 +89,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMOSDB_USER,
+        username: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -309,7 +311,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
     });
     ```
 
-As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running using Azure Cosmos's API for MongoDB without requiring too many changes.
+As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running using Azure Cosmos DB's API for MongoDB without requiring too many changes.
 
 ## Clean up resources
 

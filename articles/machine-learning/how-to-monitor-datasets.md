@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up data drift detection in Azure Learning. Create datasets monitors (preview), monitor for data drift, and set up alerts.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 ms.author: wibuchan
 author: buchananwp

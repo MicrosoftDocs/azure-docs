@@ -2,14 +2,14 @@
 title: Web sign-in with OpenID Connect - Azure Active Directory B2C
 description: Build web applications using the OpenID Connect authentication protocol in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -267,9 +267,9 @@ Error responses look like:
 
 ## Send a sign-out request
 
-When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-behavior.md).
+When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session behavior](session-behavior.md).
 
-To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
+To sign out the user, redirect the user to the `end_session_endpoint` that is listed in the OpenID Connect metadata document described earlier:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
@@ -278,11 +278,13 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
-| {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
+| {policy} | Yes | The user flow that has been used in the authorization request. For example, if the user signed-in with the `b2c_1_sign_in` user flow, specify `b2c_1_sign_in` in the sign-out request. |
 | id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. For more information, see [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
-| state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
+| state | No | If a `state` parameter is included in the authorization request, the same value will be returned in the response to the `post_logout_redirect_uri`. The application should verify that the `state` values in the request and response are identical. |
+
+Upon a sign-out request, Azure AD B2C invalidates the Azure AD B2C cookie-based session, and attempts to sign out from federated identity providers. For more information, see [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
 ### Secure your logout redirect
 

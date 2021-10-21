@@ -25,11 +25,55 @@ In the Unity editor, go to *:::no-loc text="File > Build Settings":::*. Select *
 
 If it is, your app will use Depth LSR, otherwise it will use Planar LSR.
 
+When using OpenXR, the depth buffer should always be submitted. The setting can be found in *:::no-loc text="XR Plug-in Management > OpenXR":::*. The reprojection mode can then be changed via an extension in the OpenXR plugin:
+
+```cs
+using Microsoft.MixedReality.OpenXR;
+
+public class OverrideReprojection : MonoBehaviour
+{
+    void OnEnable()
+    {
+        RenderPipelineManager.endCameraRendering += RenderPipelineManager_endCameraRendering;
+    }
+    void OnDisable()
+    {
+        RenderPipelineManager.endCameraRendering -= RenderPipelineManager_endCameraRendering;
+    }
+
+    // When using the Universal Render Pipeline, OnPostRender has to be called manually.
+    private void RenderPipelineManager_endCameraRendering(ScriptableRenderContext context, Camera camera)
+    {
+        OnPostRender();
+    }
+
+    // Called directly when using Unity's legacy renderer.
+    private void OnPostRender()
+    {
+        ReprojectionSettings reprojectionSettings = default;
+        reprojectionSettings.ReprojectionMode = ReprojectionMode.PlanarManual; // Or your favorite reprojection mode.
+        
+        // In case of PlanarManual you also need to provide a focus point here.
+        reprojectionSettings.ReprojectionPlaneOverridePosition = ...;
+        reprojectionSettings.ReprojectionPlaneOverrideNormal = ...;
+        reprojectionSettings.ReprojectionPlaneOverrideVelocity = ...;
+
+        foreach (ViewConfiguration viewConfiguration in ViewConfiguration.EnabledViewConfigurations)
+        {
+            if (viewConfiguration.IsActive && viewConfiguration.SupportedReprojectionModes.Contains(reprojectionSettings.ReprojectionMode))
+            {
+                viewConfiguration.SetReprojectionSettings(reprojectionSettings);
+            }
+        }
+    }
+}
+```
+
 ## Depth LSR
 
 For Depth LSR to work, the client application must supply a valid depth buffer that contains all the relevant geometry to consider during LSR.
 
-Depth LSR attempts to stabilize the video frame based on the contents of the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as transparent objects, can't be adjusted by LSR and may show instability and reprojection artifacts. 
+Depth LSR attempts to stabilize the video frame based on the contents of the supplied depth buffer. As a consequence, content that hasn't been rendered to it, such as transparent objects, can't be adjusted by LSR and may show instability and reprojection artifacts.
 
 To mitigate reprojection instability for transparent objects, you can force depth buffer writing. See the material flag *TransparencyWritesDepth* for the [Color](color-materials.md) and [PBR](pbr-materials.md) materials. Note however, that visual quality of transparent/opaque object interaction may suffer when enabling this flag.
 
@@ -41,9 +85,10 @@ Planar LSR reprojects those objects best that lie close to the supplied plane. T
 
 ### Configure Planar LSR in Unity
 
-The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
+The plane parameters are derived from a so called *focus point*. When using WMR, the focus point has to be set every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](/windows/mixed-reality/focus-point-in-unity) for details. For OpenXR, the focus point needs to be set via the `ReprojectionSettings` shown in the previous section.
+If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
 
-You can calculate the focus point yourself, though it might make sense to base it on the one calculated by the Remote Rendering host. Call `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` to obtain that. You are asked to provide a coordinate frame in which to express the focus point. In most cases, you'll just want to provide the result from `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` here.
+You can calculate the focus point yourself, though it might make sense to base it on the one calculated by the Remote Rendering host. Call `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` to obtain that.
 
 Usually both the client and the host render content that the other side isn't aware of, such as UI elements on the client. Therefore, it might make sense to combine the remote focus point with a locally calculated one.
 

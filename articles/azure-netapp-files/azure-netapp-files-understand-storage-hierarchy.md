@@ -63,7 +63,7 @@ The QoS type is an attribute of a capacity pool. Azure NetApp Files provides two
 
     In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool.  It is determined by the combination of the pool size and the service-level throughput. 
 
-    For instance, a 4-TiB capacity pool with the Ultra service level have a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
+    For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
 
 
 ## <a name="volumes"></a>Volumes
@@ -81,8 +81,7 @@ The following example shows the relationships of the Azure subscription, NetApp 
 ## Next steps
 
 - [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-- [Register for Azure NetApp Files](azure-netapp-files-register.md)
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)
-- [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+- [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 - [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md)

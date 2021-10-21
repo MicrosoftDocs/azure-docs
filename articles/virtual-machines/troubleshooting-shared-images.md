@@ -1,15 +1,11 @@
 ---
 title: Troubleshoot problems with shared images in Azure 
 description: Learn how to troubleshoot problems with shared image galleries.
-author: olayemio
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 7/1/2021
-ms.author: olayemio
-ms.reviewer: cynthn
-
 ---
 
 # Troubleshoot shared image galleries in Azure
@@ -24,13 +20,6 @@ If you have problems performing any operations on shared image galleries, image 
 **Message**: *Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
 **Cause**: The name for the gallery does not meet the naming requirements.  
 **Workaround**: Choose a name that meets the following conditions: 
-- Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
-- Starts and ends with English letters or numbers
-
-**Message**: *The entity name 'galleryName' is invalid according to its validation rule: ^[^\_\W][\w-.\_]{0,79}(?<![-.])$.*  
-**Cause**: The gallery name does not meet the naming requirements.  
-**Workaround**: Choose a name for the gallery that meets the following conditions: 
 - Has an 80-character limit
 - Contains only English letters, numbers, underscores, and periods
 - Starts and ends with English letters or numbers

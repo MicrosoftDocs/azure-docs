@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 08/24/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ---
 
@@ -54,11 +54,13 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Extension |Publisher |Type |Additional information |
 |----------|----------|-----|-----------------------|
 |Azure Defender integrated vulnerability scanner |Qualys |WindowsAgent.AzureSecurityCenter |[Azure Defender’s integrated vulnerability assessment solution for Azure and hybrid machines](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Microsoft Antimalware extension |Microsoft.Azure.Security |IaaSAntimalware |[Microsoft Antimalware extension for Windows](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](../../virtual-machines/extensions/custom-script-windows.md)|
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
 
 ### Linux extensions
 
@@ -70,6 +72,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally.|
 
 ## Prerequisites
 
@@ -86,7 +89,7 @@ Be sure to review the documentation for each VM extension referenced in the prev
 
 The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
 
-### Azure Key Vault VM extension 
+### Azure Key Vault VM extension
 
 The Key Vault VM extension doesn't support the following Linux operating systems:
 

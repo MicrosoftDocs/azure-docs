@@ -56,6 +56,7 @@ Parameters are case-sensitive.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
+    "context": "/document",
     "includeOpinionMining": true,
     "inputs": [
         {
