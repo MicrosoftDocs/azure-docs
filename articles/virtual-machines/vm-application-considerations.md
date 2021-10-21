@@ -14,6 +14,11 @@ ms.custom:
 # Things to consider when creating VM application packages
 
 This article provides details on things to consider when creating VM applications.
+
+> [!IMPORTANT]
+> **VM applications in Azure Compute Gallery** are currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
   
 
 ## Download directory and working directory  
@@ -61,83 +66,12 @@ Note: the application package in this example is a compressed archive. 'tar -xf'
 
   
 
-If a `configurationReference` was provided during creation of the gallery application version, and the install/update/remove command want to pass it to the application package file, they just need to refer to the file `<appname>_config`. 
-
-  
-
-Example: in the windows example, if we also needed to pass a config file to the application package file, which is an executable, the install command would be 
-move .\\firefoxwindows .\\firefox.exe & firefox.exe /S -config firefox_config 
-  
-
 ## How updates are handled 
-
- 
 
 If you want to update an application from version 1.0.0 to 1.1.0, ff 1.1.0 has an update command specified, nly that would be invoked. If 1.1.0 doesn’t have an update command specified, a remove will be invoked on 1.0.0 then an install will be invoked on 1.1.0. 
 
 Update commands should be written knowing that it could be updating from any older version of the VM Application. 
 
- 
-
-## Tips for creating VM Applications on Windows 
-
-Most 3rd party applications in Windows are available as .exe or .msi installers. Some are also available as extract and run zip files. Let us look at the best practices for each of them.
-
-  
-
-### .exe installer 
-
-Installer executables typically launch a GUI windows and require the user to click through the GUI for the installation to proceed. This is not compatible with VMApps. If the installer supports a silent mode, it can be used with VMApps by invoking the executable and passing the argument that makes it run in silent mode. 
-
-Cmd.exe also expects executable files to have the extension .exe, so it is required to rename the file to have .exe extension. In the upcoming version, the user would be able to specify the name that the application package file and the application configuration files would be named after they are downloaded, so in the future renaming the files in the install/update/remove command would not be required. 
-
-  
-
-Example, if I wanted to create a VMApp for Firefox for windows which ships as an executable, I will have the following as install command. My VM Application (Gallery application) is called 'firefoxwindows', so I author the command assuming that the application package file is present in the current directory 
-"move .\\firefoxwindows .\\firefox.exe & firefox.exe /S -config firefox_config" 
- 
-This installer executable file doesn't support an uninstall command, so to figure out an appropriate uninstall command, I look up the registry on a test machine to know here the uninstaller is located. 
-
-Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\<installed application name>\UninstallString and use that as my remove command 
-
-'\"C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe\" /S' 
-
-
-### .msi installer 
-
-For command line execution of `.msi` installers, the commands to install or remove an application should invoke `msiexec`. Typically, `msiexec` runs as its own separate process and `cmd` doesn't wait for it to complete, which can lead to problems when installing more than one VM application.  The `start` command can be used with `msiexec` to ensure that the installation completes before the command returns `
-
-Example install command:
-
-```
-start /wait %windir%\\system32\\msiexec.exe /i myapp /quiet /forcerestart /log myapp_install.log
-```
-
-Example remove command  
-
-```
-start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /log ${appname}_uninstall.log
-```
-
-  
-
-### Zipped files 
-
-For installation, just unzip the contents of the application package to the desired destination. 
-
-Example install command:
-
-```
-mkdir C:\\myapp && powershell.exe -Command \"Expand-Archive -Path myapp -DestinationPath C:\\myapp\" 
-```
-
-Example remove command:
-
-```
-rmdir /S /Q C:\\myapp
-```
-
-  
 
 ## Tips for creating VM Applications on Linux 
 
@@ -193,12 +127,76 @@ Example install command:
 dpkg -i <appname> || apt --fix-broken install -y
 ```
  
+## Tips for creating VM Applications on Windows 
+
+Most 3rd party applications in Windows are available as .exe or .msi installers. Some are also available as extract and run zip files. Let us look at the best practices for each of them.
+
+
+### .exe installer 
+
+Installer executables typically launch a GUI windows and require the user to click through the GUI for the installation to proceed. This is not compatible with VMApps. If the installer supports a silent mode, it can be used with VMApps by invoking the executable and passing the argument that makes it run in silent mode. 
+
+Cmd.exe also expects executable files to have the extension .exe, so it is required to rename the file to have .exe extension. In the upcoming version, the user would be able to specify the name that the application package file and the application configuration files would be named after they are downloaded, so in the future renaming the files in the install/update/remove command would not be required. 
+
+If I wanted to create a VMApp for Firefox for windows which ships as an executable, I will have the following as install command. My VM Application (Gallery application) is called 'firefoxwindows', so I author the command assuming that the application package file is present in the current directory 
+"move .\\firefoxwindows .\\firefox.exe & firefox.exe /S -config firefox_config" 
+ 
+This installer executable file doesn't support an uninstall command, so to figure out an appropriate uninstall command, I look up the registry on a test machine to know here the uninstaller is located. 
+
+In the registry, the uninstall string is stored in `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\<installed application name>\UninstallString` so I would use the contents as my remove command:
+
+```
+'\"C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe\" /S'
+```
+
+### .msi installer 
+
+For command line execution of `.msi` installers, the commands to install or remove an application should invoke `msiexec`. Typically, `msiexec` runs as its own separate process and `cmd` doesn't wait for it to complete, which can lead to problems when installing more than one VM application.  The `start` command can be used with `msiexec` to ensure that the installation completes before the command returns `
+
+Example install command:
+
+```
+start /wait %windir%\\system32\\msiexec.exe /i myapp /quiet /forcerestart /log myapp_install.log
+```
+
+Example remove command:
+
+```
+start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /log ${appname}_uninstall.log
+```
+
+  
+
+### Zipped files 
+
+For installation, just unzip the contents of the application package to the desired destination. 
+
+Example install command:
+
+```
+mkdir C:\\myapp && powershell.exe -Command \"Expand-Archive -Path myapp -DestinationPath C:\\myapp\" 
+```
+
+Example remove command:
+
+```
+rmdir /S /Q C:\\myapp
+```
+
+  
+ 
 
 ## Troubleshooting 
 
-The VM application extension always returns a success regardless of whether any VM app referenced in the Application Profile failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there is a problem with the extension or the underlying infrastructure. To know whether a particular VM application was successfully added to the VM instance, please check the message of the VMApplication extension using the command. 
+The VM application extension always returns a success regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there is a problem with the extension or the underlying infrastructure. To know whether a particular VM application was successfully added to the VM instance, please check the message of the VMApplication extension. 
 
 To learn more about getting the status of VM extensions, see [Virtual machine extensions and features for Windows](extensions/features-windows.md#view-extension-status).
+
+To get status of VM extensions, use [Get-AzVM](/powershell/module/az.compute/get-azvm):
+
+```azurepowershell-interactive
+Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -InstanceView | convertto-json  
+```
 
 To get status of VMSS extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
 
