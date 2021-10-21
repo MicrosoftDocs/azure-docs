@@ -13,21 +13,41 @@ ms.author: danlep
 
 # API Management policies to validate and authorize GraphQL requests
 
-This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
-Use the following validation policies to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
+For more information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## Validation policies
 
-- [Validate GraphQL request](#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
+| Policy | Description |
+| ------ | ----------- |
+| [Validate GraphQL request](#validate-graphql-request) | Validates and authorizes a request to a GraphQL API. |
+
 
 ## Validate GraphQL request
 
 The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
 
-* Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: a mutation, query, or subscription, or individual field in a type declaration. Permissions may not be applied to input types, fragments, unions, interfaces, or the schema element.   
-* There can be multiple authorization sub-policies. The most specific path is used to select the appropriate authorization rule for each leaf node in the query. Each authorization can optionally provide a different action, and `if` clauses allow the admin to specify conditional actions.  
-* The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) policy and can be used to reject introspection requests (`__schema`, `__type`, etc.).   
+**Permissions**  
+Because GraphQL queries use a flattened schema:
+* Permissions may be applied at any leaf node of an output type: 
+    * Mutation, query, or subscription
+    * Individual field in a type declaration. 
+* Permissions may not be applied to: 
+    * Input types
+    * Fragments
+    * Unions
+    * Interfaces
+    * The schema element   
+
+
+**Authorization sub-policies**  
+You can use multiple authorization sub-policies. The most specific path is used to select the appropriate authorization rule for each leaf node in the query. 
+* Each authorization can optionally provide a different action.
+* `if` clauses allow the admin to specify conditional actions. 
+
+**Introspection policy**   
+The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) policy. You can use it to reject introspection requests (`__schema`, `__type`, etc.).   
 
 ### Policy statement
 
@@ -40,7 +60,9 @@ The `validate-graphql-request` policy validates the GraphQL request and authoriz
 
 ### Example
 
-The following example validates a GraphQL query. Requests larger than 100 kb or with query depth greater than 4 are rejected. Access to the following querty paths is rejected: the introspection path and the `list Users` query. 
+In the following example, we validate a GraphQL query and reject:
+* Requests larger than 100 kb or with query depth greater than 4. 
+* Access to the introspection path and the `list Users` query. 
 
 ```xml
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
@@ -75,7 +97,7 @@ Available actions are described in the following table.
 
 |Action |Description  |
 |---------|---------|
-|`reject`     | A request error happens, and the request is not sent to the back end   .     |
+|`reject`     | A request error happens, and the request is not sent to the back end.     |
 |`remove`     | A field error happens, and the field is removed from the request.         |
 |`allow`     | The field is passed to the back end.        |
 
@@ -91,7 +113,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 
 
-Errors are automatically propagated in the `GraphQLErrors` variable (similar to the [`Context.LastError`](api-management-error-handling-policies.md#lasterror) property, but for all GraphQL validation errors).  If the errors need to be propagated separately, the user may specify an error variable name. Errors are pushed onto the `error` variable in addition to the `GraphQLErrors` variable. 
+Similar to the [`Context.LastError`](api-management-error-handling-policies.md#lasterror) property, all GraphQL validation errors are automatically propagated in the `GraphQLErrors` variable. If the errors need to be propagated separately, you can specify an error variable name. Errors are pushed onto the `error` variable and the `GraphQLErrors` variable. 
 
 ## Next steps
 

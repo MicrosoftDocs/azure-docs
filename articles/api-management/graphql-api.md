@@ -18,8 +18,6 @@ API Management tackles the security, authentication, and authorization challenge
 * Add a GraphQL service as APIs via Azure portal.  
 * Secure GraphQL APIs by applying both existing access control policies and [new policies](graphql-validation-policies.md) to secure and protect against GraphQL-specific attacks. 
 * Explore the schema and run test queries against the GraphQL APIs in the Azure and developer portals. 
-* Gain insights into their GraphQL APIs usage via query frequency reports. 
-* Improve GraphQL API performance by caching queries and responses in API Management. 
 
 [!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
 
