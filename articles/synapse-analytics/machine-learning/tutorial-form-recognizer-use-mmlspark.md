@@ -139,7 +139,7 @@ display(analyzeBusinessCards
 ```
 
 ### Expected results
-![expected_results_for_business_cards](./media/tutorial-form-recognizer/business_card_output.png)
+![Screenshot of the expected results from analyzing the example business card.](./media/tutorial-form-recognizer/business_card_output.png)
 
 
 ## Analyze invoices
