@@ -139,12 +139,10 @@ The following is an example ARM template used to deploy a container app.
                                     "secretRef": "mysecret"
                                 }
                             ],
-                            "resources": [
-                                {
-                                    "cpu": 1,
-                                    "memory": "500Mb"
-                                }
-                            ]
+                            "resources": {
+                                "cpu": 1,
+                                "memory": "500Mb"
+                            }
                         }
                     ],
                     "scale": {
