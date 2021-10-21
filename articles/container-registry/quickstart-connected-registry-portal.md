@@ -80,7 +80,7 @@ The following steps create a connected registry in [ReadOnly mode](intro-connect
 
 ## View connected registry properties
 
-Select a connected registry in the portal to view its properties, such as its connection status (Offline or Online) and whether it has been activated.
+Select a connected registry in the portal to view its properties, such as its connection status (Offline, Online, or Unhealthy) and whether it has been activated (deployed on-premises). In the following example, the connected registry is not deployed. Its connection state of "Offline" indicates that it is currently disconnected from the cloud.
 
 :::image type="content" source="media/quickstart-connected-registry-portal/connected-registry-properties.png" alt-text="View connected registry properties":::
 

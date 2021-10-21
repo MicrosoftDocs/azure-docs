@@ -84,7 +84,7 @@ az acr connected-registry list \
   --output table
 ```
 
-You should see a response as follows:
+You should see a response as follows. Because the connected registries are not yet deployed, the connection state of "Offline" indicates that they are currently disconnected from the cloud.
 
 ```
 NAME                 MODE        CONNECTION STATE    PARENT               LOGIN SERVER    LAST SYNC (UTC)

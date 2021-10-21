@@ -45,6 +45,11 @@ Each connected registry is a resource you manage using a cloud-based Azure conta
 
 Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
 
+The connected registry's *activation status* indicates whether it's deployed on-premises.
+
+* **Active** - The connected registry is currently deployed on-premeses. It can't be deployed again until it is deactivated. 
+* **Inactive** - The connected registry is not deployed on-premeses. It can be deployed at this time.  
+ 
 ### Content synchronization
 
 The connected registry regularly accesses the cloud registry to synchronize container images and OCI artifacts. 

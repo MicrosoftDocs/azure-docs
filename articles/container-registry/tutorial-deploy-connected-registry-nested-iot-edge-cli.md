@@ -103,7 +103,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
                     },
                     "IoTEdgeApiProxy": {
                         "settings": {
-                            "image": "$upstream:8000/azureiotedge-api-proxy:latest",
+                            "image": "$upstream:8000/azureiotedge-api-proxy:1.1.2",
                             "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"8000/tcp\": [{\"HostPort\": \"8000\"}]}}}"
                         },
                         "type": "docker",
