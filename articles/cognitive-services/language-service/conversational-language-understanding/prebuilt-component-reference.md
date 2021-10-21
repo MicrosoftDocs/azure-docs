@@ -40,4 +40,4 @@ In multilingual conversation projects,  you can enable any of the prebuilt compo
 
 ## Next steps
 
-[entity components](concepts/entity-components.md) 
+[Entity components](concepts/entity-components.md) 
