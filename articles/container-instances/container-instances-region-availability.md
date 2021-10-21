@@ -27,13 +27,13 @@ The following regions and maximum resources are available to container groups wi
 > [!NOTE]
 > Some regions do not support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones but ACI does not yet leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
 
-| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone Support |
+| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
 | Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
-| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N/A |
+| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
 | Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N/A |
+| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
 | Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
@@ -42,23 +42,22 @@ The following regions and maximum resources are available to container groups wi
 | France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
 | Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A | Y |
 | Japan East | 2 | 8 | 4 | 16 | 50 | N/A | Y |
-| Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N/A |
+| Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
-| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N/A |
+| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N |
 | North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y |
 | Norway East | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y |
-| South India | 4 | 16 | N/A | N/A | 50 | K80 | N/A |
-| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A | N/A |
+| South India | 4 | 16 | N/A | N/A | 50 | K80 | N |
+| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y|
-| UK West | 4 | 16 | N/A | N/A | 50 | N/A | N/A |
-| UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N/A |
-| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N/A |
+| UK West | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
 | West US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West US 2 | 4 | 16 | N/A | N/A | 50 | N/A | Y |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
@@ -115,29 +114,29 @@ The following regions and maximum resources are available to container groups wi
 > [!NOTE]
 > See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
 
-| Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
+| Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia East | 4 | 16 | 4 | 16 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canada Central | 4 | 16 | 4 | 16 | 20 |
-| Central India | 4 | 16 | 4 | 16 | 20 |
-| Central US | 4 | 16 | 4 | 16 | 20 |
-| East Asia | 4 | 16 | 4 | 16 | 20 |
-| East US | 4 | 16 | 4 | 16 | 20 |
-| East US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
-| France Central | 4 | 16 | 4 | 16 | 20 |
-| Japan East | N/A | N/A | 4 | 16 | 20 |
-| Korea Central | 4 | 16 | 4 | 16 | 20 |
-| North Central US | 4 | 16 | 4 | 16 | 20 |
-| North Europe | 4 | 16 | 4 | 16 | 20 |
-| South Central US | 4 | 16 | 4 | 16 | 20 |
-| Southeast Asia | 4 | 16 | 4 | 16 | 20 |
-| South India | 4 | 16 | 4 | 16 | 20 |
-| UK South | 4 | 16 | 4 | 16 | 20 |
-| West Central US | 4 | 16 | 4 | 16 | 20 |
-| West Europe | 4 | 16 | 4 | 16 | 20 |
-| West US | 4 | 16 | 4 | 16 | 20 |
-| West US 2 | 2 | 8 | 4 | 16 | 20 |
+| Australia East | 4 | 16 | 4 | 16 | 20 | Y |
+| Brazil South | 4 | 16 | 4 | 16 | 20 | Y |
+| Canada Central | 4 | 16 | 4 | 16 | 20 | N |
+| Central India | 4 | 16 | 4 | 16 | 20 | N |
+| Central US | 4 | 16 | 4 | 16 | 20 | Y |
+| East Asia | 4 | 16 | 4 | 16 | 20 | N |
+| East US | 4 | 16 | 4 | 16 | 20 | Y |
+| East US 2 | 2 | 3.5 | 2 | 3.5 | 20 | Y |
+| France Central | 4 | 16 | 4 | 16 | 20 | Y |
+| Japan East | N/A | N/A | 4 | 16 | 20 | Y |
+| Korea Central | 4 | 16 | 4 | 16 | 20 | N |
+| North Central US | 4 | 16 | 4 | 16 | 20 | N |
+| North Europe | 4 | 16 | 4 | 16 | 20 | Y |
+| South Central US | 4 | 16 | 4 | 16 | 20 | Y |
+| Southeast Asia | 4 | 16 | 4 | 16 | 20 | Y |
+| South India | 4 | 16 | 4 | 16 | 20 | N |
+| UK South | 4 | 16 | 4 | 16 | 20 | Y |
+| West Central US | 4 | 16 | 4 | 16 | 20 | N |
+| West Europe | 4 | 16 | 4 | 16 | 20 | Y |
+| West US | 4 | 16 | 4 | 16 | 20 | Y |
+| West US 2 | 2 | 8 | 4 | 16 | 20 | Y |
 
 ## Next steps
 
