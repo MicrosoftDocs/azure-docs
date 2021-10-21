@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   ms.author: jmartens
   author: j-martens
-  ms.date: 10/14/2021
+  ms.date: 10/21/2021
 
 # highlightedContent section 
 highlightedContent:
@@ -64,6 +64,29 @@ conceptualContent:
         - url: ../machine-learning/tutorial-first-experiment-automated-ml.md
           itemType: tutorial
           text: 'AutoML: Train a classification model'
+    
+    # Card 
+    - title: Continuous regression testing
+      links:
+        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
+          itemType: tutorial
+          text: Set up CI/CD workflow in GitHub
+        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
+          itemType: tutorial
+          text: Set up CI/CD pipeline in Azure Pipelines
+    
+    # Card
+    - title: How-tos
+      links:
+        - url: how-to-compare-multiple-test-runs.md
+          itemType: how-to-guide
+          text: Understand application performance with Azure Load Testing by comparing multiple test runs
+        - url: how-to-configure-azure-load-testing-high-scale-load.md
+          itemType: how-to-guide
+          text: Configure Azure Load Testing Service for high scale load tests
+        - url: how-to-parameterize-load-tests.md
+          itemType: how-to-guide
+          text: Parameterize load tests with Azure Load Testing
 
     # Card
     - title: Security for ML projects
