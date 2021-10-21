@@ -15,13 +15,13 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article identifies the common failover scenarios, how the Azure Stack Edge device responds, and the overall impact on the workloads deployed on the cluster should the failover occur.
+This article identifies the common failover scenarios, how the Azure Stack Edge device responds, and the overall impact on the workloads deployed on the cluster should a failover occur.
 
 ## About failover 
 
 Azure Stack Edge can be set up as a single standalone device or a two-node cluster. In a two-node cluster, the clustered nodes provide high availability for applications and services that are running on the cluster. 
 
-If one of the clustered node fails, the other node begins to provide service - this process is known as failover. Failover may also occur if hardware components associated with one or both nodes of your device such as disk drives, power supply units (PSUs), or network fail.
+If one of the clustered node fails, the other node begins to provide service - this process is known as failover. Failover may also occur if hardware components associated with one or both nodes of your device such as disk drives, power supply units (PSUs), or network fail or when you update your device nodes.
 
 ## Failover scenarios 
 
@@ -94,7 +94,7 @@ Review the following information carefully to ensure the high availability of yo
 
 ### PSUs
 
-Azure Stack Edge devices include redundant, hot-swappable power supply units (PSUs). Each PSU has enough capacity to provide service for the entire chassis. To ensure high availability, both PSUs must be installed.
+Azure Stack Edge devices include redundant, hot-swappable power supply units (PSUs). Each PSU has enough capacity to provide service for the entire chassis. To ensure high availability, both PSUs must be installed. <!--are these hot swappable?-->
 
 - Connect your PSUs to different power sources to provide availability if a power source fails.
 - If a PSU fails, request a replacement immediately.
@@ -103,9 +103,9 @@ Azure Stack Edge devices include redundant, hot-swappable power supply units (PS
 
 ### Nodes
 
-Azure Stack Edge devices include redundant, hot-swappable nodes. 
+Azure Stack Edge devices include two nodes working together as a two-node cluster. 
 
-- Make sure that both nodes are installed at all times.
+- For a two-node cluster to work properly, make sure that both nodes are installed at all times.
 - If a node fails, request a replacement immediately.
 - Remove a failed node only when you have the replacement and are ready to install it. 
 
