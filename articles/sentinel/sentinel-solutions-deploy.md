@@ -52,7 +52,7 @@ Each solution in the grid shows the categories applied to the solution, and type
 
 For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Others**, and that this solution includes 10 analytics rules, 11 hunting queries, a parser, three playbooks, and more.
 
-:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Azure Sentinel content hub":::
+:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Azure Sentinel content hub." lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::
 
 ## Install or update a solution
 
@@ -80,7 +80,7 @@ For more information, see [Azure Sentinel content hub catalog](sentinel-solution
 
 Each solution lists details about its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
 
-:::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution.":::
+:::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution." lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
 
 When contacting support, you may need other details about your solution, such as a publisher, provider, and plan ID values. You can find each of these on the solution's details page, on the **Usage information & support** tab. For example:
 
