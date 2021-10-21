@@ -41,7 +41,7 @@ Use this article to learn which natural languages are supported by the Sentiment
 
 ### Opinion Mining language support
 
-| Language              | Language code | Starting with v3 model version: |              Notes |
+| Language              | Language code | Starting with model version: |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | English               |     `en`      |  2020-04-01              |                    |
 | French                |     `fr`      |         2021-10-01         |                    |
