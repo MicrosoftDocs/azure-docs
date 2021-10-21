@@ -8,9 +8,9 @@ ms.date: 10/13/2021
 
 # Get started with Azure Video Analyzer for Media in Azure portal
 
-This QuickStart walks you through the steps to get started with Azure Video Analyzer for Media. You'll create an Azure Video Analyzer for Media account and its accompanying resources by using the Azure portal.
+This Quickstart walks you through the steps to get started with Azure Video Analyzer for Media. You will create an Azure Video Analyzer for Media account and its accompanying resources by using the Azure portal.
 
-To start using Azure Video Analyzer for Media, you will need to create a Video Analyzer for Media account. The account needs to be associated with a [Media Services][docs-ms] resource and [User-assigned managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.
+To start using Azure Video Analyzer for Media, you will need to create a Video Analyzer for Media account. The account needs to be associated with a [Media Services][docs-ms] resource and a [User-assigned managed identity][docs-uami]. The managed identity will need to have Contributor permissions role on the Media Services.
 
 ## Prerequisites
 > [!NOTE]
@@ -21,8 +21,8 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
 
 ### Create a Video Analyzer for Media account in the Azure portal
 
-1. Sign in at the [Azure portal](https://portal.azure.com/).
-1. Using the search bar at the top, enter **Video Analyzer for Media**.
+1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Using the search bar at the top, enter **"Video Analyzer for Media"**.
 1. Click on *Video Analyzer for Media* under *Services*.
 
     ![Image of search bar](media/create-video-analyzer-for-media-account/search-bar1.PNG)
@@ -35,10 +35,10 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
  
 | Name | Description |
 | ---|---|
-|**Subscription**|Choose the subscription that you're using to create the Video Analyzer for Media account.|
-|**Resource Group**|Choose a resource group where you're creating the Video Analyzer for Media account, or select **Create new** to create a resource group.|
+|**Subscription**|Choose the subscription that you are using to create the Video Analyzer for Media account.|
+|**Resource Group**|Choose a resource group where you are creating the Video Analyzer for Media account, or select **Create new** to create a resource group.|
 |**Video Analyzer for Media account**|Select *Create a new account* option.|
-|**Resource name**|Enter the name of the new Video Analyzer for Media account, name can be letters, numbers, and dashes with no spaces.|
+|**Resource name**|Enter the name of the new Video Analyzer for Media account, the name can contain letters, numbers and dashes with no spaces.|
 |**Location**|Select the geographic region that will be used to deploy the Video Analyzer for Media account. The location matches the **resource group location** you chose, if you'd like to change the selected location change the selected resource group or create a new one in the preferred location. [Azure region in which Video Analyzer for Media is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)|
 |**Media Services account name**|Select a Media Services that the new Video Analyzer for Media account will use to process the videos. You can select an existing Media Services or you can create a new one. The Media Services must be in the same location you selected.| 
 |**User-assigned managed identity**|Select a user-assigned managed identity that the new Video Analyzer for Media account will use to access the Media Services. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the role of Contributor role on the Media Services.|
@@ -47,25 +47,25 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
 
 ### Review deployed resource
 
-You can use the Azure portal to check on the account and other resource that were created. After the deployment is finished, select **Go to resource** to see your new Video Analyzer for Media account.
+You can use the Azure portal to validate the Azure Video Analyzer for Media account and other resources that were created. After the deployment is finished, select **Go to resource** to see your new Video Analyzer for Media account.
 
 ### Overview
 
 ![Image of overview](media/create-video-analyzer-for-media-account/OveviewScreenshot.png)
 
-Clich on *Explore Video Analyzer for Media's portal* to view your new account on the [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
+Click on *Explore Video Analyzer for Media's portal* to view your new account on the [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
 
 ### Management API
 
 ![Image of Generate-access-token](media/create-video-analyzer-for-media-account/generate-access-token.png)
 
 Use the *Management API* tab to manually generate access tokens for the account.
-This token can be used to authenticate this account's API calls. Each token is valid for one hour.
+This token can be used to authenticate API calls for this account. Each token is valid for one hour.
 
 Choose the following:
 * Permission type: **Contributor** or **Reader**
 * Scope: **Account**, **Project** or **Video**
-    * For **project** and **Video** you should also insert the matching ID
+    * For **Project** or **Video** you should also insert the matching ID
 * Click **Generate**
 
 ---
