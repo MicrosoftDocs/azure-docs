@@ -33,8 +33,10 @@ In this article, you'll learn how to create an empty [lake database](./concepts-
     - **Linked service** - It's the default linked service used to store your data in Azure Data Lake Storage.  The default linked service associated with the Synapse workspace will be shown, but you can change the **Linked Service** to any ADLS storage account you like. 
     - **Input folder** - Used to set the default container and folder path within that linked service using the file browser.
     - **Data format** - Lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
+
 > [!NOTE]
-> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
+> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later.
+ 
 5. To add a table to the database, select the **+ Table** button. 
     - **Custom** will add a new table to the canvas.
     - **From template** will open the gallery and let you select a database template to use when adding a new table. For more information, see [Create lake database from database template](./create-lake-database-from-lake-database-templates.md).
