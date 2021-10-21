@@ -129,7 +129,7 @@ Examples of such error responses are:
 
 
 ## Ingestion to Video Analyzer
-In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated. [Instructions for this process are outlined here.](use-remote-device-adapter.md#create-pipeline-topology-in-the-cloud)
+In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated. [Instructions for this process are outlined here.](use-remote-device-adapter.md#create-pipeline-topology-in-the-video-analyzer-service)
 
  
 ## Example implementation
