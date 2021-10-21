@@ -92,7 +92,8 @@ This section describes hardware specifications for the following appliances:
 | Chipset | Intel C621 |
 | Memory | 32 GB = 2 x 16-GB 2666MT/s DDR4 ECC UDIMM |
 | Storage | 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5 in) in Hot-Plug Hard Drive - RAID 5 |
-| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter || Management | HPE iLO Advanced |
+| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter |
+| Management | HPE iLO Advanced |
 | Device access | Two rear USB 3.0<br>One front USB 2.0<br>One internal USB 3.0 |
 | Power | 2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit |
 | Rack support | HPE 1U Gen10 SFF Easy Install Rail Kit |
