@@ -21,7 +21,6 @@ Chaos Studio applies limits to the number of objects, duration of activities, an
 | Steps per experiment | 4 |
 | Action duration (hours) | 12 |
 | Concurrent experiments executing per region and subscription | 5 |
-| Experiment history and details retention (days) | 120 |
 | Total experiment duration (hours) | 12 |
 | Number of experiments per region and subscription | 500 |
 | Number of targets per action | 50 |

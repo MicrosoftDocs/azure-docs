@@ -3,7 +3,7 @@ title: Create an experiment that uses an agent-based fault with Azure Chaos Stud
 description: Create an experiment that uses an agent-based fault and configure the chaos agent
 author: johnkemnetz
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to

@@ -10,8 +10,6 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
-  - name: Cause a DNS outage using the network security group fault
-    href: chaos-studio-quickstart-dns-outage.md
 - name: Samples
   items:
   - name: Azure REST API 
@@ -43,7 +41,7 @@
   - name: Service limits
     href: chaos-studio-service-limits.md
   - name: REST API documentation
-    href: https://aka.ms/chaosRESTAPI
+    href: https://docs.microsoft.com/rest/api/chaosstudio
 - name: Resources
   items:
   - name: Azure roadmap
