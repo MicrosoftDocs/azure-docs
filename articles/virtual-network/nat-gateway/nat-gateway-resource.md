@@ -339,10 +339,6 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - NAT can't span multiple virtual networks.
 - IP fragmentation is not supported.
 
-## Suggestions
-
-We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
-
 ## Next steps
 
 * Learn about [virtual network NAT](nat-overview.md).
