@@ -82,7 +82,7 @@ To use the link feature, you will need:
 Use the following link to sign-up for the limited preview of the link feature. Customers are on-boarded on a rolling basis as there is a limited number of seats currently available. You will be on-boarded at the first available opportunity. Managed instances deployed starting on 11/02/2021 are given priority, and though managed instances deployed before this date are supported, the onboarding may take longer. 
 
 > [!div class="nextstepaction"]
-> [Sign-up for Managed Instance link](https://aka.ms/mi-link-signup)
+> [Sign up for link feature preview](https://aka.ms/mi-link-signup)
 
 ## Next steps
 
