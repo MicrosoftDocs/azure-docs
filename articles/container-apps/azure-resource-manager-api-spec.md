@@ -87,7 +87,7 @@ The following is an example ARM template used to deploy a container app.
             "type": "String"
         },
         "location": {
-            "defaultValue": "East US 2",
+            "defaultValue": "East US",
             "type": "String"
         },
         "environment_name": {
