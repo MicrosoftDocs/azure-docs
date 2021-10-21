@@ -32,4 +32,4 @@ Have your students follow this procedure to download the software developer tool
 - [Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
 - [Microsoft Learn: a free online learning platform](/learn/)
-- [Frequently asked questions](/azure/education-hub/azure-dev-tools-teaching/program-faq#azure-for-students)
+- [Frequently asked questions](./program-faq.yml#azure-for-students)
