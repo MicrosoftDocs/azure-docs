@@ -24,18 +24,14 @@ Before getting started, ensure that you have an Azure Red Hat Openshift cluster 
 
 Machine management in Azure Red Hat Openshift is accomplished by leveraging MachineSet. MachineSet resources are groups of machines. MachineSets are to machines as ReplicaSets are to pods. If you need more machines or must scale them down, you change the *Replicas* field on the machine set to meet your compute need. To learn more, check out our OpenShift [MachineSet documentation](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
 
-<<<<<<< HEAD
-The use of Spot VMs is specified by adding the `spotVMOptions` field within the template spec of a MachineSet. 
+The use of Spot VMs is specified by adding the `spotVMOptions` field within the template spec of a MachineSet.
 To get this MachineSet created, we will:
-=======
-## Add Spot VMs
->>>>>>> 05d665b9857d3e8773a66ae21004f82f7d6177af
 
 1. Get a copy of a MachineSet running on your cluster.
 2. Create a modified MachineSet configuration.
 3. Deploy this MachineSet to your cluster
 
-First, [connect to your openshift cluster using the CLI](tutorial-connect-cluster.md).
+First, [connect to your OpenShift cluster using the CLI](tutorial-connect-cluster.md).
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
