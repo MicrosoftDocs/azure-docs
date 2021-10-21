@@ -229,7 +229,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ITsavvy](https://www.itsavvy.com)|
 |[IV4, Inc](https://www.iv4.com)|
 |[J and C Landwehr LLC](https://jandclandwehr.com/)|
-|Jackpine Technologies|
+|[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
