@@ -188,7 +188,7 @@ display(analyzeIDDocuments
 
 ```
 ### Expected results
-![expected_results_for_id](./media/tutorial-form-recognizer/id1_output.png)
+![Screenshot of the expected results from analyzing the example driver license ID.](./media/tutorial-form-recognizer/id1_output.png)
 
 ## Clean up resources
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
