@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
@@ -58,9 +58,7 @@ The following chart shows how requests are handled locally.
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used for debugging the API application, but not required for the CLI.
-
-> [!NOTE]
-> In order to run `swa` with an [API locally](add-api.md#run-the-frontend-and-api-locally), the Azure Functions Core Tools are required.
+- **[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)**: Required to run the API locally.
 
 ## Get started
 
@@ -128,7 +126,7 @@ The following steps show you a common scenario that uses development servers for
 
 1. Pass the addresses for the static server and API server to the `swa start` command by listing them in order.
 
-    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
+    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location=http://localhost:7071`
 
 The following screenshots show the terminals for a typical debugging scenario:
 
