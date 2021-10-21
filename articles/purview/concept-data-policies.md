@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ---
 
-# Concept guide: Azure Purview access policies
+# Concept guide for Azure Purview access policies
 This article helps you understand Azure Purview data access policies.
 
 ## Overview
@@ -122,8 +122,8 @@ The following table illustrates how actions in Azure Purview data policies map t
 ## Next steps
 Check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
 
-[Dataset provisioning by data owner for Azure Storage](how-to-storage-access-policies.md)
+[Dataset provisioning by data owner for Azure Storage](how-to-access-policies-storage.md)
 
 <!--
-[Dataset provisioning by data owner for Azure SQL DB](how-to-sql-access-policies.md)
+[Dataset provisioning by data owner for Azure SQL DB](how-to-access-policies-sql.md)
 -->

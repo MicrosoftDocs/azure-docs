@@ -75,7 +75,7 @@ items:
   - name: Upgraded Azure Purview accounts
     href: concept-account-upgrade.md
   - name: Concept guide for Azure Purview access policies
-    href: policy/concept-data-policies.md
+    href: concept-data-policies.md
 - name: How-to guides
   items:
   - name: Create and manage collections
@@ -262,9 +262,9 @@ items:
   - name: Data Policies
     items:
     - name: Dataset provisioning by data owner for Azure Storage
-      href: policy/how-to-storage-access-policies.md
+      href: how-to-access-policies-storage.md
 #   - name: Dataset provisioning by data owner for Azure SQL DB
-#     href: policy/how-to-sql-access-policies.md
+#     href: how-to-access-policies-sql.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
