@@ -1,4 +1,4 @@
-- name: Azure Static Web Apps documentation
+- name: Azure Container Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -11,10 +11,12 @@
       href: get-started.md
 - name: Concepts
   items:
-    - name: Containers
-      href: containers.md
     - name: Environment
       href: environment.md
+    - name: Containers
+      href: containers.md
+    - name: Revisions
+      href: revisions.md
     - name: Auto-scaling
       href: autoscale.md
     - name: Microservices
@@ -25,14 +27,16 @@
       href: networking.md
 - name: How-to guides
   items:
+    - name: Set up HTTPS ingress
+      href: ingress.md
     - name: Secure an app
       href: secure-app.md
     - name: Scale an app
       href: scale-app.md
     - name: Monitor an app
       href: monitor.md
-    - name: Manage an app
-      href: manage-app.md
+    - name: Manage revisions
+      href: revisions-manage.md
     - name: Connect multiple apps
       href: connect-apps.md
 - name: Tutorials
@@ -45,6 +49,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/containerapps
+    - name: ARM API specification
+      href: azure-resource-manager-api-spec.md
 - name: Resources
   items:
     - name: Pricing
