@@ -19,7 +19,6 @@ Moving a classic account to ARM requires that the Azure Video Analyzer for Media
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Using the search bar at the top, enter **Video Analyzer for Media**.
 1. Click on *Video Analyzer for Media* under *Services*.
-    ![Image of search bar](create-account-step-3.png)
 3. Click **Create**.
 4. In the **Create a Video Analyzer for Media resource** section enter required values.
 
@@ -35,8 +34,6 @@ Moving a classic account to ARM requires that the Azure Video Analyzer for Media
     |**User-assigned managed identity**|Select a user-assigned managed identity that the new Video Analyzer for Media account will use to access the media service. You can select an existing user-assigned managed identity or you can create a new one. The user-assignment managed identity will be assigned the role of [Contributor][docs-role-contributor] role on the media service.
 
 1. Click **Review + create** at the bottom of the form.
-
- ![Image of move account](move-account.png)
 
 ### Review deployed resources
 
