@@ -184,7 +184,9 @@ az containerapp create \
   --environment-variables "QueueName=$STORAGE_ACCOUNT_QUEUE,QueueConnectionString=secretref:queueconnection"
 ```
 
-This command deploys the demo background application from the public container image called vturecek/dotnet-queuereader:v1
+This command deploys the demo background application from the public container image called vturecek/dotnet-queuereader:v1 setting secrets and environments variables used by the application.
+Application will scale up to 10 replicas based on the queue length as defined on *myscalerules.yaml* file created on previous step.
+
 
 ## Verify the result
 
