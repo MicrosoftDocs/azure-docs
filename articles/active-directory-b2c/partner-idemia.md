@@ -20,6 +20,7 @@ zone_pivot_groups: b2c-policy-type
 ::: zone pivot="b2c-user-flow"
 
 This feature is available only for custom policies. For setup steps, select **Custom policy** in the preceding selector.
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
