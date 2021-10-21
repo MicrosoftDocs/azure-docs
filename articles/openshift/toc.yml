@@ -20,6 +20,8 @@
       items:
         - name: Upgrade an ARO cluster
           href: howto-upgrade.md
+        - name: Use spot nodes
+          href: howto-spot-nodes.md
     - name: Networking
       items:
         - name: Create a private ARO cluster
@@ -32,8 +34,8 @@
           href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Encrypt PVCs with customer-managed key (preview)
-          href: howto-encrypt-data-disks.md
+        - name: Encrypt cluster data with customer-managed key (preview)
+          href: howto-byok.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry

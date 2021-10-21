@@ -155,10 +155,7 @@ call_ = await call_agent_.StartCallAsync(callees, startCallOptions);
 End the current call when the `Hang Up` button is clicked. 
 
 ```C#
-private async void HangupButton_Click(object sender, RoutedEventArgs e)
-{
-    await call_.HangUpAsync(new HangUpOptions());
-}
+await call_.HangUpAsync(new HangUpOptions());
 ```
 
 ## Run the code

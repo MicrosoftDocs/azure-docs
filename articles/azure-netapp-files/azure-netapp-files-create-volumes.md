@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 10/04/2021
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -24,7 +24,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 ## Before you begin 
 * You must have already set up a capacity pool.  
-    See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+    See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
@@ -45,7 +45,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
-* Ensure that the NFS client is up-to-date and running the latest updates for the operating system.
+* Ensure that the NFS client is up to date and running the latest updates for the operating system.
 
 ## Create an NFS volume
 
@@ -88,6 +88,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * **Network features**  
+        In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 

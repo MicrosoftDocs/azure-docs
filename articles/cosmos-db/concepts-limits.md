@@ -97,7 +97,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
 | Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 
 > [!NOTE]
@@ -192,6 +192,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 |Maximum collection create rate per minute|    100|
 |Maximum Database create rate per minute|    100|
 |Maximum provisioned throughput update rate per minute|    5|
+|Maximum throughput supported by an account for metadata operations | 240 RU/s |
 
 ## Limits for autoscale provisioned throughput
 

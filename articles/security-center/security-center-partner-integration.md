@@ -25,7 +25,7 @@ Currently, integrated security solutions include vulnerability assessment by [Qu
 > [!NOTE]
 > Security Center does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 
-To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to Azure Defender customers, see [vulnerability assessments for your Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
+To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to Azure Defender customers, see [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
 
 Security Center also offers vulnerability analysis for your:
 

@@ -186,4 +186,3 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 - [Python with Postgres](tutorial-python-postgresql-app.md)
 - [PHP with MySQL](tutorial-php-mysql-app.md)
 - [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-- [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)

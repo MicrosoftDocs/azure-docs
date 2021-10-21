@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 08/24/2021
+ms.date: 10/04/2021
 ms.custom: "mvc, references_regions"
 ---
 
@@ -89,11 +89,11 @@ The flexible server comes with a built-in PgBouncer, a connection pooler. You ca
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | Availability | Zone-redundant HA | 
+| Region | V3/V4 compute availability | Zone-redundant HA | 
 | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia Southeast | :heavy_check_mark: | :x: | 
-| Brazil South | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
 | Central India | :heavy_check_mark: | :x: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | 

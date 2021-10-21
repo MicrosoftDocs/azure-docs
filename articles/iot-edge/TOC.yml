@@ -148,11 +148,11 @@
     - name: TPM attestation
       items:
       - name: Linux
-        href: how-to-auto-provision-simulated-device-linux.md
+        href: how-to-provision-devices-at-scale-linux-tpm.md
       - name: Linux containers on Windows
-        href: how-to-auto-provision-tpm-linux-on-windows.md
+        href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
       - name: Windows
-        href: how-to-auto-provision-simulated-device-windows.md
+        href: how-to-provision-devices-at-scale-windows-tpm.md
     - name: X.509 certificate attestation
       items:
       - name: Linux

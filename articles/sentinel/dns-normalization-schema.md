@@ -102,7 +102,18 @@ The following filtering parameters are available:
 | **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
 ||||
 
-To filter results using a parameter, you must specify the parameter in your parser. 
+For example, to filter only DNS queries from the last day that failed to resolve the domain name, use:
+
+```kql
+imDns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
+```
+
+To filter only DNS queries for a specified list of domain names, use:
+
+```kql
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+imDns (domain_has_any = torProxies)
+```
 
 ## Normalized content
 
@@ -184,7 +195,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 
 | **Field** | **Class** | **Type** | **Notes** |
 | --- | --- | --- | --- |
-| **SrcIpAddr** | Mandatory | IP Address | The IP address of the client sending the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`.<br><br>Example: `192.168.12.1` |
+| **SrcIpAddr** | Recommended | IP Address | The IP address of the client sending the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`.<br><br>Example: `192.168.12.1` |
 | **SrcPortNumber** | Optional | Integer | Source port of the DNS query.<br><br>Example: `54312` |
 | **DstIpAddr** | Optional | IP Address | The IP address of the server receiving the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`.<br><br>Example: `127.0.0.1` |
 | **DstPortNumber** | Optional | Integer  | Destination Port number.<br><br>Example: `53` |
@@ -192,7 +203,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | <a name=query></a>**DnsQuery** | Mandatory | FQDN | The domain that needs to be resolved. <br><br>**Note**: Some sources send this query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](#additionalfields) field.<br><br>Example: `www.malicious.com` |
 | **Domain** | Alias | | Alias to [Query](#query). |
 | **DnsQueryType** | Optional | Integer | This field may contain [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)). <br><br>Example: `28`|
-| **DnsQueryTypeName** | Mandatory | Enumerated | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
+| **DnsQueryTypeName** | Recommended | Enumerated | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
 | <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source agnostics analytics. Therefore the information model does not require parsing and normalization, and Azure Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
 | **DnsResponseCode** | Optional | Integer | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `3`|

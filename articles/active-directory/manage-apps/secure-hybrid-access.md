@@ -1,6 +1,8 @@
 ---
-title: Azure AD secure hybrid access | Microsoft Docs
+title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
+titleSuffix: Azure AD
+services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -23,7 +25,7 @@ You can bridge the gap and strengthen your security posture across all applicati
 
 ## Secure hybrid access through Azure AD Application Proxy
   
-Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy-add-on-premises-application.md) to your on-premises web applications. Your users don't need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](../app-proxy/application-proxy-config-sso-how-to.md#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) deployment as a next step.
+Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy-add-on-premises-application.md) to your on-premises web applications. Your users don’t need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](../app-proxy/application-proxy-config-sso-how-to.md#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) deployment as a next step.
 
 ## Secure hybrid access through Azure AD partner integrations  
 

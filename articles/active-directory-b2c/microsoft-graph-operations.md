@@ -3,15 +3,15 @@ title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Manage Azure AD B2C with Microsoft Graph
@@ -134,6 +134,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 ## Application extension properties
 
 - [List extension properties](/graph/api/application-list-extensionproperty)
+- [Delete extension property](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 

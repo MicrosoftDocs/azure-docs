@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Ingesting OPC UA data with Azure Digital Twins
+title: Ingest OPC UA data with Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA data into Azure Digital Twins
 author: danhellem

@@ -1,12 +1,12 @@
 ---
-title: Export IoT connector Metrics through Diagnostic settings
+title: Export IoT connector Metrics through Diagnostic settings - Azure Healthcare APIs
 description: This article explains how to export IoT connector metrics through Diagnostic settings
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 09/29/2021
+ms.date: 09/30/2021
 ms.author: jasteppe
 ---
 
@@ -15,10 +15,10 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to export Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* Metrics logs. The feature that enables Metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you'll learn how to export IoT connector Metrics logs. The feature that enables Metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 ## Enable Metrics logging for IoT connector
-1. To enable Metrics logging for the Azure IoT Connector for FHIR, select your FHIR service in the Azure portal. 
+1. To enable Metrics logging for the IoT connector, select your Fast Healthcare Interoperability Resources (FHIR&#174;) service in the Azure portal. 
 
 2. Navigate to **Diagnostic settings** 
 
@@ -53,6 +53,6 @@ Having access to Metrics logs is essential for monitoring and troubleshooting.  
 Check out frequently asked questions about the IoT connector.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.md)
+>[IoT connector FAQs](../fhir/fhir-faq.md)
 
-*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT connector. FHIR is a registered trademark of HL7 and is used with the permission of HL7.
+(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.

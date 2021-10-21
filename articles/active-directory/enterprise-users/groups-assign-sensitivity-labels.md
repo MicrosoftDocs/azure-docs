@@ -4,7 +4,7 @@ description: Learn how to assign sensitivity labels to groups. See troubleshooti
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -136,9 +136,9 @@ Labels can be swapped at any time using the same steps as assigning a label to a
 1. On the selected group's page, select **Properties** and select a new sensitivity label from the list.
 1. Select **Save**.
 
-### Group setting changes to published labels are not updated on the groups
+### Group setting changes to published labels aren't updated on the groups
 
-As a best practice, we don't recommend that you change group settings for a label after the label is applied to groups. When you make changes to group settings associated with published labels in [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), those policy changes aren't automatically applied on the impacted groups.
+When you make changes to group settings for a published label in [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), those policy changes aren't automatically applied on the labeled groups. Once the sensitivity label is published and applied to groups, Microsoft recommend that you not change the group settings for the label in Microsoft 365 Compliance Center.
 
 If you must make a change, use an [Azure AD PowerShell script](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) to manually apply updates to the impacted groups. This method makes sure that all existing groups enforce the new setting.
 

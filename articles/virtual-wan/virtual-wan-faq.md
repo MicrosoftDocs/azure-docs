@@ -248,10 +248,10 @@ The default route does not originate in the Virtual WAN hub; the default route i
 If a virtual hub learns the same route from multiple remote hubs,  the order in which it decides is as follows:
 
 1. Longest prefix match.
-1. Local routes over interhub (Virtual hub assigns 65520-65520 for interhub AS).
+1. Local routes over interhub.
 1. Static routes over BGP: This is in context to the decision being made by the virtual hub router. However, if the decision maker is the VPN gateway where a site advertises routes via BGP or provides static address prefixes, static routes may be preferred over BGP routes.
 1. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore, in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios.
-1. AS path length.
+1. AS path length (Virtual hubs prepend routes with the AS path 65520-65520 when advertising routes to each other).
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
