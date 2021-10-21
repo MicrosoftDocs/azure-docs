@@ -65,7 +65,7 @@ For **GeForce/Quadro GPUs**, download and install the [NVIDIA CUDA-enabled drive
 
 ## Using GPU acceleration for your Linux on Windows deployment
 
-Now you are ready to deploy and run GPU-accelerated Linux modules in your Windows environment through Azure IoT Edge for Linux on Windows. More details on the deployment process can be found in [Install Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md).
+Now you are ready to deploy and run GPU-accelerated Linux modules in your Windows environment through Azure IoT Edge for Linux on Windows. More details on the deployment process can be found in [guide for provisioning a single IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) or [using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md).
 
 ## Next steps
 
