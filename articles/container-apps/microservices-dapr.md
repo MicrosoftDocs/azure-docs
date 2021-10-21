@@ -131,24 +131,111 @@ az storage account create \
   --kind StorageV2
 ```
 
-Once your Azure Blob Storage account is created, source the following values that are needed for subsequent steps in this tutorial.
+Once your Azure Blob Storage account is created, the following values are needed for subsequent steps in this tutorial.
 
-**accountName** will be the value of `STORAGE_ACCOUNT` that you chose above.
+**storage_account_name** will be the value of `STORAGE_ACCOUNT` that you chose above.
 
-**containerName** will be the value of `STORAGE_ACCOUNT_CONTAINER` defined above (e.g. mycontainer). Dapr will create a container with this name if it doesn't already exist in your Azure Storage account.
+**storage_container_name** will be the value of `STORAGE_ACCOUNT_CONTAINER` defined above (e.g. mycontainer). Dapr will create a container with this name if it doesn't already exist in your Azure Storage account.
 
-Get an **accountKey** with the following command.
+Get a **storage_account_key** with the following command.
 
 ```azurecli
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query [0].value --out json | tr -d '"'`
 ```
 
-### Configure the state store component
+### Create Azure Resource Manager (ARM) templates
 
-Using the properties you sourced from the steps above, create an ARM template. The ARM template has the Container App definition and a Dapr component definition. The following example shows how your ARM template should look when configured for your Azure Blob Storage account:
+Create two Azure Resource Manager (ARM) templates. 
+
+The ARM template has the Container App definition and a Dapr component definition. 
+
+The following example shows how your ARM template should look when configured for your Azure Blob Storage account:
+
+Save the following file as *serviceapp.json*:
 
 ```json
-
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "North Central US (Stage)",
+            "type": "String"
+        },
+        "environment_name": {
+            "type": "String"
+        },
+        "storage_account_name": {
+            "type": "String"
+        },
+        "storage_account_key": {
+            "type": "String"
+        },
+        "storage_container_name": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "nodeapp",
+        "type": "Microsoft.Web/containerApps",
+        "apiVersion": "2021-03-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+            "configuration": {
+                "ingress": {
+                    "external": true,
+                    "targetPort": 3000
+                },
+                "secrets":[
+                    {
+                        "name": "storage-key",
+                        "value": "[parameters('storage_account_key')]"
+                    }
+                ]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "dapriosamples/hello-k8s-node:latest",
+                        "name": "hello-k8s-node"
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 1,
+                    "maxReplicas": 1
+                },
+                "dapr": {
+                    "enabled": true,
+                    "appPort": 3000,
+                    "appId": "nodeapp",
+                    "components": [{
+                        "name": "statestore",
+                        "type": "state.azure.blobstorage",
+                        "version": "v1",
+                        "metadata": [
+                            {
+                                "name": "accountName",
+                                "value": "[parameters('storage_account_name')]"
+                            },
+                            {
+                                "name": "accountKey",
+                                "secretRef": "storage-key"
+                            },
+                            {
+                                "name": "containerName",
+                                "value": "[parameters('storage_container_name')]"
+                            }
+                        ]
+                    }]
+                }
+            }
+        }
+    }]
+}
 ```
 
 > [!NOTE]
@@ -157,16 +244,71 @@ Using the properties you sourced from the steps above, create an ARM template. T
 > In a production-grade application, follow [secret management](https://docs.dapr.io/operations/components/component-secrets) instructions to securely manage your secrets.
 
 
+Save the following file as *clientapp.json*:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "North Central US (Stage)",
+            "type": "String"
+        },
+        "environment_name": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "pythonapp",
+        "type": "Microsoft.Web/containerApps",
+        "apiVersion": "2021-03-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+            "configuration": {
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "dapriosamples/hello-k8s-python:latest",
+                        "name": "hello-k8s-python"
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 1,
+                    "maxReplicas": 1
+                },
+                "dapr": {
+                    "enabled": true,
+                    "appId": "pythonapp"
+                }
+            }
+        }
+    }]
+}
+```
+
 ## Deploy the service application (HTTP web server)
 
 Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
 
 ```azurecli
-az deployment group create --resource-group "$RESOURCE_GROUP" --template-file ./httpapp.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT" storage_account_name="$STORAGE_ACCOUNT" storage_account_key="$STORAGE_ACCOUNT_KEY" storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
+az deployment group create \
+  --resource-group "$RESOURCE_GROUP" \
+  --template-file ./serviceapp.json \
+  --parameters \
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      storage_account_name="$STORAGE_ACCOUNT" \
+      storage_account_key="$STORAGE_ACCOUNT_KEY" \
+      storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
 ```
 
 
-This command deploys the service (Node) app server on `--target-port 3000` (the app's port) along with its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation. Your state store is configured using `--dapr-components ./components.yaml`, which enables the sidecar to persist state.
+This command deploys the service (Node) app server on `targetPort: 3000` (the app's port) along with its accompanying Dapr sidecar configured with `"appId": "nodeapp",` and dapr `"appPort": 3000,` for service discovery and invocation. Your state store is configured using the `components` object of `"type": "state.azure.blobstorage"`, which enables the sidecar to persist state.
 
 
 ## Deploy the client application (headless client)
@@ -174,7 +316,10 @@ This command deploys the service (Node) app server on `--target-port 3000` (the 
 Run the command below to deploy the client container app.
 
 ```azurecli
-az deployment group create --resource-group "$RESOURCE_GROUP" --template-file ./clientapp.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
+az deployment group create --resource-group "$RESOURCE_GROUP" \
+  --template-file ./clientapp.json \
+  --parameters \
+    environment_name="$CONTAINERAPPS_ENVIRONMENT"
 ```
 
 
