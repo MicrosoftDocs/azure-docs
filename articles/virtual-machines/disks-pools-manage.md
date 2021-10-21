@@ -101,6 +101,8 @@ Now that you've attached your disk and enabled the LUN, you must create and atta
 
 ### Prerequisites
 
+Install [the latest version](/cli/azure/disk-pool) of the Azure CLI.
+
 If you haven't already, install the disk pool extension using the following command:
 
 ```azurecli
