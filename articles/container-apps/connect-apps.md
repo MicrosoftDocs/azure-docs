@@ -17,7 +17,7 @@ Once you know a container app's domain name, then you can call the location with
 
 ## Location
 
-A container app's location is composed of values associated with its environment, name, and region. Available through the `containerapps.io` top-level domain, the fully qualified domain name uses:
+A container app's location is composed of values associated with its environment, name, and region. Available through the `azurecontainerapps.io` top-level domain, the fully qualified domain name uses:
 
 - the container app name
 - the environment unique identifier
