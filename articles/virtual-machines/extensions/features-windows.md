@@ -116,7 +116,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](/troubleshoot/azure/virtual-machines/reset-rdp). Once you have run this, you should reset the password at first login:
+In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](/troubleshoot/azure/virtual-machines/reset-rdp). After you have run this, you should reset the password at first login:
 
 ```powershell
 $cred=Get-Credential
@@ -247,9 +247,9 @@ These certificates secure the communication between the VM and its host during t
 
 ### How do agents and extensions get updated?
 
-The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
+Agents and extensions share the same automatic update mechanism.
 
-When an update is available, it is only installed on the VM when there is a change to extensions, and other VM Model changes such as:
+When an update is available and automatic updates are enabled, the update is installed on the VM only after there is a change to an extension or other VM model changes, such as:
 
 - Data disks
 - Extensions
@@ -258,7 +258,13 @@ When an update is available, it is only installed on the VM when there is a chan
 - VM size
 - Network profile
 
+> [!IMPORTANT]
+> The update is installed only after there is a change to the VM model.
+
 Publishers make updates available to regions at different times, so it is possible you can have VMs in different regions on different versions.
+
+> [!NOTE]
+> Some updates might require additional firewall rules. See [Network access](#network-access).
 
 #### Listing Extensions Deployed to a VM
 
@@ -283,7 +289,10 @@ To check what version you are running, see [Detecting installed Windows Guest Ag
 
 #### Extension updates
 
-When an extension update is available, the Windows Guest Agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *autoUpgradeMinorVersion": true,'*:
+
+When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Windows Guest Agent downloads and upgrades the extension.
+
+Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extension *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *"autoUpgradeMinorVersion": true,*:
 
 ```json
     "properties": {
@@ -299,6 +308,8 @@ When an extension update is available, the Windows Guest Agent downloads and upg
 ```
 
 To get the latest minor release bug fixes, it is highly recommended that you always select auto update in your extension deployments. Hotfix updates that carry security or key bug fixes cannot be opted out.
+
+If you disable extension automatic updates or you need to upgrade a major version, use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) and specify the target version.
 
 ### How to identify extension updates
 

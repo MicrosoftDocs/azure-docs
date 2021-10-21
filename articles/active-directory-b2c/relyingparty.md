@@ -217,6 +217,7 @@ The **TechnicalProfile** contains the following elements:
 | Description | 0:1 | The string that contains the description of the technical profile. |
 | Protocol | 1:1 | The protocol used for the federation. |
 | Metadata | 0:1 | The collection of *Item* of key/value pairs utilized by the protocol for communicating with the endpoint in the course of a transaction to configure interaction between the relying party and other community participants. |
+| InputClaims | 1:1 | A list of claim types that are taken as input in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
 | OutputClaims | 1:1 | A list of claim types that are taken as output in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
 | SubjectNamingInfo | 1:1 | The subject name used in tokens. |
 
@@ -240,6 +241,21 @@ When the protocol is `SAML`, a metadata element contains the following elements.
 | WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
 | RemoveMillisecondsFromDateTime| No | Indicates whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). Possible values: `false` (default) or `true`.  |
 
+### InputClaims
+
+The **InputClaims** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| InputClaim | 0:n | An expected input claim type. |
+
+The **InputClaim** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | Yes | A reference to a **ClaimType** already defined in the **ClaimsSchema** section in the policy file. |
+| DefaultValue | No | A default value that can be used if the claim value is empty. |
+| PartnerClaimType | No | Sends the claim in a different name as configured in the ClaimType definition. |
 
 ### OutputClaims
 
