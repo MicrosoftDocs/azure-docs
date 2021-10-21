@@ -257,4 +257,3 @@ VM-to-host affinity rules ensure that the VM runs on the desired host.  You can 
 ## References
 
 * [About vSAN Policies](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
-* [VMware Multi-Writer Attribute for Shared VMDKs](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)
