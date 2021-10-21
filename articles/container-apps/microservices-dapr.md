@@ -355,7 +355,7 @@ Use the following CLI command to view logs on the command line.
 ```azurecli
 az monitor log-analytics query \
   -w $LOG_ANALYTICS_WORKSPACE \
-  --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'pythonapp' | project AppName_s, Log_s, TimeGenerated | take 3" \
+  --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'nodeapp' | project AppName_s, Log_s, TimeGenerated | take 3" \
   -o table
 ```
 
