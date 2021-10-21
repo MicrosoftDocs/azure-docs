@@ -375,7 +375,8 @@ myapp-ad07o77  INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  Prima
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
 
 ```azurecli
-az group delete --resource-group $RESOURCE_GROUP
+az group delete \
+    --resource-group $RESOURCE_GROUP
 ```
 
 This will delete both container apps, the storage account, the container apps environment and any other resources in the resource group.
