@@ -127,7 +127,7 @@
     items:     
     - name: Recorded video
       href: playback-recordings-how-to.md
-    - name: Use access policies for playback
+    - name: Create access policies for playback
       href: access-policies.md      
     - name: Enable video preview images
       href: edge/enable-video-preview-images.md
@@ -156,11 +156,11 @@
   - name: Operate cloud pipeline
     items:  
     - name: Connect devices
-      href: connect-devices.md
+      href: cloud/connect-devices.md
     - name: Connect camera via remote device adapter
       href: cloud/use-remote-device-adapter.md
     - name: Monitor  
-      href: overview.md       
+      href: cloud/monitor-log-cloud.md     
     - name: Troubleshoot      
       href: cloud/troubleshoot.md     
   - name: Networking 
@@ -177,8 +177,6 @@
       href: embed-player-in-power-bi.md
 - name: Reference 
   items:
-  - name: Access policies
-    href: overview.md
   - name: Developer SDKs
     href: sdk.md
   - name: REST APIs

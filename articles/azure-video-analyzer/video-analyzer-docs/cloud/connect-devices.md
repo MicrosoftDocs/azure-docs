@@ -8,7 +8,7 @@ ms.date: 11/02/2021
 ---
 # Connect devices to Azure Video Analyzer
 
-In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an [Azure IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) device implementation, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server.
+In order to capture and record video from a device, Azure Video Analyzer service needs to establish an [RTSP](../terminology.md#rtsp) connection to it. If the device is behind a firewall, such connections are blocked, and it may not always be possible to create rules to allow inbound connections from Azure. To support such devices, you can build and install an [Azure IoT Plug and Play](../../../iot-develop/overview-iot-plug-and-play.md) device implementation, which listens to commands sent via IoT Hub from Video Analyzer and then opens a secure websocket tunnel to the service. Once such a tunnel is established, Video Analyzer can then connect to the RTSP server.
 
 ## Overview 
 
@@ -17,7 +17,7 @@ This article provides high-level concepts about building an Azure IoT PnP device
 The application will need to: 
 
 1. Run as an IoT device 
-1. Implement the [IoT PnP](../../iot-develop/overview-iot-plug-and-play.md) interface with a specific command (`tunnelOpen`) 
+1. Implement the [IoT PnP](../../../iot-develop/overview-iot-plug-and-play.md) interface with a specific command (`tunnelOpen`) 
 1. Upon receiving such a command: 
    * Validate the arguments received 
    * Open a secure websocket connection to the URL provided using the token provided
@@ -28,7 +28,7 @@ The application will need to:
 
 ## Run as an IoT Device 
 
-The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../iot-develop/libraries-sdks.md#device-sdks) to build your IoT PnP device implementation. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String.
+The Video Analyzer application will be deployed as a Video Analyzer PnP plugin. This requires using one of the [Azure IoT device SDKs](../../../iot-develop/libraries-sdks.md#device-sdks) to build your IoT PnP device implementation. Register the IoT device with your IoT Hub to get the IoT Hub Device ID and Device Connection String.
 
 ### IoT Device Client Configuration
 
@@ -129,7 +129,7 @@ Examples of such error responses are:
 
 
 ## Ingestion to Video Analyzer
-In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated. [Instructions for this process are outlined here.](cloud/use-remote-device-adapter.md#create-pipeline-topology-in-the-cloud)
+In order to capture and record video to Video Analyzer, a pipeline topology with tunneling enabled must be created. From that topology, a live pipeline must be created and activated. [Instructions for this process are outlined here.](use-remote-device-adapter.md#create-pipeline-topology-in-the-cloud)
 
  
 ## Example implementation
@@ -137,4 +137,4 @@ Contact videoanalyzerhelp@microsoft.com if you would like to implement an applic
 
 ## See Also 
 
-[What is IoT Plug and Play?](../../iot-develop/overview-iot-plug-and-play.md)
+[What is IoT Plug and Play?](../../../iot-develop/overview-iot-plug-and-play.md)
