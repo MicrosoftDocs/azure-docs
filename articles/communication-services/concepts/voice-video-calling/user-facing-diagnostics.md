@@ -1,35 +1,21 @@
----
-title: Azure Communication Services Call Diagnostics
-titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the Call Diagnostics feature.
-author: probableprime
-ms.author: rifox
-manager: chpalm
 
-services: azure-communication-services
-ms.date: 08/17/2021
-ms.topic: conceptual
-ms.service: azure-communication-services
-ms.subservice: calling
----
+# User Facing Diagnostics
 
-# Call diagnostics
+When working with calls in Azure Communication Services, problems may arise that cause issues for your customers. To aid with that we have a feature called "User Facing Diagnostics" which enables you to examine various properties of a Call to determine what the issue might be.
 
-When working with calls in Azure Communication Services, issues or problems may arise that cause issues for your customers. To aid with that we have a feature called "Call Diagnostics" which enables you to examine various properties of a Call to determine what the issue might be.
-
-**Call diagnostics, is currently only supported for our JS / Web SDK.**
+**User facing diagnostics, is currently only supported for our JS / Web SDK.**
 
 ## Accessing diagnostics
 
-Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
+User facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
-const callDiagnostics = call.api(Features.Diagnostics);
+const userFacingDiagnostics = call.api(Features.UserFacingDiagnostics);
 ```
 
 ## Diagnostic values
 
-The following users facing diagnostics are available:
+The following user facing diagnostics are available:
 
 ### Network values
 
@@ -38,7 +24,8 @@ The following users facing diagnostics are available:
 | noNetwork                 | There is no network available.                                  | - Set to `True` when a call fails to start because there is no network available. <br/> - Set to `False` when there are ICE candidates present.                                                                                                  | Device is not connected to a network.               |
 | networkRelaysNotReachable | Problems with a network.                                        | - Set to `True` when the network has some constraint that is not allowing you to reach ACS relays. <br/> - Set to `False` upon making a new call.                                                                                                | During a call when the WiFi signal goes on and off. |
 | networkReconnect          | The connection was lost and we are reconnecting to the network. | - Set to `Bad` when the network is disconnected <br/> - Set to `Poor`when the media transport connectivity is lost <br/> - Set to `Good` when a new session is connected.                                                                       | Low bandwidth, no internet                          |
-| networkReceiveQuality     | An indicator regarding incoming stream quality.                 | - Set to `Bad` when there is a severe problem with receiving the stream. quality <br/> - Set to `Poor` when there is a mild problem with receiving the stream. quality <br/> - Set to `Good` when there is no problem with receiving the stream. | Low bandwidth                                       |
+| networkReceiveQuality     | An indicator regarding incoming stream quality.                 | - Set to `Bad` when there is a severe problem with receiving the stream. quality <br/> - Set to `Poor` when there is a mild problem with receiving the stream. quality <br/> - Set to `Good` when there is no problem with receiving the stream. | Low bandwidth                                       |    
+|   networkSendQuality     | An indicator regarding outgoing stream quality.                 | - Set to `Bad` when there is a severe problem with sending the stream. quality <br/> - Set to `Poor` when there is a mild problem with sending the stream. quality <br/> - Set to `Good` when there is no problem with sending the stream. | Low bandwidth                                       |
 
 ### Audio values
 
@@ -59,16 +46,20 @@ The following users facing diagnostics are available:
 | cameraStartFailed      | Generic camera failure.                                | - Set to `True` when we fail to start sending local video because the camera device may have been disabled in the system or it is being used by another process~. <br/> - Set to `False` when selected camera device successfully sends local video. again.                                                  | Camera failures                                                                 |
 | cameraStartTimedOut    | Common scenario where camera is in bad state.          | - Set to `True` when camera device times out to start sending video stream. <br/> - Set to `False` when selected camera device successfully sends local video again.                                                                                                                                         | Camera failures                                                                 |
 | cameraPermissionDenied | Camera permissions were denied in settings.            | - Set to `True` when camera permission is denied by system settings (video). <br/> - Set to `False` on successful stream acquisition. <br> Note: This diagnostic only works on macOS Chrome                                                                                                                  | Camera permissions are disabled in the settings.                                |
+| cameraStoppedUnexpectedly | Camera malfunction             | - Set to `True` when camera enters stopped state unexpectedly. <br/> - Set to `False` when camera starts to successfully send video stream again.    | Check camera is functioning correctly     |
 
 ### Misc values
 
 | Name                         | Description                                                  | Possible values                                                                                                                                                                                         | Use cases                                 |
 | ---------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | screenshareRecordingDisabled | System screen sharing was denied by preferences in Settings. | - Set to `True` when screen sharing permission is denied by system settings (sharing). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.Chrome. | Screen recording is disabled in Settings. |
+| capturerStartFailed | System screen sharing failed. | - Set to `True` when we fail to start capturing the screen. <br/> - Set to `False` when capturing the screen can start successfully. |  |
+| capturerStoppedUnexpectedly | System screen sharing malfunction             | - Set to `True` when screen capturer enters stopped state unexpectedly. <br/> - Set to `False` when screen capturer starts to successfully capture again.    | Check screen sharing is functioning correctly     |
 
-## Diagnostic events
 
-- Subscribe to the `diagnosticChanged` event to monitor when any call diagnostic changes.
+## User Facing Diagnostic events
+
+- Subscribe to the `diagnosticChanged` event to monitor when any user facing diagnostic changes.
 
 ```js
 /**
@@ -78,14 +69,12 @@ The following users facing diagnostics are available:
  *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
  *     - DiagnosticFlag = true | false.
  * - valueType = 'DiagnosticQuality' | 'DiagnosticFlag'
- * - mediaType is the media type associated with the event, e.g. Audio, Video, ScreenShare. These are defined in `CallDiagnosticEventMediaType`.
  */
 const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEventArgs | MediaDiagnosticChangedEventArgs) => {
     console.log(`Diagnostic changed: ` +
         `Diagnostic: ${diagnosticInfo.diagnostic}` +
         `Value: ${diagnosticInfo.value}` +
-        `Value type: ${diagnosticInfo.valueType}` +
-        `Media type: ${diagnosticInfo.mediaType}` +
+        `Value type: ${diagnosticInfo.valueType}`);
 
     if (diagnosticInfo.valueType === 'DiagnosticQuality') {
         if (diagnosticInfo.value === DiagnosticQuality.Bad) {
@@ -102,16 +91,16 @@ const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEvent
     }
 };
 
-callDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
-callDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
+userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
+userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
-## Get the latest diagnostics
+## Get the latest user fadiagnostics
 
 - Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 
 ```js
-const latestNetworkDiagnostics = callDiagnostics.network.getLatest();
+const latestNetworkDiagnostics = userFacingDiagnostics.network.getLatest();
 
 console.log(
   `noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
@@ -128,7 +117,7 @@ console.log(
     `value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`
 );
 
-const latestMediaDiagnostics = callDiagnostics.media.getLatest();
+const latestMediaDiagnostics = userFacingDiagnostics.media.getLatest();
 
 console.log(
   `speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
