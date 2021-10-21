@@ -134,7 +134,7 @@ Azure AD supports external identities which allow users without a Microsoft acco
 
 - [What is the identity secure score in Azure AD](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Specific roles that you need to operate Azure Virtual Desktop ](/azure/virtual-desktop/faq#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Specific roles that you need to operate Azure Virtual Desktop ](./faq.yml#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -252,7 +252,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Minimum admin permissions needed to manage Azure Virtual Desktop](/azure/virtual-desktop#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Minimum admin permissions needed to manage Azure Virtual Desktop](./index.yml#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -498,7 +498,7 @@ Forward any logs from Azure Virtual Desktop to your security information event m
 
 - [Azure Security Center security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Create custom analytics rules to detect threats](../sentinel/tutorial-detect-threats-custom.md) 
+- [Create custom analytics rules to detect threats](../sentinel/detect-threats-custom.md) 
 
 - [Cyber threat intelligence with Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
@@ -642,7 +642,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
+- [Investigate incidents with Azure Sentinel](../sentinel/investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
