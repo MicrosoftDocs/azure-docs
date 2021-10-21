@@ -41,13 +41,13 @@ Before you move your managed instance, confirm the subnet is marked as **Ready f
 
 In the **Virtual network** UI of the Azure portal, virtual networks that meet the prerequisites for a managed instance are categorized as **Ready for Managed Instance**. Virtual networks that have subnets with managed instances already deployed to them display an icon before the virtual network name. Empty subnets that are ready for a managed instance do not have an icon. 
 
-Subnets that are marked as **Other** are empty and can be used for a managed instance, but first you need to fulfil the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). This includes:
+Subnets that are marked as **Other** are empty and can be used for a managed instance, but first you need to fulfill the [network requirements](connectivity-architecture-overview.md#service-aided-subnet-configuration). This includes:
 
-- delegating to the Microsoft.Sql/managedInstances resource provider.
-- attaching route table
-- attaching network security group
+- delegating to the Microsoft.Sql/managedInstances resource provider
+- attaching a route table
+- attaching a network security group
 
-After all requiremes are satisfied, the subnet will move from **Other** to **Ready for Managed Instance** group.
+After all requirements are satisfied, the subnet moves from the **Other** to the **Ready for Managed Instance** category and can be used for a managed instance. 
 
 Subnets marked as **Invalid** cannot be used for new or existing managed instances, either because they're already in use (instances used for instance deployments cannot contain other resources), or the subnet has a different DNS zone (a cross-subnet instance move limitation). 
 
@@ -61,7 +61,7 @@ Depending on the subnet state and designation, the following adjustments may be 
 - **Ready for Managed Instance (empty)**: The workflow validates all the required rules in the network security group and route table, and adds any rules that are necessary but missing. <sup>1</sup>
 
 > [!Note]
-> <sup>1</sup> Custom rules added to the source subnet configuration are not copied to the destination subnet. Any customizations of the source subnet configuration have to be replicated manually on the destination subnet. One way to achieve this is using same route table and network security group for the source and destination subnet.
+> <sup>1</sup> Custom rules added to the source subnet configuration are not copied to the destination subnet. Any customization of the source subnet configuration must be replicated manually to the destination subnet. One way to achieve this is by using the same route table and network security group for the source and destination subnet.
 
 
 ### Destination subnet limitations 
@@ -70,7 +70,7 @@ Consider the following limitations when choosing a destination subnet for an exi
 
 - The destination subnet must be in the same virtual network as the source subnet. 
 - The DNS zone of the destination subnet must match the DNS zone of the source subnet as changing the DNS zone of a managed instance is not currently supported. 
-- Instances running on Gen4 hardware must be upgraded to a newer hardware generation since Gen4 is being deprecated. Upgrading hardware generation and moving to another subnet can be performed as one operation. 
+- Instances running on Gen4 hardware must be upgraded to a newer hardware generation since Gen4 is being deprecated. Upgrading hardware generation and moving to another subnet can be performed in one operation. 
 
 
 ## Operation steps
