@@ -11,6 +11,8 @@ ms.custom: template-concept
 
 ## Common issues seen with Azure Virtual Network Manager (Preview)
 
+In this article, we'll cover common issues you may face when using Azure Virtual Network Manager and provide some possible solutions.
+
 ## Why isn't my configuration getting applied? 
 
 **Common reasons for configurations not being applied:** 
