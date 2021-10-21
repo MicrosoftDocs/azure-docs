@@ -24,15 +24,15 @@
   - name: Change directory tenants
     href: how-to-change-directory-tenants-visual-studio-azure.md
   - name: Remove credit limits 
-    href: remove-credit-limits.md
+    href: how-to-remove-credit-limits.md
   - name: Add users to your directory
-    href: add-users-directory.md
+    href: how-to-add-users-directory.md
   - name: Sign into Azure with GitHub
-    href: sign-into-azure-with-github.md
+    href: how-to-sign-into-azure-with-github.md
   - name: Manage and Monitor Dev/Test
-    href: manage-monitor-devtest.md
+    href: how-to-manage-monitor-devtest.md
   - name: Manage reliability and performance with Azure Dev/Test
-    href: manage-reliability-performance.md
+    href: how-to-manage-reliability-performance.md
 - name: Resources
   items: 
     - name: Azure roadmap

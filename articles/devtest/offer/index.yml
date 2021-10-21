@@ -36,13 +36,13 @@ conceptualContent:
         - url: ../../devtest/offer/quickstart-individual-credit.md
           itemType: how-to-guide
           text: Get started using Azure Credits
-        - url: ../../devtest/offer/add-users-directory.md
+        - url: ../../devtest/offer/how-to-add-users-directory.md
           itemType: how-to-guide
           text: Add users to your directory
-        - url: ../../devtest/offer/remove-credit-limits.md
+        - url: ../../devtest/offer/how-to-remove-credit-limits.md
           itemType: how-to-guide
           text: Remove credit limits   
-        - url: ../../devtest/offer/sign-into-azure-with-github.md
+        - url: ../../devtest/offer/how-to-sign-into-azure-with-github.md
           itemType: how-to-guide
           text: Sign into Azure with GitHub credentials
         - url: ../../devtest/offer/how-to-change-directory-tenants-visual-studio-azure.md
@@ -57,10 +57,10 @@ conceptualContent:
         - url: ../../devtest/offer/concepts-gitops-azure-devtest.md
           itemType: how-to-guide
           text: Use GitOps with Azure Dev/Test
-        - url: ../../devtest/offer/manage-monitor-devtest.md
+        - url: ../../devtest/offer/how-to-manage-monitor-devtest.md
           itemType: how-to-guide
           text: Manage your Azure Dev/Test subscriptions
-        - url: ../../devtest/offer/manage-reliability-performance.md
+        - url: ../../devtest/offer/how-to-manage-reliability-performance.md
           itemType: how-to-guide
           text: Build reliability into your applications
         - url: ../../devtest/offer/concepts-security-governance-devtest.md
