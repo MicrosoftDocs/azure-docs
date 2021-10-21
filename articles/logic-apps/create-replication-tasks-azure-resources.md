@@ -16,48 +16,38 @@ ms.date: 11/02/2021
 
 While maximum availability and reliability are top operational priorities for Azure services, many ways still exist for communication to stop due to networking or name resolution problems, errors, or temporary unresponsiveness. Such conditions aren't "disastrous" such that you'll want to abandon the regional deployment altogether as you might do in disaster recovery situation. However, the business scenario for some apps might become impacted by availability events that last no more than a few minutes or even seconds.
 
-To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources to help you maintain business continuity. You can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over.
-
-Each replication task that you create is powered by a stateless workflow in a **Logic App (Standard)** resource that can include multiple workflows for replication tasks. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+To reduce the effect that unpredictable events can have on your Azure resources in an Azure region, you can replicate the content in these resources from one region to another region so that you can maintain business continuity. In Azure, you can create a [*replication task*](#replication-task) that moves the data, events, or messages from a source in one region to a target in another region. That way, you can have the target readily available if the source goes offline and the target has to take over.
 
 > [!NOTE]
-> Currently, [replication task templates](#replication-task-templates) are available for 
-> [Azure Event Hubs](../event-hubs/event-hubs-about.md) and [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
+> You can also use replication tasks to move content between entities in the same region, but if the 
+> entire region becomes unavailable or experiences disruption, both source and target are affected.
 
-This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues.
+This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+
+<a name="replication-task"></a>
+
+## What is a replication task?
+
+A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Generally, replication tasks move the content unchanged, but replication tasks powered by Azure Logic Apps also add replication-related properties. If the source and target protocols differ, these tasks also perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
+
+When you use the available replication task templates, each replication task that you create has an underlying [stateless workflow](single-tenant-overview-compare.md#stateful-stateless) in a **Logic App (Standard)** resource, which can include multiple workflows for replication tasks. This resource is hosted in single-tenant Azure Logic Apps, which is a scalable and reliable execution environment for configuring and running serverless applications, including replication and federation tasks. For more information about replication and federation, review the following documentation:
+
+- [Event Hubs multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md)
+- [Event replication tasks patterns](../event-hubs/event-hubs-federation-patterns.md)
+- [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
+- [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
 <a name="replication-task-templates"></a>
 
 ## Replication task templates
 
-The following table lists the replication task templates currently available in this preview:
+Currently, replication task templates are available for [Azure Event Hubs](../event-hubs/event-hubs-about.md) and [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). The following table lists the replication task templates currently available in this preview:
 
 | Resource type | Replication source and target |
 |---------------|-------------------------------|
 | Azure Event Hubs namespace | - Event Hubs instance to Event Hubs instance <br>- Event Hubs instance to Service Bus queue <br>- Event Hubs instance to Service Bus topic |
 | Azure Service Bus namespace | - Service Bus queue to Service Bus queue <br>- Service Bus queue to Event Hub instance <br>- Service Bus queue to Service Bus topic <br>- Service Bus topic subscription to Service Bus queue <br>- Service Bus topic subscription to Event Hubs instance |
 |||
-
-The following tables show the property mappings between Event Hubs and Service Bus:
-
-| Event Hubs property | Service Bus property |
-|---------------------|----------------------|
-| ContentType | ContentType |
-| CorrelationId | CorrelationId |
-| MessageId | MessageId |
-| PartitionKey | PartitionKey SessionId |
-| Properties | User Properties |
-| ReplyTo | ReplyTo |
-| ReplyToGroupName | ReplyToSessionId |
-| Subject | Label |
-| To | To |
-|||
-
-<a name="replication-task"></a>
-
-## What is a replication task?
-
-A replication task receives data, events, or messages from a source, moves that content to a target, and then deletes that content from the source. Most replication tasks move the content unchanged. At most, if the source and target protocols differ, these tasks perform mappings between metadata structures. Replication tasks are generally stateless, meaning that they don't share states or other side effects across parallel or sequential executions of a task.
 
 ### Replication topology and workflow
 
@@ -85,7 +75,28 @@ For information about replication and federation in Azure Service Bus, review th
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
-### Order preservation
+## Metadata and property mappings
+
+For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic.
+
+For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
+
+When a task replicates from Service Bus to Event Hubs, the task maps only the `User Properties` property to the `Properties` property. However, when the task replicates from Event Hubs to Service Bus, the task maps the following properties:
+
+| From Event Hubs | To Service Bus |
+|-----------------|----------------|
+| ContentType | ContentType |
+| CorrelationId | CorrelationId |
+| MessageId | MessageId |
+| PartitionKey | PartitionKey SessionId |
+| Properties | User Properties |
+| ReplyTo | ReplyTo |
+| ReplyToGroupName | ReplyToSessionId |
+| Subject | Label |
+| To | To |
+|||
+
+## Order preservation
 
 Replication doesn't aim to exactly create exact 1:1 clones of a source to a target. Instead, the replication task focuses on preserving the relative order of events for Event Hubs or messages for Service Bus where required by grouping related events or messages respectively with the same partition key. For simple source-to-target replication patterns, you can have duplicate events in Event Hubs and messages in Service Bus.
 
@@ -104,12 +115,6 @@ To learn more about multi-site and multi-region federation for Azure services wh
 - [Service Bus message replication and cross-region federation](../service-bus-messaging/service-bus-federation-overview.md)
 - [Message replication tasks patterns](../service-bus-messaging/service-bus-federation-patterns.md)
 
-### Service-assigned metadata
-
-For Service Bus, the service-assigned metadata of a message obtained from the source Service Bus queue or topic, the original enqueue time, and sequence number are replaced by new service-assigned values in the target Service Bus queue or topic.
-
-For Event Hubs, the service-assigned metadata of an event obtained from the source Event Hubs instance, the original enqueue time, sequence number, and offset are replaced by new service-assigned values in the target Event Hub instance.
-
 <a name="pricing"></a>
 
 ## Pricing
@@ -122,9 +127,9 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The source and target resources or entities, which should exist in different Azure regions and vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
+- The source and target resources or entities, which should exist in different Azure regions so that you can test for the geo-disaster recovery failover scenario. These entities can vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
-- Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource that *contains only replication task workflows*, especially if you want to follow the active-passive replication pattern. Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
+- Optional: A **Logic App (Standard)** resource to reuse when you create the replication task. Although you can create this resource when you create the task, a best practice is that you add the task (stateless workflow) to an existing logic app resource that *contains only replication task workflows*, especially if you want to follow the [active-passive replication pattern](../service-bus-messaging/service-bus-federation-overview.md#active-passive-replication). Make sure that this logic app resource is in a region that differs from the source and target entities in your replication task. For more information, review [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
   Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new primary source, formerly the target or secondary entity, which is what the active-passive replication pattern tries to achieve.
 
@@ -433,20 +438,16 @@ To enable failover from the primary or source entity and to make sure that the r
 
    This resource group includes the logic app resource and the Azure Storage account that contains the position or *offset* in the stream or sequence where the primary or source entity stopped when the primary's region became unavailable.
 
-1. Go to the storage account that's associated with the logic app resource. Delete the storage account by following these steps:
+1. Go to the storage account that's associated with the logic app resource. To find this storage account, open the resource group that contains the logic app resource. Delete the storage account by following these steps:
 
    1. On the storage account navigation menu, under **Data storage**, select **Containers**.
 
-   1. On the **Containers** pane that opens, choose one of the following options:
-
-      - If the source is an Event Hubs entity, select **azure-webjobs-eventhub**.
-
-      - If the source is a Service Bus entity, select **azure-webjobs-servicebus**.
+   1. On the **Containers** pane that opens, for a source that's an Event Hubs entity, select **azure-webjobs-eventhub**.
 
       > [!NOTE]
-      > If no **azure-webjobs-<*source-name*>** exists, make sure that the task runs at least one time.
+      > If no **azure-webjobs-eventhub** entry exists, make sure that the task runs at least one time.
 
-   1. On the **azure-webjobs-<*source-name*>** pane, select the namespace folder, which has a name with the following format: `<namespace>.servicebus.windows.net`.
+   1. On the **azure-webjobs-eventhub** pane, select the namespace folder, which has a name with the following format: `<event-hub-name>.servicebus.windows.net`.
 
    1. In the namespace folder, delete the source entity folder named `src` that holds checkpoint information for the former primary source entity.
 
