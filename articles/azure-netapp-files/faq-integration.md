@@ -10,7 +10,7 @@ ms.date: 10/11/2021
 ---
 # Integration FAQs for Azure NetApp Files
 
-This article answers frequently asked questions (FAQs) about using other products or services with Azure NetApp Files. 
+This article answers frequently asked questions (FAQs) about using other products or services with Azure NetApp Files.  
 
 ## Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
