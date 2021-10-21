@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
+ms.date: 10/21/2021
 ms.custom: data4ml
 ---
 
@@ -137,20 +137,20 @@ To use **ML-assisted labeling**:
 
 ### How does ML-assisted labeling work?
 
-At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
+At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. 
 
 For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally leveraged by the model during the training process.
 
-The exact number of labeled items necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another, depending on the number of labels in the project.
+The exact number of labeled items necessary to start assisted labeling is not a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
 > ML assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
 
-### Prelabeling
+### Pre-labeling
 
-After enough labels are submitted, a classification model is used to predict tags. The labeler now sees pages that contain predicted labels already present on each item. The task is then to review these predictions and correct any mis-labeled items before submitting the page.  
+After enough labels are submitted for training, the trained model is used to predict tags. The labeler now sees pages that contain predicted labels already present on each item. The task is then to review these predictions and correct any mis-labeled items before submitting the page.  
 
 Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled items to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions more confident than this threshold are used for pre-labeling.
 
