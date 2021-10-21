@@ -56,15 +56,15 @@ Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few
 
 To create a profile container using a file share:
 
-1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be co-located on the same cluster where the session host VMs are deployed.
+1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be colocated on the same cluster where the session host VMs are deployed.
 
 2. Connect to the virtual machine with the credentials you provided when creating the virtual machine.
 
-3. On the virtual machine, launch Control Panel and select System.
+3. On the virtual machine, launch **Control Panel** and select **System**.
 
-4. Select Computer name, select Change settings, and then select Change…
+4. Select Computer name, select **Change settings**, and then select **Change…**.
 
-5. Select Domain and then enter the Active Directory domain on the virtual network.
+5. Select **Domain**, then enter the Active Directory domain on the virtual network.
 
 6. Authenticate with a domain account that has privileges to domain-join machines.
 
@@ -79,7 +79,7 @@ You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI su
 You have two options to download an image:
 
 - Deploy a VM with your preferred OS image, then follow the instructions in [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd.md).
-- Download a Windows Virtual Hard Dsik (VHD) from Azure without deploying a VM.
+- Download a Windows Virtual Hard Disk (VHD) from Azure without deploying a VM.
 
 Downloading a Windows VHD without deploying a VM has several extra steps. To download a VHD from Azure without deploying a VM, you'll need to complete the instructions in the following sections in order.
 
@@ -93,7 +93,7 @@ After that, follow any other prompts you see to finish signing in. For additiona
 
 If this is your first time using Azure CLI, install any required extensions by following the instructions in [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-Finally, run the [az version](/cli/azure/reference-index?#az_version) command to make sure your cient is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az_upgrade) command to upgrade to the latest version.
+Finally, run the [az version](/cli/azure/reference-index?#az_version) command to make sure your client is up to date. If it's out of date, run the [az upgrade](/cli/azure/reference-index?#az_upgrade) command to upgrade to the latest version.
 
 ### Search Azure Marketplace for Azure Virtual Desktop images
 
@@ -132,7 +132,7 @@ Next, you'll need to create an Azure managed disk from the image you downloaded 
 
 To create an Azure managed disk:
 
-1. Run the following commands in an azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
+1. Run the following commands in an Azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
 ```azure
 $urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
