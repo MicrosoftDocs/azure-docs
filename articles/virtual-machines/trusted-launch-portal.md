@@ -11,22 +11,17 @@ ms.date: 04/06/2021
 ms.custom: template-how-to
 ---
 
-# Deploy a VM with trusted launch enabled (preview)
+# Deploy a VM with trusted launch enabled
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 [Trusted launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
 
-> [!IMPORTANT]
-> Trusted launch is currently in public preview.
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Deploy using the portal
+## Deploy a trusted VM
+Create a virtual machine with trusted launch enabled. Choose an option below:
 
-Create a virtual machine with trusted launch enabled.
+### [Portal](#tab/portal)
 
 1. Sign in to the Azure [portal](https://aka.ms/TL_preview).
    > [!NOTE]
@@ -60,7 +55,105 @@ Create a virtual machine with trusted launch enabled.
 
 It will take a few minutes for your VM to be deployed.
 
-## Deploy using a template
+### [CLI](#tab/cli)
+
+Make sure you are running the latest version of Azure CLI 
+
+Sign in to Azure using `az login`.  
+
+```azurecli-interactive
+az login 
+```
+
+Create a virtual machine with Trusted Launch. 
+
+```azurecli-interactive
+az group create -n myresourceGroup -l eastus 
+az vm create \ 
+   --resource-group myResourceGroup \ 
+   --name myVM \ 
+   --image XXX \ 
+   --admin-username azureuser \ 
+   --generate-ssh-keys \ 
+   --SecurityType trustedLaunch \ 
+   --EnableSecureBoot true \  
+   --EnableVtpm true \
+```
+ 
+
+For existing VMs, you can enable or disable secure boot and vTPM settings. 
+
+```azurecli-interactive
+az vm update \  
+   --resource-group myResourceGroup \ 
+   --name myVM \ 
+   --EnableSecureBoot \  
+   --EnableVtpm 
+```    
+ 
+
+Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
+
+
+### [PowerShell](#tab/powershell)
+
+
+In order to provision a VM with Trusted Launch, it first needs to be enabled with the “TrustedLaunch” enum via the Set-AzVmSecurityType cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the variables preceding with a dollar sign ”$” with the proper configurations and variables. 
+
+```azurepowershell-interactive
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize 
+
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $VMName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate 
+
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id 
+
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $publisher -Offer $offer -Skus $Sku -Version $Version 
+
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -StorageAccountType "StandardSSD_LRS" -CreateOption "FromImage" 
+
+$VirtualMachine = Set-AzVmSecurityType -VM $VirtualMachine -SecurityType "TrustedLaunch" 
+
+$VirtualMachine = Set-AzVmUefi -VM $VirtualMachine -EnableVtpm $true -EnableSecureBoot $true 
+
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine 
+```
+ 
+
+For Vmss: 
+
+In order to provision a VMSS with Trusted Launch, it first needs to be enabled with the “TrustedLaunch” enum via the Set-AzVmssSecurityType cmdlet. Then you can use the Set-AzVmssUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the variables preceding with a dollar sign ”$” with the proper configurations and variables.
+
+```azurepowershell-interactive
+
+$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity $sku -SkuName $VMSize -UpgradePolicyMode "Automatic" ` 
+
+ | Add-AzVmssNetworkInterfaceConfiguration -Name "Test" -Primary $True -IPConfiguration $IPCfg ` 
+
+ | Add-AzVmssNetworkInterfaceConfiguration -Name "Test2" -IPConfiguration $IPCfg ` 
+
+ | Set-AzVmssOSProfile -ComputerNamePrefix "Test" -AdminUsername $AdminUsername -AdminPassword $AdminPassword ` 
+
+ | Set-AzVmssStorageProfile -OsDiskCreateOption 'FromImage' -OsDiskCaching "None" ` 
+
+  -ImageReferenceOffer $Offer -ImageReferenceSku $Sku -ImageReferenceVersion $Version ` 
+
+  -ImageReferencePublisher $PublisherName ` 
+
+ | Add-AzVmssExtension -Name $ExtName -Publisher $pub -Type $ExtType -TypeHandlerVersion $ExtVer -AutoUpgradeMinorVersion $True ` 
+
+ | Set-AzVmssSecurityType -SecurityType "TrustedLaunch" ` 
+
+ | Set-AzVmssUefi -EnableVtpm $true -EnableSecureBoot $true 
+
+ 
+
+New-AzVmss -ResourceGroupName $RGName -Name $VMSSName -VirtualMachineScaleSet $VMSS; 
+```
+ 
+
+ 
+
+### [Template](#tab/template)
 
 You can deploy trusted launch VMs using a quickstart template:
 
@@ -69,6 +162,8 @@ You can deploy trusted launch VMs using a quickstart template:
 
 **Windows**:
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
+
+---
 
 ## View and update
 
