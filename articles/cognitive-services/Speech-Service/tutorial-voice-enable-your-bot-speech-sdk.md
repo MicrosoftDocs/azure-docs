@@ -300,7 +300,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 1. From the **Settings** navigation, click **Configuration**.
    * Check the box labeled **Enable Streaming Endpoint**. This is needed to create a communication protocol built on web sockets between your bot and the Direct Line Speech channel.
   
-  ![enable the streaming protocol](media/tutorial-voice-enable-your-bot-speech-sdk/StreamingEndpoint.png "enable streaming endpoint")
+    ![enable the streaming protocol](media/tutorial-voice-enable-your-bot-speech-sdk/StreamingEndpoint.png "enable streaming endpoint")
    * Click **Save**. 
 
  
