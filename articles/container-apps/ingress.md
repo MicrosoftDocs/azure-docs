@@ -58,8 +58,8 @@ With ingress enabled, your application is assigned a fully qualified domain name
 
 |Ingress visibility setting | Fully qualified domain name |
 |---|---|
-| External | `<APP_NAME>.<UNIQUE_IDENTIFIER>.<REGION_NAME>.containerapps.io`|
-| Internal | `<APP_NAME>.internal.<UNIQUE_IDENTIFIER>.<REGION_NAME>.containerapps.io` |
+| External | `<APP_NAME>.<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`|
+| Internal | `<APP_NAME>.internal.<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io` |
 
 Your Container Apps environment has a single public IP address for applications with `external` ingress visibility, and a single internal IP address for applications with `internal` ingress visibility. Therefore, all applications within a Container Apps environment with `external` ingress visibility share a single public IP address. Similarly, all applications within a Container Apps environment with `internal` ingress visibility share a single internal IP address. HTTP traffic is routed to individual applications based on the FQDN in the host header.
 
