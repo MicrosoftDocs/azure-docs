@@ -2,7 +2,7 @@
 title: Security overview
 description: Security information about Azure resource bridge (preview).
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/22/2021
 ---
 
 # Azure Arc resource bridge (preview) security overview
@@ -17,7 +17,7 @@ Users and applications granted [contributor](../../role-based-access-control/bui
 
 ## Using a managed identity
 
-By default, the Azure Active Directory system assigned identity used by Azure Arc can only be used to update the status of the Azure Arc resource bridge (preview) in Azure. Azure Arc resource bridge currently supports only system assigned identities. `clusteridentityoperator` initiates the first outbound communication. This first communication fetches the Managed Service Identity (MSI) certificate used by Azure Arc resource bridge (preview) agents for communication with Azure.
+By default, an Azure Active Directory system-assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created and assigned to the Azure Arc resource bridge (preview). Azure Arc resource bridge (preview) currently supports only a system-assigned identity. The `clusteridentityoperator` identity initiates the first outbound communication and fetches the Managed Service Identity (MSI) certificate used by other agents for communication with Azure.
 
 ## Data encryption at rest
 

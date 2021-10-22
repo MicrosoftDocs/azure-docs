@@ -16,6 +16,8 @@
   items:
     - name: Overview
       href: ./resource-bridge/overview.md
+    - name: Security overview
+      href: ./resource-bridge/security-overview.md
     - name: Troubleshooting
       href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >
