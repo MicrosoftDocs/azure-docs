@@ -35,7 +35,7 @@ This tutorial makes use of the following environment variables:
 
 ```bash
 RESOURCE_GROUP="containerapps-rg"
-LOCATION="eastus"
+LOCATION="canadacentral"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
@@ -158,7 +158,7 @@ Create a file named *queue.json* and paste the following configuration code into
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "East US",
+            "defaultValue": "Canada Central",
             "type": "String"
         },
         "environment_name": {
