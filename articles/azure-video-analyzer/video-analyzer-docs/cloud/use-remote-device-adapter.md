@@ -7,6 +7,8 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud using a remote device adapter
 
+[!INCLUDE [header](includes/cloud-env.md)]
+
 Azure Video Analyzer service allows users to capture and record video from RTSP cameras that are connected to the cloud. This requires that such cameras be accessible over the internet, which may not be permissible in many cases. Instead, you can deploy the Video Analyzer edge module to a lightweight edge device on the same (private) network as the RTSP cameras, and connect the edge device to the internet. The edge module can now be set up as an *adapter* that enables Video Analyzer service to connect to the *remote devices* (cameras). The edge module acts as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video traffic between the RTSP cameras and the Video Analyzer service.
 
 > [!div class="mx-imgBorder"]
