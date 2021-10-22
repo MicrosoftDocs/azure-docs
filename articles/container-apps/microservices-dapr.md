@@ -313,6 +313,7 @@ az deployment group create \
   --template-file ./serviceapp.json \
   --parameters \
       environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION" \
       storage_account_name="$STORAGE_ACCOUNT" \
       storage_account_key="$STORAGE_ACCOUNT_KEY" \
       storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
@@ -330,7 +331,8 @@ Run the command below to deploy the client container app.
 az deployment group create --resource-group "$RESOURCE_GROUP" \
   --template-file ./clientapp.json \
   --parameters \
-    environment_name="$CONTAINERAPPS_ENVIRONMENT"
+    environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+    location="$LOCATION"
 ```
 
 
