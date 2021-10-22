@@ -32,7 +32,7 @@ Health probes support multiple protocols. The availability of a specific health 
 >Review this document in its entirety, including important [design guidance](#design) below to create a reliable service.
 
 >[!IMPORTANT]
->Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [this FAQ](/azure/load-balancer/load-balancer-faqs#probes).
+>Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [this FAQ](./load-balancer-faqs.yml).
 
 >[!IMPORTANT]
 >Regardless of configured time-out threshold, HTTP(S) Load Balancer health probes will automatically probe down an instance if the server returns any status code that is not HTTP 200 OK or if the connection is terminated via TCP reset.
@@ -42,7 +42,6 @@ Health probes support multiple protocols. The availability of a specific health 
 Health probe configuration consists of the following elements:
 
 - Duration of the interval between individual probes
-- Number of probe responses which have to be observed before the probe transitions to a different state
 - Protocol of the probe
 - Port of the probe
 - HTTP path to use for HTTP GET when using HTTP(S) probes
@@ -52,25 +51,20 @@ Health probe configuration consists of the following elements:
 
 ## Understanding application signal, detection of the signal, and reaction of the platform
 
-The number of probe responses applies to both
+The interval value determines how frequently the health probe will probe for a response from your backend pool instances. If the health probe fails, it will immediately mark your backend pool instances as unhealthy. Likewise, on the next healthy probe up, the health probe will immediately mark your backend pool instances as healthy again.
 
-- the number of successful probes that allow an instance to be marked as up, and
-- the number of timed-out probes that cause an instance to be marked as down.
+We can illustrate the behavior further with an example, where your health probe interval has been set to 5 seconds. Because the time at which a probe is sent is not synchronized with when your application may change state, the total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
 
-The timeout and interval values specified determine whether an instance will be marked as up or down.  The duration of the interval multiplied by the number of probe responses determines the duration during which the probe responses have to be detected.  And the service will react after the required probes have been achieved.
+1. If your application starts producing a time-out probe response just before the next probe arrives, the detection of these events will take 5 seconds plus the duration of the application starting to signal a time-out to when the probe arrives.  You can assume this detection to take slightly over 5 seconds.
+2. If your application starts producing a time-out probe response just after the next probe arrives, the detection of these events will not begin until the probe arrives (and times out) plus another 5 seconds.  You can assume this detection to take just under 10 seconds.
 
-We can illustrate the behavior further with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe time-out failures must be observed within a 10 second interval.  Because the time at which a probe is sent is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
-
-1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the application starting to signal a time-out to when the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
-2. If your application starts producing a time-out probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and times out) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
-
-For this example, once detection has occurred, the platform will then take a small amount of time to react to this change.  This means a depending on 
+For this example, once detection has occurred, the platform will then take a small amount of time to react to this change.  This means that depending on 
 
 1. when the application begins changing state and
-2. when this change is detected and met the required criteria (number of probes sent at the specified interval) and
+2. when this change is detected (when the next health probe is sent) and
 3. when the detection has been communicated across the platform 
 
-you can assume the reaction to a time-out probe response will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance illustrated in this example.
+you can assume the reaction to a time-out probe response will take between a minimum of just over 5 seconds and a maximum of slightly over 10 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance illustrated in this example.
 
 >[!NOTE]
 >The health probe will probe all running instances in the backend pool. If an instance is stopped it will not be probed until it has been started again.
@@ -109,7 +103,7 @@ The following illustrates how you could express this kind of probe configuration
         "protocol": "Tcp",
         "port": 1234,
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -142,7 +136,7 @@ The following illustrates how you could express this kind of probe configuration
         "port": 80,
         "requestPath": "/",
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -154,7 +148,7 @@ The following illustrates how you could express this kind of probe configuration
         "port": 443,
         "requestPath": "/",
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -178,7 +172,6 @@ When you use a web role, the website code typically runs in w3wp.exe, which isn'
 TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:
 
 * The health probe is successful once after the VM boots.
-* The specified number of probes required to mark the backend endpoint as healthy has been achieved.
 
 Any backend endpoint which has achieved a healthy state is eligible for receiving new flows.  
 
@@ -246,14 +239,15 @@ Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling T
 
 ## Monitoring
 
-Both public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
+Both public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through [Azure Monitor](./monitor-load-balancer.md). These metrics can be consumed by other Azure services or partner applications. 
 
-Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  Azure Monitor logs are not available for internal Basic Load Balancers.  You can use [Azure Monitor logs](./monitor-load-balancer.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+Azure Monitor logs are not available for both public and internal Basic Load Balancers.
 
 ## Limitations
 
 - HTTPS probes do not support mutual authentication with a client certificate.
 - You should assume Health probes will fail when TCP timestamps are enabled.
+- A basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
 ## Next steps
 

@@ -2,13 +2,13 @@
 title: Enable authentication in a web app by using Azure Active Directory B2C building blocks
 description: This article discusses how to use the building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -275,12 +275,11 @@ The required information is described in the [Configure authentication in a samp
 ## Step 7: Run your application
 
 1. Build and run the project.
-1. Go to [https://localhost:5001](https://localhost:5001). 
+1. Go to `https://localhost:5001`. 
 1. Select **Sign Up/In**.
 1. Complete the sign-up or sign-in process.
 
 After you're successfully authenticated, you'll see your display name in the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
 ## Next steps
-
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-web-application-options.md).

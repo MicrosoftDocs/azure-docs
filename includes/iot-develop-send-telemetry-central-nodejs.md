@@ -4,19 +4,26 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 04/28/2021
+ ms.date: 09/17/2021
  ms.author: timlt
  ms.custom: include file
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
 
 ## Prerequisites
+This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
+
+- Windows 10
+- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
+- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
+
+Install the following prerequisites on your development machine:
+
 - [Node.js](https://nodejs.org/) version 6 or later. To check your version, run `node --version` in your console app.
 - [Git](https://git-scm.com/downloads).
-- You can run this quickstart on Linux or Windows. The shell commands use the standard Linux path separator `/`. If you use use Windows, replace these separators with the Windows path separator `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -25,11 +32,11 @@ In this section, you configure your local environment, install the Azure IoT Nod
 
 ### Configure your environment
 
-1. Open a console using Windows CMD, PowerShell, or Bash.
+1. Open a console such as Windows CMD, PowerShell, or Bash.
 
 1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
-    **Windows CMD**
+    **CMD (Windows)**
 
     ```console
     set IOTHUB_DEVICE_SECURITY_TYPE=DPS
@@ -52,7 +59,7 @@ In this section, you configure your local environment, install the Azure IoT Nod
     $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
     ```
 
-    **Bash (Linux or Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
@@ -70,10 +77,18 @@ In this section, you configure your local environment, install the Azure IoT Nod
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. Navigate to the samples directory.
+1. Navigate to the sample directory.
+
+    **Windows**
     ```console
-    cd azure-iot-sdk-node/device/samples/pnp
+    cd azure-iot-sdk-node\device\samples\javascript\pnp
     ```
+
+    **Linux or Raspberry Pi OS**
+    ```console
+    cd azure-iot-sdk-node/device/samples/javascript/pnp
+    ```
+
 1. Install the Azure IoT Node.js SDK and necessary dependencies:
     ```console
     npm install

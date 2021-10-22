@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js
 ---
 

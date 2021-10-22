@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 09/02/2021
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -18,8 +18,6 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 Object replication asynchronously copies block blobs between a source storage account and a destination account. When you configure object replication, you create a replication policy that specifies the source storage account and the destination account. A replication policy includes one or more rules that specify a source container and a destination container and indicate which block blobs in the source container will be replicated. For more information about object replication, see [Object replication for block blobs](object-replication-overview.md).
 
 This article describes how to configure an object replication policy by using the Azure portal, PowerShell, or Azure CLI. You can also use one of the Azure Storage resource provider client libraries to configure object replication.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Prerequisites
 
@@ -43,7 +41,7 @@ When you configure object replication in the Azure portal, you only need to conf
 To create a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
-1. Under **Blob service**, select **Object replication**.
+1. Under **Data management**, select **Object replication**.
 1. Select **Set up replication rules**.
 1. Select the destination subscription and storage account.
 1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy.

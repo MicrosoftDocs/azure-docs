@@ -85,7 +85,7 @@ Changes performed are summarized in the table.
 **Install the Windows Azure Guest Agent** <br/><br/> The Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. |  Set automatically for machines running Windows Server 2008 R2 or later. <br/> Configure manually for earlier operating systems. | Set automatically for machines running Windows Server 2008 R2 or later. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
-[Learn more](/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
+[Learn more](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
 
 #### Configure SAN policy
 
@@ -110,7 +110,7 @@ Azure Migrate completes these actions automatically for these versions
 
 - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
 - Debian 9, 8, 7
 - Oracle Linux 6, 7.7, 7.7-CI
@@ -127,9 +127,9 @@ For other versions, prepare machines as summarized in the table.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
-**Install the Linux Azure Guest Agent** | The Microsoft Azure Linux Agent (waagent) is a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.| Enable manually for all versions except those called out above.  <br> Follow instructions to [install the Linux Agent manually](/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions. Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. 
+**Install the Linux Azure Guest Agent** | The Microsoft Azure Linux Agent (waagent) is a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.| Enable manually for all versions except those called out above.  <br> Follow instructions to [install the Linux Agent manually](../virtual-machines/extensions/agent-linux.md#installation) for other OS versions. Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. 
 
-[Learn more](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-linux-servers) on the changes performed on Linux servers for agentless VMware migrations.
+[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) on the changes performed on Linux servers for agentless VMware migrations.
 
 The following table summarizes the steps performed automatically for the operating systems listed above.
 

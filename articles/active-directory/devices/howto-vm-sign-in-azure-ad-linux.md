@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/21/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (Azure AD) authentication. You can now use Azure AD as a core authentication platform and a certificate authority to SSH into a Linux VM with AD and SSH certificate-based authentication. This functionality allows organizations to centrally control and enforce Azure role-based access control (RBAC) and Conditional Access policies that manage access to the VMs. This article shows you how to create and configure a Linux VM and login with Azure AD using SSH certificate-based authentication.
 
 > [!IMPORTANT]
-> This capability is currently in public preview. [The previous version that made use of device code flow will be deprecated August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section, [Migration from previous preview](#migration-from-previous-preview).
+> This capability is currently in public preview. [The previous version that made use of device code flow has been deprecated as of August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section, [Migration from previous preview](#migration-from-previous-preview).
 > This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. Use this feature on a test virtual machine that you expect to discard after testing. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 There are many security benefits of using Azure AD with SSH certificate-based authentication to log in to Linux VMs in Azure, including:
@@ -40,19 +40,17 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 7, CentOS 8.3 |
+| CentOS | CentOS 7, CentOS 8 |
 | Debian | Debian 9, Debian 10 |
-| openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 7.4 to RHEL 7.10, RHEL 8.3 |
-| SUSE Linux Enterprise Server | SLES 12 |
+| openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
+| RedHat Enterprise Linux | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
+| SUSE Linux Enterprise Server | SLES 12, SLES 15.1+ |
 | Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
 
 The following Azure regions are currently supported during the preview of this feature:
 
 - Azure Global
 
-> [!Note]
-> The preview of this feature will be supported in Azure Government and Azure China by June of 2021.
  
 It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 

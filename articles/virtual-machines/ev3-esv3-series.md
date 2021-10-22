@@ -92,8 +92,10 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
-- [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 

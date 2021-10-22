@@ -57,8 +57,8 @@ If you're looking for information about an error code and that information isn't
 | OperationNotAllowed | The deployment is attempting an operation that exceeds the quota for the subscription, resource group, or region. If possible, revise your deployment to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](error-resource-quota.md) |
 | ParentResourceNotFound | Make sure a parent resource exists before creating the child resources. | [Resolve parent resource](error-parent-resource.md) |
 | PasswordTooLong | You might have selected a password with too many characters, or converted your password value to a secure string before passing it as a parameter. If the template includes a **secure string** parameter, you don't need to convert the value to a secure string. Provide the password value as text. |  |
-| PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [IP addresses](../../virtual-network/public-ip-addresses.md) |
-| PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [IP addresses](../../virtual-network/public-ip-addresses.md) |
+| PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [IP addresses](../../virtual-network/ip-services/public-ip-addresses.md) |
+| PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [IP addresses](../../virtual-network/ip-services/public-ip-addresses.md) |
 | PropertyChangeNotAllowed | Some properties can't be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you're trying to perform during deployment. Find the policy that blocks the action. If possible, change your deployment to meet the limitations from the policy. | [Resolve policies](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](error-reserved-resource-name.md) |
@@ -85,7 +85,7 @@ There are two types of errors you can receive:
 
 Validation errors arise from scenarios that can be determined before deployment. They include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. They include trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](../management/view-activity-logs.md). However, validation errors don't appear in your deployment history because the deployment never started.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](../../azure-monitor/essentials/activity-log.md). However, validation errors don't appear in your deployment history because the deployment never started.
 
 ### Validation errors
 
@@ -245,5 +245,4 @@ Or, suppose you're getting deployment errors that you believe are related to inc
 ## Next steps
 
 * To go through a troubleshooting tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](template-tutorial-troubleshoot.md)
-* To learn about auditing actions, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](deployment-history.md).

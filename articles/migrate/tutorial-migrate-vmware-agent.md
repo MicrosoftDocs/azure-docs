@@ -99,7 +99,7 @@ The Mobility service must be installed on machines you want to replicate.
 Prepare the account as follows:
 
 1. Prepare a domain or local account with permissions to install on the VM.
-2. For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine by adding the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of  in the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
+2. For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine by adding the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1 in the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
 3. For Linux VMs, prepare a root account on the source Linux server.
 
 
@@ -350,7 +350,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the VM.

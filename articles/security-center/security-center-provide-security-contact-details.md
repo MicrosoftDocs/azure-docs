@@ -54,7 +54,7 @@ You can also manage your email notifications through the supplied REST API. For 
 
 This is an example request body for the PUT request when creating a security contact configuration:
 
-URI: https://management.azure.com/subscriptions/<SubscriptionId>/providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview
+URI: `https://management.azure.com/subscriptions/<SubscriptionId>/providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview`
 
 ```json
 {

@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/30/2020
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 ## Additional language and platform support

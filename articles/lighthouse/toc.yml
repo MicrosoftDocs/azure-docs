@@ -118,7 +118,7 @@
   - name: REST
     href: /rest/api/managedservices/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md

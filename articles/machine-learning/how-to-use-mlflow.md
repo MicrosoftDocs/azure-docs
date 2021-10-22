@@ -3,10 +3,10 @@ title: MLflow Tracking for ML experiments
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models.
 services: machine-learning
-author: shivp950
-ms.author: shipatel
+author: cjgronlund
+ms.author: cgronlun
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 05/25/2021
 ms.topic: how-to

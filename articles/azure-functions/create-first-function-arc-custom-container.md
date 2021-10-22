@@ -10,7 +10,7 @@ ms.date: 05/11/2021
 In this quickstart, you create an Azure Functions project running in a custom container and deploy it to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from your Docker Hub account. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
 > [!NOTE]
-> Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
+> Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 
 ## Prerequisites
 
@@ -218,7 +218,7 @@ This code must be run either in Cloud Shell or in Bash on your local computer. R
 
 ## Next steps
 
-Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Azure Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 

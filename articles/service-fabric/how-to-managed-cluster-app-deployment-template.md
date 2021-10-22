@@ -156,7 +156,7 @@ You might upgrade an application that's already deployed to a Service Fabric clu
     ```json
      "applicationTypeVersion": {
         "value": "1.0.1"
-    },
+    }
     ```
 ## Delete Service Fabric application resources
 > [!NOTE]

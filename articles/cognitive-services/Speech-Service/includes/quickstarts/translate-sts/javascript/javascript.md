@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-js
 ---
 

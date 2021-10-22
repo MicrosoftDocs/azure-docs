@@ -4,7 +4,7 @@ description: Learn to register an Azure Functions binding extension based on you
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 08/16/2020
+ms.date: 09/14/2020
 ms.author: cshoe
 ---
 
@@ -16,7 +16,7 @@ Starting with Azure Functions version 2.x, the functions runtime only includes H
 
 The following table indicates when and how you register bindings.
 
-| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 3.x/2.x  |
+| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x or later  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic<sup>*</sup>|
 |Non-.NET languages|Automatic|Use [extension bundles](#extension-bundles) (recommended) or [explicitly install extensions](#explicitly-install-extensions)|
@@ -65,7 +65,7 @@ The following items describe some reasons you might need to install extensions m
 * You need to access a specific combination of extensions not available in a single bundle.
 
 > [!NOTE]
-> To manually install extensions by using Core Tools, you must have the [.NET Core 2.x SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Azure Functions Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
+> To manually install extensions by using Core Tools, you must have the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Azure Functions Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
 When you explicitly install extensions, a .NET project file named extensions.csproj is added to the root of your project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit the file.
 

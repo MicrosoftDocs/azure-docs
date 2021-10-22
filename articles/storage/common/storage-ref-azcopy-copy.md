@@ -62,6 +62,7 @@ Upload a single file by using OAuth authentication. If you have not yet logged i
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
+
 Same as above, but this time, also compute MD5 hash of the file content and save it as the blob's Content-MD5 property:
 
 ```azcopy
@@ -75,13 +76,13 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ```
 
 Upload a single file by using a SAS token and piping (block blobs only):
-  
+
 ```azcopy
 cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]
 ```
 
 Upload an entire directory by using a SAS token:
-  
+
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
@@ -93,7 +94,7 @@ azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[p
 ```
 
 Upload a set of files by using a SAS token and wildcard (*) characters:
- 
+
 ```azcopy
 azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 ```
@@ -104,10 +105,10 @@ Upload files and directories by using a SAS token and wildcard (*) characters:
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-Upload files and directories to Azure Storage account and set the query-string encoded tags on the blob. 
+Upload files and directories to Azure Storage account and set the query-string encoded tags on the blob.
 
 - To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax : `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-	
+
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
 
 - While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
@@ -125,27 +126,27 @@ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[S
 ```
 
 Download a single file by using a SAS token and then piping the output to a file (block blobs only):
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-``` 
+```
 
 Download an entire directory by using a SAS token:
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive
-``` 
+```
 
 A note about using a wildcard character (*) in URLs:
 
-There's only two supported ways to use a wildcard character in a URL. 
+There's only two supported ways to use a wildcard character in a URL.
 
-- You can use one just after the final forward slash (/) of a URL. This use of the wildcard character copies all of the files in a directory directly to the destination without placing them into a subdirectory. 
+- You can use one just after the final forward slash (/) of a URL. This use of the wildcard character copies all of the files in a directory directly to the destination without placing them into a subdirectory.
 
-- You can also a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers. 
+- You can also a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers.
 
 Download the contents of a directory without copying the containing directory itself.
- 
+
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/folder]/*?[SAS]" "/path/to/dir"
 ```
@@ -168,7 +169,7 @@ Copy a single blob to another blob by using a SAS token.
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copy a single blob to another blob by using a SAS token and an Auth token. You have to use a SAS token at the end of the source account URL, but the destination account doesn't need one if you log into AzCopy by using the `azcopy login` command. 
+Copy a single blob to another blob by using a SAS token and an Auth token. You have to use a SAS token at the end of the source account URL, but the destination account doesn't need one if you log into AzCopy by using the `azcopy login` command.
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
@@ -187,27 +188,27 @@ azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccou
 ```
 
 Copy a single object to Blob Storage from Amazon Web Services (AWS) S3 by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
-  
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 Copy an entire directory to Blob Storage from AWS S3 by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
-    
+
   Refer to https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html to better understand the [folder] placeholder.
 
 Copy all buckets to Blob Storage from Amazon Web Services (AWS) by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 Copy all buckets to Blob Storage from an Amazon Web Services (AWS) region by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
- 
+
 ```azcopy
 - azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
@@ -218,22 +219,22 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Transfer files and directories to Azure Storage account and set the given query-string encoded tags on the blob. 
+Transfer files and directories to Azure Storage account and set the given query-string encoded tags on the blob.
 
 - To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax : `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-		
+
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
-	
+
 - While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
 
 Copy a single object to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variable GOOGLE_APPLICATION_CREDENTIALS for Google Cloud Storage source.
-  
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 Copy an entire directory to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variable GOOGLE_APPLICATION_CREDENTIALS for Google Cloud Storage source.
- 
+
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
@@ -251,7 +252,7 @@ Copy all buckets to Blob Storage from Google Cloud Storage by using a service ac
 ```
 
 Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from Google Cloud Storage by using a service account key and a SAS token for destination. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<`project-id`> for the Google Cloud Storage source.
- 
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
@@ -294,7 +295,7 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--exclude-attributes** string   (Windows only) Excludes files whose attributes match the attribute list. For example: A;S;R
 
-**--exclude-blob-type** string    Optionally specifies the type of blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) to exclude when copying blobs from the container or the account. Use of this flag is not applicable for copying data from non-Azure service to service. More than one blob should be separated by `;`. 
+**--exclude-blob-type** string    Optionally specifies the type of blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) to exclude when copying blobs from the container or the account. Use of this flag is not applicable for copying data from non-Azure service to service. More than one blob should be separated by `;`.
 
 **--exclude-path** string     Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: `myFolder;myFolder/subDirName/file.pdf`). When used in combination with account traversal, paths do not include the container name.
 
@@ -328,7 +329,7 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--list-of-versions** string  Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided. For more information, see [Download previous versions of a blob](./storage-use-azcopy-v10.md#transfer-data).
 
-**--log-level** string    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default `INFO`). 
+**--log-level** string    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default `INFO`).
 
 **--metadata** string   Upload to Azure Storage with these key-value pairs as metadata.
 
@@ -346,7 +347,6 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--preserve-permissions**                False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Data Lake Storage Gen 2 to Data Lake Storage Gen 2). For accounts that have a hierarchical namespace, you will need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you will also need the --backup flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (e.g. include-pattern).
 
-
 **--put-md5**    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
 **--recursive**    Look into subdirectories recursively when uploading from local file system.
@@ -355,7 +355,7 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--s2s-handle-invalid-metadata** string   Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier**   Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`).
+**--s2s-preserve-access-tier**   Preserve access tier during service to service copy. Refer to [Hot, cool, and archive access tiers for blob data](../blobs/access-tiers-overview.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`).
 
 **--s2s-preserve-blob-tags**               Preserve index tags during service to service transfer from one blob storage to another.
 

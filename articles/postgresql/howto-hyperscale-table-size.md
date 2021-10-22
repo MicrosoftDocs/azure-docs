@@ -21,8 +21,8 @@ of distributed table size is obtained as a sum of shard sizes. Hyperscale
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 59%" />
+<col width="40%" />
+<col width="59%" />
 </colgroup>
 <thead>
 <tr class="header">

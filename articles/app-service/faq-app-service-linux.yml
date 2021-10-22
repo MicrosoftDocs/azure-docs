@@ -120,7 +120,7 @@ sections:
       - question: |
           I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.
         answer: |
-          If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *false*, the `/home/` directory **will not be shared** across scale instances, and files written **will not persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *true* will enable the mount.
+          If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *false*, the `/home/` directory **will not be shared** across scale instances, and files written **will not persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *true* will enable the mount. Once this is set to true, if you wish to disable the mount, you need to explicitly set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *false*.
       - question: |
           My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.
         answer: |
@@ -192,6 +192,42 @@ sections:
           - Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
           - The first container to define port 80 or 8080
           - If neither of the above is true, the first container defined in the file will be accessible (exposed)
+
+      - question: |
+          How do I use depends_on?
+        answer: |
+          The `depends_on` option is *unsupported* on App Service and it'll be ignored. Just as the [control startup and shutdown recommendation from Docker](https://docs.docker.com/compose/startup-order/), App Service Multi-container apps should check dependencies through application code - both at startup and disconnection.
+
+          The example code below shows a Python app checking to see if a Redis container is running.
+
+          ```python
+          import time
+
+          import redis
+          from flask import Flask
+
+          app = Flask(__name__)
+          cache = redis.Redis(host='redis', port=6379)
+
+          def get_hit_count():
+              retries = 5
+              while True:
+                  try:
+                      return cache.incr('hits')
+                  except redis.exceptions.ConnectionError as exc:
+                      if retries == 0:
+                          raise exc
+                      retries -= 1
+                      time.sleep(0.5)
+
+          @app.route('/')
+          def hello():
+              count = get_hit_count()
+              return 'Hello from Azure App Service team! I have been seen {} times.\n'.format(count)
+
+          if __name__ == "__main__":
+              app.run(host="0.0.0.0", port=80, debug=True)
+          ```
           ## Web Sockets
           Web Sockets are supported on Linux apps.
           > [!IMPORTANT]

@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 07/28/2020
+ms.date: 10/19/2021
 ---
 
 # View and download your Azure usage and charges
@@ -43,6 +43,10 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.  
     ![Screenshot shows Cost Management + Billing Invoices page for E A customers.](./media/download-azure-daily-usage/download-usage-ea.png)
+1. On the Download Usage + Charges page, under Usage Details, select the type of charges that you want to download from the list. Depending on your selection, the CSV file provides all charges (usage and purchases) including RI (reservation) purchases. Or, amortized charges (usage and purchases) including reservation purchases. 
+    :::image type="content" source="./media/download-azure-daily-usage/select-usage-detail-charge-type.png" alt-text="Screenshot showing the Usage Details charge type selection to download." :::
+1. Select **Prepare document**.
+1.  It could take a while for Azure to prepare your download, depending on your monthly usage. When it's ready for download, select **Download csv**.
 
 ## Download usage for your Microsoft Customer Agreement
 

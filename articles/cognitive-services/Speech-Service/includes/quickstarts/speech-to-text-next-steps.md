@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 With this base knowledge of speech recognition, continue exploring the basics to learn about common functionality and tasks within the Speech SDK.

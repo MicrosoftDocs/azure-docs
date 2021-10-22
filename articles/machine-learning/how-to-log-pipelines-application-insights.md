@@ -6,7 +6,7 @@ services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 08/11/2020
 ms.topic: how-to
 ms.custom: devx-track-python

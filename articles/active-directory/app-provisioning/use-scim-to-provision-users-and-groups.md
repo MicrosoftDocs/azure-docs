@@ -3,7 +3,7 @@ title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azu
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -144,11 +144,8 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
-| mailNickname |displayName |
 | members |members |
 | objectId |externalId |
-| proxyAddresses |emails[type eq "other"].Value |
 
 **Example list of group attributes**
 

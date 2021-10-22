@@ -159,6 +159,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 When the *Status* of the restore job reports *Completed*, the necessary information (VM configuration and the deployment template) has been restored to the storage account.
 
+#### Using managed identity to restore disks
+
+Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
+
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the ARM id of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+
 ## Create a VM from the restored disk
 
 The final step is to create a VM from the restored disks. You can use the deployment template downloaded to the given storage account to create the VM.

@@ -50,6 +50,9 @@
     href: ./manage.md
   - name: Protect your resource hierarchy
     href: ./how-to/protect-resource-hierarchy.md
+- name: Troubleshoot
+  displayName: errors, violation
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
   - name: Azure CLI

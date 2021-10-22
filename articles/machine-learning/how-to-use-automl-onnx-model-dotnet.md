@@ -8,7 +8,7 @@ ms.date: 10/30/2020
 ms.topic: how-to
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.custom: automl
 ---
 

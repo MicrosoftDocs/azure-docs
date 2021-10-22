@@ -80,4 +80,6 @@ var scopes = [ ResourceId + "/.default"];
 
 ## Scopes to request for a client credential flow/daemon app
 
-In the case of client credential flow, the scope to pass would also be `/.default`. This tells to Azure AD: "all the app-level permissions that the admin has consented to in the application registration.
+For the standard client credentials flow, use `/.default`. For example, `https://graph.microsoft.com/.default`.
+
+Azure AD will automatically include all the app-level permissions the admin has consented to in the access token for the client credentials flow.

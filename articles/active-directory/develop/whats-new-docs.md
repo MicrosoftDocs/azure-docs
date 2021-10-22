@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 09/01/2021
+ms.date: 10/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,6 +18,28 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## September 2021
+
+### New articles
+
+- [Desktop app that calls web APIs: Acquire a token interactively](scenario-desktop-acquire-token-interactive.md)
+- [Desktop app that calls web APIs: Acquire a token using Device Code flow](scenario-desktop-acquire-token-device-code-flow.md)
+- [Desktop app that calls web APIs: Acquire a token using Integrated Windows Authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md)
+- [Desktop app that calls web APIs: Acquire a token using Username and Password](scenario-desktop-acquire-token-username-password.md)
+- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)
+- [Implement role-based access control in apps](howto-implement-rbac-for-apps.md)
+- [Migrate public client applications from ADAL.NET to MSAL.NET](msal-net-migration-public-client.md)
+
+### Updated articles
+
+- [Enhance security with the principle of least privilege](secure-least-privileged-access.md)
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
+- [Microsoft identity platform videos](identity-videos.md)
+- [National clouds](authentication-national-cloud.md)
+- [Shared device mode for Android devices](msal-android-shared-devices.md)
+- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+- [Validation differences by supported account types (signInAudience)](supported-accounts-validation.md)
 
 ## August 2021
 
@@ -50,22 +72,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
 - [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md)
 - [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](quickstart-v2-aspnet-core-webapp.md)
-
-## June 2021
-
-### New articles
-
-- [Best practices for least privileged access for applications](secure-least-privileged-access.md)
-- [Differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md)
-- [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
-- [How to migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-
-### Updated articles
-
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
-- [Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
-- [Microsoft identity platform code samples](sample-v2-code.md)
-- [Migrating applications to MSAL.NET or Microsoft.Identity.Web](msal-net-migration.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
-- [What's new for authentication?](reference-breaking-changes.md)

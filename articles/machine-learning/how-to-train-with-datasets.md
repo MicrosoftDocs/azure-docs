@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description:  Learn how to make your data available to your local or remote compute for model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
 manager: cgronlun

@@ -3,7 +3,7 @@ title: Configure storage for SQL Server VMs | Microsoft Docs
 description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Azure Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
@@ -14,8 +14,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
-ms.author: mathoma
-
+ms.author: pamela
+ms.reviewer: mathoma
 ---
 # Configure storage for SQL Server VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Selecting either **Transactional processing** (OLTP) or **Data warehousing** wil
 
 The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
-Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching.
+Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssds). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching.
 
 Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*.
 

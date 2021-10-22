@@ -3,14 +3,14 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Specify the ContentDefinitions element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2021
-ms.author: mimart
+ms.date: 09/12/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -107,8 +107,6 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 ### Select a page layout
 
 You can enable [JavaScript client-side code](javascript-and-page-layout.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version. Doing so ensures that all content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you still need to specify the page layout version for your pages.
 

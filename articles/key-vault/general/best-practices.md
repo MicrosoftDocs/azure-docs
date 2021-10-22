@@ -16,7 +16,11 @@ ms.author: mbaldwin
 
 ## Use separate Key Vaults
 
-Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
+Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production), per region. This helps you not share secrets across environments, regions and also reduces the threat in case of a breach.
+
+### Why we recommend separate key vaults
+
+Key Vault instance defines security boundary for stored secrets. Grouping secrets into the same vault increases the *blast radius* of a security event because attacks might be able to access secrets across concerns. To mitigate this, consider what secrets a specific application *should* have access to, and then separate your key vaults based on this delineation. Separating key vaults by application is the most common boundary, but the security boundary can be more granular for large applications, e.g., per group of related services.
 
 ## Control Access to your vault
 
@@ -53,3 +57,6 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.
+
+## Learn more
+- [Best practices for secrets management in Key Vault](../secrets/secrets-best-practices.md)

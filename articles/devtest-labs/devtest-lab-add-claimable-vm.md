@@ -1,7 +1,7 @@
 ---
-title: Create and manage claimable VMs in Azure DevTest Labs | Microsoft Docs
+title: Create and manage claimable VMs
 description: Learn how to use the Azure portal to add a claimable virtual machine in Azure DevTest Labs and see the processes to follows to claim/unclaim a virtual machine.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -26,7 +26,9 @@ You add a claimable VM to a lab in a similar manner to how you [add a standard V
         You can also save secrets in the key vault first and then use it while creating a VM in the lab. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). To use the password stored in the key vault, select **Use a saved secret**, and specify a key value that corresponds to your secret (password).
     4. In the **More options** section, select **Change size**. Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
     5. Select **Add or Remove Artifacts**. Select and configure the artifacts that you want to add to the base image.
-    **Note:** If you're new to DevTest Labs or configuring artifacts, refer to the [Add an existing artifact to a VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
+    
+    >[!NOTE] 
+    >If you're new to DevTest Labs or configuring artifacts, refer to the [Add artifacts after installation](./devtest-lab-add-vm.md#add-artifacts-after-installation) section, and then return here when finished.
 2. Switch to the **Advanced Settings** tab at the top, and do the following actions:
     1. To change the virtual network that the VM is in, select **Change VNet**.
     2. To change the subnet, select **Change subnet**.

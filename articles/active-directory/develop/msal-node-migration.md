@@ -3,7 +3,7 @@ title: "Migrate your Node.js application from ADAL to MSAL | Azure"
 titleSuffix: Microsoft identity platform
 description: How to update your existing Node.js application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
-ms.author: v-doeris
+ms.author: karenhoran
 ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
@@ -122,7 +122,7 @@ const msalConfig = {
     auth: {
         clientId: "YOUR_CLIENT_ID",
         authority: "https://login.microsoftonline.com/YOUR_TENANT_ID",
-        clientSecret: "YOUR_TENANT_ID",
+        clientSecret: "YOUR_CLIENT_SECRET",
         knownAuthorities: [], 
     },
     cache: {
@@ -294,7 +294,7 @@ var authorityURI = "https://login.microsoftonline.com/common";
 var context = new AuthenticationContext(authorityURI, true, cache);
 ```
 
-MSAL Node uses an in-memory token cache by default. You do not need to explicitly import it; it is exposed as part of the `ConfidentialClientApplication` and `PublicClientApplication` classes.
+MSAL Node uses an in-memory token cache by default. You do not need to explicitly import it; in-memory token cache is exposed as part of the `ConfidentialClientApplication` and `PublicClientApplication` classes.
 
 ```javascript
 const msalTokenCache = publicClientApplication.getTokenCache();

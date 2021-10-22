@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
+ms.date: 09/10/2021
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -135,12 +135,12 @@ Data Factory supports the following properties for Azure Files account key authe
 
 A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-sas-overview.md).
 
-Data Factory supports the following properties for using shared access signature authentication:
+The service supports the following properties for using shared access signature authentication:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureFileStorage**. | Yes |
-| sasUri | Specify the shared access signature URI to the resources. <br/>Mark this field as **SecureString** to store it securely in Data Factory. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| sasUri | Specify the shared access signature URI to the resources. <br/>Mark this field as **SecureString** to store it securely. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | fileShare | Specify the file share. | Yes |
 | snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
@@ -168,7 +168,7 @@ Data Factory supports the following properties for using shared access signature
 }
 ```
 
-**Example: store the account key in Azure Key Vault**
+**Example: store the SAS token in Azure Key Vault**
 
 ```json
 {
@@ -187,7 +187,8 @@ Data Factory supports the following properties for using shared access signature
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
-            }
+            },
+            "fileShare": "<file share name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -403,7 +404,7 @@ This section describes the resulting behavior of using file list path in copy ac
 
 Assuming you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | ADF configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Folder path: `root/FolderA`<br><br>**In copy activity source:**<br>- File list path: `root/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
 
@@ -435,7 +436,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -566,4 +567,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

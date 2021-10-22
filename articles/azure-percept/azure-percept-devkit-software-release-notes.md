@@ -15,6 +15,18 @@ This page provides information of changes and fixes for each Azure Percept DK OS
 
 To download the update images, refer to [Azure Percept DK software releases for USB cable update](./software-releases-usb-cable-updates.md) or [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md).
 
+## September (2109) Release
+
+- Wi-Fi:
+  - Use a fixed channel instead of automatic-channel selecting to avoid hostapd.service to constantly retry and restart.
+- Setup experience:
+  - OOBE server system errors are localized.
+  - Enable IPv6 multiple routing tables.
+- Operating System
+  - Latest security fixes.
+  - Nginx service run as a non-root user.
+
+
 ## July (2107) Release
 
 > [!IMPORTANT]

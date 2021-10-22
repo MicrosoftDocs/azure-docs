@@ -2,7 +2,7 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/12/2021
 ms.custom: contperf-fy21q1
 
 ---
@@ -10,6 +10,9 @@ ms.custom: contperf-fy21q1
 # Configure Application Insights for your ASP.NET website
 
 This procedure configures your ASP.NET web app to send telemetry to the [Application Insights](./app-insights-overview.md) feature of the Azure Monitor service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the cloud. 
+
+> [!NOTE]
+> A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
 
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
@@ -40,7 +43,7 @@ To add Application Insights to your ASP.NET website, you need to:
 
 This section will guide you through automatically adding Application Insights to a template-based ASP.NET web app. From within your ASP.NET web app project in Visual Studio:
 
-1. Select **Add Application Insights Telemetry** > **Application Insights Sdk (local)** > **Next** > **Finish** > **Close**.
+1. Select **Project** > **Add Application Insights Telemetry** > **Application Insights Sdk (local)** > **Next** > **Finish** > **Close**.
 2. Open the *ApplicationInsights.config* file. 
 3. Before the closing `</ApplicationInsights>` tag, add a line that contains the instrumentation key for your Application Insights resource.  You can find your instrumentation key on the overview pane of the newly created Application Insights resource that you created as part of the prerequisites for this article.
 

@@ -4,7 +4,7 @@ description: You can use the Azure Monitor HTTP Data Collector API to add POST J
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/14/2020
+ms.date: 10/20/2021
 
 ---
 
@@ -569,6 +569,7 @@ import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.util.Locale;
 
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 

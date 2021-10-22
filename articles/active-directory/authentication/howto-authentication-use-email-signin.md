@@ -61,13 +61,13 @@ In the current preview state, the following limitations apply to email as an alt
     * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
     * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
     * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
-    * [Seamless SSO](../hybrid/how-to-connect-sso.md)
     * [Applications using Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Applications using legacy authentication such as POP3 and SMTP
     * Skype for Business
     * Microsoft Office on macOS
     * Microsoft Teams on web
-    * OneDrive, when the sign-in flow does not involve Multi-Factor Authentication
+    * OneDrive, when the sign-in flow does not involve Multi-Factor Authentication.
+    * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 

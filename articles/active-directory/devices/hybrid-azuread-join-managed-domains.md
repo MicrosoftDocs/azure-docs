@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 10/22/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure Active Directory (Azure AD) joined devices for managed domains so I can automatically create and manage device identities in Azure AD for my Active Directory domain-joined computers
@@ -71,6 +71,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
+- `https://enterpriseregistration.windows.net`
 
 > [!WARNING]
 > If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.

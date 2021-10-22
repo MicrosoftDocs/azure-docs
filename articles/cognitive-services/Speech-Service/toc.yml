@@ -31,6 +31,8 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
+        - name: Language identification
+          href: language-identification.md
         - name: Use language identification
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
@@ -616,6 +618,8 @@
       items:
         - name: Speech Studio overview
           href: speech-studio-overview.md
+        - name: Role-based access control in Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Enterprise readiness
       items:
       - name: Region support

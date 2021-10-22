@@ -14,7 +14,7 @@ ms.date: 08/23/2021
 # Migrate to Azure Machine Learning 
 
 > [!IMPORTANT]
-> Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) by that date.
+> Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md) by that date.
 >
 > Beginning 1 December 2021, you will not be able to create new Machine Learning Studio (classic) resources. Through 31 August 2024, you can continue to use the existing Machine Learning Studio (classic) resources.  
 >
@@ -78,7 +78,7 @@ After you've defined a strategy, migrate your first model.
 
 ## Step 5: Cleanup Studio (classic) assets
 
-1. [Clean up Studio (classic) assets](/classic/export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
+1. [Clean up Studio (classic) assets](./classic/export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
 
 ## Step 6: Review and expand scenarios
 

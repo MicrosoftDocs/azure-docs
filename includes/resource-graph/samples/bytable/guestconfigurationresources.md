@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
 
 ### Count machines in scope of guest configuration policies
 
-Displays the count of Azure virtual machines and Arc connected servers in scope for [Azure Policy guest configuration](../../../../articles/governance/policy/concepts/guest-configuration.md) assignments.
+Displays the count of Azure virtual machines and Arc-connected servers in scope for [Azure Policy guest configuration](../../../../articles/governance/policy/concepts/guest-configuration.md) assignments.
 
 ```kusto
 GuestConfigurationResources

@@ -1,7 +1,6 @@
 ---
 title: "Reference: Form Recognizer client library 3.1.1 for JavaScript"
 description: Use the Form Recognizer client library for JavaScript to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -79,7 +78,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 * Recognizing form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
 * Recognizing form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
-* Recognizing common fields from US receipts, business cards, invoices, and identity documents using a pre-trained model on the Form Recognizer service.
+* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 
@@ -146,7 +145,7 @@ cell [1,5] has text PT
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md).
 
 To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. The following code processes a receipt at the given URI and prints the major fields and values to the console.
 

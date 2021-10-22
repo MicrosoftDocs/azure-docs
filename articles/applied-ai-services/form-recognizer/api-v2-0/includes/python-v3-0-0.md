@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library for Python"
 description: Use the Form Recognizer client library for Python to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -144,7 +143,7 @@ Confidence score: 1.0
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md). To analyze receipts from a URL, use the `begin_recognize_receipts_from_url` method.
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md). To analyze receipts from a URL, use the `begin_recognize_receipts_from_url` method.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 

@@ -2,7 +2,7 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 09/10/2021
 ms.author: juliako
 ---
 
@@ -39,4 +39,4 @@ In this quickstart, you will:
 * Interpret the results.
 * Clean up resources.
 ## Set up your development environment
-[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
