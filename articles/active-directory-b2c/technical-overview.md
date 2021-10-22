@@ -296,6 +296,11 @@ By integrating Azure Application Insights into Azure AD B2C custom policies, you
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
+## Region availability and data residency
+Azure AD B2C service is generally available worldwide, for availability, with the option for data residency in the United States, Europe, Asia Pacific, or Australia. Data residency is determined by the country/region you select when you create your tenant. 
+
+Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md).
+
 ## Automation using Microsoft Graph API
 
 Use MS graph API to manage your Azure AD B2C directory. You can also create the Azure AD B2C directory itself. You can manage users, identity providers, user flows, custom policies and many more. 
