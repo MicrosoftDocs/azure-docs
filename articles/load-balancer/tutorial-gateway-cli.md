@@ -220,7 +220,7 @@ A health probe is required to monitor the health of the backend instances in the
     --port 80 \
     --path '/' \
     --interval '5' \
-    --threshold '1'
+    --threshold '2'
     
 ```
 
