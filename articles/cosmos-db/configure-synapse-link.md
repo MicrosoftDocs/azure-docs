@@ -30,7 +30,10 @@ You can also checkout the learn module on how to [configure Azure Synapse Link f
 
 > [!NOTE]
 > If you want to use customer-managed keys with Azure Synapse Link, you must configure your account's managed identity in your Azure Key Vault access policy before enabling Synapse Link on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
-> 
+
+> [!NOTE]
+> If you want to use Full Fidelity Schema for SQL (CORE) API accounts, you can't use the Azure portal to enable Synapse Link. This option can't be changed after Synapse Link is enabled in your account and to set it you must use Azure CLI or PowerShell. For more information, check [analytical store schema representation documentation](analytical-store-introduction.md#schema-representation). 
+
 ### Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
@@ -260,7 +263,9 @@ Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/syn
 
 ## <a id="query-analytical-store-spark"></a> Query analytical store using Apache Spark for Azure Synapse Analytics
 
-Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+Use the instructions in the [Query Azure Cosmos DB analytical store using Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md) article on how to query with Synapse Spark 3. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+
+For Spark 2 integration use the instruction in the [Query Azure Cosmos DB analytical store using Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article.
 
 ## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using serverless SQL pool in Azure Synapse Analytics
 

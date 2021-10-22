@@ -11,7 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook. 
 ---
 
 # Tutorial: Train an image classification model with an example Jupyter Notebook 
@@ -339,12 +339,13 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Notice how the script gets data and saves models:
 
-+ The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
-```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
+- The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
 
-+ The training script saves your model into a directory named **outputs**. Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+  `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
 
-+ The training script requires the file `utils.py` to load the dataset correctly. The following code copies `utils.py` into `script_folder` so that the file can be accessed along with the training script on the remote resource.
+- The training script saves your model into a directory named **outputs**. Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
+
+- The training script requires the file `utils.py` to load the dataset correctly. The following code copies `utils.py` into `script_folder` so that the file can be accessed along with the training script on the remote resource.
 
   ```python
   import shutil

@@ -7,7 +7,7 @@ ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 ---
 

@@ -13,7 +13,7 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 07/06/2021
+  ms.date: 09/08/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -96,7 +96,7 @@ additionalContent:
         # Card
         - title: Route between NVA and virtual network
           links:
-            - text: What is Azure Route server (Preview)?
+            - text: What is Azure Route server?
               url: ../route-server/overview.md
             - text: Create and configure Route Server
               url: ../route-server/quickstart-configure-route-server-portal.md

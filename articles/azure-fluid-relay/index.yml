@@ -1,0 +1,34 @@
+### YamlMime:Landing
+
+title: Azure Fluid Relay documentation
+summary: Azure Fluid Relay is a managed cloud service that supports Fluid Framework Clients
+
+metadata:
+  title: Azure Fluid Relay
+  description: Azure Fluid Relay is a managed cloud service that supports Fluid Framework Clients
+  ms.service: azure-fluid
+  ms.topic: landing-page
+  author: hickeys
+  ms.author: hickeys
+  ms.date: 08/19/2021
+
+landingContent:
+  # Card
+  - title: About Azure Fluid Relay
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: Azure Fluid Relay overview
+          url:  overview/overview.md
+        - text: Azure Fluid Relay architecture
+          url: concepts/architecture.md
+
+  # Card
+  - title: How-tos and Quickstarts
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Provision an Azure Fluid Relay service
+            url: how-tos/provision-fluid-azure-portal.md
+          - text: 'Quickstart: Dice Roller'
+            url: quickstarts/quickstart-dice-roll.md

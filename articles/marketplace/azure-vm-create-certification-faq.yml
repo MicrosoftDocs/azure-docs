@@ -600,6 +600,21 @@ sections:
           1. In the **Offer alias** column, select the offer.
           1. Select the **Plan overview** tab, and then select the appropriate plan.
           1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
+                       > [!NOTE]
+             > You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one before you add the next VM image.
+          
+          1. In the boxes that appear, provide a new disk version and the virtual machine image.
+          1. Select **Save draft**.
+          
+          Next, remove the VM image with the security vulnerability.          
+
+          #### [Current view](#tab/current-view)
+         
+          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+          1. In the left pane, select **Commercial Marketplace** > **Overview**.
+          1. In the **Offer alias** column, select the offer.
+          1. On the **Plan overview** tab, in the **Name** column, select the appropriate plan.
+          1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
           
              > [!NOTE]
              > You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one before you add the next VM image.
@@ -607,6 +622,9 @@ sections:
           1. In the boxes that appear, provide a new disk version and the virtual machine image.
           1. Select **Save draft**.
           
+          Next, remove the VM image with the security vulnerability.
+
+          ---
           Next, remove the VM image with the security vulnerability.          
 
           #### [Current view](#tab/current-view)

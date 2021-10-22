@@ -1,13 +1,11 @@
 ---
-title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
-description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+title: CI/CD to Azure VMs using Azure Pipelines
+description: Learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+ms.service: virtual-machines
 author: ushan
 tags: azure-devops-pipelines
-ms.assetid: 
-ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
-ms.tgt_pltfrm: azure-pipelines
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
@@ -16,7 +14,9 @@ ms.custom: devops, devx-track-js
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---
 
-# Tutorial: Deploy your app to Linux virtual machines in Azure using Azure DevOps Services and Azure Pipelines
+# Deploy your app to Linux virtual machines in Azure using Azure DevOps Services and Azure Pipelines
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 Continuous integration (CI) and continuous deployment (CD) form a pipeline by which you can build, release, and deploy your code after every code commit. 
 This document contains the steps associated with setting up a CI/CD pipeline for doing multi-machine deployments using Azure Pipelines.

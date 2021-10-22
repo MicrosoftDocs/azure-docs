@@ -68,7 +68,7 @@ Azure Static Web Apps uses GitHub to publish your website. The following steps s
 1. Add the GitHub repository as a remote to your local repo. Make sure to add your GitHub username in place of the `<YOUR_USER_NAME>` placeholder in the following command.
 
    ```bash
-   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-static-app
+   git remote add origin https://github.com/<YOUR_USER_NAME>/jekyll-azure-static
    ```
 
 1. Push your local repo up to GitHub.
@@ -134,7 +134,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 #### Custom Jekyll settings
 
-When you generate a static web app, a [workflow file](./github-actions-workflow.md) is generated which contains the publishing configuration settings for the application.
+When you generate a static web app, a [workflow file](./build-configuration.md) is generated which contains the publishing configuration settings for the application.
 
 To configure environment variables, such as `JEKYLL_ENV`, add an `env` section to the Azure Static Web Apps GitHub Action in the workflow.
 

@@ -127,7 +127,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: REST API (univariate)
-          url: https://aka.ms/anomaly-detector-rest-api-ref
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect
         - text: .NET SDK (univariate)
           url: https://aka.ms/anomaly-detector-dotnet-ref
         - text: .Python SDK (univariate)

@@ -35,10 +35,10 @@ In the screenshot below you can see AWS accounts displayed in Security Center's 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -80,11 +80,11 @@ There are two ways to allow Security Center to authenticate to AWS:
     - **External ID** - enter the subscription ID as shown in the AWS connector page in Security Center 
 
 1. Select **Next**.
-1. In the **Attach permission policies** section, select the following policies:
+1. In the **Attach permission policies** section, select the following [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html):
 
-    - SecurityAudit
-    - AmazonSSMAutomationRole
-    - AWSSecurityHubReadOnlyAccess
+    - SecurityAudit (`arn:aws:iam::aws:policy/SecurityAudit`)
+    - AmazonSSMAutomationRole (`arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole`)
+    - AWSSecurityHubReadOnlyAccess (`arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess`)
 
 1. Optionally add tags. Adding Tags to the user doesn't affect the connection.
 1. Select **Next**.

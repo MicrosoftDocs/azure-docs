@@ -12,7 +12,6 @@ ms.custom:
   - mode-portal
 ---
 
-
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal
 
 Get started with Azure Automanage for virtual machines by using the Azure portal to enable automanagement on a new or existing virtual machine.
@@ -33,21 +32,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
 
-## Enable Automanage for a single machine
-
-1. Browse to the Virtual Machine that you would like to enable.
-
-2. Click on the **Automanage (Preview)** entry in the Table of Contents under **Operations**.
-
-3. Select **Get Started**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="Get started single VM.":::
-
-4. Choose your Automanage settings (Environment, Preferences, Automanage Account) and hit **Enable**.
-
-    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Enable on single VM.":::
-
-## Enable Automanage for multiple machines
+## Enable Automanage on existing machines
 
 1. In the search bar, search for and select **Automanage – Azure machine best practices**.
 
@@ -60,7 +45,7 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
     1. Check the checkbox of each virtual machine you want to onboard.
     1. Click the **Select** button.
     > [!NOTE]
-    > You may select both Azure VMs and Arc enabled servers.
+    > You may select both Azure VMs and Azure Arc-enabled servers.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
 

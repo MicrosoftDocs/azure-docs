@@ -9,7 +9,7 @@ editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 01/29/2021
-ms.author: apimpm 
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
 

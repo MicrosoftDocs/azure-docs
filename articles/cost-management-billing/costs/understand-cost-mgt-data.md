@@ -1,9 +1,9 @@
 ---
 title: Understand Azure Cost Management data
-description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
+description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/24/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,7 +13,7 @@ ms.custom: contperf-fy21q2
 
 # Understand Cost Management data
 
-This article helps you better understand Azure cost and usage data that's included in Azure Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
+This article helps you better understand Azure cost and usage data that's included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
 Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits.
 
@@ -21,7 +21,7 @@ If you have a new subscription, you can't immediately use Cost Management featur
 
 ## Supported Microsoft Azure offers
 
-The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Azure Cost Management. An Azure offer is the type of the Azure subscription that you have. Data is available in Cost Management starting on the **Data available from** date. If a subscription changes offers, costs before the offer change date aren't available.
+The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Cost Management. An Azure offer is the type of the Azure subscription that you have. Data is available in Cost Management starting on the **Data available from** date. If a subscription changes offers, costs before the offer change date aren't available.
 
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** | **Data available from** |
 | --- | --- | --- | --- | --- |
@@ -100,7 +100,7 @@ _<sup>**6**</sup> Reservation purchases are only available for Enterprise Agreem
 
 ## How tags are used in cost and usage data
 
-Azure Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
+Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
 
 - Tags must be applied directly to resources and aren't implicitly inherited from the parent resource group.
 - Resource tags are only supported for resources deployed to resource groups.

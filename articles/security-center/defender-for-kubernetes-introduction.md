@@ -18,7 +18,7 @@ We can defend clusters in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications
 
-- **On-premises and multi-cloud environments** - Using an [extension for Arc enabled Kubernetes](defender-for-kubernetes-azure-arc.md)
+- **On-premises and multi-cloud environments** - Using an [extension for Azure Arc-enabled Kubernetes](defender-for-kubernetes-azure-arc.md)
 
 Azure Security Center and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Security Center](container-security.md).
 
@@ -30,10 +30,10 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|**Azure Defender for Kubernetes** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## What are the benefits of Azure Defender for Kubernetes?

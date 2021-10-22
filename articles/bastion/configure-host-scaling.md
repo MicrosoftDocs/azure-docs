@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling.
 
@@ -19,8 +19,7 @@ This article helps you add additional scale units (instances) to Azure Bastion i
 
 ## Configuration steps
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 1. In the Azure portal, navigate to your Bastion host.
 1. Host scaling instance count requires Standard tier. On the **Configuration** page, for **Tier**, verify the tier is **Standard**. If the tier is Basic, select **Standard** from the dropdown. 
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 07/26/2021
 ms.author: jeedes
 
 ---
@@ -62,6 +62,18 @@ To configure and test Azure AD SSO with cloudtamer.io, perform the following ste
     1. **[Create cloudtamer.io test user](#create-cloudtamerio-test-user)** - to have a counterpart of B.Simon in cloudtamer.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
+### Begin cloudtamer.io SSO Configuration
+
+1. Log in to cloudtamer.io website as an administrator.
+
+1. Click on **+** plus icon at the top right corner and select **IDMS**.
+
+    ![Screenshot for IDMS create.](./media/cloudtamer-io-tutorial/idms-creation.png)
+
+1. Select **SAML 2.0** as the IDMS Type.
+
+1. Leave this screen open and copy values from this screen into the Azure AD configuration.
+
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
@@ -74,19 +86,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<CUSTOMERDOMAIN>.<EXTENSION>/api/v1/saml/auth/<id>`
+    a. In the **Identifier** text box, paste the **SERVICE PROVIDER ISSUER (ENTITY ID)** from cloudtamer.io into this box.
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMERDOMAIN>.<EXTENSION>/api/v1/saml/callback`
+    b. In the **Reply URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMERDOMAIN>.<EXTENSION>/login`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [cloudtamer.io Client support team](mailto:support@cloudtamer.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    In the **Sign-on URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -95,6 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up cloudtamer.io** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -121,29 +128,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure cloudtamer.io SSO
 
-1. Log in to cloudtamer.io website as an administrator.
-
-1. Click on **+** plus icon at the top right corner and select **IDMS**.
-
-    ![Screenshot for IDMS create.](./media/cloudtamer-io-tutorial/idms-creation.png)
-
 1. Perform the following steps in the **Add IDMS** page:
 
     ![Screenshot for IDMS adding.](./media/cloudtamer-io-tutorial/configuration.png)
 
-    a. Select **SAML2.0** as **IDMS TYPE** from the dropdown.
+    a. In the **IDMS Name** give a name that the users will recognize from the Login screen.
 
-    b. In the **IDMS Name** give a name that the users will recognize from the Login screen.
+    b. In the **IDENTITY PROVIDER ISSUER (ENTITY ID)** textbox, paste the **Identifier** value which you have copied from the Azure portal.
 
-    c. In the **IDENTITY PROVIDER ISSUER (ENTITY ID)** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+    c. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **IDENTITY PROVIDER METADATA** textbox.
 
-    d. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **IDENTITY PROVIDER METADATA** textbox.
+    d. Copy **SERVICE PROVIDER ISSUER (ENTITY ID)** value, paste this value into the **Identifier** text box in the Basic SAML Configuration section in the Azure portal.
 
-    e. Copy **SERVICE PROVIDER ISSUER (ENTITY ID)** value, paste this value into the **Identifier** text box in the Basic SAML Configuration section in the Azure portal.
+    e. Copy **SERVICE PROVIDER ACS URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
 
-    f. Copy **SERVICE PROVIDER ACS URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
-
-    g. Under Assertion Mapping, enter the following values:
+    f. Under Assertion Mapping, enter the following values:
 
     | Field | Value |
     |-----------|-------|
@@ -174,11 +173,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the cloudtamer.io for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the cloudtamer.io tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the cloudtamer.io for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the cloudtamer.io tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the cloudtamer.io for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps
 
 Once you configure cloudtamer.io you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-

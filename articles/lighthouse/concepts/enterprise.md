@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ For most organizations, management is easier with a single Azure AD tenant. Havi
 
 Some organizations may need to use multiple Azure AD tenants. This might be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy hasn't been defined yet. Other times, organizations may need to maintain multiple tenants on an ongoing basis due to wholly independent subsidiaries, geographical or legal requirements, or other considerations.
 
-In cases where a multi-tenant architecture is required, Azure Lighthouse can help centralize and streamline management operations. By using [Azure delegated resource management](architecture.md), users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
+In cases where a multi-tenant architecture is required, Azure Lighthouse can help centralize and streamline management operations. By using Azure Lighthouse, users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
 
 ## Tenant management architecture
 

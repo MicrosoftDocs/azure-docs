@@ -11,6 +11,8 @@ ms.author: danis
 ---
 # Prepare a CentOS-based virtual machine for Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 
 * [Prepare a CentOS 6.x virtual machine for Azure](#centos-6x)

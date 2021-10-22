@@ -259,11 +259,11 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
 ## Sign in a user
 
-Add the code from the following sections to invoke login using a popup window or a full-frame redirect: 
+Add the code from the following sections to invoke login using a pop-up window or a full-frame redirect: 
 
 ### Sign in using popups
 
-1. Change the code in *src/app/app.component.ts* to the following to sign in a user using a popup window:
+1. Change the code in *src/app/app.component.ts* to the following to sign in a user using a pop-up window:
 
     ```javascript
     import { MsalService } from '@azure/msal-angular';

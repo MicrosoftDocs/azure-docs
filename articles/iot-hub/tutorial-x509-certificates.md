@@ -2,7 +2,7 @@
 title: Tutorial - Understand X.509 public key certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Understand X.509 public key certificates for Azure IoT Hub
 author: v-gpettibone
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial

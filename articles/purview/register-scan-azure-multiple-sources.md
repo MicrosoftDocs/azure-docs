@@ -4,7 +4,7 @@ description: Learn how to scan an entire Azure subscription or resource group in
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---
@@ -54,7 +54,7 @@ To learn how to add permissions on each resource type within a subscription or r
 To register new multiple sources in your data catalog, do the following:
 
 1. Go to your Azure Purview account.
-1. Select **Sources** on the left menu.
+1. Select **Data Map** on the left menu.
 1. Select **Register**.
 1. On **Register sources**, select **Azure (multiple)**.
 
@@ -107,7 +107,7 @@ To create and run a new scan, do the following:
 
 ## View your scans and scan runs
 
-1. View source details by selecting **View details** on the tile under the **Sources** section. 
+1. View source details by selecting **View details** on the tile under the **Data Map** section. 
 
     :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Screenshot that shows source details."::: 
 

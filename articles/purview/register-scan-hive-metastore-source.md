@@ -4,9 +4,9 @@ description: This article outlines how to register Hive Metastore database in Az
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 5/17/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan Hive Metastore Database
 
@@ -41,7 +41,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-5.  Supported Hive versions are 2.x to 3.x.
+5.  Supported Hive versions are 2.x to 3.x. Supported Databricks versions are 8.0 and above. 
 
 ## Setting up authentication for a scan
 
@@ -54,9 +54,9 @@ following:
 
 1.  Navigate to your Purview account.
 
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 
-3.  Select **Register.**
+3.  Select **Register**
 
 4.  On Register sources, select Hive **Metastore**. Select **Continue.**
 
@@ -85,7 +85,7 @@ On the Register sources (Hive Metastore) screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
@@ -171,19 +171,15 @@ To create and run a new scan, do the following:
         Usage of NOT and special characters are not acceptable.
 
      1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Hive Metastore database to be scanned.
-    
-        > [!Note]
-        > **For scanning Databricks metastore**
-        >
 
         :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

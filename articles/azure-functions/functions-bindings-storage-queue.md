@@ -53,7 +53,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example *host.json* file below contains only the version 2.x+ settings for this binding. For more information about global configuration settings in versions 2.x and beyond, see [host.json reference for Azure Functions](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).

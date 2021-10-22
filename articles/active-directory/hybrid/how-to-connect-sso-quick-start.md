@@ -172,12 +172,7 @@ There are two ways to modify users' Intranet zone settings:
 
 #### Mozilla Firefox (all platforms)
 
-Mozilla Firefox doesn't automatically use Kerberos authentication. Each user must manually add the Azure AD URL to their Firefox settings by using the following steps:
-1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
-2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
-3. Right-click and select **Modify**.
-4. Enter `https://autologon.microsoftazuread-sso.com` in the field.
-5. Select **OK** and then reopen the browser.
+If you are using the [Authentication](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to the **SPNEGO** section. You can also set the **PrivateBrowsing** option to true to allow seamless SSO in private browsing mode.
 
 #### Safari (macOS)
 
@@ -193,19 +188,20 @@ For Microsoft Edge based on Chromium on macOS and other non-Windows platforms, r
 
 #### Google Chrome (all platforms)
 
-If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
+If you have overridden the [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) or the [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
 
-#### Google Chrome (macOS and other non-Windows platforms)
+#### macOS
 
-For Google Chrome on macOS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://chromeenterprise.google/policies/) for information on how to control the allow list for the Azure AD URL for integrated authentication.
-
-The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome on Mac users is outside the scope of this article.
+The use of third-party Active Directory Group Policy extensions to roll out the Azure AD URL to Firefox and Google Chrome to macOS users is outside the scope of this article.
 
 #### Known browser limitations
 
-Seamless SSO doesn't work in private browsing mode on Firefox. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. Microsoft Edge (legacy) is no longer supported. Seamless SSO supports the next version of Microsoft Edge based on Chromium and it works in InPrivate and Guest mode by design. Seamless SSO may require additional configuration to work in InPrivate and Guest mode with versions of Microsoft Edge Chromium and Google Chrome browsers: 
+Seamless SSO doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. Seamless SSO supports the next version of Microsoft Edge based on Chromium and it works in InPrivate and Guest mode by design. Microsoft Edge (legacy) is no longer supported. 
 
-**AmbientAuthenticationInPrivateModesEnabled** – may need to be configured for InPrivate and / or guest users based on the corresponding documentations: [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled); [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled).
+ `AmbientAuthenticationInPrivateModesEnabled`may need to be configured for InPrivate and / or guest users based on the corresponding documentations:
+ 
+   - [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled)
+   - [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled)
 
 ## Step 4: Test the feature
 
@@ -216,7 +212,7 @@ To test the feature for a specific user, ensure that all the following condition
   - You have [rolled out the feature](#step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
-   - Sign in to `https://myapps.microsoft.com/. Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode.
+   - Sign in to https://myapps.microsoft.com/. Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode.
 
 To test the scenario where the user doesn't have to enter the username or the password, use one of these steps: 
    - Sign in to `https://myapps.microsoft.com/contoso.onmicrosoft.com` Be sure to either clear the browser cache or use a new private browser session with any of the supported browsers in private mode. Replace *contoso* with your tenant's name.

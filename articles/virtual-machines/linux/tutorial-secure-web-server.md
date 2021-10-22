@@ -13,6 +13,10 @@ ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Use TLS/SSL certificates to secure a web server
+
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 To secure web servers, a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate can be used to encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]

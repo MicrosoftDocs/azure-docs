@@ -25,16 +25,12 @@ This article shows how to set up both kinds of managed identities for your logic
 
 Azure Logic Apps supports both [*system-assigned* managed identities](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned* managed identities](../active-directory/managed-identities-azure-resources/overview.md), which you can share across a group of logic apps, based on where your logic app workflows run:
 
-* A multi-tenant (Consumption plan) based logic app supports both the system-assigned identity and a *single* user-assigned identity. However, at the logic app level or the connection level, you can use only one managed identity type because you can't enable both at the same time.
-
-  A single-tenant (Standard plan) based logic app currently supports only the system-assigned identity.
-
-  For more information about multi-tenant (Consumption plan) and single-tenant (Standard plan), review the documentation, [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+* The **Logic App (Consumption)** resource type supports using either the system-assigned identity or a *single* user-assigned identity. However, at the logic app level or the connection level, you can use only one managed identity type because you can't enable both at the same time. Currently, the **Logic App (Standard)** resource type supports only the system-assigned identity, which is automatically enabled, and not the user-assigned identity. For more information about these different logic app resource types, review the documentation, [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 <a name="built-in-managed-identity"></a>
 <a name="managed-connectors-managed-identity"></a>
 
-* Only specific built-in and managed connector operations that support Azure AD Open Authentication can use a managed identity for authentication. The following table provides only a *sample selection*. For a more complete list, review [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+* Only specific built-in and managed connector operations that support Azure AD Open Authentication (Azure AD OAuth) can use a managed identity for authentication. The following table provides only a *sample selection*. For a more complete list, review [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
   | Operation type | Supported operations |
   |----------------|----------------------|
@@ -51,6 +47,12 @@ Azure Logic Apps supports both [*system-assigned* managed identities](../active-
 * The target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the logic app authenticate access to the target resource.
 
 * The logic app where you want to use the [trigger or actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+  | Logic app resource type | Managed identity support |
+  |-------------------------|--------------------------|
+  | **Logic App (Consumption)** | System-assigned or user-assigned |
+  | **Logic App (Standard)** | System-assigned identity (automatically enabled) |
+  |||
 
 ## Enable managed identity
 
@@ -323,7 +325,7 @@ On the Azure resource where you want to use the managed identity, you have to as
 
 1. Now, assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
 
-   For this example, assign the role that's named **Storage Blob Data Contributor**, which includes write access for blobs in an Azure Storage container. For more information about specific storage container roles, review [Roles that can access blobs in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+   For this example, assign the role that's named **Storage Blob Data Contributor**, which includes write access for blobs in an Azure Storage container. For more information about specific storage container roles, review [Roles that can access blobs in an Azure Storage container](../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights).
 
 1. Next, choose the managed identity where you want to assign the role. Under **Assign access to**, select **Managed identity** > **Add members**.
 
@@ -455,7 +457,7 @@ Here is the example HTTP action that shows all these property values:
 
    For more information about authorizing access with Azure AD for Azure Storage, see these topics:
 
-   * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/common/storage-auth-aad.md)
+   * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
    * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the logic app the way that you want.

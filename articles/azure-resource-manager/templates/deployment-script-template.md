@@ -5,8 +5,8 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/15/2021
-ms.author: jgao 
+ms.date: 08/25/2021
+ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -33,43 +33,49 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!IMPORTANT]
 > A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
-> [!IMPORTANT]
-> The deploymentScripts resource API version 2020-10-01 supports [OnBehalfofTokens(OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). By using OBO, the deployment script service uses the deployment principal's token to create the underlying resources for running deployment scripts, which include Azure Container instance,  Azure storage account, and role assignments for the managed identity. In older API version, the managed identity is used to create these resources.
-> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template where you run deployment scripts. The deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+> [!NOTE]
+> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+
+### Microsoft Learn
+
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
 
 ## Configure the minimum permissions
 
-For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources required for the deployment script resource to execute—a storage account and an Azure container instance. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access to complete the operation in the script.
+For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
 
-To configure the least-privilege permissions, you need:
+- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
-- Assign a custom role with the following properties to the deployment principal:
+    ```json
+    {
+      "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
+      "description": "Configure least privilege for the deployment principal in deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/deploymentScripts/*"
+          ],
+        }
+      ],
+      "assignableScopes": [
+        "[subscription().id]"
+      ]
+    }
+    ```
 
-  ```json
-  {
-    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
-    "description": "Configure least privilege for the deployment principal in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
-  }
-  ```
+    If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
 
-  If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
+- **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
 
-- If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
+  - Specify a user-assigned managed identity in the `identity` property (see [Sample templates](#sample-templates)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, use the second method in this list.
+  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) in the deployment script.
+
+  If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
 ## Sample templates
 

@@ -173,7 +173,14 @@ var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
 var ingestionStartTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var dataFeedIngestionSettings = new DataFeedIngestionSettings(ingestionStartTime);
 
-var dataFeed = new DataFeed(dataFeedName, dataFeedSource, dataFeedGranularity, dataFeedSchema, dataFeedIngestionSettings);
+var dataFeed = new DataFeed()
+{
+    Name = dataFeedName,
+    DataSource = dataFeedSource,
+    Granularity = dataFeedGranularity,
+    Schema = dataFeedSchema,
+    IngestionSettings = dataFeedIngestionSettings,
+};
 
 Response<string> response = await adminClient.CreateDataFeedAsync(dataFeed);
 

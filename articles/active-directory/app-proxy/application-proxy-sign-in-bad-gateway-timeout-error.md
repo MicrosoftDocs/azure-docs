@@ -85,7 +85,7 @@ You can also look directly at the Connector logs to identify any errors. Many of
 
 If the above didn't fix the problem, there are a few different possible causes. To identify the issue:
 
-If your application is configured to use Integrated Windows Authentication (IWA), test the application without single sign-on. If not, move to the next paragraph. To check the application without single sign-on, open your application through **Enterprise Applications,** and go to the **Single Sign-On** menu. Change the drop-down from "Integrated Windows Authentication" to "Azure AD single sign-on disabled".
+If your application is configured to use integrated Windows authentication (IWA), test the application without single sign-on. If not, move to the next paragraph. To check the application without single sign-on, open your application through **Enterprise Applications,** and go to the **Single Sign-On** menu. Change the drop-down from "Integrated Windows authentication" to "Azure AD single sign-on disabled".
 
 Now open a browser and try to access the application again. You should be prompted for authentication and get into the application. If you are able to authenticate, the problem is with the Kerberos Constrained Delegation (KCD) configuration that enables the single sign-on. For more information, see the KCD Troubleshoot page.
 

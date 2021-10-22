@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: trbye
+ms.author: pafarley
 ms.custom: devx-track-js
 ---
 
@@ -25,9 +25,8 @@ This article assumes that you have an Azure account and Speech service resource.
 ## Install the Speech SDK
 
 Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser </a>
+- [Node.js](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
+- [Web browser](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
 
 Additionally, depending on the target environment use one of the following:
 
@@ -124,7 +123,7 @@ function synthesizeSpeech() {
 
 Run the program, and a synthesized `.wav` file is written to the location you specified. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
 
-## Synthesize to speaker output
+## Synthesize to speaker output (browser only)
 
 In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. This outputs to the current active output device.
 
@@ -262,7 +261,7 @@ First, create a new XML file for the SSML config in your root project directory,
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -304,7 +303,7 @@ function synthesizeSpeech() {
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-AriaNeural";`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-ChristopherNeural";`
 
 ## Get facial pose events
 

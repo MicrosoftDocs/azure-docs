@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-author: mingshen-ms
-ms.author: mingshen
+author: saasguide
+ms.author: souchak
 ---
 
 # Marketplace metered billing APIs
@@ -250,6 +250,7 @@ Description of status code referenced in `BatchUsageEvent` API response:
 | `Error` | Error code. |
 | `ResourceNotFound` | The usage resource provided is invalid. |
 | `ResourceNotAuthorized` | You are not authorized to provide usage for this resource. |
+| `ResourceNotActive` | The resource is suspended or was never activated. |
 | `InvalidDimension` | The dimension for which the usage is passed is invalid for this offer/plan. |
 | `InvalidQuantity` | The quantity passed is lower or equal to 0. |
 | `BadArgument` | The input is missing or malformed. |

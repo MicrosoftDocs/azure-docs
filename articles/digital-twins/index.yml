@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: philmea
   ms.author: philmea
-  ms.date: 02/12/2020
+  ms.date: 08/19/2021
 
 landingContent:
   - title: About Azure Digital Twins
@@ -22,7 +22,7 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Custom models
+          - text: DTDL models
             url: concepts-models.md
           - text: Digital twins and the twin graph
             url: concepts-twins-graph.md
@@ -48,7 +48,7 @@ landingContent:
             url: tutorial-code.md
       - linkListType: tutorial
         links:
-          - text: Explore the basics with a sample client app
+          - text: Create a graph in Azure Digital Twins (client app)
             url: tutorial-command-line-app.md
       - linkListType: tutorial
         links:

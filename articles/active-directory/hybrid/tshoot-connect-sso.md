@@ -123,8 +123,12 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
 2. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACC` computer account from the on-premises domain controller for this specific Active Directory forest.
-3. Repeat the preceding steps for each Active Directory forest where you’ve set up the feature.
 
+   >[!NOTE]
+   >If for any reason you can't access your AD on-premises, you can skip **steps 3.1** and **3.2** and instead call `Disable-AzureADSSOForest -DomainFqdn <Domain name from the output list in step 2>`. 
+   
+3. Repeat the preceding steps for each Active Directory forest where you’ve set up the feature.
+ 
 ### Step 4: Enable Seamless SSO for each Active Directory forest
 
 1. Call `Enable-AzureADSSOForest`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.

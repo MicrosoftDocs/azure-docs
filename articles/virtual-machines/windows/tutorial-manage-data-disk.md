@@ -15,6 +15,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial - Manage Azure disks with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
 

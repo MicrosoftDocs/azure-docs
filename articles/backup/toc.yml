@@ -156,6 +156,8 @@
         href: backup-azure-linux-app-consistent.md
       - name: Selective disk backup
         href: selective-disk-backup-restore.md
+      - name: Using Azure VM backup for database consistent snapshots
+        href: backup-azure-linux-database-consistent-enhanced-pre-post.md
     - name: Restore
       items:
       - name: About Azure VM restore
@@ -165,7 +167,7 @@
       - name: Recover files from Azure VM backups
         href: backup-azure-restore-files-from-vm.md
       - name: Restore encrypted VMs
-        href: backup-azure-vms-encryption.md
+        href: restore-azure-encrypted-virtual-machines.md
       - name: Restore keys and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
     - name: Manage
@@ -184,7 +186,9 @@
       items:
       - name: Back up multiple SQL Server VMs from the vault
         href: backup-sql-server-database-azure-vms.md
-      - name: Backup a SQL Server VM from the VM pane
+      - name: Back up SQL Server Availability Group
+        href: backup-sql-server-on-availability-groups.md
+      - name: Back up a SQL Server VM from the VM pane
         href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
       href: restore-sql-database-azure-vm.md
@@ -192,8 +196,14 @@
       href: manage-monitor-sql-database-backup.md
   - name: Azure Database for PostgreSQL backup
     items:
+    - name: Overview
+      href: backup-azure-database-postgresql-overview.md
     - name: Backup
       href: backup-azure-database-postgresql.md
+    - name: Restore
+      href: restore-azure-database-postgresql.md
+    - name: Manage
+      href: manage-azure-database-postgresql.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -232,6 +242,8 @@
         href: backup-managed-disks.md
       - name: Restore
         href: restore-managed-disks.md
+      - name: Manage
+        href: manage-azure-managed-disks.md
     - name: With PowerShell
       items:
       - name: Backup
@@ -244,6 +256,14 @@
         href: backup-managed-disks-cli.md
       - name: Restore
         href: restore-managed-disks-cli.md
+    - name: With REST API
+      items:
+      - name: Policy
+        href: backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md
+      - name: Backup
+        href: backup-azure-dataprotection-use-rest-api-backup-disks.md
+      - name: Restore
+        href: backup-azure-dataprotection-use-rest-api-restore-disks.md
   - name: Azure Blobs backup
     items:
     - name: Overview
@@ -268,7 +288,7 @@
         href: restore-blobs-storage-account-cli.md
     - name: With REST API
       items:
-      - name: Blob policy
+      - name: Policy
         href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
       - name: Backup
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
@@ -314,6 +334,8 @@
     items:
     - name: Overview
       href: sap-hana-db-about.md
+    - name: Architecture
+      href: azure-backup-architecture-for-sap-hana-backup.md
     - name: Backup
       href: backup-azure-sap-hana-database.md
     - name: Restore
@@ -324,7 +346,7 @@
     items:
     - name: Protection matrices
       items:
-      - name: MABS V3 UR1 protection matrix
+      - name: MABS V3 UR1 (and later) protection matrix
         href: backup-mabs-protection-matrix.md
       - name: MABS V3 RTM protection matrix
         href: microsoft-azure-backup-server-protection-v3.md
@@ -338,12 +360,16 @@
         href: backup-mabs-whats-new-mabs.md
       - name: Release notes MABS
         href: backup-mabs-release-notes-v3.md
+      - name: Turn on/off telemetry settings
+        href: manage-telemetry.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
       items:
       - name: Back up Hyper-V virtual machines
         href: back-up-hyper-v-virtual-machines-mabs.md
+      - name: Back up Azure Stack HCI virtual machines
+        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md  
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
       - name: Exchange
@@ -356,6 +382,8 @@
         href: backup-mabs-system-state-and-bmr.md
       - name: Using pre-backup and post-backup scripts
         href: pre-backup-post-backup-scripts.md
+      - name: Back up file data with MABS
+        href: back-up-file-data.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
@@ -402,6 +430,8 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
+    - name: Overview
+      href: monitoring-and-alerts-overview.md
     - name: Using Backup Explorer
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
@@ -487,7 +517,11 @@
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
-      href: private-endpoints.md
+      items:
+      - name: Overview
+        href: private-endpoints-overview.md
+      - name: Create and use
+        href: private-endpoints.md
     - name: Encryption in Azure Backup
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
@@ -525,6 +559,8 @@
       href: disk-backup-troubleshoot.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+    - name: Azure Database for PostgreSQL
+      href: backup-azure-database-postgresql-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State
@@ -535,10 +571,16 @@
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
     href: /cli/azure/backup
+  - name: Azure Data Protection - CLI
+    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
+  - name: Azure Data Protection - PowerShell
+    href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
   - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+  - name: REST - Azure Data Protection
+    href: /rest/api/dataprotection/
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - Recovery Services vault

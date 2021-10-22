@@ -307,42 +307,21 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetryinitial
 ### JavaScript telemetry initializers
 *JavaScript*
 
-Insert a telemetry initializer immediately after the initialization code that you got from the portal:
+Insert a telemetry initializer using the snippet onInit callback:
 
-```JS
+```html
 <script type="text/javascript">
-    // ... initialization code
-    ...({
-        instrumentationKey: "your instrumentation key"
-    });
-    window.appInsights = appInsights;
-
-
-    // Adding telemetry initializer.
-    // This is called whenever a new telemetry item
-    // is created.
-
-    appInsights.addTelemetryInitializer(function (envelope) {
-        var telemetryItem = envelope.data.baseData;
-
-        // To check the telemetry items type - for example PageView:
-        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-            // this statement removes url from all page view documents
-            telemetryItem.url = "URL CENSORED";
-        }
-
-        // To set custom properties:
-        telemetryItem.properties = telemetryItem.properties || {};
-        telemetryItem.properties["globalProperty"] = "boo";
-        
-        // To set cloud role name / instance
-        envelope.tags["ai.cloud.role"] = "your role name";
-        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
-    });
-
-    // End of inserted code.
-
-    appInsights.trackPageView();
+!function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+crossOrigin: "anonymous",
+onInit: function (sdk) {
+  sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data.someField = 'This item passed through my telemetry initializer';
+  });
+}, // Once the application insights instance has loaded and initialized this method will be called
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY"
+}});
 </script>
 ```
 

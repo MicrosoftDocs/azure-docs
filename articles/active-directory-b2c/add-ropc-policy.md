@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 09/12/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -21,9 +21,6 @@ zone_pivot_groups: b2c-policy-type
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), the resource owner password credentials (ROPC) flow is an OAuth standard authentication flow. In this flow, an application, also known as the relying party, exchanges valid credentials for tokens. The credentials include a user ID and password. The tokens returned are an ID token, access token, and a refresh token.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 
 ## ROPC flow notes
 
@@ -53,15 +50,18 @@ When using the ROPC flow, consider the following:
 
 ##  Create a resource owner user flow
 
-1. Sign in to the Azure portal as the global administrator of your Azure AD B2C tenant.
-2. To switch to your Azure AD B2C tenant, select the B2C directory in the upper-right corner of the portal.
-3. Select **User flows**, and select **New user flow**.
-4. Select **Sign in using resource owner password credentials (ROPC)**.
-5. Under **Version**, make sure **Preview** is selected, and then select **Create**.
-7. Provide a name for the user flow, such as *ROPC_Auth*.
-8. Under **Application claims**, click **Show more**.
-9. Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
-10. Select **OK**, and then select **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the **global administrator** of your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant:
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **User flows**, and select **New user flow**.
+1. Select **Sign in using resource owner password credentials (ROPC)**.
+1. Under **Version**, make sure **Preview** is selected, and then select **Create**.
+1. Provide a name for the user flow, such as *ROPC_Auth*.
+1. Under **Application claims**, click **Show more**.
+1. Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
+1. Select **OK**, and then select **Create**.
 
 ::: zone-end
 

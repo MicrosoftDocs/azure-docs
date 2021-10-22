@@ -3,14 +3,14 @@ title: "Tutorial: Create a JavaScript single-page app that uses auth code flow |
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you create a JavaScript SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
 ---
 

@@ -1,8 +1,8 @@
 ---
 title:  "Customer responsibilities running Azure Spring Cloud in vnet"
 description: This article describes customer responsibilities running Azure Spring Cloud in vnet.
-author:  brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
@@ -10,15 +10,17 @@ ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for running Azure Spring Cloud in VNET
+
 This document includes specifications for use of Azure Spring Cloud in a virtual network.
 
 When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). These endpoints are required to communicate with the Azure Spring Cloud management plane and to download and install core Kubernetes cluster components and security updates.
 
 By default, Azure Spring Cloud has unrestricted outbound (egress) internet access. This level of network access allows applications you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible for maintenance tasks. The simplest solution to secure outbound addresses is use of a firewall device that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
 
-## Azure Spring Cloud resource requirements 
+## Azure Spring Cloud resource requirements
 
 The following is a list of resource requirements for Azure Spring Cloud services. As a general requirement you should not modify resource groups created by Azure Spring Cloud and the underlying network resources.
+
 - Do not modify resource groups created and owned by Azure Spring Cloud.
   - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
   - Do not block Azure Spring Cloud from updating reseources in these resource groups.
@@ -35,7 +37,7 @@ The following is a list of resource requirements for Azure Spring Cloud services
 | *:9000 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000         | Underlying Kubernetes Cluster management. |                                                              |
 | *:123 *Or* ntp.ubuntu.com:123                                | UDP:123          | NTP time synchronization on Linux nodes.  |                                                              |
 | *.azure.io:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureContainerRegistry:443 | TCP:443          | Azure Container Registry.                 | Can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
-| *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure File Storage                        | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
+| *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | Azure Files                        | Can be replaced by enabling *Azure Storage* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 | *.servicebus.windows.net:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443          | Azure Event Hub.                          | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
 
 
@@ -70,5 +72,6 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | *.live.ruxit.com            | TCP:443    | Required network of Dynatrace APM agents.                    |
 
 ## See also
+
 * [Access your application in a private network](access-app-virtual-network.md)
 * [Expose apps using Application Gateway and Azure Firewall](expose-apps-gateway-azure-firewall.md)

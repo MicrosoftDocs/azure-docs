@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/15/2020
+ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # Microsoft Enterprise SSO plug-in for Apple devices (preview)
@@ -25,7 +25,7 @@ The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on
 
 The Enterprise SSO plug-in is currently a built-in feature of the following apps:
 
-* [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md): iOS, iPadOS
+* [Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc): iOS, iPadOS
 * Microsoft Intune [Company Portal](/mem/intune/apps/apps-company-portal-macos): macOS
 
 ## Features
@@ -42,15 +42,15 @@ The Microsoft Enterprise SSO plug-in for Apple devices offers the following bene
 To use the Microsoft Enterprise SSO plug-in for Apple devices:
 
 - The device must *support* and have an installed app that has the Microsoft Enterprise SSO plug-in for Apple devices:
-  - iOS 13.0 and later: [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md)
-  - iPadOS 13.0 and later: [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md)
+  - iOS 13.0 and later: [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
+  - iPadOS 13.0 and later: [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
   - macOS 10.15 and later: [Intune Company Portal app](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 - The device must be *enrolled in MDM*, for example, through Microsoft Intune.
 - Configuration must be *pushed to the device* to enable the Enterprise SSO plug-in. Apple requires this security constraint.
 
 ### iOS requirements:
 - iOS 13.0 or higher must be installed on the device.
-- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md).
+- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 
 ### macOS requirements:
@@ -114,23 +114,92 @@ Your organization likely uses the Authenticator app for scenarios like multifact
 
 Use the following parameters to configure the Microsoft Enterprise SSO plug-in for apps that don't use a Microsoft identity platform library.
 
-To provide a list of specific apps, use these parameters:
+#### Enable SSO for all managed apps
+
+- **Key**: `Enable_SSO_On_All_ManagedApps`
+- **Type**: `Integer`
+- **Value**: 1 or 0 .
+
+When this flag is on (its value is set to `1`), all MDM-managed apps not in the `AppBlockList` may participate in SSO.
+
+#### Enable SSO for specific apps
 
 - **Key**: `AppAllowList`
 - **Type**: `String`
 - **Value**: Comma-delimited list of application bundle IDs for the applications that are allowed to participate in SSO.
 - **Example**: `com.contoso.workapp, com.contoso.travelapp`
 
-To provide a list of prefixes, use these parameters:
+>[!NOTE]
+> Safari and Safari View Service are allowed to participate in SSO by default. Can be configured *not* to participate in SSO by adding the bundle IDs of Safari and Safari View Service in AppBlockList. 
+> iOS Bundle IDs : [com.apple.mobilesafari, com.apple.SafariViewService] , macOS BundleID : com.apple.Safari
+
+#### Enable SSO for all apps with a specific bundle ID prefix
 - **Key**: `AppPrefixAllowList`
 - **Type**: `String`
 - **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO. This parameter allows all apps that start with a particular prefix to participate in SSO.
 - **Example**: `com.contoso., com.fabrikam.`
 
-[Consented apps](./application-consent-experience.md) that the MDM admin allows to participate in SSO can silently get a token for the end user. So add only trusted applications to the allowlist. 
+#### Disable SSO for specific apps
 
->[!NOTE]
-> You don't need to add applications that use MSAL or ASWebAuthenticationSession to the list of apps that can participate in SSO. Those applications are enabled by default. 
+- **Key**: `AppBlockList`
+- **Type**: `String`
+- **Value**: Comma-delimited list of application bundle IDs for the applications that are allowed not to participate in SSO.
+- **Example**: `com.contoso.studyapp, com.contoso.travelapp`
+
+To *disable* SSO for Safari or Safari View Service, you must explicitly do so by adding their bundle IDs to the `AppBlockList`: 
+
+- iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`
+- macOS: `com.apple.Safari`
+
+#### Enable SSO through cookies for a specific application
+
+Some apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that a network request was canceled or interrupted.
+
+If your users have problems signing in to an application even after you've enabled it through the other settings, try adding it to the `AppCookieSSOAllowList` to resolve the issues.
+
+- **Key**: `AppCookieSSOAllowList`
+- **Type**: `String`
+- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO.
+- **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
+
+**Other requirements**: To enable SSO for applications by using `AppCookieSSOAllowList`, you must also add their bundle ID prefixes `AppPrefixAllowList`.
+
+Try this configuration only for applications that have unexpected sign-in failures. 
+
+#### Summary of keys
+
+| Key | Type | Value |
+|--|--|--|
+| `Enable_SSO_On_All_ManagedApps` | Integer | `1` to enable SSO for all managed apps, `0` to disable SSO for all managed apps. |
+| `AppAllowList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications allowed to participate in SSO. |
+| `AppBlockList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications not allowed to participate in SSO. |
+| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. |
+| `AppCookieSSOAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO but that use special network settings and have trouble with SSO using the other settings. Apps you add to `AppCookieSSOAllowList` must also be added to `AppPrefixAllowList`. |
+
+#### Settings for common scenarios
+
+- *Scenario*: I want to enable SSO for most managed applications, but not for all of them.
+
+    | Key | Value |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the apps you want to prevent from participating in SSO. |
+
+- *Scenario* I want to disable SSO for Safari, which is enabled by default, but enable SSO for all managed apps.
+
+    | Key | Value |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the Safari apps you want to prevent from participating in SSO.<br/><li>For iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>For macOS: `com.apple.Safari` |
+
+- *Scenario*: I want to enable SSO on all managed apps and few unmanaged apps, but disable SSO for a few other apps.
+
+    | Key | Value |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppAllowList` | The bundle IDs (comma-delimited list) of the apps you want to enable for participation in for SSO. |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the apps you want to prevent from participating in SSO. |
+
 
 ##### Find app bundle identifiers on iOS devices
 
@@ -188,21 +257,6 @@ Enabling the `disable_explicit_app_prompt` flag restricts the ability of both na
 - **Value**: 1 or 0
 
 We recommend enabling this flag to get a consistent experience across all apps. It's disabled by default. 
-
-#### Enable SSO through cookies for a specific application
-
-A few apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that network request was canceled or interrupted. 
-
-If you have problems signing in by using the method described in the [Applications that don't use MSAL](#applications-that-dont-use-msal) section, try an alternative configuration. Use these parameters to configure the plug-in:
-
-- **Key**: `AppCookieSSOAllowList`
-- **Type**: `String`
-- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO.
-- **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
-
-Applications enabled for the SSO by using this setup need to be added to both `AppCookieSSOAllowList` and `AppPrefixAllowList`.
-
-Try this configuration only for applications that have unexpected sign-in failures. 
 
 #### Use Intune for simplified configuration
 

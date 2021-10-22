@@ -1,9 +1,9 @@
 ---
 title: Group and filter options in Azure Cost Management
-description: This article explains how to use group and filter options in Azure Cost Management.
+description: This article explains how to use group and filter options in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

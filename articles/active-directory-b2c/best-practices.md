@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/01/2021
 ms.author: vigunase
 ms.subservice: B2C
 ---

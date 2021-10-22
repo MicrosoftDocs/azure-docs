@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/09/2021
 ms.author: memildin
 
 ---
@@ -25,12 +25,12 @@ When you've enabled and configured adaptive application controls, you'll get sec
 
 ## What are the benefits of adaptive application controls?
 
-By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple hardening goals:
+By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple oversight and compliance goals:
 
 - Identify potential malware, even any that might be missed by antimalware solutions
 - Improve compliance with local security policies that dictate the use of only licensed software
-- Avoid running old or unsupported applications
-- Prevent specific software that's banned by your organization
+- Identify outdated or unsupported versions of applications 
+- Identify software that's banned by your organization but is nevertheless running on your machines
 - Increase oversight of apps that access sensitive data
 
 No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
@@ -39,11 +39,11 @@ No enforcement options are currently available. Adaptive application controls ar
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Supported machines:|:::image type="icon" source="./media/icons/yes-icon.png"::: Azure and non-Azure machines running Windows and Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -233,13 +233,13 @@ Some of the functions that are available from the REST API:
 ## FAQ - Adaptive application controls
 
 - [Are there any options to enforce the application controls?](#are-there-any-options-to-enforce-the-application-controls)
-- [Why do I see a Qualys app in my recommendeded applications?](#why-do-i-see-a-qualys-app-in-my-recommendeded-applications)
+- [Why do I see a Qualys app in my recommended applications?](#why-do-i-see-a-qualys-app-in-my-recommended-applications)
 
 ### Are there any options to enforce the application controls?
 No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
 
-### Why do I see a Qualys app in my recommendeded applications?
-[Azure Defender for servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. For details of this scanner and instructions for how to deploy it, see [Defender's integrated vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
+### Why do I see a Qualys app in my recommended applications?
+[Azure Defender for servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. For details of this scanner and instructions for how to deploy it, see [Defender's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
 
 To ensure no alerts are generated when Security Center deploys the scanner, the adaptive application controls recommended allow list includes the scanner for all machines. 
 

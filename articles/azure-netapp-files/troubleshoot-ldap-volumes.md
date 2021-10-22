@@ -33,4 +33,4 @@ This article describes resolutions to error conditions you might have when confi
 
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files](create-volumes-dual-protocol.md)
+* [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)

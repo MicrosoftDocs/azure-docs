@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/25/2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
@@ -65,9 +65,7 @@ As you progress, you'll complete these high-level tasks:
 
    ![Screenshot that shows the Azure portal search box with the "logic apps" search term and the "Logic App (Standard)" resource selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
-1. On the **Logic apps** page, select **Add** > **Standard**.
-
-   This step creates a logic app resource that runs in the single-tenant Azure Logic Apps environment and uses the [single-tenant pricing model](logic-apps-pricing.md#standard-pricing).
+1. On the **Logic apps** page, select **Add**.
 
 1. On the **Create Logic App** page, on the **Basics** tab, provide the following information about your logic app resource:
 
@@ -75,8 +73,9 @@ As you progress, you'll complete these high-level tasks:
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
+   | **Type** | Yes | **Standard** | This logic app resource type runs in the single-tenant Azure Logic Apps environment and uses the [Standard usage, billing, and pricing model](logic-apps-pricing.md#standard-pricing). |
    | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc-enabled Kubernetes cluster, which you can use with [Azure Arc-enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
    | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. If you selected **Docker Container**, select your custom location. <p><p>This example deploys the sample logic app to Azure and uses **West US**. |
    |||||
 
@@ -100,16 +99,14 @@ As you progress, you'll complete these high-level tasks:
 
    1. For the **Application Insights** setting, either select an existing Application Insights instance, or if you want to create a new instance, select **Create new** and provide the name that you want to use.
 
-1. After Azure validates your logic app's settings, on the **Review + create** tab, select **Create**.
-
-   For example:
+1. After Azure validates your logic app's settings, on the **Review + create** tab, select **Create**, for example:
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
    > [!TIP]
-   > If you get a validation error after you select **Create**, open and review the error details. 
-   > For example, if your selected region reaches a quota for resources that you're trying to create, 
-   > you might have to try a different region.
+   > If you get a validation error after this step, open and review the error details. For example, 
+   > if your selected region reaches a quota for resources that you're trying to create, you might 
+   > have to try a different region.
 
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
 

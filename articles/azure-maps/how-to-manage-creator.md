@@ -1,13 +1,13 @@
 ---
 title: Manage Microsoft Azure Maps Creator
 description: In this article, you'll learn how to manage Microsoft Azure Maps Creator.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/18/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/08/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Manage Azure Maps Creator
@@ -28,7 +28,7 @@ This article takes you through the steps to create and delete a Creator resource
 
     :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Create Azure Maps Creator page":::
 
-4. Enter the name, location, and map provisioning storage units for your Creator resource. Currently, Creator is supported only in the United States. Select **Review + create**.
+4. Enter the name, location, and map provisioning storage units for your Creator resource, then select **Review + create**.
 
    :::image type="content" source="./media/how-to-manage-creator/creator-creation-dialog.png" alt-text="Enter Creator account information page":::
 

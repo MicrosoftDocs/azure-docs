@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2021
+ms.date: 09/22/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -51,6 +51,27 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.8**
+
+- The claim name is added to the `class` attribute of the `<li>` HTML element that surrounding the user's attribute input elements. The class name allows you to create a CSS selector to select the parent `<li>` for a certain user attribute input element. The following HTML markup shows the class attribute for the sign-up page:
+  
+  ```html
+  <div id="attributeList" class="attr">
+    <ul>
+      <li class="EmailBox email_li">...</li>
+      <li class="Password newPassword_li">...</li>
+      <li class="Password reenterPassword_li">...</li>
+      <li class="TextBox displayName_li">...</li>
+      <li class="TextBox givenName_li">...</li>
+      <li class="TextBox surname_li">...</li>
+      <li class="TextBox extension_age_li">...</li>
+    </ul>
+  </div>
+  ```
+**2.1.7**
+- Fixed a language encoding issue that is causing the request to fail.
+- Fixed an accessibility bug to show inline error messages only on form submission.
 
 **2.1.6**
 - Fixed password error get cleared when typing too quickly on a different field.
@@ -147,6 +168,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 - Added support for multiple sign-up links.
 - Added support for user input validation according to the predicate rules defined in the policy.
+- When the [sign-in option](sign-in-options.md) is set to Email, the sign-in header presents "Sign in with your sign in name". The username field presents "Sign in name". For more information, see [localization](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
 **1.2.0**
 
@@ -168,6 +190,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.5**
+- Fixed a language encoding issue that is causing the request to fail.
 
 **1.2.4**
 - Updated jQuery version to 3.5.1.

@@ -1,6 +1,7 @@
 ---
-title: Manage federation certificates in Azure AD | Microsoft Docs
+title: Manage federation certificates
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -10,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: davidmu
-ms.reviewer: jeedes
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
 ---
 
@@ -86,7 +87,7 @@ Azure AD will send an email notification 60, 30, and 7 days before the SAML cert
 
 You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails.
 
-You will receive the notification email from aadnotification@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
+You will receive the notification email from azure-noreply@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
 
 ## Renew a certificate that will soon expire
 

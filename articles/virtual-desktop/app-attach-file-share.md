@@ -38,12 +38,12 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 - The storage solution you use for MSIX app attach should be in the same datacenter location as the session hosts.
 - To avoid performance bottlenecks, exclude the following VHD, VHDX, and CIM files from antivirus scans:
    
-    - <MSIXAppAttachFileShare\>\*.VHD
-    - <MSIXAppAttachFileShare\>\*.VHDX
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
-    - <MSIXAppAttachFileShare>.CIM
-    - \\\\storageaccount.file.core.windows.net\\share\*\*.CIM
+    - `<MSIXAppAttachFileShare\>\*.VHD`
+    - `<MSIXAppAttachFileShare\>\*.VHDX`
+    - `\\storageaccount.file.core.windows.net\share*.VHD`
+    - `\\storageaccount.file.core.windows.net\share*.VHDX`
+    - `<MSIXAppAttachFileShare>.CIM`
+    - `\\storageaccount.file.core.windows.net\share**.CIM`
 
 - Separate the storage fabric for MSIX app attach from FSLogix profile containers.
 - All VM system accounts and user accounts must have read-only permissions to access the file share.
@@ -101,4 +101,4 @@ Once you're finished, here are some other resources you might find helpful:
 - Ask our community questions about this feature at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 - [MSIX app attach glossary](app-attach-glossary.md)
-- [MSIX app attach FAQ](app-attach-faq.md)
+- [MSIX app attach FAQ](app-attach-faq.yml)

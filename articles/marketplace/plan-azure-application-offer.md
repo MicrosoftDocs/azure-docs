@@ -90,7 +90,7 @@ You can add or modify a CRM connection at any time during or after offer creatio
 
 ## Categories and subcategories
 
-You can choose at least one and up to two categories for grouping your offer into the appropriate commercial marketplace search areas. You can choose up to two subcategories for each primary and secondary category. For a full list of categories and subcategories, see [Offer Listing Best Practices](gtm-offer-listing-best-practices.md#categories).
+You can choose at least one and up to two categories for grouping your offer into the appropriate commercial marketplace search areas. You can choose up to two subcategories for each primary and secondary category. For a full list of categories and subcategories, see [Offer Listing Best Practices](marketplace-categories-industries.md#categories).
 
 ## Legal contracts
 

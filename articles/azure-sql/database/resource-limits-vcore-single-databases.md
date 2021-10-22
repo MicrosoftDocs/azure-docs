@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/23/2021
+ms.date: 07/21/2021
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -189,7 +189,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 1)
 
-|Compute size (service objective)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Compute size (service objective)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen5_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -645,7 +645,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |In-memory OLTP storage (GB)|172|216|304|704|1768|
 |Max data size (GB)|1280|1536|2048|4096|4096|
 |Max log size (GB) <sup>1</sup>|427|512|683|1024|1024|
-|TempDB max data size (GB)|4096|2048|1024|768|640|
+|TempDB max data size (GB)|640|768|1024|2048|4096|
 |[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|13836|13836|13836|13836|13836|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|

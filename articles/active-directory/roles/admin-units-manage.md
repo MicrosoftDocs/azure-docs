@@ -37,7 +37,9 @@ You can add an administrative unit by using either the Azure portal or PowerShel
 
 ### Azure portal
 
-1. In the Azure portal, go to Azure AD. Then, on the left pane, select **Administrative units**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Administrative units**.
 
     ![Screenshot of the "Administrative units" link in Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
@@ -79,11 +81,15 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 
 ### Azure portal
 
-1. In the Azure portal, go to **Azure AD**, and then select **Administrative units**. 
-1. Select the administrative unit to be deleted, and then select **Delete**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Administrative units**.
+ 
+1. Select the administrative unit to be deleted, and then select **Delete**.
+
 1. To confirm that you want to delete the administrative unit, select **Yes**. The administrative unit is deleted.
 
-![Screenshot of the administrative unit Delete button and confirmation window.](./media/admin-units-manage/select-admin-unit-to-delete.png)
+    ![Screenshot of the administrative unit Delete button and confirmation window.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### PowerShell
 

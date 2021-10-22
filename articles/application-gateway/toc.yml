@@ -278,6 +278,8 @@
         href: log-analytics.md
       - name: Backend health issues
         href: application-gateway-backend-health-troubleshooting.md
+      - name: Key Vault errors
+        href: application-gateway-key-vault-common-errors.md
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate from v1 to v2

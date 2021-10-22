@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning datasets to access your data for machine learning experiment runs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
@@ -49,7 +49,10 @@ To create and work with datasets, you need:
     * Work on your own Jupyter notebook and [install the SDK yourself](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7). If you are using unsupported distros, please follow [this guide](/dotnet/core/install/linux) to install .NET Core 2.1 to proceed. 
+> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. If you are developing on __Linux__, these classes rely on .NET Core 2.1, and are only supported on specific distributions. For more information on the supported distros, see the .NET Core 2.1 column in the [Install .NET on Linux](/dotnet/core/install/linux) article.
+
+> [!IMPORTANT]
+> While the package may work on older versions of Linux distros, we do not recommend using a distro that is out of mainstream support. Distros that are out of mainstream support may have security vulnerabilities, as they do not receive the latest updates. We recommend using the latest supported version of your distro that is compatible with .
 
 ## Compute size guidance
 
@@ -220,7 +223,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-**Labeled datasets** created from [data labeling projects](how-to-create-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
+**Labeled datasets** created from [image labeling projects](how-to-create-image-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
 
 ```python
 # Dataset that only contains records where the label column value is dog

@@ -27,13 +27,13 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime.
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade a non Availability Zone (AZ) gateway to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime. You do not need to delete and recreate the gateway to upgrade an AZ-enabled SKU.
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 The following table shows the features supported across each gateway type.
 
 |**Gateway SKU**|**VPN Gateway and ExpressRoute coexistence**|**FastPath**|**Max Number of Circuit Connections**|
 | --- | --- | --- | --- |
-|**Standard SKU/ERGw1Az**|No|No|4|
+|**Standard SKU/ERGw1Az**|Yes|No|4|
 |**High Perf SKU/ERGw2Az**|Yes|No|8
 |**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
 
@@ -41,17 +41,17 @@ The following table shows the features supported across each gateway type.
 The following table shows the gateway types and the estimated performance scale numbers. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates the testing conditions.
 
 ### Testing conditions
-##### **Standard** #####
+##### **Standard/ERGw1Az** #####
 
 - Circuit bandwidth: 1Gbps
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 4,000
-##### **High Performance** #####
+##### **High Performance/ERGw2Az** #####
 
 - Circuit bandwidth: 1Gbps
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
-##### **Ultra Performance** #####
+##### **Ultra Performance/ErGw3Az** #####
 
 - Circuit bandwidth: 1Gbps
 - Number of routes advertises by the Gateway: 500
@@ -61,9 +61,10 @@ The following table shows the gateway types and the estimated performance scale 
  
 |**Gateway SKU**|**Connections per second**|**Mega-Bits per second**|**Packets per second**|**Supported number of VMs in the Virtual Network**|
 | --- | --- | --- | --- | --- |
-|**Standard**|7,000|1,000|100,000|2,000|
-|**High Performance**|14,000|2,000|250,000|4,500|
-|**Ultra Performance**|16,000|10,000|1,000,000|11,000|
+|**Standard/ERGw1Az**|7,000|1,000|100,000|2,000|
+|**High Performance/ERGw2Az**|14,000|2,000|250,000|4,500|
+|**Ultra Performance/ErGw3Az**|16,000|10,000|1,000,000|11,000|
+
 > [!IMPORTANT]
 > Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
 

@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/12/2021
+ms.date: 07/22/2021
 ---
 
 # Overview of Azure Monitor agents
@@ -27,7 +27,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
 | **Agent requirements**  | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
 | **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
 ### Linux agents
@@ -37,9 +37,10 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
 | **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
+<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
 
 ## Azure Monitor agent
 
@@ -47,9 +48,9 @@ The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace t
 
 Use the Azure Monitor agent if you need to:
 
-- Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
+- Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
 - Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall
-- Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
+- Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
 - Leverage Windows event filtering or multi-homing for logs on Windows and Linux
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
@@ -59,8 +60,8 @@ Use the Azure Monitor agent if you need to:
 - Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application. */
 -->
 Limitations of the Azure Monitor Agent include:
-- Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](../faq.yml#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent-)).
-- No support yet for networking scenarios involving private links or direct proxies (Log Analytics/OMS gateway). 
+- Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](./azure-monitor-agent-overview.md#supported-services-and-features)).
+- No support yet for networking scenarios involving private links. 
 - No support yet collecting custom logs (files) or IIS log files. 
 - No support yet for Event Hubs and Storage accounts as destinations.
 - No support for Hybrid Runbook workers.
@@ -124,12 +125,13 @@ Consider the following when using the Dependency agent:
 
 - The Dependency agent requires the Log Analytics agent to be installed on the same machine.
 - On Linux computers, the Log Analytics agent must be installed before the Azure Diagnostic Extension.
+- On both the Windows and Linux versions of the Dependency Agent, data collection is done using a user-space service and a kernel driver. 
 
 ## Virtual machine extensions
 
 The [Azure Monitor agent](./azure-monitor-agent-install.md#virtual-machine-extension-details) is only available as a virtual machine extension. The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
 
-On hybrid machines, use [Azure Arc enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics and Azure Monitor Dependency VM extensions.
+On hybrid machines, use [Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md) to deploy the Azure Monitor agent, Log Analytics and Azure Monitor Dependency VM extensions.
 
 ## Supported operating systems
 
@@ -139,6 +141,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 | Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
+| Windows Server 2022                                      | X |   |   |   |
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
@@ -148,15 +151,19 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X | X |
 | Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | X |
-| Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | X | X |   |
-| Windows 7 SP1<br>(Server scenarios only)                 |   | X | X |   |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | X |
+| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X | X |   |
+| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                 |   | X | X |   |
+| Azure Stack HCI                                          |   | X |   |   |
+
+<sup>1</sup> Running the OS on server hardware, i.e. machines that are always connected, always turned on, and not running other workloads (PC, office, browser, etc.)
 
 ### Linux
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
+| Amazon Linux 2                                              |   | X |   |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
@@ -170,7 +177,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.3                         | X <sup>3</sup> | X | X |   |
+| Red Hat Enterprise Linux Server 8.2, 8.3, 8.4               | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
@@ -181,7 +188,7 @@ The following tables list the operating systems that are supported by the Azure 
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS                                            | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X | X |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |

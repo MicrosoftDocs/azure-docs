@@ -10,7 +10,7 @@ ms.date: 01/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure Active Directory (Azure AD) joined devices for managed domains so I can automatically create and manage device identities in Azure AD for my Active Directory domain-joined computers

@@ -24,10 +24,6 @@ This release of Azure Database for MySQL - Single Server includes the following 
 
   Users can now change the value of the activate_all_roles_on_login parameter using the Azure portal and CLI. This parameter helps to configure whether to enable automatic activation of all granted roles when users sign in to the server. For more information, see  [Server System Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html).
 
-- **Enabled the parameter `redirect_enabled` by default**
-
-  With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](howto-redirection.md).
-
 - **Addressed MySQL Community Bugs #29596969 and #94668**
 
   This release addresses an issue with the default expression being ignored in a CREATE TABLE query if the field was marked as PRIMARY KEY for MySQL 8.0. (MySQL Community Bug #29596969, Bug #94668). For more information, see [MySQL Bugs: #94668: Expression Default is made NULL during CREATE TABLE query, if field is made PK](https://bugs.mysql.com/bug.php?id=94668)
@@ -47,6 +43,17 @@ This release of Azure Database for MySQL - Single Server includes the following 
 - **General Availability of planned maintenance notification**
 
   This release provides General Availability of planned maintenance notifications in Azure Database for MySQL - Single Server. For more information, see the article [Planned maintenance notification](concepts-planned-maintenance-notification.md).
+
+- **Enabled the parameter `redirect_enabled` by default**
+
+  With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](howto-redirection.md).
+
+>[!Note]
+> * Redirection does not work with Private link setup. If you are using Private link for Azure Database for MySQL, you might encounter connection issue. To resolve the issue, make sure the parameter redirect_enabled is set to “OFF” and the client application is restarted.</br>
+> * If you have a PHP application that uses the mysqlnd_azure redirection driver to connect to Azure Database for MySQL (with redirection enabled by default), you might face a data encoding issue that impacts your insert transactions..</br>
+> To resolve this issue, either:
+>    - In Azure portal, disable the redirection by setting the redirect_enabled parameter to “OFF”, and restart the PHP application to clear the driver cache after the change.
+>     - Explicitly set the charset related parameters at the session level, based on your settings after the connection is established (for example “set names utf8mb4”).
 
 ## February 2021
 

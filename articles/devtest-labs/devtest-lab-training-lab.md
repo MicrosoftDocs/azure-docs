@@ -1,7 +1,7 @@
 ---
-title: Use Azure DevTest Labs for training | Microsoft Docs
+title: Use Azure DevTest Labs for training
 description: This article provides detailed steps that you can follow to set up a lab for training in Azure DevTest Labs.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
 ---
 

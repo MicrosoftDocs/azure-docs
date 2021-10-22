@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/02/2020
+ms.date: 04/28/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -130,7 +130,7 @@ In the directory where you created your project, create a new .json file called 
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-parse-models.md).
+> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [Parse and validate models](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -149,7 +149,7 @@ Next comes the first bit of code that interacts with the Azure Digital Twins ser
 
 Paste in the following code under the authorization code you added earlier.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs" id="ClientExcerptModel":::
 
 In your command window, run the program with this command: 
 
@@ -248,6 +248,8 @@ Then, add the following code to the end of the `Main` method:
 
 In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ## Complete code example
 
 At this point in the tutorial, you have a complete client app that can perform basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
@@ -273,4 +275,4 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md)
+> [Explore the basics with a sample client app](tutorial-command-line-app.md)

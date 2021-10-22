@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Deploy the Azure Sentinel SAP data connector on-premises
+# Expert configuration options, on-premises deployment, and SAPControl log sources
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
@@ -26,7 +26,7 @@ This article describes how to deploy the Azure Sentinel SAP data connector in an
 
 The basic prerequisites for deploying your Azure Sentinel SAP data connector are the same regardless of your deployment method.
 
-Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment tutorial](sap-deploy-solution.md#prerequisites) before you start.
+Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment procedure](sap-deploy-solution.md#prerequisites) before you start.
 
 For more information, see [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
 
@@ -253,7 +253,7 @@ x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
 instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
 abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
-abaptz = <SET_ABAP_TZ for example GMT-3>
+abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
 
 [File Extraction JAVA]
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
@@ -265,7 +265,7 @@ javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
 javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
 javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
-javatz = <SET_JAVA_TZ for example GMT-3>
+javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
 ### Define the SAP logs that are sent to Azure Sentinel
@@ -343,7 +343,7 @@ To ingest all ABAP logs into Azure Sentinel, including both NW RFC and SAP Contr
 
 To ingest SAP Control Web Service logs into Azure Sentinel, configure the following JAVA SAP Control instance details:
 
-|Paramter  |Description  |
+|Parameter  |Description  |
 |---------|---------|
 |**javaappserver**     |Enter your SAP Control Java server host. <br>For example: `contoso-java.server.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
@@ -358,6 +358,8 @@ For more information, see [Deploy the SAP solution](sap-deploy-solution.md#deplo
 
 For more information, see:
 
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

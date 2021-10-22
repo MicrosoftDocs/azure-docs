@@ -2,11 +2,11 @@
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
 
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Tutorial: Create and publish a product  
@@ -159,7 +159,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 ---
 
 > [!TIP]
-> You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) or PowerShell command.
+> You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/2020-12-01/subscription/create-or-update) or PowerShell command.
 
 ## Next steps
 
