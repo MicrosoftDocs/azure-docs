@@ -94,11 +94,11 @@ The IoT Hub device provisioning service provides samples that simulate a TPM and
 
 Simulated TPM samples:
 
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
+* [C](../iot-dps/quick-create-simulated-device-tpm.md)
+* [Java](../iot-dps/quick-create-simulated-device-tpm.md)
+* [C#](../iot-dps/quick-create-simulated-device-tpm.md)
+* [Node.js](../iot-dps/quick-create-simulated-device-tpm.md)
+* [Python](../iot-dps/quick-create-simulated-device-tpm.md)
 
 ---
 
