@@ -368,18 +368,20 @@ Use the following CLI command to view logs on the command line.
 ```azurecli
 az monitor log-analytics query \
   -w $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'nodeapp' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
   -o table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
 
 ```console
-ContainerAppName_s      Log_s                                                       TableName      TimeGenerated
--------------  ----------------------------------------------------------  -------------  ------------------------
-nodeapp-igsvt3p  INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
-nodeapp-ad07o77  INFO:     127.0.0.1:51410 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:42.084Z
-nodeapp-ad07o77  INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:34:26.564Z
+ContainerAppName_s    Log_s                            TableName      TimeGenerated
+--------------------  -------------------------------  -------------  ------------------------
+nodeapp               Got a new order! Order ID: 61    PrimaryResult  2021-10-22T21:31:46.184Z
+nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22T21:31:46.184Z
+nodeapp               Got a new order! Order ID: 62    PrimaryResult  2021-10-22T22:01:57.174Z
+nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22T22:01:57.174Z
+nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22T22:45:44.618Z
 ```
 
 
