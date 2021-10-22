@@ -36,6 +36,7 @@ The tutorial continues to use the following environment variables. Make sure you
 
 ```azurecli-interactive
     groupName=myKVResourceGroup
+    region=westeurope
     csResourceName=<cs-resource-name>
     appName=<app-name>
     vaultName=<vault-name>
@@ -50,7 +51,7 @@ The tutorial continues to use the following environment variables. Make sure you
     # Save vnet name as variable for convenience
     vnetName=<virtual-network-name>
 
-    az network vnet create --resource-group $groupName --location westeurope --name $vnetName --address-prefixes 10.0.0.0/16
+    az network vnet create --resource-group $groupName --location $region --name $vnetName --address-prefixes 10.0.0.0/16
     ```
 
 1. Create a subnet for the App Service VNet integration.
@@ -94,7 +95,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. In the private endpoint subnet of your VNet, create a private endpoint for your key vault.
 
     ```azurecli-interactive
-    az network private-endpoint create --resource-group $groupName --name securekeyvault-pe --location westeurope --connection-name securekeyvault-pc --private-connection-resource-id $vaultResourceId --group-id vault --vnet-name $vnetName --subnet private-endpoint-subnet
+    az network private-endpoint create --resource-group $groupName --name securekeyvault-pe --location $region --connection-name securekeyvault-pc --private-connection-resource-id $vaultResourceId --group-id vault --vnet-name $vnetName --subnet private-endpoint-subnet
     ```
 
     > [!TIP]
@@ -119,21 +120,24 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
     csResourceId=$(az cognitiveservices account show --resource-group $groupName --name $csResourceName --query id --output tsv)
 
     # Create private endpoint for Cognitive Services resource
-    az network private-endpoint create --resource-group $groupName --name securecstext-pe --location westeurope --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
+    az network private-endpoint create --resource-group $groupName --name securecstext-pe --location $region --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
     # Create DNS zone group for the endpoint
     az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securecstext-pe --name securecstext-zg --private-dns-zone privatelink.cognitiveservices.azure.com --zone-name privatelink.cognitiveservices.azure.com
     # Block public traffic to the endpoint
     az rest --uri $csResourceId?api-version=2017-04-18 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
     ```
 
-Now, all traffic to the key vault and the Cognitive Services resource is blocked. These two endpoints are only accessible to clients inside the VNet you created. You can't even access Key Vault secrets through the Azure portal, because the portal accesses them through the public internet (see [Manage the locked down resources](#manage-the-locked-down-resources)).
+    > [!TIP]
+    > `$csResourceName` is set in the [prerequisite](#prerequisites) tutorial (in [Create app with connectivity to Cognitive Services](tutorial-connect-msi-keyvault.md#create-app-with-connectivity-to-Cognitive-Services)).
+
+Now, all traffic to the key vault and the Cognitive Services resource is blocked. If you try out the language detection page now, you'll get an HTTP 500 error. These two endpoints are only accessible to clients inside the VNet you created. You can't even access Key Vault secrets through the Azure portal, because the portal accesses them through the public internet (see [Manage the locked down resources](#manage-the-locked-down-resources)).
 
 ## Configure VNet integration in your app
 
 1. Scale the app up to **Standard** tier. VNet integration requires **Standard** tier or above (see [Integrate your app with an Azure virtual network](overview-vnet-integration.md)).
 
     ```azurecli-interactive
-    az appservice plan update --name MyAppServicePlan --resource-group $groupName --sku S1
+    az appservice plan update --name $appName --resource-group $groupName --sku S1
     ```
 
 1. Unrelated to our scenario but also very important, enforce HTTPS for inbound requests.
@@ -149,6 +153,8 @@ Now, all traffic to the key vault and the Cognitive Services resource is blocked
     ```
     
     VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, set the [`WEBSITE_VNET_ROUTE_ALL` app setting](reference-app-settings.md#networking). Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
+
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the app to restart. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references.
 
 ## Manage the locked down resources
 

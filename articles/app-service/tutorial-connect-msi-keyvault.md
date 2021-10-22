@@ -43,8 +43,9 @@ Prepare your environment for the Azure CLI.
     ```azurecli-interactive
     # Save resource group name as variable for convenience
     groupName=myKVResourceGroup
+    region=westeurope
 
-    az group create --name $groupName --location westeurope
+    az group create --name $groupName --location $region
     ```
 
 1. Create a Cognitive Services resource and get the subscription key (saved in the `csKey1` variable). Replace *\<cs-resource-name>* with a unique name of your choice.
@@ -53,7 +54,7 @@ Prepare your environment for the Azure CLI.
     # Save resource name as variable for convenience. 
     csResourceName=<cs-resource-name>
 
-    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location westeurope --kind TextAnalytics --sku F0 --custom-domain $csResourceName
+    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location $region --kind TextAnalytics --sku F0 --custom-domain $csResourceName
     csKey1=$(az cognitiveservices account keys list --resource-group $groupName --name $csResourceName --query key1 --output tsv)
     ```
 
@@ -66,10 +67,10 @@ Prepare your environment for the Azure CLI.
     appName=<app-name>
 
     # Clone sample application
-    git clone git clone https://github.com/Azure-Samples/app-service-language-detector.git
+    git clone https://github.com/Azure-Samples/app-service-language-detector.git
     cd app-service-language-detector/dotnet
     
-    az webapp up --sku F1 --resource-group myResourceGroup --name <app-name> --os-type <os>
+    az webapp up --sku F1 --resource-group $groupName --name $appName --location $region
     ```
 
     ### [PHP](#tab/php)
@@ -83,8 +84,8 @@ Prepare your environment for the Azure CLI.
     # Save app name as variable for convenience
     appName=<app-name>
 
-    az appservice plan create --resource-group $groupName --name myKVPlan --sku FREE
-    az webapp create --resource-group $groupName --plan myKVPlan --name $appName
+    az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region
+    az webapp create --resource-group $groupName --plan $appName --name $appName
     az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
     ```
 
@@ -96,7 +97,7 @@ Prepare your environment for the Azure CLI.
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="$csResourceName" CS_ACCOUNT_KEY="$csKey1"
     ````
 
-1. In the browser, navigate to your deploy app at `<app-name>.azurewebsites.net` to try the language detector with strings in various languages.
+1. In the browser, navigate to your deploy app at `<app-name>.azurewebsites.net` and try out the language detector with strings in various languages.
 
     ![Deployed language detector app in App Service](./media/tutorial-connect-msi-keyvault/deployed-app.png)
 
@@ -112,7 +113,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     # Save app name as variable for convenience
     vaultName=<vault-name>
 
-    az keyvault create --resource-group $groupName --name $vaultName --location westeurope --sku standard --enable-rbac-authorization
+    az keyvault create --resource-group $groupName --name $vaultName --location $region --sku standard --enable-rbac-authorization
     ```
 
     The `--enable-rbac-authorization` parameter [sets Azure role-based access control (RBAC) as the permission model](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault). This setting by default invalidates all access policies permissions.
@@ -122,7 +123,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     ```azurecli-interactive
     vaultResourceId=$(az keyvault show --name $vaultName --query id --output tsv)
     myId=$(az ad signed-in-user show --query objectId --output tsv)
-    az role assignment create --role "Key Vault Secrets Officer" --assignee-object-id $myId --scope $vaultResourceId
+    az role assignment create --role "Key Vault Secrets Officer" --assignee-object-id $myId --assignee-principal-type User --scope $vaultResourceId
     ```
 
 1. Enable the system-assigned managed identity for your app, and give it the *Key Vault Secrets User* RBAC role for the vault.
