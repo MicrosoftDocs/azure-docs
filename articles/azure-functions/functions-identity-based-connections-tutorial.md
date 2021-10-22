@@ -14,7 +14,7 @@ This tutorial shows you how to configure a function app using Azure Active Direc
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
-In Part 1, you'll learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a function app in Azure using an ARM template
 > * Enable both system-assigned and user-assigned managed identities on the function app
