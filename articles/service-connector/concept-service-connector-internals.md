@@ -78,5 +78,5 @@ The following items will be checked while validating the connection:
 * Validate connection information on source resource
 * Validate authentication information on source and target if needed
 
-## Delete Connection
+## Delete connection
 The connection information on source resource will be deleted when deleting connection. 
