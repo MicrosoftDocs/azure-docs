@@ -112,7 +112,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-Terraform state file storage account name
+Sets the Terraform state file's storage account name.
 
 ```yaml
 Type: String
