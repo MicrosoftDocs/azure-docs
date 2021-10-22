@@ -149,7 +149,7 @@ di = (DescribeImage()
 display(di.transform(df))
 ```
 ### Expected result
-![expected output for describe image](./media/tutorial-computer-vision-use-mmlspark/describe-image-output.png)
+![Screenshot of the expected output of the description of the image of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/describe-image-output.png)
 
 ## Recognize domain-specific content
 Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities.
