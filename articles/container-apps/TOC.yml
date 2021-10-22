@@ -17,24 +17,24 @@
       href: containers.md
     - name: Revisions
       href: revisions.md
-    - name: Microservices
-      href: microservices.md
-    - name: Application lifecycle management
-      href: application-lifecycle-management.md
     - name: Networking
       href: networking.md
+    - name: Application lifecycle management
+      href: application-lifecycle-management.md
+    - name: Microservices
+      href: microservices.md
 - name: How-to guides
   items:
-    - name: Set up HTTPS ingress
-      href: ingress.md
-    - name: Secure an app
-      href: secure-app.md
     - name: Scale an app
       href: scale-app.md
+    - name: Secure an app
+      href: secure-app.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
       href: revisions-manage.md
+    - name: Set up HTTPS ingress
+      href: ingress.md
     - name: Connect multiple apps
       href: connect-apps.md
 - name: Tutorials
