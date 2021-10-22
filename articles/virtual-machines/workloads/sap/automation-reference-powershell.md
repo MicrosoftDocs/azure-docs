@@ -24,7 +24,7 @@ Remove the control plane using the [`Remove-SAPAutomationRegion` PowerShell comm
 
 ## Workload Zone operations
 
-You can deploy or update the workload zone using the [New-SAPWorkloadZone](module/automation-new-sapworkloadzone.md) PowerShell command.
+Deploy or update the workload zone using the [`New-SAPWorkloadZone` PowerShell command](module/automation-new-sapworkloadzone.md).
 
 Remove the workload zone using the [`Remove-SAPSystem` PowerShell command](module/automation-remove-sapsystem.md).
 
