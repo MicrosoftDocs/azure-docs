@@ -43,7 +43,7 @@ details.
 ||[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| No| No| Yes|
 
-[\*] Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scan. For some cases this field may not persist in the database, hence a full scan will be performed. Please check the [doc](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for details. 
+\* Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL. 
 
 > [!NOTE]
 > Currently, Purview can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan).
