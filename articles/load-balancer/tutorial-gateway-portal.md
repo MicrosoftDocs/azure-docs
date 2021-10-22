@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/01/2021
+ms.date: 11/02/2021
 ms.custom: template-tutorial
 ---
 
@@ -197,7 +197,7 @@ Use the following example to create a network security group. You'll configure t
 
 Select this NSG when creating the NVAs for your deployment.
 
-## Create gateway load balancer
+## Create Gateway Load Balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer. 
 
@@ -275,7 +275,8 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 19. Select **Create**.
 
-Add NVAs to the backend of the Gateway Load Balancer through the Azure Martketplace.
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool by navigating to the Backend pools tab of your Gateway Load Balancer.
 
 ## Chain load balancer frontend to gateway load balancer
 
