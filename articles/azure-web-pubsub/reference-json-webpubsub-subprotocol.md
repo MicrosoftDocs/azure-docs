@@ -78,17 +78,18 @@ Format:
     "type": "sendToGroup",
     "group": "<group_name>",
     "ackId" : 1,
+    "noEcho": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
 * `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](concept-client-protocols#ackid-and-ack-response)
-
-`dataType` can be one of `json`, `text`, or `binary`:
-* `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
-* `text`: `data` should be in string format, and the string data will be published;
-* `binary`: `data` should be in base64 format, and the binary data will be published;
+* `noEcho` is optional. If set to true, this message is not echoed back to the same connection. If not set, the default value is false.
+* `dataType` can be one of `json`, `text`, or `binary`:
+     * `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
+     * `text`: `data` should be in string format, and the string data will be published;
+     * `binary`: `data` should be in base64 format, and the binary data will be published;
 
 #### Case 1: publish text data:
 ```json
@@ -330,6 +331,7 @@ Clients can receive messages published from one group the client joined, or from
         "group": "<group_name>",
         "dataType": "json|text|binary",
         "data" : {} // The data format is based on the dataType
+        "fromUserId": "abc"
     }
     ```
 

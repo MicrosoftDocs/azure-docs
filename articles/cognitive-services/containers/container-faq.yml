@@ -56,6 +56,10 @@ sections:
           Major version changes indicate that there is a breaking change to the API signature. We anticipate that this will generally coincide with major version changes to the corresponding Cognitive Service cloud offering. Minor version changes indicate bug fixes, model updates, or new features that do not make a breaking change to the API signature.
   - name: Technical questions
     questions:
+      - question: How can I diagnose potential errors in my deployment environment?
+        answer: |
+          [!INCLUDE [Containers next steps](includes/diagnostics-container.md)]
+
       - question: How should I run the Cognitive Services containers on IoT devices?
         answer: |
           Whether you don't have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
@@ -93,8 +97,8 @@ sections:
           Customers are charged based on consumption, similar to the Cognitive Services cloud. The containers need to be configured to send metering data to Azure, and transactions will be billed accordingly. Resources used across the hosted and on-premises services will add to single quota with tiered pricing, counting against both usages. For more detail, refer to pricing page of the corresponding offering.
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)
-          * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#billing)
-          * [Face](../face/face-how-to-install-containers.md#billing)
+          * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md) 
+          * [Face](../face/overview.md)
           * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)
           * [Speech Service API](../speech-service/speech-container-howto.md#billing)
@@ -136,8 +140,8 @@ sections:
           Cognitive Services containers are x64 based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker Containers. They all require CPU processors. The minimum and recommended configurations for each container offering are available below:
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations)
-          * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations)
-          * [Face](../face/face-how-to-install-containers.md#container-requirements-and-recommendations)
+          * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md)
+          * [Face](../face/overview.md)
           * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)

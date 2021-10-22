@@ -1,11 +1,11 @@
 ---
-title: Azure Active Directory B2C integrate with app samples | Microsoft Docs
+title: Azure Active Directory B2C integrate with app samples  
 description: Code samples for integrating Azure AD B2C to mobile, desktop, web, and single-page applications.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
-ms.author: mimart
+ms.author: kengaderdus
 ms.date: 10/02/2020
 ms.custom: mvc
 ms.topic: sample
