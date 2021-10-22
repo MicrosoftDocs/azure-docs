@@ -55,7 +55,7 @@ Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPSystem -Parameterfile .\DEV-WEEU-SAP00-X00.tfvars -Type sap_system -DeployerStateFileKeyName MGMT-WEEU-DEP00-INFRASTRUCTURE.terraform.tfstate -LandscapeStateFileKeyName DEV-WEEU-SAP01-INFRASTRUCTURE.terraform.tfstate
 ```
 
-### EXAMPLE 3
+### Example 3
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPSystem -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -Type sap_library
@@ -140,7 +140,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
-{{ Fill Force Description }}
+Cleans up your local configuration.
 
 ```yaml
 Type: SwitchParameter
