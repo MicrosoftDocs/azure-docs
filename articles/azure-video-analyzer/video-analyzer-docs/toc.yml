@@ -149,7 +149,7 @@
       href: edge/camera-discovery.md      
     - name: Use Visual Studio Code extension
       href: edge/use-visual-studio-code-extension.md
-    - name: Monitor and logging
+    - name: Monitor and log
       href: edge/monitor-log-edge.md 
     - name: Troubleshoot
       href: edge/troubleshoot.md      
@@ -159,7 +159,7 @@
       href: cloud/connect-devices.md
     - name: Connect camera via remote device adapter
       href: cloud/use-remote-device-adapter.md
-    - name: Monitor  
+    - name: Monitor and log
       href: cloud/monitor-log-cloud.md     
     - name: Troubleshoot      
       href: cloud/troubleshoot.md     
