@@ -35,7 +35,7 @@ Check that idmapping is disabled and nothing is re-enabling it, then perform the
 - Unmount the share
 - Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
 - Mount the share back
-- If running rsync, run rsync with "—numeric-ids" argument from directory which do not have any bad dir/file name.
+- If running rsync, run rsync with the "—numeric-ids" argument from a directory that does not have a bad dir/file name.
 
 ## Unable to create an NFS share
 
@@ -155,11 +155,11 @@ Verify that port 2049 is open on your client by running the following command: `
 ## ls hangs for large directory enumeration on some kernels
 
 ### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
-Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequences. Very small directories where all entries can be shipped in one call will not have the problem.
+Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call will not have the problem.
 The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
 
 #### Workaround: Downgrading or upgrading the kernel
-Downgrading or upgrading the kernel to anytyhing outside the affected kernel will resolve the issue
+Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
