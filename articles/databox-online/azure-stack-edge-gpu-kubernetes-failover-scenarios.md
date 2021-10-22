@@ -56,6 +56,10 @@ Azure Stack Edge node failures or reboots
 
 Azure Stack Edge node updates
 
+| Update type |Responses              |
+|-------------|-----------------------|
+| Device node update  | Rolling updates are applied to device nodes and the nodes will reboot.  |
+| Kubernetes service update  | Kubernetes service update includes a failover of the Kubernetes master VM from device node A to device node B, a Kubernetes master update, and Kubernetes worker node updates (not necessarily in that order). The entire update process could take 30 minutes or more, and during this window the Kubernetes cluster is available for any management operations (like deploying a new workload). Although pods will be drained from the device node while it is being updated, workloads may be offline for several seconds during this process |
 
 
 ## Next steps
