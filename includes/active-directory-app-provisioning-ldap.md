@@ -207,7 +207,43 @@ Now that we have configured the certificate and granted the network service acco
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Please note that attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
 
+## Ensure ECMA2Host service is running
+ 1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
+ 2. Enter **run** and enter **services.msc** in the box.
+ 3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
+     ![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)
 
+
+
+## Test the application connection
+ 1. Sign in to the Azure portal.
+ 2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
+ 3. Go to **Edit Provisioning**.
+ 4. After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
+
+ |Property|Value|
+ |-----|-----|
+ |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
+ 
+ 5. Enter the **Secret Token** value that you defined when you created the connector.
+ 6. Select **Test Connection**, and wait one minute.
+     ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-ldap\test-1.png)
+ 7. After the connection test is successful, select **Save**.</br>
+     ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
+## Assign users to an application
+Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you can move on to configuring who's in scope for provisioning. 
+
+ 1. In the Azure portal, select **Enterprise applications**.
+ 2. Select the **On-premises provisioning** application.
+ 3. On the left, under **Manage**, select **Users and groups**.
+ 4. Select **Add user/group**.
+     ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
+5. Under **Users**, select **None Selected**.
+     ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
+ 6. Select users from the right and select the **Select** button.</br>
+     ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
+ 7. Now select **Assign**.
+     ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
 
 
 
