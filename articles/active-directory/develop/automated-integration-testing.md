@@ -19,6 +19,10 @@ ms.custom: aaddev
 
 # Run automated integration tests
 
+As a developer...
+
+Set up your client for use across all your test classes.  
+
 ```csharp
     public class ClientFixture : IAsyncLifetime
     {
@@ -55,4 +59,26 @@ ms.custom: aaddev
     }
 ```
 
+Use in your test classes.
 
+```csharp
+    public class ApiTests : IClassFixture<ClientFixture>
+    {
+        ClientFixture clientFixture;
+
+        public ApiTests(ClientFixture clientFixture)
+        {
+            this.clientFixture = clientFixture;
+        }
+
+
+        [Fact]
+        public async Task GetRequestTest()
+        {
+            var testClient = clientFixture.httpClient;
+            HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
+            var responseCode = response.StatusCode.ToString();
+            Assert.Equal("OK", responseCode);
+        }
+    }
+```
