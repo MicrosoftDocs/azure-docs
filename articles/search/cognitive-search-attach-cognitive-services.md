@@ -32,7 +32,7 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 
 1. If adding the key to a new or existing skillset, provide the key in the **Cognitive Services** tab.
 
-   :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="Screenshot of the key page" border="true:::
+   :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="Screenshot of the key page" border="true":::
 
 ## [**REST**](#tab/cogkey-rest)
 
