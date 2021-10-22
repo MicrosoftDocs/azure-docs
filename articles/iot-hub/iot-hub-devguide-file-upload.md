@@ -139,7 +139,7 @@ When it receives the response, the device:
 
 * Saves the correlation ID to include in the file upload complete notification to IoT hub when it completes the upload.
 
-* Uses the other properties to construct a SAS URI for the blob that it uses to authenticate with Azure storage. The SAS URI contains the resource URI for the requested blob and the SAS token. It takes following form: `https://{hostMane}/{containerName}/{blobName}{sasToken}` (The `sasToken` property in the response contains a leading '?' character.) The braces aren't included.
+* Uses the other properties to construct a SAS URI for the blob that it uses to authenticate with Azure storage. The SAS URI contains the resource URI for the requested blob and the SAS token. It takes following form: `https://{hostName}/{containerName}/{blobName}{sasToken}` (The `sasToken` property in the response contains a leading '?' character.) The braces aren't included.
 
     For example, for the values returned in the sample above, the SAS URI is, `https://contosostorageaccount.blob.core.windows.net/device-upload-container/mydevice/myfile.txt?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw`
 
