@@ -202,7 +202,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-Yes. For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
+Yes. For more information, see [Set up autoscale for microservice applications](./how-to-setup-autoscale.md).
 
 ### How does Azure Spring Cloud monitor the healthy status of my application?
 
