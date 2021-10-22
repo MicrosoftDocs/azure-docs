@@ -383,7 +383,7 @@ New-ADObject -Name "CloudUsers" -Type "container" -Path "CN=App,DC=contoso,DC=la
 Write-Output "Creating CloudUsers container"
 
 # Create a new service account
-New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsPlainText "abc123*2k" -Force) -Displayname "LDAP Service Account" -server 'APP3:389' -path "CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
+New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsPlainText 'Pa$$1Word' -Force) -Displayname "LDAP Service Account" -server 'APP3:389' -path "CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
 Write-Output "Creating service account"
 
 # Enable the new service account
