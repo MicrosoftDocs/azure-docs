@@ -33,7 +33,7 @@ Remove the workload zone using the [`Remove-SAPSystem` PowerShell command](modul
 
 Deploy or update the SAP system using the [`New-SAPSystem` PowerShell command](module/automation-new-sapsystem.md).
 
-You can remove the SAP system using the [Remove-SAPSystem](module/automation-remove-sapsystem.md) PowerShell command.
+Remove the SAP system using the [`Remove-SAPSystem` PowerShell command](module/automation-remove-sapsystem.md).
 
 
 ## Next steps
