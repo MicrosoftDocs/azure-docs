@@ -35,7 +35,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 The template doesn't support multiple Azure Machine Learning workspaces deployed in the same VNet. This is because the template creates new DNS zones during deployment.
 
-If you want to create a template that deploys multiple workspaces in the same VNet, set this up manually (using the Azure Portal or CLI) and then [use the Azure portal to generate a template](/azure/azure-resource-manager/templates/export-template-portal).
+If you want to create a template that deploys multiple workspaces in the same VNet, set this up manually (using the Azure Portal or CLI) and then [use the Azure portal to generate a template](../azure-resource-manager/templates/export-template-portal.md).
 
 ## Workspace Resource Manager template
 
