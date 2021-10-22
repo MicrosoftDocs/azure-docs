@@ -1,5 +1,6 @@
 ---
 title:  "How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)"
+titleSuffix: Azure Spring Cloud
 description: How to use the AppDynamics Java agent to monitor Spring Boot applications running in Azure Spring Cloud.
 author:  KarlErickson
 ms.author: jiec
@@ -37,7 +38,7 @@ For the whole workflow, you need to:
 * Activate the AppDynamics Java in-process agent in Azure Spring Cloud to generate application metrics data.
 * Connect the AppDynamics Agent to the AppDynamics Controller to collect and visualize the data in the controller.
 
-![Diagram showing a Spring Boot application in 'Azure Spring Cloud' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box](media/how-to-appdynamics-java-agent-monitor/appdynamics_activation.jpg)
+![Diagram showing a Spring Boot application in 'Azure Spring Cloud' box with a two-directional arrow connecting it to an 'AppDynamics Agent' box, which also has an arrow pointing to an 'AppDynamics Controller' box](media/how-to-appdynamics-java-agent-monitor/appdynamics-activation.jpg)
 
 ### Activate an application with the AppDynamics Agent using the Azure CLI
 
@@ -84,19 +85,19 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Select **Apps** from the **Settings** section of the left navigation pane.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app_list.png" alt-text="Azure portal screenshot showing the Apps section" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app_list.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png" alt-text="Azure portal screenshot showing the Apps section" lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-list.png":::
 
 1. Select the application to navigate to the **Overview** page.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-overview.png" alt-text="Azure portal screenshot the app's Overview page" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-overview.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png" alt-text="Azure portal screenshot the app's Overview page" lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-overview.png":::
 
 1. Select **Configuration** in the left navigation pane to add, update, or delete the environment variables of the application.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-env.png" alt-text="Azure portal screenshot showing the 'Environment variables' section of the app's Configuration page " lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-env.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Azure portal screenshot showing the 'Environment variables' section of the app's Configuration page " lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
 
 1. Select **General settings** to add, update, or delete the JVM options of the application.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png" alt-text="Azure portal screenshot showing the 'General settings' section of the app's Configuration page, with 'JVM options' highlighted" lightbox="media/how-to-appdynamics-java-agent-monitor/azure_spring_cloud-app-configuration-general.png":::
+   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png" alt-text="Azure portal screenshot showing the 'General settings' section of the app's Configuration page, with 'JVM options' highlighted" lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-general.png":::
 
 ## Automate provisioning
 

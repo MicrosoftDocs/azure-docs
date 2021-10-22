@@ -22,7 +22,7 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
 The following list shows the resource requirements for Azure Spring Cloud services. As a general requirement, you shouldn't modify resource groups created by Azure Spring Cloud and the underlying network resources.
 
 - Don't modify resource groups created and owned by Azure Spring Cloud.
-  - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
+  - By default, these resource groups are named as `ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]*` and `ap_[SERVICE-INSTANCE-NAME]_[REGION]*`.
   - Don't block Azure Spring Cloud from updating resources in these resource groups.
 - Don't modify subnets used by Azure Spring Cloud.
 - Don't create more than one Azure Spring Cloud service instance in the same subnet.
