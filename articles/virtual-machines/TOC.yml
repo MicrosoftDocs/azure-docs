@@ -1366,31 +1366,31 @@
   - name: Create VM - static public IP
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Add public IP address to existing VM
-      href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/associate-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Dissociate public IP address from a VM
-      href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/remove-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Create VM - static private IP
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure CLI
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Add or remove network interfaces
       href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
     - name: Create VM - multiple NICs
@@ -1435,7 +1435,7 @@
       displayName: port nsg network security group
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
-    href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Use a custom domain name
     href: custom-domain.md
   - name: Use multiple NICs
@@ -1518,10 +1518,10 @@
         href: ../bastion/create-host-cli.md
       - name: Bastion SSH connection
         displayName: Create a Bastion host, SSH, connect
-        href: ../bastion/bastion-connect-vm-ssh.md
+        href: ../bastion/bastion-connect-vm-ssh-linux.md
       - name: Bastion RDP connection
         displayName: Create a Bastion host, connect, remote desktop, rdp
-        href: ../bastion/bastion-connect-vm-rdp.md
+        href: ../bastion/bastion-connect-vm-rdp-windows.md
     - name: Use access controls
       href: ../role-based-access-control/overview.md
     - name: Create a Key Vault
@@ -1684,7 +1684,7 @@
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: /azure/azure-monitor/faq#agents
+      href: ../azure-monitor/faq.yml
     - name: Azure Diagnostics extension
       items:
       - name: Overview
