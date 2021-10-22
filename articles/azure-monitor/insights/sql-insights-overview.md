@@ -121,4 +121,4 @@ The tables have the following columns:
 
 ## Next steps
 
-- For frequently asked questions about SQL insights, see [Frequently asked questions](/azure/azure-monitor/faq#sql-insights-preview).
+- For frequently asked questions about SQL insights, see [Frequently asked questions](../faq.yml).
