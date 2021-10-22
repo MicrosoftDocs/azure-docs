@@ -147,7 +147,7 @@ display(languagev2.transform(df))
 ### Expected results
 ![Expected results for language detector v2](./media/tutorial-text-analytics-use-mmlspark/expected-output-language-detector-v-2.png)
 
-#### [V3.1](#tab/v3.1)
+### V3.1
 ```python
 # Create a dataframe that's tied to it's column names
 df = spark.createDataFrame([
