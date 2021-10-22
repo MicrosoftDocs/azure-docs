@@ -60,7 +60,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 Extract printed text, handwritten text, digits, and currency symbols from images, such as photos of street signs and products, as well as from documents—invoices, bills, financial reports, articles, and more. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports detecting both printed and handwritten text in the same image or document.
 
 ### Example input
-![ocr test](./media/tutorial-computer-vision-use-mmlspark/ocr.jpg)
+![Photograph of a sign with text on it.](./media/tutorial-computer-vision-use-mmlspark/ocr.jpg)
 
 ```python
 df = spark.createDataFrame([
